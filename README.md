@@ -1,3 +1,9 @@
+## Follow-up: support token replay failure
+
+The V2 build stopped on bata-explosion_00000000: 21 of 256 selected coordinates were outside the archived FP16 rounding interval plus the fixed tolerance. This is not explained by FP16 rounding alone; it does not evaluate Memory usefulness. The V2 ZIP and experiment remain unchanged.
+
+Use the [standalone replay audit](diagnostics/memory_replay_v2/README.md) to check bank/shard/evidence identity and compare repeated fixed-input native forwards across inference_mode, no_grad and guarded no_grad. No training, bank replacement, runtime flag changes, Val or Test. 28 synthetic CPU tests and the actual standalone CPU CLI passed; real CUDA and server data have not been run by the delivery environment.
+
 # BRIGHT Memory key comparison V2
 
 Download [bright_memory_key_compare_v2.zip](bright_memory_key_compare_v2.zip) and [its SHA256 file](bright_memory_key_compare_v2.zip.sha256).
