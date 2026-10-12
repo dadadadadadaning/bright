@@ -20,3 +20,12 @@ fi
 Read the installed experiment's README for the exact staged commands. Start with CPU preflight; wait for existing GPU jobs to finish before build/diagnose. The passed actual fresh E0 is required. No stage runs merely by installing.
 
 Package SHA256: `39d1cd66ff604d022d0384479834bcbf1d4aec2a586ede08be5a9f1042ae8b1d`
+
+## Training source
+
+- [Train matched correction heads](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v1/train_correction.py)
+- [Bounded pixel correction model](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v1/correction.py)
+- [Independent Val evaluator](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v1/evaluate_correction.py)
+- [Full server instructions](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v1/README.md)
+
+These source files exactly match the verified ZIP. Keep the same KEY_OUTPUT_ROOT used by the completed first-stage full diagnostic; do not create a new root for training. Formal fitting requires that diagnostic and the passed fresh E0. The 20-step smoke and formal5000 fit start from separate fresh head initializations.
