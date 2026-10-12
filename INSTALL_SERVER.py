@@ -29,6 +29,9 @@ DEFAULT_ARCHIVE = "/root/shared-nvme/bright_memory_key_compare_v1.zip"
 DEFAULT_REPO = "/root/shared-nvme/BRIGHT-master"
 MAX_FILE_BYTES = 2 * 1024 * 1024
 MAX_ARCHIVE_BYTES = 32 * 1024 * 1024
+INSTALL_MARKER = ".install_in_progress"
+UNSUPPORTED_RENAME_ERRNOS = {errno.ENOSYS, errno.EINVAL, errno.EOPNOTSUPP,
+                             getattr(errno, "ENOTSUP", errno.EOPNOTSUPP)}
 
 
 class InstallError(RuntimeError):
@@ -117,6 +120,8 @@ def read_verified_archive(archive):
 def _destination_identical(target, payload):
     if target.is_symlink() or not target.is_dir():
         raise InstallError("Existing destination is not a regular directory; preserving it: " + str(target))
+    if INSTALL_MARKER not in payload and os.path.lexists(target / INSTALL_MARKER):
+        raise InstallError("Existing destination has an incomplete-install marker; preserving it: " + str(target))
     actual = set()
     for item in target.iterdir():
         if item.name == "__pycache__" and item.is_dir() and not item.is_symlink():
@@ -134,13 +139,13 @@ def _destination_identical(target, payload):
 
 
 def _rename_noreplace_function():
-    """Use Linux's atomic no-overwrite directory rename; never emulate overwrite."""
+    """Prefer Linux's atomic no-overwrite rename; report unsupported operations."""
     if not sys.platform.startswith("linux"):
         raise InstallError("Safe atomic installation requires a Linux server with renameat2")
     library = ctypes.CDLL(None, use_errno=True)
     rename = getattr(library, "renameat2", None)
     if rename is None:
-        raise InstallError("renameat2 is unavailable; no files were installed")
+        raise OSError(errno.ENOSYS, "renameat2 is unavailable")
     rename.argtypes = (ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint)
     rename.restype = ctypes.c_int
     # Retain the library through the closure for implementations with unloading.
@@ -151,8 +156,74 @@ def _rename_noreplace_function():
             number = ctypes.get_errno()
             if number in (errno.EEXIST, errno.ENOTEMPTY):
                 raise InstallError("Destination appeared during installation; preserving it: " + str(target))
-            raise InstallError("Atomic installation failed: " + os.strerror(number))
+            raise OSError(number, os.strerror(number), str(target))
     return move
+
+
+def _write_exclusive_at(directory_fd, name, data):
+    """Create a new regular file in the opened directory, never truncate one."""
+    descriptor = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                         0o600, dir_fd=directory_fd)
+    with os.fdopen(descriptor, "wb") as stream:
+        stream.write(data)
+        stream.flush()
+        os.fsync(stream.fileno())
+        os.fchmod(stream.fileno(), 0o755 if name.endswith(".sh") else 0o644)
+
+
+def _verify_exclusive_directory(target, directory_fd, payload):
+    """Verify through the held directory descriptor, rejecting path replacement."""
+    opened = os.fstat(directory_fd)
+    current = os.stat(target, follow_symlinks=False)
+    if (not stat.S_ISDIR(current.st_mode)
+            or (current.st_dev, current.st_ino) != (opened.st_dev, opened.st_ino)):
+        raise InstallError("Destination changed during installation; preserving partial files: " + str(target))
+    names = set(os.listdir(directory_fd))
+    if "__pycache__" in names:
+        cache = os.stat("__pycache__", dir_fd=directory_fd, follow_symlinks=False)
+        if stat.S_ISDIR(cache.st_mode):
+            names.remove("__pycache__")
+    if names != set(payload):
+        raise InstallError("Destination file set changed during installation; preserving partial files: " + str(target))
+    for name, expected in payload.items():
+        descriptor = os.open(name, os.O_RDONLY | os.O_NOFOLLOW, dir_fd=directory_fd)
+        with os.fdopen(descriptor, "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if (not stat.S_ISREG(before.st_mode) or before.st_size != len(expected)
+                    or _sha256(stream.read()) != _sha256(expected)):
+                raise InstallError("Installed file checksum differs; preserving partial files: " + name)
+            after = os.stat(name, dir_fd=directory_fd, follow_symlinks=False)
+            if ((before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)
+                    != (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns)):
+                raise InstallError("Installed file changed during verification; preserving partial files: " + name)
+
+
+def _install_exclusive(target, payload):
+    """Compatibility path: exclusive creation, visible marker, no partial cleanup.
+
+    This path is intentionally not atomic. A failed copy remains in place with
+    its marker so another installer cannot mistake it for a complete package.
+    """
+    try:
+        os.mkdir(target, 0o700)
+    except FileExistsError as error:
+        raise InstallError("Destination appeared during installation; preserving it: " + str(target)) from error
+    directory_fd = None
+    try:
+        directory_fd = os.open(target, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+        marker = b"Non-atomic exclusive installation is in progress; do not run this experiment.\n"
+        _write_exclusive_at(directory_fd, INSTALL_MARKER, marker)
+        for name, data in payload.items():
+            _write_exclusive_at(directory_fd, name, data)
+        _verify_exclusive_directory(target, directory_fd, {**payload, INSTALL_MARKER: marker})
+        os.fchmod(directory_fd, 0o755)
+        os.unlink(INSTALL_MARKER, dir_fd=directory_fd)
+    except (OSError, InstallError) as error:
+        raise InstallError("Compatibility installation incomplete; preserving the partial destination and any marker: "
+                           + str(target) + "; " + str(error)) from error
+    finally:
+        if directory_fd is not None:
+            os.close(directory_fd)
 
 
 def install(archive, repo):
@@ -168,7 +239,6 @@ def install(archive, repo):
     if os.path.lexists(target):
         _destination_identical(target, payload)
         return "already_identical", target
-    rename = _rename_noreplace_function()
     temporary = Path(tempfile.mkdtemp(prefix="." + PACKAGE + ".install-", dir=parent))
     try:
         for name, data in payload.items():
@@ -180,7 +250,13 @@ def install(archive, repo):
             path.chmod(0o755 if path.suffix == ".sh" else 0o644)
         temporary.chmod(0o755)
         _destination_identical(temporary, payload)
-        rename(temporary, target)
+        try:
+            _rename_noreplace_function()(temporary, target)
+        except OSError as error:
+            if error.errno not in UNSUPPORTED_RENAME_ERRNOS:
+                raise InstallError("Atomic installation failed: " + str(error)) from error
+            _install_exclusive(target, payload)
+            return "installed_exclusive", target
         return "installed", target
     finally:
         # This random private folder is the only object cleanup may remove.
@@ -198,8 +274,10 @@ def main(argv=None):
     except (InstallError, OSError) as error:
         print("Installation refused: " + str(error), file=sys.stderr)
         return 1
-    print(("Installed verified new experiment: " if status == "installed"
-           else "Existing experiment is byte-identical; no files changed: ") + str(target))
+    print(("Existing experiment is byte-identical; no files changed: " if status == "already_identical"
+           else "Installed verified new experiment: ") + str(target))
+    if status == "installed_exclusive":
+        print("Filesystem compatibility mode used exclusive file creation and checksum verification; installation was not atomic.")
     print("Only code was installed. No training, dataset access, checkpoint changes or Test evaluation ran.")
     return 0
 
