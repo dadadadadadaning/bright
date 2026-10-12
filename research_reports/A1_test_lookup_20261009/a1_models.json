@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Ours_A1",
+    "factory": "bda_benchmark.model.DamageFormer_S8_MICB_DSMIL:DamageFormer_S8_MICB_DSMIL",
+    "kwargs": {
+      "roi_alpha": 0.1,
+      "detach_building_prior": true,
+      "token_dim": 128,
+      "mil_topk": 8,
+      "max_tokens_per_bag": 256,
+      "mil_residual_scale": 0.0
+    },
+    "input_mode": "pair",
+    "output_index": 1,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/best/best_val_miou.pth",
+    "enabled": true,
+    "expected_sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+    "expected_variant": "a1",
+    "sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+    "status": "complete",
+    "confusion_visual_subset": [
+      [
+        5275733,
+        115932,
+        27172,
+        31098
+      ],
+      [
+        89008,
+        572090,
+        65628,
+        29652
+      ],
+      [
+        55130,
+        110537,
+        238378,
+        13803
+      ],
+      [
+        60391,
+        135284,
+        51636,
+        271952
+      ]
+    ],
+    "split": "test",
+    "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+  }
+]

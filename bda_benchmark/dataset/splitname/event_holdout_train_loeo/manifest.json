@@ -1,0 +1,194 @@
+{
+  "protocol": "RGBSAR_event_disjoint_development_folds_v1",
+  "mode": "leave_one_event_out",
+  "source_train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\standard_ML\\train_set.txt",
+  "test_accessed": false,
+  "requires_fold_specific_pretrained_sources": true,
+  "leakage_warning": "A checkpoint pretrained on the complete standard train split has already seen every held-out event and must not be used to claim event-disjoint generalization. Rebuild every supervised source checkpoint inside each fold.",
+  "event_count": 14,
+  "fold_count": 3,
+  "folds": [
+    {
+      "fold": 0,
+      "train_count": 2848,
+      "validation_count": 70,
+      "validation_events": [
+        "bata-explosion"
+      ],
+      "validation_disaster_types": [
+        "explosion"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold0_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold0_val.txt"
+    },
+    {
+      "fold": 1,
+      "train_count": 2829,
+      "validation_count": 89,
+      "validation_events": [
+        "beirut-explosion"
+      ],
+      "validation_disaster_types": [
+        "explosion"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold1_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold1_val.txt"
+    },
+    {
+      "fold": 2,
+      "train_count": 2837,
+      "validation_count": 81,
+      "validation_events": [
+        "congo-volcano"
+      ],
+      "validation_disaster_types": [
+        "volcano"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold2_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold2_val.txt"
+    },
+    {
+      "fold": 3,
+      "train_count": 2870,
+      "validation_count": 48,
+      "validation_events": [
+        "haiti-earthquake"
+      ],
+      "validation_disaster_types": [
+        "earthquake"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold3_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold3_val.txt"
+    },
+    {
+      "fold": 4,
+      "train_count": 2876,
+      "validation_count": 42,
+      "validation_events": [
+        "hawaii-wildfire"
+      ],
+      "validation_disaster_types": [
+        "wildfire"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold4_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold4_val.txt"
+    },
+    {
+      "fold": 5,
+      "train_count": 2271,
+      "validation_count": 647,
+      "validation_events": [
+        "la_palma-volcano"
+      ],
+      "validation_disaster_types": [
+        "volcano"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold5_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold5_val.txt"
+    },
+    {
+      "fold": 6,
+      "train_count": 2835,
+      "validation_count": 83,
+      "validation_events": [
+        "libya-flood"
+      ],
+      "validation_disaster_types": [
+        "flood"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold6_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold6_val.txt"
+    },
+    {
+      "fold": 7,
+      "train_count": 2867,
+      "validation_count": 51,
+      "validation_events": [
+        "marshall-wildfire"
+      ],
+      "validation_disaster_types": [
+        "wildfire"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold7_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold7_val.txt"
+    },
+    {
+      "fold": 8,
+      "train_count": 2773,
+      "validation_count": 145,
+      "validation_events": [
+        "mexico-hurricane"
+      ],
+      "validation_disaster_types": [
+        "hurricane"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold8_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold8_val.txt"
+    },
+    {
+      "fold": 9,
+      "train_count": 2526,
+      "validation_count": 392,
+      "validation_events": [
+        "morocco-earthquake"
+      ],
+      "validation_disaster_types": [
+        "earthquake"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold9_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold9_val.txt"
+    },
+    {
+      "fold": 10,
+      "train_count": 2833,
+      "validation_count": 85,
+      "validation_events": [
+        "myanmar-hurricane"
+      ],
+      "validation_disaster_types": [
+        "hurricane"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold10_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold10_val.txt"
+    },
+    {
+      "fold": 11,
+      "train_count": 2866,
+      "validation_count": 52,
+      "validation_events": [
+        "noto-earthquake"
+      ],
+      "validation_disaster_types": [
+        "earthquake"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold11_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold11_val.txt"
+    },
+    {
+      "fold": 12,
+      "train_count": 2141,
+      "validation_count": 777,
+      "validation_events": [
+        "turkey-earthquake"
+      ],
+      "validation_disaster_types": [
+        "earthquake"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold12_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold12_val.txt"
+    },
+    {
+      "fold": 13,
+      "train_count": 2562,
+      "validation_count": 356,
+      "validation_events": [
+        "ukraine-conflict"
+      ],
+      "validation_disaster_types": [
+        "conflict"
+      ],
+      "train_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold13_train.txt",
+      "validation_list": "D:\\software\\dowmload\\BRIGHT-master\\bda_benchmark\\dataset\\splitname\\event_holdout_train_loeo\\fold13_val.txt"
+    }
+  ]
+}

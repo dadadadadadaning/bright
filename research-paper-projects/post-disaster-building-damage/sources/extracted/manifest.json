@@ -1,0 +1,119 @@
+[
+  {
+    "file_name": "A01-BRIGHT-2025.pdf",
+    "path": "D:\\software\\文献\\A01-BRIGHT-2025.pdf",
+    "page_count": 37,
+    "title": "",
+    "author": "",
+    "subject": "",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\A01-BRIGHT-2025.txt"
+  },
+  {
+    "file_name": "A09-BRIGHT-Challenge-2026.pdf",
+    "path": "D:\\software\\文献\\A09-BRIGHT-Challenge-2026.pdf",
+    "page_count": 14,
+    "title": "Advancing All-Weather Building Damage Mapping to the Instance Level: Outcomes and Insights from the 2026 Bright Challenge",
+    "author": "Hongruixuan Chen; He Huang; Haifeng Wang; Jian Song; Junjue Wang; Weihao Xuan; Hamish Mitchell; Jiepan Li; Wei He; Liangpei Zhang; Zijie Wang; Chen Zhong; Jiazhen Zhao; Lei Hu; Ting Hu; Hongyan Zhang; Gregory Angelides; Miriam Cha; Clifford Broni-Bediako; Junshi Xia; Taylor Perron; Naoto Yokoya",
+    "subject": null,
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\A09-BRIGHT-Challenge-2026.txt"
+  },
+  {
+    "file_name": "C01-SARMAE-2026.pdf",
+    "path": "D:\\software\\文献\\C01-SARMAE-2026.pdf",
+    "page_count": 20,
+    "title": "SARMAE: Masked Autoencoder for SAR Representation Learning",
+    "author": "Danxu Liu; Di Wang; Hebaixu Wang; Haoyang Chen; Wentao Jiang; Yilin Cheng; Haonan Guo; Wei Cui; Jing Zhang",
+    "subject": null,
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\C01-SARMAE-2026.txt"
+  },
+  {
+    "file_name": "C02-CROMA-2023.pdf",
+    "path": "D:\\software\\文献\\C02-CROMA-2023.pdf",
+    "page_count": 32,
+    "title": "",
+    "author": "",
+    "subject": "",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\C02-CROMA-2023.txt"
+  },
+  {
+    "file_name": "C03-SARDet-100K-2024.pdf",
+    "path": "D:\\software\\文献\\C03-SARDet-100K-2024.pdf",
+    "page_count": 32,
+    "title": "",
+    "author": "",
+    "subject": "",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\C03-SARDet-100K-2024.txt"
+  },
+  {
+    "file_name": "D01-Keep-the-Balance-2025.pdf",
+    "path": "D:\\software\\文献\\D01-Keep-the-Balance-2025.pdf",
+    "page_count": 12,
+    "title": "Keep the Balance: A Parameter-Efficient Symmetrical Framework for RGB+X Semantic Segmentation",
+    "author": "Jiaxin Cai; Jingze Su; Qi Li; Wenjie Yang; Shu Wang; Tiesong Zhao; Shengfeng He; Wenxi Liu",
+    "subject": "IEEE Conference on Computer Vision and Pattern Recognition",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\D01-Keep-the-Balance-2025.txt"
+  },
+  {
+    "file_name": "E01-Feature-Spectrum-Learning-2025.pdf",
+    "path": "D:\\software\\文献\\E01-Feature-Spectrum-Learning-2025.pdf",
+    "page_count": 11,
+    "title": "Feature Spectrum Learning for Remote Sensing Change Detection",
+    "author": "Qi Zang; Dong Zhao; Shuang Wang; Dou Quan; Zhun Zhong",
+    "subject": "IEEE Conference on Computer Vision and Pattern Recognition",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\E01-Feature-Spectrum-Learning-2025.txt"
+  },
+  {
+    "file_name": "F05-Post-hoc-Learning-to-Defer-2022.pdf",
+    "path": "D:\\software\\文献\\F05-Post-hoc-Learning-to-Defer-2022.pdf",
+    "page_count": 13,
+    "title": null,
+    "author": null,
+    "subject": null,
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\F05-Post-hoc-Learning-to-Defer-2022.txt"
+  },
+  {
+    "file_name": "F07-Two-Stage-Learning-to-Defer-2023.pdf",
+    "path": "D:\\software\\文献\\F07-Two-Stage-Learning-to-Defer-2023.pdf",
+    "page_count": 29,
+    "title": "",
+    "author": "",
+    "subject": "",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\F07-Two-Stage-Learning-to-Defer-2023.txt"
+  },
+  {
+    "file_name": "G01-OCD-BDA-2024.pdf",
+    "path": "D:\\software\\文献\\G01-OCD-BDA-2024.pdf",
+    "page_count": 22,
+    "title": "Methodology for Object-Level Change Detection in Post-Earthquake Building Damage Assessment Based on Remote Sensing Images: OCD-BDA",
+    "author": "Jiancheng Gu, Zhengtao Xie, Zifan Zhou, Xinhao He, Yuguang Fu and Jiandong Zhang",
+    "subject": " Remote sensing and computer vision technologies are increasingly leveraged for rapid post-disaster building damage assessment, becoming a crucial and practical approach. In this context, the accuracy of employing various AI models in pixel-level change detection methods is significantly dependent on the consistency between pre- and post-disaster building images, particularly regarding variations in resolution, viewing angle, and lighting conditions; in object-level feature recognition methods, the low richness of semantic details of damaged buildings in images leads to a poor detection accuracy. This paper proposes a novel method, OCD-BDA (Object-Level Change Detection for Post-Disaster Building Damage Assessment), as an alternative to pixel-level change detection and object-level feature recognition methods. Inspired by human cognitive processes, this method incorporates three key steps: an efficient sample acquisition for object localization, labeling via HGC (Hierarchical and Gaussian Clustering), and model training and prediction for classification. Furthermore, this study establishes a change detection dataset based on Google Earth imagery of regions in Hatay Province before and after the Turkish earthquake. This dataset is characterized by pixel inconsistency and significant differences in photographic angles and lighting conditions between pre- and post-disaster images, making it a valuable test dataset for other studies. As a result, in the experiments of comparative generalization capabilities, OCD-BDA demonstrated a significant improvement, achieving an accuracy of 71%, which is twice that of the second-ranking method. Moreover, OCD-BDA exhibits superior performance in tasks with small sample amounts and rapid training time. With only 1% of the training samples, it achieves a prediction accuracy exceeding that of traditional transfer learning methods with 60% of samples. Additionally, it completes assessments across a large disaster area (450 km²) with 93% accuracy in under 23 min. ",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\G01-OCD-BDA-2024.txt"
+  },
+  {
+    "file_name": "G03-MS4D-Net-2023.pdf",
+    "path": "D:\\software\\文献\\G03-MS4D-Net-2023.pdf",
+    "page_count": 22,
+    "title": "MS4D-Net: Multitask-Based Semi-Supervised Semantic Segmentation Framework with Perturbed Dual Mean Teachers for Building Damage Assessment from High-Resolution Remote Sensing Imagery",
+    "author": "Yongjun He, Jinfei Wang, Chunhua Liao, Xin Zhou and Bo Shan",
+    "subject": "In the aftermath of a natural hazard, rapid and accurate building damage assessment from remote sensing imagery is crucial for disaster response and rescue operations. Although recent deep learning-based studies have made considerable improvements in assessing building damage, most state-of-the-art works focus on pixel-based, multi-stage approaches, which are more complicated and suffer from partial damage recognition issues at the building-instance level. In the meantime, it is usually time-consuming to acquire sufficient labeled samples for deep learning applications, making a conventional supervised learning pipeline with vast annotation data unsuitable in time-critical disaster cases. In this study, we present an end-to-end building damage assessment framework integrating multitask semantic segmentation with semi-supervised learning to tackle these issues. Specifically, a multitask-based Siamese network followed by object-based post-processing is first constructed to solve the semantic inconsistency problem by refining damage classification results with building extraction results. Moreover, to alleviate labeled data scarcity, a consistency regularization-based semi-supervised semantic segmentation scheme with iteratively perturbed dual mean teachers is specially designed, which can significantly reinforce the network perturbations to improve model performance while maintaining high training efficiency. Furthermore, a confidence weighting strategy is embedded into the semi-supervised pipeline to focus on convincing samples and reduce the influence of noisy pseudo-labels. The comprehensive experiments on three benchmark datasets suggest that the proposed method is competitive and effective in building damage assessment under the circumstance of insufficient labels, which offers a potential artificial intelligence-based solution to respond to the urgent need for timeliness and accuracy in disaster events.",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\G03-MS4D-Net-2023.txt"
+  },
+  {
+    "file_name": "H01-Assessing the Transferability of Post-Disaster Building Damage Assessment using Synthetic Aperture Radar and Machine Learning.pdf",
+    "path": "D:\\software\\文献\\H01-Assessing the Transferability of Post-Disaster Building Damage Assessment using Synthetic Aperture Radar and Machine Learning.pdf",
+    "page_count": 23,
+    "title": "Assessing the transferability of post-disaster building damage assessment using synthetic aperture radar and machine learning",
+    "author": "James Currie",
+    "subject": "International Journal of Disaster Risk Reduction, 136 (2026) 106048. doi:10.1016/j.ijdrr.2026.106048",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\H01-Assessing_the_Transferability_of_Post-Disaster_Building_Damage_Assessment_using_Synthetic_Aperture_Radar_and_Machine_Learning.txt"
+  },
+  {
+    "file_name": "H04-Towards transferable building damage assessment via unsupervised single-temporal change adaptation.pdf",
+    "path": "D:\\software\\文献\\H04-Towards transferable building damage assessment via unsupervised single-temporal change adaptation.pdf",
+    "page_count": 19,
+    "title": "Towards transferable building damage assessment via unsupervised single-temporal change adaptation",
+    "author": "Zhuo Zheng",
+    "subject": "Remote Sensing of Environment, 315 (2024) 114416. doi:10.1016/j.rse.2024.114416",
+    "extracted_text": "research-paper-projects\\post-disaster-building-damage\\sources\\extracted\\H04-Towards_transferable_building_damage_assessment_via_unsupervised_single-temporal_change_adaptation.txt"
+  }
+]

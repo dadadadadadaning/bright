@@ -1,0 +1,54 @@
+model:
+  in_channels: 256
+  hidden_channels: 64
+  num_shared_blocks: 2
+
+target_loss:
+  center_focal_alpha: 2.0
+  center_focal_beta: 4.0
+  gaussian_sigma_min: 1.0
+  gaussian_sigma_max: 3.0
+  gaussian_radius_divisor: 3.0
+  boundary_width: 1
+  boundary_pos_weight: 4.0
+  center_loss_weight: 1.0
+  boundary_loss_weight: 1.0
+
+decoding:
+  peak_threshold: 0.35
+  nms_kernel: 3
+  min_peak_distance: 3.0
+  max_markers_per_region: 4
+  min_split_region_area: 256
+  watershed_boundary_weight: 1.0
+  watershed_distance_weight: 1.0
+  cut_band_radius: 1
+
+rollback:
+  min_child_area: 32
+  min_child_parent_ratio: 0.05
+  area_tolerance_pixels: 0
+  require_exactly_one_center_per_child: true
+
+training:
+  micro_batch: 4
+  accumulation_steps: 4
+  effective_batch: 16
+  optimizer_steps: 3000
+  crop_size: 640
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  precision: bf16
+  seed: 3407
+  checkpoint_steps: [1000, 2000, 3000]
+
+evaluation:
+  match_iou_threshold: 0.5
+  merge_split_overlap_threshold: 0.1
+  success_thresholds:
+    instance_recall: 0.65
+    instance_precision: 0.60
+    instance_f1: 0.66
+    mean_matched_iou: 0.75
+    merge_max: 2000
+    split_max: 1500

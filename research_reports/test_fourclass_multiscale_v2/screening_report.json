@@ -1,0 +1,174 @@
+{
+  "images_scanned": 878,
+  "qualifying_images": 38,
+  "selected": 18,
+  "rejection_counts": {
+    "image_missing_class_or_area": 759,
+    "insufficient_class_pixels": 855,
+    "suspected_cloud_or_bright_surface": 72,
+    "dark_or_invalid": 567
+  },
+  "event_coverage": {
+    "bata-explosion": {
+      "images": 23,
+      "images_with_class": [
+        23,
+        20,
+        9,
+        3
+      ],
+      "images_meeting_all_class_minima": 3,
+      "quality_qualified_images": 3
+    },
+    "beirut-explosion": {
+      "images": 27,
+      "images_with_class": [
+        27,
+        26,
+        4,
+        2
+      ],
+      "images_meeting_all_class_minima": 1,
+      "quality_qualified_images": 0
+    },
+    "haiti-earthquake": {
+      "images": 15,
+      "images_with_class": [
+        15,
+        14,
+        6,
+        1
+      ],
+      "images_meeting_all_class_minima": 1,
+      "quality_qualified_images": 0
+    },
+    "hawaii-wildfire": {
+      "images": 14,
+      "images_with_class": [
+        14,
+        14,
+        8,
+        9
+      ],
+      "images_meeting_all_class_minima": 6,
+      "quality_qualified_images": 6
+    },
+    "libya-flood": {
+      "images": 26,
+      "images_with_class": [
+        26,
+        18,
+        9,
+        5
+      ],
+      "images_meeting_all_class_minima": 1,
+      "quality_qualified_images": 1
+    },
+    "morocco-earthquake": {
+      "images": 116,
+      "images_with_class": [
+        116,
+        47,
+        6,
+        3
+      ],
+      "images_meeting_all_class_minima": 1,
+      "quality_qualified_images": 0
+    },
+    "congo-volcano": {
+      "images": 27,
+      "images_with_class": [
+        27,
+        22,
+        3,
+        5
+      ],
+      "images_meeting_all_class_minima": 3,
+      "quality_qualified_images": 3
+    },
+    "la_palma-volcano": {
+      "images": 189,
+      "images_with_class": [
+        189,
+        118,
+        9,
+        34
+      ],
+      "images_meeting_all_class_minima": 8,
+      "quality_qualified_images": 2
+    },
+    "turkey-earthquake": {
+      "images": 224,
+      "images_with_class": [
+        224,
+        222,
+        78,
+        70
+      ],
+      "images_meeting_all_class_minima": 53,
+      "quality_qualified_images": 12
+    },
+    "marshall-wildfire": {
+      "images": 18,
+      "images_with_class": [
+        18,
+        17,
+        5,
+        6
+      ],
+      "images_meeting_all_class_minima": 2,
+      "quality_qualified_images": 0
+    },
+    "noto-earthquake": {
+      "images": 18,
+      "images_with_class": [
+        18,
+        11,
+        7,
+        8
+      ],
+      "images_meeting_all_class_minima": 3,
+      "quality_qualified_images": 3
+    },
+    "mexico-hurricane": {
+      "images": 47,
+      "images_with_class": [
+        47,
+        32,
+        34,
+        13
+      ],
+      "images_meeting_all_class_minima": 8,
+      "quality_qualified_images": 1
+    },
+    "myanmar-hurricane": {
+      "images": 28,
+      "images_with_class": [
+        28,
+        18,
+        10,
+        3
+      ],
+      "images_meeting_all_class_minima": 2,
+      "quality_qualified_images": 2
+    },
+    "ukraine-conflict": {
+      "images": 106,
+      "images_with_class": [
+        106,
+        92,
+        74,
+        31
+      ],
+      "images_meeting_all_class_minima": 27,
+      "quality_qualified_images": 5
+    }
+  },
+  "audit_only": false,
+  "events_without_qualifying_images": [
+    "beirut-explosion",
+    "haiti-earthquake",
+    "morocco-earthquake",
+    "marshall-wildfire"
+  ]
+}

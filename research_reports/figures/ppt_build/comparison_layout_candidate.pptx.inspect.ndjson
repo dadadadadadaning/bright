@@ -1,0 +1,63 @@
+{"kind":"deck","id":"pr/6pj99o","name":"Deck"}
+{"kind":"layout","layoutId":"dd955f19-985b-4390-ab39-7f0f3af301f4","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"0ece028b-db9b-4353-a631-68bdd37a8874","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/casgad","slide":1,"title":"建筑损毁预测对比（待填预测）","textShapes":40}
+{"kind":"textbox","id":"sh/rydg7i54","slide":1,"text":"建筑损毁预测对比（待填预测）","textPreview":"建筑损毁预测对比（待填预测）","textChars":14,"textLines":1,"bbox":[30,20,1740,55]}
+{"kind":"textbox","id":"sh/czmh03mp","slide":1,"text":"DamageFormer 暂列为当前使用模型。所有模型采用相同输入、裁剪与类别配色","textPreview":"DamageFormer 暂列为当前使用模型。所有模型采用相同输入、裁剪与类别配色","textChars":41,"textLines":1,"bbox":[30,83,1740,38]}
+{"kind":"textbox","id":"sh/dkvy98nu","slide":1,"text":"灾前 RGB","textPreview":"灾前 RGB","textChars":6,"textLines":1,"bbox":[30,140,194,37]}
+{"kind":"textbox","id":"sh/el4z2d4f","slide":1,"text":"灾后 SAR","textPreview":"灾后 SAR","textChars":6,"textLines":1,"bbox":[226,140,194,37]}
+{"kind":"textbox","id":"sh/zmdgbi50","slide":1,"text":"参考标注 GT","textPreview":"参考标注 GT","textChars":7,"textLines":1,"bbox":[422,140,194,37]}
+{"kind":"textbox","id":"sh/0nmh4nml","slide":1,"text":"UNet","textPreview":"UNet","textChars":4,"textLines":1,"bbox":[618,140,194,37]}
+{"kind":"textbox","id":"sh/1ofydsn6","slide":1,"text":"DeepLabV3+","textPreview":"DeepLabV3+","textChars":10,"textLines":1,"bbox":[814,140,194,37]}
+{"kind":"textbox","id":"sh/upkfqt4b","slide":1,"text":"SiamAttnUNet","textPreview":"SiamAttnUNet","textChars":12,"textLines":1,"bbox":[1010,140,194,37]}
+{"kind":"textbox","id":"sh/fqtgzy5w","slide":1,"text":"SiamCRNN","textPreview":"SiamCRNN","textChars":8,"textLines":1,"bbox":[1206,140,194,37]}
+{"kind":"textbox","id":"sh/nml43i1g","slide":1,"text":"ChangeMamba","textPreview":"ChangeMamba","textChars":11,"textLines":1,"bbox":[1402,140,194,37]}
+{"kind":"textbox","id":"sh/mlc3axkv","slide":1,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1598,140,194,37]}
+{"kind":"textbox","id":"sh/9onm5sj6","slide":1,"text":"当前使用模型","textPreview":"当前使用模型","textChars":6,"textLines":1,"bbox":[1598,177,190,30]}
+{"kind":"textbox","id":"sh/8nulcn2l","slide":1,"text":"土耳其地震  turkey-earthquake_00000012","textPreview":"土耳其地震  turkey-earthquake_00000012","textChars":33,"textLines":1,"bbox":[30,215,1500,30]}
+{"kind":"shape","id":"sh/0zul8n2p","slide":1,"bbox":[618,250,180,180]}
+{"kind":"textbox","id":"sh/bu1kvyl8","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[630,314,166,37]}
+{"kind":"textbox","id":"sh/qts32dkn","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[634,353,160,30]}
+{"kind":"shape","id":"sh/epsnet4f","slide":1,"bbox":[814,250,180,180]}
+{"kind":"textbox","id":"sh/fq14ny50","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[826,314,166,37]}
+{"kind":"textbox","id":"sh/gra5g3ml","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[830,353,160,30]}
+{"kind":"shape","id":"sh/1sjmp8n6","slide":1,"bbox":[1010,250,180,180]}
+{"kind":"textbox","id":"sh/2tsnid4r","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1022,314,166,37]}
+{"kind":"textbox","id":"sh/3u14ri5w","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1026,353,160,30]}
+{"kind":"shape","id":"sh/ova5knmh","slide":1,"bbox":[1206,250,180,180]}
+{"kind":"textbox","id":"sh/pwjmtsn2","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1218,314,166,37]}
+{"kind":"textbox","id":"sh/qxcnmd4n","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1222,353,160,30]}
+{"kind":"shape","id":"sh/bil4vi58","slide":1,"bbox":[1402,250,180,180]}
+{"kind":"textbox","id":"sh/lcnqlc7a","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1414,314,166,37]}
+{"kind":"textbox","id":"sh/0repcr6p","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1418,353,160,30]}
+{"kind":"shape","id":"sh/zq5ojmp4","slide":1,"bbox":[1598,250,180,180]}
+{"kind":"textbox","id":"sh/ypw7ahoz","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1610,314,166,37]}
+{"kind":"textbox","id":"sh/9g7qpw7m","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1614,353,160,30]}
+{"kind":"textbox","id":"sh/8fepgr61","slide":1,"text":"巴塔爆炸  bata-explosion_00000007","textPreview":"巴塔爆炸  bata-explosion_00000007","textChars":29,"textLines":1,"bbox":[30,455,1500,30]}
+{"kind":"shape","id":"sh/wjypkb6x","slide":1,"bbox":[618,490,180,180]}
+{"kind":"textbox","id":"sh/sf2tcfq5","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[630,554,166,37]}
+{"kind":"textbox","id":"sh/tgbal0rq","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[634,593,160,30]}
+{"kind":"shape","id":"sh/6d0ra58z","slide":1,"bbox":[814,490,180,180]}
+{"kind":"textbox","id":"sh/re9sja9k","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[826,554,166,37]}
+{"kind":"textbox","id":"sh/4bi98vq9","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[830,593,160,30]}
+{"kind":"shape","id":"sh/5crah0ru","slide":1,"bbox":[1010,490,180,180]}
+{"kind":"textbox","id":"sh/i90rml83","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1022,554,166,37]}
+{"kind":"textbox","id":"sh/ja9sfq9o","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1026,593,160,30]}
+{"kind":"shape","id":"sh/o7mtkzqd","slide":1,"bbox":[1206,490,180,180]}
+{"kind":"textbox","id":"sh/p8vatkry","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1218,554,166,37]}
+{"kind":"textbox","id":"sh/z2xwjyt0","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1222,593,160,30]}
+{"kind":"shape","id":"sh/y1ovqtsf","slide":1,"bbox":[1402,490,180,180]}
+{"kind":"textbox","id":"sh/l4felob6","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1414,554,166,37]}
+{"kind":"textbox","id":"sh/036dsjal","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1418,593,160,30]}
+{"kind":"shape","id":"sh/n6hwnytc","slide":1,"bbox":[1598,490,180,180]}
+{"kind":"textbox","id":"sh/m5ovutsr","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1610,554,166,37]}
+{"kind":"textbox","id":"sh/9szep8b2","slide":1,"text":"尚未执行推理","textPreview":"尚未执行推理","textChars":6,"textLines":1,"bbox":[1614,593,160,30]}
+{"kind":"textbox","id":"sh/87qdw3ax","slide":1,"text":"类别：白色＝背景    绿色＝完整    浅褐色＝损毁    红色＝毁坏","textPreview":"类别：白色＝背景    绿色＝完整    浅褐色＝损毁    红色＝毁坏","textChars":36,"textLines":1,"bbox":[30,705,1740,36]}
+{"kind":"textbox","id":"sh/3adcbets","slide":1,"text":"注意：这两处裁剪的 GT 仅含背景与完整建筑，可检查误报，不能验证 Damaged 漏检改善。","textPreview":"注意：这两处裁剪的 GT 仅含背景与完整建筑，可检查误报，不能验证 Damaged 漏检改善。","textChars":47,"textLines":1,"bbox":[30,751,1740,34]}
+{"kind":"image","id":"im/wry1s3e5","slide":1,"name":"","alt":"turkey-earthquake_00000012 灾前 RGB","bbox":[30,250,180,180]}
+{"kind":"image","id":"im/hc7il8fq","slide":1,"name":"","alt":"turkey-earthquake_00000012 灾后 SAR","bbox":[226,250,180,180]}
+{"kind":"image","id":"im/upwzqtwz","slide":1,"name":"","alt":"turkey-earthquake_00000012 参考标注 GT","bbox":[422,250,180,180]}
+{"kind":"image","id":"im/gfax8zmx","slide":1,"name":"","alt":"bata-explosion_00000007 灾前 RGB","bbox":[30,490,180,180]}
+{"kind":"image","id":"im/hgjyh4ni","slide":1,"name":"","alt":"bata-explosion_00000007 灾后 SAR","bbox":[226,490,180,180]}
+{"kind":"image","id":"im/698f2p4v","slide":1,"name":"","alt":"bata-explosion_00000007 参考标注 GT","bbox":[422,490,180,180]}
+{"kind":"notes","id":"nt/casgad","slide":1,"text":"真实素材来自 F:/建筑损毁分类数据集 的 pre-event.zip、post-event.zip、target.zip。GT与输入使用相同裁剪。[{\"sample_id\":\"turkey-earthquake_00000012\",\"annotation\":\"target_instance_level/turkey-earthquake_00000012_instance_damage.json\",\"instance_id\":15,\"category_id\":1,\"crop_xywh\":[43,803,199,199],\"rgb_member\":\"pre-event/turkey-earthquake_00000012_pre_disaster.tif\",\"sar_member\":\"post-event/turkey-earthquake_00000012_post_disaster.tif\",\"sar_display_percentiles\":[1,165],\"slic_regions\":6,\"grid_regions\":6,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"bata-explosion_00000007\",\"annotation\":\"target_instance_level/bata-explosion_00000007_instance_damage.json\",\"instance_id\":69,\"category_id\":1,\"crop_xywh\":[783,679,216,216],\"rgb_member\":\"pre-event/bata-explosion_00000007_pre_disaster.tif\",\"sar_member\":\"post-event/bata-explosion_00000007_post_disaster.tif\",\"sar_display_percentiles\":[0,182],\"slic_regions\":7,\"grid_regions\":6,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"}]\n所有预测格尚未执行推理。DamageFormer是现有方法，不应在论文中冒充原创模型或61.8959%的Memory组合。当前两个裁剪GT仅有0、1类。"}

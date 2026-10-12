@@ -1,0 +1,33 @@
+{
+  "source": "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\A1_test_lookup_20261009_v2",
+  "sample_count": 18,
+  "sample_ids": [
+    "bata-explosion_00000062",
+    "bata-explosion_00000049",
+    "hawaii-wildfire_00000014",
+    "hawaii-wildfire_00000003",
+    "libya-flood_00000021",
+    "congo-volcano_00000085",
+    "congo-volcano_00000092",
+    "la_palma-volcano_00000597",
+    "la_palma-volcano_00000353",
+    "turkey-earthquake_00001065",
+    "turkey-earthquake_00001074",
+    "noto-earthquake_00000038",
+    "noto-earthquake_00000049",
+    "mexico-hurricane_00000005",
+    "myanmar-hurricane_00000107",
+    "myanmar-hurricane_00000099",
+    "ukraine-conflict_00000354",
+    "ukraine-conflict_00000315"
+  ],
+  "columns": [
+    "RGB",
+    "SAR",
+    "GT",
+    "DamageFormer",
+    "Ours_A1"
+  ],
+  "crop_pixels_modified": false,
+  "note": "Existing Test outputs assembled; no training or inference performed."
+}

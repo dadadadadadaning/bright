@@ -1,0 +1,4 @@
+experiment: r4_sardino_probe
+full_model_requires_probe_pass: true
+feature_sources: [p3_pseudo_sar, h6_native_sar, sar_dino]
+test_locked: true

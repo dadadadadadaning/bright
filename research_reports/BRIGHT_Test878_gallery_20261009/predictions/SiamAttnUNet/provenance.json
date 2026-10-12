@@ -1,0 +1,42 @@
+{
+  "name": "SiamAttnUNet",
+  "factory": "bda_benchmark.model.SiamAttnUNet:SiamAttnUNet",
+  "kwargs": {
+    "in_channels": 3,
+    "num_classes": 4
+  },
+  "input_mode": "pair",
+  "output_index": null,
+  "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamAttnUNet_standard_ML_split.pth",
+  "enabled": true,
+  "sha256": "0cf7825c10489cb432c99faba8f7126768bd01270f4c3d9d9ad69afeed466f51",
+  "status": "complete",
+  "confusion_visual_subset": [
+    [
+      5222407,
+      160272,
+      41049,
+      26207
+    ],
+    [
+      126637,
+      554600,
+      38270,
+      36871
+    ],
+    [
+      63932,
+      203518,
+      136668,
+      13730
+    ],
+    [
+      67298,
+      237354,
+      46982,
+      167629
+    ]
+  ],
+  "split": "test",
+  "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+}

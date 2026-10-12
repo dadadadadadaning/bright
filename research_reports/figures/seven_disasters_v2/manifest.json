@@ -1,0 +1,163 @@
+[
+  {
+    "sample_id": "turkey-earthquake_00000012",
+    "annotation": "target_instance_level/turkey-earthquake_00000012_instance_damage.json",
+    "instance_id": 15,
+    "category_id": 1,
+    "crop_xywh": [
+      43,
+      803,
+      199,
+      199
+    ],
+    "rgb_member": "pre-event/turkey-earthquake_00000012_pre_disaster.tif",
+    "sar_member": "post-event/turkey-earthquake_00000012_post_disaster.tif",
+    "sar_display_percentiles": [
+      1.0,
+      165.0
+    ],
+    "slic_regions": 6,
+    "grid_regions": 6,
+    "selected_region": 3,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "bata-explosion_00000001",
+    "annotation": "target_instance_level/bata-explosion_00000001_instance_damage.json",
+    "instance_id": 96,
+    "category_id": 1,
+    "crop_xywh": [
+      417,
+      755,
+      169,
+      169
+    ],
+    "rgb_member": "pre-event/bata-explosion_00000001_pre_disaster.tif",
+    "sar_member": "post-event/bata-explosion_00000001_post_disaster.tif",
+    "sar_display_percentiles": [
+      0.0,
+      173.0
+    ],
+    "slic_regions": 8,
+    "grid_regions": 8,
+    "selected_region": 2,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "congo-volcano_00000013",
+    "annotation": "target_instance_level/congo-volcano_00000013_instance_damage.json",
+    "instance_id": 1,
+    "category_id": 1,
+    "crop_xywh": [
+      180,
+      1,
+      216,
+      216
+    ],
+    "rgb_member": "pre-event/congo-volcano_00000013_pre_disaster.tif",
+    "sar_member": "post-event/congo-volcano_00000013_post_disaster.tif",
+    "sar_display_percentiles": [
+      0.0,
+      183.0
+    ],
+    "slic_regions": 7,
+    "grid_regions": 7,
+    "selected_region": 2,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000000",
+    "annotation": "target_instance_level/hawaii-wildfire_00000000_instance_damage.json",
+    "instance_id": 1,
+    "category_id": 1,
+    "crop_xywh": [
+      799,
+      202,
+      168,
+      168
+    ],
+    "rgb_member": "pre-event/hawaii-wildfire_00000000_pre_disaster.tif",
+    "sar_member": "post-event/hawaii-wildfire_00000000_post_disaster.tif",
+    "sar_display_percentiles": [
+      0.0,
+      92.0
+    ],
+    "slic_regions": 8,
+    "grid_regions": 8,
+    "selected_region": 3,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "libya-flood_00000004",
+    "annotation": "target_instance_level/libya-flood_00000004_instance_damage.json",
+    "instance_id": 119,
+    "category_id": 2,
+    "crop_xywh": [
+      319,
+      157,
+      232,
+      232
+    ],
+    "rgb_member": "pre-event/libya-flood_00000004_pre_disaster.tif",
+    "sar_member": "post-event/libya-flood_00000004_post_disaster.tif",
+    "sar_display_percentiles": [
+      0.0,
+      149.0
+    ],
+    "slic_regions": 8,
+    "grid_regions": 8,
+    "selected_region": 3,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "ukraine-conflict_00000022",
+    "annotation": "target/ukraine-conflict_00000022_building_damage.tif",
+    "instance_id": 125,
+    "category_id": 1,
+    "crop_xywh": [
+      180,
+      679,
+      345,
+      345
+    ],
+    "rgb_member": "pre-event/ukraine-conflict_00000022_pre_disaster.tif",
+    "sar_member": "post-event/ukraine-conflict_00000022_post_disaster.tif",
+    "sar_display_percentiles": [
+      0.0,
+      202.0
+    ],
+    "slic_regions": 7,
+    "grid_regions": 7,
+    "selected_region": 5,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000063",
+    "annotation": "target/myanmar-hurricane_00000063_building_damage.tif",
+    "instance_id": 81,
+    "category_id": 1,
+    "crop_xywh": [
+      522,
+      209,
+      248,
+      248
+    ],
+    "rgb_member": "pre-event/myanmar-hurricane_00000063_pre_disaster.tif",
+    "sar_member": "post-event/myanmar-hurricane_00000063_post_disaster.tif",
+    "sar_display_percentiles": [
+      26.0,
+      223.0
+    ],
+    "slic_regions": 5,
+    "grid_regions": 5,
+    "selected_region": 1,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  }
+]

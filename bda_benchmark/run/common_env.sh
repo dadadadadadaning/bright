@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+export PROJECT_ROOT=/root/shared-nvme/BRIGHT-master
+export BDA_ROOT=${PROJECT_ROOT}/bda_benchmark
+export PYTHONPATH=${PROJECT_ROOT}:${BDA_ROOT}:${PYTHONPATH:-}
+
+set -euo pipefail
+ROOT=/root/shared-nvme/BRIGHT-master/bda_benchmark
+DATA_ROOT=${DATA_ROOT:-$ROOT/dataset}
+TRAIN_LIST=${TRAIN_LIST:-$DATA_ROOT/splitname/standard_ML/train_set.txt}
+VAL_LIST=${VAL_LIST:-$DATA_ROOT/splitname/standard_ML/val_set.txt}
+OUT_ROOT=${OUT_ROOT:-/root/shared-nvme/BRIGHT-checkpoints/PriorityModules/BRIGHT}
+cd "$ROOT"
+BASE_ARGS=(
+  --train_dataset_path "$DATA_ROOT" --train_data_list_path "$TRAIN_LIST"
+  --val_dataset_path "$DATA_ROOT" --val_data_list_path "$VAL_LIST"
+  --output_root "$OUT_ROOT" --image_size 640 --train_batch_size 2 --eval_batch_size 1
+  --accumulation_steps 8 --learning_rate 1e-4 --weight_decay 5e-3 --amp_dtype bf16
+  --seed 3407 --log_interval 20 --val_interval 500 --save_interval 5000
+)

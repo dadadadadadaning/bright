@@ -1,0 +1,51 @@
+{
+  "protocol": "BIOS_E0_preregistration_v1",
+  "primary_hypothesis": "Stage3 local intra-modal cosine-relation discrepancy distinguishes P3-missed Damaged from P3-nonaffected Intact buildings.",
+  "primary": {
+    "roi_grid_size": 7,
+    "feature_stage": "s3",
+    "spatial_relation": "local_3x3",
+    "relation_type": "cosine_similarity_discrepancy",
+    "aggregate": "mean",
+    "signal_key": "s3_local_sim_mean",
+    "metric": "p3_nonaffected_miss.auroc"
+  },
+  "roi_protocol": {
+    "minimum_area": 16,
+    "p3_proposal_threshold": 0.5,
+    "minimum_building_fraction": 0.5,
+    "minimum_class_purity": 0.75,
+    "minimum_token_mass": 0.25,
+    "minimum_valid_tokens": 4
+  },
+  "secondary_statistic_protocol": {
+    "similarity_dissimilarity_neighbours": 4,
+    "area_threshold": 0.25
+  },
+  "stress": {
+    "shift_magnitudes": [1, 2, 3],
+    "spatial_shuffle": true,
+    "no_circular_wrap": true
+  },
+  "advancement_gate": {
+    "minimum_miss_auroc": 0.60,
+    "minimum_event_macro_auroc": 0.58,
+    "minimum_direction_correct_events": 10,
+    "maximum_gt_p3_auc_gap": 0.10,
+    "relation_must_beat_direct_at": [0, 1, 2],
+    "relation_drop_must_beat_direct_at": [1, 2],
+    "unshuffled_must_beat_shuffle": true,
+    "gt_and_p3_must_both_pass": true
+  },
+  "secondary_diagnostics_only": [
+    "s3_local_sim_std",
+    "s3_local_sim_q90",
+    "s4_local_sim_mean",
+    "ms_local_sim_mean",
+    "s3_global_sim_mean",
+    "s3_local_global_sim_mean",
+    "s3_local_sd_mean"
+  ],
+  "training": "none",
+  "test_access": "forbidden"
+}

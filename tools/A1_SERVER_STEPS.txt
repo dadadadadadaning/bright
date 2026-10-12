@@ -1,0 +1,39 @@
+Confirmed checkpoint: A1 / step 15000 / SHA256 cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add
+
+1. Upload the ZIP to /root/shared-nvme/BRIGHT-master and extract into tools/.
+   The ZIP contains only scripts and documentation, NOT model weights.
+   Allow replacement of the previous compare_bright_checkpoints.py if prompted.
+
+cd /root/shared-nvme/BRIGHT-master
+mkdir -p tools
+unzip BRIGHT_A1_comparison_scripts.zip -d tools
+
+2. Prepare a NEW work directory; automatically screen validation RGB crops.
+   Default data location: /root/shared-nvme/BRIGHT-master/bda_benchmark/dataset
+   Default checkpoint location: /root/shared-nvme/BRIGHT-checkpoints
+   Add --data ACTUAL_PATH if pre-event/post-event/target are elsewhere.
+
+python /root/shared-nvme/BRIGHT-master/tools/run_a1_comparison.py prepare --work /root/shared-nvme/BRIGHT-A1-compare-v1
+
+3a. Recommended: inspect candidates/*.png and change approved=false to true
+    only for suitable entries in candidates/selection.json. Then:
+
+python /root/shared-nvme/BRIGHT-master/tools/run_a1_comparison.py run --work /root/shared-nvme/BRIGHT-A1-compare-v1
+
+3b. Alternative for an immediate DRAFT preview (do not also run 3a):
+
+python /root/shared-nvme/BRIGHT-master/tools/run_a1_comparison.py run --work /root/shared-nvme/BRIGHT-A1-compare-v1 --accept-auto-preview
+
+4. Download with the existing server file manager:
+/root/shared-nvme/BRIGHT-A1-compare-v1/BRIGHT_A1_comparison_images.zip
+
+Models: UNet, DeepLabV3Plus, SiamAttnUNet, SiamCRNN, official DamageFormer, Ours_A1.
+ChangeOS is excluded. ChangeMamba is explicitly excluded until its training YAML
+and environment are verified; to include it add --changemamba-cfg EXACT_YAML
+to the prepare command with a NEW work directory.
+
+No training, no weight overwrite, no test access. Full-image inference followed
+by identical display crops. Probability maps are P(Damaged), NOT attention.
+Automatic dark-area filtering is not a verified shadow detector. Inspect final
+images before publication. Selected-crop results are NOT full-val metrics.
+If a run fails, keep its log/results and use a new work directory for a retry.

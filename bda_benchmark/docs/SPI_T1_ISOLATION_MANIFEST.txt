@@ -1,0 +1,24 @@
+NEW FILES ONLY
+script/standard_ML/spi_t1/__init__.py
+script/standard_ML/spi_t1/core.py
+script/standard_ML/spi_t1/train.py
+script/standard_ML/spi_t1/audit.py
+script/standard_ML/spi_t1/summarize.py
+run/run_SPI_T1_isolated.sh
+tests/spi_t1/__init__.py
+tests/spi_t1/test_core.py
+tests/spi_t1/test_pair_contract.py
+docs/SPI_T1_EXPERIMENT_ZH.md
+docs/SPI_T1_ISOLATION_MANIFEST.txt
+
+UNCHANGED RESEARCH LINES
+P3 / H7 / H9 / RGID / CMR / SPI Stage-0
+
+TRAIN INPUT
+semantic labels only; official instance annotations are never read by train.py
+
+VALIDATION INPUT
+public validation RGB/SAR plus official instances used as metrics only
+
+HIDDEN TEST
+never read

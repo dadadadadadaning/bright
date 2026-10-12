@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2800" height="1700" viewBox="0 0 2800 1700">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#425466"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7A5195"/>
+    </marker>
+    <pattern id="frozen" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#EDF1F5"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#D0D8E1" stroke-width="3"/>
+    </pattern>
+    <style>
+      .title { font: 700 34px Arial, 'Microsoft YaHei', sans-serif; fill:#172B4D; }
+      .panel { font: 700 25px Arial, 'Microsoft YaHei', sans-serif; fill:#172B4D; }
+      .head { font: 700 21px Arial, 'Microsoft YaHei', sans-serif; fill:#172B4D; }
+      .body { font: 18px Arial, 'Microsoft YaHei', sans-serif; fill:#263238; }
+      .small { font: 16px Arial, 'Microsoft YaHei', sans-serif; fill:#425466; }
+      .tiny { font: 14px Arial, 'Microsoft YaHei', sans-serif; fill:#425466; }
+      .tag { font: 700 15px Arial, 'Microsoft YaHei', sans-serif; }
+      .box { stroke:#344563; stroke-width:2; rx:14; ry:14; }
+      .frozenBox { fill:url(#frozen); stroke:#7A869A; stroke-width:2; rx:14; ry:14; }
+      .rgb { fill:#D9EAF7; stroke:#2C7FB8; stroke-width:2; rx:14; ry:14; }
+      .sar { fill:#FDE6CF; stroke:#E67E22; stroke-width:2; rx:14; ry:14; }
+      .train { fill:#DDF2E4; stroke:#2E8B57; stroke-width:2.5; rx:14; ry:14; }
+      .memory { fill:#ECE1F2; stroke:#7A5195; stroke-width:2.5; rx:14; ry:14; }
+      .output { fill:#F8D7DA; stroke:#C44E52; stroke-width:2.5; rx:14; ry:14; }
+      .panelBox { fill:#FAFBFC; stroke:#A5ADBA; stroke-width:2; rx:20; ry:20; }
+      .arrow { fill:none; stroke:#425466; stroke-width:3; marker-end:url(#arrow); }
+      .dash { fill:none; stroke:#7A5195; stroke-width:3; stroke-dasharray:10 8; marker-end:url(#arrowPurple); }
+      .thin { fill:none; stroke:#6B778C; stroke-width:2; marker-end:url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="2800" height="1700" fill="#FFFFFF"/>
+  <text x="1400" y="52" text-anchor="middle" class="title">P3-SRAC Controlled：底层张量、卷积、结构分区与检索数据流</text>
+
+  <!-- Legend -->
+  <rect x="1760" y="70" width="1020" height="55" fill="#FFFFFF" stroke="#DFE1E6" rx="10"/>
+  <rect x="1780" y="84" width="26" height="26" class="rgb"/><text x="1815" y="104" class="small">RGB路径</text>
+  <rect x="1935" y="84" width="26" height="26" class="sar"/><text x="1970" y="104" class="small">SAR路径</text>
+  <rect x="2100" y="84" width="26" height="26" class="frozenBox"/><text x="2135" y="104" class="small">冻结P3</text>
+  <rect x="2280" y="84" width="26" height="26" class="train"/><text x="2315" y="104" class="small">SR1可训练</text>
+  <rect x="2485" y="84" width="26" height="26" class="memory"/><text x="2520" y="104" class="small">SR2训练记忆</text>
+
+  <!-- Panel A -->
+  <rect x="30" y="135" width="2740" height="560" class="panelBox"/>
+  <text x="60" y="175" class="panel">A. 冻结P3特征底座：双非共享Swin-T + 多尺度融合 + RGB建筑锚点</text>
+
+  <!-- inputs -->
+  <rect x="70" y="220" width="260" height="150" class="rgb"/>
+  <text x="200" y="250" text-anchor="middle" class="head">灾前RGB</text>
+  <text x="200" y="280" text-anchor="middle" class="body">B×3×H×W</text>
+  <text x="200" y="312" text-anchor="middle" class="small">ImageNet mean/std</text>
+  <text x="200" y="340" text-anchor="middle" class="small">反射光 / 几何锚点</text>
+
+  <rect x="70" y="440" width="260" height="190" class="sar"/>
+  <text x="200" y="470" text-anchor="middle" class="head">灾后SAR输入</text>
+  <text x="200" y="500" text-anchor="middle" class="body">B×2×H×W</text>
+  <text x="200" y="532" text-anchor="middle" class="small">ch0：train mean/std</text>
+  <text x="200" y="558" text-anchor="middle" class="small">当前SR1未进入编码器</text>
+  <text x="200" y="590" text-anchor="middle" class="small">ch1：raw display 0–255</text>
+  <text x="200" y="616" text-anchor="middle" class="small">供P3与区域统计使用</text>
+
+  <!-- preprocessing -->
+  <rect x="380" y="235" width="255" height="115" class="rgb"/>
+  <text x="507" y="268" text-anchor="middle" class="head">RGB标准化</text>
+  <text x="507" y="302" text-anchor="middle" class="small">(x−μImageNet)/σImageNet</text>
+  <text x="507" y="329" text-anchor="middle" class="small">保持3通道</text>
+
+  <rect x="380" y="465" width="255" height="145" class="sar"/>
+  <text x="507" y="495" text-anchor="middle" class="head">P3历史SAR契约</text>
+  <text x="507" y="527" text-anchor="middle" class="small">取raw通道 → repeat(3)</text>
+  <text x="507" y="555" text-anchor="middle" class="small">[s,s,s] ∈ R³</text>
+  <text x="507" y="583" text-anchor="middle" class="small">ImageNet mean/std</text>
+
+  <path d="M330 295 H380" class="arrow"/>
+  <path d="M330 535 H380" class="arrow"/>
+
+  <!-- Swin encoders -->
+  <rect x="690" y="205" width="570" height="180" class="frozenBox"/>
+  <text x="975" y="235" text-anchor="middle" class="head">RGB Swin-T（非共享，冻结）</text>
+  <text x="975" y="267" text-anchor="middle" class="small">PatchEmbed：Conv 4×4 / stride 4 → C=96, H/4</text>
+  <text x="975" y="297" text-anchor="middle" class="small">Stage1：2×Swin Block → R1: 96×H/4×W/4</text>
+  <text x="975" y="325" text-anchor="middle" class="small">PatchMerge → R2:192,H/8；Stage2：2 blocks</text>
+  <text x="975" y="353" text-anchor="middle" class="small">R3:384,H/16（6 blocks）；R4:768,H/32（2 blocks）</text>
+
+  <rect x="690" y="430" width="570" height="180" class="frozenBox"/>
+  <text x="975" y="460" text-anchor="middle" class="head">P3 SAR Swin-T（非共享，冻结）</text>
+  <text x="975" y="492" text-anchor="middle" class="small">同结构但独立参数；输入是伪三通道SAR</text>
+  <text x="975" y="522" text-anchor="middle" class="small">S1:96,H/4；S2:192,H/8</text>
+  <text x="975" y="550" text-anchor="middle" class="small">S3:384,H/16；S4:768,H/32</text>
+  <text x="975" y="578" text-anchor="middle" class="small">注意：此处不是Native-SAR专属编码器</text>
+  <path d="M635 292 H690" class="arrow"/>
+  <path d="M635 535 H690" class="arrow"/>
+
+  <!-- multi scale fuse -->
+  <rect x="1310" y="205" width="515" height="180" class="frozenBox"/>
+  <text x="1567" y="235" text-anchor="middle" class="head">RGB多尺度融合 → R</text>
+  <text x="1567" y="268" text-anchor="middle" class="small">Bilinear ↑：R2/R3/R4 → H/4×W/4</text>
+  <text x="1567" y="298" text-anchor="middle" class="small">Concat[R4↑,R3↑,R2↑,R1] = 1440ch</text>
+  <text x="1567" y="328" text-anchor="middle" class="small">ResBlock：3×3 1440→256 + BN + ReLU</text>
+  <text x="1567" y="356" text-anchor="middle" class="small">3×3 256→256 + BN；skip 1×1 1440→256</text>
+
+  <rect x="1310" y="430" width="515" height="180" class="frozenBox"/>
+  <text x="1567" y="460" text-anchor="middle" class="head">SAR多尺度融合 → S</text>
+  <text x="1567" y="493" text-anchor="middle" class="small">Concat[S4↑,S3↑,S2↑,S1] = 1440ch</text>
+  <text x="1567" y="523" text-anchor="middle" class="small">同构独立ResBlock：1440→256</text>
+  <text x="1567" y="553" text-anchor="middle" class="small">输出 S：B×256×H/4×W/4</text>
+  <text x="1567" y="581" text-anchor="middle" class="small">不与RGB共享融合参数</text>
+  <path d="M1260 295 H1310" class="arrow"/>
+  <path d="M1260 520 H1310" class="arrow"/>
+
+  <!-- localization and fused feature -->
+  <rect x="1880" y="195" width="390" height="190" class="frozenBox"/>
+  <text x="2075" y="225" text-anchor="middle" class="head">RGB建筑定位锚点</text>
+  <text x="2075" y="260" text-anchor="middle" class="small">R → Conv 1×1, 256→2</text>
+  <text x="2075" y="290" text-anchor="middle" class="small">Softmax → p_building</text>
+  <text x="2075" y="320" text-anchor="middle" class="small">detach()：损毁损失不能改变定位</text>
+  <text x="2075" y="350" text-anchor="middle" class="small">全分辨率定位：Bilinear ↑</text>
+  <path d="M1825 285 H1880" class="arrow"/>
+
+  <rect x="1880" y="430" width="390" height="180" class="frozenBox"/>
+  <text x="2075" y="460" text-anchor="middle" class="head">冻结P3联合特征 F</text>
+  <text x="2075" y="493" text-anchor="middle" class="small">Concat[R,S] = 512ch</text>
+  <text x="2075" y="523" text-anchor="middle" class="small">ResBlock：3×3,3×3；skip 1×1；512→256</text>
+  <text x="2075" y="553" text-anchor="middle" class="small">wROI=0.1+0.9·p_building</text>
+  <text x="2075" y="581" text-anchor="middle" class="small">F=ResBlock([R,S])⊙wROI；旧像素头被替换</text>
+  <path d="M1825 300 C1850 300 1845 470 1880 500" class="thin"/>
+  <path d="M1825 520 H1880" class="arrow"/>
+
+  <rect x="2330" y="225" width="390" height="120" class="output"/>
+  <text x="2525" y="258" text-anchor="middle" class="head">冻结定位输出</text>
+  <text x="2525" y="292" text-anchor="middle" class="body">Background / Building</text>
+  <text x="2525" y="320" text-anchor="middle" class="small">Loc F1保持P3能力</text>
+  <path d="M2270 285 H2330" class="arrow"/>
+
+  <!-- Panel B -->
+  <rect x="30" y="720" width="2740" height="585" class="panelBox"/>
+  <text x="60" y="760" class="panel">B. SR1结构区域主分类：可学习分区 → 关系特征 → 软区域池化 → 三级输出回填</text>
+
+  <!-- partition -->
+  <rect x="70" y="810" width="430" height="300" class="train"/>
+  <text x="285" y="842" text-anchor="middle" class="head">RGB引导可学习超像素</text>
+  <text x="285" y="878" text-anchor="middle" class="small">R(256ch) → Conv1×1 256→8</text>
+  <text x="285" y="906" text-anchor="middle" class="small">GroupNorm(1) → GELU</text>
+  <text x="285" y="934" text-anchor="middle" class="small">Conv1×1 8→8 → L2 normalize</text>
+  <line x1="100" y1="955" x2="470" y2="955" stroke="#8AC5A3"/>
+  <text x="285" y="985" text-anchor="middle" class="small">AvgPool cell=4：得到网格seed</text>
+  <text x="285" y="1013" text-anchor="middle" class="small">每像素仅比较周围3×3共9个seed</text>
+  <text x="285" y="1041" text-anchor="middle" class="small">logit=−MSE/0.20−0.50·空间距离</text>
+  <text x="285" y="1069" text-anchor="middle" class="small">Softmax(K=9) → A ∈ B×9×P</text>
+  <text x="285" y="1097" text-anchor="middle" class="tiny">A对最终分类损失可微；不是固定SLIC/网格</text>
+
+  <!-- relation -->
+  <rect x="560" y="810" width="500" height="300" class="train"/>
+  <text x="810" y="842" text-anchor="middle" class="head">显式RGB–SAR关系映射</text>
+  <text x="810" y="878" text-anchor="middle" class="small">输入：[R,S,|R−S|,R⊙S,F]</text>
+  <text x="810" y="908" text-anchor="middle" class="small">5×256 = 1280 channels</text>
+  <text x="810" y="944" text-anchor="middle" class="small">Conv1×1 1280→128（模态压缩）</text>
+  <text x="810" y="974" text-anchor="middle" class="small">GroupNorm(8) → GELU</text>
+  <text x="810" y="1004" text-anchor="middle" class="small">Conv3×3 128→128, padding=1</text>
+  <text x="810" y="1040" text-anchor="middle" class="small">输出 E：B×128×H/4×W/4</text>
+  <text x="810" y="1072" text-anchor="middle" class="tiny">不做FCA、Flow、Conv3D或硬Router</text>
+
+  <!-- pooling -->
+  <rect x="1120" y="810" width="500" height="300" class="train"/>
+  <text x="1370" y="842" text-anchor="middle" class="head">软区域统计与Embedding</text>
+  <text x="1370" y="878" text-anchor="middle" class="small">A加权Pool(E) → mean/std/max</text>
+  <text x="1370" y="908" text-anchor="middle" class="small">3×128 = 384维</text>
+  <text x="1370" y="940" text-anchor="middle" class="small">raw SAR ↓H/4 → region mean/std = 2维</text>
+  <text x="1370" y="972" text-anchor="middle" class="small">Concat → 386维</text>
+  <text x="1370" y="1004" text-anchor="middle" class="small">Linear 386→128 → LN → GELU</text>
+  <text x="1370" y="1034" text-anchor="middle" class="small">Linear 128→128 = node embedding z</text>
+  <text x="1370" y="1066" text-anchor="middle" class="small">+ tanh(αraw)·LN(Linear 2→128)</text>
+  <text x="1370" y="1096" text-anchor="middle" class="tiny">αraw=0初始化，但主分类路径不是零残差</text>
+
+  <!-- classifier -->
+  <rect x="1680" y="810" width="420" height="300" class="train"/>
+  <text x="1890" y="842" text-anchor="middle" class="head">SR1区域三级分类头</text>
+  <text x="1890" y="884" text-anchor="middle" class="small">z → LayerNorm(128)</text>
+  <text x="1890" y="918" text-anchor="middle" class="small">Linear 128→128 → GELU</text>
+  <text x="1890" y="952" text-anchor="middle" class="small">Linear 128→3</text>
+  <text x="1890" y="986" text-anchor="middle" class="small">q=Softmax(Intact,Damaged,Destroyed)</text>
+  <line x1="1715" y1="1010" x2="2065" y2="1010" stroke="#8AC5A3"/>
+  <text x="1890" y="1042" text-anchor="middle" class="small">Unpool：Σₖ Aₖ·region_logitₖ</text>
+  <text x="1890" y="1074" text-anchor="middle" class="tiny">一个区域的证据一致地回填到其成员位置</text>
+
+  <!-- final factorization -->
+  <rect x="2170" y="790" width="550" height="350" class="output"/>
+  <text x="2445" y="824" text-anchor="middle" class="head">光学锚定四类概率因子化</text>
+  <text x="2445" y="870" text-anchor="middle" class="body">P(BG)=1−p_building</text>
+  <text x="2445" y="908" text-anchor="middle" class="body">P(I/D/X)=p_building·q(I/D/X)</text>
+  <text x="2445" y="950" text-anchor="middle" class="small">Bilinear ↑ 到 H×W</text>
+  <text x="2445" y="984" text-anchor="middle" class="small">Clamp≥1e−7 → 归一化 → log</text>
+  <line x1="2210" y1="1008" x2="2680" y2="1008" stroke="#E39A9D"/>
+  <text x="2445" y="1043" text-anchor="middle" class="head">最终输出 B×4×H×W</text>
+  <text x="2445" y="1079" text-anchor="middle" class="small">Background / Intact / Damaged / Destroyed</text>
+  <text x="2445" y="1110" text-anchor="middle" class="tiny">SR1完全替换P3旧Conv1×1像素损毁头</text>
+
+  <!-- arrows in panel B -->
+  <path d="M500 960 H560" class="arrow"/>
+  <path d="M1060 960 H1120" class="arrow"/>
+  <path d="M1620 960 H1680" class="arrow"/>
+  <path d="M2100 960 H2170" class="arrow"/>
+  <path d="M285 780 V810" class="arrow"/>
+  <text x="285" y="792" text-anchor="middle" class="tiny">R</text>
+  <path d="M810 780 V810" class="arrow"/>
+  <text x="810" y="792" text-anchor="middle" class="tiny">R,S,F</text>
+  <path d="M2445 695 V790" class="arrow"/>
+  <text x="2460" y="748" class="tiny">p_building</text>
+
+  <!-- Panel C -->
+  <rect x="30" y="1330" width="2740" height="335" class="panelBox"/>
+  <text x="60" y="1370" class="panel">C. SR2可选检索与训练监督：仅SR1通过准入门槛后启用</text>
+
+  <rect x="70" y="1410" width="500" height="205" class="memory"/>
+  <text x="320" y="1442" text-anchor="middle" class="head">Train-only类别均衡Memory</text>
+  <text x="320" y="1477" text-anchor="middle" class="small">3类 × 512 regions/class × 128-d</text>
+  <text x="320" y="1507" text-anchor="middle" class="small">FIFO；特征L2 normalize；随checkpoint保存</text>
+  <text x="320" y="1537" text-anchor="middle" class="small">仅训练loss回调enqueue，eval/test只读</text>
+  <text x="320" y="1567" text-anchor="middle" class="small">筛选：building fraction≥0.50，purity≥0.70</text>
+  <text x="320" y="1597" text-anchor="middle" class="tiny">验证/测试特征与标签永不写入</text>
+
+  <rect x="640" y="1410" width="500" height="205" class="memory"/>
+  <text x="890" y="1442" text-anchor="middle" class="head">每类Top-k软检索</text>
+  <text x="890" y="1477" text-anchor="middle" class="small">cosine(z, memory)；每类Top-2</text>
+  <text x="890" y="1507" text-anchor="middle" class="small">总支持数=3×2=6，附加label embedding</text>
+  <text x="890" y="1537" text-anchor="middle" class="small">MHA：4 heads；Q=z，K/V=supports</text>
+  <text x="890" y="1567" text-anchor="middle" class="small">z′=z+tanh(αret)·MHA(z,supports)</text>
+  <text x="890" y="1597" text-anchor="middle" class="tiny">αret=0初始化；检索是软证据而非硬选择</text>
+  <path d="M570 1512 H640" class="dash"/>
+
+  <rect x="1210" y="1410" width="670" height="205" class="train"/>
+  <text x="1545" y="1442" text-anchor="middle" class="head">区域标签与结构监督（训练集GT）</text>
+  <text x="1545" y="1477" text-anchor="middle" class="small">GT ↓nearest到H/4；忽略Background与ignore=255</text>
+  <text x="1545" y="1507" text-anchor="middle" class="small">A加权类别占比 → region majority target + purity</text>
+  <text x="1545" y="1537" text-anchor="middle" class="small">Lregion=weighted CE（节点频次inverse-sqrt）</text>
+  <text x="1545" y="1567" text-anchor="middle" class="small">Lrecon=||Unpool(region class fractions)−one-hot GT||²</text>
+  <text x="1545" y="1597" text-anchor="middle" class="tiny">GT只构造训练监督，不参与验证/推理分区</text>
+
+  <rect x="1950" y="1410" width="770" height="205" class="output"/>
+  <text x="2335" y="1442" text-anchor="middle" class="head">实际训练总目标与冻结边界</text>
+  <text x="2335" y="1477" text-anchor="middle" class="small">L4C = CE(output_dam,GT) + 0.75·Lovász</text>
+  <text x="2335" y="1507" text-anchor="middle" class="small">Lstructure = Lregion + 0.25·Lrecon</text>
+  <text x="2335" y="1537" text-anchor="middle" class="small">Ltotal = L4C + 0.25·Lstructure + Lloc(monitor-only)</text>
+  <text x="2335" y="1567" text-anchor="middle" class="small">梯度：partition + relation projection + region head (+SR2 MHA)</text>
+  <text x="2335" y="1597" text-anchor="middle" class="tiny">无梯度：P3双Swin、P3多尺度融合、RGB定位与p_building</text>
+  <path d="M1880 1512 H1950" class="arrow"/>
+
+  <!-- cross-panel memory injection -->
+  <path d="M890 1410 C890 1340 1890 1340 1890 1110" class="dash"/>
+  <text x="1335" y="1320" class="small" fill="#7A5195">SR2 only：检索后的z′进入同一个三级分类头</text>
+
+  <!-- footer -->
+  <text x="45" y="1690" class="tiny">实现对应：DamageFormer_P3_SRAC_Controlled.py；实线=推理数据流，紫色虚线=SR2可选检索/训练记忆流。SR0直接旁路整个B/C层并精确返回P3。</text>
+</svg>

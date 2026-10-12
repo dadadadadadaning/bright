@@ -1,0 +1,179 @@
+{"kind":"deck","id":"pr/p2r0o5","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"Query regions and retrieved local evidence","textShapes":47}
+{"kind":"textbox","id":"sh/i1w3yp8f","slide":1,"name":"Query regions and retrieved local evidence","text":"Query regions and retrieved local evidence","textPreview":"Query regions and retrieved local evidence","textChars":42,"textLines":1,"bbox":[35,22,1370,46]}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"name":"Case-study layout • Query A is shared with the prediction comparison","text":"Case-study layout • Query A is shared with the prediction comparison","textPreview":"Case-study layout • Query A is shared with the prediction comparison","textChars":68,"textLines":1,"bbox":[35,75,1340,28]}
+{"kind":"shape","id":"sh/k3yl0zql","slide":1,"bbox":[35,117,1370,1]}
+{"kind":"shape","id":"sh/7qp4be9c","slide":1,"bbox":[35,142,324,641]}
+{"kind":"shape","id":"sh/65g3298r","slide":1,"bbox":[35,142,6,641]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"a  Current query","text":"a  Current query","textPreview":"a  Current query","textChars":16,"textLines":1,"bbox":[54,155,282,34]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"name":"Query A","text":"Query A","textPreview":"Query A","textChars":7,"textLines":1,"bbox":[54,199,282,28]}
+{"kind":"shape","id":"sh/fu94fe98","slide":1,"bbox":[55,250,135,145]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[60,308.5,125,28]}
+{"kind":"shape","id":"sh/wn6dc7eh","slide":1,"bbox":[204,250,135,145]}
+{"kind":"textbox","id":"sh/hofulsf2","slide":1,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[209,308.5,125,28]}
+{"kind":"textbox","id":"sh/ul4vaxgb","slide":1,"name":"Matched scene crops","text":"Matched scene crops","textPreview":"Matched scene crops","textChars":19,"textLines":1,"bbox":[55,401,280,25]}
+{"kind":"textbox","id":"sh/vmdcj2xw","slide":1,"name":"Selected region r*","text":"Selected region r*","textPreview":"Selected region r*","textChars":18,"textLines":1,"bbox":[55,445,280,29]}
+{"kind":"shape","id":"sh/4r6dg7et","slide":1,"bbox":[55,489,284,176]}
+{"kind":"textbox","id":"sh/5sfepcfe","slide":1,"name":"Actual region overlay","text":"Actual region overlay","textPreview":"Actual region overlay","textChars":21,"textLines":1,"bbox":[60,563,274,28]}
+{"kind":"textbox","id":"sh/ipovexwn","slide":1,"name":"Query ID / event: [fill]","text":"Query ID / event: [fill]","textPreview":"Query ID / event: [fill]","textChars":24,"textLines":1,"bbox":[55,687,282,27]}
+{"kind":"textbox","id":"sh/3qxwn2x8","slide":1,"name":"GT excluded from retrieval","text":"GT excluded from retrieval","textPreview":"GT excluded from retrieval","textChars":26,"textLines":1,"bbox":[55,721,282,27]}
+{"kind":"textbox","id":"sh/sfqdkrep","slide":1,"name":"b  Region inspection","text":"b  Region inspection","textPreview":"b  Region inspection","textChars":20,"textLines":1,"bbox":[393,149,990,34]}
+{"kind":"textbox","id":"sh/dgzetcfa","slide":1,"name":"Grid control","text":"Grid control","textPreview":"Grid control","textChars":12,"textLines":1,"bbox":[394,197,310,29]}
+{"kind":"shape","id":"sh/1cvuxc7e","slide":1,"bbox":[394,239,310,112]}
+{"kind":"textbox","id":"sh/0bmd476t","slide":1,"name":"Same query building","text":"Same query building","textPreview":"Same query building","textChars":19,"textLines":1,"bbox":[399,281,300,28]}
+{"kind":"textbox","id":"sh/zadcv2p8","slide":1,"name":"Content regions","text":"Content regions","textPreview":"Content regions","textChars":15,"textLines":1,"bbox":[731,197,310,29]}
+{"kind":"shape","id":"sh/e94v2hon","slide":1,"bbox":[731,239,310,112]}
+{"kind":"textbox","id":"sh/90ve1w7q","slide":1,"name":"Same query building","text":"Same query building","textPreview":"Same query building","textChars":19,"textLines":1,"bbox":[736,281,300,28]}
+{"kind":"textbox","id":"sh/ozmd8r65","slide":1,"name":"Soft assignment","text":"Soft assignment","textPreview":"Soft assignment","textChars":15,"textLines":1,"bbox":[1068,197,310,29]}
+{"kind":"shape","id":"sh/nydczmpk","slide":1,"bbox":[1068,239,310,112]}
+{"kind":"textbox","id":"sh/mx4v6hoz","slide":1,"name":"Measured Q(:, r*)","text":"Measured Q(:, r*)","textPreview":"Measured Q(:, r*)","textChars":17,"textLines":1,"bbox":[1073,281,300,28]}
+{"kind":"textbox","id":"sh/p4bu5s76","slide":1,"name":"Matched coverage / region count","text":"Matched coverage / region count","textPreview":"Matched coverage / region count","textChars":31,"textLines":1,"bbox":[394,357,652,25]}
+{"kind":"textbox","id":"sh/432dwn6l","slide":1,"name":"Assignment scale required","text":"Assignment scale required","textPreview":"Assignment scale required","textChars":25,"textLines":1,"bbox":[1068,357,310,25]}
+{"kind":"shape","id":"sh/uxgjq907","slide":1,"bbox":[393,402,1012,1]}
+{"kind":"textbox","id":"sh/vyp0je1s","slide":1,"name":"c  Retrieved training supports","text":"c  Retrieved training supports","textPreview":"c  Retrieved training supports","textChars":30,"textLines":1,"bbox":[393,419,1000,33]}
+{"kind":"shape","id":"sh/wzy1szid","slide":1,"bbox":[394,468,29,29]}
+{"kind":"textbox","id":"sh/h072l4jy","slide":1,"name":"1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[394,468,29,29]}
+{"kind":"textbox","id":"sh/i1gje90j","slide":1,"name":"Support 1","text":"Support 1","textPreview":"Support 1","textChars":9,"textLines":1,"bbox":[434,466,250,32]}
+{"kind":"shape","id":"sh/j2pkne14","slide":1,"bbox":[394,514,147,111]}
+{"kind":"textbox","id":"sh/43y1gji9","slide":1,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[399,555.5,137,28]}
+{"kind":"shape","id":"sh/54r2poju","slide":1,"bbox":[556,514,147,111]}
+{"kind":"textbox","id":"sh/y5wjip0z","slide":1,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[561,555.5,137,28]}
+{"kind":"textbox","id":"sh/z650ba1k","slide":1,"name":"Label / event: [fill]","text":"Label / event: [fill]","textPreview":"Label / event: [fill]","textChars":21,"textLines":1,"bbox":[394,631,312,24]}
+{"kind":"textbox","id":"sh/z2xgf6to","slide":1,"name":"Source ID / score: [fill]","text":"Source ID / score: [fill]","textPreview":"Source ID / score: [fill]","textChars":25,"textLines":1,"bbox":[394,658,312,24]}
+{"kind":"shape","id":"sh/e1oz61c3","slide":1,"bbox":[394,696,309,86]}
+{"kind":"textbox","id":"sh/14fyhgbe","slide":1,"name":"Actual local reading weights","text":"Actual local reading weights","textPreview":"Actual local reading weights","textChars":28,"textLines":1,"bbox":[399,725,299,28]}
+{"kind":"shape","id":"sh/036h8but","slide":1,"bbox":[731,468,29,29]}
+{"kind":"textbox","id":"sh/nqxgjqtk","slide":1,"name":"2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[731,468,29,29]}
+{"kind":"textbox","id":"sh/mpozalcz","slide":1,"name":"Support 2","text":"Support 2","textPreview":"Support 2","textChars":9,"textLines":1,"bbox":[771,466,250,32]}
+{"kind":"shape","id":"sh/9sfylgbq","slide":1,"bbox":[731,514,147,111]}
+{"kind":"textbox","id":"sh/or6hcvu5","slide":1,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[736,555.5,137,28]}
+{"kind":"shape","id":"sh/buh0nqtg","slide":1,"bbox":[893,514,147,111]}
+{"kind":"textbox","id":"sh/at8zelcb","slide":1,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[898,555.5,137,28]}
+{"kind":"textbox","id":"sh/8zqx4vq9","slide":1,"name":"Label / event: [fill]","text":"Label / event: [fill]","textPreview":"Label / event: [fill]","textChars":21,"textLines":1,"bbox":[731,631,312,24]}
+{"kind":"textbox","id":"sh/t0jyd0ru","slide":1,"name":"Source ID / score: [fill]","text":"Source ID / score: [fill]","textPreview":"Source ID / score: [fill]","textChars":25,"textLines":1,"bbox":[731,658,312,24]}
+{"kind":"shape","id":"sh/6x8f2583","slide":1,"bbox":[731,696,309,86]}
+{"kind":"textbox","id":"sh/7yhgbq9o","slide":1,"name":"Actual local reading weights","text":"Actual local reading weights","textPreview":"Actual local reading weights","textChars":28,"textLines":1,"bbox":[736,725,299,28]}
+{"kind":"shape","id":"sh/kvqx0vqd","slide":1,"bbox":[1068,468,29,29]}
+{"kind":"textbox","id":"sh/lwzy90ry","slide":1,"name":"3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1068,468,29,29]}
+{"kind":"textbox","id":"sh/yt8fyl87","slide":1,"name":"Support 3","text":"Support 3","textPreview":"Support 3","textChars":9,"textLines":1,"bbox":[1108,466,250,32]}
+{"kind":"shape","id":"sh/juhg7q9s","slide":1,"bbox":[1068,514,147,111]}
+{"kind":"textbox","id":"sh/wr6xwbq1","slide":1,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[1073,555.5,137,28]}
+{"kind":"shape","id":"sh/xsfy5grm","slide":1,"bbox":[1230,514,147,111]}
+{"kind":"textbox","id":"sh/dc7md8fe","slide":1,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[1235,555.5,137,28]}
+{"kind":"textbox","id":"sh/cby5k3yt","slide":1,"name":"Label / event: [fill]","text":"Label / event: [fill]","textPreview":"Label / event: [fill]","textChars":21,"textLines":1,"bbox":[1068,631,312,24]}
+{"kind":"textbox","id":"sh/ra54bix8","slide":1,"name":"Source ID / score: [fill]","text":"Source ID / score: [fill]","textPreview":"Source ID / score: [fill]","textChars":25,"textLines":1,"bbox":[1068,658,312,24]}
+{"kind":"shape","id":"sh/q9wnidgn","slide":1,"bbox":[1068,696,309,86]}
+{"kind":"textbox","id":"sh/5onm98f2","slide":1,"name":"Actual local reading weights","text":"Actual local reading weights","textPreview":"Actual local reading weights","textChars":28,"textLines":1,"bbox":[1073,725,299,28]}
+{"kind":"shape","id":"sh/4ne5g3yh","slide":1,"bbox":[36,808,16,16]}
+{"kind":"textbox","id":"sh/3m547yxw","slide":1,"name":"Current query","text":"Current query","textPreview":"Current query","textChars":13,"textLines":1,"bbox":[61,801,169,28]}
+{"kind":"shape","id":"sh/ilw3etgr","slide":1,"bbox":[252,808,16,16]}
+{"kind":"textbox","id":"sh/9kr6lsfm","slide":1,"name":"Training support","text":"Training support","textPreview":"Training support","textChars":16,"textLines":1,"bbox":[277,801,190,28]}
+{"kind":"shape","id":"sh/oji5sne1","slide":1,"bbox":[503,808,27,17]}
+{"kind":"textbox","id":"sh/6psjmpwj","slide":1,"name":"Missing data slot","text":"Missing data slot","textPreview":"Missing data slot","textChars":17,"textLines":1,"bbox":[540,801,180,28]}
+{"kind":"textbox","id":"sh/7q1kfudo","slide":1,"name":"Reading weights: normalize within each support","text":"Reading weights: normalize within each support","textPreview":"Reading weights: normalize within each support","textChars":46,"textLines":1,"bbox":[764,801,630,28]}
+{"kind":"textbox","id":"sh/8ra1oze9","slide":1,"name":"Template only. No measured maps are shown. Attention indicates reading behaviour, not proven causal importance.","text":"Template only. No measured maps are shown. Attention indicates reading behaviour, not proven causal importance.","textPreview":"Template only. No measured maps are shown. Attention indicates reading behaviour, not proven causal importance.","textChars":111,"textLines":1,"bbox":[35,850,1370,27]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"Redesigned first page only; second-page comparison preserved. Visual priority: left current Query A with matched RGB/SAR and selected region r*, upper-right secondary partition controls, lower-right primary support cases. Pink represents query provenance; blue represents training-support provenance; neither is a damage class. Numbered circles are support rank, not confidence. Dashed boxes are missing real evidence. No artificial buildings, attention heat maps, predictions or values were generated. Region control images use the same crop and matched count/coverage. Q(:,r*) is assignment weight, not damage probability. Per-building local attention weights need layer/head averaging stated, colour bar and numeric range when filled; independently normalized weights cannot compare total support importance. Source ID, event, building label and retrieval score stay with each training support. Labels are not local damage labels. Exact retrieved IDs must be used. Query A links to second page, where predictions belong. Main architecture formulas/attention computation/database are deliberately absent. All elements editable."}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"Qualitative prediction comparison","textShapes":70}
+{"kind":"textbox","id":"sh/fi5gz2hk","slide":2,"name":"Qualitative prediction comparison","text":"Qualitative prediction comparison","textPreview":"Qualitative prediction comparison","textChars":33,"textLines":1,"bbox":[35,25,1370,45]}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"One crop per row. Identical evaluation protocol across model variants. Layout template, awaiting predictions.","text":"One crop per row. Identical evaluation protocol across model variants. Layout template, awaiting predictions.","textPreview":"One crop per row. Identical evaluation protocol across model variants. Layout template, awaiting predictions.","textChars":109,"textLines":1,"bbox":[35,79,1370,27]}
+{"kind":"shape","id":"sh/ozy1ofad","slide":2,"bbox":[35,122,1370,1]}
+{"kind":"textbox","id":"sh/b29kza94","slide":2,"name":"Pre-event RGB","text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[205,141,180,49]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"name":"Post-event SAR","text":"Post-event SAR","textPreview":"Post-event SAR","textChars":14,"textLines":1,"bbox":[405,141,180,49]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"name":"Ground truth","text":"Ground truth","textPreview":"Ground truth","textChars":12,"textLines":1,"bbox":[605,141,180,49]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"name":"Pixel baseline","text":"Pixel baseline","textPreview":"Pixel baseline","textChars":14,"textLines":1,"bbox":[805,141,180,49]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"name":"+ Regions","text":"+ Regions","textPreview":"+ Regions","textChars":9,"textLines":1,"bbox":[1005,141,180,49]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"+ Regions + Memory","text":"+ Regions + Memory","textPreview":"+ Regions + Memory","textChars":18,"textLines":1,"bbox":[1205,141,180,49]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"name":"Query A","text":"Query A","textPreview":"Query A","textChars":7,"textLines":1,"bbox":[40,232,155,29]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[40,268,160,27]}
+{"kind":"shape","id":"sh/mtwrmxg7","slide":2,"bbox":[205,209,180,116]}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[210,244,170,28]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[210,273,170,25]}
+{"kind":"shape","id":"sh/xk7qlczu","slide":2,"bbox":[405,209,180,116]}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[410,244,170,28]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[410,273,170,25]}
+{"kind":"shape","id":"sh/cnupgny5","slide":2,"bbox":[605,209,180,116]}
+{"kind":"textbox","id":"sh/do3q9szq","slide":2,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[610,244,170,28]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[610,273,170,25]}
+{"kind":"shape","id":"sh/s72xofmh","slide":2,"bbox":[805,209,180,116]}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[810,244,170,28]}
+{"kind":"textbox","id":"sh/65kfmpor","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[810,273,170,25]}
+{"kind":"shape","id":"sh/hcvy14ne","slide":2,"bbox":[1005,209,180,116]}
+{"kind":"textbox","id":"sh/gbmxszmt","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1010,244,170,28]}
+{"kind":"textbox","id":"sh/fadgzu58","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1010,273,170,25]}
+{"kind":"shape","id":"sh/u94fqp4n","slide":2,"bbox":[1205,209,180,116]}
+{"kind":"textbox","id":"sh/p0vy54na","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1210,244,170,28]}
+{"kind":"textbox","id":"sh/4zmxwzmp","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1210,273,170,25]}
+{"kind":"textbox","id":"sh/mlgvq147","slide":2,"name":"Query B","text":"Query B","textPreview":"Query B","textChars":7,"textLines":1,"bbox":[40,371,155,29]}
+{"kind":"textbox","id":"sh/nmpcj6ls","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[40,407,160,27]}
+{"kind":"shape","id":"sh/onydsbmd","slide":2,"bbox":[205,348,180,116]}
+{"kind":"textbox","id":"sh/9o7ulg3y","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[210,383,170,28]}
+{"kind":"textbox","id":"sh/a9gvulkj","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[210,412,170,25]}
+{"kind":"shape","id":"sh/ba9cn6l4","slide":2,"bbox":[405,348,180,116]}
+{"kind":"textbox","id":"sh/wbidwb29","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[410,383,170,28]}
+{"kind":"textbox","id":"sh/xcrupg3u","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[410,412,170,25]}
+{"kind":"shape","id":"sh/id0vylkf","slide":2,"bbox":[605,348,180,116]}
+{"kind":"textbox","id":"sh/je9crql0","slide":2,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[610,383,170,28]}
+{"kind":"textbox","id":"sh/ru5cbqd4","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[610,412,170,25]}
+{"kind":"shape","id":"sh/69wbilcj","slide":2,"bbox":[805,348,180,116]}
+{"kind":"textbox","id":"sh/tw7ud0va","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[810,383,170,28]}
+{"kind":"textbox","id":"sh/svedkvup","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[810,412,170,25]}
+{"kind":"shape","id":"sh/fypcfqdg","slide":2,"bbox":[1005,348,180,116]}
+{"kind":"textbox","id":"sh/exgvmlcv","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1010,383,170,28]}
+{"kind":"textbox","id":"sh/107uh0v6","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1010,412,170,25]}
+{"kind":"shape","id":"sh/gzydovul","slide":2,"bbox":[1205,348,180,116]}
+{"kind":"textbox","id":"sh/v2lc36dw","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1210,383,170,28]}
+{"kind":"textbox","id":"sh/a1cba1wb","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1210,412,170,25]}
+{"kind":"textbox","id":"sh/0vq1o36x","slide":2,"name":"Query C","text":"Query C","textPreview":"Query C","textChars":7,"textLines":1,"bbox":[40,510,155,29]}
+{"kind":"textbox","id":"sh/1wzix87i","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[40,546,160,27]}
+{"kind":"shape","id":"sh/et8zmto7","slide":2,"bbox":[205,487,180,116]}
+{"kind":"textbox","id":"sh/zuh0vypc","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[210,522,170,28]}
+{"kind":"textbox","id":"sh/c76hk361","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[210,551,170,25]}
+{"kind":"shape","id":"sh/d8zit87m","slide":2,"bbox":[405,487,180,116]}
+{"kind":"textbox","id":"sh/q5ozitov","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[410,522,170,28]}
+{"kind":"textbox","id":"sh/r6x0rypg","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[410,551,170,25]}
+{"kind":"shape","id":"sh/w3a1wn65","slide":2,"bbox":[605,487,180,116]}
+{"kind":"textbox","id":"sh/xoji5s7q","slide":2,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[610,522,170,28]}
+{"kind":"textbox","id":"sh/5kfipszu","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[610,551,170,25]}
+{"kind":"shape","id":"sh/kj6hgny9","slide":2,"bbox":[805,487,180,116]}
+{"kind":"textbox","id":"sh/jix0niho","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[810,522,170,28]}
+{"kind":"textbox","id":"sh/ihozedgj","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[810,551,170,25]}
+{"kind":"shape","id":"sh/xgfil8zy","slide":2,"bbox":[1005,487,180,116]}
+{"kind":"textbox","id":"sh/wf6hcnyd","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1010,522,170,28]}
+{"kind":"textbox","id":"sh/ved0jihs","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1010,551,170,25]}
+{"kind":"shape","id":"sh/ad4zadg7","slide":2,"bbox":[1205,487,180,116]}
+{"kind":"textbox","id":"sh/9svih8zm","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1210,522,170,28]}
+{"kind":"textbox","id":"sh/8rmh83y1","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1210,551,170,25]}
+{"kind":"textbox","id":"sh/yxkfi9wz","slide":2,"name":"Query D","text":"Query D","textPreview":"Query D","textChars":7,"textLines":1,"bbox":[40,649,155,29]}
+{"kind":"textbox","id":"sh/zytgbexk","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[40,685,160,27]}
+{"kind":"shape","id":"sh/0j2xkje5","slide":2,"bbox":[205,626,180,116]}
+{"kind":"textbox","id":"sh/lkbyd4fq","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[210,661,170,28]}
+{"kind":"textbox","id":"sh/qt0fepw3","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[210,690,170,25]}
+{"kind":"shape","id":"sh/bu9w7uxo","slide":2,"bbox":[405,626,180,116]}
+{"kind":"textbox","id":"sh/cv2xgzet","slide":2,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[410,661,170,28]}
+{"kind":"textbox","id":"sh/dwbe94fe","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[410,690,170,25]}
+{"kind":"shape","id":"sh/2p0fapwr","slide":2,"bbox":[605,626,180,116]}
+{"kind":"textbox","id":"sh/3q9w3uxc","slide":2,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[610,661,170,28]}
+{"kind":"textbox","id":"sh/ret8r2dk","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[610,690,170,25]}
+{"kind":"shape","id":"sh/6tk7yxcz","slide":2,"bbox":[805,626,180,116]}
+{"kind":"textbox","id":"sh/tgvqtcva","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[810,661,170,28]}
+{"kind":"textbox","id":"sh/sf2p07up","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[810,690,170,25]}
+{"kind":"shape","id":"sh/jqt8nid8","slide":2,"bbox":[1005,626,180,116]}
+{"kind":"textbox","id":"sh/ipk7udcn","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1010,661,170,28]}
+{"kind":"textbox","id":"sh/5sbqpsve","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1010,690,170,25]}
+{"kind":"shape","id":"sh/4r2pwnut","slide":2,"bbox":[1205,626,180,116]}
+{"kind":"textbox","id":"sh/3md8zmtc","slide":2,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1210,661,170,28]}
+{"kind":"textbox","id":"sh/2l4r6hc7","slide":2,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1210,690,170,25]}
+{"kind":"shape","id":"sh/kry50jap","slide":2,"bbox":[35,784,1370,1]}
+{"kind":"textbox","id":"sh/ls7mtobu","slide":2,"name":"Class legend","text":"Class legend","textPreview":"Class legend","textChars":12,"textLines":1,"bbox":[40,799,160,28]}
+{"kind":"shape","id":"sh/ypgny9sj","slide":2,"bbox":[220,805,20,20]}
+{"kind":"textbox","id":"sh/zqp4ret4","slide":2,"name":"Background","text":"Background","textPreview":"Background","textChars":10,"textLines":1,"bbox":[250,798,180,30]}
+{"kind":"shape","id":"sh/8vy54jal","slide":2,"bbox":[455,805,20,20]}
+{"kind":"textbox","id":"sh/9w76xob6","slide":2,"name":"Intact","text":"Intact","textPreview":"Intact","textChars":6,"textLines":1,"bbox":[485,798,180,30]}
+{"kind":"shape","id":"sh/mtgn29sf","slide":2,"bbox":[690,805,20,20]}
+{"kind":"textbox","id":"sh/7up4vet0","slide":2,"name":"Damaged","text":"Damaged","textPreview":"Damaged","textChars":7,"textLines":1,"bbox":[720,798,180,30]}
+{"kind":"shape","id":"sh/wzi583ah","slide":2,"bbox":[925,805,20,20]}
+{"kind":"textbox","id":"sh/hkr618b2","slide":2,"name":"Destroyed","text":"Destroyed","textPreview":"Destroyed","textChars":9,"textLines":1,"bbox":[955,798,180,30]}
+{"kind":"textbox","id":"sh/uxwf6xgz","slide":2,"name":"Use verified cases, including failure cases. Neutral query labels make no claim about module effectiveness.","text":"Use verified cases, including failure cases. Neutral query labels make no claim about module effectiveness.","textPreview":"Use verified cases, including failure cases. Neutral query labels make no claim about module effectiveness.","textChars":107,"textLines":1,"bbox":[35,855,1370,25]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"预测对比模板。仅保留RGB、SAR、GT、像素基线、加区域、加区域和Memory六列。与机制页共享Query A。其余Query B-D根据实际结果选择，至少纳入真实失败或退化案例，不事先设定哪个模块一定有效。删除原模板Region effect/Memory effect等先验结论性行标签。每行同裁剪范围和尺度。模型间预算/父权重/评估协议需要可比，否则只能称版本差异，不能作模块因果归因。预测图必须来自真实模型输出，不使用参考论文GT冒充。本页不显示检索案例、分区过程、注意力或结构模块，避免与机制页及主图重复。类别配色需与实际class ID对应。"}

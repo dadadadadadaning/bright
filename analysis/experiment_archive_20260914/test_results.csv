@@ -1,0 +1,14 @@
+﻿model,source,valid_miou_pct,miou4_pct,damaged_iou_pct,destroyed_iou_pct,damaged_f1_pct,event_mean_miou4_pct,test_access_explicit,source_kind
+A2_M1_independent_test,D:\software\dowmload\BRIGHT-train-logs\A2_DCSM\A2_M1_independent_test.log,54.5258,,,,,,False,test_log
+CCU_C0_independent_test,D:\software\dowmload\BRIGHT-train-logs\CCU_BDA\CCU_C0_independent_test.log,48.7753,,,,,,False,test_log
+CCU_E1_independent_test,D:\software\dowmload\BRIGHT-train-logs\CCU_BDA\CCU_E1_independent_test.log,56.1074,,,,,,False,test_log
+CCU_E3_independent_test,D:\software\dowmload\BRIGHT-train-logs\CCU_BDA\CCU_E3_independent_test.log,56.0924,,,,,,False,test_log
+H10_H3_independent_test,D:\software\dowmload\BRIGHT-train-logs\H10_H3D\H10_H3_independent_test.log,56.0103,,,,,,False,test_log
+H11_T1_independent_test,D:\software\dowmload\BRIGHT-train-logs\H11_SATR\H11_T1_independent_test.log,55.9975,,,,,,False,test_log
+H11_T1E_independent_test,D:\software\dowmload\BRIGHT-train-logs\H11_SATR\H11_T1E_independent_test.log,55.985,,,,,,False,test_log
+H6_A2_independent_test,D:\software\dowmload\BRIGHT-train-logs\H6_SDCR\H6_A2_independent_test.log,56.1105,,,,,,True,test_log
+H6_A3_independent_test,D:\software\dowmload\BRIGHT-train-logs\H6_SDCR\H6_A3_independent_test.log,56.1141,,,,,,True,test_log
+H6_B1R_seed7777_final_test,D:\software\dowmload\BRIGHT-train-logs\H6_SDCR\H6_B1R_seed7777_final_test.log,57.41,,,,,,True,test_log
+H8_C1_independent_test,D:\software\dowmload\BRIGHT-train-logs\H8_BCSC\H8_C1_independent_test.log,56.1105,,,,,,False,test_log
+S8_IA_MLA,D:\software\dowmload\BRIGHT-eval-results\S8_pair\test\S8_IA_MLA\summary_official.json,45.35046042605014,57.88627536931516,25.787687013168092,42.8934161343482,41.00192574567097,41.98666083529424,True,official_summary
+S8_MICB_DSMIL_P3,D:\software\dowmload\BRIGHT-eval-results\S8_pair\test\S8_MICB_DSMIL_P3\summary_official.json,57.40859816060846,67.27251282365194,40.08573282819599,56.90401250012358,57.23028608110713,52.61388657499533,True,official_summary

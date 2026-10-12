@@ -1,0 +1,28 @@
+{
+  "protocol": "P5_ABLATION_VALIDATION_v1",
+  "data_policy": {
+    "train_list": "dataset/splitname/standard_ML/train_set.txt",
+    "validation_list": "dataset/splitname/standard_ML/val_set.txt",
+    "test_access": "forbidden_during_ablation",
+    "sar_statistics": "train_only_frozen"
+  },
+  "fixed_training": {
+    "seed": 3407,
+    "crop_size": 640,
+    "train_batch_size": 4,
+    "accumulation_steps": 4,
+    "effective_batch_size": 16,
+    "pilot_optimizer_steps": 5000,
+    "sar_learning_rate": 0.0001,
+    "fusion_learning_rate": 0.0001,
+    "core_learning_rate": 0.000001,
+    "amp_dtype": "bf16"
+  },
+  "experiments": {
+    "E0": {"architecture": "P3", "training": false},
+    "E1": {"variant": "c0", "decoder": "flat", "sar": "native_raw_repeated"},
+    "E2": {"variant": "c1", "decoder": "flat", "sar": "fixed_filter_bank"},
+    "E3": {"variant": "c2", "decoder": "flat", "fusion": "local_cross_attention"},
+    "E4": {"variant": "c2", "decoder": "occurrence_severity", "fusion": "local_cross_attention"}
+  }
+}

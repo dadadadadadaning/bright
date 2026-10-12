@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "experiment_id": "S9-Ic-G3",
+  "inherits_training_from": "S9Ic_G2.json",
+  "controlled_change": "enable_rollback_only",
+  "decoder": {
+    "watershed_enabled": true,
+    "boundary_gate_enabled": true,
+    "rollback_enabled": true,
+    "boundary_gate_threshold": 0.35,
+    "rollback_min_child_ratio": 0.05,
+    "watershed_boundary_weight": 0.5
+  },
+  "invariants": {
+    "s8_strict_loaded_and_frozen": true,
+    "feature_key": "fused_roi",
+    "feature_channels": 256,
+    "center_target": "one_deterministic_gaussian_per_complete_instance",
+    "center_loss": "centernet_modified_focal",
+    "native_nms_kernel": 3,
+    "test_access": false
+  }
+}

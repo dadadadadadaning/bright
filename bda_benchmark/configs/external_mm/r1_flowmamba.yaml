@@ -1,0 +1,8 @@
+experiment: r1_flowmamba
+official_source: third_party/FlowMamba
+optimizer_steps: 3000
+eval_every: 500
+save_every: 1000
+effective_batch_size: 16
+loss: {ce: 1.0, lovasz: 0.75, distance: 0.0}
+test_locked: true

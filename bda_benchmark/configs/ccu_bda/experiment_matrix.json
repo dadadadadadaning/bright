@@ -1,0 +1,105 @@
+{
+  "protocol": "CCU_BDA_experiment_matrix_v1",
+  "research_question": "Can RGB and SAR be unified only where local correspondence is reliable and unchanged, while preserving reliable damage evidence and rejecting unreliable SAR?",
+  "fixed_contract": {
+    "rgb_channels": 3,
+    "sar_channels": 1,
+    "sar_normalization": "train_split_only_p01_p99_mean_std",
+    "rgb_localization": "rgb_only",
+    "optimizer": "AdamW",
+    "effective_batch_size": 16,
+    "losses": [
+      "localization_cross_entropy",
+      "localization_lovasz",
+      "damage_cross_entropy",
+      "damage_lovasz",
+      "sar_auxiliary_cross_entropy"
+    ],
+    "teacher": false,
+    "distillation": false,
+    "prototype_memory": false,
+    "image_translation": false,
+    "test_is_selector": false
+  },
+  "variants": {
+    "c0": {
+      "name": "ModalitySpecific-LateFusion",
+      "independent_encoders": true,
+      "global_unification": false,
+      "local_correlation": false,
+      "change_conditioning": false,
+      "hierarchical_severity": false,
+      "source": null
+    },
+    "c1": {
+      "name": "Unconditional-GlobalUnification",
+      "independent_encoders": true,
+      "global_unification": true,
+      "local_correlation": false,
+      "change_conditioning": false,
+      "hierarchical_severity": false,
+      "source": null
+    },
+    "c2": {
+      "name": "BuildingLocal-Correlation",
+      "independent_encoders": true,
+      "global_unification": false,
+      "local_correlation": "stage3_stage4_window5_top9",
+      "change_conditioning": false,
+      "hierarchical_severity": false,
+      "source": null
+    },
+    "c3": {
+      "name": "ChangeConditioned-Unification",
+      "independent_encoders": true,
+      "global_unification": false,
+      "local_correlation": "stage3_stage4_window5_top9",
+      "change_conditioning": true,
+      "hierarchical_severity": false,
+      "source": "c2_best_validation"
+    },
+    "c4": {
+      "name": "Hierarchical-DamageAssessment",
+      "independent_encoders": true,
+      "global_unification": false,
+      "local_correlation": "stage3_stage4_window5_top9",
+      "change_conditioning": true,
+      "hierarchical_severity": true,
+      "source": "c3_best_validation"
+    }
+  },
+  "primary_metrics": [
+    "miou4",
+    "valid_miou",
+    "intact_iou",
+    "damaged_iou",
+    "destroyed_iou",
+    "loc_f1",
+    "damaged_to_intact",
+    "destroyed_to_intact",
+    "event_mean_official_style_4class_miou",
+    "event_worst_official_style_4class_miou"
+  ],
+  "diagnostics": [
+    "correlation_entropy",
+    "correlation_peak",
+    "correlation_margin",
+    "offset_magnitude",
+    "cycle_error",
+    "cycle_consistency",
+    "reliability",
+    "change_probability",
+    "unchanged_gate",
+    "changed_gate",
+    "rejected_gate",
+    "conditional_transition",
+    "hierarchy_transition"
+  ],
+  "pilot_gate": {
+    "damaged_iou_above_c0": true,
+    "event_mean_above_c0": true,
+    "nonnegative_validation_events_minimum": 10,
+    "destroyed_iou_must_not_regress": true,
+    "diagnostics_must_be_finite_and_nonconstant": true
+  }
+}

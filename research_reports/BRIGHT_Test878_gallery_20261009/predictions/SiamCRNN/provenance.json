@@ -1,0 +1,39 @@
+{
+  "name": "SiamCRNN",
+  "factory": "bda_benchmark.model.SiamCRNN:SiamCRNN",
+  "kwargs": {},
+  "input_mode": "pair",
+  "output_index": 1,
+  "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamCRNN_standard_ML_split.pth",
+  "enabled": true,
+  "sha256": "3ea5c6e720f0dcde66d0a37e12d3ab7e2305c83c30c9806b17e1f45af79f1cc0",
+  "status": "complete",
+  "confusion_visual_subset": [
+    [
+      5264473,
+      118352,
+      43430,
+      23680
+    ],
+    [
+      124546,
+      545324,
+      70099,
+      16409
+    ],
+    [
+      57820,
+      122409,
+      224678,
+      12941
+    ],
+    [
+      94964,
+      203047,
+      54150,
+      167102
+    ]
+  ],
+  "split": "test",
+  "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+}

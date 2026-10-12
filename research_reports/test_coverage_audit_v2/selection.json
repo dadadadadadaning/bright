@@ -1,0 +1,22 @@
+{
+  "protocol": "four_class_test_visual_subset",
+  "split": "test",
+  "filters": {
+    "data": "F:/建筑损毁分类数据集",
+    "output": "research_reports/test_coverage_audit_v2",
+    "split": "test",
+    "allow_test": true,
+    "crop": 512,
+    "crops": null,
+    "audit_only": true,
+    "stride": 128,
+    "per_event": 2,
+    "min_class_pixels": 512,
+    "min_background": 1024,
+    "min_component": 128,
+    "max_dark": 0.1,
+    "max_cloud_component": 0.01
+  },
+  "note": "All four GT IDs present with area thresholds. RGB cloud heuristic ONLY. Human cloud/shadow review required. This subset is NOT full split performance.",
+  "samples": []
+}

@@ -1,0 +1,15 @@
+﻿event,location,date,latitude,longitude,disaster_type,cause,sample_count
+marshall-wildfire,"Colorado, USA","Dec 30, 2021",39.96,-105.17,Wildfire,Natural,77
+hawaii-wildfire,"Maui, Hawaii, USA","Aug 08, 2023",20.8,-156.33,Wildfire,Natural,65
+mexico-hurricane,"Acapulco, Mexico","Oct 25, 2023",16.85,-99.91,Hurricane,Natural,212
+haiti-earthquake,"Les Cayes, Haiti","Aug 14, 2021",18.2,-73.75,Earthquake,Natural,73
+la_palma-volcano,"La Palma, Spain","Sep 19, 2021",28.68,-17.86,Volcano eruption,Natural,933
+morocco-earthquake,Morocco,"Sep 08, 2023",31.07,-8.41,Earthquake,Natural,567
+bata-explosion,"Bata, Equatorial Guinea","Mar 07, 2021",1.86,9.77,Explosion,Man-made,107
+congo-volcano,"Goma, DR Congo","May 22, 2021",-1.66,29.22,Volcano eruption,Natural,123
+libya-flood,"Derna, Libya","Sep 11, 2023",32.77,22.64,Flood,Natural,124
+beirut-explosion,"Beirut, Lebanon","Aug 04, 2020",33.89,35.5,Explosion,Man-made,133
+turkey-earthquake,Türkiye,"Feb 06, 2023",37.17,37.03,Earthquake,Natural,1114
+ukraine-conflict,Ukraine,2022,48.4,37.8,Armed conflict,Man-made,513
+myanmar-hurricane,Myanmar,"May 14, 2023",20.15,92.9,Hurricane,Natural,126
+noto-earthquake,"Noto, Japan","Jan 01, 2024",37.5,137.3,Earthquake,Natural,79

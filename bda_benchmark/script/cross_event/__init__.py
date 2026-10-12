@@ -1,0 +1,2 @@
+"""Cross-event adaptation entries."""
+

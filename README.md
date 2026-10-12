@@ -1,0 +1,202 @@
+<div align="center">
+<h1 align="center">☀️BRIGHT☀️</h1>
+
+<h3>BRIGHT: A globally distributed multimodal VHR dataset for all-weather disaster response</h3>
+
+
+[Hongruixuan Chen](https://scholar.google.ch/citations?user=XOk4Cf0AAAAJ&hl=zh-CN&oi=ao)<sup>1,2</sup>, [Jian Song](https://scholar.google.ch/citations?user=CgcMFJsAAAAJ&hl=zh-CN)<sup>1,2</sup>, [Olivier Dietrich](https://scholar.google.ch/citations?user=st6IqcsAAAAJ&hl=de)<sup>3</sup>, [Clifford Broni-Bediako](https://scholar.google.co.jp/citations?user=Ng45cnYAAAAJ&hl=en)<sup>2</sup>, [Weihao Xuan](https://scholar.google.com/citations?user=7e0W-2AAAAAJ&hl=en)<sup>1,2</sup>, [Junjue Wang](https://scholar.google.com.hk/citations?user=H58gKSAAAAAJ&hl=en)<sup>1</sup>  
+[Xinlei Shao](https://scholar.google.com/citations?user=GaRXJFcAAAAJ&hl=en)<sup>1</sup>, [Yimin Wei](https://www.researchgate.net/profile/Yimin-Wei-9)<sup>1,2</sup>, [Junshi Xia](https://scholar.google.com/citations?user=n1aKdTkAAAAJ&hl=en)<sup>3</sup>, [Cuiling Lan](https://scholar.google.com/citations?user=XZugqiwAAAAJ&hl=zh-CN)<sup>4</sup>, [Konrad Schindler](https://scholar.google.com/citations?user=FZuNgqIAAAAJ&hl=en)<sup>3</sup>, [Naoto Yokoya](https://scholar.google.co.jp/citations?user=DJ2KOn8AAAAJ&hl=en)<sup>1,2 *</sup>
+
+
+<sup>1</sup> The University of Tokyo, <sup>2</sup> RIKEN AIP,  <sup>3</sup> ETH Zurich,  <sup>4</sup> Microsoft Research Asia
+
+[![ESSD paper](https://img.shields.io/badge/ESSD-paper-cyan)](https://essd.copernicus.org/articles/17/6217/2025/essd-17-6217-2025.html) [![Zenodo Dataset](https://img.shields.io/badge/Zenodo-Dataset-blue)](https://zenodo.org/records/14619797)   [![HuggingFace Dataset](https://img.shields.io/badge/HuggingFace-Dataset-yellow)](https://huggingface.co/datasets/Kullervo/BRIGHT) [![Zenodo Model](https://img.shields.io/badge/Zenodo-Model-green)](https://zenodo.org/records/15349462) ![visitors](https://visitor-badge.laobi.icu/badge?page_id=ChenHongruixuan.BRIGHT&left_color=%2363C7E6&right_color=%23CEE75F)
+
+
+[**Overview**](#overview) | [**Start BRIGHT**](#%EF%B8%8Flets-get-started-with-bright) | [**Common Issues**](#common-issues) | [**Follow-Ups**](#works-based-on-bright) | [**Others**](#q--a) 
+
+
+</div>
+
+## 🛎️Updates
+* **` Notice☀️☀️`**: BRIGHT has been accepted by [ESSD](https://essd.copernicus.org/articles/17/6217/2025/essd-17-6217-2025.html)!! The contents related to IEEE GRSS DFC 2025 have been transferred to [here](bda_benchmark/README_DFC25.md)!!
+* **` Mar 25th, 2026`**: [Bright challenge: advancing multimodal building damage mapping to instance level](https://chrx97.com/challenge.html) on CVPRW 2026 is now open. You can download the [instance labels](https://zenodo.org/records/14619797), run our [baseline code](https://github.com/ChenHongruixuan/BRIGHT/tree/master/cvprw26) and submit your results on [Codabench page](https://www.codabench.org/competitions/15134/) now!!
+* **` Nov 18th, 2025`**: BRIGHT has been accepted by [ESSD and online available](https://essd.copernicus.org/articles/17/6217/2025/essd-17-6217-2025.html) now!!
+* **` Aug 12th, 2025`**: BRIGHT has been integrated into [TorChange](https://github.com/Z-Zheng/pytorch-change-models). Many thanks for the effort of [Dr. Zhuo Zheng](https://zhuozheng.top/)!!
+* **` May 05th, 2025`**: All the data and benchmark code related to our paper has now released. You are warmly welcome to use them!!
+* **` Apr 28th, 2025`**: IEEE GRSS DFC 2025 Track II is over. Congratulations to [winners](https://www.grss-ieee.org/community/technical-committees/winners-of-the-2025-ieee-grss-data-fusion-contest-all-weather-land-cover-and-building-damage-mapping/)!! You can now download the full version of DFC 2025 Track II data in [Zenodo](https://zenodo.org/records/14619797) or [HuggingFace](https://huggingface.co/datasets/Kullervo/BRIGHT)!! 
+* **` Jan 18th, 2025`**: BRIGHT has been integrated into [TorchGeo](https://github.com/microsoft/torchgeo). Many thanks for the effort of [Nils Lehmann](https://github.com/nilsleh)!!
+* **` Jan 13th, 2025`**: The [arXiv paper](https://arxiv.org/abs/2501.06019) of BRIGHT is now online. If you are interested in details of BRIGHT, do not hesitate to take a look!!
+
+## 🔭Overview
+
+* [**BRIGHT**](https://essd.copernicus.org/articles/17/6217/2025/essd-17-6217-2025.html) is the first open-access, globally distributed, event-diverse multimodal dataset specifically curated to support AI-based disaster response. It covers **five** types of natural disasters and **two** types of man-made disasters across **14** disaster events in **23** regions worldwide, with a particular focus on developing countries. 
+
+
+* It supports not only the development of **supervised** deep models, but also the testing of their performance on **cross-event transfer** setup, as well as **unsupervised domain adaptation**, **semi-supervised learning**, **unsupervised change detection**, and **unsupervised image matching** methods in multimodal and disaster scenarios.
+
+<p align="center">
+  <img src="./figure/overall.jpg" alt="accuracy" width="97%">
+</p>
+
+
+
+
+## 🗝️Let's Get Started with BRIGHT!
+### `A. Installation`
+
+Note that the code in this repo runs under **Linux** system. We have not tested whether it works under other OS.
+
+**Step 1: Clone the repository:**
+
+Clone this repository and navigate to the project directory:
+```bash
+git clone https://github.com/ChenHongruixuan/BRIGHT.git
+cd BRIGHT
+```
+
+**Step 2: Environment Setup:**
+
+It is recommended to set up a conda environment and installing dependencies via pip. Use the following commands to set up your environment:
+
+***Create and activate a new conda environment***
+
+```bash
+conda create -n bright-benchmark
+conda activate bright-benchmark
+```
+
+***Install dependencies***
+
+```bash
+pip install -r requirements.txt
+```
+
+
+
+### `B. Data Preparation`
+Please download the BRIGHT from [Zenodo](https://zenodo.org/records/14619797) or [HuggingFace](https://huggingface.co/datasets/Kullervo/BRIGHT). Note that we cannot redistribute the optical data over Ukraine, Myanmar, and Mexico. Please follow our [tutorial](./tutorial.md) to download and preprocess them. 
+
+After the data has been prepared, please make them have the following folder/file structure:
+```
+${DATASET_ROOT}   # Dataset root directory, for example: /home/username/data/bright
+│
+├── pre-event
+│    ├──bata-explosion_00000000_pre_disaster.tif
+│    ├──bata-explosion_00000001_pre_disaster.tif
+│    ├──bata-explosion_00000002_pre_disaster.tif
+│   ...
+│
+├── post-event
+│    ├──bata-explosion_00000000_post_disaster.tif
+│    ... 
+│
+└── target
+     ├──bata-explosion_00000000_building_damage.tif 
+     ...   
+```
+
+### `C. Model Training & Tuning`
+
+The following commands show how to train and evaluate UNet on the BRIGHT dataset using our standard ML split set in [`bda_benchmark/dataset/splitname/standard_ML`]:
+
+```bash
+python script/standard_ML/train_UNet.py --dataset 'BRIGHT' \
+                                        --train_batch_size 16 \
+                                        --eval_batch_size 4 \
+                                        --num_workers 16 \
+                                        --crop_size 640 \
+                                        --max_iters 800000 \
+                                        --learning_rate 1e-4 \
+                                        --model_type 'UNet' \
+                                        --model_param_path '<your model checkpoint saved path>' \
+                                        --train_dataset_path '<your dataset path>' \
+                                        --train_data_list_path '<your project path>/bda_benchmark/dataset/splitname/standard_ML/train_set.txt' \
+                                        --val_dataset_path '<your dataset path>' \
+                                        --val_data_list_path '<your project path>/bda_benchmark/dataset/splitname/standard_ML/val_set.txt' \
+                                        --test_dataset_path '<your dataset path>' \
+                                        --test_data_list_path '<your project path>/bda_benchmark/dataset/splitname/standard_ML/test_set.txt' 
+```
+
+
+### `D. Inference & Evaluation`
+Then, you can run the following code to generate raw & visualized prediction results and evaluate performance using the saved weight. You can also download our provided checkpoints from [Zenodo](https://zenodo.org/records/15349462).
+
+```bash
+python script/standard_ML/infer_UNet.py --model_path  '<path of the checkpoint of model>' \
+                                        --test_dataset_path '<your dataset path>' \
+                                        --test_data_list_path '<your project path>/bda_benchmark/dataset/splitname/standard_ML/test_set.txt' \
+                                        --output_dir '<your inference results saved path>'
+```
+
+### `E. Other Benchmarks & Setup`
+In addition to the above supervised deep models, BRIGHT also provides standardized evaluation setups for several important learning paradigms and multimodal EO tasks:
+
+* [`Cross-event transfer setup`](bda_benchmark/README_cross_event.md): Evaluate model generalization across disaster types and regions. This setup simulates real-world scenarios where no labeled data (**zero-shot**) or limited labeled data (**one-shot**) is available for the target event during training. 
+
+* [`Unsupervised domain adaptation`](bda_benchmark/README_cross_event.md): Adapt models trained on source disaster events to unseen target events without any target labels, using UDA techniques under the **zero-shot** cross-event setting.
+
+* [`Semi-supervised learning`](bda_benchmark/README_cross_event.md): Leverage a small number of labeled samples and a larger set of unlabeled samples from the target event to improve performance under the **one-shot** cross-event setting.
+
+* [`Unsupervised multimodal change detection`](umcd_benchmark/README.md): Detect disaster-induced building changes without using any labels. This setup supports benchmarking of general-purpose change detection algorithms under realistic large-scale disaster scenarios.
+
+* [`Unsupervised multimodal image matching`](umim_benchmark/README.md): Evaluate the performance of matching algorithms in aligning **raw, large-scale** optical and SAR images based on **manual-control-point**-based registration accuracy. This setup focuses on realistic multimodal alignment in disaster-affected areas.
+
+* [`IEEE GRSS DFC 2025 Track II`](bda_benchmark/README_DFC25.md): The Track II of [IEEE GRSS DFC 2025](https://www.grss-ieee.org/technical-committees/image-analysis-and-data-fusion/) aims to develop robust and generalizable methods for assessing building damage using bi-temporal multimodal images on unseen disaster events.
+
+
+
+## 🤔Common Issues
+Based on peers' questions from [issue section](https://github.com/ChenHongruixuan/BRIGHT/issues), here's a quick navigate list of solutions to some common issues.
+
+| Issue | Solution | 
+| :---: | :---: | 
+|  Complete data of DFC25 for research |   The labels for validation and test sets of DFC25 have been uploaded to [Zenodo](https://zenodo.org/records/14619797) and [HuggingFace](https://huggingface.co/datasets/Kullervo/BRIGHT).     |
+|  Python package conflicts   |   The baseline code is not limited to a specific version, and participants do not need to match the version we provide.     |
+
+<!-- ## 📜Follow-Up Works
+| Paper | Publication date | Venue | Link |
+| :-- | :--: | :-- | :-- | -->
+
+
+
+<a name="works-based-on-bright"></a>
+## 🏢 Works Building on BRIGHT
+
+We are delighted to see BRIGHT supporting various research directions. Below is a curated list of papers, benchmarks, and projects that build upon or integrate BRIGHT.
+
+| Work | Category | Venue | Link | Key Contribution |
+| :--- | :--- | :--- | :--- | :--- |
+| [CDML](https://ieeexplore.ieee.org/document/11359959) | Algorithm & Benchmark  | IEEE TPAMI  2026 | [Code](https://github.com/lyxdlut/CDML) | Proposed a first-order cross-domain meta-learning framework for few-shot remote sensing classification |
+| [SARCLIP](https://www.sciencedirect.com/science/article/abs/pii/S0924271625004058?casa_token=Me5Re2GtLtkAAAAA:GSuTBIYOaUZca12HXxUV2ZEeASsz9-TD6u7F5iqh4GIu3j0Vq2vXLc5Jz4thAdYpS1VmZtfZuks) | Algorithm & Benchmark | ISPRS J P&RS 2025 | [Data & Code](https://github.com/CAESAR-Radi/SARCLIP) | Proposed multimodal foundation model (SARCLIP) and 400k dataset for SAR analysis |
+| [DisasterM3](https://arxiv.org/abs/2505.21089) | Benchmark | NeurIPS 2025 | [Data & Code](https://github.com/Junjue-Wang/DisasterM3) | Constructed DisasterM3, a multi-sensor vision-language dataset (123k pairs) for VLM-based disaster response |
+| [SARLANG-1M](https://ieeexplore.ieee.org/document/11341914) | Benchmark | IEEE TGRS 2026 | [Data & Code](https://github.com/Jimmyxichen/SARLANG-1M) | Constructed a large-scale SAR-text benchmark (1M+ pairs) for multimodal understanding |
+| [IM4CD](https://www.sciencedirect.com/science/article/pii/S0924271626000559) | Algorithm  | ISPRS J P&RS 2026 | - | Proposed an unsupervised framework that unifies multimodal change detection and image matching to robustly identify changes across different modalities |
+| [FlowMamba](https://ieeexplore.ieee.org/document/11299103) | Algorithm  | IEEE TCSVT  2026 | [Code](https://github.com/flying318/FlowMamba) | Proposed a Mamba-based network handling image misalignment for building damage assessment |
+| [DSTCD](https://www.sciencedirect.com/science/article/pii/S1569843226000166) | Algorithm  | JAG 2026 | [Code](https://github.com/Lucky-DW/DSTCD) | Proposed a dual-stage framework transferring registration features for few-shot optical-SAR change detection in disaster monitoring |
+| [DDCL-GAN](https://www-sciencedirect-com.utokyo.idm.oclc.org/science/article/pii/S095741742504610X) | Algorithm | ESWA 2026 |  | Proposed a dual-domain contrastive learning framework for unsupervised multimodal change detection |
+| [CDPrompt](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11124938) | Algorithm | IEEE TGRS 2025 | [Data & Code](https://github.com/zhanglimeng13/CDPrompt) | Proposed CDPrompt framework and Bright-Extended dataset for multimodal change detection |
+| [TSIG-GAN](https://www.tandfonline.com/doi/full/10.1080/15481603.2025.2565866) | Algorithm | GIS&RS 2025 | - | Proposed TSIG-GAN for fine-grained multimodal change detection via texture-structure interaction |
+| [DCIBCD](https://www.sciencedirect.com/science/article/abs/pii/S0957417425038254?casa_token=onOKvc35UFgAAAAA:RhYaQq7-C3igbXqZn1-9vJNg6wCw-XoDytNaiytUeUL4xVscWkAXyPM1OluFmovaAP09aAni-KI) | Algorithm | ESWA 2025 | [Code](https://github.com/AIBox-IMU/Computer-Vision/tree/main/DCIBCD) | Proposed a dual-branch model mitigating bidirectional interference in change detection |
+
+## 📜Reference
+
+If this dataset or code contributes to your research, please kindly consider citing our paper and give this repo ⭐️ :)
+```
+@Article{Chen2025Bright,
+    AUTHOR = {Chen, H. and Song, J. and Dietrich, O. and Broni-Bediako, C. and Xuan, W. and Wang, J. and Shao, X. and Wei, Y. and Xia, J. and Lan, C. and Schindler, K. and Yokoya, N.},
+    TITLE = {\textsc{Bright}: a globally distributed multimodal building damage assessment dataset with very-high-resolution for all-weather disaster response},
+    JOURNAL = {Earth System Science Data},
+    VOLUME = {17},
+    YEAR = {2025},
+    NUMBER = {11},
+    PAGES = {6217--6253},
+    DOI = {10.5194/essd-17-6217-2025}
+}
+```
+
+## 🤝Acknowledgments
+The authors would also like to give special thanks to [Sarah Preston](https://www.linkedin.com/in/sarahjpreston/) of Capella Space, [Capella Space's Open Data Gallery](https://www.capellaspace.com/earth-observation/gallery), [Maxar Open Data Program](https://www.maxar.com/open-data) and [Umbra Space's Open Data Program](https://umbra.space/open-data/) for providing the valuable data.
+
+## 🙋Q & A
+***For any questions, please feel free to leave it in the [issue section](https://github.com/ChenHongruixuan/BRIGHT/issues) or [contact us.](mailto:Qschrx@gmail.com)***

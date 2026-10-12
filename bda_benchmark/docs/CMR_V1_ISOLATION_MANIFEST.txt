@@ -1,0 +1,24 @@
+CMR-V1 isolated additions only
+
+ADDED:
+model/cmr_v1/__init__.py
+model/cmr_v1/set_matcher.py
+model/cmr_v1/region_cache.py
+model/cmr_v1/replay.py
+script/standard_ML/cmr_v1/__init__.py
+script/standard_ML/cmr_v1/audit_top20_complement.py
+script/standard_ML/cmr_v1/build_region_cache.py
+script/standard_ML/cmr_v1/build_token_cache.py
+script/standard_ML/cmr_v1/audit_set_verifier.py
+script/standard_ML/cmr_v1/summarize_matchers.py
+tests/cmr_v1/__init__.py
+tests/cmr_v1/test_set_matcher.py
+tests/cmr_v1/test_replay.py
+tests/cmr_v1/test_region_cache.py
+tests/cmr_v1/test_complement_audit.py
+configs/cmr_v1/paths.example.env
+run/run_CMR_V1_isolated.sh
+docs/CMR_V1_ISOLATED_ZH.md
+docs/CMR_V1_ISOLATION_MANIFEST.txt
+
+NO existing CMR file is overwritten by this integration.

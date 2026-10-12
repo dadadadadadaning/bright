@@ -1,0 +1,37 @@
+{"kind":"deck","id":"pr/6n6icj","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"建筑内区域划分：真实影像对照与评价边界","textShapes":20}
+{"kind":"textbox","id":"sh/h072l4jy","slide":1,"text":"建筑内区域划分：真实影像对照与评价边界","textPreview":"建筑内区域划分：真实影像对照与评价边界","textChars":19,"textLines":1,"bbox":[30,22,1380,55]}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"text":"目的：检查固定网格与内容分区如何组织同一栋建筑，为后续区域聚合选择表示方式","textPreview":"目的：检查固定网格与内容分区如何组织同一栋建筑，为后续区域聚合选择表示方式","textChars":37,"textLines":1,"bbox":[30,83,1380,40]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"text":"灾前 RGB","textPreview":"灾前 RGB","textChars":6,"textLines":1,"bbox":[30,135,218,36]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"text":"灾后 SAR","textPreview":"灾后 SAR","textChars":6,"textLines":1,"bbox":[263,135,218,36]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"text":"GT 建筑轮廓","textPreview":"GT 建筑轮廓","textChars":7,"textLines":1,"bbox":[496,135,218,36]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"text":"规则网格","textPreview":"规则网格","textChars":4,"textLines":1,"bbox":[729,135,218,36]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"text":"RGB SLIC 分区","textPreview":"RGB SLIC 分区","textChars":11,"textLines":1,"bbox":[962,135,218,36]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"text":"选中区域","textPreview":"选中区域","textChars":4,"textLines":1,"bbox":[1195,135,218,36]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"text":"土耳其地震  turkey-earthquake_00000012","textPreview":"土耳其地震  turkey-earthquake_00000012","textChars":33,"textLines":1,"bbox":[30,175,950,32]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"text":"网格 6 区 / SLIC 6 区","textPreview":"网格 6 区 / SLIC 6 区","textChars":17,"textLines":1,"bbox":[1110,175,300,32]}
+{"kind":"textbox","id":"sh/3qxwn2x8","slide":1,"text":"巴塔爆炸  bata-explosion_00000007","textPreview":"巴塔爆炸  bata-explosion_00000007","textChars":29,"textLines":1,"bbox":[30,440,950,32]}
+{"kind":"textbox","id":"sh/sfqdkrep","slide":1,"text":"网格 6 区 / SLIC 7 区","textPreview":"网格 6 区 / SLIC 7 区","textChars":17,"textLines":1,"bbox":[1110,440,300,32]}
+{"kind":"textbox","id":"sh/ozmd8r65","slide":1,"text":"当前能看出什么","textPreview":"当前能看出什么","textChars":7,"textLines":1,"bbox":[30,715,420,38]}
+{"kind":"textbox","id":"sh/nydczmpk","slide":1,"text":"SLIC 随 RGB 外观形成不规则分区\n部分边界细碎，需检查稳定性\n粉色突出选中区域，不代表损毁位置","textPreview":"SLIC 随 RGB 外观形成不规则分区 | 部分边界细碎，需检查稳定性 | 粉色突出选中区域，不代表损毁位置","textChars":51,"textLines":3,"bbox":[30,760,435,135]}
+{"kind":"textbox","id":"sh/mx4v6hoz","slide":1,"text":"怎样检查区域质量","textPreview":"怎样检查区域质量","textChars":8,"textLines":1,"bbox":[505,715,430,38]}
+{"kind":"textbox","id":"sh/p4bu5s76","slide":1,"text":"检查跨楼、背景混入与碎片比例\n控制区域数量，检查连通性与稳定性\n此处用 GT 限制范围，不能验证定位","textPreview":"检查跨楼、背景混入与碎片比例 | 控制区域数量，检查连通性与稳定性 | 此处用 GT 限制范围，不能验证定位","textChars":50,"textLines":3,"bbox":[505,760,435,135]}
+{"kind":"textbox","id":"sh/432dwn6l","slide":1,"text":"怎样证明你的设计有效","textPreview":"怎样证明你的设计有效","textChars":10,"textLines":1,"bbox":[980,715,430,38]}
+{"kind":"textbox","id":"sh/uxgjq907","slide":1,"text":"同预算对比像素、网格与学习区域\n评价 Damaged 的 IoU、精确率和召回率\n检查各事件收益，单独消融 Memory","textPreview":"同预算对比像素、网格与学习区域 | 评价 Damaged 的 IoU、精确率和召回率 | 检查各事件收益，单独消融 Memory","textChars":60,"textLines":3,"bbox":[980,760,430,135]}
+{"kind":"textbox","id":"sh/vyp0je1s","slide":1,"text":"说明：此图为 GT 轮廓约束的 SLIC 对照，尚未运行你的学习区域模块，不能据此宣称本方法有效。","textPreview":"说明：此图为 GT 轮廓约束的 SLIC 对照，尚未运行你的学习区域模块，不能据此宣称本方法有效。","textChars":49,"textLines":1,"bbox":[30,908,1380,34]}
+{"kind":"textbox","id":"sh/wzy1szid","slide":1,"text":"同坐标裁剪，未额外配准。SAR 仅做 1–99% 显示拉伸。巴塔两种分区数量不同，暂不构成严格等数量对照。","textPreview":"同坐标裁剪，未额外配准。SAR 仅做 1–99% 显示拉伸。巴塔两种分区数量不同，暂不构成严格等数量对照。","textChars":53,"textLines":1,"bbox":[30,953,1380,30]}
+{"kind":"image","id":"im/5kjidwzq","slide":1,"name":"","bbox":[30,210,210,210]}
+{"kind":"image","id":"im/kjq1kri5","slide":1,"name":"","bbox":[263,210,210,210]}
+{"kind":"image","id":"im/jih0bmhk","slide":1,"name":"","bbox":[496,210,210,210]}
+{"kind":"image","id":"im/ih8jih0z","slide":1,"name":"","bbox":[729,210,210,210]}
+{"kind":"image","id":"im/t8jihgzm","slide":1,"name":"","bbox":[962,210,210,210]}
+{"kind":"image","id":"im/s7a1obih","slide":1,"name":"","bbox":[1195,210,210,210]}
+{"kind":"image","id":"im/43elgf2p","slide":1,"name":"","bbox":[30,475,210,210]}
+{"kind":"image","id":"im/p4nmp0ju","slide":1,"name":"","bbox":[263,475,210,210]}
+{"kind":"image","id":"im/21c3e5kj","slide":1,"name":"","bbox":[496,475,210,210]}
+{"kind":"image","id":"im/32lkna14","slide":1,"name":"","bbox":[729,475,210,210]}
+{"kind":"image","id":"im/gzulcv2d","slide":1,"name":"","bbox":[962,475,210,210]}
+{"kind":"image","id":"im/h032l0jy","slide":1,"name":"","bbox":[1195,475,210,210]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"来源：F:/建筑损毁分类数据集。[{\"sample_id\":\"turkey-earthquake_00000012\",\"annotation\":\"target_instance_level/turkey-earthquake_00000012_instance_damage.json\",\"instance_id\":15,\"category_id\":1,\"crop_xywh\":[43,803,199,199],\"rgb_member\":\"pre-event/turkey-earthquake_00000012_pre_disaster.tif\",\"sar_member\":\"post-event/turkey-earthquake_00000012_post_disaster.tif\",\"sar_display_percentiles\":[1,165],\"slic_regions\":6,\"grid_regions\":6,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"bata-explosion_00000007\",\"annotation\":\"target_instance_level/bata-explosion_00000007_instance_damage.json\",\"instance_id\":69,\"category_id\":1,\"crop_xywh\":[783,679,216,216],\"rgb_member\":\"pre-event/bata-explosion_00000007_pre_disaster.tif\",\"sar_member\":\"post-event/bata-explosion_00000007_post_disaster.tif\",\"sar_display_percentiles\":[0,182],\"slic_regions\":7,\"grid_regions\":6,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"}]\n用途：区域表示诊断，不是模型效果图。没有真实内部损毁边界标注，不能用这些图验证局部损毁定位准确性。GT辅助区域限制避免跨楼是构造结果，不能作为定位模块成功的证据。颜色同质性只是辅助诊断，不能证明损毁判别更好。建议固定训练预算与父权重比较像素、网格、SLIC及模型学习区域，再对Memory作独立消融。"}

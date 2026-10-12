@@ -1,0 +1,22 @@
+{
+  "protocol": "SPI_RISK_GATE_V1",
+  "primary_question": "Can a risk gate select the complementary corrections contained in a fixed M4 candidate without harming reliable P3 predictions?",
+  "frozen": ["P3", "M4 core-ring adapter"],
+  "trainable": "D4 RiskGate only",
+  "training_labels": "standard-ML semantic TIFF on an event-stratified 90% subset of Train2918",
+  "internal_calibration": "event-stratified 10% subset of Train2918",
+  "primary_validation": "standard-ML Val450 semantic TIFF",
+  "forbidden": ["official instance labels", "test split", "validation labels as gate inputs", "retraining M4 during D0-D5"],
+  "fixed_gate": {
+    "entropy_threshold": 0.5,
+    "entropy_temperature": 0.1,
+    "boundary_radius": 2,
+    "boundary_floor": 0.2
+  },
+  "automatic_sequence": [
+    "Stage-A D0/D1/O1/D2/D3/D5",
+    "D4 gate training only if Stage-A passes",
+    "internal calibration",
+    "Val450 D4 audit only if calibration passes"
+  ]
+}

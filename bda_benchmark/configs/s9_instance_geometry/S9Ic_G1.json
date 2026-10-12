@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "experiment_id": "S9-Ic-G1",
+  "role": "diagnose_center_seed_quality",
+  "s8": {
+    "class": "DamageFormer_S8_MICB_DSMIL",
+    "strict_load": true,
+    "frozen": true,
+    "eval_mode": true,
+    "feature_key": "fused_roi",
+    "feature_channels": 256
+  },
+  "head": {
+    "hidden_channels": 64,
+    "outputs": ["center_logits", "boundary_logits"],
+    "boundary_is_trained": true
+  },
+  "target": {
+    "center": "one_deterministic_gaussian_per_complete_instance",
+    "border_instance_policy": "ignore_center_and_offset",
+    "center_definition": "deterministic_edt_argmax_on_source_mask_then_map",
+    "sigma": "clip(sqrt(native_area/pi)/3, 1, 3)"
+  },
+  "loss": {
+    "center": "centernet_modified_focal",
+    "center_weight": 1.0,
+    "boundary": "bce_plus_dice",
+    "boundary_weight": 1.0
+  },
+  "decoder": {
+    "building_threshold": 0.5,
+    "peak_threshold": 0.35,
+    "nms_kernel": 3,
+    "min_peak_distance_native": 3,
+    "max_markers_per_region": 4,
+    "min_region_area_to_split": 256,
+    "watershed_enabled": true,
+    "boundary_gate_enabled": false,
+    "rollback_enabled": false
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "optimizer_steps": 3000,
+    "accumulation_steps": 4,
+    "crop_size": 640,
+    "amp": "bf16",
+    "seed": 3407,
+    "validation_every": 1000,
+    "test_access": false
+  }
+}

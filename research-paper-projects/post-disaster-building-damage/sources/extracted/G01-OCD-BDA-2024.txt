@@ -1,0 +1,914 @@
+
+
+===== PDF_PAGE_001 =====
+
+Citation: Xie, Z.; Zhou, Z.; He, X.; Fu,
+Y.; Gu, J.; Zhang, J. Methodology for
+Object-Level Change Detection in
+Post-Earthquake Building Damage
+Assessment Based on Remote Sensing
+Images: OCD-BDA. Remote Sens. 2024,
+16, 4263. https://doi.org/10.3390/
+rs16224263
+Academic Editor: Lefei Zhang
+Received: 28 September 2024
+Revised: 6 November 2024
+Accepted: 13 November 2024
+Published: 15 November 2024
+Copyright: © 2024 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed under the terms and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+Article
+Methodology for Object-Level Change Detection in
+Post-Earthquake Building Damage Assessment Based on Remote
+Sensing Images: OCD-BDA
+Zhengtao Xie 1,†, Zifan Zhou 1, Xinhao He 2
+ , Yuguang Fu 3
+ , Jiancheng Gu 1,†,*
+ and Jiandong Zhang 1
+1 Department of Civil Engineering, Nanjing Tech University, Nanjing 211816, China;
+xiezhengtao@njtech.edu.cn (Z.X.); 202161226179@njtech.edu.cn (Z.Z.); zhangjd@njtech.edu.cn (J.Z.)
+2 Department of Civil and Environmental Engineering, Graduate School of Engineering, Tohoku University,
+Sendai 980-8579, Japan; xinhao.he.a8@tohoku.ac.jp
+3 School of Civil and Environmental Engineering, Nanyang Technological University,
+Singapore 639798, Singapore; yuguang.fu@ntu.edu.sg
+* Correspondence: gujiancheng_panda@njtech.edu.cn
+† These authors contributed equally to this work.
+Abstract: Remote sensing and computer vision technologies are increasingly leveraged for rapid
+post-disaster building damage assessment, becoming a crucial and practical approach. In this context,
+the accuracy of employing various AI models in pixel-level change detection methods is significantly
+dependent on the consistency between pre- and post-disaster building images, particularly regarding
+variations in resolution, viewing angle, and lighting conditions; in object-level feature recognition
+methods, the low richness of semantic details of damaged buildings in images leads to a poor
+detection accuracy. This paper proposes a novel method, OCD-BDA (Object-Level Change Detection
+for Post-Disaster Building Damage Assessment), as an alternative to pixel-level change detection
+and object-level feature recognition methods. Inspired by human cognitive processes, this method
+incorporates three key steps: an efficient sample acquisition for object localization, labeling via
+HGC (Hierarchical and Gaussian Clustering), and model training and prediction for classification.
+Furthermore, this study establishes a change detection dataset based on Google Earth imagery of
+regions in Hatay Province before and after the Turkish earthquake. This dataset is characterized
+by pixel inconsistency and significant differences in photographic angles and lighting conditions
+between pre- and post-disaster images, making it a valuable test dataset for other studies. As a result,
+in the experiments of comparative generalization capabilities, OCD-BDA demonstrated a significant
+improvement, achieving an accuracy of 71%, which is twice that of the second-ranking method.
+Moreover, OCD-BDA exhibits superior performance in tasks with small sample amounts and rapid
+training time. With only 1% of the training samples, it achieves a prediction accuracy exceeding that
+of traditional transfer learning methods with 60% of samples. Additionally, it completes assessments
+across a large disaster area (450 km²) with 93% accuracy in under 23 min.
+Keywords: remote sensing; object-level change detection; post-earthquake; building damage
+assessment; methodology
+1. Introduction
+Earthquakes are extremely destructive to building structures, often causing thousands
+of houses to collapse or sustain severe damage. With the significant growth of urban
+population and rapid urbanization, earthquakes have undoubtedly become the main threat
+to buildings and other infrastructure in earthquake-prone areas [1]. Identifying and tallying
+the damage in buildings after an earthquake is a significant challenge. Conventional
+methods for detecting building damage have depended on field inspection techniques,
+such as on-site surveys [2,3], vibration characteristic-based methods [4,5], finite-element-
+model-updating methods [6,7], and the conventional short-time matrix pencil method [8].
+Remote Sens. 2024, 16, 4263. https://doi.org/10.3390/rs16224263 https://www.mdpi.com/journal/remotesensing
+
+
+===== PDF_PAGE_002 =====
+
+Remote Sens. 2024, 16, 4263 2 of 22
+Other studies have solved this problem through predictive simulation. For example,
+Mardiyono et al. combined sensors with finite element analysis in order to simulate
+building models, and then trained artificial neural networks predicting building damage
+indices [9]. Chiauzzi et al. established a new relationship between Housner and EMS-98
+earthquake intensities by using finite layer simulation, and applied a damage probability
+matrix to estimate the damage level of residential buildings [ 10]. However, from the
+perspective of practitioners, these methods are associated with high technical expertise,
+and face difficulties in widespread application. For instance, after the Wenchuan earthquake
+in 2008 and the Türkiye earthquake in 2023, rescue workers were forced to rely on labor-
+intensive field surveys that were both inefficient and ineffective. This underscores the
+urgent need for simpler and more effective technologies to address challenges at a regional
+scale [11].
+In contrast, Ogawa et al. relied solely on the visual assessment of a single remote
+sensing image to provide a preliminary estimate of building damage in the entire region [12].
+This highlights the advantages of image-based methods in building damage recognition,
+which offer low costs, extensive coverage, and high efficiency, especially in the initial
+response stage after large-scale disasters. This approach significantly advances resource
+utilization and prediction speed compared to other methods. However, one drawback is
+their reliance on the quality and integrity of the images, making it challenging to maintain
+high accuracy.
+Methods for post-earthquake building damage recognition based on remote sensing
+images have been widely studied. As shown in Figure 1, these studies can be divided into
+two categories: methods based on “Change Detection” and methods based on “Feature
+Recognition”. The main difference between them is that change detection methods use
+images taken before and after the disaster, while feature recognition methods rely solely on
+images taken after the disaster. For the former, it is necessary to achieve more consistency
+between multi-temporal images, such as the same angle and color. For the latter, the seman-
+tic information in a single image is very limited. It is necessary to use high-precision remote
+sensing images for training. On the other hand, objects in post-disaster remote sensing im-
+ages exhibit complex semantic features. The remote sensing images of different regions and
+architectural styles may yield varying prediction results under the same model, indicating
+the need for an exceptionally large training dataset and a highly robust recognition model.
+In other words, this implies that existing post-earthquake building damage assessment
+methods face two common problems:
+1. High requirements for the quality of remote sensing images;
+2. Poor generalization and transfer capabilities.
+High-quality remote sensing images are required for both change detection based
+on multi-temporal data and feature detection methods based on single-temporal data.
+The development of remote sensing image clarity is accompanied by the development of
+image processing disciplines and they complement each other. Due to the characteristic
+of regular updates in remote sensing images, pixel-level change detection methods have
+always been a hotspot.
+In the early stages of disciplinary development, the combination of threshold seg-
+mentation methods and low-resolution remote sensing images was able to achieve decent
+results in some large-scale rough tasks. For example, Yusuf et al. calculated the difference
+between two images captured by Landsat-8 satellite before and after the 2001 India Gujarat
+earthquake [13]. Similarly, Sugiyama et al. proposed an image difference algorithm based
+on precise geographic locations in aerial images before and after events, which extracted
+damaged areas by thresholding color differences [14].
+
+
+===== PDF_PAGE_003 =====
+
+Remote Sens. 2024, 16, 4263 3 of 22
+Figure 1. The design concept of the object-level post-disaster building assessment methodology.
+However, with the further development of optical imaging technology, threshold
+segmentation methods meet more refined task requirements. Therefore, researchers have
+improved the single-feature threshold segmentation method to a multi-feature threshold
+segmentation method based on this. For example, Janalipour et al. proposed a method that
+utilizes post-earthquake high-resolution sharpening and pre-earthquake vector maps to
+detect building damage in urban detection after earthquakes [15]. The overall accuracy of
+this method was 76.36% when tested on the Bam earthquake dataset in Iran.
+High-precision optical images and SAR (Synthetic Aperture Radar) images have
+developed the pixel scale of remote sensing images to the decimeter level. Neural networks
+have been able to excellently complete tasks at this pixel level since the birth of Alexnet [16].
+However, these methods require that the pre- and post-disaster images exhibit a high degree
+of consistency [17], and therefore, their reliability is only validated within high-quality
+change detection datasets with similar semantics.
+The feature recognition method could circumvent this issue, as it does not require
+consistency between pre- and post-disaster images [ 18]. They typically achieve lighter
+models and faster response times [ 19,20]. But this also means they need higher-pixel
+remote sensing images [21]. It is evident that these methods still impose relatively stringent
+requirements on image resolution and overall quality. However, obtaining high-quality
+post-disaster remote sensing optical images of affected areas within a short timeframe
+remains a significant challenge. Consequently, extensive research has been devoted to
+addressing the above practical issues [22].
+Multimodal fusion technology is recognized as a critical approach for overcoming
+these challenges in change detection. Liu et al. introduced a cross-resolution differential
+learning method that generates pixel difference maps for images of different resolutions
+and subsequently fuses them to produce a comprehensive change map [23]. This approach
+mitigates the adverse effects of combining images with varying resolutions on change detec-
+tion accuracy. Comprehensive experiments conducted across four datasets demonstrated
+the effectiveness of this method for detecting changes in images with different resolutions.
+Zhang et al. employed assisted super-resolution (SR) learning to fuse multimodal data
+for the high-resolution (HR) object detection of multi-scale targets, balancing detection
+accuracy and computational cost [ 24]. Experimental results indicated that SuperYOLO
+achieved an accuracy of 75.09% (measured by mAP50) on the widely used VEDAI RS
+dataset, surpassing state-of-the-art models such as YOLOv5l, YOLOv5x, and RS-designed
+YOLOrs by over 10%.
+
+
+===== PDF_PAGE_004 =====
+
+Remote Sens. 2024, 16, 4263 4 of 22
+However, despite the promising results achieved by current methods on certain
+datasets, they have shown limited effectiveness in practical applications, such as the Türkiye
+and Noto earthquakes [ 11]. In other words, while these methods have shown notable
+advancements in accuracy and robustness, they still face challenges in generalization.
+The generalization capability of a model is influenced not only by its inherent per-
+formance, but also by the quantity and quality of the training samples. Particularly in
+the context of evaluating post-disaster buildings, variations in terrain and building styles
+can significantly affect the model’s recognition accuracy. Therefore, enhancing generaliza-
+tion through model performance improvements alone is challenging, while augmenting
+it with additional training samples is both costly and impractical. Thus, it is essential to
+develop methodologies that minimize costs and improve the efficiency of data acquisition,
+annotation, and model training processes. Such approaches would facilitate the rapid
+and cost-effective training of building damage assessment models following each disaster,
+addressing the fundamental issue of limited generalization capability.
+Based on this idea, this paper proposes an object-level post-earthquake building
+damage assessment method called OCD-BDA (Object-Level Change Detection for Post-
+Disaster Building Damage Assessment). OCD-BDA is mainly divided into three steps:
+Step 1. Object-Level Pre- and Post-Disaster Data Pair Acquisition: Use YOLOv8 to
+detect buildings from pre-disaster remote sensing images, and crop the corresponding
+areas from post-disaster images based on coordinate mapping (as illustrated in Figure 1).
+Here, the YOLOv8 model needs to be pre-trained through transfer learning using the xView
+Building Dataset (xBD) (YOLOv8: https://github.com/ultralytics/ultralytics (accessed on
+28 April 2024); xBD: http://xviewdataset.org/ (accessed on 15 April 2024)).
+Step 2. Ultra-Efficient Labeling Method Based on Machine Learning Assistance: An
+algorithm called HGC (Hierarchical and Gaussian Clustering) is proposed to perform
+clustering operations on data pairs obtained from Step 1 and use manual assistance to
+quickly correct classification errors.
+Step 3. Object-level Post-Disaster Building Assessment based on Data Pairs and
+Supervised Learning: An R50M2Net network is proposed to assess damaged buildings by
+classifying them into three categories using labeled data pairs obtained after Steps 1 and 2.
+2. Building Damage Assessment Criteria
+Building damage is often assessed using grading systems [25]. Dong et al. summarized
+various methods for determining the extent of building damage based on an extensive
+review of case studies [26].
+In this study, buildings that exhibit overall collapse, showing ruins or internal cross-
+sections, are classified as Grade C. Buildings without significant upper damage are classified
+as Grade A, while the remaining buildings are classified as Grade B (as shown in Figure 2).
+Figure 2. Building damage assessment criteria.
+
+
+===== PDF_PAGE_005 =====
+
+Remote Sens. 2024, 16, 4263 5 of 22
+3. Methodology of OCD-BDA
+As shown in Figure 3, OCD-BDA consists of three main steps: acquisition, labeling,
+and classification. In the first step, the detected buildings are transmitted to the downstream
+detector in the form of pre- and post-disaster sample pairs. In the second step, sample
+pairs are labeled with HGC and manually adjusted. HCG includes two built-in clustering
+algorithms and is used to automatically generate pseudo-labels for sample pairs. In this
+study, we found that the generated pseudo-labels are highly credible and require only min-
+imal manual adjustment, reducing labeling costs by 95% compared to traditional methods.
+In the last step, the proposed feature classifier, R50M2Net, is used to assess buildings based
+on pre- and post-disaster data pairs. This network includes 49 convolutional layers and
+one fully connected layer, followed by a multi-layer perceptron with two hidden layers.
+Compared to previous building damage detection methods, the method proposed in this
+study demonstrates higher accuracy, efficiency, and generalization capability. Next, every
+step in OCD-BDA is introduced in detail.
+Figure 3. The overall architecture of OCD-BDA: YOLOv8 Lite for localization; HGC for labeling; and
+R50M2Net for classification.
+3.1. Step 1: YOLOv8-Based Pre- and Post-Disaster Data Pair Acquisition
+In the field of building damage detection based on remote sensing images, YOLOv8
+is often used for object-level tasks. However, distinguishing between building ruins and
+vacant regions in post-disaster remote sensing images remains challenging [27]. Therefore,
+YOLOv8 is only used to detect buildings from pre-disaster remote sensing images in
+the OCD-BDA.
+Additionally, the downstream detection head in the YOLOv8 network is rewritten to
+ensure the lightweight nature and coherence of the network, extracting only key parameters
+for sample pair collection. This significantly enhances the speed of network prediction.
+Figure 4 shows the network structure of YOLOv8 Lite. The model extracts five feature
+layers, uses the last three layers for training the detection head, and combines both Bbox
+and cls loss functions. The output represents identified buildings with green bounding
+boxes, and only the box coordinates need to be output. Finally, based on the output box
+coordinates, the necessary data pairs are cropped from the pre- and post-disaster remote
+sensing images.
+
+
+===== PDF_PAGE_006 =====
+
+Remote Sens. 2024, 16, 4263 6 of 22
+Figure 4. The network structure of YOLOv8 Lite.
+3.2. Step 2: HGC-Based Rapid Labeling Method for Data Pairs
+Dataset labeling is consistently the most time-consuming task in computer vision
+applications. To address this challenge, this paper proposes a clustering-based auxiliary
+labeling algorithm, referred to as HGC, which significantly accelerates the manual anno-
+tation process. This approach is divided into three primary sub-steps: feature difference
+extraction, pseudo-label generation, and manual adjustment. A detailed explanation of
+each of these sub-steps is as follows.
+3.2.1. Feature Difference Extraction
+Previous studies have demonstrated that texture features in post-earthquake images
+are crucial for damage recognition [28]. Damaged buildings often exhibit uneven textures
+and distinct patterns compared to undamaged structures. These unique features are
+leveraged for feature extraction to classify the damage status. This study uses a combination
+of three texture features.
+The features are extracted using the gray-level co-occurrence matrix (GLCM), which
+depends on the grayscale levels of the image. The grayscale level of each pixel is calculated
+using the following formula:
+P(i, j) = f (x, y)2
+∑i,j f (x, y)2 (1)
+where P(i, j) represents the position of elements in the gray-level co-occurrence matrix, and
+f (x, y) represents the gray value of point (x, y) in the image.
+On the basis of GLCM, we can calculate the following texture features:
+I. The angular second moment (asm) reflects the uniformity of the image’s gray
+distribution and texture thickness:
+ASM = ∑
+i,j
+P(i, j)2 (2)
+II. Dissimilarity (dis) describes the clarity of the texture and the depth of the groove. It
+increases in linearity:
+DIS = ∑
+i,j
+|i − j| · P(i, j) (3)
+III. Inverse difference moment (idm) describes the degree of uniformity of local regions
+in an image:
+
+
+===== PDF_PAGE_007 =====
+
+Remote Sens. 2024, 16, 4263 7 of 22
+IDM = ∑
+i,j
+P(i, j)
+1 + (i − j)2 (4)
+Additionally, the HGC method addresses pseudo-label objects by analyzing the dif-
+ferences in features between targets. Consequently, it is essential to compute the feature
+differences and normalize the results to use them as classification samples in the HGC
+process, following feature extraction.
+3.2.2. Pseudo-Label Generation
+The HGC algorithm proposed in this study is based on Gaussian Mixture Models
+(G) and Hierarchical Clustering (H). Figure 5 illustrates that the pre-trained YOLOv8 Lite
+model was used to detect buildings from both pre- and post-disaster images. The number
+of detected buildings is X and Y, respectively. Next, as introduced above, based on the
+locations of the detected buildings in the pre-disaster images, corresponding data from the
+post-disaster images were extracted using coordinate mapping. These were then combined
+with the pre-disaster data to form X pairs of data.
+Figure 5. Flowchart of HGC.
+Then, based on the numerical relationship between the number of buildings X in
+the pre-disaster images and Y in the post-disaster images for each area, we divided the
+clustering process into three cases.
+Case 1: When Y is less than one-third of X, we consider the area to have been severely
+affected by the earthquake. First, we use H to perform an initial binary classification based
+on the feature differences of the data pairs, labeling the cluster closest to the center as Grade
+C. Next, we use G for a second clustering on the remaining data, labeling the cluster closest
+to the center as Grade B and the other cluster as Grade A.
+Case 2: Similarly, when Y is greater than two-thirds of X, we consider the area to have
+been relatively lightly affected by the earthquake. First, we use H to perform an initial
+binary classification based on the feature differences of the data pairs, labeling the cluster
+closest to the center as Grade A. Next, we use G for a second clustering on the remaining
+data, labeling the cluster closest to the center as Grade B and the other cluster as Grade C.
+Case 3: For cases that do not fall into the above two categories, we first perform
+clustering based on Hierarchical Clustering (H), dividing the data into two categories:
+those close to the cluster center and those farther away. Next, we perform a second
+clustering on each of these two categories using Gaussian Mixture Models (G). Based on
+
+
+===== PDF_PAGE_008 =====
+
+Remote Sens. 2024, 16, 4263 8 of 22
+the clustering results, we label the data as Grade A, Grade B, and Grade C, respectively.
+The detailed classification process can be seen in Figure 5, corresponding to case 3.
+Although the HGC method can achieve high accuracy in labeling data pairs, some
+errors still require manual adjustment. However, the time needed for manual adjustments
+is significantly less than that required for traditional labeling. The detailed introduction to
+this process is as follows.
+3.2.3. Manual Adjustment
+There are several advantages of HGC compared to traditional methods, as shown
+in Figure 6. This means that it allows humans to compare pairs of samples to determine
+whether the target has changed. This approach is much easier than labeling on post-disaster
+images and enables labeling based on the degree of change. According to our statistics, this
+method saves more than 95% of the labeling time.
+Figure 6. Comparison between HGC and traditional labeling methods.
+3.3. Step 3: R50M2Net-Based Assessment on Post-Disaster Buildings
+R50M2Net primarily consists of two components: the feature extractor and the classi-
+fier. In this study, ResNet50 is combined with a two-layer multi-layer perceptron (MLP).
+Specifically, the ResNet50 feature extractor is retained, while its original classifier is replaced
+with the MLP .
+In general, the feature extractor in R50M2Net comprises 49 convolutional layers and
+1 fully connected layer. A pair of images is processed through this network to generate a
+pair of 1 × 1000 feature vectors. These vectors are then normalized following the processing
+of their differences in the feature vector processing layer. The normalized results are fed
+into the MLP classifier, which features a simple network structure. Figure 7 shows the
+complete structure of the R50M2Net.
+Among them, the feature vector length of 1000 is an important parameter. Resnet50
+usually defaults to outputting vectors of length 2048, but we can also obtain vector outputs
+of other lengths by modifying its convolution layers. It was found that the value of
+this parameter is positively correlated with the final accuracy in the R50M2Net structure.
+But when its value is higher than 1000, the growth trend of accuracy gradually slows down.
+Therefore, for comprehensive consideration, we have selected a feature vector with a length
+of 1000 as the output of the previous stage.
+
+
+===== PDF_PAGE_009 =====
+
+Remote Sens. 2024, 16, 4263 9 of 22
+Figure 7. The overall architecture of R50M2Net.
+During the training process, R50M2Net determines the degree of model training by
+detecting CrossEntropyLoss. It combines the nn.LogSoftmax() and nn.NLLLoss() functions.
+The model’s output is not needed to add an extra softmax layer when using it. If we have
+C classes, y is the true class of the sample and p(y) is the probability of class y predicted by
+the model. Then, the CrossEntropyLoss can be defined as
+L = − log(p(y)) (5)
+In practice, for numerical stability, we usually use the softmax function to convert the
+raw output of the model into probabilities. Suppose the raw output of the model for thei-th
+sample is xi, then the probability p(i) of the sample belonging to class i can be expressed as
+p(i) = exi
+∑C
+k=1 exk
+(6)
+Then, we can substitute this probability into the CrossEntropyLoss function to obtain
+L = − log
+ 
+exy
+∑C
+k=1 exk
+!
+(7)
+R50M2Net performs classification by processing feature differences between pre-
+and post-earthquake images to assess building damage. Despite capturing rich semantic
+information, its structure remains lightweight. Notably, it maintains high discrimination ac-
+curacy even with limited training samples, as will be detailed later. Thus, this methodology
+is not only effective for target-level tasks in remote sensing images, but is also applicable in
+various contexts involving multiple time phases, small targets, and limited sample sizes.
+4. Generalization Capability Experiment
+4.1. Overview of the Generalization Experiment
+All the experiments in this study were conducted on a computer equipped with a 12th
+Gen Intel® Core™ i7-12700H CPU (14 cores, base clock speed of 2.3 GHz) and an NVIDIA
+GeForce RTX 4060 GPU with 8 GB of VRAM. The operating system used was Microsoft
+Windows 11. The program was written in Python 3.9 using the PyCharm editor. For deep
+learning tasks, we primarily utilized the PyTorch framework.
+In the generalization capability experiments, four mainstream networks were tested
+alongside OCD-BDA. The training datasets comprised xView and xView2, utilized in the
+DIUx xView challenge, while the testing dataset was a self-constructed Turkish earthquake
+dataset, focusing on the severely affected Hatay Province. Detailed descriptions of each
+experimental subject and their specific information are provided in the subsequent sections.
+4.2. Information of Test Methods
+This study selected four renowned networks used in post-disaster building assess-
+ments for generalization capability testing, together with OCD-BDA. Tras-SILI, Siam-Unet,
+and Siam-ResNet are all pixel-level change detection methods, while YOLOv8.2 is a fea-
+ture recognition-based object detection method. Detailed information for each network is
+presented in Table 1 and is also elaborated upon in the following sections.
+
+
+===== PDF_PAGE_010 =====
+
+Remote Sens. 2024, 16, 4263 10 of 22
+Tras-SILI is derived from STANet, a spatial–temporal attention-based method, which
+has been cited 1061 times on Google Scholar. It incorporates a change detection self-
+attention module in the feature extraction process to model spatial–temporal relationships.
+Siam-Unet and Siam-ResNet were the runner-up and champion, respectively, of the
+DIUx xView Challenge. Both achieved highly accurate recognition performance on the
+xView dataset.
+YOLOv8.2 is the latest network in the YOLO series, renowned for its powerful object
+detection capabilities and is widely recognized within the industry. The project has garnered
+over 18.4k stars on GitHub to date.
+The above networks are all publicly available, and the access links are as follows:
+i. Tras-SILI: https://github.com/justchenhao/SILI_CD (accessed on 25 July 2024);
+ii. Siam-UNet: https://github.com/selimsef/xview2_solution (accessed on 20 April 2024);
+iii. Siam-ResNet: https://github.com/vdurnov/xview2_1st_place_solution (accessed on
+20 April 2024);
+iv. YOLOv8.2: https://github.com/ultralytics/ultralytics (accessed on 28 April 2024).
+Table 1. Networks for generalization experiment.
+Network Name Publication Information of Tested Networks
+Tras-SILI 2023 From STANet, which was cited 1061 times on Google Scholar.
+Siam-UNet 2021 From Siam-CNN, the 2nd-place of the DIUx xView Challenge.
+Siam-ResNet 2020 The champion of the DIUx xView Challenge.
+YOLOv8.2 2024 Having garnered over 18.4k stars on GitHub.
+4.3. Datasets
+This study utilized two datasets: The first is the publicly available remote sensing
+dataset, which was used for training. The second is a self-constructed dataset from the
+Turkish earthquake, used for testing.
+4.3.1. Dataset for Training: xView/xView2-Building Damage Class (xBD)
+The large-scale remote sensing image dataset was specifically designed for building
+damage assessment [29]. It contains high-resolution satellite images from various regions
+and sensors, labeled for detecting and classifying the extent of building damage. The di-
+versity of scenes and damage types covered in this dataset makes it highly valuable for
+this research.
+Notably, the dataset comprises 60 categories and has a resolution of 0.3 m, providing
+image quality that surpasses that of most available satellite images, and the building
+damage class was used in this study. The xView dataset, designed for object detection
+tasks, was utilized for training both YOLOv8 and OCD-BDA, while the xView2 dataset,
+intended for pixel-level semantic segmentation tasks, was employed for training several
+other pixel-level change detection models.
+4.3.2. Dataset for Testing: Turkey Earthquake—Antakya Region
+This dataset is derived from satellite remote sensing images captured before and
+after the 2023 Turkey–Syria earthquake. It includes pre- and post-disaster remote sensing
+images from four regions within Hatay Province, obtained from Google Earth (as shown
+in Figure 8). The pre-disaster images were taken around 22 December 2022, while the
+post-disaster images were captured around 26 February 2023.
+The images cover Antakya, Turkey, and its surrounding cities, spanning areas of
+over 450 km 2 and impacting more than 300,000 inhabitants. The dataset comprises
+7250 pairs of building samples, categorized into 3287 Grade C samples, 701 Grade B
+samples, and 3262 Grade A samples.
+
+
+===== PDF_PAGE_011 =====
+
+Remote Sens. 2024, 16, 4263 11 of 22
+Figure 8. The regions contained in the Turkish earthquake dataset.
+4.4. Evaluation Metrics
+This study employed the standard evaluation method, encompassing overall accuracy,
+precision, recall, and F1 score. Specifically, for object-level detection, a prediction is consid-
+ered correct if the Intersection over Union (IoU) between the predicted bounding boxes
+and the ground truth exceeds 0.5. These evaluation metrics were derived from a confusion
+matrix for the three categories, as illustrated in Table 2.
+Table 2. Confusion matrix.
+Type Grade A Grade B Grade C
+Grade A nAA nAB nAC
+Grade B nBA nBB nBC
+Grade C nCA nCB nCC
+The specific definitions of overall accuracy (OA) is as follows:
+Overall Accuracy (OA)
+OA = nAA + nBB + nCC
+nAA + nAB + . . .+ nCB + nCC
+(8)
+4.5. Test Results and Discussion
+As shown in Table 3, OCD-BDA achieved an overall accuracy (OA) of 0.71, significantly
+outperforming the other four networks. The second-ranking Siam-ResNet, which won
+the DIUx xView Challenge, reached an OA of only 0.35, less than half of OCD-BDA’s
+performance. Meanwhile, the third-place Siam-UNet ranked just below Siam-ResNet in
+this experiment. One of the most advanced object detection networks, YOLOv8.2, achieved
+an OA of only 0.15, while Tras-SILI, with over 1000 citations on Google Scholar, attained a
+mere OA of 0.07.
+Table 3. Test results of five methods in generalization capability experiments.
+Method Name Training Sample Category OA
+Tras-SILI xView2 Pixel level 0.07
+Siam-UNet xView2 Pixel level 0.27
+Siam-ResNet xView2 Pixel level 0.35
+YOLOv8.2 xView Object level 0.15
+OCD-BDA xView Object level 0.71
+
+
+===== PDF_PAGE_012 =====
+
+Remote Sens. 2024, 16, 4263 12 of 22
+More detailed detection results are presented in Figure 9, showing four sets of com-
+parative outcomes. The remote sensing images in Figure 9 were obtained from the four
+regions illustrated in Figure 8. Each set includes the post-disaster image, the pre-disaster
+image, the ground truth for buildings, and the recognition results from OCD-BDA and the
+other four networks.
+Figure 9. Detection results of generalization capability experiments: ( a) Samandag; ( b) Antakia;
+(c) Klrlkhan; and (d) Iskenderun. Green represents Grade A, yellow represents Grade B, and red
+represents Grade C.
+
+
+===== PDF_PAGE_013 =====
+
+Remote Sens. 2024, 16, 4263 13 of 22
+As depicted in Figure 9, Tras-SILI is nearly incapable of identifying any valid results,
+which is consistent with the findings in Table 3. Both Siam-ResNet and Siam-UNet classify
+nearly all targets as Grade C (destroyed buildings), an issue stemming from substantial
+variations in the angles and lighting conditions of the pre- and post-disaster images. These
+variations led to considerable changes in texture features for the same building across the
+two sets, causing the networks to mistakenly classify undamaged buildings as destroyed.
+In contrast, YOLOv8.2 primarily identifies buildings classified as Grade A (undamaged
+buildings). This limitation arises from the nature of feature recognition methods, which
+differ from change detection approaches. Feature recognition requires target objects to
+possess rich texture features, a criterion generally met by intact buildings. However,
+buildings categorized as Grades B and C exhibit a significant loss of texture features due to
+damage, making them challenging for YOLOv8.2 to recognize.
+The proposed OCD-BDA integrates the strengths of both change detection and feature
+recognition methods, allowing it to accurately identify targets across all damage grades.
+As shown in Figure 9, while OCD-BDA occasionally misclassifies some Grade A buildings
+as Grade C, it does not exhibit the pronounced class bias seen in Siam-ResNet, Siam-UNet,
+and YOLOv8.2. However, OCD-BDA shows relatively weak performance in identifying
+Grade B buildings, primarily due to the limited number of semi-damaged building samples
+in the xView training dataset.
+Furthermore, OCD-BDA’s strengths lie not only in its generalization capability but
+also in its ability to label and train on entirely new datasets within a remarkably short
+timeframe, enhancing its applicability across diverse scenarios. To validate this robust
+capability, a comparative experiment was conducted between OCD-BDA and traditional
+transfer learning methods based on YOLOv8.2, with detailed findings presented in the
+following section.
+5. Comparative Study Between Transfer Learning and OCD-BDA
+5.1. Overview of the Comparative Experiments
+The application capability of our proposed method was further assessed through a
+comparative analysis with traditional supervised learning techniques, using the Turkey
+earthquake dataset.
+Experiment 1: A model based on the YOLOv8 network, initially trained on the xBD
+dataset, was fine-tuned and tested on the Turkey Earthquake dataset through transfer
+learning. The proportion of training samples was incrementally increased from 1% to 60%,
+with the remaining samples used for testing.
+Experiment 2: The pre-trained YOLOv8 network, originally based on the xBD dataset,
+was employed for the Turkey Earthquake dataset using the OCD-BDA approach. The pro-
+portion of training samples was gradually increased from 1% to 60%, while the remaining
+samples were used for testing.
+The contrast between these two experiments includes the accuracy evaluation metrics
+and the efficiency comparison. The frame of this comparative study is shown in Figure 10.
+5.2. Evaluation Metrics
+In addition to overall accuracy (OA), several other commonly used metrics are em-
+ployed to evaluate a model’s ability to identify post-disaster damaged buildings, and the
+specific definitions of precision, recall, and F1 score are as follows:
+Precision (Grade A as an example)
+PrecisionA = nAA
+nAA + nBA + nCA
+(9)
+Recall (Grade A as an example)
+RecallA = nAA
+nAA + nAB + nAC
+(10)
+
+
+===== PDF_PAGE_014 =====
+
+Remote Sens. 2024, 16, 4263 14 of 22
+F1 score (Grade A as an example)
+F1 ScoreA = 2 · PrecisionA · RecallA
+PrecisionA + RecallA
+(11)
+Figure 10. Details of the comparative study.
+5.3. Accuracy Comparison
+A major challenge in transfer learning is determining the optimal number of samples
+needed for fine-tuning to achieve high-accuracy predictions in a new task scenario [ 30].
+As shown in Figure 11, when the training sample size is below 60%, the overall accuracy
+(OA) of transfer learning remains under 65%, with most correctly detected samples classi-
+fied as Grade A, representing buildings with little to no post-disaster damage. However,
+these buildings are not the primary focus of rapid response efforts following a disaster.
+In contrast, the OCD-BDA method achieves an OA exceeding 70% even with minimal
+training samples, while the prediction results of traditional transfer learning methods are
+notably poor. Although the accuracy gap between the two methods narrows as the training
+sample size increases, OCD-BDA consistently maintains at least 50% higher accuracy than
+traditional methods. When the training sample size reaches 10%, OCD-BDA’s accuracy
+approaches 80%, and when the sample size exceeds 50%, its accuracy surpasses 90%.
+Specifically, the performance of transfer learning methods in predicting samples
+classified as Grades B and C is notably inadequate, with accuracy levels falling below
+acceptable standards. In contrast, the OCD-BDA method reliably predicts Grade C samples,
+representing buildings that have entirely collapsed post-disaster—a capability of high
+importance for rapid disaster response. Moreover, as the training sample size grows, OCD-
+BDA’s prediction accuracy for the more challenging Grade B samples exceeds 70%, while
+transfer learning methods continue to struggle, with accuracy remaining below 40%.
+Tables 4–7 present detailed comparative results, demonstrating that the OCD-BDA
+method consistently outperforms transfer learning across all metrics. While transfer learn-
+ing performs well in detecting Grade A buildings, its feature learning capacity for Grade B
+and Grade C samples is limited. The accuracy of transfer learning methods only improves
+significantly when the training sample size is sufficiently large, a typical characteristic of
+traditional supervised learning approaches.
+A noteworthy strength of the OCD-BDA method is its high performance in detecting
+Grade C buildings, achieving over 80% accuracy even with a training sample size as low as
+1%. However, the OCD-BDA method does encounter challenges in distinguishing between
+Grade A and Grade B buildings, largely due to variations in the angle of building images
+taken before and after the disaster, which can result in some Grade A buildings being
+misclassified as Grade B. Nonetheless, this conservative approach proves advantageous
+in rapid post-disaster response tasks, and as the training sample size increases, the rate of
+misclassification decreases. Thus, we believe the OCD-BDA method is well suited for the
+rapid assessment of building damage in post-disaster scenarios.
+
+
+===== PDF_PAGE_015 =====
+
+Remote Sens. 2024, 16, 4263 15 of 22
+Figure 11. Accuracy comparison results under different training sample ratios: Ex1 represents
+traditional transfer learning; Ex2 refers to OCD-BDA (same below).
+Table 4. OA results of Experiment 1 and Experiment 2.
+Sample Ratio OA (Experiment 1) OA (Experiment 2)
+0.01 0.29 0.73
+0.1 0.31 0.79
+0.2 0.41 0.84
+0.3 0.47 0.86
+0.4 0.53 0.88
+0.5 0.58 0.91
+0.6 0.63 0.93
+Table 5. Precision results of Experiment 1 and Experiment 2 in Grade A.
+Sample Experiment 1 Experiment 2
+Ratio Precision Recall F1 Precision Recall F1
+0.01 0.73 0.72 0.72 0.81 0.74 0.77
+0.1 0.75 0.73 0.74 0.90 0.84 0.87
+0.2 0.76 0.75 0.75 0.90 0.89 0.90
+0.3 0.78 0.77 0.77 0.91 0.90 0.91
+0.4 0.79 0.81 0.80 0.93 0.93 0.93
+0.5 0.81 0.81 0.81 0.95 0.93 0.94
+0.6 0.82 0.83 0.82 0.96 0.95 0.95
+
+
+===== PDF_PAGE_016 =====
+
+Remote Sens. 2024, 16, 4263 16 of 22
+Table 6. Precision results of Experiment 1 and Experiment 2 in Grade B.
+Sample Experiment 1 Experiment 2
+Ratio Precision 1 Recall 1 F1 Precision 1 Recall 1 F1
+0.01 0.00 0.00 0.00 0.02 0.25 0.04
+0.1 0.00 0.00 0.00 0.27 0.29 0.27
+0.2 0.17 0.23 0.19 0.35 0.48 0.40
+0.3 0.29 0.22 0.25 0.47 0.56 0.50
+0.4 0.37 0.30 0.33 0.52 0.61 0.57
+0.5 0.35 0.36 0.36 0.59 0.71 0.64
+0.6 0.38 0.42 0.40 0.70 0.78 0.74
+1 The zero value represents that no expected result has been predicted.
+Table 7. Precision results of Experiment 1 and Experiment 2 in Grade C.
+Sample Experiment 1 Experiment 2
+Ratio Precision 1 Recall 1 F1 Precision 1 Recall 1 F1
+0.01 0.00 0.00 0.00 0.81 0.73 0.77
+0.1 0.00 0.00 0.00 0.84 0.83 0.82
+0.2 0.50 0.09 0.15 0.87 0.85 0.87
+0.3 0.31 0.06 0.10 0.89 0.88 0.88
+0.4 0.38 0.24 0.29 0.91 0.89 0.90
+0.5 0.40 0.26 0.32 0.93 0.91 0.92
+0.6 0.43 0.23 0.30 0.94 0.93 0.94
+1 The zero value represents that no expected result has been predicted.
+Figure 12 provides a more intuitive comparison of the results between the two methods,
+clearly illustrating the significant advantages of the OCD-BDA approach. Beyond accuracy,
+the superior object retrieval capability of OCD-BDA allows its predictions to be directly
+matched with specific buildings in pre-disaster images, which greatly facilitates subsequent
+humanitarian aid and statistical efforts.
+Figure 12. Cont.
+
+
+===== PDF_PAGE_017 =====
+
+Remote Sens. 2024, 16, 4263 17 of 22
+Figure 12. Cont.
+
+
+===== PDF_PAGE_018 =====
+
+Remote Sens. 2024, 16, 4263 18 of 22
+Figure 12. The test results of two experiments: green represents Grade A, yellow represents Grade B,
+and red represents Grade C.
+5.4. Efficiency Comparison
+In addition to the accuracy advantages discussed, the lightweight design of OCD-
+BDA also results in significant efficiency gains. Table 8 compares the efficiency of the
+OCD-BDA method with traditional transfer learning approaches in the context of rapid
+post-disaster response following the Turkey earthquake, with the assessment area detailed
+in Section 4.3.2.
+As illustrated in Figure 10, the time cost for transfer learning is primarily driven by
+dataset labeling and neural network training for object detection. In transfer learning
+tasks, data labeling must be performed on post-disaster remote sensing images, a time-
+intensive process. Additionally, the neural networks used for detecting objects in remote
+sensing images are complex, with numerous neurons and intricate architectures, resulting
+in relatively long training times. In our comparative experiment, only 60% of the data were
+labeled and trained. The labeling process alone for transfer learning took over 5 h, while
+network training took approximately 7 min, bringing the total time cost to 320 min and
+59 s.
+In contrast, while the OCD-BDA method involves three time-incurring steps—extracting
+building coordinates from pre-disaster images, performing HGC-based assisted data labeling,
+and model training—the total time cost is only 6.97% of that required for transfer learning.
+This efficiency is primarily due to the use of a pre-trained YOLOv8 model based on publicly
+available datasets, which efficiently identifies buildings in pre-disaster images. Since this
+technology is well established, there is no need to retrain the model for initial building
+coordinate acquisition, saving substantial time, with the first step taking approximately 42 s.
+Additionally , the second step, data labeling, requires only classification-level labeling rather
+than bounding boxes for object detection as in transfer learning. This simpler labeling task,
+further facilitated by HGC, significantly reduces the time required. As shown in Table 8,
+the data labeling time for OCD-BDA is only 21 min and 36 s, far less than the 5 h required
+for transfer learning. Finally , the R50M2Net, used for the classification task, has a simple
+structure, resulting in minimal training time, taking only 5 s.
+Table 8. Efficiency comparison result between two experiments.
+Experiment 1 Time Experiment 2 Time Ex2/Ex1
+\ \ Step 1 Acquisition 42 s \
+Step 1 Labeling 313 min 12 s Step 2 Labeling 21 min 36 s 6.90%
+Step 2 Training 7 min 47 s Step 3 Training 5 s 1.07%
+Total 320 min 59 s Total 22 min 23 s 6.97%
+
+
+===== PDF_PAGE_019 =====
+
+Remote Sens. 2024, 16, 4263 19 of 22
+5.5. Discussion of Results
+The accuracy improved by 50% and the efficiency increased by 1430% when using
+OCD-BDA. This substantial enhancement in accuracy is particularly noteworthy given
+the difficulties in recognizing Grade C samples in damage assessment tasks. Even human
+annotators often struggle to accurately label object-level building damage on a single
+pre-disaster image, which is a primary reason that pixel-level change detection using
+multimodal remote sensing images is commonly adopted in disaster response tasks.
+The design of OCD-BDA effectively addresses these challenges. By first using YOLOv8
+Lite to locate targets in pre-disaster images, the method identifies easily recognizable
+building samples, significantly simplifying object localization in post-disaster images.
+Furthermore, we argue that OCD-BDA fundamentally addresses the issue of poor
+model generalization by reducing dependence on pre-trained models and enabling efficient
+labeling, training, and object detection in a remarkably short time. This achievement is
+attributed to the following factors:
+1. Training Capability with Minimal Samples: The OCD-BDA method demonstrates
+the ability to accomplish tasks with only 1% of the training samples. Coupled with the
+auxiliary labeling provided by the HGC method, it allows for the efficient completion of
+data annotation tasks—traditionally the most time-consuming aspect of deep learning
+projects—within a short timeframe.
+2. Optimal Utilization of Existing Methods: Advances in computer vision have
+produced highly effective neural networks for classification, object detection, and semantic
+segmentation tasks. The OCD-BDA method addresses the challenge of indistinct target
+features in post-disaster images by performing building detection solely on pre-disaster
+images, thereby leveraging robust networks like YOLOv8. This approach transforms
+complex object detection tasks into simpler classification tasks, making effective use of
+networks such as ResNet and MLP .
+3. Effectively Overcoming Challenges in Pixel-Level Change Detection: Pixel-level
+change detection is significantly impacted by variations in remote sensing image quality,
+capturing angles, and lighting conditions between pre- and post-disaster images. While
+current research often focuses on increasing neural network complexity, improving feature
+analysis, and incorporating multimodal data such as radar, the OCD-BDA method uses
+object-level change detection to increase robustness and mitigate challenges associated
+with pixel-level detection.
+These strategies provide OCD-BDA with several unique advantages:
+1. Intuitive Object-Level Results: OCD-BDA delivers object-level results, making out-
+comes more interpretable and actionable.
+2. Threshold-Free Predictions and High Robustness: OCD-BDA does not rely on threshold-
+based decision-making for predictions, increasing its robustness across varying conditions.
+3. Suitable for Early Disaster Response: OCD-BDA requires high-quality pre-disaster
+images but imposes lower requirements on post-disaster images, making it well suited
+to practical conditions in post-disaster response.
+4. High Applicability: OCD-BDA minimizes the impact of training data quality on detec-
+tion tasks, enabling rapid deployment across diverse, localized disaster scenarios.
+5. Refined Assessment Capability: OCD-BDA effectively performs a three-class assess-
+ment of building damage levels, providing detailed insights into disaster impact.
+6. Conclusions
+In this study , we present an object-level change detection framework for post-earthquake
+building damage assessment, termed OCD-BDA. The OCD-BDA framework consists of
+three main components: YOLOv8 Lite for localization and sample pair acquisition, HGC
+for data labeling, and R50M2Net for final classification. This approach emulates human
+learning strategies by dividing complex tasks into simpler steps, substantially reducing model
+training costs and significantly improving overall efficiency . Additionally , by markedly
+lowering the expenses associated with data acquisition, labeling, and neural network model
+
+
+===== PDF_PAGE_020 =====
+
+Remote Sens. 2024, 16, 4263 20 of 22
+training, this method effectively addresses the issue of limited generalization in existing
+approaches. Specifically , it enables the rapid creation, training, and evaluation of new datasets
+tailored to each post-disaster area, thereby enhancing the adaptability and effectiveness of
+the assessment process. The code is available at https://github.com/A YYCIAL/OCD-BDA/
+tree/main.
+Through comparative generalization experiments with four mainstream networks for
+post-disaster building damage identification alongside OCD-BDA, we observed that the
+recognition accuracy of OCD-BDA significantly exceeds that of existing networks. Each
+network demonstrates specific recognition biases; for example, change detection networks
+such as Siam-ResNet and Siam-UNet tend to classify targets as Grade C (destroyed build-
+ings). This bias is primarily due to variations in shooting angles and lighting conditions
+between pre- and post-disaster remote sensing images, which can cause network misclassi-
+fications. Conversely, the feature recognition-based YOLOv8.2 favors identifying Grade
+A targets (undamaged buildings), as feature recognition networks require rich semantic
+and textural characteristics in the detected objects, while damaged buildings often lack
+sufficient detail for accurate recognition. In contrast, OCD-BDA effectively recognizes
+buildings across all damage grades without exhibiting such biases.
+Furthermore, the strength of OCD-BDA lies not only in its generalization capability
+but also in its ability to annotate and train on entirely new datasets within a very short
+timeframe, greatly enhancing its applicability. In addition to generalization capability
+experiments, this study conducted a comparative analysis between the traditional transfer
+learning method and our OCD-BDA approach. Through this comparative study, we
+found that OCD-BDA required only 1% of the training samples to achieve prediction
+accuracy, surpassing that of supervised learning algorithms using 60% of the training
+samples. Additionally, OCD-BDA completed a three-class damage assessment of post-
+disaster buildings in just 22 min and 23 s, achieving 93% accuracy across an earthquake-
+affected region spanning over 450 square kilometers and comprising 300,000 inhabitants.
+Compared to traditional supervised learning methods, OCD-BDA improved accuracy by
+50% and increased efficiency by 1430%.
+In this study, we have focused solely on the performance of the OCD-BDA method
+in the context of the Turkish earthquake. We believe that object-level change detection
+holds greater potential for further exploration. Moving forward, we will investigate the
+applicability of this method across various disaster scenarios, including tsunamis, typhoons,
+and large-scale fires. Additionally, in post-disaster rapid response tasks, while quickly
+assessing damaged buildings is crucial, the rapid evaluation of critical rescue lifelines is
+equally important. Therefore, we will further study the applicability of the object-level
+change detection method for post-disaster assessments of roads and bridges. We also
+plan to collect data and establish a more diverse, application-level dataset that considers
+inconsistencies between pre- and post-disaster images.
+Author Contributions: Conceptualization, Z.X. and J.G.; methodology, Z.Z.; software, X.H.; validation,
+Y.F.; formal analysis, J.Z.; investigation, Z.X.; resources, Z.Z.; data curation, X.H.;writing—original
+draft preparation, Z.X.; writing—review and editing, J.G.; visualization, Y.F.; supervision, J.Z.; project
+administration, J.G.; funding acquisition, J.G. All authors have read and agreed to the published
+version of the manuscript.
+Funding: We would like to express our sincere gratitude to the Japan Association for the Promotion
+of Construction Engineering Research; Practice Innovation Program of Jiangsu Province of China
+with Number SJCX23 0487.
+Data Availability Statement: The code and datasets we used are included in this paper.
+Conflicts of Interest: The authors declare no conflicts of interest.
+
+
+===== PDF_PAGE_021 =====
+
+Remote Sens. 2024, 16, 4263 21 of 22
+References
+1. Xu, Y.; Lu, X.; Tian, Y.; Huang, Y. Real-Time Seismic Damage Prediction and Comparison of Various Ground Motion Intensity
+Measures Based on Machine Learning. J. Earthq. Eng. 2022, 26, 4259–4279 [CrossRef]
+2. Parisi, F.; Augenti, N. Earthquake damages to cultural heritage constructions and simplified assessment of artworks. Eng. Fail.
+Anal. 2013, 34, 735–760. [CrossRef]
+3. Goretti, A.; Di Pasquale, G. An overview of post-earthquake damage assessment in Italy. In Proceedings of the Eeri Invitational
+Workshop. An Action Plan to Develop Earthquake Damage and Loss Data Protocols, Pasadena, CA, USA, 19–20 September 2002.
+4. Wang, Y. Damage Assessment in Asymmetric Buildings Using Vibration Techniques. Ph.D. Thesis, Queensland University of
+Technology, Brisbane, Australia, 2018.
+5. Pan, H.; Kusunoki, K.; Hattori, Y. Capacity-curve-based damage evaluation approach for reinforced concrete buildings using
+seismic response data. Eng. Struct. 2019, 197, 109386. [CrossRef]
+6. Takeuchi, T.; Mita, A. Damage localization for multi-story buildings focusing on shift in the center of rigidity using an adaptive
+extended Kalman filter. In Proceedings of the Structural Health Monitoring and Inspection of Advanced Materials, Aerospace,
+and Civil Infrastructure, San Diego, CA, USA, 1 April 2015; SPIE: Bellingham, WA, USA, 2015; Volume 9437, pp. 258–271.
+7. Lei, Y.; Jiang, Y.; Xu, Z. Structural damage detection with limited input and output measurement signals. Mech. Syst. Signal
+Process. 2012, 28, 229–243. [CrossRef]
+8. Soltaninejad, M.; Soroushian, S.; Livani, H. Application of short-time matrix pencil method for high-frequency damage detection
+in structural system. Struct. Control Health Monit. 2020, 27, e2589. [CrossRef]
+9. Mardiyono, M.; Suryanita, R.; Adnan, A. Intelligent monitoring system on prediction of building damage index using neural-
+network. TELKOMNIKA Telecommun. Comput. Electron. Control 2012, 10, 155–164. [CrossRef]
+10. Chiauzzi, L.; Masi, A.; Mucciarelli, M.; Vona, M.; Pacor, F.; Cultrera, G.; Galloviˇ c, F.; Emolo, A. Building damage scenarios based
+on exploitation of Housner intensity derived from finite faults ground motion simulations. Bull. Earthq. Eng. 2012, 10, 517–545.
+[CrossRef]
+11. Gu, J.; Xie, Z.; Zhang, J.; He, X. Advances in Rapid Damage Identification Methods for Post-Disaster Regional Buildings Based on
+Remote Sensing Images: A Survey. Buildings 2024, 14, 898. [CrossRef]
+12. Ogawa, N.; Yamazaki, F. Photo-interpretation of building damage due to earthquakes using aerial photographs. In Proceedings
+of the 12th World Conference on Earthquake Engineering, Auckland, New Zealand, 30 January–4 February 2000; number 1906.
+13. Yusuf, Y.; Matsuoka, M.; Yamazaki, F. Damage assessment after 2001 Gujarat earthquake using Landsat-7 satellite images.J. Indian
+Soc. Remote Sens. 2001, 29, 17–22. [CrossRef]
+14. Sugiyama, M.; Abe, H.S.K. Detection of earthquake damaged areas from aerial photographs by using color and edge information.
+In Proceedings of the 5th Asian Conference on Computer Vision, Melbourne, Australia, 23–25 January 2002; pp. 23–25.
+15. Janalipour, M.; Mohammadzadeh, A. Building damage detection using object-based image analysis and ANFIS from high-
+resolution image (case study: BAM earthquake, Iran). IEEE J. Sel. Top. Appl. Earth Obs. Remote Sens. 2015, 9, 1937–1945.
+[CrossRef]
+16. Krizhevsky, A.; Sutskever, I.; Hinton, G.E. Imagenet classification with deep convolutional neural networks. Adv. Neural Inf.
+Process. Syst. 2012, 25. [CrossRef]
+17. Qing, Y.; Ming, D.; Wen, Q.; Weng, Q.; Xu, L.; Chen, Y.; Zhang, Y.; Zeng, B. Operational earthquake-induced building damage
+assessment using CNN-based direct remote sensing change detection on superpixel level. Int. J. Appl. Earth Obs. Geoinf. 2022,
+112, 102899. [CrossRef]
+18. Aleissaee, A.A.; Kumar, A.; Anwer, R.M.; Khan, S.; Cholakkal, H.; Xia, G.S.; Khan, F.S. Transformers in remote sensing: A survey.
+Remote Sens. 2023, 15, 1860. [CrossRef]
+19. Ma, H.; Liu, Y.; Ren, Y.; Yu, J. Detection of collapsed buildings in post-earthquake remote sensing images based on the improved
+YOLOv3. Remote Sens. 2019, 12, 44. [CrossRef]
+20. Miura, H.; Aridome, T.; Matsuoka, M. Deep learning-based identification of collapsed, non-collapsed and blue tarp-covered
+buildings from post-disaster aerial images. Remote Sens. 2020, 12, 1924. [CrossRef]
+21. Valentijn, T.; Margutti, J.; van den Homberg, M.; Laaksonen, J. Multi-hazard and spatial transferability of a cnn for automated
+building damage assessment. Remote Sens. 2020, 12, 2839. [CrossRef]
+22. Xie, Y.; Feng, D.; Chen, H.; Liu, Z.; Mao, W.; Zhu, J.; Hu, Y.; Baik, S.W. Damaged building detection from post-earthquake remote
+sensing imagery considering heterogeneity characteristics. IEEE Trans. Geosci. Remote Sens. 2022, 60, 4708417. [CrossRef]
+23. Liu, M.; Shi, Q.; Marinoni, A.; He, D.; Liu, X.; Zhang, L. Super-resolution-based change detection network with stacked attention
+module for images with different resolutions. IEEE Trans. Geosci. Remote Sens. 2021, 60, 4403718. [CrossRef]
+24. Zhang, J.; Lei, J.; Xie, W.; Fang, Z.; Li, Y.; Du, Q. SuperYOLO: Super resolution assisted object detection in multimodal remote
+sensing imagery. IEEE Trans. Geosci. Remote Sens. 2023, 61, 5605415. [CrossRef]
+25. Saito, K.; Spence, R.; de C Foley, T.A. Visual damage assessment using high-resolution satellite images following the 2003 Bam,
+Iran, earthquake. Earthq. Spectra 2005, 21, 309–318. [CrossRef]
+26. Dong, L.; Shan, J. A comprehensive review of earthquake-induced building damage detection with remote sensing techniques.
+ISPRS J. Photogramm. Remote Sens. 2013, 84, 85–99. [CrossRef]
+
+
+===== PDF_PAGE_022 =====
+
+Remote Sens. 2024, 16, 4263 22 of 22
+27. Calantropio, A.; Chiabrando, F.; Codastefano, M.; Bourke, E. Deep learning for automatic building damage assessment:
+Application in post-disaster scenarios using UAV data. ISPRS Ann. Photogramm. Remote Sens. Spat. Inf. Sci. 2021, 1, 113–120.
+[CrossRef]
+28. Wang, Y.; Cui, L.; Zhang, C.; Chen, W.; Xu, Y.; Zhang, Q. A two-stage seismic damage assessment method for small, dense, and
+imbalanced buildings in remote sensing images. Remote Sens. 2022, 14, 1012. [CrossRef]
+29. Gupta, R.; Goodman, B.; Patel, N.; Hosfelt, R.; Sajeev, S.; Heim, E.; Doshi, J.; Lucas, K.; Choset, H.; Gaston, M. Creating xBD: A
+dataset for assessing building damage from satellite imagery. In Proceedings of the IEEE/CVF Conference on Computer Vision
+and Pattern Recognition Workshops, Long Beach, CA, USA, 16–17 June 2019; pp. 10–17.
+30. Iman, M.; Arabnia, H.R.; Rasheed, K. A review of deep transfer learning and recent advancements. Technologies 2023, 11, 40.
+[CrossRef]
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.

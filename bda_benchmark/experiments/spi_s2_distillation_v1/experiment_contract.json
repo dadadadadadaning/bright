@@ -1,0 +1,18 @@
+{
+  "protocol": "SPI_S2_DISTILLATION_NO_ORACLE_STANDARD_ML_v1",
+  "training_labels": "standard_ML train semantic TIFF only",
+  "official_instances": "never",
+  "oracle": "never",
+  "test": "never",
+  "validation": "automatic promotion only",
+  "base_checkpoint_sha256": "45fb0e85a20ab7a36da98dbdcd1462d5aa3c95c6e8a09dd8d99488194992f5f7",
+  "variants": [
+    "k0_frozen_p3",
+    "k1_fixed_s2",
+    "k2_semantic_local_control",
+    "k3_s2_distilled_local",
+    "k4_s2_distilled_gbc",
+    "k5_s2_distilled_gbc_variance"
+  ]
+}
+

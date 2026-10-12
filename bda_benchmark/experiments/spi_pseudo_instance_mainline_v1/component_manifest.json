@@ -1,0 +1,67 @@
+{
+  "bundle": "SPI_PSEUDO_INSTANCE_MAINLINE_V1",
+  "policy": "single_source_references_no_code_duplication",
+  "components": [
+    {
+      "path": "model/DamageFormer_S8_MICB_DSMIL.py",
+      "role": "frozen_p3_and_micb_definition",
+      "status": "required"
+    },
+    {
+      "path": "script/standard_ML/spi_region_feedback/core.py",
+      "role": "loccc_region_evidence_gating_and_feedback",
+      "status": "required"
+    },
+    {
+      "path": "experiments/spi_selective_context_v1/core.py",
+      "role": "hard_soft_selective_and_local_control_rules",
+      "status": "required"
+    },
+    {
+      "path": "experiments/spi_selective_context_v1/audit.py",
+      "role": "frozen_p3_val450_selective_context_audit",
+      "status": "required"
+    },
+    {
+      "path": "script/standard_ML/spi_geometry_causal/core.py",
+      "role": "matched_local_loccc_rgid_causal_controls",
+      "status": "required"
+    },
+    {
+      "path": "script/standard_ML/spi_geometry_causal/audit.py",
+      "role": "locked_a6_geometry_audit",
+      "status": "required"
+    },
+    {
+      "path": "experiments/spi_rgid_semantic_v1/scripts/train_online_rgid.py",
+      "role": "pseudo_only_online_rgid_training",
+      "status": "required_for_rgid"
+    },
+    {
+      "path": "experiments/rgid_s9ic_clean/rgid/model.py",
+      "role": "center_boundary_rgid_head",
+      "status": "required_for_rgid"
+    },
+    {
+      "path": "experiments/rgid_s9ic_clean/rgid/geometry.py",
+      "role": "watershed_gate_and_rollback_decoder",
+      "status": "required_for_rgid"
+    },
+    {
+      "path": "experiments/spi_rgid_semantic_v1/method.py",
+      "role": "post_c3_split_risk_research_module_not_in_primary_result",
+      "status": "staged_only"
+    },
+    {
+      "path": "experiments/spi_rgid_semantic_v1/heads.py",
+      "role": "post_c3_multiscale_center_ablation_not_in_primary_result",
+      "status": "staged_only"
+    },
+    {
+      "path": "experiments/spi_rgid_semantic_v1/objectives.py",
+      "role": "post_c3_joint_objectives_not_in_primary_result",
+      "status": "staged_only"
+    }
+  ]
+}
+

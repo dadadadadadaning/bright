@@ -1,0 +1,124 @@
+{
+  "protocol": "BRIGHT_event_disjoint_cross_validation_v1",
+  "source_lists": [
+    "train_set.txt",
+    "val_set.txt"
+  ],
+  "test_accessed": false,
+  "folds": [
+    {
+      "fold": 0,
+      "train_events": [
+        "bata-explosion",
+        "beirut-explosion",
+        "congo-volcano",
+        "haiti-earthquake",
+        "hawaii-wildfire",
+        "la_palma-volcano",
+        "libya-flood",
+        "marshall-wildfire",
+        "mexico-hurricane",
+        "morocco-earthquake",
+        "myanmar-hurricane",
+        "noto-earthquake",
+        "ukraine-conflict"
+      ],
+      "validation_events": [
+        "turkey-earthquake"
+      ],
+      "train_samples": 2478,
+      "validation_samples": 890,
+      "validation_disaster_types": [
+        "earthquake"
+      ]
+    },
+    {
+      "fold": 1,
+      "train_events": [
+        "bata-explosion",
+        "beirut-explosion",
+        "congo-volcano",
+        "haiti-earthquake",
+        "hawaii-wildfire",
+        "libya-flood",
+        "marshall-wildfire",
+        "mexico-hurricane",
+        "morocco-earthquake",
+        "myanmar-hurricane",
+        "turkey-earthquake",
+        "ukraine-conflict"
+      ],
+      "validation_events": [
+        "la_palma-volcano",
+        "noto-earthquake"
+      ],
+      "train_samples": 2563,
+      "validation_samples": 805,
+      "validation_disaster_types": [
+        "earthquake",
+        "volcano"
+      ]
+    },
+    {
+      "fold": 2,
+      "train_events": [
+        "bata-explosion",
+        "congo-volcano",
+        "haiti-earthquake",
+        "la_palma-volcano",
+        "marshall-wildfire",
+        "mexico-hurricane",
+        "noto-earthquake",
+        "turkey-earthquake",
+        "ukraine-conflict"
+      ],
+      "validation_events": [
+        "beirut-explosion",
+        "hawaii-wildfire",
+        "libya-flood",
+        "morocco-earthquake",
+        "myanmar-hurricane"
+      ],
+      "train_samples": 2564,
+      "validation_samples": 804,
+      "validation_disaster_types": [
+        "earthquake",
+        "explosion",
+        "flood",
+        "hurricane",
+        "wildfire"
+      ]
+    },
+    {
+      "fold": 3,
+      "train_events": [
+        "beirut-explosion",
+        "hawaii-wildfire",
+        "la_palma-volcano",
+        "libya-flood",
+        "morocco-earthquake",
+        "myanmar-hurricane",
+        "noto-earthquake",
+        "turkey-earthquake"
+      ],
+      "validation_events": [
+        "bata-explosion",
+        "congo-volcano",
+        "haiti-earthquake",
+        "marshall-wildfire",
+        "mexico-hurricane",
+        "ukraine-conflict"
+      ],
+      "train_samples": 2499,
+      "validation_samples": 869,
+      "validation_disaster_types": [
+        "conflict",
+        "earthquake",
+        "explosion",
+        "hurricane",
+        "volcano",
+        "wildfire"
+      ]
+    }
+  ]
+}

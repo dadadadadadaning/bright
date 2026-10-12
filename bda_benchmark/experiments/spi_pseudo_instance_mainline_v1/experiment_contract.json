@@ -1,0 +1,32 @@
+{
+  "protocol": "SPI_PSEUDO_INSTANCE_MAINLINE_V1",
+  "primary_task": "four_class_semantic_building_damage_segmentation",
+  "primary_split": "standard_ml_val450_semantic_tiff",
+  "locked_p3_valid_miou": 0.60502,
+  "seed": 3407,
+  "official_instances": "evaluation_diagnostic_only_never_training_or_selection",
+  "original_test": "never_access_before_final_lock",
+  "established_results": {
+    "s0_raw_p3": {"valid_miou": 0.605020, "status": "locked_baseline"},
+    "s1_loccc_hard_a6": {"valid_miou": 0.615399, "gain_pp": 1.0379, "status": "strong_simple_baseline"},
+    "s2_loccc_soft_context": {"valid_miou": 0.615716, "gain_pp": 1.0696, "status": "best_point_estimate_not_proven_over_s1"},
+    "s3_loccc_uncertain_interior": {"valid_miou": 0.611444, "gain_pp": 0.6424, "status": "more_event_stable_but_preregistered_gate_failed"},
+    "s4_local_uncertain_control": {"valid_miou": 0.605080, "gain_pp": 0.0060, "status": "matched_nonstructural_control"}
+  },
+  "claims_allowed": [
+    "prediction_derived_building_regions_improve_the_locked_p3_point_estimate",
+    "the_gain_is_structure_specific_relative_to_the_matched_local_control"
+  ],
+  "claims_not_yet_allowed": [
+    "soft_context_is_significantly_better_than_hard_feedback",
+    "learned_rgid_is_better_than_loccc",
+    "cross_event_generalization_is_solved",
+    "official_instances_are_unnecessary_in_all_settings"
+  ],
+  "next_primary_comparisons": [
+    "s2_loccc_soft_context_minus_s1_loccc_hard_a6_bootstrap",
+    "rgid_plus_locked_feedback_minus_loccc_plus_locked_feedback",
+    "train_only_calibrated_adapter_minus_parameter_matched_local_adapter"
+  ]
+}
+

@@ -1,0 +1,7 @@
+imageio==2.34.0
+matplotlib==3.8.3
+numpy==2.2.1
+Pillow==11.1.0
+torch==2.2.1
+torchvision==0.17.1
+tqdm==4.66.2

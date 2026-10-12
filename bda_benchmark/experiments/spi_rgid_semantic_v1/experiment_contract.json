@@ -1,0 +1,43 @@
+{
+  "protocol": "SPI_RGID_SEMANTIC_V1_ISOLATED",
+  "primary_question": "Does pseudo-only learned RGID geometry improve semantic mIoU over LocCC under the same locked A6 decision rule?",
+  "primary_split": "standard_ml_val450_semantic_tiff",
+  "locked_p3_valid_miou": 0.60502,
+  "seed": 3407,
+  "variants": {
+    "c0_raw_p3": {"geometry": "none", "decision": "raw_pixel_argmax"},
+    "c1_local_window_a6": {"geometry": "5x5_window", "decision": "locked_a6"},
+    "c2_loccc_a6": {"geometry": "p3_localization_cc", "decision": "locked_a6"},
+    "c3_rgid_g3_a6": {"geometry": "pseudo_only_rgid_g3", "decision": "locked_a6"}
+  },
+  "locked_a6": {
+    "minimum_area": 32,
+    "minimum_purity": 0.70,
+    "minimum_probability_margin": 0.10,
+    "local_kernel_size": 5,
+    "area_upper_bound": null,
+    "core_erosion": 0
+  },
+  "training_forbidden_sources": [
+    "official_instance_annotations",
+    "standard_ml_val450",
+    "original_standard_test"
+  ],
+  "read_only_dependencies": [
+    "model/DamageFormer_S8_MICB_DSMIL.py",
+    "experiments/rgid_s9ic_clean",
+    "script/standard_ML/spi_geometry_causal"
+  ],
+  "owned_output_namespaces": [
+    "BRIGHT-checkpoints/RGID_PSEUDO_ONLY",
+    "BRIGHT-eval-results/SPI_GEOMETRY_CAUSAL_VAL450",
+    "BRIGHT-train-logs/SPI_RGID_SEMANTIC_V1"
+  ],
+  "go_gate": {
+    "c3_minus_c2_miou_pp_min": 0.2,
+    "c3_minus_c2_bootstrap_ci_low_min": 0.0,
+    "c3_minus_p3_miou_pp_min": 0.5,
+    "damaged_f1_minus_p3_pp_min": 1.0,
+    "nonnegative_events_min": 9
+  }
+}

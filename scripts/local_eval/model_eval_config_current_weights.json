@@ -1,0 +1,48 @@
+{
+  "protocol": "official",
+  "device": "cpu",
+  "image_size": 640,
+  "batch_size": 1,
+  "num_workers": 0,
+  "checkpoint_priority": [
+    "best_valid_miou.pth",
+    "best_balanced_score.pth",
+    "best_damaged_iou.pth",
+    "best_destroyed_iou.pth",
+    "best_model.pth",
+    "best.pth"
+  ],
+  "fallback_checkpoint_priority": [
+    "final_model.pth",
+    "latest_resume.pth"
+  ],
+  "priority_1_models": [
+    "M01_BGCA_none",
+    "M02_A4_noROI_MDDMbase",
+    "M03_A4_MDDMbase_ROId5",
+    "M04_A4DG_b10",
+    "M05_A4D_MDDMlarge",
+    "A4_DamageExistHead"
+  ],
+  "priority_2_models": [
+    "BGCA_soft",
+    "BGCA_dilated_soft",
+    "BGCA_soft_align",
+    "BGCA_dilated_soft_align"
+  ],
+  "priority_3_models": [
+    "M06_A4IRC",
+    "M00_DamageFormer",
+    "PARAM_UNCERTAIN_UNKNOWN"
+  ],
+  "known_missing_formal_weights": [
+    "M07_A4DG_b03",
+    "M11_A4HDC_a03"
+  ],
+  "notes": [
+    "args.json is the first source of model parameters; directory rules are fallback only.",
+    "Unknown architectures are registered but not executed.",
+    "No iter_44000.pth or iter_46000.pth exists in the current local saved_weights tree.",
+    "M06C args.json records lambda_align=0.0001, align_warmup_iters=10000 and align_ramp_iters=10000. lambda_align is a training-loss parameter and is not required by inference."
+  ]
+}

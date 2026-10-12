@@ -1,0 +1,12 @@
+{
+  "train_root": "D:\\software\\dowmload\\BRIGHT-train-logs",
+  "eval_root": "D:\\software\\dowmload\\BRIGHT-eval-results",
+  "files": 1829,
+  "log_result_rows": 283,
+  "json_files": 227,
+  "json_metric_records": 18875,
+  "test_rows": 13,
+  "code_experiments": 52,
+  "code_experiments_without_name_matched_results": 10,
+  "json_files_with_explicit_test_access": 0
+}

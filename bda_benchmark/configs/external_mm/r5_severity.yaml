@@ -1,0 +1,6 @@
+experiment: r5_distance_aware_severity
+base_loss: {ce: 1.0, lovasz: 0.75}
+distance_weight: 0.1
+distance_definition: expected_rank_l1
+severity_ranks: {intact: 0, damaged: 1, destroyed: 2}
+test_locked: true

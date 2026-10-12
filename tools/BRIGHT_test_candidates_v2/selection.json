@@ -1,0 +1,549 @@
+{
+  "protocol": "four_class_test_visual_subset",
+  "split": "test",
+  "filters": {
+    "data": "F:/建筑损毁分类数据集",
+    "output": "research_reports/test_fourclass_multiscale_v2",
+    "split": "test",
+    "allow_test": true,
+    "crop": 512,
+    "crops": [
+      512,
+      768,
+      1024
+    ],
+    "audit_only": false,
+    "stride": 256,
+    "per_event": 2,
+    "min_class_pixels": 512,
+    "min_background": 1024,
+    "min_component": 128,
+    "max_dark": 0.1,
+    "max_cloud_component": 0.01
+  },
+  "note": "All four GT IDs present with area thresholds. RGB cloud heuristic ONLY. Human cloud/shadow review required. This subset is NOT full split performance.",
+  "samples": [
+    {
+      "sample_id": "bata-explosion_00000062",
+      "event": "bata-explosion",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.019034636116527635,
+      "class_pixels": [
+        240010,
+        6162,
+        5647,
+        10325
+      ],
+      "largest_class_components": [
+        1431,
+        1535,
+        1128
+      ],
+      "dark_fraction": 4.1961669921875e-05,
+      "building_dark_fraction": 4.5179362067407606e-05,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.004718780517578125,
+      "largest_suspected_cloud_fraction": 0.00250244140625
+    },
+    {
+      "sample_id": "bata-explosion_00000049",
+      "event": "bata-explosion",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.013664070572185744,
+      "class_pixels": [
+        227718,
+        4412,
+        3585,
+        26429
+      ],
+      "largest_class_components": [
+        958,
+        1519,
+        2214
+      ],
+      "dark_fraction": 0.001346588134765625,
+      "building_dark_fraction": 0.00011619125079881485,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0,
+      "largest_suspected_cloud_fraction": 0.0
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000014",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.05151724435583198,
+      "class_pixels": [
+        192725,
+        34906,
+        14902,
+        19611
+      ],
+      "largest_class_components": [
+        3533,
+        4451,
+        3199
+      ],
+      "dark_fraction": 0.02672576904296875,
+      "building_dark_fraction": 0.0024056814416802317,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.021862030029296875,
+      "largest_suspected_cloud_fraction": 0.00508880615234375
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000003",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.027704684527948626,
+      "class_pixels": [
+        184229,
+        8208,
+        13329,
+        56378
+      ],
+      "largest_class_components": [
+        3835,
+        2096,
+        3880
+      ],
+      "dark_fraction": 0.02387237548828125,
+      "building_dark_fraction": 0.00020535198613874094,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.01865386962890625,
+      "largest_suspected_cloud_fraction": 0.0035858154296875
+    },
+    {
+      "sample_id": "libya-flood_00000021",
+      "event": "libya-flood",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": -0.00011517485901794858,
+      "class_pixels": [
+        363581,
+        18550,
+        205407,
+        2286
+      ],
+      "largest_class_components": [
+        6209,
+        100994,
+        1310
+      ],
+      "dark_fraction": 0.07834370930989583,
+      "building_dark_fraction": 0.01917407389399893,
+      "near_black_fraction": 1.3563368055555555e-05,
+      "suspected_cloud_fraction": 0.024968465169270832,
+      "largest_suspected_cloud_fraction": 0.0020734998914930555
+    },
+    {
+      "sample_id": "congo-volcano_00000085",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.013856810604416007,
+      "class_pixels": [
+        196727,
+        20584,
+        4813,
+        40020
+      ],
+      "largest_class_components": [
+        2020,
+        1395,
+        4586
+      ],
+      "dark_fraction": 0.091796875,
+      "building_dark_fraction": 0.04034119571365241,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.005035400390625,
+      "largest_suspected_cloud_fraction": 0.000469207763671875
+    },
+    {
+      "sample_id": "congo-volcano_00000092",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.013620346044574452,
+      "class_pixels": [
+        182034,
+        60146,
+        4434,
+        15530
+      ],
+      "largest_class_components": [
+        2210,
+        817,
+        1126
+      ],
+      "dark_fraction": 0.09864425659179688,
+      "building_dark_fraction": 0.026912994632380477,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.004352569580078125,
+      "largest_suspected_cloud_fraction": 0.00060272216796875
+    },
+    {
+      "sample_id": "la_palma-volcano_00000597",
+      "event": "la_palma-volcano",
+      "xywh": [
+        0,
+        256,
+        768,
+        768
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": -0.0036792694291258162,
+      "class_pixels": [
+        535424,
+        8616,
+        2796,
+        42988
+      ],
+      "largest_class_components": [
+        2133,
+        2052,
+        11503
+      ],
+      "dark_fraction": 0.0977817111545139,
+      "building_dark_fraction": 0.08229779411764705,
+      "near_black_fraction": 0.0004526774088541667,
+      "suspected_cloud_fraction": 0.0011579725477430555,
+      "largest_suspected_cloud_fraction": 0.00018988715277777778
+    },
+    {
+      "sample_id": "la_palma-volcano_00000353",
+      "event": "la_palma-volcano",
+      "xywh": [
+        256,
+        256,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": -0.004430329592855236,
+      "class_pixels": [
+        211070,
+        45915,
+        590,
+        4569
+      ],
+      "largest_class_components": [
+        6879,
+        590,
+        1668
+      ],
+      "dark_fraction": 0.0760650634765625,
+      "building_dark_fraction": 0.0396875122371461,
+      "near_black_fraction": 0.00048065185546875,
+      "suspected_cloud_fraction": 0.0100555419921875,
+      "largest_suspected_cloud_fraction": 0.002712249755859375
+    },
+    {
+      "sample_id": "turkey-earthquake_00001065",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        0,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.16857506937864153,
+      "class_pixels": [
+        116268,
+        46421,
+        51096,
+        48359
+      ],
+      "largest_class_components": [
+        8499,
+        17211,
+        12447
+      ],
+      "dark_fraction": 0.08880996704101562,
+      "building_dark_fraction": 0.04165866900655351,
+      "near_black_fraction": 1.1444091796875e-05,
+      "suspected_cloud_fraction": 0.011142730712890625,
+      "largest_suspected_cloud_fraction": 0.00434112548828125
+    },
+    {
+      "sample_id": "turkey-earthquake_00001074",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        512,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.13113696403495675,
+      "class_pixels": [
+        109387,
+        79523,
+        35771,
+        37463
+      ],
+      "largest_class_components": [
+        23817,
+        6960,
+        8572
+      ],
+      "dark_fraction": 0.08243560791015625,
+      "building_dark_fraction": 0.021943347931682344,
+      "near_black_fraction": 8.0108642578125e-05,
+      "suspected_cloud_fraction": 0.00605010986328125,
+      "largest_suspected_cloud_fraction": 0.003124237060546875
+    },
+    {
+      "sample_id": "noto-earthquake_00000038",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.042109171549479164,
+      "class_pixels": [
+        307325,
+        98929,
+        25449,
+        158121
+      ],
+      "largest_class_components": [
+        11346,
+        5434,
+        18141
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0029924180772569445,
+      "largest_suspected_cloud_fraction": 0.00103759765625
+    },
+    {
+      "sample_id": "noto-earthquake_00000049",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.0091400146484375,
+      "class_pixels": [
+        164547,
+        85215,
+        3613,
+        8769
+      ],
+      "largest_class_components": [
+        4859,
+        588,
+        2507
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.008502960205078125,
+      "largest_suspected_cloud_fraction": 0.004642486572265625
+    },
+    {
+      "sample_id": "mexico-hurricane_00000005",
+      "event": "mexico-hurricane",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.042283762339326424,
+      "class_pixels": [
+        186537,
+        13966,
+        21172,
+        40469
+      ],
+      "largest_class_components": [
+        8215,
+        9545,
+        22969
+      ],
+      "dark_fraction": 0.0920257568359375,
+      "building_dark_fraction": 0.011427513325485736,
+      "near_black_fraction": 7.2479248046875e-05,
+      "suspected_cloud_fraction": 0.053394317626953125,
+      "largest_suspected_cloud_fraction": 0.00984954833984375
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000107",
+      "event": "myanmar-hurricane",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": -0.0018406029515331858,
+      "class_pixels": [
+        545157,
+        42882,
+        1147,
+        638
+      ],
+      "largest_class_components": [
+        1004,
+        627,
+        638
+      ],
+      "dark_fraction": 0.03854539659288195,
+      "building_dark_fraction": 0.023305796225401302,
+      "near_black_fraction": 8.477105034722223e-06,
+      "suspected_cloud_fraction": 0.002526177300347222,
+      "largest_suspected_cloud_fraction": 0.0005917019314236111
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000099",
+      "event": "myanmar-hurricane",
+      "xywh": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": -0.0033849270306199174,
+      "class_pixels": [
+        1033604,
+        7824,
+        4777,
+        2371
+      ],
+      "largest_class_components": [
+        1196,
+        694,
+        1206
+      ],
+      "dark_fraction": 0.05663299560546875,
+      "building_dark_fraction": 0.0252471279722148,
+      "near_black_fraction": 0.0022792816162109375,
+      "suspected_cloud_fraction": 0.012583732604980469,
+      "largest_suspected_cloud_fraction": 0.0031213760375976562
+    },
+    {
+      "sample_id": "ukraine-conflict_00000354",
+      "event": "ukraine-conflict",
+      "xywh": [
+        512,
+        256,
+        512,
+        512
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.006522379219709325,
+      "class_pixels": [
+        201636,
+        55090,
+        2778,
+        2640
+      ],
+      "largest_class_components": [
+        3979,
+        980,
+        2640
+      ],
+      "dark_fraction": 0.09998703002929688,
+      "building_dark_fraction": 0.006263634560719244,
+      "near_black_fraction": 0.0001220703125,
+      "suspected_cloud_fraction": 0.019214630126953125,
+      "largest_suspected_cloud_fraction": 0.00292205810546875
+    },
+    {
+      "sample_id": "ukraine-conflict_00000315",
+      "event": "ukraine-conflict",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "approved": false,
+      "review_status": "PENDING_CLOUD_AND_SHADOW_REVIEW",
+      "selection_score": 0.0025031299930288846,
+      "class_pixels": [
+        451956,
+        119029,
+        16542,
+        2297
+      ],
+      "largest_class_components": [
+        2198,
+        1858,
+        1242
+      ],
+      "dark_fraction": 0.09841071234809028,
+      "building_dark_fraction": 0.003909536658252822,
+      "near_black_fraction": 6.442599826388889e-05,
+      "suspected_cloud_fraction": 0.014063517252604166,
+      "largest_suspected_cloud_fraction": 0.0010002983940972222
+    }
+  ]
+}

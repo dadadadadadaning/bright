@@ -1,0 +1,84 @@
+{
+  "family": "S8_ReliableCrossModal",
+  "protocol": {
+    "seed": 3407,
+    "crop_size": 640,
+    "micro_batch_size": 2,
+    "accumulation_steps": 8,
+    "effective_batch_size": 16,
+    "amp_dtype": "bf16",
+    "base_learning_rate": 1e-05,
+    "new_learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "pilot_optimizer_steps": 3000,
+    "full_optimizer_steps": 10000,
+    "validation_every_steps": 500,
+    "roi_alpha": 0.1,
+    "expected_initial_valid_miou_percent": 68.6493,
+    "initial_valid_miou_tolerance_percent": 0.5,
+    "checkpoint_selection": "validation valid_mIoU only",
+    "test_set_access": "forbidden before final lock"
+  },
+  "loss_weights": {
+    "main_localization_ce_lovasz": 1.0,
+    "main_damage_ce_lovasz": 1.0,
+    "change_attention_aux": 0.1,
+    "change_attention_target": "Intact=0, Damaged/Destroyed=1, Background=ignore",
+    "pixel_damage_exist_aux": 0.1,
+    "pixel_severity_aux": 0.1,
+    "aux_ramp_steps": 500
+  },
+  "variants": {
+    "r0": {
+      "name": "S8-R0",
+      "relation_difference": false,
+      "spatial_gate": false,
+      "sar_adapter": false,
+      "pixel_hierarchy": false,
+      "stage3_rectifier": false
+    },
+    "r1": {
+      "name": "S8-R1",
+      "relation_difference": true,
+      "spatial_gate": false,
+      "sar_adapter": false,
+      "pixel_hierarchy": false,
+      "stage3_rectifier": false
+    },
+    "r2": {
+      "name": "S8-R2",
+      "relation_difference": true,
+      "spatial_gate": true,
+      "sar_adapter": false,
+      "pixel_hierarchy": false,
+      "stage3_rectifier": false
+    },
+    "r3": {
+      "name": "S8-R3",
+      "relation_difference": true,
+      "spatial_gate": true,
+      "sar_adapter": true,
+      "pixel_hierarchy": false,
+      "stage3_rectifier": false
+    },
+    "r4": {
+      "name": "S8-R4",
+      "relation_difference": true,
+      "spatial_gate": true,
+      "sar_adapter": true,
+      "pixel_hierarchy": true,
+      "stage3_rectifier": false
+    },
+    "r5": {
+      "name": "S8-R5",
+      "relation_difference": true,
+      "spatial_gate": true,
+      "sar_adapter": true,
+      "pixel_hierarchy": true,
+      "stage3_rectifier": true
+    }
+  },
+  "deferred": {
+    "r6_common_private_decomposition": "Do not implement until R1-R5 are stable and positive."
+  }
+}

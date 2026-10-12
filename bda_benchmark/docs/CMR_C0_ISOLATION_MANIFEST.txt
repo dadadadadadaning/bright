@@ -1,0 +1,44 @@
+CMR-C0 ISOLATION MANIFEST
+=========================
+
+New model package:
+  model/cmr_c0/__init__.py
+  model/cmr_c0/case_card.py
+  model/cmr_c0/visual_diagnostics.py
+
+New scripts:
+  script/standard_ML/cmr_c0/__init__.py
+  script/standard_ML/cmr_c0/build_case_cache.py
+  script/standard_ML/cmr_c0/audit_critical_verifier.py
+  script/standard_ML/cmr_c0/visualize_critical_regions.py
+  script/standard_ML/cmr_c0/summarize_visual_observations.py
+
+New runner/config/tests/docs:
+  run/run_CMR_C0_critical_isolated.sh
+  run/run_CMR_C0_visual_diagnostics.sh
+  configs/cmr_c0/paths.example.env
+  configs/cmr_c0/visual_paths.example.env
+  tests/cmr_c0/__init__.py
+  tests/cmr_c0/test_case_card.py
+  tests/cmr_c0/test_retrieval.py
+  tests/cmr_c0/test_audit_pipeline.py
+  tests/cmr_c0/test_visual_diagnostics.py
+  docs/CMR_C0_CRITICAL_ISOLATED_ZH.md
+  docs/CMR_C0_VISUAL_DIAGNOSTICS_ZH.md
+  docs/CMR_C0_ISOLATION_MANIFEST.txt
+
+Read-only upstream contracts:
+  accepted frozen P3 checkpoint
+  CMR_P0_frozen_pooling_audit_v1
+  CMR_M3_frozen_mean_topk_candidates_v1 (Top-20)
+  CMR_V1_ISOLATED_frozen_predicted_region_cache_v1
+
+Write scope:
+  CMR_C0_CRITICAL_ISOLATED only (visual outputs use a dedicated subdirectory)
+
+Explicitly unchanged:
+  P3 predictions and weights
+  RawMean keys and Top-20 candidates
+  frozen region identities
+  CMR V0/V1/V2 code
+  Test split (never accessed)

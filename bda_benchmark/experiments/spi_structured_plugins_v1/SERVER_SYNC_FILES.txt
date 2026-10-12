@@ -1,0 +1,13 @@
+bda_benchmark/model/structured_plugins/__init__.py
+bda_benchmark/model/structured_plugins/blocks.py
+bda_benchmark/model/structured_plugins/rgid_head.py
+bda_benchmark/model/structured_plugins/test_blocks.py
+bda_benchmark/experiments/spi_structured_plugins_v1/__init__.py
+bda_benchmark/experiments/spi_structured_plugins_v1/train_strip_rgid.py
+bda_benchmark/experiments/spi_structured_plugins_v1/run.sh
+bda_benchmark/experiments/spi_structured_plugins_v1/README_ZH.md
+bda_benchmark/experiments/spi_selective_rgid_e0_v1/runtime.py
+bda_benchmark/experiments/spi_selective_rgid_e0_v1/core.py
+bda_benchmark/experiments/spi_selective_rgid_e0_v1/audit.py
+bda_benchmark/experiments/spi_selective_rgid_e0_v1/run.sh
+bda_benchmark/experiments/spi_selective_rgid_e0_v1/test_core.py

@@ -1,0 +1,11 @@
+bda_benchmark/experiments/sec_alignment_v1/__init__.py
+bda_benchmark/experiments/sec_alignment_v1/objectives.py
+bda_benchmark/experiments/sec_alignment_v1/model.py
+bda_benchmark/experiments/sec_alignment_v1/train.py
+bda_benchmark/experiments/sec_alignment_v1/audit.py
+bda_benchmark/experiments/sec_alignment_v1/compare.py
+bda_benchmark/experiments/sec_alignment_v1/run.sh
+bda_benchmark/experiments/sec_alignment_v1/EXPERIMENT_PLAN_ZH.md
+bda_benchmark/experiments/sec_alignment_v1/experiment_contract.json
+bda_benchmark/experiments/sec_alignment_v1/tests/__init__.py
+bda_benchmark/experiments/sec_alignment_v1/tests/test_objectives.py

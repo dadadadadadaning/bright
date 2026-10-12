@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment_id": "S9-Id",
+  "role": "main_center_offset_instance_method",
+  "s8": {
+    "strict_load": true,
+    "frozen": true,
+    "eval_mode": true,
+    "feature_key": "fused_roi",
+    "feature_channels": 256
+  },
+  "head": {
+    "hidden_channels": 64,
+    "outputs": ["center_logits", "boundary_logits", "offset_logits_dx_dy"]
+  },
+  "target": {
+    "center": "one_deterministic_gaussian_per_complete_instance",
+    "offset": "pixel_to_instance_center_in_native_feature_pixels",
+    "offset_supervision": "equal_total_weight_per_instance",
+    "border_instance_policy": "ignore_center_and_offset"
+  },
+  "loss": {
+    "center": "centernet_modified_focal",
+    "boundary": "bce_plus_dice",
+    "offset": "instance_balanced_smooth_l1",
+    "weights": {
+      "center": 1.0,
+      "boundary": 1.0,
+      "offset": 1.0
+    }
+  },
+  "decoder": {
+    "method": "pixel_endpoint_to_nearest_center",
+    "building_threshold": 0.5,
+    "peak_threshold": 0.35,
+    "nms_kernel": 3,
+    "min_peak_distance_native": 3,
+    "offset_assignment_radius": 6.0,
+    "watershed_enabled": false,
+    "boundary_gate_enabled": false,
+    "rollback_enabled": false
+  },
+  "training": {
+    "optimizer_steps": 3000,
+    "accumulation_steps": 4,
+    "crop_size": 640,
+    "amp": "bf16",
+    "seed": 3407,
+    "test_access": false
+  }
+}

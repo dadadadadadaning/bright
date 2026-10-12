@@ -1,0 +1,234 @@
+{"kind":"deck","id":"pr/0hggku","name":"Deck"}
+{"kind":"layout","layoutId":"19c380a5-d070-432a-95d6-ae512915de99","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"ed45b1aa-1178-43cf-bcbc-5fcf52ec6d02","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/qw8oew","slide":1,"title":"02","textShapes":30}
+{"kind":"textbox","id":"sh/ps3mho3m","slide":1,"name":"02","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[34,24,55,48]}
+{"kind":"textbox","id":"sh/2pc3mt4v","slide":1,"name":"Region formation and pixel association","text":"Region formation and pixel association","textPreview":"Region formation and pixel association","textChars":38,"textLines":1,"bbox":[93,24,1300,48]}
+{"kind":"textbox","id":"sh/3ql4fylg","slide":1,"name":"Query A throughout the figure. Dashed frames are data slots, not experimental observations.","text":"Query A throughout the figure. Dashed frames are data slots, not experimental observations.","textPreview":"Query A throughout the figure. Dashed frames are data slots, not experimental observations.","textChars":91,"textLines":1,"bbox":[93,79,1290,29]}
+{"kind":"shape","id":"sh/gnalkjm5","slide":1,"bbox":[35,122,1370,0.1]}
+{"kind":"textbox","id":"sh/1o3mdo3q","slide":1,"name":"a  Pre-event RGB","text":"a  Pre-event RGB","textPreview":"a  Pre-event RGB","textChars":16,"textLines":1,"bbox":[45,140,310,31]}
+{"kind":"textbox","id":"sh/els3i94z","slide":1,"name":"b  Predicted buildings","text":"b  Predicted buildings","textPreview":"b  Predicted buildings","textChars":22,"textLines":1,"bbox":[390,140,310,31]}
+{"kind":"textbox","id":"sh/fm1kbelk","slide":1,"name":"c  Region boundaries","text":"c  Region boundaries","textPreview":"c  Region boundaries","textChars":20,"textLines":1,"bbox":[735,140,310,31]}
+{"kind":"textbox","id":"sh/sjalgzmt","slide":1,"name":"d  Building close-up","text":"d  Building close-up","textPreview":"d  Building close-up","textChars":20,"textLines":1,"bbox":[1080,140,310,31]}
+{"kind":"shape","id":"sh/tkj2943e","slide":1,"bbox":[45,181,300,225]}
+{"kind":"textbox","id":"sh/xwbepc7m","slide":1,"name":"RGB crop","text":"RGB crop","textPreview":"RGB crop","textChars":8,"textLines":1,"bbox":[53,268.5,284,29]}
+{"kind":"textbox","id":"sh/wv2xg761","slide":1,"name":"Same coordinates as SAR","text":"Same coordinates as SAR","textPreview":"Same coordinates as SAR","textChars":23,"textLines":1,"bbox":[53,300.5,284,26]}
+{"kind":"shape","id":"sh/vutwn2pg","slide":1,"bbox":[390,181,300,225]}
+{"kind":"textbox","id":"sh/at0vex8v","slide":1,"name":"P + centres","text":"P + centres","textPreview":"P + centres","textChars":11,"textLines":1,"bbox":[398,268.5,284,29]}
+{"kind":"textbox","id":"sh/9srels7q","slide":1,"name":"Predicted outline, not GT","text":"Predicted outline, not GT","textPreview":"Predicted outline, not GT","textChars":25,"textLines":1,"bbox":[398,300.5,284,26]}
+{"kind":"shape","id":"sh/8ridc7q5","slide":1,"bbox":[735,181,300,225]}
+{"kind":"textbox","id":"sh/nq9wj2pk","slide":1,"name":"Boundary overlay","text":"Boundary overlay","textPreview":"Boundary overlay","textChars":16,"textLines":1,"bbox":[743,268.5,284,29]}
+{"kind":"textbox","id":"sh/m50vax8z","slide":1,"name":"Hard display of soft assignment","text":"Hard display of soft assignment","textPreview":"Hard display of soft assignment","textChars":31,"textLines":1,"bbox":[743,300.5,284,26]}
+{"kind":"shape","id":"sh/l4rehs7e","slide":1,"bbox":[1080,181,300,225]}
+{"kind":"textbox","id":"sh/03id8nqt","slide":1,"name":"Selected building","text":"Selected building","textPreview":"Selected building","textChars":17,"textLines":1,"bbox":[1088,268.5,284,29]}
+{"kind":"textbox","id":"sh/c7mxonyp","slide":1,"name":"Crop from panel c","text":"Crop from panel c","textPreview":"Crop from panel c","textChars":17,"textLines":1,"bbox":[1088,300.5,284,26]}
+{"kind":"shape","id":"sh/d8vexsfa","slide":1,"bbox":[350,288,28,0.1]}
+{"kind":"shape","id":"sh/q5kfmdgj","slide":1,"bbox":[369,284,9,8]}
+{"kind":"shape","id":"sh/r6twvix4","slide":1,"bbox":[695,288,28,0.1]}
+{"kind":"shape","id":"sh/4j2dknyt","slide":1,"bbox":[714,284,9,8]}
+{"kind":"shape","id":"sh/pkbetsfe","slide":1,"bbox":[1040,288,28,0.1]}
+{"kind":"shape","id":"sh/ihkvidgn","slide":1,"bbox":[1059,284,9,8]}
+{"kind":"textbox","id":"sh/3itwrix8","slide":1,"name":"One scene, one crop, one selected building","text":"One scene, one crop, one selected building","textPreview":"One scene, one crop, one selected building","textChars":42,"textLines":1,"bbox":[45,416,790,27]}
+{"kind":"shape","id":"sh/of6xw7yx","slide":1,"bbox":[35,459,1370,0.1]}
+{"kind":"textbox","id":"sh/9gfe5cfi","slide":1,"name":"e  Partition controls","text":"e  Partition controls","textPreview":"e  Partition controls","textChars":21,"textLines":1,"bbox":[45,476,580,30]}
+{"kind":"textbox","id":"sh/jah0v6hk","slide":1,"name":"f  Assignment and token interpretation","text":"f  Assignment and token interpretation","textPreview":"f  Assignment and token interpretation","textChars":38,"textLines":1,"bbox":[740,476,650,30]}
+{"kind":"shape","id":"sh/y98z210z","slide":1,"bbox":[45,522,265,190]}
+{"kind":"textbox","id":"sh/lwzixgzq","slide":1,"name":"Grid partition","text":"Grid partition","textPreview":"Grid partition","textChars":14,"textLines":1,"bbox":[53,592,249,29]}
+{"kind":"textbox","id":"sh/kvqh4bi5","slide":1,"name":"Match region count and coverage","text":"Match region count and coverage","textPreview":"Match region count and coverage","textChars":31,"textLines":1,"bbox":[53,624,249,26]}
+{"kind":"shape","id":"sh/7y10zqhw","slide":1,"bbox":[340,522,265,190]}
+{"kind":"textbox","id":"sh/6x8z6l0b","slide":1,"name":"Content regions","text":"Content regions","textPreview":"Content regions","textChars":15,"textLines":1,"bbox":[348,592,249,29]}
+{"kind":"textbox","id":"sh/t0ji10zm","slide":1,"name":"Actual model output","text":"Actual model output","textPreview":"Actual model output","textChars":19,"textLines":1,"bbox":[348,624,249,26]}
+{"kind":"textbox","id":"sh/8zah8vih","slide":1,"name":"Use the same predicted building mask","text":"Use the same predicted building mask","textPreview":"Use the same predicted building mask","textChars":36,"textLines":1,"bbox":[45,724,570,29]}
+{"kind":"shape","id":"sh/n2xgnmhc","slide":1,"bbox":[755,540,110,110]}
+{"kind":"shape","id":"sh/m1ozuh0r","slide":1,"bbox":[801.2,540,63.8,68.2]}
+{"kind":"shape","id":"sh/elsza18n","slide":1,"bbox":[755,584,46.2,0.1]}
+{"kind":"shape","id":"sh/fm103mp8","slide":1,"bbox":[755,608.2,74.8,12.1]}
+{"kind":"textbox","id":"sh/0nahcrqt","slide":1,"name":"Region r","text":"Region r","textPreview":"Region r","textChars":8,"textLines":1,"bbox":[755,665,110,28]}
+{"kind":"shape","id":"sh/1oji5w7e","slide":1,"bbox":[880,593,58,0.1]}
+{"kind":"shape","id":"sh/2psze18z","slide":1,"bbox":[929,589,9,8]}
+{"kind":"shape","id":"sh/nq1076pk","slide":1,"bbox":[955,565,52,11]}
+{"kind":"shape","id":"sh/obahgbqp","slide":1,"bbox":[955,584,52,11]}
+{"kind":"shape","id":"sh/pc3i9g7a","slide":1,"bbox":[955,603,52,11]}
+{"kind":"textbox","id":"sh/adczil8v","slide":1,"name":"Region token","text":"Region token","textPreview":"Region token","textChars":12,"textLines":1,"bbox":[917,665,129,28]}
+{"kind":"shape","id":"sh/bel0b6pg","slide":1,"bbox":[1090,522,290,190]}
+{"kind":"textbox","id":"sh/lk7ux4vu","slide":1,"name":"Soft assignment Q(:, r)","text":"Soft assignment Q(:, r)","textPreview":"Soft assignment Q(:, r)","textChars":23,"textLines":1,"bbox":[1098,592,274,29]}
+{"kind":"textbox","id":"sh/kjytoze9","slide":1,"name":"Insert weights with a labelled scale","text":"Insert weights with a labelled scale","textPreview":"Insert weights with a labelled scale","textChars":36,"textLines":1,"bbox":[1098,624,274,26]}
+{"kind":"textbox","id":"sh/jipcvudo","slide":1,"name":"Schematic only","text":"Schematic only","textPreview":"Schematic only","textChars":14,"textLines":1,"bbox":[756,707,274,26]}
+{"kind":"textbox","id":"sh/yhgbm9wj","slide":1,"name":"Colour identifies regions, not damage classes","text":"Colour identifies regions, not damage classes","textPreview":"Colour identifies regions, not damage classes","textChars":45,"textLines":1,"bbox":[740,758,650,28]}
+{"kind":"textbox","id":"sh/toru1ov6","slide":1,"name":"Template only. Replace dashed frames with matched outputs. No model-generated region boundaries are shown yet.","text":"Template only. Replace dashed frames with matched outputs. No model-generated region boundaries are shown yet.","textPreview":"Template only. Replace dashed frames with matched outputs. No model-generated region boundaries are shown yet.","textChars":110,"textLines":1,"bbox":[35,849,1370,29]}
+{"kind":"notes","id":"nt/qw8oew","slide":1,"text":"Figure 2 template. Supply query RGB crop, building probability P, predicted connected components and centres, soft assignment Q, hard argmax display and identical-coordinate grid control. Remove empty regions before plotting. For a chosen region r, show Q[:,r] with its real numeric scale. Region colours are identifiers, not damage labels. Hard boundaries are for visualization only. The roof/token illustration is a conceptual schematic, not a learned output. Keep model/version/query ID and crop coordinates in the final caption."}
+{"kind":"slide","id":"sl/3hie9n","slide":2,"title":"03","textShapes":53}
+{"kind":"textbox","id":"sh/cva18721","slide":2,"name":"03","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[34,24,55,48]}
+{"kind":"textbox","id":"sh/bu1kf21g","slide":2,"name":"Retrieved buildings and local support reading","text":"Retrieved buildings and local support reading","textPreview":"Retrieved buildings and local support reading","textChars":45,"textLines":1,"bbox":[93,24,1300,48]}
+{"kind":"textbox","id":"sh/qtsj6xkv","slide":2,"name":"One query and three displayed supports. Retrieve buildings first, then inspect local evidence.","text":"One query and three displayed supports. Retrieve buildings first, then inspect local evidence.","textPreview":"One query and three displayed supports. Retrieve buildings first, then inspect local evidence.","textChars":94,"textLines":1,"bbox":[93,79,1290,29]}
+{"kind":"shape","id":"sh/psj2dsja","slide":2,"bbox":[35,122,1370,0.1]}
+{"kind":"textbox","id":"sh/orq14725","slide":2,"name":"a  Current query","text":"a  Current query","textPreview":"a  Current query","textChars":16,"textLines":1,"bbox":[45,141,320,32]}
+{"kind":"textbox","id":"sh/3qh0b21k","slide":2,"name":"b  Retrieved training supports","text":"b  Retrieved training supports","textPreview":"b  Retrieved training supports","textChars":30,"textLines":1,"bbox":[465,141,880,32]}
+{"kind":"shape","id":"sh/2p8j2xkz","slide":2,"bbox":[45,189,170,175]}
+{"kind":"textbox","id":"sh/1ozi9sje","slide":2,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[53,251.5,154,29]}
+{"kind":"textbox","id":"sh/gnq10n2t","slide":2,"name":"Query A","text":"Query A","textPreview":"Query A","textChars":7,"textLines":1,"bbox":[53,283.5,154,26]}
+{"kind":"shape","id":"sh/mpsn2xsf","slide":2,"bbox":[230,189,170,175]}
+{"kind":"textbox","id":"sh/7q14b2t0","slide":2,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[238,251.5,154,29]}
+{"kind":"textbox","id":"sh/8ra547al","slide":2,"name":"Query A","text":"Query A","textPreview":"Query A","textChars":7,"textLines":1,"bbox":[238,283.5,154,26]}
+{"kind":"textbox","id":"sh/9sj6dsb6","slide":2,"name":"Rank 1","text":"Rank 1","textPreview":"Rank 1","textChars":6,"textLines":1,"bbox":[475,179,285,28]}
+{"kind":"shape","id":"sh/y18nydsj","slide":2,"bbox":[475,215,135,130]}
+{"kind":"textbox","id":"sh/zmh47it4","slide":2,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[483,255,119,29]}
+{"kind":"textbox","id":"sh/kna50nap","slide":2,"name":"Train support","text":"Train support","textPreview":"Train support","textChars":13,"textLines":1,"bbox":[483,287,119,26]}
+{"kind":"shape","id":"sh/lojm9sba","slide":2,"bbox":[622,215,135,130]}
+{"kind":"textbox","id":"sh/ax8nudsn","slide":2,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[630,255,119,29]}
+{"kind":"textbox","id":"sh/byh43its","slide":2,"name":"Same support","text":"Same support","textPreview":"Same support","textChars":12,"textLines":1,"bbox":[630,287,119,26]}
+{"kind":"textbox","id":"sh/fqdsfa5o","slide":2,"name":"Building label: [fill]","text":"Building label: [fill]","textPreview":"Building label: [fill]","textChars":22,"textLines":1,"bbox":[475,351,290,27]}
+{"kind":"textbox","id":"sh/epkbm543","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[475,380,290,27]}
+{"kind":"textbox","id":"sh/1svuhkne","slide":2,"name":"Retrieval score: [fill]","text":"Retrieval score: [fill]","textPreview":"Retrieval score: [fill]","textChars":23,"textLines":1,"bbox":[475,409,290,27]}
+{"kind":"textbox","id":"sh/grmtofmt","slide":2,"name":"Rank 2","text":"Rank 2","textPreview":"Rank 2","textChars":6,"textLines":1,"bbox":[785,179,285,28]}
+{"kind":"shape","id":"sh/3udcju5k","slide":2,"bbox":[785,215,135,130]}
+{"kind":"textbox","id":"sh/2t4bqp4z","slide":2,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[793,255,119,29]}
+{"kind":"textbox","id":"sh/pgvulknq","slide":2,"name":"Train support","text":"Train support","textPreview":"Train support","textChars":13,"textLines":1,"bbox":[793,287,119,26]}
+{"kind":"shape","id":"sh/ovmtszm5","slide":2,"bbox":[932,215,135,130]}
+{"kind":"textbox","id":"sh/jy9s7q5g","slide":2,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[940,255,119,29]}
+{"kind":"textbox","id":"sh/ix0bel4v","slide":2,"name":"Same support","text":"Same support","textPreview":"Same support","textChars":12,"textLines":1,"bbox":[940,287,119,26]}
+{"kind":"textbox","id":"sh/83yp8r2t","slide":2,"name":"Building label: [fill]","text":"Building label: [fill]","textPreview":"Building label: [fill]","textChars":22,"textLines":1,"bbox":[785,351,290,27]}
+{"kind":"textbox","id":"sh/947qhw3y","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[785,380,290,27]}
+{"kind":"textbox","id":"sh/m1g76hkn","slide":2,"name":"Retrieval score: [fill]","text":"Retrieval score: [fill]","textPreview":"Retrieval score: [fill]","textChars":23,"textLines":1,"bbox":[785,409,290,27]}
+{"kind":"textbox","id":"sh/72p8fml8","slide":2,"name":"Rank 3","text":"Rank 3","textPreview":"Rank 3","textChars":6,"textLines":1,"bbox":[1095,179,285,28]}
+{"kind":"shape","id":"sh/0zyp4r2h","slide":2,"bbox":[1095,215,135,130]}
+{"kind":"textbox","id":"sh/l07qdw32","slide":2,"name":"RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[1103,255,119,29]}
+{"kind":"textbox","id":"sh/yxw72hkb","slide":2,"name":"Train support","text":"Train support","textPreview":"Train support","textChars":13,"textLines":1,"bbox":[1103,287,119,26]}
+{"kind":"shape","id":"sh/zy58bmlw","slide":2,"bbox":[1242,215,135,130]}
+{"kind":"textbox","id":"sh/4vi9gb2l","slide":2,"name":"SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[1250,255,119,29]}
+{"kind":"textbox","id":"sh/5wrqpg36","slide":2,"name":"Same support","text":"Same support","textPreview":"Same support","textChars":12,"textLines":1,"bbox":[1250,287,119,26]}
+{"kind":"textbox","id":"sh/1g3mh8jy","slide":2,"name":"Building label: [fill]","text":"Building label: [fill]","textPreview":"Building label: [fill]","textChars":22,"textLines":1,"bbox":[1095,351,290,27]}
+{"kind":"textbox","id":"sh/gfa583id","slide":2,"name":"Event / ID: [fill]","text":"Event / ID: [fill]","textPreview":"Event / ID: [fill]","textChars":18,"textLines":1,"bbox":[1095,380,290,27]}
+{"kind":"textbox","id":"sh/fe14fy1s","slide":2,"name":"Retrieval score: [fill]","text":"Retrieval score: [fill]","textPreview":"Retrieval score: [fill]","textChars":23,"textLines":1,"bbox":[1095,409,290,27]}
+{"kind":"textbox","id":"sh/edsn6t07","slide":2,"name":"Query ID / event: [fill]","text":"Query ID / event: [fill]","textPreview":"Query ID / event: [fill]","textChars":24,"textLines":1,"bbox":[45,377,360,26]}
+{"kind":"textbox","id":"sh/p436lsju","slide":2,"name":"Query GT is for evaluation only","text":"Query GT is for evaluation only","textPreview":"Query GT is for evaluation only","textChars":31,"textLines":1,"bbox":[45,413,390,26]}
+{"kind":"shape","id":"sh/o3u5cni9","slide":2,"bbox":[35,458,1370,0.1]}
+{"kind":"textbox","id":"sh/32loji1o","slide":2,"name":"c  Reading from a selected query region","text":"c  Reading from a selected query region","textPreview":"c  Reading from a selected query region","textChars":39,"textLines":1,"bbox":[45,475,1050,30]}
+{"kind":"shape","id":"sh/21cnad03","slide":2,"bbox":[45,520,355,155]}
+{"kind":"textbox","id":"sh/d8n6psjq","slide":2,"name":"Selected region r*","text":"Selected region r*","textPreview":"Selected region r*","textChars":18,"textLines":1,"bbox":[53,572.5,339,29]}
+{"kind":"textbox","id":"sh/c7u5gnil","slide":2,"name":"Actual query partition","text":"Actual query partition","textPreview":"Actual query partition","textChars":22,"textLines":1,"bbox":[53,604.5,339,26]}
+{"kind":"shape","id":"sh/udojapg3","slide":2,"bbox":[475,520,282,155]}
+{"kind":"textbox","id":"sh/vexkjuh8","slide":2,"name":"Local attention weights","text":"Local attention weights","textPreview":"Local attention weights","textChars":23,"textLines":1,"bbox":[483,572.5,266,29]}
+{"kind":"textbox","id":"sh/wf6lczyt","slide":2,"name":"Normalize within this support","text":"Normalize within this support","textPreview":"Normalize within this support","textChars":29,"textLines":1,"bbox":[483,604.5,266,26]}
+{"kind":"shape","id":"sh/hgf2l4ze","slide":2,"bbox":[785,520,282,155]}
+{"kind":"textbox","id":"sh/ih83e9gz","slide":2,"name":"Local attention weights","text":"Local attention weights","textPreview":"Local attention weights","textChars":23,"textLines":1,"bbox":[793,572.5,266,29]}
+{"kind":"textbox","id":"sh/jihknuhk","slide":2,"name":"Normalize within this support","text":"Normalize within this support","textPreview":"Normalize within this support","textChars":29,"textLines":1,"bbox":[793,604.5,266,26]}
+{"kind":"shape","id":"sh/4jqlgzy5","slide":2,"bbox":[1095,520,282,155]}
+{"kind":"textbox","id":"sh/5kz2p4zq","slide":2,"name":"Local attention weights","text":"Local attention weights","textPreview":"Local attention weights","textChars":23,"textLines":1,"bbox":[1103,572.5,266,29]}
+{"kind":"textbox","id":"sh/6l83i9gv","slide":2,"name":"Normalize within this support","text":"Normalize within this support","textPreview":"Normalize within this support","textChars":29,"textLines":1,"bbox":[1103,604.5,266,26]}
+{"kind":"textbox","id":"sh/rmhkrehg","slide":2,"name":"State the layer and head averaging rule. Attention weights are not retrieval scores.","text":"State the layer and head averaging rule. Attention weights are not retrieval scores.","textPreview":"State the layer and head averaging rule. Attention weights are not retrieval scores.","textChars":84,"textLines":1,"bbox":[45,685,1320,28]}
+{"kind":"textbox","id":"sh/3a1kzedo","slide":2,"name":"d  Query prediction","text":"d  Query prediction","textPreview":"d  Query prediction","textChars":19,"textLines":1,"bbox":[45,744,295,30]}
+{"kind":"shape","id":"sh/29sj69w3","slide":2,"bbox":[350,733,300,78]}
+{"kind":"textbox","id":"sh/pcj21ovu","slide":2,"name":"GT","text":"GT","textPreview":"GT","textChars":2,"textLines":1,"bbox":[358,747,284,29]}
+{"kind":"textbox","id":"sh/oba18je9","slide":2,"name":"Actual query labels","text":"Actual query labels","textPreview":"Actual query labels","textChars":19,"textLines":1,"bbox":[358,779,284,26]}
+{"kind":"shape","id":"sh/fmh0vexs","slide":2,"bbox":[680,733,300,78]}
+{"kind":"textbox","id":"sh/el8j29w7","slide":2,"name":"Without Memory","text":"Without Memory","textPreview":"Without Memory","textChars":14,"textLines":1,"bbox":[688,747,284,29]}
+{"kind":"textbox","id":"sh/1oj2x4fi","slide":2,"name":"Same query and crop","text":"Same query and crop","textPreview":"Same query and crop","textChars":19,"textLines":1,"bbox":[688,779,284,26]}
+{"kind":"shape","id":"sh/gnq14zex","slide":2,"bbox":[1010,733,370,78]}
+{"kind":"textbox","id":"sh/rih0ruxg","slide":2,"name":"With Memory","text":"With Memory","textPreview":"With Memory","textChars":11,"textLines":1,"bbox":[1018,747,354,29]}
+{"kind":"textbox","id":"sh/6h8jypwv","slide":2,"name":"Same query and crop","text":"Same query and crop","textPreview":"Same query and crop","textChars":19,"textLines":1,"bbox":[1018,779,354,26]}
+{"kind":"textbox","id":"sh/wb2pcbqh","slide":2,"name":"Template only. Fill supports from real retrieval IDs. Building labels do not label every local token.","text":"Template only. Fill supports from real retrieval IDs. Building labels do not label every local token.","textPreview":"Template only. Fill supports from real retrieval IDs. Building labels do not label every local token.","textChars":101,"textLines":1,"bbox":[35,849,1370,29]}
+{"kind":"notes","id":"nt/3hie9n","slide":2,"text":"Figure 3 template. Use the same Query A as Figure 2 and a corresponding row of Figure 4. Obtain actual top-K support IDs from a train-only memory using the fixed source exclusion protocol. Include actual RGB/SAR pairs for each support, event/source IDs, building labels and exact retrieval score definition. Do not use validation/test images as supports. Display one selected query region and actual per-support attention weights; document layer/head averaging and local normalization. Do not compare maxima from independent softmax distributions as total support importance. Add learned support aggregation weights only if explicitly available from the implementation. Duplicate this page only later if a verified failure example is required."}
+{"kind":"slide","id":"sl/uy5iv8","slide":3,"title":"04","textShapes":71}
+{"kind":"textbox","id":"sh/gjqpgnuh","slide":3,"name":"04","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[34,24,55,48]}
+{"kind":"textbox","id":"sh/fih8nidw","slide":3,"name":"Qualitative damage assessment","text":"Qualitative damage assessment","textPreview":"Qualitative damage assessment","textChars":29,"textLines":1,"bbox":[93,24,1300,48]}
+{"kind":"textbox","id":"sh/eh87edcb","slide":3,"name":"Matched crops across every column. Populate all methods with predictions from the same evaluation protocol.","text":"Matched crops across every column. Populate all methods with predictions from the same evaluation protocol.","textPreview":"Matched crops across every column. Populate all methods with predictions from the same evaluation protocol.","textChars":107,"textLines":1,"bbox":[93,79,1290,29]}
+{"kind":"shape","id":"sh/tgzql8vq","slide":3,"bbox":[35,122,1370,0.1]}
+{"kind":"textbox","id":"sh/sfqpc3u5","slide":3,"name":"Pre-event RGB","text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[205,142,180,48]}
+{"kind":"textbox","id":"sh/rex8jyd0","slide":3,"name":"Post-event SAR","text":"Post-event SAR","textPreview":"Post-event SAR","textChars":14,"textLines":1,"bbox":[405,142,180,48]}
+{"kind":"textbox","id":"sh/6do7adwf","slide":3,"name":"Ground truth","text":"Ground truth","textPreview":"Ground truth","textChars":12,"textLines":1,"bbox":[605,142,180,48]}
+{"kind":"textbox","id":"sh/5cfqh8vu","slide":3,"name":"Pixel baseline","text":"Pixel baseline","textPreview":"Pixel baseline","textChars":14,"textLines":1,"bbox":[805,142,180,48]}
+{"kind":"textbox","id":"sh/4r6p83e9","slide":3,"name":"+ Regions","text":"+ Regions","textPreview":"+ Regions","textChars":9,"textLines":1,"bbox":[1005,142,180,48]}
+{"kind":"textbox","id":"sh/6pwjm98n","slide":3,"name":"+ Regions + Memory","text":"+ Regions + Memory","textPreview":"+ Regions + Memory","textChars":18,"textLines":1,"bbox":[1205,142,180,48]}
+{"kind":"textbox","id":"sh/7q50fe9s","slide":3,"name":"Query A","text":"Query A","textPreview":"Query A","textChars":7,"textLines":1,"bbox":[40,233,150,30]}
+{"kind":"textbox","id":"sh/8re1ojqd","slide":3,"name":"Damaged miss","text":"Damaged miss","textPreview":"Damaged miss","textChars":12,"textLines":1,"bbox":[40,266,155,30]}
+{"kind":"shape","id":"sh/tsnihory","slide":3,"bbox":[205,209,180,116]}
+{"kind":"textbox","id":"sh/ylcji98b","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[213,242,164,29]}
+{"kind":"textbox","id":"sh/jml0be9w","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[213,274,164,26]}
+{"kind":"shape","id":"sh/knu1kjqh","slide":3,"bbox":[405,209,180,116]}
+{"kind":"textbox","id":"sh/lonid4r2","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[413,242,164,29]}
+{"kind":"textbox","id":"sh/axczep8f","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[413,274,164,26]}
+{"kind":"shape","id":"sh/byl07u90","slide":3,"bbox":[605,209,180,116]}
+{"kind":"textbox","id":"sh/z2hgfqps","slide":3,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[613,242,164,29]}
+{"kind":"textbox","id":"sh/e18fmlo7","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[613,274,164,26]}
+{"kind":"shape","id":"sh/14zyh07i","slide":3,"bbox":[805,209,180,116]}
+{"kind":"textbox","id":"sh/03qxov6x","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[813,242,164,29]}
+{"kind":"textbox","id":"sh/nq1gjapo","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[813,274,164,26]}
+{"kind":"shape","id":"sh/mpsfq5o3","slide":3,"bbox":[1005,209,180,116]}
+{"kind":"textbox","id":"sh/9sjyl07u","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1013,242,164,29]}
+{"kind":"textbox","id":"sh/oraxsf69","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1013,274,164,26]}
+{"kind":"shape","id":"sh/3uxw76pk","slide":3,"bbox":[1205,209,180,116]}
+{"kind":"textbox","id":"sh/itofe18z","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1213,242,164,29]}
+{"kind":"textbox","id":"sh/8zmdo7mh","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1213,274,164,26]}
+{"kind":"textbox","id":"sh/t0vuhcn2","slide":3,"name":"Query B","text":"Query B","textPreview":"Query B","textChars":7,"textLines":1,"bbox":[40,372,150,30]}
+{"kind":"textbox","id":"sh/6dkvmxor","slide":3,"name":"Region effect","text":"Region effect","textPreview":"Region effect","textChars":13,"textLines":1,"bbox":[40,405,155,30]}
+{"kind":"shape","id":"sh/7edcf25c","slide":3,"bbox":[205,348,180,116]}
+{"kind":"textbox","id":"sh/kb2dk76l","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[213,381,164,29]}
+{"kind":"textbox","id":"sh/lcbudcn6","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[213,413,164,26]}
+{"kind":"shape","id":"sh/y9kvixof","slide":3,"bbox":[405,348,180,116]}
+{"kind":"textbox","id":"sh/jatcb250","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[413,381,164,29]}
+{"kind":"textbox","id":"sh/476dwrmp","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[413,413,164,26]}
+{"kind":"shape","id":"sh/58fepwna","slide":3,"bbox":[605,348,180,116]}
+{"kind":"textbox","id":"sh/10ni14zq","slide":3,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[613,381,164,29]}
+{"kind":"textbox","id":"sh/0ze1szi5","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[613,413,164,26]}
+{"kind":"shape","id":"sh/fy50zuhk","slide":3,"bbox":[805,348,180,116]}
+{"kind":"textbox","id":"sh/edwjqp0z","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[813,381,164,29]}
+{"kind":"textbox","id":"sh/p47i54zm","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[813,413,164,26]}
+{"kind":"shape","id":"sh/o3y1wzy1","slide":3,"bbox":[1005,348,180,116]}
+{"kind":"textbox","id":"sh/n2p03uhg","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1013,381,164,29]}
+{"kind":"textbox","id":"sh/21wjupgb","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1013,413,164,26]}
+{"kind":"shape","id":"sh/x8729ozy","slide":3,"bbox":[1205,348,180,116]}
+{"kind":"textbox","id":"sh/c7y10jyd","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1213,381,164,29]}
+{"kind":"textbox","id":"sh/udsfulgv","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1213,413,164,26]}
+{"kind":"textbox","id":"sh/ve1gn6xg","slide":3,"name":"Query C","text":"Query C","textPreview":"Query C","textChars":7,"textLines":1,"bbox":[40,511,150,30]}
+{"kind":"textbox","id":"sh/wfaxwbyl","slide":3,"name":"Memory effect","text":"Memory effect","textPreview":"Memory effect","textChars":13,"textLines":1,"bbox":[40,544,155,30]}
+{"kind":"shape","id":"sh/hgjypgf6","slide":3,"bbox":[205,487,180,116]}
+{"kind":"textbox","id":"sh/ihsfylgr","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[213,520,164,29]}
+{"kind":"textbox","id":"sh/3ilgrqxc","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[213,552,164,26]}
+{"kind":"shape","id":"sh/4juh0vex","slide":3,"bbox":[405,487,180,116]}
+{"kind":"textbox","id":"sh/543yt0fi","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[413,520,164,29]}
+{"kind":"textbox","id":"sh/q5cz25w3","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[413,552,164,26]}
+{"kind":"shape","id":"sh/r6lgvqx8","slide":3,"bbox":[605,487,180,116]}
+{"kind":"textbox","id":"sh/na5wjadg","slide":3,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[613,520,164,29]}
+{"kind":"textbox","id":"sh/29wfq5cv","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[613,552,164,26]}
+{"kind":"shape","id":"sh/pcnyl0vm","slide":3,"bbox":[805,487,180,116]}
+{"kind":"textbox","id":"sh/obexsvu1","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[813,520,164,29]}
+{"kind":"textbox","id":"sh/f6lwfqdk","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[813,552,164,26]}
+{"kind":"shape","id":"sh/elcfmlcz","slide":3,"bbox":[1005,487,180,116]}
+{"kind":"textbox","id":"sh/183eh0va","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1013,520,164,29]}
+{"kind":"textbox","id":"sh/07uxovu5","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1013,552,164,26]}
+{"kind":"shape","id":"sh/rilwbqd8","slide":3,"bbox":[1205,487,180,116]}
+{"kind":"textbox","id":"sh/qhsfilcn","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1213,520,164,29]}
+{"kind":"textbox","id":"sh/wnqtsral","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1213,552,164,26]}
+{"kind":"textbox","id":"sh/hozulcb6","slide":3,"name":"Query D","text":"Query D","textPreview":"Query D","textChars":7,"textLines":1,"bbox":[40,650,150,30]}
+{"kind":"textbox","id":"sh/ul8bqhsf","slide":3,"name":"Failure case","text":"Failure case","textPreview":"Failure case","textChars":12,"textLines":1,"bbox":[40,683,155,30]}
+{"kind":"shape","id":"sh/vmhcjmt0","slide":3,"bbox":[205,626,180,116]}
+{"kind":"textbox","id":"sh/4radgrax","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[213,659,164,29]}
+{"kind":"textbox","id":"sh/5cjupwb2","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[213,691,164,26]}
+{"kind":"shape","id":"sh/ip8vuhsr","slide":3,"bbox":[405,626,180,116]}
+{"kind":"textbox","id":"sh/jq1cnmtc","slide":3,"name":"Image crop","text":"Image crop","textPreview":"Image crop","textChars":10,"textLines":1,"bbox":[413,659,164,29]}
+{"kind":"textbox","id":"sh/kv6tk7ad","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[413,691,164,26]}
+{"kind":"shape","id":"sh/lwfudsby","slide":3,"bbox":[605,626,180,116]}
+{"kind":"textbox","id":"sh/p0vqlorq","slide":3,"name":"GT map","text":"GT map","textPreview":"GT map","textChars":6,"textLines":1,"bbox":[613,659,164,29]}
+{"kind":"textbox","id":"sh/oz29c3q5","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[613,691,164,26]}
+{"kind":"shape","id":"sh/nyt8jy9k","slide":3,"bbox":[805,626,180,116]}
+{"kind":"textbox","id":"sh/2xkrat8f","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[813,659,164,29]}
+{"kind":"textbox","id":"sh/1wbqhoru","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[813,691,164,26]}
+{"kind":"shape","id":"sh/0v298jq9","slide":3,"bbox":[1005,626,180,116]}
+{"kind":"textbox","id":"sh/fut8fe9o","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1013,659,164,29]}
+{"kind":"textbox","id":"sh/etkr6983","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1013,691,164,26]}
+{"kind":"shape","id":"sh/lsfatsry","slide":3,"bbox":[1205,626,180,116]}
+{"kind":"textbox","id":"sh/kr69knqd","slide":3,"name":"Prediction","text":"Prediction","textPreview":"Prediction","textChars":10,"textLines":1,"bbox":[1213,659,164,29]}
+{"kind":"textbox","id":"sh/i1wfylkj","slide":3,"name":"Awaiting data","text":"Awaiting data","textPreview":"Awaiting data","textChars":13,"textLines":1,"bbox":[1213,691,164,26]}
+{"kind":"shape","id":"sh/jm5grql4","slide":3,"bbox":[35,784,1370,0.1]}
+{"kind":"textbox","id":"sh/knyx0v2p","slide":3,"name":"Class legend","text":"Class legend","textPreview":"Class legend","textChars":12,"textLines":1,"bbox":[40,800,150,25]}
+{"kind":"shape","id":"sh/5o7yt03a","slide":3,"bbox":[220,805,20,20]}
+{"kind":"textbox","id":"sh/axwfu1kn","slide":3,"name":"Background","text":"Background","textPreview":"Background","textChars":10,"textLines":1,"bbox":[250,798,190,31]}
+{"kind":"shape","id":"sh/vy5wn6l8","slide":3,"bbox":[455,805,20,20]}
+{"kind":"textbox","id":"sh/wzexwb2t","slide":3,"name":"Intact","text":"Intact","textPreview":"Intact","textChars":6,"textLines":1,"bbox":[485,798,190,31]}
+{"kind":"shape","id":"sh/x0nepg3y","slide":3,"bbox":[690,805,20,20]}
+{"kind":"textbox","id":"sh/etgf65kr","slide":3,"name":"Damaged","text":"Damaged","textPreview":"Damaged","textChars":7,"textLines":1,"bbox":[720,798,190,31]}
+{"kind":"shape","id":"sh/fupgzalc","slide":3,"bbox":[925,805,20,20]}
+{"kind":"textbox","id":"sh/cruts7ud","slide":3,"name":"Destroyed","text":"Destroyed","textPreview":"Destroyed","textChars":9,"textLines":1,"bbox":[955,798,190,31]}
+{"kind":"textbox","id":"sh/ds3alcvy","slide":3,"name":"Template only. Row descriptions are selection targets, not findings. Use verified cases and one shared class palette.","text":"Template only. Row descriptions are selection targets, not findings. Use verified cases and one shared class palette.","textPreview":"Template only. Row descriptions are selection targets, not findings. Use verified cases and one shared class palette.","textChars":117,"textLines":1,"bbox":[35,849,1370,29]}
+{"kind":"notes","id":"nt/uy5iv8","slide":3,"text":"Figure 4 comparison template, not experimental results. Intended row types are damaged false negative, regional effect, added memory effect, and failure; these types are not claims until real cases are found. Change or drop row purposes that are unsupported. All six columns use the same geographic crop and output resolution per row. Keep model checkpoint/protocol consistent with the reported ablation. Use actual GT and predictions, never recolour source-paper reference maps as model outputs. Legend is a proposed consistent palette and must be mapped to the actual class IDs. If magnified insets are added, use identical positions and scales across columns. Qualitative cases do not replace aggregate Damaged precision/recall/F1 and event-level evaluation."}

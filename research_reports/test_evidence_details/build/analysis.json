@@ -1,0 +1,3065 @@
+{
+  "scope": "18 selected Test crops ONLY. Pooled pixel counts, not whole Test or event-balanced metrics.",
+  "summary": {
+    "UNet": {
+      "iou": [
+        0.916704451450848,
+        0.43505766818709074,
+        0.4013497274421359,
+        0.29324479905753836
+      ],
+      "miou3": 0.376550731562255,
+      "damaged_precision": 0.5957993035034244,
+      "damaged_recall": 0.5515187340851219,
+      "damaged_f1": 0.572804517791164,
+      "damaged_as_intact": 115215,
+      "intact_as_damaged": 66361
+    },
+    "DeepLabV3Plus": {
+      "iou": [
+        0.9110820368381763,
+        0.4170343190559929,
+        0.4063235432350905,
+        0.2545987308367828
+      ],
+      "miou3": 0.35931886437595545,
+      "damaged_precision": 0.5870083182515129,
+      "damaged_recall": 0.5689772357412265,
+      "damaged_f1": 0.5778521524291466,
+      "damaged_as_intact": 118492,
+      "intact_as_damaged": 64998
+    },
+    "SiamAttnUNet": {
+      "iou": [
+        0.9149593836646751,
+        0.40853849882359183,
+        0.2511591494241467,
+        0.2812232099867298
+      ],
+      "miou3": 0.31364028607815614,
+      "damaged_precision": 0.5197114488780046,
+      "damaged_recall": 0.3270758744806724,
+      "damaged_f1": 0.4014823366631562,
+      "damaged_as_intact": 203518,
+      "intact_as_damaged": 38270
+    },
+    "SiamCRNN": {
+      "iou": [
+        0.9191949385963457,
+        0.45436623989948227,
+        0.38371928194600763,
+        0.29198679697287927
+      ],
+      "miou3": 0.3766907729394564,
+      "damaged_precision": 0.5726366548831804,
+      "damaged_recall": 0.5377027052899619,
+      "damaged_f1": 0.5546201270048938,
+      "damaged_as_intact": 122409,
+      "intact_as_damaged": 70099
+    },
+    "DamageFormer": {
+      "iou": [
+        0.9307772109735581,
+        0.473884827222981,
+        0.40738317079360475,
+        0.288780779242948
+      ],
+      "miou3": 0.3900162590865112,
+      "damaged_precision": 0.626795779656337,
+      "damaged_recall": 0.5378439049606556,
+      "damaged_f1": 0.5789228964048032,
+      "damaged_as_intact": 125862,
+      "intact_as_damaged": 60721
+    },
+    "Ours_A1": {
+      "iou": [
+        0.933020884030741,
+        0.5116484562184574,
+        0.42394590633914536,
+        0.4579735136810056
+      ],
+      "miou3": 0.4645226254128694,
+      "damaged_precision": 0.6226992743212109,
+      "damaged_recall": 0.5704897474679788,
+      "damaged_f1": 0.5954522632521588,
+      "damaged_as_intact": 110537,
+      "intact_as_damaged": 65628
+    }
+  },
+  "rows": [
+    {
+      "sample_id": "bata-explosion_00000062",
+      "event": "bata-explosion",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.019034636116527635,
+      "class_pixels": [
+        240010,
+        6162,
+        5647,
+        10325
+      ],
+      "largest_class_components": [
+        1431,
+        1535,
+        1128
+      ],
+      "dark_fraction": 4.1961669921875e-05,
+      "building_dark_fraction": 4.5179362067407606e-05,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.004718780517578125,
+      "largest_suspected_cloud_fraction": 0.00250244140625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9705655453150263,
+            0.15386537820726426,
+            0.022492812447150345,
+            0.0
+          ],
+          "miou3": 0.058786063551471535,
+          "damaged_precision": 0.3333333333333333,
+          "damaged_recall": 0.023552328670090314,
+          "damaged_f1": 0.04399603043334436,
+          "damaged_as_intact": 5108,
+          "intact_as_damaged": 141
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9684119710571938,
+            0.10788521417150551,
+            0.19227820754059516,
+            0.0
+          ],
+          "miou3": 0.10005447390403355,
+          "damaged_precision": 0.24072943024168922,
+          "damaged_recall": 0.48857800602089607,
+          "damaged_f1": 0.32253916296469487,
+          "damaged_as_intact": 2339,
+          "intact_as_damaged": 1400
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9641749379652605,
+            0.12042752392394052,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.040142507974646836,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 5184,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9715539875287168,
+            0.184732409671285,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.06157746989042833,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 5216,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9792601681585731,
+            0.21764239111267855,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.07254746370422618,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 5142,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9807232780709294,
+            0.259949390384173,
+            0.002258409604184001,
+            0.17732862999332635
+          ],
+          "miou3": 0.14651214332722776,
+          "damaged_precision": 0.006822262118491921,
+          "damaged_recall": 0.0033646183814414732,
+          "damaged_f1": 0.004506641366223909,
+          "damaged_as_intact": 5086,
+          "intact_as_damaged": 178
+        }
+      },
+      "damaged_recovered_from_intact": 19,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.07396467962300157,
+      "delta_damaged_iou": 0.002258409604184001
+    },
+    {
+      "sample_id": "bata-explosion_00000049",
+      "event": "bata-explosion",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013664070572185744,
+      "class_pixels": [
+        227718,
+        4412,
+        3585,
+        26429
+      ],
+      "largest_class_components": [
+        958,
+        1519,
+        2214
+      ],
+      "dark_fraction": 0.001346588134765625,
+      "building_dark_fraction": 0.00011619125079881485,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0,
+      "largest_suspected_cloud_fraction": 0.0,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.947428180159566,
+            0.08422069298563323,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.02807356432854441,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3287,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9545962150066452,
+            0.04443521594684385,
+            0.04312056737588652,
+            0.0
+          ],
+          "miou3": 0.02918526110757679,
+          "damaged_precision": 0.08065799946935527,
+          "damaged_recall": 0.08479776847977685,
+          "damaged_f1": 0.0826760946423715,
+          "damaged_as_intact": 1850,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9381792152014056,
+            0.08837273227047829,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.029457577423492764,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3288,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9358257910392029,
+            0.10455150221232093,
+            0.0,
+            0.02303938258994439
+          ],
+          "miou3": 0.04253029493408844,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2937,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9567017682947847,
+            0.09053486573102,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.030178288577006666,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2714,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9619176886068618,
+            0.11449952570003162,
+            0.03465390410351857,
+            0.02220708962281996
+          ],
+          "miou3": 0.057120173142123386,
+          "damaged_precision": 0.0483372481147237,
+          "damaged_recall": 0.10906555090655509,
+          "damaged_f1": 0.06698646565016275,
+          "damaged_as_intact": 2491,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 391,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.02694188456511672,
+      "delta_damaged_iou": 0.03465390410351857
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000014",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.05151724435583198,
+      "class_pixels": [
+        192725,
+        34906,
+        14902,
+        19611
+      ],
+      "largest_class_components": [
+        3533,
+        4451,
+        3199
+      ],
+      "dark_fraction": 0.02672576904296875,
+      "building_dark_fraction": 0.0024056814416802317,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.021862030029296875,
+      "largest_suspected_cloud_fraction": 0.00508880615234375,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9146179250770017,
+            0.11242540777085268,
+            0.17990485252140817,
+            0.731934828572613
+          ],
+          "miou3": 0.3414216962882913,
+          "damaged_precision": 0.2007133455054987,
+          "damaged_recall": 0.6344114883908201,
+          "damaged_f1": 0.30494806786658923,
+          "damaged_as_intact": 2089,
+          "intact_as_damaged": 29098
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9209351247296037,
+            0.38525174160861303,
+            0.11732038699311935,
+            0.5216807450725579
+          ],
+          "miou3": 0.3414176245580968,
+          "damaged_precision": 0.19657069288389514,
+          "damaged_recall": 0.22540598577372165,
+          "damaged_f1": 0.21000312597686777,
+          "damaged_as_intact": 7295,
+          "intact_as_damaged": 10670
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9188783700658635,
+            0.6226467154833917,
+            0.01848176631108906,
+            0.6083454110350871
+          ],
+          "miou3": 0.416491297609856,
+          "damaged_precision": 0.19605263157894737,
+          "damaged_recall": 0.019997315796537376,
+          "damaged_f1": 0.03629277798075752,
+          "damaged_as_intact": 7778,
+          "intact_as_damaged": 914
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9119546938371748,
+            0.1917194157779365,
+            0.22324475524475523,
+            0.6787383607522727
+          ],
+          "miou3": 0.3645675105916548,
+          "damaged_precision": 0.27683929376669325,
+          "damaged_recall": 0.5355656958797477,
+          "damaged_f1": 0.3650042304086346,
+          "damaged_as_intact": 2341,
+          "intact_as_damaged": 18239
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9263093818450346,
+            0.3141405405405405,
+            0.08852275900586429,
+            0.7352463454250135
+          ],
+          "miou3": 0.37930321499047276,
+          "damaged_precision": 0.1316554531107235,
+          "damaged_recall": 0.2127231244128305,
+          "damaged_f1": 0.16264751154438173,
+          "damaged_as_intact": 8203,
+          "intact_as_damaged": 17638
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9349014411131357,
+            0.43214819117158976,
+            0.08057888154368412,
+            0.767988909261661
+          ],
+          "miou3": 0.4269053273256449,
+          "damaged_precision": 0.14702047203025168,
+          "damaged_recall": 0.15132197020534158,
+          "damaged_f1": 0.14914021164021163,
+          "damaged_as_intact": 9441,
+          "intact_as_damaged": 11482
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 707,
+      "delta_miou3": 0.04760211233517214,
+      "delta_damaged_iou": -0.007943877462180171
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000003",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.027704684527948626,
+      "class_pixels": [
+        184229,
+        8208,
+        13329,
+        56378
+      ],
+      "largest_class_components": [
+        3835,
+        2096,
+        3880
+      ],
+      "dark_fraction": 0.02387237548828125,
+      "building_dark_fraction": 0.00020535198613874094,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.01865386962890625,
+      "largest_suspected_cloud_fraction": 0.0035858154296875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.8904500322372663,
+            0.0414471373375483,
+            0.41164499156160034,
+            0.802957950990225
+          ],
+          "miou3": 0.41868335996312456,
+          "damaged_precision": 0.5488418266048974,
+          "damaged_recall": 0.6221772075924675,
+          "damaged_f1": 0.5832131931502514,
+          "damaged_as_intact": 333,
+          "intact_as_damaged": 5495
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.8926179989666938,
+            0.0,
+            0.2832387212429041,
+            0.7747987262677241
+          ],
+          "miou3": 0.3526791491702094,
+          "damaged_precision": 0.4571979744393537,
+          "damaged_recall": 0.4267386900742741,
+          "damaged_f1": 0.44144353899883587,
+          "damaged_as_intact": 2065,
+          "intact_as_damaged": 5706
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9011061069711171,
+            0.25610914428805803,
+            0.1685268585601462,
+            0.7993190007939901
+          ],
+          "miou3": 0.4079850012140647,
+          "damaged_precision": 0.564494971578487,
+          "damaged_recall": 0.19371295671093106,
+          "damaged_f1": 0.2884432776629615,
+          "damaged_as_intact": 3120,
+          "intact_as_damaged": 1743
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.8982134068064076,
+            0.02544156676123364,
+            0.006549172035567861,
+            0.7580633354318258
+          ],
+          "miou3": 0.2633513580762091,
+          "damaged_precision": 0.022062780269058297,
+          "damaged_recall": 0.009227999099707404,
+          "damaged_f1": 0.013013118916631402,
+          "damaged_as_intact": 2615,
+          "intact_as_damaged": 4987
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9151110652991805,
+            0.21726591040184579,
+            0.43732079366899873,
+            0.8261567051573246
+          ],
+          "miou3": 0.49358113640938966,
+          "damaged_precision": 0.6498508734554751,
+          "damaged_recall": 0.5721359441818591,
+          "damaged_f1": 0.6085221832109798,
+          "damaged_as_intact": 1837,
+          "intact_as_damaged": 3760
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9188422686419396,
+            0.08177050222504768,
+            0.34079535058924826,
+            0.8277681271311844
+          ],
+          "miou3": 0.4167779933151601,
+          "damaged_precision": 0.5465608008975577,
+          "damaged_recall": 0.4751294170605447,
+          "damaged_f1": 0.508348049446139,
+          "damaged_as_intact": 3711,
+          "intact_as_damaged": 5036
+        }
+      },
+      "damaged_recovered_from_intact": 1001,
+      "damaged_new_intact_errors": 2580,
+      "delta_miou3": -0.07680314309422959,
+      "delta_damaged_iou": -0.09652544307975047
+    },
+    {
+      "sample_id": "libya-flood_00000021",
+      "event": "libya-flood",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.00011517485901794858,
+      "class_pixels": [
+        363581,
+        18550,
+        205407,
+        2286
+      ],
+      "largest_class_components": [
+        6209,
+        100994,
+        1310
+      ],
+      "dark_fraction": 0.07834370930989583,
+      "building_dark_fraction": 0.01917407389399893,
+      "near_black_fraction": 1.3563368055555555e-05,
+      "suspected_cloud_fraction": 0.024968465169270832,
+      "largest_suspected_cloud_fraction": 0.0020734998914930555,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.8678627743231269,
+            0.2743233725726934,
+            0.752270937920642,
+            0.0
+          ],
+          "miou3": 0.3421981034977785,
+          "damaged_precision": 0.8521336785577291,
+          "damaged_recall": 0.8652139411022993,
+          "damaged_f1": 0.8586239965987627,
+          "damaged_as_intact": 1277,
+          "intact_as_damaged": 8397
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.8591678925135499,
+            0.0,
+            0.7365937846279773,
+            0.0
+          ],
+          "miou3": 0.2455312615426591,
+          "damaged_precision": 0.7806822273873049,
+          "damaged_recall": 0.9287901580764044,
+          "damaged_f1": 0.8483201899582687,
+          "damaged_as_intact": 0,
+          "intact_as_damaged": 15940
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.8528849750266526,
+            0.04981451497202353,
+            0.4543935022447325,
+            0.0
+          ],
+          "miou3": 0.168069339072252,
+          "damaged_precision": 0.7678828697756612,
+          "damaged_recall": 0.5267444634311391,
+          "damaged_f1": 0.6248563425832346,
+          "damaged_as_intact": 72008,
+          "intact_as_damaged": 9707
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.8759347242305309,
+            0.0,
+            0.7149804730675705,
+            0.03430174676441307
+          ],
+          "miou3": 0.24976073994399453,
+          "damaged_precision": 0.8179557428872497,
+          "damaged_recall": 0.8502826096481619,
+          "damaged_f1": 0.8338059637363582,
+          "damaged_as_intact": 4153,
+          "intact_as_damaged": 16032
+        },
+        "DamageFormer": {
+          "iou": [
+            0.8884891151867823,
+            0.41912675474814204,
+            0.7726726932775272,
+            0.0
+          ],
+          "miou3": 0.3972664826752231,
+          "damaged_precision": 0.8664111675859184,
+          "damaged_recall": 0.8771755587686885,
+          "damaged_f1": 0.8717601350860981,
+          "damaged_as_intact": 409,
+          "intact_as_damaged": 6311
+        },
+        "Ours_A1": {
+          "iou": [
+            0.8875361181188367,
+            0.2640749915550051,
+            0.7482214404804511,
+            0.14459121742234915
+          ],
+          "miou3": 0.3856292164859351,
+          "damaged_precision": 0.878493609781595,
+          "damaged_recall": 0.8345918104056824,
+          "damaged_f1": 0.8559801672204899,
+          "damaged_as_intact": 14153,
+          "intact_as_damaged": 5769
+        }
+      },
+      "damaged_recovered_from_intact": 334,
+      "damaged_new_intact_errors": 14015,
+      "delta_miou3": -0.011637266189287954,
+      "delta_damaged_iou": -0.02445125279707605
+    },
+    {
+      "sample_id": "congo-volcano_00000085",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013856810604416007,
+      "class_pixels": [
+        196727,
+        20584,
+        4813,
+        40020
+      ],
+      "largest_class_components": [
+        2020,
+        1395,
+        4586
+      ],
+      "dark_fraction": 0.091796875,
+      "building_dark_fraction": 0.04034119571365241,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.005035400390625,
+      "largest_suspected_cloud_fraction": 0.000469207763671875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9392667536255601,
+            0.4572402425055178,
+            0.0,
+            0.5700670322973796
+          ],
+          "miou3": 0.3424357582676325,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3724,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9353714626356424,
+            0.44185359367690147,
+            0.0,
+            0.4992818365508679
+          ],
+          "miou3": 0.31371181007592314,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3749,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9376126072020563,
+            0.3005366068803293,
+            0.10772369571553483,
+            0.6004757099610782
+          ],
+          "miou3": 0.33624533751898084,
+          "damaged_precision": 0.13023255813953488,
+          "damaged_recall": 0.38396010804072306,
+          "damaged_f1": 0.19449560595695417,
+          "damaged_as_intact": 1834,
+          "intact_as_damaged": 7409
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9374497484412989,
+            0.5660933003145706,
+            0.0,
+            0.692376249548356
+          ],
+          "miou3": 0.4194898499543089,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3170,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9392228352122811,
+            0.47387134116090623,
+            0.0,
+            0.5310199529061842
+          ],
+          "miou3": 0.33496376468903016,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3643,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.948944688459595,
+            0.5184030307445724,
+            0.0,
+            0.6254140393061315
+          ],
+          "miou3": 0.3812723566835679,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3732,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.04630859199453774,
+      "delta_damaged_iou": 0.0
+    },
+    {
+      "sample_id": "congo-volcano_00000092",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013620346044574452,
+      "class_pixels": [
+        182034,
+        60146,
+        4434,
+        15530
+      ],
+      "largest_class_components": [
+        2210,
+        817,
+        1126
+      ],
+      "dark_fraction": 0.09864425659179688,
+      "building_dark_fraction": 0.026912994632380477,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.004352569580078125,
+      "largest_suspected_cloud_fraction": 0.00060272216796875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.920533664027072,
+            0.7698291346881819,
+            0.0,
+            0.5394252672157
+          ],
+          "miou3": 0.43641813396796064,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1544,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9108939440806547,
+            0.6628551587064021,
+            0.0,
+            0.057115260785576306
+          ],
+          "miou3": 0.23999013983065945,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 4197,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9121969335243248,
+            0.7197380778461859,
+            0.0,
+            0.42043464826449684
+          ],
+          "miou3": 0.3800575753702276,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3294,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9124981485008147,
+            0.7389841004860055,
+            0.0,
+            0.5243398692810457
+          ],
+          "miou3": 0.42110798992235043,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3070,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9273518686368332,
+            0.7576270497907893,
+            0.0,
+            0.516907911155478
+          ],
+          "miou3": 0.4248449869820891,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3860,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9285041582198669,
+            0.7273674341077195,
+            0.0006758278891642261,
+            0.4648479109953841
+          ],
+          "miou3": 0.3976303909974226,
+          "damaged_precision": 0.375,
+          "damaged_recall": 0.0006765899864682003,
+          "damaged_f1": 0.0013507429085997298,
+          "damaged_as_intact": 3866,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 3,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": -0.027214595984666523,
+      "delta_damaged_iou": 0.0006758278891642261
+    },
+    {
+      "sample_id": "la_palma-volcano_00000597",
+      "event": "la_palma-volcano",
+      "xywh": [
+        0,
+        256,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.0036792694291258162,
+      "class_pixels": [
+        535424,
+        8616,
+        2796,
+        42988
+      ],
+      "largest_class_components": [
+        2133,
+        2052,
+        11503
+      ],
+      "dark_fraction": 0.0977817111545139,
+      "building_dark_fraction": 0.08229779411764705,
+      "near_black_fraction": 0.0004526774088541667,
+      "suspected_cloud_fraction": 0.0011579725477430555,
+      "largest_suspected_cloud_fraction": 0.00018988715277777778,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9661518675787443,
+            0.25806318055728067,
+            0.0,
+            0.6546213763751706
+          ],
+          "miou3": 0.30422818564415044,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2749,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.954419934969222,
+            0.3189744603072667,
+            0.0,
+            0.6621086574962244
+          ],
+          "miou3": 0.32702770593449704,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2788,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9624963505268176,
+            0.12636717543100784,
+            0.00035739814152966406,
+            0.6233903775678311
+          ],
+          "miou3": 0.2500383170467895,
+          "damaged_precision": 0.3333333333333333,
+          "damaged_recall": 0.000357653791130186,
+          "damaged_f1": 0.0007145409074669524,
+          "damaged_as_intact": 1089,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9665928352734103,
+            0.3597940937415335,
+            0.0,
+            0.7474507003134547
+          ],
+          "miou3": 0.36908159801832935,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2707,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9696762863320075,
+            0.34979576680282215,
+            0.0,
+            0.8138984107198505
+          ],
+          "miou3": 0.3878980591742242,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2612,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9693940570625543,
+            0.3819391299228822,
+            0.0,
+            0.821780748442464
+          ],
+          "miou3": 0.4012399594551154,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2656,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.013341900280891217,
+      "delta_damaged_iou": 0.0
+    },
+    {
+      "sample_id": "la_palma-volcano_00000353",
+      "event": "la_palma-volcano",
+      "xywh": [
+        256,
+        256,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.004430329592855236,
+      "class_pixels": [
+        211070,
+        45915,
+        590,
+        4569
+      ],
+      "largest_class_components": [
+        6879,
+        590,
+        1668
+      ],
+      "dark_fraction": 0.0760650634765625,
+      "building_dark_fraction": 0.0396875122371461,
+      "near_black_fraction": 0.00048065185546875,
+      "suspected_cloud_fraction": 0.0100555419921875,
+      "largest_suspected_cloud_fraction": 0.002712249755859375,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9315437267142157,
+            0.7170721188716601,
+            0.0,
+            0.3161948376353039
+          ],
+          "miou3": 0.3444223188356547,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 557,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9190800681431005,
+            0.6776901510058861,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.22589671700196204,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 563,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9524599810593871,
+            0.6044750976078641,
+            0.0,
+            0.14200696422918646
+          ],
+          "miou3": 0.24882735394568353,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9331361707599332,
+            0.5685242632395302,
+            0.0,
+            0.16293199189913113
+          ],
+          "miou3": 0.2438187517128871,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 531,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9337744391283186,
+            0.7288327295219581,
+            0.0,
+            0.02942458587619878
+          ],
+          "miou3": 0.2527524384660523,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 507,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9341540536353778,
+            0.7679349350285126,
+            0.0,
+            0.012691466083150985
+          ],
+          "miou3": 0.26020880037055455,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 554,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.007456361904502273,
+      "delta_damaged_iou": 0.0
+    },
+    {
+      "sample_id": "turkey-earthquake_00001065",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.16857506937864153,
+      "class_pixels": [
+        116268,
+        46421,
+        51096,
+        48359
+      ],
+      "largest_class_components": [
+        8499,
+        17211,
+        12447
+      ],
+      "dark_fraction": 0.08880996704101562,
+      "building_dark_fraction": 0.04165866900655351,
+      "near_black_fraction": 1.1444091796875e-05,
+      "suspected_cloud_fraction": 0.011142730712890625,
+      "largest_suspected_cloud_fraction": 0.00434112548828125,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.8263062847932182,
+            0.35178713803457223,
+            0.10585187170553025,
+            0.17788510113767253
+          ],
+          "miou3": 0.21184137029259165,
+          "damaged_precision": 0.5488742703604188,
+          "damaged_recall": 0.11593862533270706,
+          "damaged_f1": 0.1914395126759198,
+          "damaged_as_intact": 33474,
+          "intact_as_damaged": 966
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.8079754241388918,
+            0.32135974948813684,
+            0.21242257837941383,
+            0.3405956502610991
+          ],
+          "miou3": 0.29145932604288327,
+          "damaged_precision": 0.5353852343592839,
+          "damaged_recall": 0.2604313449193675,
+          "damaged_f1": 0.3504101328488104,
+          "damaged_as_intact": 26616,
+          "intact_as_damaged": 7660
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.8167204970797312,
+            0.3275174398598555,
+            0.00048026126212659685,
+            0.1800552906767098
+          ],
+          "miou3": 0.16935099726623062,
+          "damaged_precision": 0.02540650406504065,
+          "damaged_recall": 0.0004892750900266165,
+          "damaged_f1": 0.0009600614439324117,
+          "damaged_as_intact": 38797,
+          "intact_as_damaged": 73
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.834463085988815,
+            0.27359607171990213,
+            0.051778306490971204,
+            0.06878656935513884
+          ],
+          "miou3": 0.13138698252200406,
+          "damaged_precision": 0.19001511165836457,
+          "damaged_recall": 0.06644355722561453,
+          "damaged_f1": 0.09845859373867147,
+          "damaged_as_intact": 40501,
+          "intact_as_damaged": 6570
+        },
+        "DamageFormer": {
+          "iou": [
+            0.8454535750773876,
+            0.3201308018285562,
+            0.04259564500737399,
+            0.14154027547028245
+          ],
+          "miou3": 0.1680889074354042,
+          "damaged_precision": 0.2729597509450745,
+          "damaged_recall": 0.048046813840613746,
+          "damaged_f1": 0.0817107671825595,
+          "damaged_as_intact": 34596,
+          "intact_as_damaged": 2648
+        },
+        "Ours_A1": {
+          "iou": [
+            0.7984755090018248,
+            0.33447570280922095,
+            0.30438511140062996,
+            0.2254526906401428
+          ],
+          "miou3": 0.28810450161666457,
+          "damaged_precision": 0.6592256589756411,
+          "damaged_recall": 0.3612220134648505,
+          "damaged_f1": 0.46671049637140616,
+          "damaged_as_intact": 15044,
+          "intact_as_damaged": 8377
+        }
+      },
+      "damaged_recovered_from_intact": 12755,
+      "damaged_new_intact_errors": 183,
+      "delta_miou3": 0.12001559418126037,
+      "delta_damaged_iou": 0.26178946639325595
+    },
+    {
+      "sample_id": "turkey-earthquake_00001074",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.13113696403495675,
+      "class_pixels": [
+        109387,
+        79523,
+        35771,
+        37463
+      ],
+      "largest_class_components": [
+        23817,
+        6960,
+        8572
+      ],
+      "dark_fraction": 0.08243560791015625,
+      "building_dark_fraction": 0.021943347931682344,
+      "near_black_fraction": 8.0108642578125e-05,
+      "suspected_cloud_fraction": 0.00605010986328125,
+      "largest_suspected_cloud_fraction": 0.003124237060546875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.7790582811985513,
+            0.5008182713474685,
+            0.16425538406773627,
+            0.18097268487674883
+          ],
+          "miou3": 0.28201544676398455,
+          "damaged_precision": 0.6448392892792972,
+          "damaged_recall": 0.18059321796986386,
+          "damaged_f1": 0.28216383847649,
+          "damaged_as_intact": 24262,
+          "intact_as_damaged": 2426
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.8218743223903898,
+            0.41345460906069614,
+            0.0510707488775152,
+            0.11083897131155769
+          ],
+          "miou3": 0.19178810974992302,
+          "damaged_precision": 0.13090840200814624,
+          "damaged_recall": 0.07726929635738447,
+          "damaged_f1": 0.09717851806275819,
+          "damaged_as_intact": 28435,
+          "intact_as_damaged": 9969
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.8241044782323161,
+            0.4116098016550436,
+            0.07731108508044274,
+            0.2589500400748063
+          ],
+          "miou3": 0.24929030893676418,
+          "damaged_precision": 0.34796642995480953,
+          "damaged_recall": 0.09040843141091946,
+          "damaged_f1": 0.1435260179740375,
+          "damaged_as_intact": 26258,
+          "intact_as_damaged": 3410
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.8625110368587802,
+            0.5444022830904627,
+            0.270580477285284,
+            0.1743715381337878
+          ],
+          "miou3": 0.3297847661698448,
+          "damaged_precision": 0.4274211711711712,
+          "damaged_recall": 0.42442201783567696,
+          "damaged_f1": 0.4259163148223478,
+          "damaged_as_intact": 19247,
+          "intact_as_damaged": 8851
+        },
+        "DamageFormer": {
+          "iou": [
+            0.8528759663128789,
+            0.393850149067512,
+            0.17277534813079837,
+            0.08421147235266363
+          ],
+          "miou3": 0.2169456565169913,
+          "damaged_precision": 0.33340395480225987,
+          "damaged_recall": 0.26395683654356883,
+          "damaged_f1": 0.29464355369708695,
+          "damaged_as_intact": 23468,
+          "intact_as_damaged": 14886
+        },
+        "Ours_A1": {
+          "iou": [
+            0.8520413182488933,
+            0.35228746382225884,
+            0.2535797925727668,
+            0.13191168144933008
+          ],
+          "miou3": 0.24592631261478523,
+          "damaged_precision": 0.3870251225490196,
+          "damaged_recall": 0.4237790388862486,
+          "damaged_f1": 0.40456904949358813,
+          "damaged_as_intact": 14337,
+          "intact_as_damaged": 16076
+        }
+      },
+      "damaged_recovered_from_intact": 9495,
+      "damaged_new_intact_errors": 2582,
+      "delta_miou3": 0.028980656097793933,
+      "delta_damaged_iou": 0.08080444444196844
+    },
+    {
+      "sample_id": "noto-earthquake_00000038",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.042109171549479164,
+      "class_pixels": [
+        307325,
+        98929,
+        25449,
+        158121
+      ],
+      "largest_class_components": [
+        11346,
+        5434,
+        18141
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0029924180772569445,
+      "largest_suspected_cloud_fraction": 0.00103759765625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.7266743976436432,
+            0.26007013395851736,
+            0.0,
+            0.009080403882219963
+          ],
+          "miou3": 0.08971684594691244,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 20112,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.6788431575475667,
+            0.26227066166349255,
+            0.0,
+            0.01402114746918601
+          ],
+          "miou3": 0.09209726971089287,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 21893,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.7221577537497154,
+            0.2525243403022609,
+            0.0,
+            0.0015932325550518749
+          ],
+          "miou3": 0.08470585761910426,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 21716,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.7248387104925995,
+            0.2915858183374398,
+            0.0,
+            0.016101309337242808
+          ],
+          "miou3": 0.10256237589156086,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 18646,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.767715975696447,
+            0.30894256944472204,
+            0.0,
+            0.048620877163375896
+          ],
+          "miou3": 0.11918781553603264,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 18267,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.7966230889818929,
+            0.4573788871186641,
+            0.0,
+            0.5629400605091842
+          ],
+          "miou3": 0.3401063158759494,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 16886,
+          "intact_as_damaged": 21
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.22091850033991678,
+      "delta_damaged_iou": 0.0
+    },
+    {
+      "sample_id": "noto-earthquake_00000049",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.0091400146484375,
+      "class_pixels": [
+        164547,
+        85215,
+        3613,
+        8769
+      ],
+      "largest_class_components": [
+        4859,
+        588,
+        2507
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.008502960205078125,
+      "largest_suspected_cloud_fraction": 0.004642486572265625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.7807608109743353,
+            0.5834125895314486,
+            0.0,
+            0.0012527047033367498
+          ],
+          "miou3": 0.1948884314115951,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3443,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.7591175345942621,
+            0.5485557485914693,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.18285191619715643,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2877,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.7798780421526321,
+            0.5841730450394729,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.19472434834649097,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3349,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.8138359891177613,
+            0.6070489956823728,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.2023496652274576,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2984,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.8534576499913565,
+            0.668535401979866,
+            0.0,
+            0.0037374958777618996
+          ],
+          "miou3": 0.22409096595254266,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3177,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.8453921347860479,
+            0.6505237659371851,
+            0.0,
+            0.13862236137763861
+          ],
+          "miou3": 0.2630487091049412,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2373,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.038957743152398555,
+      "delta_damaged_iou": 0.0
+    },
+    {
+      "sample_id": "mexico-hurricane_00000005",
+      "event": "mexico-hurricane",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.042283762339326424,
+      "class_pixels": [
+        186537,
+        13966,
+        21172,
+        40469
+      ],
+      "largest_class_components": [
+        8215,
+        9545,
+        22969
+      ],
+      "dark_fraction": 0.0920257568359375,
+      "building_dark_fraction": 0.011427513325485736,
+      "near_black_fraction": 7.2479248046875e-05,
+      "suspected_cloud_fraction": 0.053394317626953125,
+      "largest_suspected_cloud_fraction": 0.00984954833984375,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.8930624276239604,
+            0.0,
+            0.21422688131785847,
+            0.12949092294020567
+          ],
+          "miou3": 0.11457260141935471,
+          "damaged_precision": 0.22550049918553938,
+          "damaged_recall": 0.8107878329869639,
+          "damaged_f1": 0.3528613714849531,
+          "damaged_as_intact": 0,
+          "intact_as_damaged": 12192
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9138710432808316,
+            0.0,
+            0.25245718700373404,
+            0.026547108971244314
+          ],
+          "miou3": 0.09300143199165944,
+          "damaged_precision": 0.26586912958973047,
+          "damaged_recall": 0.8334592858492348,
+          "damaged_f1": 0.4031390288201227,
+          "damaged_as_intact": 0,
+          "intact_as_damaged": 11738
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.8825216980789483,
+            0.0,
+            0.20277927684835403,
+            0.0
+          ],
+          "miou3": 0.06759309228278468,
+          "damaged_precision": 0.21019019205668468,
+          "damaged_recall": 0.85187984129983,
+          "damaged_f1": 0.3371845204711161,
+          "damaged_as_intact": 0,
+          "intact_as_damaged": 13943
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9041116059925645,
+            0.0,
+            0.24774215745303074,
+            0.10840893314503196
+          ],
+          "miou3": 0.11871703019935424,
+          "damaged_precision": 0.2508553867592351,
+          "damaged_recall": 0.952295484602305,
+          "damaged_f1": 0.39710473189226453,
+          "damaged_as_intact": 365,
+          "intact_as_damaged": 13407
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9273238274501715,
+            0.0,
+            0.2541468863445965,
+            0.09703106800732131
+          ],
+          "miou3": 0.11705931811730592,
+          "damaged_precision": 0.2651420247632921,
+          "damaged_recall": 0.8597203854146986,
+          "damaged_f1": 0.40529046336086927,
+          "damaged_as_intact": 609,
+          "intact_as_damaged": 13778
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9333206471985929,
+            0.0,
+            0.280842654108149,
+            0.04231100184388445
+          ],
+          "miou3": 0.1077178853173445,
+          "damaged_precision": 0.2853826323510561,
+          "damaged_recall": 0.9463914604194219,
+          "damaged_f1": 0.4385279537769607,
+          "damaged_as_intact": 196,
+          "intact_as_damaged": 13799
+        }
+      },
+      "damaged_recovered_from_intact": 334,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": -0.009341432799961427,
+      "delta_damaged_iou": 0.026695767763552536
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000107",
+      "event": "myanmar-hurricane",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.0018406029515331858,
+      "class_pixels": [
+        545157,
+        42882,
+        1147,
+        638
+      ],
+      "largest_class_components": [
+        1004,
+        627,
+        638
+      ],
+      "dark_fraction": 0.03854539659288195,
+      "building_dark_fraction": 0.023305796225401302,
+      "near_black_fraction": 8.477105034722223e-06,
+      "suspected_cloud_fraction": 0.002526177300347222,
+      "largest_suspected_cloud_fraction": 0.0005917019314236111,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9603937761648259,
+            0.5739236233761137,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.19130787445870456,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 666,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9542787208787813,
+            0.43685656222783004,
+            0.060759493670886074,
+            0.0
+          ],
+          "miou3": 0.16587201863290538,
+          "damaged_precision": 0.18147448015122875,
+          "damaged_recall": 0.08369659982563209,
+          "damaged_f1": 0.11455847255369929,
+          "damaged_as_intact": 244,
+          "intact_as_damaged": 406
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9618009534925125,
+            0.6008760628703942,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.20029202095679807,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1104,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9667236229969559,
+            0.6386640283024525,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.21288800943415084,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 531,
+          "intact_as_damaged": 115
+        },
+        "DamageFormer": {
+          "iou": [
+            0.971145782421994,
+            0.6741526509848769,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.2247175503282923,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1071,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9715171331225902,
+            0.6566425727648718,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.2188808575882906,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1064,
+          "intact_as_damaged": 1799
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": -0.005836692740001703,
+      "delta_damaged_iou": 0.0
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000099",
+      "event": "myanmar-hurricane",
+      "xywh": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.0033849270306199174,
+      "class_pixels": [
+        1033604,
+        7824,
+        4777,
+        2371
+      ],
+      "largest_class_components": [
+        1196,
+        694,
+        1206
+      ],
+      "dark_fraction": 0.05663299560546875,
+      "building_dark_fraction": 0.0252471279722148,
+      "near_black_fraction": 0.0022792816162109375,
+      "suspected_cloud_fraction": 0.012583732604980469,
+      "largest_suspected_cloud_fraction": 0.0031213760375976562,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9907103384447593,
+            0.21737847606402597,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.07245949202134198,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2231,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9896170390590256,
+            0.2247035402060071,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.07490118006866904,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1344,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9898972806879233,
+            0.22567387888311374,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.07522462629437125,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2757,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9897157903928958,
+            0.24200459066564653,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.08066819688854884,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1926,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9917896489214663,
+            0.21042441140024784,
+            0.1653729328383395,
+            0.0
+          ],
+          "miou3": 0.12526578141286246,
+          "damaged_precision": 0.46031000469704086,
+          "damaged_recall": 0.2051496755285744,
+          "damaged_f1": 0.2838111786852013,
+          "damaged_as_intact": 2172,
+          "intact_as_damaged": 295
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9914496285186828,
+            0.2496308276492511,
+            0.2287488908606921,
+            0.0
+          ],
+          "miou3": 0.15945990616998107,
+          "damaged_precision": 0.6003726129482999,
+          "damaged_recall": 0.26983462424115556,
+          "damaged_f1": 0.3723281340265742,
+          "damaged_as_intact": 2235,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 241,
+      "damaged_new_intact_errors": 165,
+      "delta_miou3": 0.03419412475711861,
+      "delta_damaged_iou": 0.0633759580223526
+    },
+    {
+      "sample_id": "ukraine-conflict_00000354",
+      "event": "ukraine-conflict",
+      "xywh": [
+        512,
+        256,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.006522379219709325,
+      "class_pixels": [
+        201636,
+        55090,
+        2778,
+        2640
+      ],
+      "largest_class_components": [
+        3979,
+        980,
+        2640
+      ],
+      "dark_fraction": 0.09998703002929688,
+      "building_dark_fraction": 0.006263634560719244,
+      "near_black_fraction": 0.0001220703125,
+      "suspected_cloud_fraction": 0.019214630126953125,
+      "largest_suspected_cloud_fraction": 0.00292205810546875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9078774003644349,
+            0.6444479445581981,
+            0.11586206896551725,
+            0.0
+          ],
+          "miou3": 0.25343667117457175,
+          "damaged_precision": 0.1509557261885313,
+          "damaged_recall": 0.3326133909287257,
+          "damaged_f1": 0.207663782447466,
+          "damaged_as_intact": 1716,
+          "intact_as_damaged": 3227
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9049860472942969,
+            0.6450116009280742,
+            0.0,
+            0.0
+          ],
+          "miou3": 0.21500386697602472,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 2416,
+          "intact_as_damaged": 1211
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9036504020039215,
+            0.6759084384679308,
+            0.13834726090993502,
+            0.0
+          ],
+          "miou3": 0.2714185664592886,
+          "damaged_precision": 0.28033866415804326,
+          "damaged_recall": 0.21454283657307416,
+          "damaged_f1": 0.24306688417618272,
+          "damaged_as_intact": 1620,
+          "intact_as_damaged": 472
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9128480512932715,
+            0.7196903017916548,
+            0.20314285714285715,
+            0.0
+          ],
+          "miou3": 0.30761105297817065,
+          "damaged_precision": 0.4961618981158409,
+          "damaged_recall": 0.25593952483801297,
+          "damaged_f1": 0.3376870102113512,
+          "damaged_as_intact": 1664,
+          "intact_as_damaged": 7
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9206792065039401,
+            0.7297521395362611,
+            0.006923540036122818,
+            0.5723484848484849
+          ],
+          "miou3": 0.4363413881402896,
+          "damaged_precision": 0.04056437389770723,
+          "damaged_recall": 0.00827933765298776,
+          "damaged_f1": 0.013751868460388639,
+          "damaged_as_intact": 2537,
+          "intact_as_damaged": 104
+        },
+        "Ours_A1": {
+          "iou": [
+            0.921411595246669,
+            0.7408707971003572,
+            0.12507444907683143,
+            0.5962877030162413
+          ],
+          "miou3": 0.4874109830644766,
+          "damaged_precision": 0.42,
+          "damaged_recall": 0.1511879049676026,
+          "damaged_f1": 0.2223398623610376,
+          "damaged_as_intact": 1756,
+          "intact_as_damaged": 129
+        }
+      },
+      "damaged_recovered_from_intact": 403,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.051069594924187,
+      "delta_damaged_iou": 0.11815090904070862
+    },
+    {
+      "sample_id": "ukraine-conflict_00000315",
+      "event": "ukraine-conflict",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.0025031299930288846,
+      "class_pixels": [
+        451956,
+        119029,
+        16542,
+        2297
+      ],
+      "largest_class_components": [
+        2198,
+        1858,
+        1242
+      ],
+      "dark_fraction": 0.09841071234809028,
+      "building_dark_fraction": 0.003909536658252822,
+      "near_black_fraction": 6.442599826388889e-05,
+      "suspected_cloud_fraction": 0.014063517252604166,
+      "largest_suspected_cloud_fraction": 0.0010002983940972222,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.9081963155178707,
+            0.6493948170626335,
+            0.17701549290077262,
+            0.0
+          ],
+          "miou3": 0.27547010332113536,
+          "damaged_precision": 0.34854639585822383,
+          "damaged_recall": 0.26453874984886955,
+          "damaged_f1": 0.3007870227171186,
+          "damaged_as_intact": 8643,
+          "intact_as_damaged": 4419
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.899559760343391,
+            0.615063714672172,
+            0.061334901499558954,
+            0.0
+          ],
+          "miou3": 0.22546620539057702,
+          "damaged_precision": 0.6925630810092962,
+          "damaged_recall": 0.06305162616370451,
+          "damaged_f1": 0.11558067375886524,
+          "damaged_as_intact": 9821,
+          "intact_as_damaged": 298
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9057261459405626,
+            0.6525979034345846,
+            0.10138021689122577,
+            0.0
+          ],
+          "miou3": 0.25132604010860343,
+          "damaged_precision": 0.5189234650967199,
+          "damaged_recall": 0.11189698948132028,
+          "damaged_f1": 0.18409667313143369,
+          "damaged_as_intact": 10320,
+          "intact_as_damaged": 599
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9049361071905518,
+            0.6546212647671994,
+            0.12627166300291395,
+            0.0
+          ],
+          "miou3": 0.2602976425900378,
+          "damaged_precision": 0.4499908908726544,
+          "damaged_recall": 0.14931689033974127,
+          "damaged_f1": 0.2242294948027779,
+          "damaged_as_intact": 9805,
+          "intact_as_damaged": 1891
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9128375661409432,
+            0.6702357134943857,
+            0.13770440902504658,
+            0.0
+          ],
+          "miou3": 0.2693133741731441,
+          "damaged_precision": 0.48888480617306634,
+          "damaged_recall": 0.1608632571635836,
+          "damaged_f1": 0.24207414146008643,
+          "damaged_as_intact": 11038,
+          "intact_as_damaged": 1301
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9135829621499737,
+            0.6686511796827374,
+            0.12132594609822518,
+            0.0
+          ],
+          "miou3": 0.2633257085936542,
+          "damaged_precision": 0.3520435967302452,
+          "damaged_recall": 0.1562084391246524,
+          "damaged_f1": 0.21639728665940877,
+          "damaged_as_intact": 10956,
+          "intact_as_damaged": 2962
+        }
+      },
+      "damaged_recovered_from_intact": 350,
+      "damaged_new_intact_errors": 348,
+      "delta_miou3": -0.005987665579489931,
+      "delta_damaged_iou": -0.016378462926821394
+    }
+  ],
+  "cases": [
+    {
+      "sample_id": "noto-earthquake_00000038",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.042109171549479164,
+      "class_pixels": [
+        307325,
+        98929,
+        25449,
+        158121
+      ],
+      "largest_class_components": [
+        11346,
+        5434,
+        18141
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0029924180772569445,
+      "largest_suspected_cloud_fraction": 0.00103759765625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.7266743976436432,
+            0.26007013395851736,
+            0.0,
+            0.009080403882219963
+          ],
+          "miou3": 0.08971684594691244,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 20112,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.6788431575475667,
+            0.26227066166349255,
+            0.0,
+            0.01402114746918601
+          ],
+          "miou3": 0.09209726971089287,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 21893,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.7221577537497154,
+            0.2525243403022609,
+            0.0,
+            0.0015932325550518749
+          ],
+          "miou3": 0.08470585761910426,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 21716,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.7248387104925995,
+            0.2915858183374398,
+            0.0,
+            0.016101309337242808
+          ],
+          "miou3": 0.10256237589156086,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 18646,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.767715975696447,
+            0.30894256944472204,
+            0.0,
+            0.048620877163375896
+          ],
+          "miou3": 0.11918781553603264,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 18267,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.7966230889818929,
+            0.4573788871186641,
+            0.0,
+            0.5629400605091842
+          ],
+          "miou3": 0.3401063158759494,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 16886,
+          "intact_as_damaged": 21
+        }
+      },
+      "damaged_recovered_from_intact": 0,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": 0.22091850033991678,
+      "delta_damaged_iou": 0.0,
+      "case_kind": "Largest foreground mIoU gain",
+      "zoom_xywh": [
+        224,
+        32,
+        192,
+        192
+      ],
+      "zoom_rule": "Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.",
+      "zoom_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_0.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_1.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_2.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_3.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_4.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_5.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_6.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_7.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_8.png"
+      ],
+      "heatmap_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_UNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_DeepLabV3Plus_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_SiamAttnUNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_SiamCRNN_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_DamageFormer_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_Ours_A1_heatmap.png"
+      ]
+    },
+    {
+      "sample_id": "turkey-earthquake_00001065",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.16857506937864153,
+      "class_pixels": [
+        116268,
+        46421,
+        51096,
+        48359
+      ],
+      "largest_class_components": [
+        8499,
+        17211,
+        12447
+      ],
+      "dark_fraction": 0.08880996704101562,
+      "building_dark_fraction": 0.04165866900655351,
+      "near_black_fraction": 1.1444091796875e-05,
+      "suspected_cloud_fraction": 0.011142730712890625,
+      "largest_suspected_cloud_fraction": 0.00434112548828125,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.8263062847932182,
+            0.35178713803457223,
+            0.10585187170553025,
+            0.17788510113767253
+          ],
+          "miou3": 0.21184137029259165,
+          "damaged_precision": 0.5488742703604188,
+          "damaged_recall": 0.11593862533270706,
+          "damaged_f1": 0.1914395126759198,
+          "damaged_as_intact": 33474,
+          "intact_as_damaged": 966
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.8079754241388918,
+            0.32135974948813684,
+            0.21242257837941383,
+            0.3405956502610991
+          ],
+          "miou3": 0.29145932604288327,
+          "damaged_precision": 0.5353852343592839,
+          "damaged_recall": 0.2604313449193675,
+          "damaged_f1": 0.3504101328488104,
+          "damaged_as_intact": 26616,
+          "intact_as_damaged": 7660
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.8167204970797312,
+            0.3275174398598555,
+            0.00048026126212659685,
+            0.1800552906767098
+          ],
+          "miou3": 0.16935099726623062,
+          "damaged_precision": 0.02540650406504065,
+          "damaged_recall": 0.0004892750900266165,
+          "damaged_f1": 0.0009600614439324117,
+          "damaged_as_intact": 38797,
+          "intact_as_damaged": 73
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.834463085988815,
+            0.27359607171990213,
+            0.051778306490971204,
+            0.06878656935513884
+          ],
+          "miou3": 0.13138698252200406,
+          "damaged_precision": 0.19001511165836457,
+          "damaged_recall": 0.06644355722561453,
+          "damaged_f1": 0.09845859373867147,
+          "damaged_as_intact": 40501,
+          "intact_as_damaged": 6570
+        },
+        "DamageFormer": {
+          "iou": [
+            0.8454535750773876,
+            0.3201308018285562,
+            0.04259564500737399,
+            0.14154027547028245
+          ],
+          "miou3": 0.1680889074354042,
+          "damaged_precision": 0.2729597509450745,
+          "damaged_recall": 0.048046813840613746,
+          "damaged_f1": 0.0817107671825595,
+          "damaged_as_intact": 34596,
+          "intact_as_damaged": 2648
+        },
+        "Ours_A1": {
+          "iou": [
+            0.7984755090018248,
+            0.33447570280922095,
+            0.30438511140062996,
+            0.2254526906401428
+          ],
+          "miou3": 0.28810450161666457,
+          "damaged_precision": 0.6592256589756411,
+          "damaged_recall": 0.3612220134648505,
+          "damaged_f1": 0.46671049637140616,
+          "damaged_as_intact": 15044,
+          "intact_as_damaged": 8377
+        }
+      },
+      "damaged_recovered_from_intact": 12755,
+      "damaged_new_intact_errors": 183,
+      "delta_miou3": 0.12001559418126037,
+      "delta_damaged_iou": 0.26178946639325595,
+      "case_kind": "Damaged IoU gain",
+      "zoom_xywh": [
+        224,
+        320,
+        128,
+        128
+      ],
+      "zoom_rule": "Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.",
+      "zoom_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_0.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_1.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_2.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_3.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_4.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_5.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_6.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_7.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_8.png"
+      ],
+      "heatmap_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_UNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_DeepLabV3Plus_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_SiamAttnUNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_SiamCRNN_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_DamageFormer_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_Ours_A1_heatmap.png"
+      ]
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000003",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.027704684527948626,
+      "class_pixels": [
+        184229,
+        8208,
+        13329,
+        56378
+      ],
+      "largest_class_components": [
+        3835,
+        2096,
+        3880
+      ],
+      "dark_fraction": 0.02387237548828125,
+      "building_dark_fraction": 0.00020535198613874094,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.01865386962890625,
+      "largest_suspected_cloud_fraction": 0.0035858154296875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.8904500322372663,
+            0.0414471373375483,
+            0.41164499156160034,
+            0.802957950990225
+          ],
+          "miou3": 0.41868335996312456,
+          "damaged_precision": 0.5488418266048974,
+          "damaged_recall": 0.6221772075924675,
+          "damaged_f1": 0.5832131931502514,
+          "damaged_as_intact": 333,
+          "intact_as_damaged": 5495
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.8926179989666938,
+            0.0,
+            0.2832387212429041,
+            0.7747987262677241
+          ],
+          "miou3": 0.3526791491702094,
+          "damaged_precision": 0.4571979744393537,
+          "damaged_recall": 0.4267386900742741,
+          "damaged_f1": 0.44144353899883587,
+          "damaged_as_intact": 2065,
+          "intact_as_damaged": 5706
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9011061069711171,
+            0.25610914428805803,
+            0.1685268585601462,
+            0.7993190007939901
+          ],
+          "miou3": 0.4079850012140647,
+          "damaged_precision": 0.564494971578487,
+          "damaged_recall": 0.19371295671093106,
+          "damaged_f1": 0.2884432776629615,
+          "damaged_as_intact": 3120,
+          "intact_as_damaged": 1743
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.8982134068064076,
+            0.02544156676123364,
+            0.006549172035567861,
+            0.7580633354318258
+          ],
+          "miou3": 0.2633513580762091,
+          "damaged_precision": 0.022062780269058297,
+          "damaged_recall": 0.009227999099707404,
+          "damaged_f1": 0.013013118916631402,
+          "damaged_as_intact": 2615,
+          "intact_as_damaged": 4987
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9151110652991805,
+            0.21726591040184579,
+            0.43732079366899873,
+            0.8261567051573246
+          ],
+          "miou3": 0.49358113640938966,
+          "damaged_precision": 0.6498508734554751,
+          "damaged_recall": 0.5721359441818591,
+          "damaged_f1": 0.6085221832109798,
+          "damaged_as_intact": 1837,
+          "intact_as_damaged": 3760
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9188422686419396,
+            0.08177050222504768,
+            0.34079535058924826,
+            0.8277681271311844
+          ],
+          "miou3": 0.4167779933151601,
+          "damaged_precision": 0.5465608008975577,
+          "damaged_recall": 0.4751294170605447,
+          "damaged_f1": 0.508348049446139,
+          "damaged_as_intact": 3711,
+          "intact_as_damaged": 5036
+        }
+      },
+      "damaged_recovered_from_intact": 1001,
+      "damaged_new_intact_errors": 2580,
+      "delta_miou3": -0.07680314309422959,
+      "delta_damaged_iou": -0.09652544307975047,
+      "case_kind": "Damaged IoU regression",
+      "zoom_xywh": [
+        0,
+        32,
+        128,
+        128
+      ],
+      "zoom_rule": "Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.",
+      "zoom_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_0.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_1.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_2.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_3.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_4.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_5.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_6.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_7.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_8.png"
+      ],
+      "heatmap_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_UNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_DeepLabV3Plus_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_SiamAttnUNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_SiamCRNN_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_DamageFormer_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_Ours_A1_heatmap.png"
+      ]
+    },
+    {
+      "sample_id": "congo-volcano_00000092",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013620346044574452,
+      "class_pixels": [
+        182034,
+        60146,
+        4434,
+        15530
+      ],
+      "largest_class_components": [
+        2210,
+        817,
+        1126
+      ],
+      "dark_fraction": 0.09864425659179688,
+      "building_dark_fraction": 0.026912994632380477,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.004352569580078125,
+      "largest_suspected_cloud_fraction": 0.00060272216796875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_Ours_A1.png"
+      ],
+      "metrics": {
+        "UNet": {
+          "iou": [
+            0.920533664027072,
+            0.7698291346881819,
+            0.0,
+            0.5394252672157
+          ],
+          "miou3": 0.43641813396796064,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 1544,
+          "intact_as_damaged": 0
+        },
+        "DeepLabV3Plus": {
+          "iou": [
+            0.9108939440806547,
+            0.6628551587064021,
+            0.0,
+            0.057115260785576306
+          ],
+          "miou3": 0.23999013983065945,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 4197,
+          "intact_as_damaged": 0
+        },
+        "SiamAttnUNet": {
+          "iou": [
+            0.9121969335243248,
+            0.7197380778461859,
+            0.0,
+            0.42043464826449684
+          ],
+          "miou3": 0.3800575753702276,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3294,
+          "intact_as_damaged": 0
+        },
+        "SiamCRNN": {
+          "iou": [
+            0.9124981485008147,
+            0.7389841004860055,
+            0.0,
+            0.5243398692810457
+          ],
+          "miou3": 0.42110798992235043,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3070,
+          "intact_as_damaged": 0
+        },
+        "DamageFormer": {
+          "iou": [
+            0.9273518686368332,
+            0.7576270497907893,
+            0.0,
+            0.516907911155478
+          ],
+          "miou3": 0.4248449869820891,
+          "damaged_precision": 0.0,
+          "damaged_recall": 0.0,
+          "damaged_f1": 0.0,
+          "damaged_as_intact": 3860,
+          "intact_as_damaged": 0
+        },
+        "Ours_A1": {
+          "iou": [
+            0.9285041582198669,
+            0.7273674341077195,
+            0.0006758278891642261,
+            0.4648479109953841
+          ],
+          "miou3": 0.3976303909974226,
+          "damaged_precision": 0.375,
+          "damaged_recall": 0.0006765899864682003,
+          "damaged_f1": 0.0013507429085997298,
+          "damaged_as_intact": 3866,
+          "intact_as_damaged": 0
+        }
+      },
+      "damaged_recovered_from_intact": 3,
+      "damaged_new_intact_errors": 0,
+      "delta_miou3": -0.027214595984666523,
+      "delta_damaged_iou": 0.0006758278891642261,
+      "case_kind": "Foreground mIoU regression",
+      "zoom_xywh": [
+        352,
+        32,
+        128,
+        128
+      ],
+      "zoom_rule": "Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.",
+      "zoom_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_0.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_1.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_2.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_3.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_4.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_5.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_6.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_7.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_8.png"
+      ],
+      "heatmap_paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_UNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_DeepLabV3Plus_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_SiamAttnUNet_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_SiamCRNN_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_DamageFormer_heatmap.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_Ours_A1_heatmap.png"
+      ]
+    }
+  ],
+  "improved_crops": 12,
+  "worse_crops": 6,
+  "recovered": 25326,
+  "new_misses": 20580
+}

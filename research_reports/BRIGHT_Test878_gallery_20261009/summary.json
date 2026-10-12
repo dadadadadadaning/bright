@@ -1,0 +1,15 @@
+{
+  "samples": 878,
+  "images": 878,
+  "six_models_complete": 18,
+  "all_seven_complete": 0,
+  "available_by_model": {
+    "UNet": 18,
+    "DeepLabV3Plus": 18,
+    "SiamAttnUNet": 18,
+    "SiamCRNN": 18,
+    "DamageFormer": 18,
+    "ChangeMamba": 0,
+    "Ours_A1": 18
+  }
+}

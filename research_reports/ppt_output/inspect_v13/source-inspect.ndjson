@@ -1,0 +1,578 @@
+{"kind":"deck","id":"pr/ulrgbf","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"a  Building retrieval and local evidence reading","textShapes":95}
+{"kind":"textbox","id":"sh/zypkfixg","slide":1,"name":"a  Building retrieval and local evidence reading","text":"a  Building retrieval and local evidence reading","textPreview":"a  Building retrieval and local evidence reading","textChars":48,"textLines":1,"bbox":[25,8,980,37]}
+{"kind":"textbox","id":"sh/43qp4zux","slide":1,"name":"Pre-event RGB","text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[10,162,183,29]}
+{"kind":"textbox","id":"sh/54zqx4vi","slide":1,"name":"Post-event SAR","text":"Post-event SAR","textPreview":"Post-event SAR","textChars":14,"textLines":1,"bbox":[7,289,187,29]}
+{"kind":"shape","id":"sh/i18729cr","slide":1,"bbox":[205,76,278,235]}
+{"kind":"textbox","id":"sh/j2h8vudc","slide":1,"name":"DamageFormer","text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[231,89,235,32]}
+{"kind":"shape","id":"sh/srqp8jut","slide":1,"name":"RGB encoder","bbox":[220,137,132,44]}
+{"kind":"textbox","id":"sh/tsjq1ove","slide":1,"name":"RGB encoder","text":"RGB encoder","textPreview":"RGB encoder","textChars":11,"textLines":1,"bbox":[226,139,120,40]}
+{"kind":"shape","id":"sh/658769c3","slide":1,"name":"SAR encoder","bbox":[220,238,132,44]}
+{"kind":"textbox","id":"sh/r6h8zed8","slide":1,"name":"SAR encoder","text":"SAR encoder","textPreview":"SAR encoder","textChars":11,"textLines":1,"bbox":[226,240,120,40]}
+{"kind":"textbox","id":"sh/onut0ne1","slide":1,"name":"Fusion","text":"Fusion","textPreview":"Fusion","textChars":6,"textLines":1,"bbox":[386,244,90,29]}
+{"kind":"shape","id":"sh/fy1s3yxk","slide":1,"bbox":[152,120,68,39]}
+{"kind":"shape","id":"sh/exsrutwz","slide":1,"bbox":[212,155.5,8,7]}
+{"kind":"shape","id":"sh/itsb6t0r","slide":1,"bbox":[152,247,68,0.1]}
+{"kind":"shape","id":"sh/ju1cfyhc","slide":1,"bbox":[212,243.5,8,7]}
+{"kind":"shape","id":"sh/4vat83ix","slide":1,"bbox":[352,159,39,35]}
+{"kind":"shape","id":"sh/5wjuh8zi","slide":1,"bbox":[383,190.5,8,7]}
+{"kind":"shape","id":"sh/6xsbad03","slide":1,"bbox":[352,222,39,38]}
+{"kind":"shape","id":"sh/ry1cjiho","slide":1,"bbox":[383,218.5,8,7]}
+{"kind":"shape","id":"sh/szatcni9","slide":1,"bbox":[545,76,248,235]}
+{"kind":"textbox","id":"sh/tk3ul8ze","slide":1,"name":"Regional context (b)","text":"Regional context (b)","textPreview":"Regional context (b)","textChars":20,"textLines":1,"bbox":[556,92,231,29]}
+{"kind":"shape","id":"sh/elcbed0z","slide":1,"bbox":[568,139,65,66]}
+{"kind":"shape","id":"sh/fmlcnihk","slide":1,"bbox":[595,139,38,43]}
+{"kind":"shape","id":"sh/ps76tgny","slide":1,"bbox":[568,165,27,0.1]}
+{"kind":"shape","id":"sh/ory50b6d","slide":1,"bbox":[568,182,44,6]}
+{"kind":"shape","id":"sh/nqpor65s","slide":1,"name":"Region token","bbox":[708,149,45,11]}
+{"kind":"shape","id":"sh/2pgny1on","slide":1,"name":"Region token","bbox":[708,167,45,11]}
+{"kind":"shape","id":"sh/xw76xgna","slide":1,"name":"Region token","bbox":[708,185,45,11]}
+{"kind":"shape","id":"sh/cvy54b6p","slide":1,"bbox":[636,172,54,0.1]}
+{"kind":"shape","id":"sh/bupovq54","slide":1,"bbox":[682,168.5,8,7]}
+{"kind":"textbox","id":"sh/atgn2loj","slide":1,"name":"Soft regions","text":"Soft regions","textPreview":"Soft regions","textChars":12,"textLines":1,"bbox":[554,218,141,26]}
+{"kind":"textbox","id":"sh/l0r610n6","slide":1,"name":"Tokens","text":"Tokens","textPreview":"Tokens","textChars":6,"textLines":1,"bbox":[707,218,78,26]}
+{"kind":"textbox","id":"sh/kzi58v6l","slide":1,"name":"Pool + interact","text":"Pool + interact","textPreview":"Pool + interact","textChars":15,"textLines":1,"bbox":[586,266,189,29]}
+{"kind":"shape","id":"sh/gf290zqt","slide":1,"bbox":[483,198,62,0.1]}
+{"kind":"shape","id":"sh/hgvqt47e","slide":1,"bbox":[537,194.5,8,7]}
+{"kind":"textbox","id":"sh/utkryp8n","slide":1,"name":"F, R, P","text":"F, R, P","textPreview":"F, R, P","textChars":7,"textLines":1,"bbox":[489,158,100,27]}
+{"kind":"shape","id":"sh/vet8rup8","slide":1,"bbox":[850,76,260,235]}
+{"kind":"textbox","id":"sh/8r2pwfqx","slide":1,"name":"Support reading (c)","text":"Support reading (c)","textPreview":"Support reading (c)","textChars":19,"textLines":1,"bbox":[862,92,235,29]}
+{"kind":"shape","id":"sh/tsbqpk7i","slide":1,"name":"Region token","bbox":[871,149,45,11]}
+{"kind":"shape","id":"sh/6pk7up8r","slide":1,"name":"Region token","bbox":[871,167,45,11]}
+{"kind":"shape","id":"sh/7qt8nupc","slide":1,"name":"Region token","bbox":[871,185,45,11]}
+{"kind":"shape","id":"sh/snm98j61","slide":1,"name":"Region token","bbox":[1034,149,45,11]}
+{"kind":"shape","id":"sh/dofq1o7m","slide":1,"name":"Region token","bbox":[1034,167,45,11]}
+{"kind":"shape","id":"sh/nihc7i9o","slide":1,"name":"Region token","bbox":[1034,185,45,11]}
+{"kind":"textbox","id":"sh/2h8byds3","slide":1,"name":"Query","text":"Query","textPreview":"Query","textChars":5,"textLines":1,"bbox":[867,122,91,23]}
+{"kind":"textbox","id":"sh/p4zu9sru","slide":1,"name":"Support","text":"Support","textPreview":"Support","textChars":7,"textLines":1,"bbox":[1022,122,87,23]}
+{"kind":"shape","id":"sh/ojqt0na9","slide":1,"bbox":[916,155,118,36]}
+{"kind":"shape","id":"sh/b6hcbi90","slide":1,"bbox":[916,173,118,0.1]}
+{"kind":"shape","id":"sh/a58b2x8f","slide":1,"bbox":[916,155,118,36]}
+{"kind":"shape","id":"sh/x8judsrq","slide":1,"bbox":[978,207,0.1,28]}
+{"kind":"shape","id":"sh/c7at4nql","slide":1,"bbox":[974.5,227,7,8]}
+{"kind":"textbox","id":"sh/raxszy9g","slide":1,"name":"Read + aggregate","text":"Read + aggregate","textPreview":"Read + aggregate","textChars":16,"textLines":1,"bbox":[875,263,225,29]}
+{"kind":"shape","id":"sh/q9obqtsv","slide":1,"bbox":[793,198,57,0.1]}
+{"kind":"shape","id":"sh/u5cfy1sj","slide":1,"bbox":[842,194.5,8,7]}
+{"kind":"shape","id":"sh/g7ex0bap","slide":1,"bbox":[780,58,394,120]}
+{"kind":"shape","id":"sh/h8ne9gba","slide":1,"bbox":[1170.5,170,7,8]}
+{"kind":"shape","id":"sh/72lw3mt8","slide":1,"bbox":[1110,198,48,0.1]}
+{"kind":"shape","id":"sh/83uxwrut","slide":1,"bbox":[1150,194.5,8,7]}
+{"kind":"shape","id":"sh/ydsvqhcb","slide":1,"bbox":[1158,182,32,32]}
+{"kind":"textbox","id":"sh/zy1wzmtw","slide":1,"name":"+","text":"+","textPreview":"+","textChars":1,"textLines":1,"bbox":[1161,181,26,34]}
+{"kind":"shape","id":"sh/14bqlozq","slide":1,"bbox":[1190,118,50,80]}
+{"kind":"shape","id":"sh/0329sjy5","slide":1,"bbox":[1232,114.5,8,7]}
+{"kind":"shape","id":"sh/z298jehk","slide":1,"name":"Pixel classifier","bbox":[1240,86,230,61]}
+{"kind":"textbox","id":"sh/e107q9gz","slide":1,"name":"Pixel classifier","text":"Pixel classifier","textPreview":"Pixel classifier","textChars":16,"textLines":1,"bbox":[1246,88,218,57]}
+{"kind":"shape","id":"sh/d0rqh4zu","slide":1,"bbox":[1355,147,0.1,17]}
+{"kind":"shape","id":"sh/czipozi9","slide":1,"bbox":[1351.5,156,7,8]}
+{"kind":"textbox","id":"sh/re98fuho","slide":1,"name":"Example map*","text":"Example map*","textPreview":"Example map*","textChars":12,"textLines":1,"bbox":[1270,276,217,29]}
+{"kind":"textbox","id":"sh/qd07mp03","slide":1,"name":"F: pixels    R: structure    P: building probability","text":"F: pixels    R: structure    P: building probability","textPreview":"F: pixels    R: structure    P: building probability","textChars":52,"textLines":1,"bbox":[211,315,520,25]}
+{"kind":"shape","id":"sh/pcrqd4zi","slide":1,"name":"Building pool + projection","bbox":[535,358,265,42]}
+{"kind":"textbox","id":"sh/4bipkzix","slide":1,"name":"Building pool + projection","text":"Building pooling + key projection","textPreview":"Building pooling + key projection","textChars":33,"textLines":1,"bbox":[541,360,253,38]}
+{"kind":"shape","id":"sh/gzqlgb69","slide":1,"bbox":[670,311,2,47]}
+{"kind":"shape","id":"sh/h0jm9g7e","slide":1,"bbox":[666.5,350,7,8]}
+{"kind":"textbox","id":"sh/vyh476po","slide":1,"name":"Training pairs","text":"Training pairs","textPreview":"Training pairs","textChars":14,"textLines":1,"bbox":[27,411,150,25]}
+{"kind":"shape","id":"sh/43a5kb65","slide":1,"name":"Feature entry","bbox":[55,443,14,14]}
+{"kind":"shape","id":"sh/54jmdg7q","slide":1,"name":"Feature entry","bbox":[72,443,14,14]}
+{"kind":"shape","id":"sh/i1sniloz","slide":1,"name":"Feature entry","bbox":[89,443,14,14]}
+{"kind":"shape","id":"sh/3214b6pk","slide":1,"name":"Feature entry","bbox":[55,460,14,14]}
+{"kind":"shape","id":"sh/s7u5ov61","slide":1,"name":"Feature entry","bbox":[72,460,14,14]}
+{"kind":"shape","id":"sh/d83mh07m","slide":1,"name":"Feature entry","bbox":[89,460,14,14]}
+{"kind":"shape","id":"sh/nepg3ed0","slide":1,"name":"Feature entry","bbox":[55,477,14,14]}
+{"kind":"shape","id":"sh/mdgfutcv","slide":1,"name":"Feature entry","bbox":[72,477,14,14]}
+{"kind":"shape","id":"sh/907y5ov6","slide":1,"name":"Feature entry","bbox":[89,477,14,14]}
+{"kind":"shape","id":"sh/8zyxwjul","slide":1,"name":"Matched feature\npipeline","bbox":[183,425,197,65]}
+{"kind":"textbox","id":"sh/za5gzed4","slide":1,"name":"Matched feature\npipeline","text":"Shared feature + region\nencoder snapshot","textPreview":"Shared feature + region | encoder snapshot","textChars":40,"textLines":2,"bbox":[189,427,185,61]}
+{"kind":"shape","id":"sh/y9wfq9cj","slide":1,"bbox":[107,467,76,0.1]}
+{"kind":"shape","id":"sh/lcny1ova","slide":1,"bbox":[175,463.5,8,7]}
+{"kind":"shape","id":"sh/i50z2dcn","slide":1,"bbox":[380,457,42,0.1]}
+{"kind":"shape","id":"sh/7exg761s","slide":1,"bbox":[414,453.5,8,7]}
+{"kind":"shape","id":"sh/8f6x0b2d","slide":1,"bbox":[633,457,44,0.1]}
+{"kind":"shape","id":"sh/zqxg361w","slide":1,"bbox":[669,453.5,8,7]}
+{"kind":"shape","id":"sh/ypofa1kb","slide":1,"bbox":[800,379,23,46]}
+{"kind":"shape","id":"sh/lcfy5gjm","slide":1,"bbox":[819.5,417,7,8]}
+{"kind":"shape","id":"sh/0r2d0nix","slide":1,"bbox":[909,457,41,0.1]}
+{"kind":"shape","id":"sh/1sbu9szi","slide":1,"bbox":[942,453.5,8,7]}
+{"kind":"shape","id":"sh/ep0vyx0r","slide":1,"bbox":[1020,311,70,114]}
+{"kind":"shape","id":"sh/fqtc7ihc","slide":1,"bbox":[1016.5,311,7,8]}
+{"kind":"textbox","id":"sh/ov2d47it","slide":1,"name":"Local support sets","text":"Local support sets","textPreview":"Local support sets","textChars":18,"textLines":1,"bbox":[1103,355,223,26]}
+{"kind":"shape","id":"sh/2tkv2x03","slide":1,"bbox":[20,517,713,448]}
+{"kind":"textbox","id":"sh/nutcb2ho","slide":1,"name":"b  Building-constrained regional update","text":"b  Building-constrained regional update","textPreview":"b  Building-constrained regional update","textChars":39,"textLines":1,"bbox":[38,529,683,35]}
+{"kind":"textbox","id":"sh/cjmd87i5","slide":1,"name":"P","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[41,586,27,29]}
+{"kind":"shape","id":"sh/xkvehczq","slide":1,"bbox":[62,604,32,0.1]}
+{"kind":"shape","id":"sh/lgru1cru","slide":1,"bbox":[86,600.5,8,7]}
+{"kind":"shape","id":"sh/kfids7a9","slide":1,"bbox":[98,581,65,66]}
+{"kind":"shape","id":"sh/je9cz29o","slide":1,"bbox":[114,596,6,6]}
+{"kind":"shape","id":"sh/yd0vqxs3","slide":1,"bbox":[144,600,6,6]}
+{"kind":"shape","id":"sh/t4bu5crq","slide":1,"bbox":[119,629,6,6]}
+{"kind":"textbox","id":"sh/832dwra5","slide":1,"name":"Outline + centres","text":"Outline + centres","textPreview":"Outline + centres","textChars":17,"textLines":1,"bbox":[67,650,175,25]}
+{"kind":"shape","id":"sh/729c3m90","slide":1,"name":"Same-building\ncandidates","bbox":[211,584,151,64]}
+{"kind":"textbox","id":"sh/6h0vuhsf","slide":1,"name":"Same-building\ncandidates","text":"Same-building\ncandidates","textPreview":"Same-building | candidates","textChars":24,"textLines":2,"bbox":[217,586,139,60]}
+{"kind":"shape","id":"sh/987utsrm","slide":1,"bbox":[164,609,47,0.1]}
+{"kind":"shape","id":"sh/o7ydkna1","slide":1,"bbox":[203,605.5,8,7]}
+{"kind":"shape","id":"sh/e1cjep4n","slide":1,"name":"Soft association","bbox":[397,584,185,64]}
+{"kind":"textbox","id":"sh/f2l07ul8","slide":1,"name":"Soft association","text":"Soft association","textPreview":"Soft association","textChars":16,"textLines":1,"bbox":[403,586,173,60]}
+{"kind":"shape","id":"sh/03u1gzmt","slide":1,"bbox":[362,613,35,0.1]}
+{"kind":"shape","id":"sh/143i943e","slide":1,"bbox":[389,609.5,8,7]}
+{"kind":"textbox","id":"sh/25cji94z","slide":1,"name":"R","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[466,555,28,24]}
+{"kind":"shape","id":"sh/n6lkbel4","slide":1,"bbox":[479,579,0.1,5]}
+{"kind":"shape","id":"sh/o7e1kjmp","slide":1,"bbox":[475.5,576,7,8]}
+{"kind":"shape","id":"sh/p8n2do3a","slide":1,"bbox":[582,613,37,0.1]}
+{"kind":"shape","id":"sh/i9sj654f","slide":1,"bbox":[611,609.5,8,7]}
+{"kind":"shape","id":"sh/3a10zal0","slide":1,"name":"Feature entry","bbox":[624,589,14,14]}
+{"kind":"shape","id":"sh/j6tg36do","slide":1,"name":"Feature entry","bbox":[641,589,14,14]}
+{"kind":"shape","id":"sh/y5kza1wj","slide":1,"name":"Feature entry","bbox":[658,589,14,14]}
+{"kind":"shape","id":"sh/l8by5gvu","slide":1,"name":"Feature entry","bbox":[624,606,14,14]}
+{"kind":"shape","id":"sh/k72hcbe9","slide":1,"name":"Feature entry","bbox":[641,606,14,14]}
+{"kind":"shape","id":"sh/7utg76d0","slide":1,"name":"Feature entry","bbox":[658,606,14,14]}
+{"kind":"shape","id":"sh/69kzelwf","slide":1,"name":"Feature entry","bbox":[624,623,14,14]}
+{"kind":"shape","id":"sh/twvy9gv6","slide":1,"name":"Feature entry","bbox":[641,623,14,14]}
+{"kind":"shape","id":"sh/8v2hgbel","slide":1,"name":"Feature entry","bbox":[658,623,14,14]}
+{"kind":"textbox","id":"sh/fydgbqdw","slide":1,"name":"Q","text":"Q","textPreview":"Q","textChars":1,"textLines":1,"bbox":[643,647,30,25]}
+{"kind":"shape","id":"sh/ux4z2lwb","slide":1,"name":"Feature entry","bbox":[50,722,14,14]}
+{"kind":"shape","id":"sh/c36xsvup","slide":1,"name":"Feature entry","bbox":[67,722,14,14]}
+{"kind":"shape","id":"sh/d4fy10ba","slide":1,"name":"Feature entry","bbox":[84,722,14,14]}
+{"kind":"shape","id":"sh/q14fqlcj","slide":1,"name":"Feature entry","bbox":[50,739,14,14]}
+{"kind":"shape","id":"sh/r2dgzqt4","slide":1,"name":"Feature entry","bbox":[67,739,14,14]}
+{"kind":"shape","id":"sh/4zmxovut","slide":1,"name":"Feature entry","bbox":[84,739,14,14]}
+{"kind":"shape","id":"sh/p0vyxgby","slide":1,"name":"Feature entry","bbox":[50,756,14,14]}
+{"kind":"shape","id":"sh/2x4fmlcn","slide":1,"name":"Feature entry","bbox":[67,756,14,14]}
+{"kind":"shape","id":"sh/3ydgvqt8","slide":1,"name":"Feature entry","bbox":[84,756,14,14]}
+{"kind":"textbox","id":"sh/gvmxkbuh","slide":1,"name":"Pixels F","text":"Pixels F","textPreview":"Pixels F","textChars":8,"textLines":1,"bbox":[38,774,105,25]}
+{"kind":"shape","id":"sh/wfu583i9","slide":1,"bbox":[99,744,72,0.1]}
+{"kind":"shape","id":"sh/bel4zyho","slide":1,"bbox":[163,740.5,8,7]}
+{"kind":"shape","id":"sh/adsn6t03","slide":1,"bbox":[268,639,382,71]}
+{"kind":"shape","id":"sh/9sjmx8zi","slide":1,"bbox":[264.5,702,7,8]}
+{"kind":"shape","id":"sh/ora543ix","slide":1,"name":"Region token","bbox":[392,721,45,11]}
+{"kind":"shape","id":"sh/nq14vyhc","slide":1,"name":"Region token","bbox":[392,739,45,11]}
+{"kind":"shape","id":"sh/mps32t0r","slide":1,"name":"Region token","bbox":[392,757,45,11]}
+{"kind":"textbox","id":"sh/tonm9szm","slide":1,"name":"T","text":"T","textPreview":"T","textChars":1,"textLines":1,"bbox":[401,773,35,25]}
+{"kind":"shape","id":"sh/8ne5gnih","slide":1,"bbox":[351,744,40,0.1]}
+{"kind":"shape","id":"sh/qtojapgj","slide":1,"bbox":[383,740.5,8,7]}
+{"kind":"shape","id":"sh/dwz254fa","slide":1,"bbox":[437,744,51,0.1]}
+{"kind":"shape","id":"sh/2poj6pgn","slide":1,"bbox":[480,740.5,8,7]}
+{"kind":"shape","id":"sh/3qxkzax8","slide":1,"bbox":[370,776,217,63]}
+{"kind":"shape","id":"sh/4r618fyt","slide":1,"bbox":[366.5,831,7,8]}
+{"kind":"textbox","id":"sh/vixkvepg","slide":1,"name":"Q","text":"Q","textPreview":"Q","textChars":1,"textLines":1,"bbox":[339,930,25,24]}
+{"kind":"shape","id":"sh/ahojm98v","slide":1,"bbox":[351,905,0.1,26]}
+{"kind":"shape","id":"sh/x4f2x47m","slide":1,"bbox":[347.5,905,7,8]}
+{"kind":"shape","id":"sh/wj61ojq1","slide":1,"bbox":[211,856,32,32]}
+{"kind":"textbox","id":"sh/nedkrupk","slide":1,"name":"+","text":"+","textPreview":"+","textChars":1,"textLines":1,"bbox":[214,855,26,34]}
+{"kind":"shape","id":"sh/md4jip8z","slide":1,"bbox":[243,872,46,0.1]}
+{"kind":"shape","id":"sh/9gv2t47q","slide":1,"bbox":[243,868.5,8,7]}
+{"kind":"shape","id":"sh/8fm1kzq5","slide":1,"bbox":[30,744,181,128]}
+{"kind":"shape","id":"sh/zad0nup8","slide":1,"bbox":[203,868.5,8,7]}
+{"kind":"shape","id":"sh/y9kjep83","slide":1,"bbox":[227,888,53,43]}
+{"kind":"shape","id":"sh/ofihov6l","slide":1,"bbox":[272,927.5,8,7]}
+{"kind":"shape","id":"sh/2t0zmlov","slide":1,"name":"T_A = T + ΔT_local","bbox":[488,879,217,50]}
+{"kind":"shape","id":"sh/cj2hsv6x","slide":1,"bbox":[587,818,0.1,61]}
+{"kind":"shape","id":"sh/dkby10ni","slide":1,"bbox":[583.5,871,7,8]}
+{"kind":"textbox","id":"sh/qh0zqlor","slide":1,"name":"T","text":"T","textPreview":"T","textChars":1,"textLines":1,"bbox":[460,887,27,27]}
+{"kind":"shape","id":"sh/bitgzq5c","slide":1,"bbox":[478,904,10,0.1]}
+{"kind":"shape","id":"sh/snyxgb6d","slide":1,"bbox":[480,900.5,8,7]}
+{"kind":"textbox","id":"sh/to7ypgny","slide":1,"name":"Updated query tokens","text":"Updated query tokens","textPreview":"Updated query tokens","textChars":20,"textLines":1,"bbox":[494,933,220,24]}
+{"kind":"shape","id":"sh/q9kvy9of","slide":1,"bbox":[753,517,725,448]}
+{"kind":"textbox","id":"sh/batw7e50","slide":1,"name":"c  Per-building support reading","text":"c  Per-building support reading","textPreview":"c  Per-building support reading","textChars":31,"textLines":1,"bbox":[771,529,690,35]}
+{"kind":"textbox","id":"sh/cbmd0jml","slide":1,"name":"Shared weights; j = 1, …, K (3 shown)","text":"Shared cross-attention parameters (3 of K supports shown)","textPreview":"Shared cross-attention parameters (3 of K supports shown)","textChars":57,"textLines":1,"bbox":[988,565,470,26]}
+{"kind":"shape","id":"sh/dcve9on6","slide":1,"name":"Region token","bbox":[779,699,45,11]}
+{"kind":"shape","id":"sh/25kvu9oj","slide":1,"name":"Region token","bbox":[779,717,45,11]}
+{"kind":"shape","id":"sh/36tc3e54","slide":1,"name":"Region token","bbox":[779,735,45,11]}
+{"kind":"shape","id":"sh/vuhg32pk","slide":1,"name":"Cross-attention","bbox":[1070,615,181,48]}
+{"kind":"textbox","id":"sh/utofuxoz","slide":1,"name":"Cross-attention","text":"Cross-attention","textPreview":"Cross-attention","textChars":15,"textLines":1,"bbox":[1076,617,169,44]}
+{"kind":"shape","id":"sh/98fy1s7e","slide":1,"bbox":[1025,639,45,0.1]}
+{"kind":"shape","id":"sh/876xsnqt","slide":1,"bbox":[1062,635.5,8,7]}
+{"kind":"shape","id":"sh/76xgzip8","slide":1,"bbox":[824,598,336,125]}
+{"kind":"shape","id":"sh/m5ofqd8n","slide":1,"bbox":[1156.5,607,7,8]}
+{"kind":"shape","id":"sh/l4fyxs72","slide":1,"name":"Region token","bbox":[1290,618,44,11]}
+{"kind":"shape","id":"sh/036xonqx","slide":1,"name":"Region token","bbox":[1290,636,44,11]}
+{"kind":"shape","id":"sh/cnqh4nyd","slide":1,"bbox":[1251,639,39,0.1]}
+{"kind":"shape","id":"sh/dojydsfy","slide":1,"bbox":[1282,635.5,8,7]}
+{"kind":"shape","id":"sh/rmhgbix8","slide":1,"bbox":[1410,639,40,230]}
+{"kind":"shape","id":"sh/9g3ylcf6","slide":1,"name":"Cross-attention","bbox":[1070,688,181,48]}
+{"kind":"textbox","id":"sh/jmpsrqlk","slide":1,"name":"Cross-attention","text":"Cross-attention","textPreview":"Cross-attention","textChars":15,"textLines":1,"bbox":[1076,690,169,44]}
+{"kind":"shape","id":"sh/ilgby54z","slide":1,"bbox":[1025,712,45,0.1]}
+{"kind":"shape","id":"sh/5o7at03q","slide":1,"bbox":[1062,708.5,8,7]}
+{"kind":"shape","id":"sh/4nyt0vm5","slide":1,"bbox":[824,671,336,52]}
+{"kind":"shape","id":"sh/rapsvalw","slide":1,"bbox":[1156.5,680,7,8]}
+{"kind":"shape","id":"sh/6pgb254b","slide":1,"name":"Region token","bbox":[1290,691,44,11]}
+{"kind":"shape","id":"sh/tcraxk3m","slide":1,"name":"Region token","bbox":[1290,709,44,11]}
+{"kind":"shape","id":"sh/sbyt4fmh","slide":1,"bbox":[1251,712,39,0.1]}
+{"kind":"shape","id":"sh/7e5sj6lc","slide":1,"bbox":[1282,708.5,8,7]}
+{"kind":"shape","id":"sh/yxgb6lcn","slide":1,"bbox":[1410,712,40,157]}
+{"kind":"shape","id":"sh/83itcvu5","slide":1,"name":"Cross-attention","bbox":[1070,761,181,48]}
+{"kind":"textbox","id":"sh/94ral0ba","slide":1,"name":"Cross-attention","text":"Cross-attention","textPreview":"Cross-attention","textChars":15,"textLines":1,"bbox":[1076,763,169,44]}
+{"kind":"shape","id":"sh/ap0be5cv","slide":1,"bbox":[1025,785,45,0.1]}
+{"kind":"shape","id":"sh/vqtsnatg","slide":1,"bbox":[1062,781.5,8,7]}
+{"kind":"shape","id":"sh/5kved4vi","slide":1,"bbox":[824,723,336,38]}
+{"kind":"shape","id":"sh/kjmd4zed","slide":1,"bbox":[1156.5,753,7,8]}
+{"kind":"shape","id":"sh/jydwbuds","slide":1,"name":"Region token","bbox":[1290,764,44,11]}
+{"kind":"shape","id":"sh/ix4v2pw7","slide":1,"name":"Region token","bbox":[1290,782,44,11]}
+{"kind":"shape","id":"sh/toveh4vu","slide":1,"bbox":[1251,785,39,0.1]}
+{"kind":"shape","id":"sh/snmd8ze9","slide":1,"bbox":[1282,781.5,8,7]}
+{"kind":"shape","id":"sh/6l4v69w3","slide":1,"bbox":[1410,785,40,84]}
+{"kind":"shape","id":"sh/hsfelovq","slide":1,"name":"Label embedding\ne(y_j)","bbox":[777,836,185,61]}
+{"kind":"shape","id":"sh/07yp4r6t","slide":1,"bbox":[962,868,68,0.1]}
+{"kind":"shape","id":"sh/l876xw7e","slide":1,"bbox":[1022,864.5,8,7]}
+{"kind":"shape","id":"sh/y5w72hon","slide":1,"name":"Support aggregation","bbox":[1030,841,285,51]}
+{"kind":"shape","id":"sh/z6povmp8","slide":1,"name":"Support aggregation","bbox":[1036,843,273,47]}
+{"kind":"shape","id":"sh/8byp8r6p","slide":1,"bbox":[1315,869,135,0.1]}
+{"kind":"shape","id":"sh/9c761w7a","slide":1,"bbox":[1315,865.5,8,7]}
+{"kind":"shape","id":"sh/napozmpk","slide":1,"bbox":[1315,835,12,12]}
+{"kind":"shape","id":"sh/4fe5w7ql","slide":1,"bbox":[1315,843.5,8,7]}
+{"kind":"shape","id":"sh/pgn6pc76","slide":1,"name":"Project + Q-unpool","bbox":[1186,915,250,36]}
+{"kind":"shape","id":"sh/6tkr2583","slide":1,"bbox":[1170,892,16,41]}
+{"kind":"shape","id":"sh/twbaxkru","slide":1,"bbox":[1178,929.5,8,7]}
+{"kind":"textbox","id":"sh/sv294fq9","slide":1,"name":"Q","text":"Q","textPreview":"Q","textChars":1,"textLines":1,"bbox":[1388,886,38,26]}
+{"kind":"shape","id":"sh/j6tsrq9s","slide":1,"bbox":[1400,912,0.1,3]}
+{"kind":"shape","id":"sh/i5kryl87","slide":1,"bbox":[1396.5,907,7,8]}
+{"kind":"shape","id":"sh/v298nq9g","slide":1,"bbox":[1165,933,290,26]}
+{"kind":"shape","id":"sh/a10rul8v","slide":1,"bbox":[1165,955.5,8,7]}
+{"kind":"textbox","id":"sh/n6dsjqhc","slide":1,"name":"Pink: current regions    Blue: support cases    Yellow: interaction    Green: projection / decoding","text":"Pink: current query    Blue: retrieved support    Yellow: association / retrieval    Green: projection / prediction    Gray: reused backbone","textPreview":"Pink: current query    Blue: retrieved support    Yellow: association / retrieval    Green: projection / prediction    Gray: reused backbone","textChars":140,"textLines":1,"bbox":[25,978,1450,26]}
+{"kind":"textbox","id":"sh/o7m9cvyx","slide":1,"name":"*Candidate architecture. Region icons and example map are illustrative. Dashed arrows: offline construction.","text":"*Candidate architecture. Memory contains training entries only; region links and the example output are schematic.","textPreview":"*Candidate architecture. Memory contains training entries only; region links and the example output are schematic.","textChars":114,"textLines":1,"bbox":[25,1007,1450,25]}
+{"kind":"shape","id":"sh/0jm98bil","slide":1,"bbox":[393,180,42,42]}
+{"kind":"shape","id":"sh/1kvahgz6","slide":1,"bbox":[401,189,42,42]}
+{"kind":"shape","id":"sh/ydobi5gz","slide":1,"bbox":[409,198,42,42]}
+{"kind":"shape","id":"sh/jexsrahk","slide":1,"bbox":[433,472,190,25]}
+{"kind":"shape","id":"sh/t8zuh4jm","slide":1,"bbox":[433,434,190,50]}
+{"kind":"shape","id":"sh/87qd8zi1","slide":1,"bbox":[433,422,190,25]}
+{"kind":"textbox","id":"sh/76hcfu1g","slide":1,"text":"Memory bank","textPreview":"Memory bank","textChars":11,"textLines":1,"bbox":[445,445,166,26]}
+{"kind":"textbox","id":"sh/658v690b","slide":1,"text":"Train-only records","textPreview":"Train-only records","textChars":18,"textLines":1,"bbox":[423,468,210,20]}
+{"kind":"shape","id":"sh/l4zud4jq","slide":1,"bbox":[677,425,232,65]}
+{"kind":"shape","id":"sh/k3qd4z25","slide":1,"bbox":[691,438,24,24]}
+{"kind":"shape","id":"sh/j2hcbu1k","slide":1,"bbox":[712,458,12,12]}
+{"kind":"shape","id":"sh/y1ov2pkz","slide":1,"bbox":[739,439,15,22]}
+{"kind":"shape","id":"sh/50jepoju","slide":1,"bbox":[760,439,15,22]}
+{"kind":"shape","id":"sh/4zadgji9","slide":1,"bbox":[781,439,15,22]}
+{"kind":"textbox","id":"sh/t03q1oju","slide":1,"text":"Top-K buildings","textPreview":"Top-K buildings","textChars":15,"textLines":1,"bbox":[802,431,99,27]}
+{"kind":"textbox","id":"sh/szup8j29","slide":1,"text":"valid source + dedup","textPreview":"valid source + dedup","textChars":20,"textLines":1,"bbox":[716,463,183,24]}
+{"kind":"shape","id":"sh/7yloze14","slide":1,"bbox":[962,425,75,59]}
+{"kind":"shape","id":"sh/6dc769kj","slide":1,"bbox":[967,432,30,30]}
+{"kind":"shape","id":"sh/5cj6x4jy","slide":1,"bbox":[979,432,18,19.2]}
+{"kind":"shape","id":"sh/kbap4z2d","slide":1,"bbox":[967,444,12,0.1]}
+{"kind":"shape","id":"sh/ja1ove1s","slide":1,"bbox":[1004,433,27,7]}
+{"kind":"shape","id":"sh/i9s729k7","slide":1,"bbox":[1004,444,27,7]}
+{"kind":"shape","id":"sh/p8nq98j2","slide":1,"bbox":[1004,455,27,7]}
+{"kind":"shape","id":"sh/47epg3ih","slide":1,"bbox":[1046,425,75,59]}
+{"kind":"shape","id":"sh/md8na50z","slide":1,"bbox":[1051,432,30,30]}
+{"kind":"shape","id":"sh/neh43ahk","slide":1,"bbox":[1063,432,18,19.2]}
+{"kind":"shape","id":"sh/8fq5cvi5","slide":1,"bbox":[1051,444,12,0.1]}
+{"kind":"shape","id":"sh/9gzm50zq","slide":1,"bbox":[1088,433,27,7]}
+{"kind":"shape","id":"sh/y9o36l03","slide":1,"bbox":[1088,444,27,7]}
+{"kind":"shape","id":"sh/zax4zqho","slide":1,"bbox":[1088,455,27,7]}
+{"kind":"shape","id":"sh/0b6l8vi9","slide":1,"bbox":[1130,425,75,59]}
+{"kind":"shape","id":"sh/lcfm10ze","slide":1,"bbox":[1135,432,30,30]}
+{"kind":"shape","id":"sh/i5snipg7","slide":1,"bbox":[1147,432,18,19.2]}
+{"kind":"shape","id":"sh/j614buhs","slide":1,"bbox":[1135,444,12,0.1]}
+{"kind":"shape","id":"sh/ve9snits","slide":1,"bbox":[1172,433,27,7]}
+{"kind":"shape","id":"sh/ud0bedcn","slide":1,"bbox":[1172,444,27,7]}
+{"kind":"shape","id":"sh/hgrapsby","slide":1,"bbox":[1172,455,27,7]}
+{"kind":"shape","id":"sh/3itsr2t4","slide":1,"bbox":[902,608,123,61]}
+{"kind":"shape","id":"sh/ihkbixcj","slide":1,"bbox":[907,615,30,30]}
+{"kind":"shape","id":"sh/54batsba","slide":1,"bbox":[919,615,18,19.2]}
+{"kind":"shape","id":"sh/432tk7up","slide":1,"bbox":[907,627,12,0.1]}
+{"kind":"shape","id":"sh/r6tsv2t0","slide":1,"bbox":[944,616,75,7]}
+{"kind":"shape","id":"sh/q5kbmxsf","slide":1,"bbox":[944,627,75,7]}
+{"kind":"shape","id":"sh/obm9c7qt","slide":1,"bbox":[944,638,75,7]}
+{"kind":"shape","id":"sh/294rax8n","slide":1,"bbox":[902,681,123,61]}
+{"kind":"shape","id":"sh/nads3298","slide":1,"bbox":[907,688,30,30]}
+{"kind":"shape","id":"sh/072987qx","slide":1,"bbox":[919,688,18,19.2]}
+{"kind":"shape","id":"sh/18va1cr2","slide":1,"bbox":[907,700,12,0.1]}
+{"kind":"shape","id":"sh/e5kr6x8r","slide":1,"bbox":[944,689,75,7]}
+{"kind":"shape","id":"sh/f6tsz29c","slide":1,"bbox":[944,700,75,7]}
+{"kind":"shape","id":"sh/sj294nql","slide":1,"bbox":[944,711,75,7]}
+{"kind":"shape","id":"sh/ho765o7y","slide":1,"bbox":[902,754,123,61]}
+{"kind":"shape","id":"sh/gnypcj6d","slide":1,"bbox":[907,761,30,30]}
+{"kind":"shape","id":"sh/vmpo3eps","slide":1,"bbox":[919,761,18,19.2]}
+{"kind":"shape","id":"sh/ulg7ato7","slide":1,"bbox":[907,773,12,0.1]}
+{"kind":"shape","id":"sh/5cr6987u","slide":1,"bbox":[944,762,75,7]}
+{"kind":"shape","id":"sh/4bipg36p","slide":1,"bbox":[944,773,75,7]}
+{"kind":"shape","id":"sh/3q9o7yp4","slide":1,"bbox":[944,784,75,7]}
+{"kind":"shape","id":"sh/lgn6x47q","slide":1,"bbox":[171,710,180,66]}
+{"kind":"shape","id":"sh/kve54z65","slide":1,"bbox":[183,720,7,7]}
+{"kind":"shape","id":"sh/a1c3e543","slide":1,"bbox":[193,720,7,7]}
+{"kind":"shape","id":"sh/bml47a5o","slide":1,"bbox":[203,720,7,7]}
+{"kind":"shape","id":"sh/wnulgfm9","slide":1,"bbox":[183,730,7,7]}
+{"kind":"shape","id":"sh/xo3m9kne","slide":1,"bbox":[193,730,7,7]}
+{"kind":"shape","id":"sh/ypc3ip4z","slide":1,"bbox":[203,730,7,7]}
+{"kind":"shape","id":"sh/jq54ba5k","slide":1,"bbox":[215,724,41,6]}
+{"kind":"shape","id":"sh/krelkfm5","slide":1,"bbox":[215,730,41,1]}
+{"kind":"shape","id":"sh/lsnmdknq","slide":1,"bbox":[215,730,41,8]}
+{"kind":"shape","id":"sh/ets36l4v","slide":1,"bbox":[259,725,34,10]}
+{"kind":"shape","id":"sh/3yx07ml8","slide":1,"bbox":[488,710,202,66]}
+{"kind":"shape","id":"sh/ixojyhkn","slide":1,"bbox":[515,720,36,7]}
+{"kind":"shape","id":"sh/50zi9w3e","slide":1,"bbox":[515,727,75,7]}
+{"kind":"shape","id":"sh/4zq10r2t","slide":1,"bbox":[515,721,109,6]}
+{"kind":"shape","id":"sh/vax03mlw","slide":1,"bbox":[551,720,39,14]}
+{"kind":"shape","id":"sh/u9ojuhkr","slide":1,"bbox":[551,720,73,1]}
+{"kind":"shape","id":"sh/hwfi5c32","slide":1,"bbox":[590,721,34,13]}
+{"kind":"shape","id":"sh/gb61w72h","slide":1,"bbox":[511,723,8,8]}
+{"kind":"shape","id":"sh/z610f6lg","slide":1,"bbox":[547,716,8,8]}
+{"kind":"shape","id":"sh/e58j61kv","slide":1,"bbox":[586,730,8,8]}
+{"kind":"shape","id":"sh/czipkze1","slide":1,"bbox":[620,717,8,8]}
+{"kind":"textbox","id":"sh/x0r6d4fm","slide":1,"text":"Attention + FFN","textPreview":"Attention + FFN","textChars":15,"textLines":1,"bbox":[500,747,180,24]}
+{"kind":"shape","id":"sh/ax07i9wv","slide":1,"bbox":[289,839,169,66]}
+{"kind":"shape","id":"sh/by9obexg","slide":1,"bbox":[301,850,25,7]}
+{"kind":"shape","id":"sh/k32pojed","slide":1,"bbox":[301,860,25,7]}
+{"kind":"shape","id":"sh/l4b6hofi","slide":1,"bbox":[329,847,40,12]}
+{"kind":"shape","id":"sh/y107m9w7","slide":1,"bbox":[329,857,40,2]}
+{"kind":"shape","id":"sh/z2tofexs","slide":1,"bbox":[329,859,40,8]}
+{"kind":"shape","id":"sh/8r2psje9","slide":1,"bbox":[372,846,6,6]}
+{"kind":"shape","id":"sh/9sbqlofu","slide":1,"bbox":[380,846,6,6]}
+{"kind":"shape","id":"sh/h4japc7y","slide":1,"bbox":[388,846,6,6]}
+{"kind":"shape","id":"sh/g3atw76d","slide":1,"bbox":[372,854,6,6]}
+{"kind":"shape","id":"sh/v21sn2ps","slide":1,"bbox":[380,854,6,6]}
+{"kind":"shape","id":"sh/u1sbuh87","slide":1,"bbox":[388,854,6,6]}
+{"kind":"shape","id":"sh/t0jalc7m","slide":1,"bbox":[372,862,6,6]}
+{"kind":"shape","id":"sh/8zats7q1","slide":1,"bbox":[380,862,6,6]}
+{"kind":"shape","id":"sh/7y1sj2pg","slide":1,"bbox":[388,862,6,6]}
+{"kind":"shape","id":"sh/lwzahs7q","slide":1,"bbox":[1028,592,52,18]}
+{"kind":"shape","id":"sh/kbqtonq5","slide":1,"bbox":[1028,646,36,18]}
+{"kind":"textbox","id":"sh/dsvyd4j2","slide":1,"name":"T","text":"T","textPreview":"T","textChars":1,"textLines":1,"bbox":[816.09,160,16.32,25]}
+{"kind":"textbox","id":"sh/214zypkf","slide":1,"name":"A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[830.41,166.82,12.5,25]}
+{"kind":"textbox","id":"sh/32dg7u10","slide":1,"name":"Pixel pathway  F","text":"Preserved pixel pathway","textPreview":"Preserved pixel pathway","textChars":23,"textLines":1,"bbox":[875,27,190,28]}
+{"kind":"shape","id":"sh/o3mh0z2l","slide":1,"name":"A","bbox":[1078.91,32.82,12.5,29]}
+{"kind":"textbox","id":"sh/p4vy94j6","slide":1,"name":"ΔF","text":"ΔF","textPreview":"ΔF","textChars":2,"textLines":1,"bbox":[1136.57,235,34.36,26]}
+{"kind":"textbox","id":"sh/exkzupkj","slide":1,"name":"mem","text":"mem","textPreview":"mem","textChars":3,"textLines":1,"bbox":[1168.93,241.82,29.5,26]}
+{"kind":"textbox","id":"sh/fytg3a14","slide":1,"name":"T","text":"T","textPreview":"T","textChars":1,"textLines":1,"bbox":[699.09,336,16.32,24]}
+{"kind":"textbox","id":"sh/87elsji1","slide":1,"name":"A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[713.41,342.82,12.5,24]}
+{"kind":"textbox","id":"sh/t8nmlojm","slide":1,"name":"Key  k","text":"Key  k","textPreview":"Key  k","textChars":6,"textLines":1,"bbox":[839.95,368,65.6,25]}
+{"kind":"textbox","id":"sh/65w3q90b","slide":1,"name":"b","text":"b","textPreview":"b","textChars":1,"textLines":1,"bbox":[903.55,374.82,12.5,25]}
+{"kind":"shape","id":"sh/7654je1w","slide":1,"name":"Ŷ = h(F","bbox":[1279.88,447,77.92,33]}
+{"kind":"shape","id":"sh/k3uloji5","slide":1,"name":"A","bbox":[1355.8,453.82,12.5,33]}
+{"kind":"shape","id":"sh/l43mh4jq","slide":1,"name":" + ΔF","bbox":[1366.3,447,59,33]}
+{"kind":"shape","id":"sh/y1c3m90z","slide":1,"name":"mem","bbox":[1423.3,453.82,29.5,33]}
+{"kind":"shape","id":"sh/j2l4fe1k","slide":1,"name":")","bbox":[1450.8,447,16.32,33]}
+{"kind":"textbox","id":"sh/wfulkzi9","slide":1,"name":"ΔT","text":"ΔT","textPreview":"ΔT","textChars":2,"textLines":1,"bbox":[540.82,786,34.36,25]}
+{"kind":"textbox","id":"sh/x03md4je","slide":1,"name":"local","text":"local","textPreview":"local","textChars":5,"textLines":1,"bbox":[573.18,792.82,38,25]}
+{"kind":"textbox","id":"sh/za14nulg","slide":1,"name":"F","text":"F","textPreview":"F","textChars":1,"textLines":1,"bbox":[97.61,901,16.32,25]}
+{"kind":"textbox","id":"sh/e9snup4v","slide":1,"name":"A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[111.93,907.82,12.5,25]}
+{"kind":"textbox","id":"sh/1cjmp43m","slide":1,"name":" = F + ΔF","text":" = F + ΔF","textPreview":"= F + ΔF","textChars":9,"textLines":1,"bbox":[122.43,901,95.96,25]}
+{"kind":"textbox","id":"sh/0ba5wzm1","slide":1,"name":"local","text":"local","textPreview":"local","textChars":5,"textLines":1,"bbox":[216.39,907.82,38,25]}
+{"kind":"textbox","id":"sh/nel4relc","slide":1,"name":"T","text":"T","textPreview":"T","textChars":1,"textLines":1,"bbox":[519.11,881,16.32,46]}
+{"kind":"textbox","id":"sh/mdsny947","slide":1,"name":"A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[533.43,887.82,12.5,46]}
+{"kind":"textbox","id":"sh/903mt43i","slide":1,"name":" = T + ΔT","text":" = T + ΔT","textPreview":"= T + ΔT","textChars":9,"textLines":1,"bbox":[543.93,881,95.96,46]}
+{"kind":"textbox","id":"sh/ozu50zmx","slide":1,"name":"local","text":"local","textPreview":"local","textChars":5,"textLines":1,"bbox":[637.89,887.82,38,46]}
+{"kind":"textbox","id":"sh/b2l4velo","slide":1,"name":"Query  T","text":"Query  T","textPreview":"Query  T","textChars":8,"textLines":1,"bbox":[779.63,758,90.24,25]}
+{"kind":"textbox","id":"sh/a1cn2943","slide":1,"name":"A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[867.87,764.82,12.5,25]}
+{"kind":"textbox","id":"sh/6xw7udob","slide":1,"name":"U","text":"U","textPreview":"U","textChars":1,"textLines":1,"bbox":[1366.71,625,16.32,26]}
+{"kind":"textbox","id":"sh/7yp8ni5w","slide":1,"name":"1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[1381.03,631.82,8.25,26]}
+{"kind":"textbox","id":"sh/8zypwn6h","slide":1,"name":"U","text":"U","textPreview":"U","textChars":1,"textLines":1,"bbox":[1364.59,698,16.32,26]}
+{"kind":"textbox","id":"sh/t07qpsn2","slide":1,"name":"2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1378.91,704.82,12.5,26]}
+{"kind":"textbox","id":"sh/ytw7qdof","slide":1,"name":"U","text":"U","textPreview":"U","textChars":1,"textLines":1,"bbox":[1364.59,771,16.32,26]}
+{"kind":"textbox","id":"sh/ju58jy5k","slide":1,"name":"3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1378.91,777.82,12.5,26]}
+{"kind":"textbox","id":"sh/kveps365","slide":1,"name":"Valid mask  m","text":"Retrieval score and valid mask","textPreview":"Retrieval score and valid mask","textChars":30,"textLines":1,"bbox":[1240,808,184,27]}
+{"kind":"shape","id":"sh/lwnql8nq","slide":1,"name":"j","bbox":[1415.55,815.82,8.25,26]}
+{"kind":"shape","id":"sh/ip072xoj","slide":1,"name":"ΔT","bbox":[1091.57,901,34.36,24]}
+{"kind":"shape","id":"sh/3q98v254","slide":1,"name":"mem","bbox":[1123.93,907.82,29.5,24]}
+{"kind":"textbox","id":"sh/dwv2h0bi","slide":1,"name":"ΔF","text":"ΔF","textPreview":"ΔF","textChars":2,"textLines":1,"bbox":[1088.07,937,34.36,24]}
+{"kind":"textbox","id":"sh/cvm18vux","slide":1,"name":"mem","text":"mem","textPreview":"mem","textChars":3,"textLines":1,"bbox":[1120.43,943.82,29.5,24]}
+{"kind":"shape","id":"sh/budkfqtc","slide":1,"name":"No valid support: ΔF","bbox":[832.96,915,195.14,26]}
+{"kind":"shape","id":"sh/qtkj6lcr","slide":1,"name":"mem","bbox":[1026.1,920.89,26.02,26]}
+{"kind":"shape","id":"sh/p8bidgb6","slide":1,"name":" = 0","bbox":[1050.12,915,35.92,26]}
+{"kind":"shape","id":"sh/o7214bul","slide":1,"name":"V","bbox":[1026.72,489,16.32,22]}
+{"kind":"shape","id":"sh/36t0b6tg","slide":1,"name":"j","bbox":[1041.04,495.82,8.25,22]}
+{"kind":"shape","id":"sh/25kj2lcv","slide":1,"name":", y","bbox":[1047.29,489,28.64,22]}
+{"kind":"shape","id":"sh/94f2pkbq","slide":1,"name":"j","bbox":[1073.93,495.82,8.25,22]}
+{"kind":"shape","id":"sh/8361gfu5","slide":1,"name":", ID","bbox":[1080.18,489,40.96,22]}
+{"kind":"shape","id":"sh/wva10bqp","slide":1,"name":"j","bbox":[1119.14,495.82,8.25,22]}
+{"kind":"shape","id":"sh/hwjitg7u","slide":1,"name":", m","bbox":[1125.39,489,28.64,22]}
+{"kind":"shape","id":"sh/utsjyl8j","slide":1,"name":"j","bbox":[1152.03,495.82,8.25,22]}
+{"kind":"textbox","id":"sh/vu10r6p4","slide":1,"name":"V","text":"V","textPreview":"V","textChars":1,"textLines":1,"bbox":[948.21,646,16.32,21]}
+{"kind":"textbox","id":"sh/4za14vql","slide":1,"name":"1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[962.53,652.82,8.25,21]}
+{"kind":"textbox","id":"sh/503ix076","slide":1,"name":"V","text":"V","textPreview":"V","textChars":1,"textLines":1,"bbox":[946.09,719,16.32,21]}
+{"kind":"textbox","id":"sh/ixsj2l8f","slide":1,"name":"2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[960.41,725.82,12.5,21]}
+{"kind":"textbox","id":"sh/jy10vqp0","slide":1,"name":"V","text":"V","textPreview":"V","textChars":1,"textLines":1,"bbox":[946.09,792,16.32,21]}
+{"kind":"textbox","id":"sh/snu18v6h","slide":1,"name":"3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[960.41,798.82,12.5,21]}
+{"kind":"textbox","id":"sh/do321072","slide":1,"name":"Label embedding","text":"Building-label embedding","textPreview":"Building-label embedding","textChars":24,"textLines":1,"bbox":[783,838,173,25]}
+{"kind":"textbox","id":"sh/ni54ru9k","slide":1,"name":"e(y","text":"e(y","textPreview":"e(y","textChars":3,"textLines":1,"bbox":[838.52,864,42.64,26]}
+{"kind":"textbox","id":"sh/2hw3y9sz","slide":1,"name":"j","text":"j","textPreview":"j","textChars":1,"textLines":1,"bbox":[879.16,871.13,8.44,26]}
+{"kind":"textbox","id":"sh/pk7mt4ra","slide":1,"name":")","text":")","textPreview":")","textChars":1,"textLines":1,"bbox":[885.6,864,16.88,26]}
+{"kind":"shape","id":"sh/ojyl0zap","slide":1,"name":"ΔF","bbox":[1205.42,917,31.6,32]}
+{"kind":"shape","id":"sh/fu54nu98","slide":1,"name":"mem","bbox":[1235.02,923.2,27.18,32]}
+{"kind":"shape","id":"sh/etw3upsn","slide":1,"name":" = Q(ΔT","bbox":[1260.21,917,76.4,32]}
+{"kind":"shape","id":"sh/1gnmp4re","slide":1,"name":"mem","bbox":[1334.61,923.2,27.18,32]}
+{"kind":"shape","id":"sh/0velwzat","slide":1,"name":"W","bbox":[1359.79,917,20.4,32]}
+{"kind":"shape","id":"sh/zq94ze9c","slide":1,"name":"mem","bbox":[1378.19,923.2,27.18,32]}
+{"kind":"shape","id":"sh/ypgn6t87","slide":1,"name":")","bbox":[1403.38,917,15.2,32]}
+{"kind":"shape","id":"sh/uh4fehwb","slide":1,"name":"T = Pool(F,Q)","bbox":[193.32,747,133.36,24]}
+{"kind":"shape","id":"sh/vidgnmxw","slide":1,"name":"Q(ΔT","bbox":[295.3,877,56.5,23]}
+{"kind":"shape","id":"sh/gjmxgreh","slide":1,"name":"local","bbox":[349.8,883.51,36.46,23]}
+{"kind":"shape","id":"sh/hkvypwf2","slide":1,"name":"W","bbox":[384.26,877,21.22,23]}
+{"kind":"shape","id":"sh/il4fi1wn","slide":1,"name":"local","bbox":[403.48,883.51,36.46,23]}
+{"kind":"shape","id":"sh/3mdgrmx8","slide":1,"name":")","bbox":[437.94,877,15.76,23]}
+{"kind":"shape","id":"sh/jqtgf2xo","slide":1,"name":"Retrieved support record","bbox":[1025,486,185,28]}
+{"kind":"shape","id":"sh/1kzil0z6","slide":1,"name":"Support token aggregation formula","bbox":[1031,893,173,28]}
+{"kind":"shape","id":"sh/0jq1cvy1","slide":1,"name":"No support fallback","bbox":[805,916,285,28]}
+{"kind":"shape","id":"sh/zih0jqhg","slide":1,"name":"Memory pixel update formula","bbox":[1192,916,230,32]}
+{"kind":"textbox","id":"sh/eh8jalgv","slide":1,"name":"Workflow step 1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[210,82,24,24]}
+{"kind":"textbox","id":"sh/98jipkzi","slide":1,"name":"Workflow step 2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[762,82,24,24]}
+{"kind":"textbox","id":"sh/o7a1gfyx","slide":1,"name":"Workflow step 3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[885,415,24,24]}
+{"kind":"textbox","id":"sh/n610nahc","slide":1,"name":"Workflow step 4","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1080,82,24,24]}
+{"kind":"textbox","id":"sh/ml8je5gr","slide":1,"name":"Workflow step 5","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1442,88,24,24]}
+{"kind":"shape","id":"sh/u94ni983","slide":1,"name":"Pool formula cover","bbox":[187,740,152,33]}
+{"kind":"shape","id":"sh/8725gzqd","slide":1,"name":"Local unpool formula cover","bbox":[292,873,163,29]}
+{"kind":"shape","id":"sh/mlknep87","slide":1,"name":"Cross attention equation cover","bbox":[975,588,430,24]}
+{"kind":"shape","id":"sh/s365sjqh","slide":1,"name":"Retrieved support set cover","bbox":[1015,483,215,28]}
+{"kind":"shape","id":"sh/3yh8bi94","slide":1,"name":"Support aggregation formula cover","bbox":[1036,845,272,42]}
+{"kind":"shape","id":"sh/p0jqdsra","slide":1,"name":"Memory token aggregation cover","bbox":[1018,891,216,25]}
+{"kind":"shape","id":"sh/b218f29g","slide":1,"name":"No support fallback cover","bbox":[796,914,302,25]}
+{"kind":"shape","id":"sh/x4jqhcr6","slide":1,"name":"Memory unpool formula cover","bbox":[1190,918,242,29]}
+{"kind":"shape","id":"sh/r6x83y9w","slide":1,"name":"Final prediction equation cover","bbox":[1268,438,210,51]}
+{"kind":"image","id":"im/vutcb2x4","slide":1,"name":"图片 282","bbox":[44,70,96,96]}
+{"kind":"image","id":"im/298729on","slide":1,"name":"图片 284","bbox":[44,191,96,96]}
+{"kind":"image","id":"im/nuhovep8","slide":1,"name":"图片 4","bbox":[1302.27,166,98,100]}
+{"kind":"image","id":"im/ovqp4j6t","slide":1,"name":"Preserved pixel feature","bbox":[1068,27.05,38,27.89]}
+{"kind":"image","id":"im/pwz6xone","slide":1,"name":"Normalized region pooling","bbox":[181,738.01,164,35.99]}
+{"kind":"image","id":"im/ax8769oj","slide":1,"name":"Local pixel residual","bbox":[291,873.03,165,27.94]}
+{"kind":"image","id":"im/by1oze54","slide":1,"name":"Per-support cross attention","bbox":[982,587.03,416,24.93]}
+{"kind":"image","id":"im/czap8j6p","slide":1,"name":"Retrieved support set","bbox":[1016.23,482,212.54,29]}
+{"kind":"image","id":"im/x0j61ona","slide":1,"name":"Label-conditioned support aggregation","bbox":[1038.22,844,267.56,44]}
+{"kind":"image","id":"im/q1onupof","slide":1,"name":"Memory token residual","bbox":[1021,891.03,210,24.94]}
+{"kind":"image","id":"im/r2xonup0","slide":1,"name":"No valid support fallback","bbox":[798,914.03,298,24.94]}
+{"kind":"image","id":"im/t8nipwbu","slide":1,"name":"Memory pixel residual","bbox":[1191.26,918,239.48,29]}
+{"kind":"image","id":"im/s7e1gru9","slide":1,"name":"Final prediction equations","bbox":[1268,439.03,210,48.94]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"流程与公式说明：\n1. DamageFormer输出像素特征 F∈R^{N×C}、结构特征 R 和建筑概率 P。对每栋预测建筑，Q∈[0,1]^{N×M}为像素到M个区域的软关联矩阵，并满足每个有效像素的关联权重和为1。\n2. 为避免区域大小改变token幅值，先令 D_Q=diag(Q^T 1_N)，再计算 T=D_Q^{-1}Q^T F。数值实现时应在D_Q对角线上加入ε，防止空区域导致除零。\n3. 区域交互产生增量 ΔT_loc，得到 T_A=T+ΔT_loc。局部增量通过 ΔF_loc=QΔT_locW_loc 回填，得到 F_A=F+ΔF_loc。\n4. 将T_A按建筑汇总并投影为查询key k_b。Memory仅存训练样本记录(k_j,V_j,y_j,source_j)。检索后得到支持局部token V_j、建筑级标签y_j、相似度s_j和有效掩码m_j。\n5. 对每栋支持建筑计算 U_j=CrossAttn(T_A,V_j,V_j)。将建筑标签编码广播到当前建筑的各区域后，与U_j拼接并投影为 Ũ_j。聚合权重 α_j 采用带有效掩码的归一化指数权重。\n6. ΔT_mem=Σ_j α_jŨ_j，ΔF_mem=QΔT_memW_mem。若Σ_jm_j=0，则令ΔT_mem=ΔF_mem=0。\n7. 分类器输出 P̂=softmax(h(F_A+ΔF_mem))，最终类别图由逐像素argmax得到。\n维度检查：F和ΔF均为N×C；T、T_A、ΔT均为M×d；W_loc与W_mem把区域维度d投影到像素通道C。\n注意：y_j是支持建筑的建筑级训练标签，不是局部区域标签；source_j只用于合法性筛选，不输入分类器。"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"Building-constrained pixel-preserving regional update","textShapes":46}
+{"kind":"textbox","id":"sh/ru90ratc","slide":2,"name":"Slide title","text":"Building-constrained pixel-preserving regional update","textPreview":"Building-constrained pixel-preserving regional update","textChars":53,"textLines":1,"bbox":[26.25,13.5,870,36]}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"Slide subtitle","text":"P defines predicted buildings. R forms structural assignments. F carries RGB–SAR damage evidence.","textPreview":"P defines predicted buildings. R forms structural assignments. F carries RGB–SAR damage evidence.","textChars":97,"textLines":1,"bbox":[28.5,51,885,21]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"name":"Module note","text":"Inserted before the original pixel classifier","textPreview":"Inserted before the original pixel classifier","textChars":45,"textLines":1,"bbox":[911.25,19.5,183.75,34.5]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"name":"Stage 1","bbox":[26.25,90,168.75,270]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"name":"Step 1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[35.25,99,21,21]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"name":"Stage 1 title","text":"DamageFormer outputs","textPreview":"DamageFormer outputs","textChars":20,"textLines":1,"bbox":[58.5,96,126.75,33]}
+{"kind":"shape","id":"sh/w3i1sfa9","slide":2,"bbox":[198.75,214.5,15,13.5]}
+{"kind":"shape","id":"sh/r65knqtk","slide":2,"name":"Stage 2","bbox":[213.75,90,183.75,270]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"Step 2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[222.75,99,21,21]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"name":"Stage 2 title","text":"Predicted buildings and centres","textPreview":"Predicted buildings and centres","textChars":31,"textLines":1,"bbox":[246,96,141.75,33]}
+{"kind":"shape","id":"sh/9wnqhczy","slide":2,"bbox":[401.25,214.5,15,13.5]}
+{"kind":"shape","id":"sh/mtwrmxg7","slide":2,"name":"Stage 3","bbox":[416.25,90,210,270]}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"name":"Step 3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[425.25,99,21,21]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"name":"Stage 3 title","text":"Building-constrained assignment","textPreview":"Building-constrained assignment","textChars":31,"textLines":1,"bbox":[448.5,96,168,33]}
+{"kind":"shape","id":"sh/xk7qlczu","slide":2,"bbox":[630,214.5,15,13.5]}
+{"kind":"shape","id":"sh/ahwrqhgj","slide":2,"name":"Stage 4","bbox":[645,90,225,270]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"Step 4","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[654,99,21,21]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"name":"Stage 4 title","text":"Pooling and regional interaction","textPreview":"Pooling and regional interaction","textChars":32,"textLines":1,"bbox":[677.25,96,183,33]}
+{"kind":"shape","id":"sh/do3q9szq","slide":2,"bbox":[873.75,214.5,15,13.5]}
+{"kind":"shape","id":"sh/t8byxkn2","slide":2,"name":"Stage 5","bbox":[888.75,90,210,270]}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"name":"Step 5","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[897.75,99,21,21]}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"name":"Stage 5 title","text":"Pixel residual update","textPreview":"Pixel residual update","textChars":21,"textLines":1,"bbox":[921,96,168,33]}
+{"kind":"shape","id":"sh/65kfmpor","slide":2,"bbox":[58.5,144,46.5,31.5]}
+{"kind":"shape","id":"sh/hcvy14ne","slide":2,"bbox":[52.5,149.25,46.5,31.5]}
+{"kind":"shape","id":"sh/gbmxszmt","slide":2,"bbox":[46.5,154.5,46.5,31.5]}
+{"kind":"textbox","id":"sh/fadgzu58","slide":2,"name":"P label","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[40.5,189.75,67.5,18]}
+{"kind":"shape","id":"sh/u94fqp4n","slide":2,"bbox":[125.25,144,46.5,31.5]}
+{"kind":"shape","id":"sh/p0vy54na","slide":2,"bbox":[119.25,149.25,46.5,31.5]}
+{"kind":"shape","id":"sh/4zmxwzmp","slide":2,"bbox":[113.25,154.5,46.5,31.5]}
+{"kind":"textbox","id":"sh/mlgvq147","slide":2,"name":"R label","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[107.25,189.75,67.5,18]}
+{"kind":"shape","id":"sh/nmpcj6ls","slide":2,"bbox":[91.5,231,46.5,31.5]}
+{"kind":"shape","id":"sh/onydsbmd","slide":2,"bbox":[85.5,236.25,46.5,31.5]}
+{"kind":"shape","id":"sh/9o7ulg3y","slide":2,"bbox":[79.5,241.5,46.5,31.5]}
+{"kind":"textbox","id":"sh/a9gvulkj","slide":2,"name":"F label","text":"F","textPreview":"F","textChars":1,"textLines":1,"bbox":[73.5,276.75,67.5,18]}
+{"kind":"textbox","id":"sh/ba9cn6l4","slide":2,"name":"P role","text":"building probability","textPreview":"building probability","textChars":20,"textLines":1,"bbox":[34.5,210,73.5,18]}
+{"kind":"textbox","id":"sh/wbidwb29","slide":2,"name":"R role","text":"RGB structure","textPreview":"RGB structure","textChars":13,"textLines":1,"bbox":[108.75,210,73.5,18]}
+{"kind":"textbox","id":"sh/xcrupg3u","slide":2,"name":"F role","text":"fused damage feature","textPreview":"fused damage feature","textChars":20,"textLines":1,"bbox":[56.25,297,108.75,18.75]}
+{"kind":"textbox","id":"sh/id0vylkf","slide":2,"name":"Stage 1 constraint","text":"Use features at one common spatial resolution","textPreview":"Use features at one common spatial resolution","textChars":45,"textLines":1,"bbox":[39,326.25,144,23.25]}
+{"kind":"shape","id":"sh/je9crql0","slide":2,"name":"Predicted building outline","bbox":[244.5,154.5,115.5,70.5]}
+{"kind":"shape","id":"sh/ru5cbqd4","slide":2,"bbox":[262.5,177,7.5,7.5]}
+{"kind":"shape","id":"sh/69wbilcj","slide":2,"bbox":[292.5,168,7.5,7.5]}
+{"kind":"shape","id":"sh/tw7ud0va","slide":2,"bbox":[327,188.25,7.5,7.5]}
+{"kind":"shape","id":"sh/svedkvup","slide":2,"bbox":[279,207.75,7.5,7.5]}
+{"kind":"textbox","id":"sh/107uh0v6","slide":2,"name":"Centre rule","text":"Initialise on a grid or by farthest-point sampling, then snap centres inside the predicted building","textPreview":"Initialise on a grid or by farthest-point sampling, then snap centres inside the predicted building","textChars":99,"textLines":1,"bbox":[228.75,303.75,153.75,41.25]}
+{"kind":"shape","id":"sh/gzydovul","slide":2,"bbox":[444,153.75,10.5,10.5]}
+{"kind":"shape","id":"sh/v2lc36dw","slide":2,"bbox":[456.75,153.75,10.5,10.5]}
+{"kind":"shape","id":"sh/a1cba1wb","slide":2,"bbox":[469.5,153.75,10.5,10.5]}
+{"kind":"shape","id":"sh/0vq1o36x","slide":2,"bbox":[482.25,153.75,10.5,10.5]}
+{"kind":"shape","id":"sh/1wzix87i","slide":2,"bbox":[444,166.5,10.5,10.5]}
+{"kind":"shape","id":"sh/et8zmto7","slide":2,"bbox":[456.75,166.5,10.5,10.5]}
+{"kind":"shape","id":"sh/zuh0vypc","slide":2,"bbox":[469.5,166.5,10.5,10.5]}
+{"kind":"shape","id":"sh/c76hk361","slide":2,"bbox":[482.25,166.5,10.5,10.5]}
+{"kind":"shape","id":"sh/d8zit87m","slide":2,"bbox":[444,179.25,10.5,10.5]}
+{"kind":"shape","id":"sh/q5ozitov","slide":2,"bbox":[456.75,179.25,10.5,10.5]}
+{"kind":"shape","id":"sh/r6x0rypg","slide":2,"bbox":[469.5,179.25,10.5,10.5]}
+{"kind":"shape","id":"sh/w3a1wn65","slide":2,"bbox":[482.25,179.25,10.5,10.5]}
+{"kind":"shape","id":"sh/xoji5s7q","slide":2,"bbox":[444,192,10.5,10.5]}
+{"kind":"shape","id":"sh/5kfipszu","slide":2,"bbox":[456.75,192,10.5,10.5]}
+{"kind":"shape","id":"sh/kj6hgny9","slide":2,"bbox":[469.5,192,10.5,10.5]}
+{"kind":"shape","id":"sh/jix0niho","slide":2,"bbox":[482.25,192,10.5,10.5]}
+{"kind":"shape","id":"sh/ihozedgj","slide":2,"bbox":[542.25,163.5,9,9]}
+{"kind":"shape","id":"sh/xgfil8zy","slide":2,"bbox":[570,185.25,9,9]}
+{"kind":"shape","id":"sh/wf6hcnyd","slide":2,"bbox":[537.75,211.5,9,9]}
+{"kind":"shape","id":"sh/ved0jihs","slide":2,"bbox":[491.25,165,55.5,3]}
+{"kind":"shape","id":"sh/ad4zadg7","slide":2,"bbox":[491.25,177.75,83.25,12]}
+{"kind":"shape","id":"sh/9svih8zm","slide":2,"bbox":[491.25,203.25,51,12.75]}
+{"kind":"shape","id":"sh/8rmh83y1","slide":2,"bbox":[478.5,168,68.25,22.5]}
+{"kind":"textbox","id":"sh/0j2xkje5","slide":2,"name":"Assignment constraints","text":"Candidates remain inside the same predicted building. Background rows of Q are zero.","textPreview":"Candidates remain inside the same predicted building. Background rows of Q are zero.","textChars":84,"textLines":1,"bbox":[431.25,315,180,31.5]}
+{"kind":"shape","id":"sh/lkbyd4fq","slide":2,"bbox":[667.5,156,10.5,10.5]}
+{"kind":"shape","id":"sh/qt0fepw3","slide":2,"bbox":[680.25,156,10.5,10.5]}
+{"kind":"shape","id":"sh/bu9w7uxo","slide":2,"bbox":[693,156,10.5,10.5]}
+{"kind":"shape","id":"sh/cv2xgzet","slide":2,"bbox":[667.5,168.75,10.5,10.5]}
+{"kind":"shape","id":"sh/dwbe94fe","slide":2,"bbox":[680.25,168.75,10.5,10.5]}
+{"kind":"shape","id":"sh/2p0fapwr","slide":2,"bbox":[693,168.75,10.5,10.5]}
+{"kind":"shape","id":"sh/3q9w3uxc","slide":2,"bbox":[667.5,181.5,10.5,10.5]}
+{"kind":"shape","id":"sh/ret8r2dk","slide":2,"bbox":[680.25,181.5,10.5,10.5]}
+{"kind":"shape","id":"sh/6tk7yxcz","slide":2,"bbox":[693,181.5,10.5,10.5]}
+{"kind":"shape","id":"sh/tgvqtcva","slide":2,"bbox":[744.75,157.5,40.5,9.75]}
+{"kind":"shape","id":"sh/sf2p07up","slide":2,"bbox":[744.75,174.75,40.5,9.75]}
+{"kind":"shape","id":"sh/jqt8nid8","slide":2,"bbox":[744.75,192,40.5,9.75]}
+{"kind":"shape","id":"sh/ipk7udcn","slide":2,"bbox":[744.75,209.25,40.5,9.75]}
+{"kind":"shape","id":"sh/5sbqpsve","slide":2,"bbox":[815.25,158.25,9.75,9.75]}
+{"kind":"shape","id":"sh/4r2pwnut","slide":2,"bbox":[846,173.25,9.75,9.75]}
+{"kind":"shape","id":"sh/3md8zmtc","slide":2,"bbox":[823.5,206.25,9.75,9.75]}
+{"kind":"shape","id":"sh/2l4r6hc7","slide":2,"bbox":[786.75,191.25,9.75,9.75]}
+{"kind":"shape","id":"sh/kry50jap","slide":2,"bbox":[819.75,162.75,30.75,15]}
+{"kind":"shape","id":"sh/ls7mtobu","slide":2,"bbox":[791.25,162.75,28.5,33]}
+{"kind":"shape","id":"sh/ypgny9sj","slide":2,"bbox":[828,177.75,22.5,33]}
+{"kind":"shape","id":"sh/zqp4ret4","slide":2,"bbox":[791.25,195.75,36.75,15]}
+{"kind":"textbox","id":"sh/mtgn29sf","slide":2,"name":"Interaction rule","text":"One masked MHA + FFN block. Regions from different buildings never attend to each other.","textPreview":"One masked MHA + FFN block. Regions from different buildings never attend to each other.","textChars":88,"textLines":1,"bbox":[663,328.5,187.5,21.75]}
+{"kind":"shape","id":"sh/7up4vet0","slide":2,"bbox":[909,151.5,10.5,10.5]}
+{"kind":"shape","id":"sh/wzi583ah","slide":2,"bbox":[921.75,151.5,10.5,10.5]}
+{"kind":"shape","id":"sh/hkr618b2","slide":2,"bbox":[934.5,151.5,10.5,10.5]}
+{"kind":"shape","id":"sh/uxwf6xgz","slide":2,"bbox":[909,164.25,10.5,10.5]}
+{"kind":"shape","id":"sh/fi5gz2hk","slide":2,"bbox":[921.75,164.25,10.5,10.5]}
+{"kind":"shape","id":"sh/gjyx87y5","slide":2,"bbox":[934.5,164.25,10.5,10.5]}
+{"kind":"shape","id":"sh/hk7y1czq","slide":2,"bbox":[909,177,10.5,10.5]}
+{"kind":"shape","id":"sh/2lgfahgb","slide":2,"bbox":[921.75,177,10.5,10.5]}
+{"kind":"shape","id":"sh/3mpg3mhw","slide":2,"bbox":[934.5,177,10.5,10.5]}
+{"kind":"shape","id":"sh/4nyxcryh","slide":2,"bbox":[992.25,153.75,39,10.5]}
+{"kind":"shape","id":"sh/po7y5czm","slide":2,"bbox":[992.25,173.25,39,10.5]}
+{"kind":"shape","id":"sh/qpgfehg7","slide":2,"bbox":[992.25,192.75,39,10.5]}
+{"kind":"shape","id":"sh/rq9g7mhs","slide":2,"bbox":[952.5,159,39.75,3]}
+{"kind":"shape","id":"sh/1kbidgju","slide":2,"bbox":[952.5,174,39.75,4.5]}
+{"kind":"shape","id":"sh/0j214bip","slide":2,"bbox":[952.5,186.75,39.75,11.25]}
+{"kind":"textbox","id":"sh/zit0bq14","slide":2,"text":"+","textPreview":"+","textChars":1,"textLines":1,"bbox":[1046.25,168,24,24]}
+{"kind":"shape","id":"sh/eh0z2l0j","slide":2,"bbox":[909.75,219,148.5,0.07]}
+{"kind":"shape","id":"sh/98bih0j6","slide":2,"bbox":[1058.25,191.25,0.07,27.75]}
+{"kind":"textbox","id":"sh/on218vil","slide":2,"name":"Preserved pixel path","text":"Original F","textPreview":"Original F","textChars":10,"textLines":1,"bbox":[903.75,207,67.5,18.75]}
+{"kind":"textbox","id":"sh/mlkj6l0f","slide":2,"name":"Stage 5 explanation","text":"The region branch supplies an additive context residual. It never replaces the original pixel feature.","textPreview":"The region branch supplies an additive context residual. It never replaces the original pixel feature.","textChars":102,"textLines":1,"bbox":[905.25,305.25,178.5,38.25]}
+{"kind":"shape","id":"sh/xcvil0j2","slide":2,"name":"Implementation band","bbox":[26.25,386.25,1072.5,318.75]}
+{"kind":"textbox","id":"sh/wbm1cvix","slide":2,"name":"Implementation heading","text":"Recommended first implementation for your current BRIGHT experiments","textPreview":"Recommended first implementation for your current BRIGHT experiments","textChars":68,"textLines":1,"bbox":[41.25,399,637.5,25.5]}
+{"kind":"textbox","id":"sh/gful8jqt","slide":2,"name":"Candidate warning","text":"Candidate design. Validate the region mechanism before reconnecting inference Memory.","textPreview":"Candidate design. Validate the region mechanism before reconnecting inference Memory.","textChars":85,"textLines":1,"bbox":[750,399,322.5,25.5]}
+{"kind":"shape","id":"sh/hg32ho7e","slide":2,"bbox":[386.25,435,0.07,240]}
+{"kind":"shape","id":"sh/uts3698n","slide":2,"bbox":[750,435,0.07,240]}
+{"kind":"textbox","id":"sh/vulkfep8","slide":2,"name":"Roles heading","text":"Feature roles","textPreview":"Feature roles","textChars":13,"textLines":1,"bbox":[45,438.75,307.5,21]}
+{"kind":"textbox","id":"sh/4julcjq5","slide":2,"name":"Roles content","text":"P  groups predicted building instances\nR  determines structural and spatial assignments\nF  carries the fused RGB–SAR evidence used for classification\nQ  is generated without damage labels or test-time GT","textPreview":"P  groups predicted building instances | R  determines structural and spatial assignments | F  carries the fused RGB–SAR evidence used fo...","textChars":203,"textLines":4,"bbox":[45,468.75,307.5,105]}
+{"kind":"textbox","id":"sh/5k32lo7a","slide":2,"name":"Boundary note","text":"This module organises context inside predicted buildings. It does not perform RGB–SAR geometric alignment.","textPreview":"This module organises context inside predicted buildings. It does not perform RGB–SAR geometric alignment.","textChars":106,"textLines":1,"bbox":[45,592.5,307.5,52.5]}
+{"kind":"textbox","id":"sh/ihc3at8z","slide":2,"name":"Config heading","text":"Starting configuration","textPreview":"Starting configuration","textChars":22,"textLines":1,"bbox":[408.75,438.75,307.5,21]}
+{"kind":"textbox","id":"sh/3ilkjepk","slide":2,"name":"Config content","text":"Choose A₀ so the median building yields about four regions\nKmax = 8\nFour candidate centres per pixel\nToken dimension d = 64\nOne attention block with four heads\nStop gradients through Q in the first controlled run\nZero or small initialise Wloc","textPreview":"Choose A₀ so the median building yields about four regions | Kmax = 8 | Four candidate centres per pixel | Token dimension d = 64 | One a...","textChars":242,"textLines":7,"bbox":[408.75,468.75,307.5,150]}
+{"kind":"textbox","id":"sh/kna10zql","slide":2,"name":"Training sequence","text":"Training order: freeze the encoders first. Train the region block and output projection. Unfreeze the classifier and fusion layers only after an independent gain appears.","textPreview":"Training order: freeze the encoders first. Train the region block and output projection. Unfreeze the classifier and fusion layers only a...","textChars":170,"textLines":1,"bbox":[408.75,626.25,307.5,47.25]}
+{"kind":"textbox","id":"sh/loj294r6","slide":2,"name":"Controls heading","text":"Required controls","textPreview":"Required controls","textChars":17,"textLines":1,"bbox":[772.5,438.75,285,21]}
+{"kind":"textbox","id":"sh/nu9wvmd0","slide":2,"name":"Control code R0","text":"R0","textPreview":"R0","textChars":2,"textLines":1,"bbox":[772.5,472.5,36,24]}
+{"kind":"textbox","id":"sh/mt0f2hwf","slide":2,"name":"Control text R0","text":"Parent pixel model","textPreview":"Parent pixel model","textChars":18,"textLines":1,"bbox":[817.5,472.5,243.75,24]}
+{"kind":"textbox","id":"sh/9grexwv6","slide":2,"name":"Control code R1","text":"R1","textPreview":"R1","textChars":2,"textLines":1,"bbox":[772.5,512.25,36,24]}
+{"kind":"textbox","id":"sh/ovix4rel","slide":2,"name":"Control text R1","text":"Equal-capacity pixel residual block","textPreview":"Equal-capacity pixel residual block","textChars":35,"textLines":1,"bbox":[817.5,512.25,243.75,24]}
+{"kind":"textbox","id":"sh/zq9wrmd4","slide":2,"name":"Control code R2","text":"R2","textPreview":"R2","textChars":2,"textLines":1,"bbox":[772.5,552,36,24]}
+{"kind":"textbox","id":"sh/epgfyhwj","slide":2,"name":"Control text R2","text":"Matched grid regions + the same transformer","textPreview":"Matched grid regions + the same transformer","textChars":43,"textLines":1,"bbox":[817.5,552,243.75,24]}
+{"kind":"textbox","id":"sh/1sretwvu","slide":2,"name":"Control code R3","text":"R3","textPreview":"R3","textChars":2,"textLines":1,"bbox":[772.5,591.75,36,24]}
+{"kind":"textbox","id":"sh/0rix0re9","slide":2,"name":"Control text R3","text":"Building-constrained content regions","textPreview":"Building-constrained content regions","textChars":36,"textLines":1,"bbox":[817.5,591.75,243.75,24]}
+{"kind":"textbox","id":"sh/rmpwn2ds","slide":2,"name":"Success rule","text":"Keep the module only if R3 exceeds both R1 and R2, improves Damaged F1, and the best checkpoint is not step 0.","textPreview":"Keep the module only if R3 exceeds both R1 and R2, improves Damaged F1, and the best checkpoint is not step 0.","textChars":110,"textLines":1,"bbox":[772.5,641.25,288.75,42]}
+{"kind":"textbox","id":"sh/qlgvuxw7","slide":2,"name":"Footer","text":"Soft regions provide building context while the original pixel pathway preserves weak local evidence.","textPreview":"Soft regions provide building context while the original pixel pathway preserves weak local evidence.","textChars":101,"textLines":1,"bbox":[26.25,718.5,1072.5,25.5]}
+{"kind":"textbox","id":"sh/6t0jy5sr","slide":2,"name":"Footnote","text":"All centre counts and dimensions are starting values for controlled validation, not established optima.","textPreview":"All centre counts and dimensions are starting values for controlled validation, not established optima.","textChars":103,"textLines":1,"bbox":[26.25,747.75,1072.5,18]}
+{"kind":"image","id":"im/58nexor2","slide":2,"name":"Building instances","bbox":[231,234,150,25.5]}
+{"kind":"image","id":"im/k7ud4jah","slide":2,"name":"Adaptive centre count","bbox":[226.5,264,160.5,35.25]}
+{"kind":"image","id":"im/vilcru9k","slide":2,"name":"Association score","bbox":[427.5,237,188.25,41.25]}
+{"kind":"image","id":"im/ahcvy9sf","slide":2,"name":"Soft assignment","bbox":[441,280.5,161.25,28.5]}
+{"kind":"image","id":"im/x43et4rq","slide":2,"name":"Normalized pooling","bbox":[660,236.25,195,46.5]}
+{"kind":"image","id":"im/wjud0za5","slide":2,"name":"Regional interaction","bbox":[675,290.25,165,36]}
+{"kind":"image","id":"im/ne1cnu9o","slide":2,"name":"Pixel residual equations","bbox":[903.75,243,180,53.25]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"本页根据当前DamageFormer实验情况补全区域模块。\n1. 输入职责分离：P只负责预测建筑实例，R只负责结构与空间软关联，F保留RGB-SAR融合后的损毁判别信息。建议R优先来自灾前RGB结构路径，避免SAR散斑主导区域边界。\n2. 验证和测试阶段不得使用GT建筑轮廓或GT损毁标签生成Q。预测建筑黏连或漏检属于定位误差，区域模块不能自动消除。\n3. K_b根据预测建筑面积自适应确定。A_0应根据F所在分辨率的训练集建筑面积统计选择，使中位数建筑约产生4个区域。K_max=8只是首轮起点。\n4. Q只连接同一预测建筑内部的候选中心。候选数建议先取4。背景像素的Q行全部为0。\n5. D_Q中加入εI，避免空区域除零。区域Transformer只允许同建筑区域交互。\n6. 区域模块只回填增量ΔF_loc，不能用QT_A直接替代像素特征F。输出投影W_loc采用零初始化或极小初始化，使训练起点接近父模型。\n7. 首轮不接Memory，不新增MIL、对比学习或长尾损失。先比较R0-R3，确认内容区域是否超过等容量像素块和规则网格。\n8. 本模块用于建筑内部上下文组织，不等价于RGB-SAR几何配准，也不能宣称消除了传感器差异。\n张量维度：F∈R^{N×C}，Q∈[0,1]^{N×M}，T和T_A∈R^{M×d}，W_loc∈R^{d×C}，ΔF_loc∈R^{N×C}。"}

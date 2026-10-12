@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rgid-s9ic"
+version = "0.1.0"
+description = "Reliable Geometry-guided Instance Decomposition for S9-Ic"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "torch>=2.0",
+  "scipy>=1.10",
+  "scikit-image>=0.21",
+]
+
+[tool.setuptools.packages.find]
+include = ["rgid*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

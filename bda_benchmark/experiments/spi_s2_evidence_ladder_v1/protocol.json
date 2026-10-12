@@ -1,0 +1,71 @@
+{
+  "protocol": "SPI_S2_EVIDENCE_LADDER_V1",
+  "labels": ["background", "intact", "damaged", "destroyed"],
+  "global_rules": {
+    "selection_split": "Train2918 event-stratified internal calibration",
+    "final_split": "Val450, accessed once after internal acceptance",
+    "test_access": "forbidden",
+    "official_instance_access": "forbidden",
+    "one_new_factor_per_stage": true,
+    "parent_checkpoint_sha256_required": true
+  },
+  "default_gate": {
+    "minimum_delta_miou_pp": 0.10,
+    "minimum_harm_reduction_fraction": 0.10,
+    "minimum_selector_auroc": 0.60,
+    "minimum_event_nonnegative_fraction": 0.60,
+    "maximum_foreground_iou_drop_pp": 0.50
+  },
+  "stages": [
+    {
+      "id": "s1_s2_audit",
+      "parent": null,
+      "changes": ["audit_only"],
+      "required_outputs": ["changed", "corrected", "harmed", "neutral", "direction_table", "soft_nll_audit"]
+    },
+    {
+      "id": "s2_direction_policy",
+      "parent": "s1_s2_audit",
+      "changes": ["train_only_direction_whitelist"],
+      "required_outputs": ["accepted_directions", "event_direction_stability"]
+    },
+    {
+      "id": "s3_base_utility_gate",
+      "parent": "s2_direction_policy",
+      "changes": ["base_35_channel_utility_gate"],
+      "required_outputs": ["delta_miou_pp", "harm_reduction_fraction", "selector_auroc", "event_nonnegative_fraction", "minimum_foreground_delta_pp"]
+    },
+    {
+      "id": "s4_memory_verifier",
+      "parent": "s3_base_utility_gate",
+      "changes": ["cross_event_train_memory_evidence"],
+      "required_outputs": ["delta_miou_pp", "harm_reduction_fraction", "selector_auroc", "event_nonnegative_fraction", "minimum_foreground_delta_pp", "same_event_excluded"]
+    },
+    {
+      "id": "s5_matching_relation",
+      "parent": "s3_base_utility_gate",
+      "branches": ["im4cd_translation_residual", "within_modality_relation_difference"],
+      "changes": ["exactly_one_rgb_sar_reliability_family"],
+      "required_outputs": ["branch", "delta_miou_pp", "harm_reduction_fraction", "selector_auroc", "event_nonnegative_fraction", "minimum_foreground_delta_pp", "shift_stability"]
+    },
+    {
+      "id": "s6_selective_rgid",
+      "parent": "s3_base_utility_gate",
+      "changes": ["loccc_parent_to_selective_rgid_children"],
+      "required_outputs": ["delta_miou_pp", "event_nonnegative_fraction", "minimum_foreground_delta_pp", "support_conserved", "matched_random_split_control_pp"]
+    },
+    {
+      "id": "s7_soft_superpixel",
+      "parent": "s3_base_utility_gate",
+      "changes": ["pre_rgb_shared_soft_partition"],
+      "required_outputs": ["delta_miou_pp", "event_nonnegative_fraction", "minimum_foreground_delta_pp", "shared_partition", "equal_budget_grid_control_pp"]
+    },
+    {
+      "id": "s8_combination",
+      "parent": "s3_base_utility_gate",
+      "changes": ["combine_only_accepted_evidence_groups"],
+      "required_outputs": ["accepted_parents", "delta_miou_pp", "harm_reduction_fraction", "selector_auroc", "event_nonnegative_fraction", "minimum_foreground_delta_pp", "leave_one_module_out"]
+    }
+  ]
+}
+

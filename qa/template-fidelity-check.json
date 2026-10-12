@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "checkedAt": "2026-08-26T17:44:24.867Z",
+  "workspace": "D:\\software\\dowmload\\BRIGHT-master",
+  "finalPptx": "D:\\software\\dowmload\\BRIGHT-master\\天大汇报[2026-8-27]-重整版.pptx",
+  "starterPptx": "D:\\software\\dowmload\\BRIGHT-master\\.codex_ppt_rework\\template-starter.pptx",
+  "mapPath": "D:\\software\\dowmload\\BRIGHT-master\\.codex_ppt_rework\\template-frame-map.json",
+  "starterLayoutDir": "D:\\software\\dowmload\\BRIGHT-master\\.codex_ppt_rework\\starter-layout",
+  "finalLayoutDir": "D:\\software\\dowmload\\BRIGHT-master\\.codex_ppt_rework\\final-qa\\layouts",
+  "editDir": "D:\\software\\dowmload\\BRIGHT-master\\.codex_ppt_rework",
+  "issueCount": 0,
+  "issues": []
+}

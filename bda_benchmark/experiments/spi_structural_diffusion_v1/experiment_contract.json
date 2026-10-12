@@ -1,0 +1,24 @@
+{
+  "protocol": "SPI_STRUCTURAL_DIFFUSION_STANDARD_ML_V1",
+  "research_question": "Can structure-constrained local evidence propagation outperform selective region averaging without instance supervision?",
+  "base_model": "locked P3 S8_MICB_DSMIL",
+  "training": "NONE",
+  "region_source": "P3 localization four-connected components only",
+  "semantic_ground_truth_usage": "metrics only, after all predictions are fixed",
+  "official_instance_usage": "NEVER",
+  "test_usage": "NEVER",
+  "development_order": [
+    "preflight",
+    "smoke",
+    "internal_calibration_291",
+    "standard_ml_val450_only_if_calibration_passes"
+  ],
+  "causal_variants": {
+    "N0": "raw P3",
+    "N1": "locked Selective Context S2",
+    "N2": "uniform four-neighbour edges inside LocCC",
+    "N3": "N2 plus fused-feature edge similarity",
+    "N4": "N3 plus RGB-SAR feature agreement",
+    "N5": "N4 plus semantic-probability boundary barrier"
+  }
+}

@@ -1,0 +1,6 @@
+"""E2.1 local outcome modelling for selective fixed-S2 verification."""
+
+PROTOCOL = "SPI_CLUSTER_OUTCOME_UTILITY_E21_LOEO_v1"
+OOF_PROTOCOL = "SPI_CLUSTER_OUTCOME_UTILITY_E21_OOF_v1"
+AUDIT_PROTOCOL = "SPI_CLUSTER_OUTCOME_UTILITY_E21_ORACLE_AUDIT_v1"
+PRIMARY_VARIANT = "b4_confident_expected_confusion"

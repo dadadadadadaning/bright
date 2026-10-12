@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "experiment_id": "MaskDINO-S8-Adapter",
+  "scope": "integration_contract_not_vendored_maskdino_training_code",
+  "target": {
+    "source": "official_instance_id_map",
+    "background_instance_id": 0,
+    "damage_labels_input": [1, 2, 3],
+    "query_class_labels_output": [0, 1, 2],
+    "one_query_per_instance": true,
+    "boxes": "normalized_cxcywh",
+    "masks": "boolean_full_resolution"
+  },
+  "query_budget": {
+    "data_split": "train_only",
+    "percentile": 99.0,
+    "headroom": 1.25,
+    "minimum": 100,
+    "maximum": 500,
+    "round_to": 10,
+    "report_overflow_rate": true
+  },
+  "feature_adapter": {
+    "input_key": "fused_roi",
+    "input_channels": 256,
+    "output_channels": 256,
+    "output_names": ["res2", "res3", "res4", "res5"],
+    "relative_strides": [1, 2, 4, 8],
+    "declared_base_stride": 4
+  },
+  "s8": {
+    "strict_load": true,
+    "frozen": true,
+    "eval_mode": true
+  }
+}

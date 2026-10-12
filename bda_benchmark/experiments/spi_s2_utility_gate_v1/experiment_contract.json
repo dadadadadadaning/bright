@@ -1,0 +1,27 @@
+{
+  "protocol": "SPI_S2_UTILITY_GATE_V1",
+  "hypothesis": "A direction-aware selector can retain fixed S2 corrections while rejecting a substantial fraction of harmful P3-to-S2 changes.",
+  "variants": {
+    "u0_frozen_p3": "locked P3",
+    "u1_fixed_s2": "locked LocCC soft-context S2",
+    "u2_direction_policy": "Train-only direction whitelist",
+    "u3_utility_gate": "35-channel lightweight accept/reject gate",
+    "o1_pixel_oracle": "non-deployable upper bound"
+  },
+  "pilot_steps": 500,
+  "gate_threshold": 0.5,
+  "calibration_checks": {
+    "mIoU_gain_over_fixed_S2_pp": 0.1,
+    "harm_reduction_fraction": 0.2,
+    "selector_AUROC": 0.6,
+    "maximum_foreground_IoU_drop_pp": 0.5,
+    "event_nonnegative_fraction": 0.6
+  },
+  "leakage_rules": [
+    "Direction policy is fitted only on gate_train.",
+    "Gate weights are fitted only on gate_train.",
+    "Val450 is accessed only after every internal-calibration check passes.",
+    "Official instances, Oracle inputs and test labels are never used for deployable predictions."
+  ]
+}
+

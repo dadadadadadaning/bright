@@ -1,0 +1,42 @@
+{
+  "name": "DeepLabV3Plus",
+  "factory": "bda_benchmark.model.DeepLabV3Plus:DeepLabV3Plus",
+  "kwargs": {
+    "in_channels": 6,
+    "num_classes": 4
+  },
+  "input_mode": "concat",
+  "output_index": null,
+  "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DeepLabV3Plus_standard_ML_split.pth",
+  "enabled": true,
+  "sha256": "3ff8cca5b61c5a636601ec896724fa248c4ffecc4eb76d811ee8c60f4d2323e3",
+  "status": "complete",
+  "confusion_visual_subset": [
+    [
+      5210193,
+      169050,
+      48841,
+      21851
+    ],
+    [
+      136085,
+      536910,
+      64998,
+      18385
+    ],
+    [
+      54594,
+      118492,
+      237746,
+      7016
+    ],
+    [
+      78073,
+      243528,
+      53428,
+      144234
+    ]
+  ],
+  "split": "test",
+  "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+}

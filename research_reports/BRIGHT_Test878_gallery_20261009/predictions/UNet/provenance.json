@@ -1,0 +1,42 @@
+{
+  "name": "UNet",
+  "factory": "bda_benchmark.model.UNet:UNet",
+  "kwargs": {
+    "in_channels": 6,
+    "num_classes": 4
+  },
+  "input_mode": "concat",
+  "output_index": null,
+  "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_UNet_standard_ML_split.pth",
+  "enabled": true,
+  "sha256": "46c11db38011b8c48cbf1223c3bfc629569f64ee6df300806211479eb5a5bcc2",
+  "status": "complete",
+  "confusion_visual_subset": [
+    [
+      5228290,
+      143753,
+      50327,
+      27565
+    ],
+    [
+      132848,
+      553590,
+      66361,
+      3579
+    ],
+    [
+      62354,
+      115215,
+      230451,
+      9828
+    ],
+    [
+      58217,
+      257106,
+      39654,
+      164286
+    ]
+  ],
+  "split": "test",
+  "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+}

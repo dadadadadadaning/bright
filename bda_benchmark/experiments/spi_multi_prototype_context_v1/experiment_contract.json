@@ -1,0 +1,10 @@
+{
+  "protocol": "SPI_MULTI_PROTOTYPE_CONTEXT_V1",
+  "training": "NONE",
+  "base": "locked P3",
+  "region_source": "P3 localization LocCC",
+  "official_instances": "NEVER",
+  "test": "NEVER",
+  "target_usage": "metrics and non-deployable oracle only after deployable predictions are fixed",
+  "order": ["preflight", "smoke", "internal_calibration_291", "val450_only_if_promoted"]
+}

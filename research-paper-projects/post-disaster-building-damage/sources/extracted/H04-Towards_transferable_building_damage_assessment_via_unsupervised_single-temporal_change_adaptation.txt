@@ -1,0 +1,1612 @@
+
+
+===== PDF_PAGE_001 =====
+
+Contents lists available at ScienceDirect
+Remote Sensing of Environment
+journal homepage: www.elsevier.com/locate/rse
+Towards transferable building damage assessment via unsupervised
+single-temporal change adaptation
+Zhuo Zheng a, Yanfei Zhongb,∗, Liangpei Zhangc, Marshall Burkee,f, David B. Lobelld,e,
+Stefano Ermon a
+a Department of Computer Science, Stanford University, Stanford, CA 94305, USA
+b State Key Laboratory of Information Engineering in Surveying, Mapping, and Remote Sensing, Wuhan University, Wuhan 430074, China
+c Aerospace Information Research Institute, Henan Academy of Science, Zhengzhou 450046, China
+d Department of Earth System Science, Stanford University, Stanford, CA 94305, USA
+e Center on Food Security and the Environment, Stanford University, Stanford, CA 94305, USA
+f Department of Environmental Social Science, Stanford University, Stanford, CA 94305, USA
+A R T I C L E I N F O
+Edited by Marie Weiss
+Keywords:
+Building damage assessment
+Transfer learning
+Single-temporal change
+Change detection
+Disaster response
+Remote sensing
+A B S T R A C T
+Rapid and accurate assessment of building damage in sudden-onset disasters is crucial for effective humanitar-
+ian assistance and disaster response. However, the occurrence of disasters is highly uncertain, e.g., unexpected
+geographic location and hazards, which challenge the conventional building damage assessment model on
+generalization and transferability. Unfortunately, there is little public literature on transferable building
+damage assessment. This is because assessing building damage using pre- and post-disaster satellite images
+is a complex, multi-temporal, and multi-task problem. It involves two main subtasks: building localization and
+damage classification, which are non-trivial to handle with generic transfer learning approaches designed for
+single-image and single-task problems. On the other hand, post-disaster training image availability in the target
+domain remains an obstacle since these generic transfer learning methods require pre-/post-disaster image
+pairs as target training images, resulting in a costly time window (period from obtaining post-event training
+image to obtaining assessment results) in disaster response. In this paper, we present a single-temporal domain
+adaptive semantic change detection framework, which frames domain adaptive building damage assessment
+and only additionally requires target pre-disaster images for adaptation training. Our framework first presents a
+decoupled task modeling via the equivalent form of prediction error expectations. This enables generic transfer
+learning methods to be used for domain adaptive building damage assessment. To fundamentally overcome the
+problem of post-disaster training image availability within our framework, we propose an unsupervised single-
+temporal change adaptation (STCA) algorithm. The main idea is ‘‘damage is everywhere’’, which is motivated
+by the fact that building damage is a change process driven by the disaster event. We leverage target pre-
+disaster images and source post-disaster images to simulate such semantic change processes to provide training
+data, fundamentally addressing the post-disaster training image availability issue and avoiding that costly time
+window. The extensive experiments on global-scale and local-scale study areas suggest that our framework
+allows most transfer learning approaches to work well on domain adaptive building damage assessment. Our
+STCA achieves superior performance compared to other transfer learning approaches. More importantly, unlike
+other approaches that rely on target pre/post-disaster images for adaptation, it requires no target post-disaster
+training images. This nature significantly improves the availability of STCA in real-world disaster response for
+the building damage assessment model.
+1. Introduction
+Sudden-onset disasters always make significant negative impacts
+on human life, property, and social stability ( Ge et al. , 2020). Build-
+ing damage assessment based on multi-temporal high-resolution re-
+mote sensing data is a safe, rapid, and effective way for humanitarian
+∗ Corresponding author.
+E-mail addresses: zhuozheng@cs.stanford.edu (Z. Zheng), zhongyanfei@whu.edu.cn (Y. Zhong).
+assistance and disaster response by producing accurate assessment
+maps (Gupta et al., 2019), which can significantly promote disaster risk
+reduction towards Sustainable Development Goal 11 (Sustainable Cities
+and Communities). However, assessing building damage worldwide
+is very challenging since disaster events are always highly uncertain
+https://doi.org/10.1016/j.rse.2024.114416
+Received 7 December 2023; Received in revised form 22 July 2024; Accepted 5 September 2024
+Remote Sensing of Environment 315 (2024) 114416 
+Available online 1 October 2024 
+0034-4257/© 2024 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+===== PDF_PAGE_002 =====
+
+Z. Zheng et al.
+(e.g., globally distributed geographic locations, stochastic occurrence,
+and unknown hazards). Uncertain disaster events result in pre/post-
+event Earth observation data with various data distributions, which
+poses a significant challenge to model generalization ability.
+Over the past decade, the paradigm of building damage assessment
+has changed from expertise-driven feature engineering to data-driven
+deep learning. Expertise knowledge-based approaches usually design
+hand-crafted features for multisensor images (e.g. optical and SAR)
+and then apply a classifier (e.g., support vector machines Boser et al. ,
+1992; Cortes and Vapnik , 1995) or combine numerical simulation of
+hazard intensity models ( Yokoya et al. , 2020 ; Moya et al. , 2021 ) to
+obtain the assessment map for a single hazard or a specific disaster
+event (Brunner et al., 2010; Tong et al. , 2012; Anniballe et al. , 2018).
+Limited by expertise and prior information about disasters, developing
+such a knowledge-based approach with expertise is time-consuming,
+and this specialized method is difficult to generalize to other events
+or hazards due to complex and diverse data distributions.
+Fortunately, the rise of deep learning technology has changed this
+situation recently. The key point is that deep learning models can
+learn feature representation from raw data automatically. The deep
+convolutional neural network (CNN) is a deep learning model for
+image data. Thanks to its hierarchical representation learning capabil-
+ity, CNN-based building damage assessment approaches ( Gupta et al. ,
+2019; Durnov, 2020; Zheng et al., 2021b) can achieve better accuracy
+and transferability than most hand-craft feature-based approaches if
+massive training data is available and prior knowledge is insufficient
+or hard to design good feature descriptors. The previous work ( Gupta
+et al., 2019) designs a cascade object-based approach, which adopts a
+fully convolutional network (FCN) to obtain each building mask and
+then uses a CNN-based classifier to score the damage degree of each
+building instance. This approach involves two CNN models; however,
+due to inconsistent architectures, there is a knowledge gap problem,
+i.e., two models are used for building localization and damage clas-
+sification independently, ignoring the relationship between these two
+subtasks at the modeling stage. To bridge this knowledge gap, Durnov
+(2020) adopts pixel-based Siamese network approach. In particular,
+they adopt two weight-shared UNets ( Ronneberger et al. , 2015 ) to
+build localization and damage classification, with two-stage training
+strategies that significantly outperform traditional object-based meth-
+ods. However, the damage degree of each building instance is unique,
+and the pixel-based approach always obtains multiple damage degrees
+for different parts of a building instance, i.e., semantic inconsistency
+problem. ChangeOS ( Zheng et al. , 2021b ), as a deep object-based
+framework, is proposed to overcome this problem by deeply integrating
+the advantages of object-based and pixel-based paradigms. ChangeOS
+adopts a deep building localization network for object proposal and a
+deep damage classification network for pixel-wise damage classifica-
+tion, where they have a consistent architecture to share knowledge and
+have a differentiable interaction via deep object features of the former
+for semantic consistency. In addition to framework-level improvement,
+specific network architecture-level improvement is also important. For
+example, recent studies (Chen et al., 2022; Da et al., 2022) apply vision
+Transformers (Dosovitskiy et al., 2021; Xie et al., 2021) to enhance the
+backbone network architecture in terms of long-range context modeling
+to overcome the spatial locality of CNN. Although framework and ar-
+chitecture improvements can somewhat enhance model generalization
+ability, it is still difficult to overcome performance degeneration due to
+image data distribution shifts ( Candela et al., 2009).
+To overcome image data distribution shifts, transfer learning tech-
+nologies, especially domain adaptation approaches (Tzeng et al., 2014;
+Tsai et al. , 2018 ; Hoyer et al. , 2022 ), are widely used in generic
+computer vision tasks, e.g., image classification, semantic segmenta-
+tion. However, there are few studies on transfer learning for building
+damage assessment. These existing studies (Liu et al., 2021a; Bouchard
+et al. , 2022 ; Lin et al. , 2022 ) mainly adopt supervised fine-tuning,
+Fig. 1. Illustration of a simplified timeline of the disaster response. The time window
+from acquiring post-disaster images to obtaining disaster assessment results is important
+but very limited.
+which transfers a pre-trained model to target domains, e.g., apply-
+ing ImageNet ( Krizhevsky et al. , 2012) pre-training or historical data
+pre-training and then fine-tuning this pre-trained model to a desired
+disaster event. Supervised fine-tuning requires target-domain annotated
+data; however, massive annotated data is hard to collect due to limited
+response time and post-disaster training data availability. It is difficult
+to use these fine-tuning-based approaches in disaster response scenar-
+ios. While there are potential solutions without any fine-tuning and the
+assumption of post-disaster training data availability, e.g., combining
+the unsupervised change detection model (Saha et al., 2019) with post-
+event image-based damage assessment method ( Bai et al., 2017), they
+are still hard to achieve promising results in unseen disaster events.
+Generic unsupervised domain adaptation (UDA) methods, as cur-
+rent mainstream transfer learning technology, only extra need target-
+domain images without any annotations to achieve domain alignment,
+which has great potential for transferable building damage assessment
+in disaster response scenarios. There are three typical ways to achieve
+domain adaptation, that is, discrepancy-based approaches (Tzeng et al.,
+2014; Long et al., 2015), adversarial learning ( Tsai et al., 2018; Wang
+et al. , 2020 ), and self-training ( Hoyer et al. , 2022 ). These methods
+essentially do the same thing, aligning inter-domain distributions. From
+this perspective, applying UDA approaches to building damage assess-
+ment is non-trivial since this task includes pre-disaster building local-
+ization and post-disaster damage classification, which should consider
+multi-temporal and multi-task feature distributions simultaneously. Re-
+garding task modeling, generic UDA approaches mainly focus on a
+single task, it is still an open problem how to align multi-temporal
+multi-task feature distributions of the building damage assessment
+models. Regarding time efficiency, these generic UDA approaches usu-
+ally take several hours to train the model, even with many powerful
+GPUs. The model training requires unlabeled bitemporal (pre-/post-
+disaster) image pairs of the target domain. However, there is little
+time to tune the assessment model after obtaining post-disaster im-
+ages in these emergent scenarios, as illustrated in Fig. 1 . These two
+problems create a huge obstacle between generic UDA approaches and
+transferable building damage assessment.
+In this paper, we present a single-temporal domain adaptive se-
+mantic change detection framework for transferable building damage
+assessment. To address the task modeling problem, we first formu-
+late the domain adaptive building damage assessment problem and
+break this multi-temporal multi-task domain adaptation problem into
+two single-task domain adaptation subproblems. This decoupled task
+modeling allows us to extend conventional generic UDA approaches
+to building damage assessment. However, generic UDA approaches
+are based on pre/post-disaster image pairs for model training, whose
+availability is limited by the time window from acquiring post-disaster
+images to obtaining disaster assessment results.
+To free from the shackle of the time window in our framework,
+we propose an unsupervised single-temporal change adaptation al-
+gorithm that does not require target post-disaster images, enabling
+Remote Sensing of Environment 315 (2024) 114416 
+2
+
+
+===== PDF_PAGE_003 =====
+
+Z. Zheng et al.
+Fig. 2. Global-scale study area and two local study areas for transferable building damage assessment. (a) the spatial distribution of all disaster events we considered in this study.
+(b) the local-scale study area for the disaster event of Turkey-Syria Earthquake (2023). (c) the local-scale study area for the disaster event of Kalehe DRC Flooding (2023). (d) the
+local-scale study area for the disaster event of Maui Hawaii Fire (2023).
+the building damage assessment model to train for adaptation at any
+time. The main idea of this algorithm is ‘‘damage is everywhere’’,
+where we construct pseudo-disaster events based on target pre-disaster
+images and source post-disaster images. These pseudo-disaster events
+provide domain-invariant building damage supervisory signals by ran-
+domly matching damaged building instances from source-domain post-
+disaster images with regular building instances from target-domain
+pre-disaster images. The building damage assessment model can learn
+such domain-invariant one-to-many building change representations
+from these pseudo-disaster events before the actual disaster events
+happen in the target geographic region, fundamentally breaking the
+barrier of the time window. This flexible adaptation algorithm enables
+our framework to leave more precious time for subsequent actions in
+disaster response.
+The remainder of this paper is organized as follows. Section 2
+specifies the study area and the data. Section 3 describes the details
+of the transferable building damage assessment problem, the single-
+temporal unsupervised domain adaptation framework, and each com-
+ponent. The experimental results and a discussion are provided in
+Section 4. Section 5 concludes the paper.
+2. Study area and data
+The experimentals were conducted on a global-scale study site
+as shown in Fig. 2 (a) and two local-scale study sites as shown in
+Fig. 2(b) and (c) for statistical evaluation and real-world application
+evaluation, respectively. The global-scale study site involves 19 disaster
+events collected from the xView2 Building Damage Assessment (xBD)
+dataset ( Gupta et al. , 2019 ). These disaster events have the global
+spatial distribution and the temporal distribution that covers from 2011
+to 2019, which are used for model training, transferability evalua-
+tion, and ablation study. Two local-scale study sites, i.e., the 2023
+Turkey-Syria Earthquake event and the 2023 Kalehe DRC Flooding
+event, have different spatio-temporal distributions from the global-scale
+study site. Thus, these two recent events were used to further verify
+the transferability of our proposed approach in real-world application
+scenarios.
+2.1. Global-scale study area
+2.1.1. xView2 building damage assessment (xBD) dataset
+There are 11,034 high-resolution optical satellite image pairs in
+xBD dataset ( Gupta et al. , 2019 ), covering a total of 45,361.79 km 2
+and with 850,736 building instances. Each image pair contains a pre-
+disaster image and a post-disaster image. These images are collected
+from multiple satellite platforms, e.g., WorldView-2 and WorldView-
+3, thus they have various sub-meter spatial resolutions. The damage
+category system includes four damage levels, e.g., Non-Damage, Minor
+Damage, Major Damage , Destroyed, which adopts the Joint Damage
+Remote Sensing of Environment 315 (2024) 114416 
+3
+
+
+===== PDF_PAGE_004 =====
+
+Z. Zheng et al.
+Fig. 3. Illustration of the usage of each dataset split and their label availability in the xBD dataset for this study. Please note that tier3, train, test, and holdout only
+denote split names of the xBD dataset here. The actual usage of each split is given by Usage row in this figure.
+Table 1
+Disaster event details of two domain split for the xBD dataset used in our study.
+Disaster type Disaster event Continent Event date
+Source Domain
+Flooding Monsoon in Nepal, India, Bangladesh Asia Jul–Sep, 2017
+Tsunami Sunda Strait tsunami Asia Dec 22, 2018
+wildfire Portugal wildfires Europe Jun 17–24, 2017
+Storm Tuscaloosa, AL tornado North America Apr 27, 2011
+Storm Joplin, MO tornado North America May 22, 2011
+Storm Moore, OK tornado North America May 20, 2013
+wildfire Woolsey fire North America Nov 9–28, 2018
+Volcano Lower Puna volcanic eruption Oceania May 23–Aug 14, 2018
+wildfire Pinery fire Oceania Nov 25–Dec 2, 2018
+Target Domain
+Tsunami Indonesia tsunami Asia Sep 18, 2018
+Storm Hurricane Matthew North America Sep 28–Oct 10, 2016
+Storm Hurricane Florence North America Sep 10–19, 2018
+Flooding Hurricane Harvey North America Aug 17–Sep 2, 2017
+Flooding, Storm Hurricane Michael North America Oct 7–16, 2018
+Flooding Midwest US floods North America Jan 3–May 31, 2019
+Volcano Guatemala Fuego volcanic eruption North America Jun 3, 2018
+wildfire Santa Rosa wildfires North America Oct 8–31, 2017
+wildfire Carr wildfire North America Jul 23–Aug 30, 2018
+Earthquake Mexico City earthquake North America Sep 19, 2017
+Scale that is based on the HAZUS natural hazard analysis tool (Vick-
+ery et al., 2006), the Kelman scale (Kelman, 2003), and the EMS-98
+scale (Grünthal, 1998). The Joint Damage Scale was created with the
+help of the National Aeronautics and Space Administration (NASA), the
+California Department of Forestry and Fire Protection (CAL FIRE), the
+Federal Emergency Management Agency (FEMA), and the California
+Air National Guard.
+2.1.2. Domain split for transferable building damage assessment
+To conduct the transferability experiments, we need a domain split
+to determine source-domain data and target-domain data, thus evaluat-
+ing the transferability of selected building damage assessment models.
+The original xBD dataset has an official dataset split of train (2799
+pairs), test (933 pairs), holdout (933 pairs), and an extra split of
+tier3 (6369 pairs), where train, test, and holdout splits have
+the same ten disaster events and thus can be approximately regarded
+as independent and identically distributed (i.i.d). The tier3 split has
+nine other disaster events with different spatio-temporal distributions
+from the other three splits. Intuitively, different event sets always
+have different data distributions due to different geographical locations
+and event times. Therefore, we use tier3 split as the source-domain
+data and the train/test/holdout splits as the target-domain data
+for cross-domain evaluation of building damage assessment. The label
+of target-domain data is unavailable unless for evaluation. For trans-
+ferable building damage assessment, labeled tier3 and unlabeled
+train are used for model training; test and holdout are used
+for evaluation and analysis, where their labels are available only for
+evaluation. This protocol is illustrated in Fig. 3. The details of the
+disaster event for the domain split are listed in Table 1.
+2.2. Local-scale study areas
+2.2.1. Turkey–Syria earthquake (2023)
+The earthquake occurred on February 6, 2023, in the Turkish
+province of Kahramanmaras, approximately 23 km east of Nurdagi
+in the Gaziantep province near the Syrian border. It registered a
+devastating magnitude of 7.8 M w, making it the deadliest earthquake
+worldwide in over a decade. The earthquake caused widespread dam-
+age across southeastern Turkey and northern Syria. Entire city blocks
+and thousands of buildings were reduced to rubble, including hospitals,
+schools, apartments, and historic sites. Aftershocks above 6.0 Mw struck
+the region in the days following, further damaging structures.
+The pre/post-disaster images were collected from WorldView-2,
+WorldView-3, and GeoEye-1 satellites. All related publicly available
+satellite images from Maxar Open Data Program (https://www.maxar.
+com/open-data/turkey-earthquake-2023) are shown in Fig. 2(b) to
+present their spatial covering. For some missing pre-disaster images,
+we use Bing satellite images as supplementary. To obtain ground truth
+for model evaluation, we leverage Microsoft’s Turkey Building Damage
+Assessment product (Robinson et al., 2023) and expert correction to
+obtain more accurate assessment labels.
+2.2.2. Kalehe DRC flooding (2023)
+The flooding occurred in the town of Kalehe in South Kivu province
+in eastern DRC, one of the country’s deadliest disasters in recent
+history. The flooding began in early January 2023 after heavy rains
+caused Lake Kivu overflowing its banks. Flooding and damage contin-
+ued through January and February. Thousands of homes, businesses,
+fields, and infrastructure were damaged or destroyed by floodwa-
+ters and landslides. The heavy rainfall that led to the flooding was
+attributed to an unusually wet rainy season.
+Remote Sensing of Environment 315 (2024) 114416 
+4
+
+
+===== PDF_PAGE_005 =====
+
+Z. Zheng et al.
+Fig. 4. Illustration of two scenarios based on the availability of post-disaster image in target domain. (a) Bitemporal scenario described in Section 3.1.1. (b) Single-temporal
+scenario described in Section 3.1.2.
+The pre/post-disaster images were collected by WorldView-2 and
+WorldView-3 satellites, on April 10, 2023, and May 12, 2023, respec-
+tively. The pre/post-disaster images have spatial resolutions of nearly
+0.5 m and 0.3 m. Their off-nadir angles are 13.8 ◦ and 23.7 ◦. We
+resampled two images to the same resolution of 0.3 m, thus, these
+two images have the same size of 14,292 × 20,367 pixels, as shown in
+Fig. 2(c). The images are available at (https://www.maxar.com/open-
+data/kalehe-drc-flooding-2023). To obtain the damage labels for model
+evaluation, we produced the ground truth based on Google’s open
+building footprints (Sirko et al., 2021) and expert annotations.
+2.2.3. Maui Hawaii fire (2023)
+In early August 2023, a devastating series of wildfires ravaged the
+U.S. state of Hawaii, particularly on Maui Island. Fueled by dry and
+gusty conditions from a strong high-pressure area and Hurricane Dora,
+the wind-driven fires led to widespread damage and forced evacuations.
+The consequential manifestation of these wind-driven fires necessi-
+tated large-scale evacuations and occasioned extensive infrastructural
+devastation.
+The pre-disaster images were collected and stitched from Bing satel-
+lite image tiles. The post-disaster image were collected from
+WorldView-2 satellite on August 12 2023, where its off-nadir angle is
+22.1◦. These two images were aligned and have 48,428× 36,507 pixels,
+and the spatial coverage is shown in Fig. 2(d). The ground truth was
+produced by the Microsoft building footprint and human experts.
+3. Methodology
+3.1. Problem statement and reformulation: domain adaptive building dam-
+age assessment
+The building damage assessment includes two sub-tasks: building
+localization and damage classification (non-damage, minor damage,
+major damage, and destroyed). Let 𝑡 → 𝑡 + 1 be the period of the
+disaster, the building damage assessment model 𝑓 ∶= [ 𝑓loc, 𝑓dam] is
+required to predict pre-disaster building locations 𝑓loc(𝑥(𝑡)) ∈ Rℎ×𝑤
+and their post-disaster damage degrees 𝑓dam(𝑥(𝑡), 𝑥(𝑡+1)) ∈ Rℎ×𝑤, given
+the pre/post-disaster image pair [𝑥(𝑡), 𝑥(𝑡+1)] ∈ R2×ℎ×𝑤×𝑐 as input. Here
+ℎ, 𝑤, 𝑐 denote the image’s height, width, and channels, respectively.
+For domain adaptive building damage assessment, we use source data
+𝐷𝑆 = { 𝑥(𝑡)
+𝑖 , 𝑥(𝑡+1)
+𝑖 , 𝑦(𝑡)
+𝑖 , 𝑦(𝑡+1)
+𝑖 }𝑁𝑆
+𝑖=1 to train a model 𝑓 ∗ that has minimum
+prediction errors on target data 𝐷𝑇 = { 𝑥(𝑡)
+𝑗 , 𝑥(𝑡+1)
+𝑗 , 𝑦(𝑡)
+𝑗 , 𝑦(𝑡+1)
+𝑗 }𝑁𝑇
+𝑗=1, as
+follows:
+𝑓 ∗ = argmin
+𝑓
+E(𝑥(𝑡)
+𝑗 ,𝑥(𝑡+1)
+𝑗 ,𝑦(𝑡)
+𝑗 ,𝑦(𝑡+1)
+𝑗 )∼𝐷𝑇
+[𝜖loc(𝑓loc(𝑥(𝑡)
+𝑗 ), 𝑦(𝑡)
+𝑗 )
++ 𝜖dam(𝑓dam(𝑥(𝑡)
+𝑗 , 𝑥(𝑡+1)
+𝑗 ), 𝑦(𝑡+1)
+𝑗 )] (1)
+where 𝜖loc denotes the building localization error function and 𝜖dam
+denotes the damage classification error function. 𝑦(𝑡)
+𝑗 and 𝑦(𝑡+1)
+𝑗 denote
+𝑗th target ground truth for building localization and damage classifi-
+cation, respectively. This is a multi-temporal and multi-task domain
+adaptation problem, which is more challenging than the widely studied
+single-image, single-task domain adaptation.
+Fortunately, the expectation of prediction errors in Eq. (1) has the
+following equivalent form for a decoupled task modeling:
+E(𝑥(𝑡)
+𝑗 ,𝑦(𝑡)
+𝑗 )∼𝐷𝑇
+[𝜖loc(𝑓loc(𝑥(𝑡)
+𝑗 ), 𝑦(𝑡)
+𝑗 )] + E(𝑥(𝑡)
+𝑗 ,𝑥(𝑡+1)
+𝑗 ,𝑦(𝑡+1)
+𝑗 )∼𝐷𝑇
+× [ 𝜖dam(𝑓dam(𝑥(𝑡)
+𝑗 , 𝑥(𝑡+1)
+𝑗 ), 𝑦(𝑡+1)
+𝑗 )] (2)
+This equivalent form means that the original multi-temporal, multi-
+task domain adaptation problem can be decoupled into two single-task
+domain adaptation subproblems. This decoupled task modeling con-
+nects conventional generic single-task UDA approaches with domain
+adaptive building damage assessment. The first subproblem is a typ-
+ical single-image domain adaptation problem with extensive research,
+while the second subproblem is a novel multi-temporal domain adapta-
+tion problem in the disaster context due to post-disaster training image
+availability. The availability of post-disaster training images poses a
+unique challenge to domain adaptive building damage assessment.
+Two scenarios are discussed below, depending on the availability of
+post-disaster training images.
+3.1.1. Bitemporal scenario: Both pre- and post-disaster images of target
+domain are available for UDA
+To minimize the expectation of prediction errors in target domain,
+especially the second term of Eq. (2), generic UDA approaches re-
+quire pre- and post-disaster image pairs to train the model to align
+damage feature distributions, i.e., bitemporal target image pairs 𝑋𝑇 =
+{𝑥(𝑡)
+𝑗 , 𝑥(𝑡+1)
+𝑗 }𝑁𝑇
+𝑗=1 are used for UDA. We refer to this scenario with com-
+plete paired data as the ‘‘bitemporal scenario’’. The advantage of the
+bitemporal scenario is that it can fully use the bitemporal disaster event
+data of the target domain and thus has a higher upper bound on domain
+adaptation performance. However, this advantage comes at the cost
+of all available time before obtaining post-disaster data. This causes
+the fact that the available time of domain adaptation is constrained
+in the time window that starts from the timepoint of obtaining the
+post-disaster data to the timepoint of obtaining disaster assessment
+results, as illustrated in Fig. 4(a). Although model inference time can
+be reduced as much as possible by optimizing model deployment (Chen
+et al., 2018), there is still not much time left for domain adaptation.
+3.1.2. Single-temporal scenario: Only pre-disaster images of target domain
+are available for UDA
+The post-disaster training image availability brings a novel chal-
+lenge to domain adaptation. A natural question emerges: can UDA be
+achieved without the post-disaster image? This means that only target
+pre-disaster images 𝑋(𝑡)
+𝑇 = { 𝑥(𝑡)
+𝑗 }𝑁𝑇
+𝑗=1 are available for UDA. We refer
+to this scenario of missing target post-disaster images as the ‘‘single-
+temporal scenario’’. The advantage of the single-temporal scenario is
+the infinite available time for domain adaptation, as illustrated in
+Fig. 4(b). There is no free lunch since the infinite available time comes
+at the cost of the upper bound of the domain adaptation performance.
+Remote Sensing of Environment 315 (2024) 114416 
+5
+
+
+===== PDF_PAGE_006 =====
+
+Z. Zheng et al.
+Fig. 5. Our single-temporal domain adaptive semantic change detection framework, including two training stages, i.e., (a) supervised bitemporal pre-training on source domain,
+and (b) unsupervised single-temporal change adaptation on target domain.
+Algorithm 1 Single-Temporal Domain Adaptive Semantic Change
+Detection Framework
+Require:
+𝐷𝑆: Source bitemporal pre/post-disaster image pairs; 𝑋(𝑡)
+𝑇 : Target
+single-temporal pre-disaster images
+𝑓: Building damage assessment model (one-to-many semantic
+change detector) with weights 𝜃
+𝑁: Number of iterations; 𝜆: loss weight for change adaptation; 𝜂:
+learning rate
+1: 𝜃 ← Algorithm 2 (𝐷𝑆 , 𝑓 , 𝜃, 𝑁, 𝜂) Supervised Bitemporal Pre-training
+2: 𝜃 ← Algorithm 3 (𝐷(𝑡+1)
+𝑆 , 𝑋(𝑡)
+𝑇 , 𝑓 , 𝜃, 𝑁, 𝜆, 𝜂) Unsupervised Single-
+Temporal Change Adaptation
+3: return 𝜃
+Algorithm 2 Supervised Bitemporal Pre-training
+Require:
+𝐷𝑆: Source bitemporal pre/post-disaster image pairs
+𝑓: Building damage assessment model (one-to-many semantic
+change detector) with weights 𝜃
+𝑁: Number of iterations; 𝜂: learning rate
+1: for 𝑛 = 1 to 𝑁 do
+2: (𝑥(𝑡)
+𝑖 , 𝑥(𝑡+1)
+𝑖 , 𝑦(𝑡)
+𝑖 , 𝑦(𝑡+1)
+𝑖 ) ∼ 𝐷𝑆 random mini-batch sampling from
+source domain
+3: 𝜃 ← 𝜃 − 𝜂∇𝜃[𝓁loc(𝑓loc(𝑥(𝑡)
+𝑖 ), 𝑦(𝑡)
+𝑖 ) +𝓁dam(𝑓dam(𝑥(𝑡)
+𝑖 , 𝑥(𝑡+1)
+𝑖 ), 𝑦(𝑡+1)
+𝑖 )] update
+once on source domain
+4: return 𝜃
+Our approach not only provides a solution to this incomplete scenario
+but also achieves higher domain adaptation performance in practice
+than generic UDA approaches.
+3.2. Single-temporal domain adaptive semantic change detection framework
+As presented in Algorithm 1, our framework has two training stages,
+(1) supervised bitemporal pre-training (Fig. 5(a)) and (2) unsupervised
+Algorithm 3 Unsupervised Single-Temporal Change Adaptation (STCA)
+Require:
+𝐷(𝑡+1)
+𝑆 : Source single-temporal post-disaster images; 𝑋(𝑡)
+𝑇 : Target
+single-temporal pre-disaster images
+𝑓: Building damage assessment model (one-to-many semantic
+change detector) with weights 𝜃
+𝑁: Number of iterations; 𝜆: loss weight for change adaptation; 𝜂:
+learning rate
+1: for 𝑛 = 1 to 𝑁 do
+2: (𝑥(𝑡+1)
+𝑖 , 𝑦(𝑡+1)
+𝑖 ) ∼ 𝐷(𝑡+1)
+𝑆 random mini-batch sampling from source
+domain
+3: 𝑥(𝑡)
+𝑗 ∼ 𝑋(𝑡)
+𝑇 random mini-batch sampling from target domain
+4: ̄ 𝑦(𝑡)
+𝑗 , 𝐹 (𝑡)
+𝑗 ← 𝑓loc(𝑥(𝑡)
+𝑗 ) locating buildings and extracting image
+features for target pre-disaster images
+5: 𝐹 (𝑡+1)
+𝑖 ← 𝑓dam.feature (𝑥(𝑡+1)
+𝑖 ) extracting source post-disaster image
+features
+6: 𝐹𝑖𝑗 ← 𝐹 (𝑡+1)
+𝑖 × 𝑆(𝐹 (𝑡)
+𝑗 ⊗ ̄ 𝑦(𝑡)
+𝑗 ) constructing pseudo-bitemporal feature
+pairs
+7: 𝑦𝑖𝑗 ← 𝑦(𝑡+1)
+𝑖 × 𝑆( ̄ 𝑦(𝑡)
+𝑗 ) assigning damage label for pseudo-bitemporal
+feature pairs
+8: 𝜃 ← 𝜃 − 𝜂∇𝜃𝜆𝓁dam(𝑓dam.classif ier(𝐹𝑖𝑗 ), 𝑦𝑖𝑗 ) update once on source
+domain and target domain
+9: return 𝜃
+⊗: spatial indexing; ×: Cartesian product; 𝑆: Sampler; 𝑓dam =
+𝑓dam.classif ier◦𝑓dam.feature
+single-temporal change adaptation ( Fig. 5(b)). The pre-training stage
+aims to enable the one-to-many semantic change detector to assess the
+building damage in the source domain. To improve the transferability
+of this one-to-many semantic change detector, unsupervised single-
+temporal change adaptation, as the second training stage, is proposed to
+align semantic change feature distributions of the source domain and
+the target domain. Our framework features this unsupervised single-
+temporal change adaptation, fundamentally avoiding the time window
+problem. These two training stages are described in detail next.
+Remote Sensing of Environment 315 (2024) 114416 
+6
+
+
+===== PDF_PAGE_007 =====
+
+Z. Zheng et al.
+Fig. 6. The concept of ‘‘Damage is Everywhere’’. The conventional bitemporal damage sample is defined on the same geographic location and the same building instance. The
+pseudo-bitemporal damage sample based on ‘‘damage is everywhere’’ is constructed in different geographic locations and different building instances. We apply the damages of
+the source disaster event to the target buildings to simulate a target disaster event for domain adaptation. This damage sample construction process is demonstrated by a tiny yet
+clear case of 5 target non-damage building pixels and 3 source destroyed building pixels. ‘‘ 𝑐’’ denotes the channel dimensionality of the feature point.
+3.2.1. One-to-many semantic change detection model and supervised bitem-
+poral pre-training
+Building damage assessment belongs to an one-to-many semantic
+change detection task ( Zheng et al. , 2021b ). The one-to-many se-
+mantic mapping is defined from non-damage (i.e., regular) to four
+possible damage degrees, e.g., regular, minor damage, major damage,
+and destroyed for xBD dataset. To learn this one-to-many semantic
+mapping, the building damage assessment model 𝑓 always has a build-
+ing localization network 𝑓loc to determine whether the pixels belong
+to the regular building, and a damage classification network 𝑓dam
+to classify which damage degree these buildings belong to. Here we
+adopt ChangeOS ( Zheng et al. , 2021b) as our baseline model for pre-
+training and adaptation since it is a typical deep object-based building
+damage assessment model framework, possessing strong single-model
+performances with various vision backbones, e.g., ResNets ( He et al. ,
+2016). Besides, ChangeOS follows the above general design and fea-
+tures end-to-end training and semantic-consistent prediction, ensured
+by an object-based mechanism that is widely recognized as crucial
+for change detection ( Liu et al. , 2021b ; Ye et al. , 2023 ). 𝑓loc and
+𝑓dam both have a weight-sharing common encoder and an individual
+context encoder, but are followed by a localization (Loc.) classifier
+and a damage (Dam.) classifier, respectively, as shown in Fig. 5 (a).
+It is flexible to use different adaptation algorithms to evaluate their
+transferability gain fairly.
+E(𝑥(𝑡)
+𝑖 ,𝑥(𝑡+1)
+𝑖 ,𝑦(𝑡)
+𝑖 ,𝑦(𝑡+1)
+𝑖 )∼𝐷𝑆
+[𝓁loc(𝑓loc(𝑥(𝑡)
+𝑖 ), 𝑦(𝑡)
+𝑖 ) + 𝓁dam(𝑓dam(𝑥(𝑡)
+𝑖 , 𝑥(𝑡+1)
+𝑖 ), 𝑦(𝑡+1)
+𝑖 )]
+(3)
+Pre-training adopts multi-task supervised learning on source domain
+𝐷𝑆, e.g., tier3 split of xBD dataset, as presented in Algorithm 2. The
+multi-task pre-training objective (Eq. ( 3)) adopts a compound loss of
+Tversky loss ( Tversky, 1977) with 𝛼 = 0 .9 (Zheng et al. , 2021b) and
+binary cross-entropy loss as building localization loss 𝓁loc and multi-
+class cross-entropy loss as damage classification loss𝓁dam, following the
+training details in Zheng et al. (2021b). The choice of Tversky loss with
+a higher 𝛼, e.g., 𝛼 = 0 .9, is motivated by the need to prioritize recall
+in building localization over precision. This is crucial because building
+localization serves as a preliminary step for damage classification,
+where ensuring recall is more important. For a more detailed analysis,
+please refer to Zheng et al. (2021b).
+3.2.2. Unsupervised single-temporal change adaptation
+To improve the transferability of the building damage assessment
+model and avoid time window problem, we propose the unsuper-
+vised single-temporal change adaptation (STCA) algorithm for domain
+adaptive building damage assessment, as illustrated in Fig. 5 (b). Fun-
+damentally differing from conventional generic UDA approaches that
+require source and target bitemporal pre/post-disaster image pairs to
+align source and target semantic change feature distributions, STCA
+only needs target single-temporal pre-disaster images and source single-
+temporal post-disaster images to achieve that alignment, thereby en-
+abling the model to adapt new disaster events at any time.
+The main idea of STCA is ‘‘damage is everywhere’’, as illustrated
+in Fig. 6. This idea follows an insight that the building damage is a
+change process driven by the disaster event. For each pixel location,
+the conventional bitemporal damage sample consists of a regular pixel
+and a damaged pixel. The damage label is the state transition of the
+building caused by the disaster event, e.g., from regular to destroyed.
+This pixel pair is generally defined on the identical geographic loca-
+tion and the same building instance. Thus, learning to recognize the
+building damage is essentially learning one-to-many semantic change
+representation at the pixel level. However, consistent geographic loca-
+tions and building instances are not mandatory to learn such pixelwise
+semantic change representation, since the pixel values encode neither
+geographic location nor object instance information. This means that
+the original one-to-one damage sample construction, constrained by the
+positional consistency condition ( Zheng et al., 2021a), can be relaxed.
+We can construct bitemporal building damage samples from different
+Remote Sensing of Environment 315 (2024) 114416 
+7
+
+
+===== PDF_PAGE_008 =====
+
+Z. Zheng et al.
+geographic locations and building instances, namely pseudo-bitemporal
+damage samples.
+pseudo-bitemporal feature pair construction: Based on this pseudo-
+bitemporal damage sample construction, we can construct supervisory
+signals from target pre-disaster images and source post-disaster images
+for domain adaptation, as illustrated in Algorithm 3. Given a target
+pre-disaster image 𝑥(𝑡)
+𝑗 ∼ 𝑋(𝑡)
+𝑇 and a source post-disaster image 𝑥(𝑡+1)
+𝑖 ∼
+𝐷(𝑡+1)
+𝑆 , we first extract their deep feature maps𝐹 (𝑡)
+𝑗 , 𝐹 (𝑡+1)
+𝑖 via ChangeOS,
+to construct pseudo-bitemporal feature pairs 𝐹𝑗𝑖 for each pixel position
+in place of pseudo-bitemporal pixel pairs as damage samples. This is
+because we cannot directly feed a single pixel into ChangeOS. Since
+the building damage label should map a regular pixel to other damaged
+states, we should select those feature points that belong to the building
+class for the target pre-disaster feature map 𝐹 (𝑡)
+𝑗 . To this end, we
+apply the building localization part 𝑓loc of ChangeOS to the target pre-
+disaster image 𝑥(𝑡)
+𝑗 , yielding a target building prediction ̄ 𝑦(𝑡)
+𝑗 that is a
+binary mask to select our desired feature points. However, the build-
+ing prediction may contain some noisy predictions due to imperfect
+model performance. We introduce a confidence score-based sampler 𝑆,
+which samples a fixed number of high-confident pixel positions from
+the target building prediction. Thus, we can obtain the final pseudo-
+bitemporal feature pairs 𝐹𝑖𝑗 ← 𝐹 (𝑡+1)
+𝑖 × 𝑆(𝐹 (𝑡)
+𝑗 ⊗ ̄ 𝑦(𝑡)
+𝑗 ), as presented in
+line 6 of Algorithm 3. Here 𝐹 (𝑡+1)
+𝑖 ∈ R𝑘×𝑐 and 𝑆(𝐹 (𝑡)
+𝑗 ⊗ ̄ 𝑦(𝑡)
+𝑗 ) ∈ R𝑚×𝑐; 𝑐
+denotes the feature embedding dimensionality, 𝑚 denotes the number
+of selected feature points from the target building prediction, and 𝑘
+denotes the number of source post-disaster feature points, the label of
+which belongs to the damaged building, e.g., minor damage, major
+damage, and destroyed. Therefore, the resulting pseudo-bitemporal
+feature pairs 𝐹𝑖𝑗 ∈ R𝑘×𝑚×𝑐 are represented as a pairwise feature matrix.
+Label assignment for pseudo-bitemporal feature pair: The next step
+is to assign an appropriate building damage label to each pseudo-
+bitemporal feature pair. The label is essentially the state transition
+of the building. Based on this definition, we can assign the label via
+matching the construction process of pseudo-bitemporal feature pairs.
+Thus, the damage label 𝑦𝑖𝑗 ∈ R𝑘×𝑚 can be assigned by a Cartesian
+product of source building damage label 𝑦(𝑡+1)
+𝑖 ∈ R𝑘 and sampled target
+building prediction 𝑆( ̄ 𝑦(𝑡)
+𝑗 ) ∈ R𝑚, as presented in line 7 of Algorithm
+3. The label assignment is built upon two basic assumptions: (1) the
+target pre-disaster image needs to contain at least one building; (2) the
+source post-disaster image needs to cover those areas where building
+damage occurred. In this way, an effective pseudo-bitemporal damage
+sample can be guaranteed to be constructed for a pixel position.
+Model adaptation: Given the pseudo-bitemporal feature pairs 𝐹𝑖𝑗 with
+their labels 𝑦𝑖𝑗, we can use a cross-entropy loss as 𝓁dam for model
+adaptation, as presented in line 8 of Algorithm 3. There are many
+choices for loss function 𝓁dam, which has been discussed in the ablation
+study. In this situation, the model architecture cannot be modified. To
+reuse the original model architecture for the classification of pseudo-
+bitemporal feature pairs 𝐹𝑖𝑗, we decompose the damage classification
+network 𝑓dam into a dense feature extractor 𝑓dam.feature and a pointwise
+classifier 𝑓dam.classif ier. In this view, the dense feature extractor𝑓dam.feature
+has been used to extract the feature map𝐹 (𝑡+1)
+𝑖 . We adopt this pointwise
+classifier 𝑓dam.classif ier to classify the pseudo-bitemporal feature pairs
+𝐹𝑖𝑗, thus guaranteeing that the gradients can be backpropagated nor-
+mally. Another advantage of this architecture decomposition is that
+the adapted model has the same inference way as the original model.
+This is because the feature pair constructions and the architecture
+decomposition are non-parametric, making the latent space of deep
+features 𝐹 (𝑡)
+𝑗 and 𝐹 (𝑡+1)
+𝑖 consistent with the original one.
+4. Experiments
+4.1. Experimental settings
+4.1.1. Implementation details
+At each stage, all the models were trained for 40k iterations using
+stochastic gradient descent (SGD) with a ‘‘poly’’( 𝛾 = 0 .9) learning
+rate schedule, where the initial learning rate was set to 0.03 for CNN
+backbone and 6e−5 for Transformer backbone, respectively. The weight
+decay was set to 0.0001 for CNN backbone and 0.01 for Transformer
+backbone. The momentum of SGD was set to 0.9. The total batch
+size is 16. For training data augmentations, we adopt random flip,
+90◦ ⋅ 𝑘 rotation, scale jitter, and random crop of 512 × 512. All bench-
+marked models were trained for two stages, i.e., supervised bitemporal
+pre-training and unsupervised domain adaptation. For unsupervised
+domain adaptation, we use the tier3 split with labels as source
+domain data and the train split without labels as target domain data.
+The test split is used to tune the hyperparameter and the holdout
+split is used to evaluate the final performance. The settings for each
+model are the same for a fair comparison.
+4.1.2. Evaluation metrics
+We use the standard xView2 metric (Gupta et al., 2019) to evaluate
+the model, i.e., overall score 𝐹 avg
+1 , localization score 𝐹 loc
+1 , and damage
+score 𝐹 dam
+1 . The overall score 𝐹 avg
+1 is a weighted average of 𝐹 loc
+1 and
+𝐹 dam
+1 with weights of 0.3 and 0.7, respectively. 𝐹 loc
+1 is a standard pixel-
+based 𝐹1 score for binary classification.𝐹 dam
+1 is a harmonic mean of four
+standard pixel-based 𝐹1 scores, where each is responsible for a damage
+class.
+4.2. Benchmark methods
+To evaluate the proposed framework and STCA algorithm, we first
+extend several classical and state-of-the-art transfer learning methods
+on ChangeOS (Zheng et al., 2021b) with our proposed framework
+to domain adaptive building damage assessment. Each method can
+be seen as a composite of our proposed framework, the ChangeOS
+model, and their domain adaptation method. These domain adaptation
+methods are briefly introduced as follows:
+1. Deep domain confusion (DDC) (Tzeng et al., 2014) is a
+discrepancy-based deep domain adaptation method, which ex-
+traly adds a single adaptation layer and a discrepancy loss,
+i.e., minimizing single-kernel maximum mean discrepancy
+(MMD) distance., to learn the domain-independent feature rep-
+resentation.
+2. Deep adaptation network (DAN) (Long et al., 2015) is a
+discrepancy-based deep domain adaptation method, which fur-
+ther adopts multi-layer adaptation and multi-kernel MMD dis-
+tance as the discrepancy loss.
+3. AdaptSeg (Tsai et al., 2018) is a domain adaptation method
+based on deep adversarial learning, where a segmentation net-
+work is seen as a generator, and a domain discriminator is used
+to determine which domain each pixel belongs to. Thus, this
+method can be used to adapt structured output space.
+4. Transferable normalization (TransNorm) (Wang et al., 2019) im-
+proves the transferability of deep networks via domain-specific
+normalization. They claim that the BN statistics encode domain
+information; therefore, normalization should be domain-aware
+and responsible for domain discrepancy.
+5. Fine-grained adversarial learning (FADA) (Wang et al., 2020) is a
+domain adaptation method based on deep adversarial learning,
+where its discriminator plays not only a domain distinguisher
+but also a class-level domain classifier. Thus, it can achieve
+fine-grained feature alignment.
+6. Fourier domain adaptation (FDA) (Yang and Soatto, 2020) is
+a data transformation-based domain adaptation method, which
+reduces the domain discrepancy via replacing the low-level fre-
+quencies of the target images into the source images before
+training. This results in many source images in target styles;
+thereby, this method achieves domain alignment by training on
+these transformed source labeled images.
+Remote Sensing of Environment 315 (2024) 114416 
+8
+
+
+===== PDF_PAGE_009 =====
+
+Z. Zheng et al.
+Table 2
+Benchmark comparison on the xView2 holdout split. source domain ( tier3)→ target domain ( train).
+Method Backbone 𝐹 avg
+1 (%) 𝐹 loc
+1 (%) 𝐹 dam
+1 (%) Damage 𝐹1 per class (%) #Params Requirement
+Regular Minor Major Destroyed Trainable/All Target-domain
+post-event image-based damage assessment
+𝑓dam of ChangeOS ResNet-18 34.4 83.0 13.6 71.3 12.5 5.8 36.3 17.9M –
++ PCC ResNet-18 25.3 83.3 0.48 76.9 0.2 0.6 41.6 24.6M –
++ DDC ResNet-18 33.6 82.9 12.5 71.4 13.2 5.0 32.7 24.6M pre.
++ DAN ResNet-18 33.5 83.0 12.2 69.9 13.3 4.8 32.6 24.6M pre.
++ TransNorm ResNet-18 34.6 83.3 13.7 68.7 10.8 6.3 38.2 27.4M pre.
++ FADA ResNet-18 35.1 83.2 14.5 69.1 11.3 6.9 36.2 26.3M pre.
++ AdaptSeg ResNet-18 34.6 83.4 13.8 70.0 10.7 6.3 40.4 27.4M pre.
++ FDA ResNet-18 38.6 82.9 19.6 70.7 13.8 10.6 42.7 24.6M pre.
+source-only, unsupervised change detection with post-event image-based damage assessment
++ DINOv2-DCVA ResNet-18 29.8 83.3 6.9 77.4 4.5 3.1 38.3 17.9M/321.2M –
++ SAM-DCVA ResNet-18 30.3 83.3 7.6 76.0 4.6 3.7 37.9 17.9M/107.6 M –
+source-only
+ChangeOS ResNet-18 38.1 82.4 19.1 77.4 13.3 9.2 72.4 24.8M –
+ChangeOS ResNet-50 39.4 82.9 20.8 78.2 15.7 9.8 70.2 39.0M –
+ChangeOS Swin-T 42.8 83.3 25.4 77.3 15.6 15.1 71.7 41.4M –
+ChangeOS MiT-B1 43.1 84.0 25.6 79.0 19.5 12.7 73.9 26.8M –
+ChangeOS ConvNext-T 43.4 83.7 26.1 77.6 18.6 13.8 71.6 41.7M –
+ChangeOS SAM/ViT-B 46.7 84.4 30.5 78.8 20.5 17.9 74.2 17.0M/105.9M –
+w/ adaptation Reference: ChangeOS with ResNet-18 (source-only)
++ DDC ResNet-18 37.9( ↓0.2) 82.7( ↑0.3) 18.7( ↓0.4) 77.0 12.4 9.4 71.1 24.8M pre. and post.
++ DAN ResNet-18 38.0( ↓0.1) 82.7( ↑0.3) 18.8( ↓0.3) 77.1 13.1 9.2 71.1 24.8M pre. and post.
++ DAFormer MiT-B1 38.8( ↑0.7) 84.8( ↑2.4) 19.1 82.3 10.4 11.4 73.3 54.5M pre. and post.
++ TransNorm ResNet-18 39.1( ↑1.0) 82.5( ↑0.1) 20.5( ↑1.4) 76.1 12.5 11.3 69.4 28.0M pre. and post.
++ FADA ResNet-18 39.6( ↑1.5) 82.7( ↑0.3) 21.2( ↑2.1) 77.2 15.8 10.1 71.0 27.6M pre. and post.
++ AdaptSeg ResNet-18 39.9( ↑1.8) 82.8( ↑0.4) 21.6( ↑2.5) 77.2 16.5 10.2 71.1 28.0M pre. and post.
++ FDA ResNet-18 41.8( ↑3.6) 82.2( ↓0.2) 24.6( ↑5.5) 77.5 15.5 13.9 72.3 24.8M pre. and post.
++ STCA (ours) ResNet-18 46.5( ↑8.4) 81.7( ↓0.7) 31.4( ↑12.3) 74.6 22.4 18.2 69.3 24.8M pre.
++ STCA (ours) SAM/ViT-B 47.6 ( ↑9.5) 85.0( ↑2.6) 31.5( ↑12.4) 73.5 22.7 18.0 72.5 17.0M/105.9M pre.
++ STCA (ours) ConvNext-T 48.8( ↑10.7) 84.1( ↑1.7) 33.7( ↑14.6) 74.8 27.7 17.9 73.9 41.7M pre.
++ STCA (ours) MiT-B1 49.5( ↑11.4) 83.9( ↑1.5) 34.8( ↑15.7) 77.5 24.1 21.5 71.6 26.8M pre.
++ STCA (ours) Swin-T 50.1( ↑12.0) 82.8( ↑0.4) 36.1( ↑17.0) 78.0 26.3 21.6 73.6 41.4M pre.
+7. Domain-adaptive transformer (DAFormer) (Hoyer et al., 2022)
+includes a self-training domain adaptation approach and a
+Transformer-based architecture improvement. They adopt mul-
+tiple training strategies to stabilize and regularize adaptation,
+thus releasing the potential of Transformer-based architecture
+on UDA.
+All of the above methods are extended for domain adaptive building
+damage assessment via the decoupled task modeling of Eq. (2). On the
+other hand, post-event image-based building damage assessment meth-
+ods can be used when target post-event training images are not avail-
+able for adaptation training. We build this series of methods only using
+the damage classification part of ChangeOS, i.e., 𝑓dam of ChangeOS
+that produces a building damage map based only on the post-event
+image. To provide temporal information, a post-classification-based
+change detection method is used, which is implemented by the building
+localization part of ChangeOS followed by post-classification com-
+parison (PCC), namely 𝑓dam of ChangeOS + PCC. Furthermore, we
+apply domain adaptation methods on the pre-event building localiza-
+tion network to reduce domain gaps for building localization when
+only target pre-event images are available for adaptation training. We
+choose the domain adaptation methods mentioned above, resulting in
+six compared methods, i.e., 𝑓dam of ChangeOS + X (e.g., AdaptSeg).
+Besides, unsupervised change detection with source-only post-event
+image-based build damage assessment is also promising when target
+post-event training images are not available. We also build this ap-
+proach by combining 𝑓dam of ChangeOS and two strong unsupervised
+change detector based on visual foundation models, i.e., DINOv2-based
+deep change vector analysis (DCVA) (Zheng et al., 2024; Oquab et al.,
+2023; Saha et al., 2019) and SAM-based DCVA (Zheng et al., 2024;
+Kirillov et al., 2023; Saha et al., 2019).
+4.3. Benchmark comparison and analysis
+4.3.1. Analysis for source-only baselines
+Table 2 presents the benchmark results. We first set up some source-
+only baselines as performance references. The source-only baseline
+is trained on tier3 and directly tested on holdout without any
+adaptation. With six different backbones, source-only baselines have
+two common characteristics in terms of performance: (1) damage clas-
+sification performances decrease a lot, and (2) these decreases mainly
+come from the weak recognition of minor and major damage. Observ-
+ing their 𝐹 loc
+1 and 𝐹 dam
+1 , we can find the large variation of building
+damage caused by different disaster events, while there are minor
+impacts on building localization. This result indicates that regular and
+fully destroyed buildings have similar appearance and spatial context,
+and the main differences lie in middle-level damages, the variance of
+which significantly depends on the intensity and type of disaster and
+geographic conditions.
+In terms of backbone types, ChangeOS with advanced backbones
+(e.g., Transformers like Swin-T Liu et al., 2021c, MiT-B1 Xie et al.,
+2021, ViT-B from SAM Kirillov et al., 2023, and a modern CNN like
+ConvNext-T Liu et al., 2022) significantly outperforms the one with
+classical ResNet backbones by margins of 3% ∼ 7% 𝐹 avg
+1 , when they
+have similar parametric complexity. This suggests that the architecture
+improvement cannot be ignored in transferable building damage assess-
+ment. It is worth noting that we trained a ChangeOS with SAM/ViT-B
+via LoRA (Hu et al., 2022). Benefiting from the extraordinary gen-
+eralization abilities of SAM, this variant outperforms other variants
+significantly with fewer trainable parameters. This confirms that for
+transferable building damage assessment, the architecture with its pre-
+trained weights is an important factor, where we find they mainly bring
+gains on those classes hard to recognize.
+Remote Sensing of Environment 315 (2024) 114416 
+9
+
+
+===== PDF_PAGE_010 =====
+
+Z. Zheng et al.
+Fig. 7. Method analysis on STCA. There are four main factors in STCA, i.e., the threshold of target building prediction, the number of pseudo-bitemporal damage samples, loss
+function for change adaptation, and loss weight of change adaptation. STCA is robust to selecting these hyperparameters, where its variants consistently outperform the baseline.
+4.3.2. Comparison to post-event image-based damage assessment methods
+We can find that only using post-event images for building damage
+assessment is inferior to the ChangeOS which uses pre- and post-event
+images (34.4% vs. 38.1% on 𝐹 avg
+1 ). This is because the pre-event image
+can provide a good reference to classify damage degree (13.6% vs.
+19.1% on 𝐹 dam
+1 ). This observation has also been found in ChangeOS. Af-
+ter applying post-classification change detection, i.e., 𝑓dam of ChangeOS
++ PCC, the performance decreases by 9.1% on 𝐹 avg
+1 (from 34.4% to
+25.3%), which is caused by poor damage change detection performance
+of PCC. We observe that the F 1 scores of the regular building and
+the destroyed building obtain gains; however, the F 1 scores of mi-
+nor and major damage decrease to almost zero. This result suggests
+that PCC is not compatible with a post-event image-based damage
+assessment approach. On the other hand, we also adopt six domain
+adaptation methods to enhance this post-event baseline when only
+target pre-disaster images are available for domain adaptation. The
+results of 𝑓dam of ChangeOS with six domain adaptation methods in-
+dicate that four of these methods improve the overall performance
+effectively in building damage assessment. This is because their back-
+bone networks of building localization and damage classification are
+shared. The domain adaptation supervisory signals optimize the back-
+bone network, reducing domain gaps in common features. Although
+these post-event image-based damage assessment methods with domain
+adaptation work well on building damage assessment, they still fall
+behind pre- and post-event image change detection-based methods.
+The main reason is that they still cannot effectively recognize more
+fine-grained damage degree, i.e., minor and major damage due to
+the absence of reference provided by pre-event images (Zheng et al.,
+2021b) and effective post-event domain adaptation supervisory signals.
+4.3.3. Comparison to unsupervised change detection with post-event image-
+based damage assessment method
+As presented in Table 2, compared with 𝑓dam of ChangeOS + PCC,
+𝑓dam of ChangeOS with stronger unsupervised change detectors perform
+better on damage assessment because DINOv2-based and SAM-based
+DCVA provides more accurate binary damage masks, thanks to the
+robust feature representation of these two state-of-the-art visual foun-
+dation models. However, both methods are still behind their baseline,
+i.e., 𝑓dam of ChangeOS. This is because change detection errors of PCC
+and unsupervised change detection methods are still large and usually
+hard to achieve satisfactory performance in global disaster scenarios,
+compared to supervised methods. These errors accumulate on the al-
+ready inaccurate damage map, resulting in a significant performance
+drop. These results suggest that while unsupervised change detec-
+tion with post-event image-based damage assessment method need not
+consider target post-event image availability for training, its overall
+performance is limited by the performance of the unsupervised change
+detector and source-only post-event image-based damage assessment
+method, suffering from quadratic error accumulation problem. Com-
+pared to this method, our STCA is more promising and has superior
+performance because it does not require any additional models, thus
+avoiding the quadratic error accumulation problem.
+4.3.4. Comparison to other adaptation methods
+For fair comparison, we choose a common model baseline, i.e.,
+ChangeOS with ResNet-18, and apply seven UDA methods to this model
+baseline. These seven UDA methods are applicable only if the target
+domain has both pre-disaster (pre.) and post-disaster (post.) images,
+while our STCA requires only pre-disaster images. The results are listed
+in Table 2. With the same backbone (ResNet-18), our STCA achieves
+superior performance, outperforming FDA which is the best among
+other entries, by a large margin of 4.8% 𝐹 avg
+1 . Taking ChangeOS with
+ResNet-18 as a reference, our STCA achieves significant absolute im-
+provements of 8.4% 𝐹 avg
+1 and 12.3% 𝐹 dam
+1 without any extra parameter
+introduced. Our STCA not only fundamentally overcomes the time
+window problem, but also brings huge practical performance gains.
+There are many interesting observations and insights from the re-
+sults of other adaptation methods. For two discrepancy-based methods,
+DDC and DAN, as classical and representative UDA methods, yield
+negative transfer problems in transferable building damage assessment.
+This is because they were originally designed for image classification
+rather than dense prediction tasks, thus, they cannot adapt structured
+output space in principle. For deep adversarial learning-based meth-
+ods, AdaptSeg is tailored for dense prediction tasks, thereby yielding
+reasonable improvements of 1.8% 𝐹 avg
+1 and 2.5% 𝐹 dam
+1 with a small
+overhead (3.2M parameters) due to a domain discriminator. FADA de-
+signed a fine-grained domain discriminator upon AdaptSeg; however, it
+failed to capture fine-grained information of different damaged degrees
+since its damage 𝐹1 score of each class all decreased compared with
+AdaptSeg. It indicates building damages in various disaster contexts
+have much more complex patterns than the general object in a common
+context; thus, these general-purpose UDA methods are hard to apply
+to transferable building damage assessment. Although using a stronger
+Transformer backbone (DAFormer) or other advanced normalization
+(TransNorm), their gains are not promising for transferable building
+damage assessment. FDA, as a data transformation-based approach,
+performed best among these seven methods. This result brings an im-
+portant insight that the source image in the target style can effectively
+reduce the domain gap in transferable building damage assessment.
+Our STCA exactly follows this insight, where the target pre-disaster
+image in source disaster contexts should be also effective in reducing
+the domain gap caused by the uncertainty of natural disasters. Thus,
+we simulate a target disaster process using source disaster information,
+resulting in our pseudo-bitemporal damage sample that consists of a
+target pre-disaster building pixel and a source post-disaster damage
+pixel. From the experimental results, we can find STCA significantly
+brings gains on minor and major damage classes that are hard to
+improve by other UDA methods. Without the gain from the architecture
+improvement, our STCA improves ChangeOS with ResNet-18 by 8.4%
+𝐹 avg
+1 and 12.3% 𝐹 dam
+1 , far exceeding all other entries. With the advanced
+backbones, STCA consistently improves the source-only baselines. The
+best one can achieve 50.1% 𝐹 avg
+1 , the gain of which pure STCA and
+the better backbone bring is 7.3% (from 42.8% to 50.1%) and 4.7%
+(from 38.1% to 42.8%) respectively. This confirms the effectiveness
+and robustness of STCA in transferable building damage assessment. It
+Remote Sensing of Environment 315 (2024) 114416 
+10
+
+
+===== PDF_PAGE_011 =====
+
+Z. Zheng et al.
+Fig. 8. Method analysis on STCA: the relation between the loss weight 𝜆 and each
+metrics. STCA is statistically significantly robust and predictive for the selection of loss
+weight 𝜆.
+is worth noting that STCA fundamentally addressed the time-window
+problem since it requires target pre-disaster images only for adaptation.
+This means STCA can be used at any time for adaptation training rather
+than at the time after the disaster happens, thereby maximizing the
+time available for subsequent decision-making.
+4.4. Method analysis
+Our whole framework includes decoupled task modeling, supervised
+bitemporal pre-training, and STCA. STCA is the only part involved in
+hyperparameter selection, and the other two keep the same settings for
+all comparisons. Therefore, in this sub-section, we discussed how these
+key hyperparameters impact the cross-domain performance in transfer-
+able building damage assessment. The main results are summarized in
+Fig. 7.
+4.4.1. Threshold for target building prediction
+In STCA, we need a binarized target building mask to indicate
+which feature points are selected. This binarization is implemented
+by thresholding; therefore, the threshold value is essential. Since we
+use sigmoid to obtain the prediction during training and inference, a
+threshold of 0.5 is an ideal choice if the estimation is unbiased. The
+results of Table 3 also suggest that this threshold of 0.5 is optimal. In
+practice, a lower threshold, like 0.3, brings more noisy predictions, and
+these errors are accumulated twice via constructing pseudo-bitemporal
+feature pairs, thus harming the adaptation process. Increasing the
+threshold to 0.7 reduces the number of predictions but leads to higher
+confidence. As a result, there is a significant decrease in the quantity
+of pseudo-bitemporal damage samples. From this result, we can deduce
+that the quantity of pseudo-bitemporal damage samples is relatively
+more critical than their quality.
+4.4.2. Number of pseudo-bitemporal damage samples
+To delve into the number of pseudo-bitemporal damage samples,
+we explicitly control the quantity, empirically enumerating 1282, 2562,
+and 512 2. Table 4 presents that increasing the number of pseudo
+samples can consistently improve cross-domain performance. There
+is an interesting observation that increasing from 128 2 to 256 2, the
+gain of 𝐹 avg
+1 is small, only 0.1% since the localization performance
+drops a lot. When significantly increasing to 512 2, the gain becomes
+Table 3
+Method analysis on STCA: investigating how the threshold of target building prediction
+impacts the performance.
+Threshold 𝐹 avg
+1 (%) 𝐹 loc
+1 (%) 𝐹 dam
+1 (%) Damage 𝐹1 per class (%)
+Regular Minor Major Destroyed
+0.3 43.7 80.3 28.0 75.5 19.6 15.6 69.0
+0.5 44.1 81.4 28.1 72.4 21.1 15.0 68.2
+0.7 43.1 82.1 26.4 74.2 20.2 13.6 67.7
+Table 4
+Method analysis on STCA: investigating how the number of pseudo-bitemporal damage
+samples impacts cross-domain performance.
+#Pseudo samples 𝐹 avg
+1 (%) 𝐹 loc
+1 (%) 𝐹 dam
+1 (%) Damage 𝐹1 per class (%)
+Regular Minor Major Destroyed
+0 (Baseline) 38.1 82.4 19.1 77.4 13.3 9.2 72.4
+1282 43.3 81.3 27.1 71.6 19.4 14.7 68.6
+2562 43.4 79.0 28.2 77.0 19.3 16.2 63.7
+5122 44.1 81.4 28.1 72.4 21.1 15.0 68.2
+Table 5
+Method analysis on STCA: investigating how specific loss function for change adaptation
+impacts cross-domain performance.
+Loss function 𝐹 avg
+1 (%) 𝐹 loc
+1 (%) 𝐹 dam
+1 (%) Damage 𝐹1 per class (%)
+Regular Minor Major Destroyed
+Cross Entropy 44.1 81.4 28.1 72.4 21.1 15.0 68.2
+Lovasz Softmax 46.4 81.8 31.4 74.6 22.3 18.2 69.3
+promising. Compared with 256 2, its localization performance is re-
+covered, and 𝐹 dam
+1 is maintained. This implies that an abundance of
+pseudo-bitemporal damage samples can aid in stabilizing the adapta-
+tion process.
+4.4.3. Loss function for change adaptation
+The change adaptation is achieved by minimizing the classification
+loss of pseudo-bitemporal damage samples. We choose two typical
+loss functions as 𝓁dam for change adaptation, respectively, i.e., cross-
+entropy and lovasz-softmax (Berman et al., 2018). From Fig. 7(c), we
+can observe that STCA variants based on these two loss functions both
+significantly outperform the baseline result (38.1%) by a large margin.
+This confirms that the decisive factor for STCA to work well is not the
+specific form of the loss function but the pseudo-bitemporal damage
+samples. Table 5 presents that better loss function can bring more
+gains to the final performance of STCA. This is because the cross-
+entropy is well-known to suffer from the class-imbalanced problem,
+while lovasz-softmax loss provides a tractable surrogate to optimize
+the intersection-over-union that is very sensitive to class-imbalanced
+predictions, thus significantly improving the recognition performance
+of minor and major damage classes. This advantage can be successfully
+inherited by STCA.
+4.4.4. Loss weight for change adaptation
+The loss weight of change adaptation is very important when using
+STCA in real-world applications. To obtain more insights into this
+hyperparameter, we empirically study the relationship between loss
+weights and each metric of building damage assessment. We selected
+10 loss weights from 0.1 to 1.0 by a fixed interval of 0.1. The final
+performances ( 𝐹 avg
+1 ) are presented in Fig. 7(d). There are two obser-
+vations: (1) STCA using any of the ten loss weights performed better
+than the baseline, suggesting that STCA is robust to selection of the loss
+weight; (2) As the loss weight increases, the final performance gradu-
+ally decreases. The negative correlation between the final performances
+(𝐹 avg
+1 ) and the loss weight 𝜆 is significant ( 𝑝 < 0.05, 𝑟 = −0 .95) when
+𝜆 ∈ [0 .1, 1]. Based on these statistics, we recommend 𝜆 ∈ [0 .1, 0.3] to
+achieve more stable and higher performances. By default, we adopt 𝜆 =
+0.2. Fig. 8 shows more detailed relationships between other submetrics
+Remote Sensing of Environment 315 (2024) 114416 
+11
+
+
+===== PDF_PAGE_012 =====
+
+Z. Zheng et al.
+Table 6
+Building damage assessment performance comparison between ChangeOS, ChangeOS + FDA, and ChangeOS + our STCA for Turkey-Syria earthquake, Kalehe DRC flooding, and
+Maui Hawaii fire datasets.
+Method 𝐹 avg
+1 (%) 𝐹 loc
+1 (%) 𝐹 dam
+1 (%) Damage 𝐹1 per class (%) Requirement
+Regular Minor Major Destroyed Target-domain
+Turkey-Syria Earthquake (2023)
+ChangeOS (source-only) 64.2 83.0 56.2 81.0 46.5 46.4 63.4 –
+w/ adaptation
++ FDA 57.4 81.7 47.0 79.8 36.9 40.5 48.3 pre. and post.
++ STCA (ours) 74.2 90.0 67.4 83.4 57.8 61.9 72.1 pre.
+Kalehe DRC Flooding (2023)
+ChangeOS (source-only) 40.2 71.0 27.0 68.7 27.0 12.0 76.8 –
+w/ adaptation
++ FDA 47.3 70.6 37.3 67.9 38.1 18.9 74.7 pre. and post.
++ STCA (ours) 51.5 74.5 41.7 69.5 32.5 26.0 80.8 pre.
+Maui Hawaii Fire (2023)
+ChangeOS (source-only) 43.5 72.5 31.1 75.8 14.3 34.3 60.8 –
+w/ adaptation
++ FDA 34.3 74.9 17.0 77.0 11.2 8.4 65.1 pre. and post.
++ STCA (ours) 59.0 78.2 50.7 79.1 29.6 55.9 68.8 pre.
+Fig. 9. Statistic of building damage assessment based our predictions for the image region of Turkey-Syria earthquake, Kalehe DRC flooding, and Maui Hawaii fire events.
+and the loss weight. We can observe a consistent negative correlation
+phenomenon. Besides, we can also observe that recognition difficulty is
+highly related to this correlation, i.e., a more difficult recognition lower
+correlation. For example, minor damage is hard to recognize due to the
+confusion in appearance, which is also reflected in the lower correlation
+(|𝑟| = 0 .40). Regular building localization is relatively easy, and its
+correlation is higher ( |𝑟| = 0 .91). From a comprehensive perspective,
+for damage classification, the negative correlation between 𝐹 dam
+1 and
+the loss weight 𝜆 is significant and high ( 𝑝 < 0.05, 𝑟 = −0 .93). This
+further confirms that STCA is highly robust and predictive in selecting
+the loss weight 𝜆.
+4.4.5. Discussion: model-invariant and hazard intensity model-based sam-
+ple construction
+The pseudo-bitemporal damage sample construction of STCA be-
+longs to a model-invariant sample construction, which is independent
+of hazard types. This sample construction can also be guided by hazard
+intensity models ( Yokoya et al., 2020; Moya et al. , 2021). Their main
+differences lie in interpretability and construction. Our model-invariant
+pseudo-bitemporal damage sample construction focuses on providing
+many effective pseudo-bitemporal damage samples at a low construc-
+tion cost. Our samples are used to train deep neural networks, thus we
+focus on a construction strategy with scalability. The model-based dam-
+age sample construction will produce interpretable damage samples
+but with higher construction costs. These extra costs are mainly from
+hazard-specific mechanism/physical models and necessary metadata
+to support the mechanism/physical models. These two strategies have
+their suitable scenarios. Thanks to the flexibility of our framework,
+they can seamlessly switch each other based on data (disaster metadata
+required by hazard intensity model, etc.) availability when a disaster
+event occurs.
+4.5. Application on local-scale study areas
+To demonstrate the effectiveness of our framework on real-world
+disaster events, we conducted transferable building damage assessment
+applications on three disaster events in 2023, that is, Turkey-Syria
+earthquake, Kalehe floods in the Democratic Republic of the Congo,
+and Maui-Hawaii fire, as case studies.
+4.5.1. Method
+Image Preprocessing: These optical satellite images used in case
+studies were mostly from WorldView-2, WorldView-3, and a small
+amount from Bing satellite images, which have been preprocessed
+through atmospheric compensation, dynamic range adjustment, and
+pan-sharpening. To obtain size-aligned pre/post-disaster image pairs,
+we upsampled the WorldView-2 images to the spatial resolution of
+0.3 m to align the WorldView-3 images we mostly have. For Bing
+satellite images, we collected tiles with a zoom level of 19 and then
+resampled them to align the WorldView-3. No extra image enhance-
+ment is used in time-sensitive disaster response scenarios to save as
+much time as possible.
+Model training and inference: Following our single-temporal domain
+adaptive semantic change detection framework, we first trained a
+ChangeOS model variant with Swin-T as the backbone via supervised
+Remote Sensing of Environment 315 (2024) 114416 
+12
+
+
+===== PDF_PAGE_013 =====
+
+Z. Zheng et al.
+Fig. 10. Visualization of the building damage assessment for Turkey-Syria earthquake event (subarea: Islahiye town). Each image has a size of 14,104 × 10,970 pixels. Top two
+columns present the whole disaster scene with the pre-disaster image with its building localtion map and the post-disaster image with its damage assessment map. Legend:
+Regular, Minor damage, Major damage, Destroyed.
+bitemporal pre-training on xView2 train and tier3, as the source
+model. We chose this variant because it has the best transferability
+among all variants based on our experimental results. We further
+adapted this source model via STCA on each pre-disaster image to
+reduce the domain gap between the xView2 dataset and each current
+disaster event data. Thanks to STCA breaking down the time window,
+we can make this adaptation at any time rather than waiting for
+post-disaster images. After the model adaptation was completed, we
+seamlessly applied this target model to assess building damage on the
+pre-/post-disaster image pair once the post-disaster image arrived. We
+adopt an overlapped sliding window inference strategy because high-
+resolution (0.3 m) satellite images of disaster areas, e.g., two images
+Remote Sensing of Environment 315 (2024) 114416 
+13
+
+
+===== PDF_PAGE_014 =====
+
+Z. Zheng et al.
+Fig. 11. Visualization of the building damage assessment for Turkey-Syria earthquake event (subarea: Marash, a city in Turkey). Each image has a size of 8,643 × 16,058 pixels.
+Top two rows present the whole disaster scene with the pre-disaster image with its building localtion map and the post-disaster image with its damage assessment map. Legend:
+Regular, Minor damage, Major damage, Destroyed.
+with 48,428 × 36,507 pixels for Maui Hawaii fire event, bring unaf-
+fordable GPU memory overhead. The window has a size of 1024× 1024
+with a stride of 512.
+Accuracy assessment: The accuracy of the whole pipeline is measured
+by the standard xView2 metric based on the manually annotated and
+corrected ground truth. Specifically, there were 5299 buildings in
+Marash and 18,092 buildings in Islahiye in the Turkey-Syria earthquake
+event, 3317 buildings in Kalehe DRC flooding event, and 2255 build-
+ings in Maui Hawaii fire event. We ignore those uncertain instances in
+the metric computation for some damaged buildings hardly recognized
+by human experts.
+4.5.2. Results
+To establish a benchmark for each event, we initially adopt
+ChangeOS (source-only) and subsequently apply various adaptation
+Remote Sensing of Environment 315 (2024) 114416 
+14
+
+
+===== PDF_PAGE_015 =====
+
+Z. Zheng et al.
+Fig. 12. Visualization of the building damage assessment for Kalehe DRC flooding event. Each image has a size of 20,367 × 14,292 pixels. Top two columns present the whole
+disaster scene with the pre-disaster image with its building localtion map and the post-disaster image with its damage assessment map. Legend: Regular, Minor damage,
+Major damage, Destroyed.
+methods to it. We selected FDA as the comparative adaptation method
+due to its superior performance, as determined by our comprehensive
+global statistical evaluation mentioned in Table 2 . The results are
+summarized in Table 6 . STCA significantly improves the ChangeOS
+baseline by approximately 10% 𝐹 avg
+1 for three disaster events, only
+using their target pre-disaster images. The accuracy gains mainly come
+Remote Sensing of Environment 315 (2024) 114416 
+15
+
+
+===== PDF_PAGE_016 =====
+
+Z. Zheng et al.
+Fig. 13. Visualization of the building damage assessment for Maui Hawaii fire event. Each image has a size of 48,428 × 36,507 pixels. Top two columns present the whole disaster
+scene with the pre-disaster image with its building localtion map and the post-disaster image with its damage assessment map. Legend: Regular, Minor damage , Major
+damage, Destroyed.
+from improving recognition of damaged buildings (minor damaged,
+major damaged, and destroyed). FDA, as a general UDA approach, does
+not achieve promising results on these three disaster events, since there
+happened negative transfer when applied to Turkey-Syria earthquakes
+and Maui Hawaii fire datasets. These results suggest that only rely-
+ing on style similarity between source and target domains makes it
+Remote Sensing of Environment 315 (2024) 114416 
+16
+
+
+===== PDF_PAGE_017 =====
+
+Z. Zheng et al.
+Fig. 14. Damage classification error analysis via the confusion matrix. We removed the background class from the confusion matrix to focus on the interclass classification error
+of damaged buildings.
+hard to achieve domain adaptation for building damage assessment.
+This is because many damaged buildings can only be recognized by
+their surrounding changes when the images are from overhead views.
+The surrounding changes highly depend on the type and intensity
+of the disaster. Therefore, only transferring global style cannot work
+on building damage assessment. Our STCA forces the model to learn
+the mapping from target buildings to various damaged buildings and
+their surroundings, addressing the domain adaptive building damage
+assessment from the perspective of disaster change process.
+Based on our building damaged assessment products, we make a
+statistical summary in Fig. 9. These map products reflect the spatial dis-
+tribution and relative intensity of disasters, contributing to safer, more
+targeted humanitarian assistance and disaster response. For Turkey-
+Syria earthquake, we mainly mapped two areas: Islahiye ( Fig. 10 )
+and Marash ( Fig. 11 ). There are 32.8% buildings damaged to vary-
+ing degrees, with major damage dominating (30.7%). Only 1.3% and
+0.8% buildings are minor damaged and destroyed, respectively. This
+is because modern urban buildings typically incorporate earthquake-
+resistant structures, which safeguard against collapse and limit the
+number of buildings destroyed. Unfortunately, their surroundings are
+fragile due to the absence of structural protection. From the visualiza-
+tion, we can see that many buildings that appear normal were actually
+major damaged by the earthquake, due to their surroundings being
+destroyed. As a result, these buildings are classified as major damage.
+For Kalehe DRC flooding (Fig. 12), there are fundamentally different
+statistical results with the above earthquake event. There are 20.3%
+buildings damaged, where most of the buildings are damaged (15.9%).
+Minor damaged and major damaged buildings are 1.2% and 3.1%,
+respectively. This is because this flooding was followed by landslides.
+The foundation of these buildings was directly destroyed. From our
+map product, we can rapidly identify three areas that have experi-
+enced significant damage to support consequent decision-making. For
+Maui Hawaii fire ( Fig. 13), we can find up to 37.6% buildings were
+destroyed. Minor damaged and major damaged buildings are 1.8% and
+5.9%, respectively. We also visualize the main damaged area and find
+that most of the buildings in residential areas were reduced entirely to
+ash and debris. The scale of building loss was immense and contiguous
+across the landscape. This reflects that wildfires pose a major threat to
+people’s property and lives. It also brings environmental devastation,
+where large expanses of vegetation were burned. Our map product
+can provide accurate spatio-temporal information to guide and support
+precision rescue and ecological restoration.
+4.5.3. Error analysis and limitations in real-world applications
+In real-world humanitarian assistance and disaster response, an ac-
+curate damage assessment map product is vital for consequent decision-
+making. This subsection aims to provide more insights into the main
+errors and limitations of conventional approaches and our proposed
+method. We show the confusion matrix of these methods in Fig. 14 .
+The background errors are removed from these confusion matrices
+since we usually can use some building footprint products, e.g., Google
+open buildings (Sirko et al., 2021) and Microsoft building footprints, to
+Remote Sensing of Environment 315 (2024) 114416 
+17
+
+
+===== PDF_PAGE_018 =====
+
+Z. Zheng et al.
+replace or corrected the building predictions. Therefore, we can mainly
+focus on the damage classification errors. For three methods across
+these three disaster events, we find that either the baseline model or the
+adapted models can achieve sufficient accuracy in classifying regular
+and destroyed buildings. The advance of our STCA compared to other
+two methods is capable of minor and major damage recognition, which
+benefits from STCA’s capability of target disaster event simulation.
+However, there are still some errors and limitations in STCA. From its
+confusion matrices, the predictions of STCA tend to underestimate the
+damages (errors mainly focus on the upper triangle area), which may
+cause insufficient preparation for humanitarian assistance and disaster
+response.
+5. Conclusion
+We present a single-temporal domain adaptive semantic change
+detection framework, which frames domain adaptive building damage
+assessment and only needs pre-disaster images as training data. This
+framework bridges the gap between generic UDA approaches and do-
+main adaptive building damage assessment. Besides, we propose an
+unsupervised single-temporal change adaptation algorithm to funda-
+mentally address the post-disaster training image availability issue,
+thereby avoiding the time-window problem in the disaster response.
+The numerous experiments and three instances of real-world applica-
+tion confirm that our framework enables most UDA approaches to work
+well on domain adaptive building damage assessment. Moreover, our
+STCA, which utilizes only target pre-disaster images, improves over
+other UDA approaches that still require target pre/post-disaster images
+by a large margin. These results confirm that the method designed
+based on the disaster change process is more suitable for real-world dis-
+aster response application scenarios in a simple yet effective way. STCA
+is a hazard-intensity model-invariant method; its interpretability needs
+to be further improved by introducing knowledgeable hazard-intensity
+models and numerical simulation in the future.
+CRediT authorship contribution statement
+Zhuo Zheng: Writing – original draft, Visualization, Software,
+Methodology, Data curation, Conceptualization. Yanfei Zhong: Writ-
+ing – review & editing, Supervision, Resources, Funding acquisition.
+Liangpei Zhang: Writing – review & editing, Supervision, Resources,
+Funding acquisition. Marshall Burke: Writing – review & editing,
+Funding acquisition, Resources. David B. Lobell: Writing – review
+& editing, Funding acquisition, Resources. Stefano Ermon: Writing –
+review & editing, Supervision, Resources, Funding acquisition.
+Declaration of competing interest
+The authors declare that they have no known competing finan-
+cial interests or personal relationships that could have appeared to
+influence the work reported in this paper.
+Data availability
+Data will be made available on request.
+Acknowledgments
+The authors would like to thank the Editor, Associate Editor, anony-
+mous reviewers for their helpful comments and suggestions that im-
+proved this article. This work was supported by National Natural
+Science Foundation of China under Grant No. 42325105.
+References
+Anniballe, R., Noto, F., Scalia, T., Bignami, C., Stramondo, S., Chini, M., Pierdicca, N.,
+2018. Earthquake damage mapping: An overall assessment of ground surveys and
+VHR image change detection after l’Aquila 2009 earthquake. Remote Sens. Environ.
+210, 166–178.
+Bai, Y., Adriano, B., Mas, E., Koshimura, S., 2017. Machine learning based building
+damage mapping from the ALOS-2/PALSAR-2 SAR imagery: Case study of 2016
+Kumamoto earthquake. J. Disaster Res. 12 (sp), 646–655.
+Berman, M., Triki, A.R., Blaschko, M.B., 2018. The Lovász-Softmax loss: A tractable
+surrogate for the optimization of the intersection-over-union measure in neural
+networks. In: Proceedings of the IEEE Conference on Computer Vision and Pattern
+Recognition. pp. 4413–4421.
+Boser, B.E., Guyon, I.M., Vapnik, V.N., 1992. A training algorithm for optimal
+margin classifiers. In: Proceedings of the Fifth Annual Workshop on Computational
+Learning Theory. pp. 144–152.
+Bouchard, I., Rancourt, M.-È., Aloise, D., Kalaitzis, F., 2022. On transfer learning for
+building damage assessment from satellite imagery in emergency contexts. Remote
+Sens. 14 (11), 2532.
+Brunner, D., Lemoine, G., Bruzzone, L., 2010. Earthquake damage assessment of
+buildings using VHR optical and SAR imagery. IEEE Trans. Geosci. Remote Sens.
+48 (5), 2403–2420.
+Candela, J.Q., Sugiyama, M., Schwaighofer, A., Lawrence, N.D., 2009. Dataset Shift in
+Machine Learning. Vol. 1, The MIT Press, p. 5.
+Chen, T., Moreau, T., Jiang, Z., Zheng, L., Yan, E., Shen, H., Cowan, M., Wang, L.,
+Hu, Y., Ceze, L., et al., 2018. {Tvm}: An automated {end-to-end} optimizing
+compiler for deep learning. In: 13th USENIX Symposium on Operating Systems
+Design and Implementation. OSDI 18, pp. 578–594.
+Chen, H., Nemni, E., Vallecorsa, S., Li, X., Wu, C., Bromley, L., 2022. Dual-tasks
+siamese transformer framework for building damage assessment. In: IGARSS 2022-
+2022 IEEE International Geoscience and Remote Sensing Symposium. IEEE, pp.
+1600–1603.
+Cortes, C., Vapnik, V., 1995. Support-vector networks. Mach. Learn. 20, 273–297.
+Da, Y., Ji, Z., Zhou, Y., 2022. Building damage assessment based on siamese hierarchical
+transformer framework. Mathematics 10 (11), 1898.
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T.,
+Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., Houlsby, N., 2021.
+An image is worth 16x16 words: Transformers for image recognition at scale. In:
+International Conference on Learning Representations.
+Durnov, V., 2020. xView2 first place solution. https://github.com/DIUx-xView/xView2_
+first_place.
+Ge, P., Gokon, H., Meguro, K., 2020. A review on synthetic aperture radar-based
+building damage assessment in disasters. Remote Sens. Environ. 240, 111693.
+Grünthal, G., 1998. European Macroseismic Scale 1998. Tech. Rep., European
+Seismological Commission (ESC).
+Gupta, R., Hosfelt, R., Sajeev, S., Patel, N., Goodman, B., Doshi, J., Heim, E., Choset, H.,
+Gaston, M., 2019. xBD: A dataset for assessing building damage from satellite
+imagery. arXiv preprint arXiv:1911.09296.
+He, K., Zhang, X., Ren, S., Sun, J., 2016. Deep residual learning for image recog-
+nition. In: Proceedings of the IEEE Conference on Computer Vision and Pattern
+Recognition. pp. 770–778.
+Hoyer, L., Dai, D., Van Gool, L., 2022. DAFormer: Improving network architectures
+and training strategies for domain-adaptive semantic segmentation. In: Proceedings
+of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp.
+9924–9935.
+Hu, E.J., yelong shen, Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., Chen, W.,
+2022. LoRA: Low-rank adaptation of large language models. In: International
+Conference on Learning Representations.
+Kelman, I., 2003. Physical Flood Vulnerability of Residential Properties in Coastal,
+Eastern England (Ph.D. thesis). University of Cambridge.
+Kirillov, A., Mintun, E., Ravi, N., Mao, H., Rolland, C., Gustafson, L., Xiao, T.,
+Whitehead, S., Berg, A.C., Lo, W.-Y., Dollar, P., Girshick, R., 2023. Segment
+anything. In: Proceedings of the IEEE/CVF International Conference on Computer
+Vision. pp. 4015–4026.
+Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet classification with deep
+convolutional neural networks. In: Advances in Neural Information Processing
+Systems. pp. 1097–1105.
+Lin, Q., Ci, T., Wang, L., Mondal, S.K., Yin, H., Wang, Y., 2022. Transfer learning for
+improving seismic building damage assessment. Remote Sens. 14 (1), 201.
+Liu, C., Ge, L., Sepasgozar, S.M., 2021a. Post-disaster classification of building damage
+using transfer learning. In: 2021 IEEE International Geoscience and Remote Sensing
+Symposium IGARSS. IEEE, pp. 2194–2197.
+Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., Guo, B., 2021c. Swin
+transformer: Hierarchical vision transformer using shifted windows. In: Proceedings
+of the IEEE/CVF International Conference on Computer Vision. pp. 10012–10022.
+Liu, Z., Mao, H., Wu, C.-Y., Feichtenhofer, C., Darrell, T., Xie, S., 2022. A convnet for
+the 2020s. In: Proceedings of the IEEE/CVF Conference on Computer Vision and
+Pattern Recognition. pp. 11976–11986.
+Liu, T., Yang, L., Lunga, D., 2021b. Change detection using deep learning approach
+with object-based image analysis. Remote Sens. Environ. 256, 112308.
+Remote Sensing of Environment 315 (2024) 114416 
+18
+
+
+===== PDF_PAGE_019 =====
+
+Z. Zheng et al.
+Long, M., Cao, Y., Wang, J., Jordan, M., 2015. Learning transferable features with deep
+adaptation networks. In: International Conference on Machine Learning. PMLR, pp.
+97–105.
+Moya, L., Geiß, C., Hashimoto, M., Mas, E., Koshimura, S., Strunz, G., 2021. Disaster
+intensity-based selection of training samples for remote sensing building damage
+classification. IEEE Trans. Geosci. Remote Sens. 59 (10), 8288–8304.
+Oquab, M., Darcet, T., Moutakanni, T., Vo, H.V., Szafraniec, M., Khalidov, V., Fer-
+nandez, P., Haziza, D., Massa, F., El-Nouby, A., Howes, R., Huang, P.-Y., Xu, H.,
+Sharma, V., Li, S.-W., Galuba, W., Rabbat, M., Assran, M., Ballas, N., Synnaeve, G.,
+Misra, I., Jegou, H., Mairal, J., Labatut, P., Joulin, A., Bojanowski, P., 2023.
+DINOv2: Learning robust visual features without supervision. arXiv:2304.07193.
+Robinson, C., Gupta, R., Fobi Nsutezo, S., Pound, E., Ortiz, A., Rosa, M., White, K.,
+Dodhia, R., Zolli, A., Birge, C., Lavista Ferres, J.M., 2023. Turkey Earthquake
+Report. Tech. Rep. MSR-TR-2023-7, Microsoft.
+Ronneberger, O., Fischer, P., Brox, T., 2015. U-net: Convolutional networks for
+biomedical image segmentation. In: International Conference on Medical Image
+Computing and Computer-Assisted Intervention. Springer, pp. 234–241.
+Saha, S., Bovolo, F., Bruzzone, L., 2019. Unsupervised deep change vector analysis for
+multiple-change detection in VHR images. IEEE Trans. Geosci. Remote Sens. 57
+(6), 3677–3693.
+Sirko, W., Kashubin, S., Ritter, M., Annkah, A., Bouchareb, Y.S.E., Dauphin, Y.,
+Keysers, D., Neumann, M., Cisse, M., Quinn, J., 2021. Continental-scale building
+detection from high resolution satellite imagery. arXiv preprint arXiv:2107.12283.
+Tong, X., Hong, Z., Liu, S., Zhang, X., Xie, H., Li, Z., Yang, S., Wang, W., Bao, F.,
+2012. Building-damage detection using pre-and post-seismic high-resolution satel-
+lite stereo imagery: A case study of the may 2008 wenchuan earthquake. ISPRS J.
+Photogramm. Remote Sens. 68, 13–27.
+Tsai, Y.-H., Hung, W.-C., Schulter, S., Sohn, K., Yang, M.-H., Chandraker, M., 2018.
+Learning to adapt structured output space for semantic segmentation. In: Proceed-
+ings of the IEEE Conference on Computer Vision and Pattern Recognition. pp.
+7472–7481.
+Tversky, A., 1977. Features of similarity. Psychol. Rev. 84 (4), 327.
+Tzeng, E., Hoffman, J., Zhang, N., Saenko, K., Darrell, T., 2014. Deep domain confusion:
+Maximizing for domain invariance. arXiv preprint arXiv:1412.3474.
+Vickery, P.J., Skerlj, P.F., Lin, J., Twisdale, Jr., L.A., Young, M.A., Lavelle, F.M., 2006.
+HAZUS-MH hurricane model methodology. II: Damage and loss estimation. Nat.
+Hazards Rev. 7 (2), 94–103.
+Wang, X., Jin, Y., Long, M., Wang, J., Jordan, M.I., 2019. Transferable normalization:
+Towards improving transferability of deep neural networks. In: Advances in Neural
+Information Processing Systems. Vol. 32.
+Wang, H., Shen, T., Zhang, W., Duan, L.-Y., Mei, T., 2020. Classes matter: A fine-
+grained adversarial approach to cross-domain semantic segmentation. In: European
+Conference on Computer Vision. Springer, pp. 642–659.
+Xie, E., Wang, W., Yu, Z., Anandkumar, A., Alvarez, J.M., Luo, P., 2021. SegFormer:
+Simple and Efficient Design for Semantic Segmentation with Transformers. Vol. 34,
+pp. 12077–12090.
+Yang, Y., Soatto, S., 2020. FDA: Fourier domain adaptation for semantic segmentation.
+In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+Recognition. pp. 4085–4095.
+Ye, S., Zhu, Z., Cao, G., 2023. Object-based continuous monitoring of land disturbances
+from dense landsat time series. Remote Sens. Environ. 287, 113462.
+Yokoya, N., Yamanoi, K., He, W., Baier, G., Adriano, B., Miura, H., Oishi, S., 2020.
+Breaking limits of remote sensing by deep learning from simulated data for flood
+and debris-flow mapping. IEEE Trans. Geosci. Remote Sens. 60, 1–15.
+Zheng, Z., Ma, A., Zhang, L., Zhong, Y., 2021a. Change is everywhere: Single-temporal
+supervised object change detection in remote sensing imagery. In: Proceedings of
+the IEEE/CVF International Conference on Computer Vision. pp. 15193–15202.
+Zheng, Z., Zhong, Y., Wang, J., Ma, A., Zhang, L., 2021b. Building damage assessment
+for rapid disaster response with a deep object-based semantic change detection
+framework: From natural disasters to man-made disasters. Remote Sens. Environ.
+265, 112636.
+Zheng, Z., Zhong, Y., Zhang, L., Ermon, S., 2024. Segment any change. arXiv preprint
+arXiv:2402.01188.
+Remote Sensing of Environment 315 (2024) 114416 
+19

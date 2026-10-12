@@ -1,0 +1,1162 @@
+
+
+===== PDF_PAGE_001 =====
+
+Keep the Balance: A Parameter-Efficient Symmetrical Framework
+for RGB+X Semantic Segmentation
+Jiaxin Cai1∗
+, Jingze Su1∗
+, Qi Li1, Wenjie Yang1, Shu Wang1, Tiesong Zhao1, Shengfeng He2, Wenxi Liu1†
+1Fuzhou University
+2Singapore Management University
+Abstract
+Multimodal semantic segmentation is a critical challenge
+in computer vision, with early methods suffering from high
+computational costs and limited transferability due to full
+fine-tuning of RGB-based pre-trained parameters. Re-
+cent studies, while leveraging additional modalities as sup-
+plementary prompts to RGB, still predominantly rely on
+RGB, which restricts the full potential of other modali-
+ties. To address these issues, we propose a novel symmetric
+parameter-efficient fine-tuning framework for multimodal
+segmentation, featuring with a modality-aware prompting
+and adaptation scheme, to simultaneously adapt the ca-
+pabilities of a powerful pre-trained model to both RGB
+and X modalities. Furthermore, prevalent approaches use
+the global cross-modality correlations of attention mech-
+anism for modality fusion, which inadvertently introduces
+noise across modalities. To mitigate this noise, we propose
+a dynamic sparse cross-modality fusion module to facili-
+tate effective and efficient cross-modality fusion. To further
+strengthen the above two modules, we propose a training
+strategy that leverages accurately predicted dual-modality
+results to self-teach the single-modality outcomes. In com-
+prehensive experiments, we demonstrate that our method
+outperforms previous state-of-the-art approaches across six
+multimodal segmentation scenarios with minimal computa-
+tion cost.
+1. Introduction
+Semantic segmentation, which aims to assign a seman-
+tic category to each pixel within an image, is a corner-
+stone task for scene analysis across a variety of contexts
+[6, 14, 69]. Despite the promising outcomes, segmentation
+methods that rely solely on RGB data often encounter dif-
+ficulties in complex and challenging scenarios, such as ex-
+treme illumination conditions, background clutter, and mo-
+*Equal contribution (jiaxincai528@163.com).
+†Corresponding author (wenxi.liu@hotmail.com).
+Figure 1. Feature visualization comparison between the repre-
+sentative method with an asymmetrical network structure, CM-
+NeXt [67], and our proposed method with a symmetric network
+structure. CMNeXt [67] treats depth as an auxiliary modal-
+ity, leading to misidentifications in highlighted regions by RGB
+but correctly predicted by depth, resulting in false positives. In
+contrast, our model leverages the representational power of pre-
+trained models to enhance depth features, equating their contribu-
+tion with RGB features and achieving superior results.
+tion blur. These limitations are particularly critical in real-
+world applications, especially safety-sensitive ones, like au-
+tonomous driving. Therefore, there is a burgeoning interest
+in integrating multimodal data to achieve more comprehen-
+sive information acquisition, e.g., [5, 9, 31, 39, 47, 60].
+Prevailing methods [42, 60, 66] in the field of multi-
+modal segmentation utilize independent backbones for each
+modality, emulating a symmetric structure, to leverage their
+distinct capabilities. These methods rely on a fully fine-
+tuned training (FFT) strategy. With the success of prompt
+tuning in various domains, prompt-tuning based methods
+have emerged, significantly alleviating the computational
+burden. These methods typically employ asymmetric net-
+work architectures, primarily focusing on the RGB modal-
+ity while treating other modalities as prompts [12, 19].
+However, these methods are constrained by two primary
+limitations: (1) their asymmetric architecture inherently rel-
+egates the X modality to a supportive role, thereby failing
+to fully leverage its potential (See Fig. 1); and (2) the preva-
+lent approach to modality fusion relies on attention-based
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+10587
+
+
+===== PDF_PAGE_002 =====
+
+mechanisms to capture global correlations, which can inad-
+vertently introduce noise across modalities.
+Firstly, to more thoroughly leverage the potential of the
+X modality, we propose a novel approach to strengthen its
+features through powerful pre-trained models. Although
+these models are initially pre-trained on RGB images, prior
+research has shown that their capabilities can be effec-
+tively transferred to other modalities [21, 77]. Building on
+these findings, we introduce a model based on parameter-
+efficient fine-tuning (PEFT) with a symmetrical architecture
+that leverages the powerful feature representation capabili-
+ties of pre-trained models to simultaneously strengthen both
+RGB and X modalities. Thus, this framework treats the
+X modality as an equal contributor alongside RGB, rather
+than a supplementary role. On this basis, we introduce a
+novel module, denoted as Modality-Aware Prompting and
+Adaptation (MAPA) module, that harnesses the aggregated
+knowledge from RGB and X modalities to generate prompts
+that are specific to each modality. Moreover, it can adap-
+tively transfer the feature representation capabilities of pre-
+trained models to each modality using dedicated adapters.
+Secondly, to mitigate the noise associated with global cross-
+modality correlations, we propose a modality-specific de-
+formable attention mechanism, denoted as Dynamic Sparse
+Cross-modality Fusion (DSCF) module. It enables our
+model to sparsely and dynamically identify the dominant re-
+gions within the features of each modality, facilitating effec-
+tive cross-modality fusion. To further boost the above mod-
+ules, i.e., modality feature enhancement and cross-modality
+fusion, we introduce an innovative training strategy, called
+the Masked Modality Self-Teaching Strategy. This strat-
+egy involves randomly masking one of the modality inputs,
+thereby discouraging over-reliance on any single modality
+during training. Beyond cross-modality outcome supervi-
+sion, we utilize the accurately fused dual-modality results
+to self-teach the corresponding regions within the single
+modality, which implicitly strengthens cross-modality fea-
+ture enhancement.
+For evaluation, we conduct comparative experiments
+across six datasets with various modalities. The results
+demonstrate that our model significantly outperforms the
+state-of-the-art PEFT methods; for example, it achieves a
+7.2% mIoU advantage over SOTA on PST-900 [44]. No-
+tably, with only 4% of the training parameters of full fine-
+tuning methods [25], our model shows comparable or even
+better performance. Moreover, our proposed model strikes
+an excellent balance between model effectiveness and effi-
+ciency, with only an additional 5.5M parameters compared
+to the baseline, leading to a significant absolute gain of
++10.7% mIoU on the NYUD-v2 dataset [45].
+In overall, our contributions are summarized as follows:
+• To fully harness the utility of the X modality in RGB-
+X semantic segmentation, we introduce a parameter-
+efficient fine-tuning framework featuring a symmetrical
+architecture. This framework treats the X modality as an
+equal contributor alongside RGB, rather than a supple-
+mentary role.
+• We present a novel Modality-Aware Prompting and
+Adaptation module, designed to simultaneously adapt the
+capabilities of a powerful pre-trained model to both RGB
+and X modalities.
+• To mitigate the noise associated with global cross-
+modality correlations, we propose a Dynamic Sparse
+Cross-modality Fusion module to facilitate effective and
+efficient cross-modality fusion.
+• To improve modality enhancement and fusion, we pro-
+pose a training strategy that leverages accurately pre-
+dicted dual-modality results to self-teach the single-
+modality outcomes.
+• As demonstrated, our model achieves state-of-the-art per-
+formance against PEFT-based methods, and is even com-
+parable to FFT-based methods on six downstream mul-
+timodal semantic segmentation datasets, adding only a
+minimal computational burden.
+2. Related Work
+Multimodal Semantic Segmentation. Multimodal seman-
+tic segmentation has been extensively studied, with mul-
+timodal segmenters proposed to improve performance by
+leveraging complementary information from supplemen-
+tary modalities such as depth [5, 7, 9, 24, 40, 43, 50, 61, 70,
+73], thermal [13, 17, 33, 44, 49, 55, 68, 74], polarization
+[27, 38, 58], and events [1, 64, 65]. However, most of these
+methods rely on a full fine-tuning strategy, which is time-
+consuming and inefficient, and the large parameter storage
+burden makes them unsuitable for many applications and
+difficult to deploy. Moreover, these methods primarily fo-
+cus on single-task settings, which may not generalize well
+across different sensing data [4, 17, 36, 45, 66]. In this
+work, taking a different path, we explore a novel parameter-
+efficient paradigm that is applicable to various multimodal
+semantic segmentation tasks with promising performance.
+Parameter-Efficient Fine-tuning for Vision. With the de-
+velopment of large models [18, 41, 62], parameter-efficient
+fine-tuning (PEFT) has gained increasing importance. Ini-
+tially applied in NLP [22, 23, 29], PEFT has recently been
+widely explored in computer vision [28, 53, 54, 77]. Its
+core concept is to maintain the efficiency and performance
+of pre-trained models by freezing their weights and train-
+ing only a minimal number of additional parameters. Popu-
+lar PEFT methods include adapter-based tuning [8, 20, 22]
+and prompt tuning [29, 32, 56]. Recently, DPLNet [12]
+and GoPT [19] have attempted to integrate PEFT into the
+multimodal dense prediction task. These methods primarily
+rely on the RGB modality while treating other modalities as
+prompts. In this way, auxiliary modality and inter-modality
+10588
+
+
+===== PDF_PAGE_003 =====
+
+Figure 2. Overview of our proposed framework with symmetrical structures for two input modalities. RGB and X modalities are first
+converted into corresponding tokens {Xrgb , Xx} with patch embedding. Subsequently, in the Modality-Aware Prompting and Adaptation
+(MAPA) module, these tokens are used to generate specific prompts {Prgb , Px}, which are added to the corresponding modality tokens
+as residuals. The multimodal tokens augmented with specific prompts are subsequently passed through L frozen pre-trained Transformer
+layers equipped with modality-specific adapters to produce the corresponding modality tokens{ ˆXrgb , ˆXx}. Next, these tokens are fed into
+the Dynamic Sparse Cross-modality Fusion (DSCF) module, resulting in the fused tokens ˆX. Finally, the fused tokens from all the four
+stages are fed together into a lightweight segmentation head to compute the segmentation maps.
+interactions can not be adequately exploited, limiting its
+ability to leverage multimodal complementarity. To address
+this, we propose a symmetric PEFT framework designed
+to thoroughly explore and integrate the strengths of various
+modalities, highlighting the advantages of using multimodal
+data for semantic segmentation.
+3. Method
+3.1. Overview
+In this work, we propose a novel RGB-X multimodal seg-
+mentation model with symmetric architecture. We em-
+ploy the pre-trained Transformer as backbone (i.e., Swin-
+Transformer [37] pre-trained on ImageNet [10]) with a
+lightweight linear segmentation head. Specifically, in con-
+trast to previous PEFT methods that regard X modalities
+as less significant or supplementary prompts, our approach
+treats RGB and X as equal contributors. The overall ar-
+chitecture is illustrated in Fig. 2. Specifically, our model
+comprises of four stages. Each stage primarily consists of
+three key steps: 1) modality-aware prompting and adap-
+tation (Sec. 3.2), 2) dynamic sparse cross-modality fusion
+(Sec. 3.3), and 3) the production of segmentation results.
+Firstly, our proposed model processes the inputs of two
+different modalities {Irgb, Ix} through independent patch
+embedding layers to obtain the corresponding tokens, i.e.,
+Xrgb and Xx. Subsequently, in the MAPA module, these
+tokens are combined and projected onto the distribution
+of each modality to generate the corresponding prompts
+{Prgb, Px}. Consequently, the multimodal tokens, aug-
+mented with specific prompts, are subsequently passed
+through L frozen pre-trained Transformer layers equipped
+with modality-specific adapters to produce the correspond-
+ing modality tokens, denoted as { ˆXrgb, ˆXx}. Secondly,
+{ ˆXrgb, ˆXx} are aggregated via the DSCF module, result-
+ing in fused tokens ˆX. Thirdly, the fused token is fed into a
+lightweight segmentation head to compute the segmentation
+map. For training this model, we apply the MMST strategy
+(Sec. 3.4). In the subsequent sections, we will concentrate
+on one single stage of our model to elucidate the technical
+details.
+3.2. Modality-Aware Prompting and Adaptation
+MAPA can be further divided into three steps: First, it
+amalgamates the dual-modality features into a unified rep-
+resentation, facilitating information sharing across modali-
+ties. Subsequently, this unified representation is projected
+onto the distribution of each modality to generate heteroge-
+10589
+
+
+===== PDF_PAGE_004 =====
+
+neous prompts for the following steps. Finally, the gener-
+ated prompts are integrated with modality-specific adapters
+to produce modality-specific features.
+Unifying Dual-modality Features. Formally, the process
+of unifying dual-modality features {Xrgb, Xx} can be ex-
+pressed as:
+˜Xrgb = W down
+rgb Xrgb, ˜Xx = W down
+x Xx,
+Xuni = W upW uniConcat( ˜Xrgb, ˜Xx),
+(1)
+where W down
+rgb and W down
+x are the parameters of the down-
+projection layer with the dimension Rd× ˜d, while W up de-
+notes the up-projection layer with the dimension R ˜d×d.
+W uni (W uni ∈ R2 ˜d× ˜d) represents the parameters of linear
+projection to unify ˜Xrgb and ˜Xx. It is important to note that
+the rank condition ˜d ≪ d is satisfied, indicating a signif-
+icant reduction in dimensionality. ˜Xrgb and ˜Xx represent
+their low-rank representation. Xuni is the resulted unified
+multi-modality representation.
+Prompt Generation. Next, we project the unified repre-
+sentation Xuni to each modality in order to customize het-
+erogeneous multimodal prompts.The projection can be ex-
+pressed as follows:
+Prgb = γrgbXuni + βrgb + sXuni,
+Px = γxXuni + βx + sXuni, (2)
+where Prgb and Px represents the modality-specific
+prompts after projection. γ ∈ Rd, β ∈ Rd are learnable em-
+beddings, and s denotes scaling factors. Subsequently, the
+modality-specific prompts are added to the corresponding
+modality features to guide the pre-trained model.
+Modality-specific Adaptation. We incorporate modality-
+specific adapters into the vanilla transformer layers, so
+they can effectively transfer the capabilities of the pre-
+trained model to each corresponding modality. In practice,
+the modality-specific adapter employs an hourglass struc-
+ture. It comprises a down-projection layer with parameters
+W down
+i ∈ Rd× ˜d, an up-projection layer with parameters
+W up
+i ∈ R ˜d×d, and a ReLU nonlinear activation function.
+Formally, the process can be expressed as below:
+X ′
+i = MSA(LN(Xi)) + Xi,
+X ′′
+i = W up
+i ReLU(W down
+i X ′
+i),
+ˆXi = MLP(LN(X ′
+i)) + X ′
+i + αX ′′
+i ,
+(3)
+where i denotes different modalities (RGB or X), and
+MSA(·) represents multi-head self-attention. MLP(·)
+refers to multilayer perception, and LN(·) denotes layer
+normalization. In addition, α represents the scaling factor
+that modulates the influence of the adapter, and the rank
+of adapter satisfies ˜d ≪ d. By optimizing the weights of
+W down
+i and W up
+i , it enables the efficient bridging of strong
+RGB X Ground Truth
+Figure 3. Visualization of the salient deformed points for a given
+query points in different modalities. Yellow stars indicate the
+query points. Red circles represent the deformed keys of the RGB
+modality, while blue circles represent the deformed keys of the X
+modality (i.e., depth, themal, or polarization), indicating their re-
+spective attended regions.
+pre-trained knowledge to each modality in a manner that is
+both effective and efficient.
+3.3. Dynamic Sparse Cross-modality Fusion
+Previous PEFT methods [19, 20] often employ tailored
+modules to establish global associations for different
+modalities. However, introducing these modules may result
+in unnecessary computational overhead, since not all im-
+age regions are necessary for the task. To capture dominant
+regions from different modalities and establish long-range
+contextual modality relationships, inspired by deformable
+attention [57], we proceed as follows. We first identify key
+deformable points from various modalities within a low-
+rank space, creating a multimodal point set. Subsequently,
+we sample and weight these salient points, and establish
+their long-range contextual relationships.
+As shown in Fig. 2(b), to reduce the computational bur-
+den, we use linear projection functions to map the RGB and
+X modality tokens { ˆXrgb, ˆXx} into a low-rank space, re-
+sulting in { ˜Xrgb, ˜Xx}. Then, two uniform grid maps p ∈
+R
+h
+r × w
+r ×2 are generated as the reference points for the low-
+rank features, where r denotes downsampling rate. For-
+mally, the value of the reference points are linearly spaced at
+2D lattice coordinates {(px, py)|(0, 0), ...,( h
+r − 1, w
+r − 1)}.
+Subsequently, these locations are scaled into [−1, +1].
+On the other hand, a lightweight offset prediction net-
+work is used to predict the corresponding offsets for the
+reference points, which is expressed as below:
+∆prgb = φoffset( ˜Xrgb), ∆px = φoffset( ˜Xx),
+prgb = ∆prgb + p, p x = ∆px + p, (4)
+where φoffset(·) represents offset prediction network, com-
+prising a depth-wise convolution with stride r, followed by
+layer normalization, GELU activation, and 1 × 1 convolu-
+tion. prgb and px denote the deformed points within the
+10590
+
+
+===== PDF_PAGE_005 =====
+
+RGB and X modalities, respectively. As shown in Fig. 3,
+they focus on the interest regions within each of their re-
+spective modalities. We utilize the union of the deformed
+point sets from both modalities{prgb ∪px} to sparsely sam-
+ple multimodal features and extract key multimodal repre-
+sentations { ˙Xrgb, ˙Xx} ∈ Rn×˜c, where n is the number of
+sampled points in both prgb and px.
+Next, we design a learnable modality dominance eval-
+uation function W(·), which consists of two linear opera-
+tions with a RELU activation function, to measure the im-
+portance of different modalities for each deformed point.
+Specifically, we first fuse multimodal features ˜Xrgb and ˜Xx
+using a fusion network F(·) consisting of Conv-BN-ReLU,
+to obtain coarse fused features Q. We then utilize the same
+deformed point sets to sparsely sample Q , deriving evalua-
+tion features ˙XQ ( ˙XQ ∈ Rn×˜c). By feeding ˙XQ into W(·),
+the weights wrgb and wx (wrgb, wx ∈ Rn×1) for key multi-
+modal representations ˙Xrgb and ˙Xx can be computed. We
+weigh them to obtain the essential deformed fused features:
+˙X = wrgb ˙Xrgb + wx ˙Xx. (5)
+The deformed keys K and values V are obtained by the
+projections Wk ˙X and Wv ˙X. Last, Q, K, and V are deliv-
+ered into the multi-head attention module to construct inter-
+modal long-range contextual relationships. The output re-
+fined fused features are processed through an up-projection,
+resulting in fused tokens ˆX, before feeding into the segmen-
+tation head.
+3.4. Masked Modality Self-Teaching Strategy
+Previous PEFT methods have demonstrated poor robust-
+ness and subpar performance under complex real-world
+scenarios, attributed to their heavy reliance on the domi-
+nant modality and insufficient exploitation of inter-modality
+complementary information.
+To overcome this limitation, we propose the MMST
+training strategy. Specifically, during the training phase, we
+randomly mask the entire input image of one of the two
+modalities to simulate extreme situations of modality im-
+balance, thereby reducing the model’s over-reliance on a
+particular modality. In these situations, supervising only
+the segmentation outcomes of the fused features ˆX † tends
+to encourage the model to rely on the feature fusion capabil-
+ities of DSCF, potentially neglecting the sufficient exploita-
+tion of inter-modality interaction and feature adaptation at
+the early stage, i.e., MAPA. Thus, we introduce additional
+supervision on ˆXrgb and ˆXx before their fusion in DSCF.
+To achieve this, we utilize the correctly predicted regions
+†Note that, as shown in Fig. 2, our framework comprises four stages,
+hence ˆX encompasses the fused features from all the stages in practice
+and they are concatenated for supervision. For the sake of simplicity, the
+description of the MMST strategy is based on a single stage.
+from the supervision of ˆX to self-teach the predicted seg-
+mentation masks derived from both ˆXrgb and ˆXx.
+Formally, according to Fig. 2, the objective functions of
+the segmentation heads S1, S2, and S3 correspond to the
+supervision of ˆX, ˆXrgb and ˆXx, respectively. Thus, the
+objective of the head S1 can be defined as below:
+LS1 = LCE(fS1( ˆX), Y ), (6)
+where LCE(·, ·) refers to the cross entropy loss and fS1(·)
+represents the segmentation headS1. Y denotes the ground-
+truth semantic map. Using its correctly predicted region M
+which indicates whether the classes of pixels are accurately
+predicted by fS1, we can further supervise the outputs ofS2
+and S3, as below.
+LS2 = LCE(fS2( ˆXrgb), M ⊙ Y ), (7)
+LS3 = LCE(fS3( ˆXx), M ⊙ Y ), (8)
+where fS2(·) and fS3(·) refer to the segmentation head S2
+and S3. Given that each element of M is either 0 or 1
+while ⊙ denotes the element-wise multiplication operator,
+M ⊙ Y indicates the masked ground-truth semantic map
+used for supervision. The underlying motivation for em-
+ploying masked ground-truth semantic maps is to confine
+the predictions of ˆXrgb and ˆXx to focus on the regions cor-
+rectly predicted by ˆX. This implicitly encourages ˆXrgb and
+ˆXx to develop capabilities akin to those of the modality-
+fused features ˆX, thereby enhancing the cross-modality
+representation ability they acquire from MAPA. Hence, the
+overall objective can be expressed as below:
+L = λ1LS1 + λ2(LS2 + LS3), (9)
+where λ1, λ2 are the balance weight for each loss.
+4. Experimental Results
+To comprehensively validate the performance and general-
+ization capability of the proposed model, we conduct ex-
+tensive experiments on six different multimodal datasets.
+These datasets cover a variety of modality combinations,
+including RGB-Depth (RGB-D), RGB-Thermal (RGB-T),
+RGB-Event (RGB-E), and RGB-Polarization (RGB-P).
+4.1. Comparison with State-of-the-arts
+In this section, we conduct experiments on several datasets
+to compare our approach with state-of-the-art methods,
+including full fine-tuning (FFT) and parameter-efficient
+fine-tuning (PEFT) methods. Following previous works
+[16, 25, 26], we take the base and large versions of Swin-
+Transformer model [37] pre-trained on ImageNet [10] as the
+backbones, denoted as Swin-B and Swin-L. During train-
+ing, we freeze the parameters of the backbone. For more
+details, please refer to the supplementary material.
+10591
+
+
+===== PDF_PAGE_006 =====
+
+Methods Backbone Trainable NYUDv2 SUN
+Params(M) mIoU(%) mIoU(%)
+Full Fine-Tuing Methods
+SA-GateECCV20[9] ResNet101 110.9 52.4 49.4
+ShapeConvICCV21[5] ResNet101 - 51.3 48.6
+SGNetTIP21[7] ResNet101 64.7 51.1 48.6
+HS3-FuseBMCV21[2] ResNet101 - 53.5 -
+CENTPAMI22[52] ResNet152 133.9 52.5 51.1
+TokenFusionCVPR22[51] MiT-B2 26.0 54.2 53.0
+OMNIVORECVPR22[16] Swin-B - 55.1 -
+OMNIVORECVPR22[16] Swin-L - 56.8 -
+CMXTITS23[66] MiT-B5 181.1 56.9 52.4
+CMNeXtCVPR23[67] MiT-B4 119.6 56.9 50.4
+PolyMaXW ACV24[59] ConvNeXt-L - 58.1 -
+SwinMTLIROS24[48] Swin-B 87.4 58.1 -
+DFormerICLR24[60] DFormer-L 39 57.2 52.5
+GeminiFusionICML24[25] Swin-L 369.2 60.2 54.6
+Parameter-Efficient Fine-Tuning Methods
+DPLNet†
+IROS24[12] MiT-B5 7.2 54.9 46.0
+GoPTAAAI24[19] ViT-B 4.6 54.1 52.1
+GoPTAAAI24[19] ViT-L - 54.3 52.3
+Ours Swin-B 7.5 59.0 53.7
+Ours Swin-L 16.1 59.9 55.0
+Table 1. Overall performance on NYUDv2 [45] and SUN RGB-D
+[46] datasets. Red/Blue stands for the best/second performance.
+Since DPLNet uses an additional pre-trained semantic segmenta-
+tion dataset [72], for a fair comparison, we reproduce the method
+using the pre-trained model based on ImageNet. † indicates our
+reproduced results.
+NYU Depth V2 dataset[45] is an indoor scene understand-
+ing dataset consisting of 1,449 RGB-D samples with a reso-
+lution of 480×640, covering 40 different classes. As shown
+in Table 1, our model with Swin-L achieves new state-of-
+the-art performance, surpassing the previous SOTA PEFT
+method by 5.0%. Compared to SOTA FFT approach, our
+approach achieves comparable performance while training
+only 4.4% of the parameters (16.1M vs. 369.2M), demon-
+strating ours efficiency.
+SUN-RGBD dataset [46] contains 10,335 RGB-D images
+with 37 classes. Following [35, 63], we randomly crop and
+resize the input to 480 ×480. As shown in Table 1, our
+method with Swin-B already achieves leading score, with
+a mIoU of 53.7%, outperforming PEFT methods. Using
+Swin-L, our model further improves the mIoU to 55.0%,
+clearly surpassing all state-of-the-art approaches, including
+the best FFT method. Notably, our model only contains
+16.1M trainable parameters. These results demonstrate the
+effectiveness of our approach.
+MFNet dataset [17] is an urban street dataset, which has
+1,569 RGB-T pairs annotated in 8 classes at the size of
+480×640. As shown in Table 2, our Swin-B and Swin-
+L models both achieve superior performance than PEFT
+methods. However, due to the limited size of the MFNet
+dataset and the presence of complex nighttime images, the
+complexity of the Swin-L model makes it a bit worse than
+the Swin-B model. Notably, our Swin-B version outper-
+Methods Backbone Trainable MFNet PST900
+Params(M) mIoU(%) mIoU(%)
+Full Fine-Tuing Methods
+RTFNetRAL19[47] ResNet152 337.1 53.2 60.5
+GMNetTIP21[47] ResNet50 149.8 57.3 84.1
+EGFNetAAAI22[75] ResNet152 201.3 54.8 78.5
+MTANetTIV22[74] ResNet152 121.9 56.1 78.6
+GEBNetSPL22[11] ConvNeXt-S - 56.2 81.2
+EAEFNetRAL23[33] ResNet152 200.4 58.9 85.6
+CMXTITS23[66] MiT-B4 139.9 59.7 -
+CACFNetTIV23[76] ConvNeXt-B 198.6 - 86.6
+CMNeXtCVPR23[67] MiT-B4 119.6 59.9 -
+LASNetTCSVT23[31] ResNet152 93.6 54.9 84.4
+Parameter-Efficient Fine-Tuning Methods
+DPLNet†
+IROS24[12] MiT-B5 7.2 53.1 78.2
+GoPTAAAI24[19] ViT-B 4.6 57.4 81.3
+GoPTAAAI24[19] ViT-L - 57.7 81.5
+Ours Swin-B 7.5 59.9 87.6
+Ours Swin-L 16.1 59.2 88.7
+Table 2. Overall performance on MFNet [17] and PST900 [44]
+datasets.
+Methds Modalities mIoU(%)
+StitchFusion arXiv24 [30] RGB-N 51.7
+StitchFusion+FFMs arXiv24 [30] RGB-N 53.2
+Ours (Swin-B) RGB-N 53.8
+MCubeSNet CVPR22 [34] RGB-D 34.1
+CMX TITS23 [66] RGB-D 49.6
+StitchFusion arXiv24 [30] RGB-D 51.3
+StitchFusion+FFMs arXiv24 [30] RGB-D 52.7
+GFBN PR24 [15] RGB-D 52.1
+Ours (Swin-B) RGB-D 54.5
+MCubeSNet CVPR22 [34] RGB-A 39.1
+CMX TITS23 [66] RGB-A 49.8
+CMNeXt CVPR23 [67] RGB-A 48.4
+StitchFusion arXiv24 [30] RGB-A 52.1
+StitchFusion+FFMs arXiv24 [30] RGB-A 52.7
+GFBN PR24 [15] RGB-A 51.6
+Any2Seg ECCV24 [71] RGB-A 49.0
+Ours (Swin-B) RGB-A 53.7
+Table 3. Overall performance on MCubeS [34] dataset.
+forms the previous PEFT method by a large margin (at least
+2.2%) and achieves comparable performance to the SOTA
+FFT method.
+PST900 dataset [44] contains 894 synchronized RGB-T
+image pairs with a spatial resolution of 720 ×1280 pixels.
+These images are from 5 classes. Following [33], we ran-
+domly crop and resize the input to 480 ×640. As shown in
+Table 2, our model outperforms previous SOTA methods on
+both FFT and PEFT by 2.1% and 7.2%, respectively.
+MCubeS dataset [34] is a dataset with RGB, Near-Infrared
+(NIR), Degree of Linear Polarization (DoLP), and Angle
+of Linear Polarization (AoLP) images for semantic material
+segmentation. It consists of 500 image pairs, at a size of
+10592
+
+
+===== PDF_PAGE_007 =====
+
+Methods Modalities mIoU(%)
+TokenFusion CVPR22 [51] RGB-E 45.6
+HRFuser ITSC23 [3] RGB-E 42.2
+CMX TITS23 [66] RGB-E 56.5
+CMNeXt CVPR23 [67] RGB-E 57.5
+StitchFusion arXiv24 [30] RGB-E 57.4
+Any2Seg ECCV24 [71] RGB-E 57.8
+Ours (Swin-B) RGB-E 58.4
+Table 4. Overall performance on DeLiVER [67] dataset.
+1024×1224, with dense labels for 20 classes. As shown in
+Table 3, our model achieves SOTA performance with 53.8%
+in RGB-N, 54.5% in RGB-D, and 53.7% in RGB-A.
+DeLiVER dataset [67] is a comprehensive multimodal
+dataset featuring RGB, Depth, LiDAR and Event data
+across 25 semantic categories. As shown in Table 4, we
+only use the RGB and Event modalities for our experiments,
+achieving a +0.6% absolute gain over the previous SOTA.
+Visualization results. As illustrated in Fig. 4, we illus-
+trate several examples of comparison between our approach
+and CMNeXt [67]. The results show that our model ef-
+fectively leverages multimodal information to address chal-
+lenging scenarios (e.g. thermal and event image can provide
+considerable valuable information in nighttime conditions),
+thereby achieving more accurate results.
+4.2. Ablation Study
+We conduct the ablation studies on the NYUDv2 [45] and
+MFNet [17] using the Swin-B backbone.
+Analysis on Different Fine-tuning Strategies. To enable a
+comprehensive comparison with our approach, we employ
+two fine-tuning methods, FFT and freezing the entire back-
+bone while training only the head. The results are presented
+on the first three rows of Table 5. Our approach outperforms
+these two methods with only a small number of trainable pa-
+rameters, demonstrating its efficiency and effectiveness. By
+employing the PEFT method, pre-trained RGB knowledge
+can be efficiently adapted to downstream multimodal tasks
+with limited multimodal data.
+Analysis on Prompt Generation. As shown in theMAPA -
+Prompt Generation section of Table 5, we analyze the ef-
+fect of prompt generator (see Eq. 1 and 2). The model
+without prompt generator has a mIoU decrease of 1.3%
+and 2.4% over two benchmarks, indicating that the gener-
+ated prompts are essential for effectively transferring pre-
+trained model capabilities to each modality. Besides, we
+also evaluate generating modality-specific prompts by using
+modality-specific W up in Eq. 1, instead of modality projec-
+tion. The results show that using modality projection is su-
+perior. Using modality-specific W up may lead to less con-
+sistent prompts, especially when there is a strong correla-
+NYUDv2 MFNet MCubeS DeLiVER
+RGB-Depth RGB-Thermal RGB-Polarization RGB-Event
+RGB
+Auxiliary
+Modality
+GT
+CMNeXt
+Ours
+Figure 4. We illustrate several examples from NYUDv2 [45],
+MFNet [17], MCubeS [34] and DeLiVER [67], comparing our
+method against CMNeXt [67].
+tion between modalities. In contrast, the prompts generated
+by modality projection based on a unified Xuni are more
+coherent and aligned. Additionally, removing the modality
+projection causes both modalities to directly use Xuni as
+a shared prompt, leading to an obvious drop in mIoU. We
+further compare our prompt generator with MPG [12] and
+MCP [77]. The results demonstrate that our prompt gener-
+ator outperforms them in terms of parameter efficiency and
+model performance.
+Analysis on Modality-Specific Adaptation. We investi-
+gate Modality-Specific Adaptation and its variants on model
+performance (see the MAPA - Modality-Specific Adaptation
+section of Table 5). Ablating modality-specific adapters
+result in performance drops of 2.8% and 2.1% in both
+datasets, verifying the effectiveness of modality-specific
+adapters in transferring pre-trained knowledge. To further
+validate the necessity of modality-specific adapters, we re-
+place them by the modality-shared adapters with different
+middle dimensions (i.e., ˜d, ˜d×2, ˜d×4) for down-projection
+and up-projection (see Section 3.2). As shown in Table 5,
+employing shared adapters with middle dimension ˜d de-
+creases the model performance by 1.0% and 2.0%, respec-
+tively. We attribute this to the gap between two different
+modalities, as a shared adapter cannot satisfy the modeling
+requirements of both. To ensure a fair comparison, we uti-
+lize shared adapter with middle dimension ˜d × 2 to align
+the number of trainable parameters, but it performs worse.
+Increasing the middle dimension to ˜d × 4 further degrades
+performance. It reflects that an overly large middle dimen-
+sion introduces too many new parameters, diluting the pre-
+trained knowledge.
+Analysis on DSCF. As shown in the DSCF section of Ta-
+ble 5, without employing DSCF to dynamically capture the
+unique advantages between different modalities, directly
+10593
+
+
+===== PDF_PAGE_008 =====
+
+Structure Trainable NYUDv2 MFNet
+Params(M) mIoU(%) mIoU(%)
+FFT 94.4 57.7 58.3
+Fine-tuning Head 2.0 50.9 54.6
+Ours 7.5 59.0 59.9
+MAPA - Prompt Generation
+w/o Prompt Generation 7.0 (-0.5) 57.7 (-1.3) 57.5 (-2.4)
+Modality Specific Wup 7.7 (+0.2) 58.0 (-1.0) 59.2 (-0.7)
+w/o Modality Projection 7.5 (-0.0) 58.5 (-0.5) 58.4 (-1.5)
+MPG [12] as Generator 8.0 (+0.5) 56.9 (-2.1) 58.5 (-1.4)
+MCP [77] as Generator 8.0 (+0.5) 57.3 (-1.7) 57.3 (-2.6)
+MAPA - Modality-Specific Adaptation
+w/o Modality-Specific Adaptation 3.8 (-3.7) 56.2 (-2.8) 57.8 (-2.1)
+Shared Adapter( ˜d) 6.6 (-0.9) 58.0 (-1.0) 57.9 (-2.0)
+Shared Adapter( ˜d×2) 7.5 (-0.0) 58.2 (-0.8) 59.3 (-0.6)
+Shared Adapter( ˜d×4) 9.2 (+1.7) 56.8 (-2.2) 57.9 (-2.0)
+DSCF
+w/o DSCF 5.9 (-1.6) 57.1 (-1.9) 56.9 (-3.0)
+FFM [66] as Fusion Module 6.8 (-0.7) 58.3 (-0.7) 58.1 (-1.8)
+DAT [57] as Fusion Module 7.5 (-0.0) 58.0 (-1.0) 58.3 (-1.6)
+Self-Sampling 7.5 (-0.0) 58.4 (-0.6) 57.8 (-2.1)
+w/o Weighted Sum 7.5 (-0.0) 58.0 (-1.0) 57.5 (-2.4)
+MMST
+w/o MMST 6.0 (-1.5) 57.3 (-1.7) 57.0 (-2.9)
+w/o Auxiliary Supervision 6.0 (-1.5) 57.9 (-1.1) 57.6 (-2.3)
+w/o Random Mask 7.5 (-0.0) 58.3 (-0.7) 57.5 (-2.4)
+M ⊙ Y ⇒ Y 7.5 (-0.0) 58.2 (-0.8) 57.8 (-2.1)
+Table 5. Ablation study of the architecture.
+adding the features from two modalities results in a decline
+in mIoU by 1.9% and 3.0% on two datasets. To delve into
+DSCF, we experiment with different variants. Following the
+FFT method [67], we adopt FFM as fusion module in the
+low-rank space. We also use DAT [57] as alternate to DSCF
+for comparison. As shown, their performance is inferior to
+that of DSCF. Additionally, we experiment with a differ-
+ent sampling method, namely Self-Sampling. It means, un-
+like our sampling strategy that both ˙Xrgb and ˙Xx are sam-
+pled from the united point sets {prgb ∩ px}, ˙Xrgb and ˙Xx
+are sampled independently from prgb and px, respectively.
+The results demonstrate that, although each modality has its
+unique dominant regions, the features in the corresponding
+regions of other modalities, which may not be prominent,
+still provide valuable complementary information. When
+directly adding ˙Xrgb and ˙Xx to obtain ˙X, rather than using
+a weighted sum as Eq. 5, the performance also declines.
+Comparison of training strategy. We explore the impact
+of MMST on performance in the MMST section of Table 5.
+Without using MMST strategy to reduce the model’s de-
+pendency on specific modalities, the model performance
+decreases. To more thoroughly validate the effectiveness
+of the MMST strategy, we investigate its two components:
+Random Mask, which randomly masks the entire image
+during training, and Auxiliary Supervision, which super-
+vises the outputs of S2 and S3. As shown in Table 5, the
+absence of either of these components leads to a decline
+Methods Backbone Trainable Total FPSParams(M) Params(M)
+CMX [66] MiT-B5 181.1 181.1 9.0
+CMNeXt [67] MiT-B4 119.6 119.6 12.4
+DPLNet [12] MiT-B5 7.2 88.6 13.6
+Ours Swin-B 7.5 94.4 13.0
+GeminiFusion [25] Swin-L 369.2 369.2 7.5
+Ours Swin-L 16.1 211.4 8.8
+Table 6. Comparison of model parameters and inference speed.
+The FPS of previous methods is tested in an environment identical
+to our model.
+in model performance. Furthermore, we directly use the
+ground truth semantic map Y to supervise the outputs of S2
+and S3, rather than using M ⊙ Y as Eq. 7 and 8. The re-
+sults show that using Y directly is less effective than using
+M ⊙ Y . This occurs because the masked regions are exces-
+sively challenging for single-modality models, leading to
+substantial losses and hindering the model training process.
+4.3. Model Efficiency
+We compare our approach with other methods in terms of
+model parameters and inference speed. As shown in Ta-
+ble 6, our focus on a lightweight and efficient design, with
+all proposed modules implemented in low-rank spaces, al-
+lows our model to maintain a low parameter count and
+achieve rapid inference speeds, even with a dual-stream ar-
+chitecture. Consequently, our model offers significant ad-
+vantages for practical applications.
+5. Conclusion
+In this paper, we propose a novel symmetric framework for
+unifying multimodal semantic segmentation in a parameter-
+efficient manner. This framework treats the X modality as
+an equal contributor alongside RGB, rather than a supple-
+mentary prompt. Specifically, we present MAPA, designed
+to simultaneously adapt the capabilities of a powerful pre-
+trained model to both RGB and X modalities. We propose
+DSCF to facilitate effective and efficient cross-modality fu-
+sion. To enhance modality enhancement and fusion, we
+propose a new training strategy, MMST. Superior perfor-
+mance on public benchmarks demonstrates the effective-
+ness and efficiency of our model.
+Limitations. Although our model performs well on multi-
+ple downstream multimodal semantic segmentation tasks, it
+has not been explored for visual-language tasks. In future
+work, we will consider incorporating language modalities
+to support a broader range of visual-language tasks.
+Acknowledgement. This work was supported
+by the National Natural Science Foundation of
+China (No. 62072110, U21A20471, U21A20471).
+10594
+
+
+===== PDF_PAGE_009 =====
+
+References
+[1] Inigo Alonso and Ana C Murillo. Ev-segnet: Semantic
+segmentation for event-based cameras. In Proceedings of
+the IEEE/CVF Conference on Computer Vision and Pattern
+Recognition Workshops, pages 0–0, 2019. 2
+[2] Shubhankar Borse, Hong Cai, Yizhe Zhang, and Fatih
+Porikli. Hs3: Learning with proper task complexity in hier-
+archically supervised semantic segmentation. arXiv preprint
+arXiv:2111.02333, 2021. 6
+[3] Tim Broedermann, Christos Sakaridis, Dengxin Dai, and
+Luc Van Gool. Hrfuser: A multi-resolution sensor fusion ar-
+chitecture for 2d object detection. In 2023 IEEE 26th Inter-
+national Conference on Intelligent Transportation Systems
+(ITSC), pages 4159–4166. IEEE, 2023. 7
+[4] Jiaxin Cai, Qi Li, Yulin Shen, Jia Pan, and Wenxi Liu. Effi-
+cient semantic segmentation for compressed video. In 2024
+IEEE International Conference on Robotics and Automation
+(ICRA), pages 4266–4272. IEEE, 2024. 2
+[5] Jinming Cao, Hanchao Leng, Dani Lischinski, Daniel
+Cohen-Or, Changhe Tu, and Yangyan Li. Shapeconv: Shape-
+aware convolutional layer for indoor rgb-d semantic segmen-
+tation. In Proceedings of the IEEE/CVF international con-
+ference on computer vision , pages 7088–7097, 2021. 1, 2,
+6
+[6] Liang-Chieh Chen, George Papandreou, Iasonas Kokkinos,
+Kevin Murphy, and Alan L Yuille. Deeplab: Semantic image
+segmentation with deep convolutional nets, atrous convolu-
+tion, and fully connected crfs. IEEE transactions on pattern
+analysis and machine intelligence, 40(4):834–848, 2017. 1
+[7] Lin-Zhuo Chen, Zheng Lin, Ziqin Wang, Yong-Liang Yang,
+and Ming-Ming Cheng. Spatial information guided convolu-
+tion for real-time rgbd semantic segmentation. IEEE Trans-
+actions on Image Processing, 30:2313–2324, 2021. 2, 6
+[8] Shoufa Chen, Chongjian Ge, Zhan Tong, Jiangliu Wang,
+Yibing Song, Jue Wang, and Ping Luo. Adaptformer:
+Adapting vision transformers for scalable visual recogni-
+tion. Advances in Neural Information Processing Systems ,
+35:16664–16678, 2022. 2
+[9] Xiaokang Chen, Kwan-Yee Lin, Jingbo Wang, Wayne Wu,
+Chen Qian, Hongsheng Li, and Gang Zeng. Bi-directional
+cross-modality feature propagation with separation-and-
+aggregation gate for rgb-d semantic segmentation. In Eu-
+ropean conference on computer vision , pages 561–577.
+Springer, 2020. 1, 2, 6
+[10] Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li,
+and Li Fei-Fei. Imagenet: A large-scale hierarchical image
+database. In 2009 IEEE conference on computer vision and
+pattern recognition, pages 248–255. Ieee, 2009. 3, 5
+[11] Shaohua Dong, Wujie Zhou, Xiaohong Qian, and Lu Yu.
+Gebnet: Graph-enhancement branch network for rgb-t scene
+parsing. IEEE Signal Processing Letters , 29:2273–2277,
+2022. 6
+[12] Shaohua Dong, Yunhe Feng, Qing Yang, Yan Huang, Dong-
+fang Liu, and Heng Fan. Efficient multimodal seman-
+tic segmentation via dual-prompt learning. arXiv preprint
+arXiv:2312.00360, 2023. 1, 2, 6, 7, 8
+[13] Shaohua Dong, Wujie Zhou, Caie Xu, and Weiqing Yan.
+Egfnet: Edge-aware guidance fusion network for rgb–
+thermal urban scene parsing. IEEE Transactions on Intel-
+ligent Transportation Systems, 2023. 2
+[14] Jun Fu, Jing Liu, Haijie Tian, Yong Li, Yongjun Bao, Zhiwei
+Fang, and Hanqing Lu. Dual attention network for scene seg-
+mentation. In Proceedings of the IEEE/CVF conference on
+computer vision and pattern recognition, pages 3146–3154,
+2019. 1
+[15] Suining Gao, Xiubin Yang, Li Jiang, Zongqiang Fu, and Ji-
+amin Du. Global feature-based multimodal semantic seg-
+mentation. Pattern Recognition, 151:110340, 2024. 6
+[16] Rohit Girdhar, Mannat Singh, Nikhila Ravi, Laurens Van
+Der Maaten, Armand Joulin, and Ishan Misra. Omnivore:
+A single model for many visual modalities. In Proceedings
+of the IEEE/CVF conference on computer vision and pattern
+recognition, pages 16102–16112, 2022. 5, 6
+[17] Qishen Ha, Kohei Watanabe, Takumi Karasawa, Yoshitaka
+Ushiku, and Tatsuya Harada. Mfnet: Towards real-time se-
+mantic segmentation for autonomous vehicles with multi-
+spectral scenes. In 2017 IEEE/RSJ International Conference
+on Intelligent Robots and Systems (IROS), pages 5108–5115.
+IEEE, 2017. 2, 6, 7
+[18] Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr
+Doll´ar, and Ross Girshick. Masked autoencoders are scalable
+vision learners. In Proceedings of the IEEE/CVF conference
+on computer vision and pattern recognition , pages 16000–
+16009, 2022. 2
+[19] Qibin He. Prompting multi-modal image segmentation with
+semantic grouping. In Proceedings of the AAAI Conference
+on Artificial Intelligence, pages 2094–2102, 2024. 1, 2, 4, 6
+[20] Lingyi Hong, Shilin Yan, Renrui Zhang, Wanyun Li, Xinyu
+Zhou, Pinxue Guo, Kaixun Jiang, Yiting Chen, Jinglun Li,
+Zhaoyu Chen, et al. Onetracker: Unifying visual object
+tracking with foundation models and efficient tuning. InPro-
+ceedings of the IEEE/CVF Conference on Computer Vision
+and Pattern Recognition, pages 19079–19091, 2024. 2, 4
+[21] Xiaojun Hou, Jiazheng Xing, Yijie Qian, Yaowei Guo, Shuo
+Xin, Junhao Chen, Kai Tang, Mengmeng Wang, Zhengkai
+Jiang, Liang Liu, et al. Sdstrack: Self-distillation symmet-
+ric adapter learning for multi-modal visual object tracking.
+In Proceedings of the IEEE/CVF Conference on Computer
+Vision and Pattern Recognition, pages 26551–26561, 2024.
+2
+[22] Neil Houlsby, Andrei Giurgiu, Stanislaw Jastrzebski, Bruna
+Morrone, Quentin De Laroussilhe, Andrea Gesmundo, Mona
+Attariyan, and Sylvain Gelly. Parameter-efficient transfer
+learning for nlp. In International conference on machine
+learning, pages 2790–2799. PMLR, 2019. 2
+[23] Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-
+Zhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen.
+Lora: Low-rank adaptation of large language models. arXiv
+preprint arXiv:2106.09685, 2021. 2
+[24] Xinxin Hu, Kailun Yang, Lei Fei, and Kaiwei Wang. Acnet:
+Attention based network to exploit complementary features
+for rgbd semantic segmentation. In 2019 IEEE international
+conference on image processing (ICIP) , pages 1440–1444.
+IEEE, 2019. 2
+10595
+
+
+===== PDF_PAGE_010 =====
+
+[25] Ding Jia, Jianyuan Guo, Kai Han, Han Wu, Chao Zhang,
+Chang Xu, and Xinghao Chen. Geminifusion: Efficient
+pixel-wise multimodal fusion for vision transformer. arXiv
+preprint arXiv:2406.01210, 2024. 2, 5, 6, 8
+[26] Menglin Jia, Luming Tang, Bor-Chun Chen, Claire Cardie,
+Serge Belongie, Bharath Hariharan, and Ser-Nam Lim. Vi-
+sual prompt tuning. In European Conference on Computer
+Vision, pages 709–727. Springer, 2022. 5
+[27] Agastya Kalra, Vage Taamazyan, Supreeth Krishna
+Rao, Kartik Venkataraman, Ramesh Raskar, and Achuta
+Kadambi. Deep polarization cues for transparent object
+segmentation. In Proceedings of the IEEE/CVF Confer-
+ence on Computer Vision and Pattern Recognition , pages
+8602–8611, 2020. 2
+[28] Yi-Lun Lee, Yi-Hsuan Tsai, Wei-Chen Chiu, and Chen-Yu
+Lee. Multimodal prompting with missing modalities for vi-
+sual recognition. In Proceedings of the IEEE/CVF Confer-
+ence on Computer Vision and Pattern Recognition , pages
+14943–14952, 2023. 2
+[29] Brian Lester, Rami Al-Rfou, and Noah Constant. The power
+of scale for parameter-efficient prompt tuning.arXiv preprint
+arXiv:2104.08691, 2021. 2
+[30] Bingyu Li, Da Zhang, Zhiyuan Zhao, Junyu Gao, and Xue-
+long Li. Stitchfusion: Weaving any visual modalities to en-
+hance multimodal semantic segmentation. arXiv preprint
+arXiv:2408.01343, 2024. 6, 7
+[31] Gongyang Li, Yike Wang, Zhi Liu, Xinpeng Zhang, and Dan
+Zeng. Rgb-t semantic segmentation with location, activation,
+and sharpening. IEEE Transactions on Circuits and Systems
+for Video Technology, 33(3):1223–1235, 2022. 1, 6
+[32] Yaowei Li, Ruijie Quan, Linchao Zhu, and Yi Yang. Efficient
+multimodal fusion via interactive prompting. InProceedings
+of the IEEE/CVF conference on computer vision and pattern
+recognition, pages 2604–2613, 2023. 2
+[33] Mingjian Liang, Junjie Hu, Chenyu Bao, Hua Feng, Fuqin
+Deng, and Tin Lun Lam. Explicit attention-enhanced fusion
+for rgb-thermal perception tasks. IEEE Robotics and Au-
+tomation Letters, 8(7):4060–4067, 2023. 2, 6
+[34] Yupeng Liang, Ryosuke Wakaki, Shohei Nobuhara, and Ko
+Nishino. Multimodal material segmentation. In Proceedings
+of the IEEE/CVF Conference on Computer Vision and Pat-
+tern Recognition, pages 19800–19808, 2022. 6, 7
+[35] Huayao Liu, Jiaming Zhang, Kailun Yang, Xinxin Hu, and
+Rainer Stiefelhagen. Cmx: Cross-modal fusion for rgb-x
+semantic segmentation with transformers. arXiv e-prints ,
+pages arXiv–2203, 2022. 6
+[36] Wenxi Liu, Jiaxin Cai, Qi Li, Chenyang Liao, Jingjing Cao,
+Shengfeng He, and Yuanlong Yu. Learning nighttime se-
+mantic segmentation the hard way. ACM Transactions on
+Multimedia Computing, Communications and Applications ,
+20(7):1–23, 2024. 2
+[37] Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng
+Zhang, Stephen Lin, and Baining Guo. Swin transformer:
+Hierarchical vision transformer using shifted windows. In
+Proceedings of the IEEE/CVF international conference on
+computer vision, pages 10012–10022, 2021. 3, 5
+[38] Haiyang Mei, Bo Dong, Wen Dong, Jiaxi Yang, Seung-
+Hwan Baek, Felix Heide, Pieter Peers, Xiaopeng Wei, and
+Xin Yang. Glass segmentation using intensity and spectral
+polarization cues. In Proceedings of the IEEE/CVF con-
+ference on computer vision and pattern recognition , pages
+12622–12631, 2022. 2
+[39] Yuzhen Niu, Guanchao Long, Wenxi Liu, Wenzhong Guo,
+and Shengfeng He. Boundary-aware rgbd salient object de-
+tection with cross-modal feature sampling. IEEE Transac-
+tions on Image Processing, 29:9496–9507, 2020. 1
+[40] Liangqiong Qu, Shengfeng He, Jiawei Zhang, Jiandong
+Tian, Yandong Tang, and Qingxiong Yang. Rgbd salient ob-
+ject detection via deep fusion. IEEE transactions on image
+processing, 26(5):2274–2285, 2017. 2
+[41] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
+Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,
+Amanda Askell, Pamela Mishkin, Jack Clark, et al. Learning
+transferable visual models from natural language supervi-
+sion. In International conference on machine learning, pages
+8748–8763. PMLR, 2021. 2
+[42] Md Kaykobad Reza, Ashley Prater-Bennette, and M Salman
+Asif. Mmsformer: Multimodal transformer for material and
+semantic segmentation. IEEE Open Journal of Signal Pro-
+cessing, 2024. 1
+[43] Giulia Rizzoli, Donald Shenaj, and Pietro Zanuttigh. Source-
+free domain adaptation for rgb-d semantic segmentation with
+vision transformers. In Proceedings of the IEEE/CVF Winter
+Conference on Applications of Computer Vision, pages 615–
+624, 2024. 2
+[44] Shreyas S Shivakumar, Neil Rodrigues, Alex Zhou, Ian D
+Miller, Vijay Kumar, and Camillo J Taylor. Pst900: Rgb-
+thermal calibration, dataset and segmentation network. In
+2020 IEEE international conference on robotics and au-
+tomation (ICRA), pages 9441–9447. IEEE, 2020. 2, 6
+[45] Nathan Silberman, Derek Hoiem, Pushmeet Kohli, and Rob
+Fergus. Indoor segmentation and support inference from
+rgbd images. In Computer Vision–ECCV 2012: 12th Eu-
+ropean Conference on Computer Vision, Florence, Italy, Oc-
+tober 7-13, 2012, Proceedings, Part V 12 , pages 746–760.
+Springer, 2012. 2, 6, 7
+[46] Shuran Song, Samuel P Lichtenberg, and Jianxiong Xiao.
+Sun rgb-d: A rgb-d scene understanding benchmark suite. In
+Proceedings of the IEEE conference on computer vision and
+pattern recognition, pages 567–576, 2015. 6
+[47] Yuxiang Sun, Weixun Zuo, and Ming Liu. Rtfnet: Rgb-
+thermal fusion network for semantic segmentation of urban
+scenes. IEEE Robotics and Automation Letters , 4(3):2576–
+2583, 2019. 1, 6
+[48] Pardis Taghavi, Reza Langari, and Gaurav Pandey. Swin-
+mtl: A shared architecture for simultaneous depth estimation
+and semantic segmentation from monocular camera images.
+arXiv preprint arXiv:2403.10662, 2024. 6
+[49] Hao Tang, Zechao Li, Dong Zhang, Shengfeng He, and Jin-
+hui Tang. Divide-and-conquer: Confluent triple-flow net-
+work for rgb-t salient object detection. IEEE Transactions
+on Pattern Analysis and Machine Intelligence, 2024. 2
+[50] Yikai Wang, Wenbing Huang, Fuchun Sun, Tingyang Xu, Yu
+Rong, and Junzhou Huang. Deep multimodal fusion by chan-
+nel exchanging. Advances in neural information processing
+systems, 33:4835–4845, 2020. 2
+10596
+
+
+===== PDF_PAGE_011 =====
+
+[51] Yikai Wang, Xinghao Chen, Lele Cao, Wenbing Huang,
+Fuchun Sun, and Yunhe Wang. Multimodal token fusion for
+vision transformers. In Proceedings of the IEEE/CVF con-
+ference on computer vision and pattern recognition , pages
+12186–12195, 2022. 6, 7
+[52] Yikai Wang, Fuchun Sun, Wenbing Huang, Fengxiang He,
+and Dacheng Tao. Channel exchanging networks for multi-
+modal and multitask dense image prediction. IEEE Transac-
+tions on Pattern Analysis and Machine Intelligence , 45(5):
+5481–5496, 2022. 6
+[53] Zhixiang Wei, Lin Chen, Yi Jin, Xiaoxiao Ma, Tianle Liu,
+Pengyang Ling, Ben Wang, Huaian Chen, and Jinjin Zheng.
+Stronger fewer & superior: Harnessing vision foundation
+models for domain generalized semantic segmentation. In
+Proceedings of the IEEE/CVF Conference on Computer Vi-
+sion and Pattern Recognition, pages 28619–28630, 2024. 2
+[54] Jialin Wu, Xia Hu, Yaqing Wang, Bo Pang, and Radu Sori-
+cut. Omni-smola: Boosting generalist multimodal models
+with soft mixture of low-rank experts. In Proceedings of
+the IEEE/CVF Conference on Computer Vision and Pattern
+Recognition, pages 14205–14215, 2024. 2
+[55] Wei Wu, Tao Chu, and Qiong Liu. Complementarity-aware
+cross-modal feature fusion network for rgb-t semantic seg-
+mentation. Pattern Recognition, 131:108881, 2022. 2
+[56] Zongwei Wu, Jilai Zheng, Xiangxuan Ren, Florin-Alexandru
+Vasluianu, Chao Ma, Danda Pani Paudel, Luc Van Gool, and
+Radu Timofte. Single-model and any-modality for video ob-
+ject tracking. In Proceedings of the IEEE/CVF Conference
+on Computer Vision and Pattern Recognition, pages 19156–
+19166, 2024. 2
+[57] Zhuofan Xia, Xuran Pan, Shiji Song, Li Erran Li, and Gao
+Huang. Vision transformer with deformable attention. In
+Proceedings of the IEEE/CVF conference on computer vi-
+sion and pattern recognition, pages 4794–4803, 2022. 4, 8
+[58] Kaite Xiang, Kailun Yang, and Kaiwei Wang. Polarization-
+driven semantic segmentation via efficient attention-bridged
+fusion. Optics Express, 29(4):4802–4820, 2021. 2
+[59] Xuan Yang, Liangzhe Yuan, Kimberly Wilber, Astuti
+Sharma, Xiuye Gu, Siyuan Qiao, Stephanie Debats,
+Huisheng Wang, Hartwig Adam, Mikhail Sirotenko, et al.
+Polymax: General dense prediction with mask transformer.
+In Proceedings of the IEEE/CVF Winter Conference on Ap-
+plications of Computer Vision, pages 1050–1061, 2024. 6
+[60] Bowen Yin, Xuying Zhang, Zhong-Yu Li, Li Liu, Ming-
+Ming Cheng, and Qibin Hou. Dformer: Rethinking rgbd
+representation learning for semantic segmentation. In The
+Twelfth International Conference on Learning Representa-
+tions. 1, 6
+[61] Xiaowen Ying and Mooi Choo Chuah. Uctnet: Uncertainty-
+aware cross-modal transformer network for indoor rgb-d se-
+mantic segmentation. In European Conference on Computer
+Vision, pages 20–37. Springer, 2022. 2
+[62] Lu Yuan, Dongdong Chen, Yi-Ling Chen, Noel Codella,
+Xiyang Dai, Jianfeng Gao, Houdong Hu, Xuedong Huang,
+Boxin Li, Chunyuan Li, et al. Florence: A new
+foundation model for computer vision. arXiv preprint
+arXiv:2111.11432, 2021. 2
+[63] Guodong Zhang, Jing-Hao Xue, Pengwei Xie, Sifan Yang,
+and Guijin Wang. Non-local aggregation for rgb-d semantic
+segmentation. IEEE Signal Processing Letters, 28:658–662,
+2021. 6
+[64] Jiaming Zhang, Kailun Yang, and Rainer Stiefelhagen. Ex-
+ploring event-driven dynamic context for accident scene seg-
+mentation. IEEE Transactions on Intelligent Transportation
+Systems, 23(3):2606–2622, 2021. 2
+[65] Jiaming Zhang, Kailun Yang, and Rainer Stiefelhagen. Is-
+safe: Improving semantic segmentation in accidents by fus-
+ing event-based data. In 2021 IEEE/RSJ International Con-
+ference on Intelligent Robots and Systems (IROS) , pages
+1132–1139. IEEE, 2021. 2
+[66] Jiaming Zhang, Huayao Liu, Kailun Yang, Xinxin Hu, Ruip-
+ing Liu, and Rainer Stiefelhagen. Cmx: Cross-modal fusion
+for rgb-x semantic segmentation with transformers. IEEE
+Transactions on intelligent transportation systems, 2023. 1,
+2, 6, 7, 8
+[67] Jiaming Zhang, Ruiping Liu, Hao Shi, Kailun Yang, Si-
+mon Reiß, Kunyu Peng, Haodong Fu, Kaiwei Wang, and
+Rainer Stiefelhagen. Delivering arbitrary-modal semantic
+segmentation. In Proceedings of the IEEE/CVF Conference
+on Computer Vision and Pattern Recognition , pages 1136–
+1147, 2023. 1, 6, 7, 8
+[68] Qiang Zhang, Shenlu Zhao, Yongjiang Luo, Dingwen
+Zhang, Nianchang Huang, and Jungong Han. Abmdrnet:
+Adaptive-weighted bi-directional modality difference reduc-
+tion network for rgb-t semantic segmentation. In Proceed-
+ings of the IEEE/CVF Conference on Computer Vision and
+Pattern Recognition, pages 2633–2642, 2021. 2
+[69] Hengshuang Zhao, Jianping Shi, Xiaojuan Qi, Xiaogang
+Wang, and Jiaya Jia. Pyramid scene parsing network. In
+Proceedings of the IEEE conference on computer vision and
+pattern recognition, pages 2881–2890, 2017. 1
+[70] Zhida Zhao, Jia Li, Lijun Wang, Yifan Wang, and Huchuan
+Lu. Maskmentor: Unlocking the potential of masked self-
+teaching for missing modality rgb-d semantic segmentation.
+In Proceedings of the 32nd ACM International Conference
+on Multimedia, pages 1915–1923, 2024. 2
+[71] Xu Zheng, Yuanhuiyi Lyu, and Lin Wang. Learning
+modality-agnostic representation for semantic segmentation
+from any modalities. In Proceedings of the IEEE European
+Conference on Computer Vision (ECCV). Springer, 2024. 6,
+7
+[72] Bolei Zhou, Hang Zhao, Xavier Puig, Sanja Fidler, Adela
+Barriuso, and Antonio Torralba. Scene parsing through
+ade20k dataset. In Proceedings of the IEEE conference on
+computer vision and pattern recognition , pages 633–641,
+2017. 6
+[73] Hao Zhou, Lu Qi, Zhaoliang Wan, Hai Huang, and Xu Yang.
+Rgb-d co-attention network for semantic segmentation. In
+Proceedings of the Asian conference on computer vision ,
+2020. 2
+[74] Wujie Zhou, Shaohua Dong, Jingsheng Lei, and Lu Yu.
+Mtanet: Multitask-aware network with hierarchical multi-
+modal fusion for rgb-t urban scene understanding. IEEE
+Transactions on Intelligent Vehicles , 8(1):48–58, 2022. 2,
+6
+10597
+
+
+===== PDF_PAGE_012 =====
+
+[75] Wujie Zhou, Shaohua Dong, Caie Xu, and Yaguan Qian.
+Edge-aware guidance fusion network for rgb–thermal scene
+parsing. In Proceedings of the AAAI conference on artificial
+intelligence, pages 3571–3579, 2022. 6
+[76] Wujie Zhou, Shaohua Dong, Meixin Fang, and Lu Yu.
+Cacfnet: Cross-modal attention cascaded fusion network for
+rgb-t urban scene parsing. IEEE Transactions on Intelligent
+Vehicles, 2023. 6
+[77] Jiawen Zhu, Simiao Lai, Xin Chen, Dong Wang, and
+Huchuan Lu. Visual prompt multi-modal tracking. In Pro-
+ceedings of the IEEE/CVF conference on computer vision
+and pattern recognition, pages 9516–9526, 2023. 2, 7, 8
+10598

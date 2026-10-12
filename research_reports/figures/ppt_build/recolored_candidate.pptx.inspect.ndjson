@@ -1,0 +1,290 @@
+{"kind":"deck","id":"pr/yhve2q","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"a  Current image + retrieved building evidence","textShapes":62}
+{"kind":"shape","id":"sh/0bm5svyd","slide":1,"name":"Editable 1 rect","bbox":[0,0,1500,1040]}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"name":"Editable 2 a  Current image + retrieved building evidence","text":"a  Current image + retrieved building evidence","textPreview":"a  Current image + retrieved building evidence","textChars":46,"textLines":1,"bbox":[25,10,597.94,36]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"Editable 4 Pre-event RGB","text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[10.63,162,174.73,33]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"Editable 6 Post-event SAR","text":"Post-event SAR","textPreview":"Post-event SAR","textChars":14,"textLines":1,"bbox":[6.62,289,183.41,33]}
+{"kind":"shape","id":"sh/sryl4zqx","slide":1,"name":"Editable 7 rect","bbox":[209,80,290,230]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"name":"Editable 8 DamageFormer","text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[255.96,86,211.56,36]}
+{"kind":"shape","id":"sh/utg3698n","slide":1,"name":"Editable 9 rect","bbox":[222,136,112,48]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"name":"Editable 10 RGB","text":"RGB","textPreview":"RGB","textChars":3,"textLines":1,"bbox":[251.99,145,64.02,33]}
+{"kind":"shape","id":"sh/hofulsf2","slide":1,"name":"Editable 11 rect","bbox":[222,235,112,48]}
+{"kind":"textbox","id":"sh/ul4vaxgb","slide":1,"name":"Editable 12 SAR","text":"SAR","textPreview":"SAR","textChars":3,"textLines":1,"bbox":[253.32,244,62.02,33]}
+{"kind":"shape","id":"sh/vmdcj2xw","slide":1,"name":"Editable 13 rect","bbox":[376,181,14,14]}
+{"kind":"shape","id":"sh/4r6dg7et","slide":1,"name":"Editable 14 rect","bbox":[392,181,14,14]}
+{"kind":"shape","id":"sh/5sfepcfe","slide":1,"name":"Editable 15 rect","bbox":[408,181,14,14]}
+{"kind":"shape","id":"sh/ipovexwn","slide":1,"name":"Editable 16 rect","bbox":[424,181,14,14]}
+{"kind":"shape","id":"sh/3qxwn2x8","slide":1,"name":"Editable 17 rect","bbox":[376,197,14,14]}
+{"kind":"shape","id":"sh/sfqdkrep","slide":1,"name":"Editable 18 rect","bbox":[392,197,14,14]}
+{"kind":"shape","id":"sh/dgzetcfa","slide":1,"name":"Editable 19 rect","bbox":[408,197,14,14]}
+{"kind":"shape","id":"sh/1cvuxc7e","slide":1,"name":"Editable 20 rect","bbox":[424,197,14,14]}
+{"kind":"shape","id":"sh/0bmd476t","slide":1,"name":"Editable 21 rect","bbox":[376,213,14,14]}
+{"kind":"shape","id":"sh/zadcv2p8","slide":1,"name":"Editable 22 rect","bbox":[392,213,14,14]}
+{"kind":"shape","id":"sh/e94v2hon","slide":1,"name":"Editable 23 rect","bbox":[408,213,14,14]}
+{"kind":"shape","id":"sh/90ve1w7q","slide":1,"name":"Editable 24 rect","bbox":[424,213,14,14]}
+{"kind":"textbox","id":"sh/ozmd8r65","slide":1,"name":"Editable 25 Fusion","text":"Fusion","textPreview":"Fusion","textChars":6,"textLines":1,"bbox":[372.98,254,84.05,33]}
+{"kind":"shape","id":"sh/nydczmpk","slide":1,"name":"Editable 26 path","bbox":[152,121,70,39]}
+{"kind":"shape","id":"sh/mx4v6hoz","slide":1,"name":"Editable 26 path arrow","bbox":[212,155.5,10,9]}
+{"kind":"shape","id":"sh/p4bu5s76","slide":1,"name":"Editable 27 path","bbox":[152,247,70,0.1]}
+{"kind":"shape","id":"sh/432dwn6l","slide":1,"name":"Editable 27 path arrow","bbox":[212,242.5,10,9]}
+{"kind":"shape","id":"sh/uxgjq907","slide":1,"name":"Editable 28 path","bbox":[334,160,39,30]}
+{"kind":"shape","id":"sh/vyp0je1s","slide":1,"name":"Editable 28 path arrow","bbox":[363,185.5,10,9]}
+{"kind":"shape","id":"sh/wzy1szid","slide":1,"name":"Editable 29 path","bbox":[334,220,39,39]}
+{"kind":"shape","id":"sh/h072l4jy","slide":1,"name":"Editable 29 path arrow","bbox":[363,215.5,10,9]}
+{"kind":"shape","id":"sh/i1gje90j","slide":1,"name":"Editable 30 rect","bbox":[548,80,242,230]}
+{"kind":"textbox","id":"sh/j2pkne14","slide":1,"name":"Editable 31 Regional context (b)","text":"Regional context (b)","textPreview":"Regional context (b)","textChars":20,"textLines":1,"bbox":[561.61,90,226.79,33]}
+{"kind":"shape","id":"sh/43y1gji9","slide":1,"name":"Editable 32 path","bbox":[573,136,90.24,86.48]}
+{"kind":"shape","id":"sh/54r2poju","slide":1,"name":"Editable 33 path","bbox":[573,136,38.54,33.84]}
+{"kind":"shape","id":"sh/y5wjip0z","slide":1,"name":"Editable 34 path","bbox":[611.54,136,51.7,52.46]}
+{"kind":"shape","id":"sh/z650ba1k","slide":1,"name":"Editable 35 path","bbox":[573,169.84,58.13,37.6]}
+{"kind":"shape","id":"sh/z2xgf6to","slide":1,"name":"Editable 36 path","bbox":[671,183,29,0.1]}
+{"kind":"shape","id":"sh/e1oz61c3","slide":1,"name":"Editable 36 path arrow","bbox":[690,178.5,10,9]}
+{"kind":"shape","id":"sh/14fyhgbe","slide":1,"name":"Editable 37 rect","bbox":[713,152,46,12]}
+{"kind":"shape","id":"sh/036h8but","slide":1,"name":"Editable 38 rect","bbox":[713,172,46,12]}
+{"kind":"shape","id":"sh/nqxgjqtk","slide":1,"name":"Editable 39 rect","bbox":[713,192,46,12]}
+{"kind":"textbox","id":"sh/mpozalcz","slide":1,"name":"Editable 40 Pool + interact","text":"Pool + interact","textPreview":"Pool + interact","textChars":15,"textLines":1,"bbox":[591.95,253,166.42,33]}
+{"kind":"shape","id":"sh/9sfylgbq","slide":1,"name":"Editable 41 path","bbox":[499,196,49,0.1]}
+{"kind":"shape","id":"sh/or6hcvu5","slide":1,"name":"Editable 41 path arrow","bbox":[538,191.5,10,9]}
+{"kind":"textbox","id":"sh/buh0nqtg","slide":1,"name":"Editable 42 F","text":"F","textPreview":"F","textChars":1,"textLines":1,"bbox":[515.66,154,26.67,33]}
+{"kind":"shape","id":"sh/at8zelcb","slide":1,"name":"Editable 43 rect","bbox":[843,80,258,230]}
+{"kind":"textbox","id":"sh/8zqx4vq9","slide":1,"name":"Editable 44 Support reading (c)","text":"Support reading (c)","textPreview":"Support reading (c)","textChars":19,"textLines":1,"bbox":[869.27,90,217.45,33]}
+{"kind":"shape","id":"sh/t0jyd0ru","slide":1,"name":"Editable 45 rect","bbox":[866,152,46,12]}
+{"kind":"shape","id":"sh/6x8f2583","slide":1,"name":"Editable 46 rect","bbox":[866,172,46,12]}
+{"kind":"shape","id":"sh/7yhgbq9o","slide":1,"name":"Editable 47 rect","bbox":[866,192,46,12]}
+{"kind":"shape","id":"sh/kvqx0vqd","slide":1,"name":"Editable 48 rect","bbox":[1031,152,46,12]}
+{"kind":"shape","id":"sh/lwzy90ry","slide":1,"name":"Editable 49 rect","bbox":[1031,172,46,12]}
+{"kind":"shape","id":"sh/yt8fyl87","slide":1,"name":"Editable 50 rect","bbox":[1031,192,46,12]}
+{"kind":"shape","id":"sh/juhg7q9s","slide":1,"name":"Editable 51 path","bbox":[912,158,119,20]}
+{"kind":"shape","id":"sh/wr6xwbq1","slide":1,"name":"Editable 51 path","bbox":[912,158,119,20]}
+{"kind":"shape","id":"sh/xsfy5grm","slide":1,"name":"Editable 51 path","bbox":[912,198,119,0.1]}
+{"kind":"shape","id":"sh/dc7md8fe","slide":1,"name":"Editable 52 path","bbox":[972,218,0.1,20]}
+{"kind":"shape","id":"sh/cby5k3yt","slide":1,"name":"Editable 52 path arrow","bbox":[967.5,228,9,10]}
+{"kind":"textbox","id":"sh/ra54bix8","slide":1,"name":"Editable 53 Read → aggregate","text":"Read → aggregate","textPreview":"Read → aggregate","textChars":16,"textLines":1,"bbox":[870.59,253,214.81,33]}
+{"kind":"shape","id":"sh/q9wnidgn","slide":1,"name":"Editable 54 path","bbox":[790,196,53,0.1]}
+{"kind":"shape","id":"sh/5onm98f2","slide":1,"name":"Editable 54 path arrow","bbox":[833,191.5,10,9]}
+{"kind":"textbox","id":"sh/4ne5g3yh","slide":1,"name":"Editable 55 T_A","text":"T_A","textPreview":"T_A","textChars":3,"textLines":1,"bbox":[792.99,154,57.01,33]}
+{"kind":"shape","id":"sh/3m547yxw","slide":1,"name":"Editable 56 circle","bbox":[1152,178,36,36]}
+{"kind":"textbox","id":"sh/ilw3etgr","slide":1,"name":"Editable 57 +","text":"+","textPreview":"+","textChars":1,"textLines":1,"bbox":[1162.11,179,27.78,36]}
+{"kind":"shape","id":"sh/9kr6lsfm","slide":1,"name":"Editable 58 path","bbox":[1101,196,49,0.1]}
+{"kind":"shape","id":"sh/oji5sne1","slide":1,"name":"Editable 58 path arrow","bbox":[1140,191.5,10,9]}
+{"kind":"shape","id":"sh/6psjmpwj","slide":1,"name":"Editable 59 path","bbox":[771,57,399,119]}
+{"kind":"shape","id":"sh/7q1kfudo","slide":1,"name":"Editable 59 path arrow","bbox":[1165.5,166,9,10]}
+{"kind":"textbox","id":"sh/8ra1oze9","slide":1,"name":"Editable 60 Pixel pathway F_A","text":"Pixel pathway F_A","textPreview":"Pixel pathway F_A","textChars":17,"textLines":1,"bbox":[882.62,26,211.75,33]}
+{"kind":"shape","id":"sh/ts32h4vu","slide":1,"name":"Editable 61 rect","bbox":[1240,87,229,61]}
+{"kind":"textbox","id":"sh/ylsjipw7","slide":1,"name":"Editable 62 Pixel classifier","text":"Pixel classifier","textPreview":"Pixel classifier","textChars":16,"textLines":1,"bbox":[1278.48,102.5,165.05,33]}
+{"kind":"textbox","id":"sh/qd8jy94v","slide":1,"name":"Editable 68 Damage map","text":"Example map*","textPreview":"Example map*","textChars":12,"textLines":1,"bbox":[1268,275,210,32]}
+{"kind":"shape","id":"sh/d0j29on6","slide":1,"name":"Editable 69 path","bbox":[1190,118,50,78]}
+{"kind":"shape","id":"sh/cfa10jml","slide":1,"name":"Editable 69 path arrow","bbox":[1230,113.5,10,9]}
+{"kind":"shape","id":"sh/3ahk3u54","slide":1,"name":"Editable 70 path","bbox":[1354,148,0.1,18]}
+{"kind":"shape","id":"sh/pcz254na","slide":1,"name":"Editable 71 rect","bbox":[33,355,108,68.4]}
+{"kind":"shape","id":"sh/4bq1wzmp","slide":1,"name":"Editable 72 path","bbox":[33,393.7,108,0.1]}
+{"kind":"shape","id":"sh/f6x0zu58","slide":1,"name":"Editable 72 path","bbox":[96.9,355,0.1,68.4]}
+{"kind":"shape","id":"sh/u5ojqpon","slide":1,"name":"Editable 73 path","bbox":[42,363.1,35.1,25.2]}
+{"kind":"shape","id":"sh/kbmh0v25","slide":1,"name":"Editable 74 rect","bbox":[109.5,364.9,22.5,21.6]}
+{"kind":"shape","id":"sh/5cvy903q","slide":1,"name":"Editable 75 rect","bbox":[44.7,404.5,36.9,12.6]}
+{"kind":"textbox","id":"sh/ip4zyl4f","slide":1,"name":"Editable 76 Train cases","text":"Train cases","textPreview":"Train cases","textChars":11,"textLines":1,"bbox":[25.42,433,135.16,33]}
+{"kind":"shape","id":"sh/jadg7ql0","slide":1,"name":"Editable 77 rect","bbox":[215,360,240,70]}
+{"kind":"textbox","id":"sh/sf6h4v2h","slide":1,"name":"Editable 78 Matched encoder","text":"Matched encoder","textPreview":"Matched encoder","textChars":15,"textLines":1,"bbox":[242.27,380,198.46,33]}
+{"kind":"shape","id":"sh/tgfyd032","slide":1,"name":"Editable 79 path","bbox":[142,393,73,0.1]}
+{"kind":"shape","id":"sh/6d4z25kb","slide":1,"name":"Editable 79 path arrow","bbox":[205,388.5,10,9]}
+{"kind":"shape","id":"sh/7edgbalw","slide":1,"name":"Editable 80 path","bbox":[534,377,202,60]}
+{"kind":"shape","id":"sh/8j2xsbmd","slide":1,"name":"Editable 81 ellipse","bbox":[534,356,202,42]}
+{"kind":"textbox","id":"sh/9kby1g3i","slide":1,"name":"Editable 82 Memory","text":"Memory bank","textPreview":"Memory bank","textChars":11,"textLines":1,"bbox":[565,393,165,32]}
+{"kind":"shape","id":"sh/yhkza1wv","slide":1,"name":"Editable 83 path","bbox":[455,393,78,0.1]}
+{"kind":"shape","id":"sh/jitg36dg","slide":1,"name":"Editable 83 path arrow","bbox":[523,388.5,10,9]}
+{"kind":"textbox","id":"sh/kj2hcbel","slide":1,"name":"Editable 84 Train-only entries","text":"Train-only entries","textPreview":"Train-only entries","textChars":18,"textLines":1,"bbox":[541.74,435,196.52,33]}
+{"kind":"shape","id":"sh/l4by5wv6","slide":1,"name":"Editable 85 path","bbox":[736,393,102,0.1]}
+{"kind":"shape","id":"sh/654ze1wr","slide":1,"name":"Editable 85 path arrow","bbox":[828,388.5,10,9]}
+{"kind":"shape","id":"sh/76dg76dc","slide":1,"name":"Editable 86 rect","bbox":[843,347,258,98]}
+{"kind":"shape","id":"sh/87mhgbex","slide":1,"name":"Editable 87 path","bbox":[858,356,59.52,57.04]}
+{"kind":"shape","id":"sh/t8vy9gvi","slide":1,"name":"Editable 88 path","bbox":[858,356,25.42,22.32]}
+{"kind":"shape","id":"sh/m90f2hwn","slide":1,"name":"Editable 89 path","bbox":[883.42,356,34.1,34.6]}
+{"kind":"shape","id":"sh/na9gvmd8","slide":1,"name":"Editable 90 path","bbox":[858,378.32,38.34,24.8]}
+{"kind":"shape","id":"sh/pgzax4jm","slide":1,"name":"Editable 91 rect","bbox":[854,419,59,12]}
+{"kind":"shape","id":"sh/ofqtoj2h","slide":1,"name":"Editable 92 rect","bbox":[854,427,59,12]}
+{"kind":"shape","id":"sh/3ehsve1w","slide":1,"name":"Editable 93 rect","bbox":[854,435,59,12]}
+{"kind":"shape","id":"sh/2d8rm9kb","slide":1,"name":"Editable 94 path","bbox":[938,356,59.52,57.04]}
+{"kind":"shape","id":"sh/dkja1ojy","slide":1,"name":"Editable 95 path","bbox":[938,356,25.42,22.32]}
+{"kind":"shape","id":"sh/cjatsj2d","slide":1,"name":"Editable 96 path","bbox":[963.42,356,34.1,34.6]}
+{"kind":"shape","id":"sh/bi1sze1s","slide":1,"name":"Editable 97 path","bbox":[938,378.32,38.34,24.8]}
+{"kind":"shape","id":"sh/qhsbq9k7","slide":1,"name":"Editable 98 rect","bbox":[934,419,59,12]}
+{"kind":"shape","id":"sh/tofapkju","slide":1,"name":"Editable 99 rect","bbox":[934,427,59,12]}
+{"kind":"shape","id":"sh/sn69gf29","slide":1,"name":"Editable 100 rect","bbox":[934,435,59,12]}
+{"kind":"shape","id":"sh/kratwza5","slide":1,"name":"Editable 101 path","bbox":[1018,356,59.52,57.04]}
+{"kind":"shape","id":"sh/lsja54ra","slide":1,"name":"Editable 102 path","bbox":[1018,356,25.42,22.32]}
+{"kind":"shape","id":"sh/ypsbupsz","slide":1,"name":"Editable 103 path","bbox":[1043.42,356,34.1,34.6]}
+{"kind":"shape","id":"sh/jq1s3u9k","slide":1,"name":"Editable 104 path","bbox":[1018,378.32,38.34,24.8]}
+{"kind":"shape","id":"sh/svut0za1","slide":1,"name":"Editable 105 rect","bbox":[1014,419,59,12]}
+{"kind":"shape","id":"sh/tw3a94rm","slide":1,"name":"Editable 106 rect","bbox":[1014,427,59,12]}
+{"kind":"shape","id":"sh/6tsbypsv","slide":1,"name":"Editable 107 rect","bbox":[1014,435,59,12]}
+{"kind":"textbox","id":"sh/7u1s7u9g","slide":1,"name":"Editable 108 Retrieved buildings","text":"Retrieved buildings","textPreview":"Retrieved buildings","textChars":19,"textLines":1,"bbox":[869.94,451,216.13,33]}
+{"kind":"shape","id":"sh/gzut4jax","slide":1,"name":"Editable 109 path","bbox":[669,310,199,37]}
+{"kind":"shape","id":"sh/hk3adori","slide":1,"name":"Editable 109 path arrow","bbox":[863.5,337,9,10]}
+{"kind":"textbox","id":"sh/repw3it0","slide":1,"name":"Editable 110 Query key","text":"Query key","textPreview":"Query key","textChars":9,"textLines":1,"bbox":[737.31,301,122.37,33]}
+{"kind":"shape","id":"sh/qtwvadcf","slide":1,"name":"Editable 111 path","bbox":[1053,311,0.1,36]}
+{"kind":"shape","id":"sh/dg7e5sbq","slide":1,"name":"Editable 111 path arrow","bbox":[1048.5,311,9,10]}
+{"kind":"textbox","id":"sh/cfydcnu5","slide":1,"name":"Editable 112 Local region sets","text":"Support = local tokens","textPreview":"Support = local tokens","textChars":22,"textLines":1,"bbox":[1165,352,310,32]}
+{"kind":"textbox","id":"sh/3q5czyto","slide":1,"name":"Editable 113 + building labels","text":"+ building label + source ID","textPreview":"+ building label + source ID","textChars":28,"textLines":1,"bbox":[1165,384,330,32]}
+{"kind":"shape","id":"sh/2pwv6tc3","slide":1,"name":"Editable 114 rect","bbox":[24,507,641,408]}
+{"kind":"shape","id":"sh/psne18bu","slide":1,"name":"Editable 115 rect","bbox":[689,507,787,408]}
+{"kind":"textbox","id":"sh/4red83u9","slide":1,"name":"Editable 116 b  Pixels → regions → pixel update","text":"b  Pixels → regions → pixel update","textPreview":"b  Pixels → regions → pixel update","textChars":34,"textLines":1,"bbox":[43,520,453.13,36]}
+{"kind":"textbox","id":"sh/nm9wb2ts","slide":1,"name":"Editable 117 Building prior","text":"Predicted building","textPreview":"Predicted building","textChars":18,"textLines":1,"bbox":[43,562,220,32]}
+{"kind":"shape","id":"sh/ml0v2xcn","slide":1,"name":"Editable 118 path","bbox":[69,608,76.8,73.6]}
+{"kind":"shape","id":"sh/atgz6h8r","slide":1,"name":"Editable 119 path","bbox":[69,608,32.8,28.8]}
+{"kind":"shape","id":"sh/vupgzmpc","slide":1,"name":"Editable 120 path","bbox":[101.8,608,44,44.65]}
+{"kind":"shape","id":"sh/wvyh8rqx","slide":1,"name":"Editable 121 path","bbox":[69,636.8,49.47,32]}
+{"kind":"shape","id":"sh/xw7i1w7i","slide":1,"name":"Editable 122 path","bbox":[153,646,46,0.1]}
+{"kind":"shape","id":"sh/m5wz2h8v","slide":1,"name":"Editable 122 path arrow","bbox":[189,641.5,10,9]}
+{"kind":"shape","id":"sh/n65gvmp0","slide":1,"name":"Editable 123 rect","bbox":[202,609,159,67]}
+{"kind":"textbox","id":"sh/8reh4rql","slide":1,"name":"Editable 124 Association","text":"Association","textPreview":"Association","textChars":11,"textLines":1,"bbox":[219.13,613.5,135.73,33]}
+{"kind":"textbox","id":"sh/9s7yxw76","slide":1,"name":"Editable 125 R + centres","text":"R + centres","textPreview":"R + centres","textChars":11,"textLines":1,"bbox":[219.8,641.5,135.39,33]}
+{"kind":"shape","id":"sh/610ze18z","slide":1,"name":"Editable 126 path","bbox":[361,642,41,0.1]}
+{"kind":"shape","id":"sh/729076pk","slide":1,"name":"Editable 126 path arrow","bbox":[392,637.5,10,9]}
+{"kind":"shape","id":"sh/1wb2xkrm","slide":1,"name":"Editable 127 rect","bbox":[407,610,15,15]}
+{"kind":"shape","id":"sh/gv214fa1","slide":1,"name":"Editable 128 rect","bbox":[424,610,15,15]}
+{"kind":"shape","id":"sh/futkva9g","slide":1,"name":"Editable 129 rect","bbox":[441,610,15,15]}
+{"kind":"shape","id":"sh/utkj25sv","slide":1,"name":"Editable 130 rect","bbox":[458,610,15,15]}
+{"kind":"shape","id":"sh/tsb2t0rq","slide":1,"name":"Editable 131 rect","bbox":[407,627,15,15]}
+{"kind":"shape","id":"sh/sri10va5","slide":1,"name":"Editable 132 rect","bbox":[424,627,15,15]}
+{"kind":"shape","id":"sh/7q9krq9k","slide":1,"name":"Editable 133 rect","bbox":[441,627,15,15]}
+{"kind":"shape","id":"sh/6p0jylsz","slide":1,"name":"Editable 134 rect","bbox":[458,627,15,15]}
+{"kind":"shape","id":"sh/dov254ru","slide":1,"name":"Editable 135 rect","bbox":[407,644,15,15]}
+{"kind":"shape","id":"sh/cnmlcza9","slide":1,"name":"Editable 136 rect","bbox":[424,644,15,15]}
+{"kind":"shape","id":"sh/w3edon2h","slide":1,"name":"Editable 137 rect","bbox":[441,644,15,15]}
+{"kind":"shape","id":"sh/x4nexs32","slide":1,"name":"Editable 138 rect","bbox":[458,644,15,15]}
+{"kind":"shape","id":"sh/a1wvmx4r","slide":1,"name":"Editable 139 rect","bbox":[407,661,15,15]}
+{"kind":"shape","id":"sh/v25wv2lc","slide":1,"name":"Editable 140 rect","bbox":[424,661,15,15]}
+{"kind":"shape","id":"sh/8zudknml","slide":1,"name":"Editable 141 rect","bbox":[441,661,15,15]}
+{"kind":"shape","id":"sh/90nuts36","slide":1,"name":"Editable 142 rect","bbox":[458,661,15,15]}
+{"kind":"textbox","id":"sh/mdcvid4f","slide":1,"name":"Editable 143 Q","text":"Soft assignment Q","textPreview":"Soft assignment Q","textChars":17,"textLines":1,"bbox":[385,686,200,32]}
+{"kind":"shape","id":"sh/nelcril0","slide":1,"name":"Editable 144 path","bbox":[480,643,51,0.1]}
+{"kind":"shape","id":"sh/0budg3mp","slide":1,"name":"Editable 144 path arrow","bbox":[521,638.5,10,9]}
+{"kind":"shape","id":"sh/lc3up83u","slide":1,"name":"Editable 145 rect","bbox":[533,609,111,68]}
+{"kind":"textbox","id":"sh/361wzy5w","slide":1,"name":"Editable 146 Pool","text":"Pool","textPreview":"Pool","textChars":4,"textLines":1,"bbox":[564.48,628,60.05,33]}
+{"kind":"shape","id":"sh/25sv6dob","slide":1,"name":"Editable 147 rect","bbox":[58,748,15,15]}
+{"kind":"shape","id":"sh/p8je18n2","slide":1,"name":"Editable 148 rect","bbox":[75,748,15,15]}
+{"kind":"shape","id":"sh/o7ad836h","slide":1,"name":"Editable 149 rect","bbox":[92,748,15,15]}
+{"kind":"shape","id":"sh/balw3i5s","slide":1,"name":"Editable 150 rect","bbox":[109,748,15,15]}
+{"kind":"shape","id":"sh/q9cfadon","slide":1,"name":"Editable 151 rect","bbox":[58,765,15,15]}
+{"kind":"shape","id":"sh/dc3e5sny","slide":1,"name":"Editable 152 rect","bbox":[75,765,15,15]}
+{"kind":"shape","id":"sh/cbuxcn6d","slide":1,"name":"Editable 153 rect","bbox":[92,765,15,15]}
+{"kind":"shape","id":"sh/zylw7i54","slide":1,"name":"Editable 154 rect","bbox":[109,765,15,15]}
+{"kind":"shape","id":"sh/yxcfexoj","slide":1,"name":"Editable 155 rect","bbox":[58,782,15,15]}
+{"kind":"shape","id":"sh/mlsz2hkn","slide":1,"name":"Editable 156 rect","bbox":[75,782,15,15]}
+{"kind":"shape","id":"sh/7m10vml8","slide":1,"name":"Editable 157 rect","bbox":[92,782,15,15]}
+{"kind":"shape","id":"sh/8nah4r2t","slide":1,"name":"Editable 158 rect","bbox":[109,782,15,15]}
+{"kind":"textbox","id":"sh/9o3ixw3e","slide":1,"name":"Editable 159 Pixels F","text":"Pixels F","textPreview":"Pixels F","textChars":8,"textLines":1,"bbox":[50.32,807,97.36,33]}
+{"kind":"shape","id":"sh/upcz61kz","slide":1,"name":"Editable 160 path","bbox":[132,659,401,116]}
+{"kind":"shape","id":"sh/val0zmlk","slide":1,"name":"Editable 160 path arrow","bbox":[523,654.5,10,9]}
+{"kind":"shape","id":"sh/wbuh8r2p","slide":1,"name":"Editable 161 path","bbox":[590,677,0.1,75]}
+{"kind":"shape","id":"sh/hc3i1wja","slide":1,"name":"Editable 161 path arrow","bbox":[585.5,742,9,10]}
+{"kind":"shape","id":"sh/idcja1kv","slide":1,"name":"Editable 162 rect","bbox":[505,754,139,61]}
+{"kind":"textbox","id":"sh/jel0361g","slide":1,"name":"Editable 163 Attention","text":"Attention","textPreview":"Attention","textChars":9,"textLines":1,"bbox":[526.13,769.5,107.73,33]}
+{"kind":"shape","id":"sh/t872t0ni","slide":1,"name":"Editable 164 path","bbox":[440,784,65,0.1]}
+{"kind":"shape","id":"sh/s7yl0vmx","slide":1,"name":"Editable 164 path arrow","bbox":[440,779.5,10,9]}
+{"kind":"shape","id":"sh/r65krq5s","slide":1,"name":"Editable 165 rect","bbox":[268,754,172,61]}
+{"kind":"textbox","id":"sh/65w3y547","slide":1,"name":"Editable 166 Project +","text":"Project +","textPreview":"Project +","textChars":9,"textLines":1,"bbox":[306.3,755.5,107.39,33]}
+{"kind":"textbox","id":"sh/1c72xk3u","slide":1,"name":"Editable 167 Q-unpool","text":"Q-unpool","textPreview":"Q-unpool","textChars":8,"textLines":1,"bbox":[304.63,783.5,110.73,33]}
+{"kind":"shape","id":"sh/0byl4fm9","slide":1,"name":"Editable 168 path","bbox":[238,784,30,0.1]}
+{"kind":"shape","id":"sh/fapkvalo","slide":1,"name":"Editable 168 path arrow","bbox":[238,779.5,10,9]}
+{"kind":"shape","id":"sh/e9g32543","slide":1,"name":"Editable 169 circle","bbox":[198,766,36,36]}
+{"kind":"textbox","id":"sh/p0rm1k3q","slide":1,"name":"Editable 170 +","text":"+","textPreview":"+","textChars":1,"textLines":1,"bbox":[208.11,767,27.78,36]}
+{"kind":"shape","id":"sh/ofil8fm5","slide":1,"name":"Editable 171 path","bbox":[131,784,65,0.1]}
+{"kind":"shape","id":"sh/pgnqdgn6","slide":1,"name":"Editable 171 path arrow","bbox":[186,779.5,10,9]}
+{"kind":"shape","id":"sh/ofepkb6l","slide":1,"name":"Editable 172 path","bbox":[216,803,60,57]}
+{"kind":"shape","id":"sh/3el8b650","slide":1,"name":"Editable 172 path arrow","bbox":[266,855.5,10,9]}
+{"kind":"textbox","id":"sh/2tc7i1of","slide":1,"name":"Editable 173 F_A","text":"F_A","textPreview":"F_A","textChars":3,"textLines":1,"bbox":[311.07,845,58.17,34]}
+{"kind":"textbox","id":"sh/dknqhgn2","slide":1,"name":"Editable 174 F_A = F + ΔF_local","text":"F_A = F + ΔF_local","textPreview":"F_A = F + ΔF_local","textChars":18,"textLines":1,"bbox":[344.99,872,226.02,34]}
+{"kind":"textbox","id":"sh/cjepob6x","slide":1,"name":"Editable 175 c  Read local evidence from each support","text":"c  Read local evidence from each support","textPreview":"c  Read local evidence from each support","textChars":40,"textLines":1,"bbox":[709,520,538.18,36]}
+{"kind":"shape","id":"sh/bi58f65c","slide":1,"name":"Editable 176 rect","bbox":[714,696,52,12]}
+{"kind":"shape","id":"sh/qhw7mlor","slide":1,"name":"Editable 177 rect","bbox":[714,721,52,12]}
+{"kind":"shape","id":"sh/lo7ql0ne","slide":1,"name":"Editable 178 rect","bbox":[714,746,52,12]}
+{"kind":"textbox","id":"sh/0nypsv6t","slide":1,"name":"Editable 179 T_A","text":"T_A","textPreview":"T_A","textChars":3,"textLines":1,"bbox":[722.99,649,57.01,33]}
+{"kind":"shape","id":"sh/it8nmx4b","slide":1,"name":"Editable 180 rect","bbox":[832,580,135,78]}
+{"kind":"shape","id":"sh/juh4f2lw","slide":1,"name":"Editable 181 path","bbox":[840,592,46.08,44.16]}
+{"kind":"shape","id":"sh/kva5onmh","slide":1,"name":"Editable 182 path","bbox":[840,592,19.68,17.28]}
+{"kind":"shape","id":"sh/5wjmhs32","slide":1,"name":"Editable 183 path","bbox":[859.68,592,26.4,26.79]}
+{"kind":"shape","id":"sh/6xsnqx47","slide":1,"name":"Editable 184 path","bbox":[840,609.28,29.68,19.2]}
+{"kind":"shape","id":"sh/7y14j2ls","slide":1,"name":"Editable 185 rect","bbox":[902,593,49,12]}
+{"kind":"shape","id":"sh/sza5s7md","slide":1,"name":"Editable 186 rect","bbox":[902,612,49,12]}
+{"kind":"shape","id":"sh/tkjmlc3y","slide":1,"name":"Editable 187 rect","bbox":[902,631,49,12]}
+{"kind":"shape","id":"sh/ulsnuh4j","slide":1,"name":"Editable 188 rect","bbox":[1014,586,185,66]}
+{"kind":"textbox","id":"sh/fm14nml4","slide":1,"name":"Editable 189 Cross-attention","text":"Cross-attention","textPreview":"Cross-attention","textChars":15,"textLines":1,"bbox":[1025.13,604,174.75,33]}
+{"kind":"shape","id":"sh/bql4bm1w","slide":1,"name":"Editable 190 path","bbox":[967,619,47,0.1]}
+{"kind":"shape","id":"sh/qpc3ihkr","slide":1,"name":"Editable 190 path arrow","bbox":[1004,614.5,10,9]}
+{"kind":"shape","id":"sh/ds3mdcj2","slide":1,"name":"Editable 191 path","bbox":[1199,619,35,0.1]}
+{"kind":"shape","id":"sh/crulkr2h","slide":1,"name":"Editable 191 path arrow","bbox":[1224,614.5,10,9]}
+{"kind":"shape","id":"sh/3m147210","slide":1,"name":"Editable 192 rect","bbox":[1237,596,42,12]}
+{"kind":"shape","id":"sh/21s3exkf","slide":1,"name":"Editable 193 rect","bbox":[1237,614,42,12]}
+{"kind":"shape","id":"sh/po3m9cj6","slide":1,"name":"Editable 194 rect","bbox":[1237,632,42,12]}
+{"kind":"textbox","id":"sh/onulg72l","slide":1,"name":"Editable 195 U_1","text":"U_1","textPreview":"U_1","textChars":3,"textLines":1,"bbox":[1297.98,602,56.03,33]}
+{"kind":"shape","id":"sh/fy143214","slide":1,"name":"Editable 196 rect","bbox":[832,679,135,78]}
+{"kind":"shape","id":"sh/uxs3axkj","slide":1,"name":"Editable 197 path","bbox":[840,691,46.08,44.16]}
+{"kind":"shape","id":"sh/kr69oze5","slide":1,"name":"Editable 198 path","bbox":[840,691,19.68,17.28]}
+{"kind":"shape","id":"sh/lsfax4vq","slide":1,"name":"Editable 199 path","bbox":[859.68,691,26.4,26.79]}
+{"kind":"shape","id":"sh/yp4rmpwz","slide":1,"name":"Editable 200 path","bbox":[840,708.28,29.68,19.2]}
+{"kind":"shape","id":"sh/jqxsvudk","slide":1,"name":"Editable 201 rect","bbox":[902,692,49,12]}
+{"kind":"shape","id":"sh/8v69sju1","slide":1,"name":"Editable 202 rect","bbox":[902,711,49,12]}
+{"kind":"shape","id":"sh/twfa1ovm","slide":1,"name":"Editable 203 rect","bbox":[902,730,49,12]}
+{"kind":"shape","id":"sh/6torq9wv","slide":1,"name":"Editable 204 rect","bbox":[1014,685,185,66]}
+{"kind":"textbox","id":"sh/7uxszedg","slide":1,"name":"Editable 205 Cross-attention","text":"Cross-attention","textPreview":"Cross-attention","textChars":15,"textLines":1,"bbox":[1025.13,703,174.75,33]}
+{"kind":"shape","id":"sh/ozm9gfex","slide":1,"name":"Editable 206 path","bbox":[967,718,47,0.1]}
+{"kind":"shape","id":"sh/90vapkvi","slide":1,"name":"Editable 206 path arrow","bbox":[1004,713.5,10,9]}
+{"kind":"shape","id":"sh/1sra54zy","slide":1,"name":"Editable 207 path","bbox":[1199,718,35,0.1]}
+{"kind":"shape","id":"sh/grytcjid","slide":1,"name":"Editable 207 path arrow","bbox":[1224,713.5,10,9]}
+{"kind":"shape","id":"sh/fqps3ehs","slide":1,"name":"Editable 208 rect","bbox":[1237,695,42,12]}
+{"kind":"shape","id":"sh/epgba907","slide":1,"name":"Editable 209 rect","bbox":[1237,713,42,12]}
+{"kind":"shape","id":"sh/to7a14zm","slide":1,"name":"Editable 210 rect","bbox":[1237,731,42,12]}
+{"kind":"textbox","id":"sh/s3y98zih","slide":1,"name":"Editable 211 U_2","text":"U_2","textPreview":"U_2","textChars":3,"textLines":1,"bbox":[1297.98,701,56.03,33]}
+{"kind":"shape","id":"sh/r2pszuhw","slide":1,"name":"Editable 212 rect","bbox":[832,778,135,78]}
+{"kind":"shape","id":"sh/61gr6p0b","slide":1,"name":"Editable 213 path","bbox":[840,790,46.08,44.16]}
+{"kind":"shape","id":"sh/507axkzq","slide":1,"name":"Editable 214 path","bbox":[840,790,19.68,17.28]}
+{"kind":"shape","id":"sh/4ze94zi5","slide":1,"name":"Editable 215 path","bbox":[859.68,790,26.4,26.79]}
+{"kind":"shape","id":"sh/u5c7elg3","slide":1,"name":"Editable 216 path","bbox":[840,807.28,29.68,19.2]}
+{"kind":"shape","id":"sh/v6l87qxo","slide":1,"name":"Editable 217 rect","bbox":[902,791,49,12]}
+{"kind":"shape","id":"sh/w7upgvy9","slide":1,"name":"Editable 218 rect","bbox":[902,810,49,12]}
+{"kind":"shape","id":"sh/h8nq90fe","slide":1,"name":"Editable 219 rect","bbox":[902,829,49,12]}
+{"kind":"shape","id":"sh/m1c7algr","slide":1,"name":"Editable 220 rect","bbox":[1014,784,185,66]}
+{"kind":"textbox","id":"sh/72l83qxc","slide":1,"name":"Editable 221 Cross-attention","text":"Cross-attention","textPreview":"Cross-attention","textChars":15,"textLines":1,"bbox":[1025.13,802,174.75,33]}
+{"kind":"shape","id":"sh/83upcvyx","slide":1,"name":"Editable 222 path","bbox":[967,817,47,0.1]}
+{"kind":"shape","id":"sh/943q50fi","slide":1,"name":"Editable 222 path arrow","bbox":[1004,812.5,10,9]}
+{"kind":"shape","id":"sh/yds761gv","slide":1,"name":"Editable 223 path","bbox":[1199,817,35,0.1]}
+{"kind":"shape","id":"sh/ze1oz6xg","slide":1,"name":"Editable 223 path arrow","bbox":[1224,812.5,10,9]}
+{"kind":"shape","id":"sh/36xwri9w","slide":1,"name":"Editable 224 rect","bbox":[1237,794,42,12]}
+{"kind":"shape","id":"sh/25ovidsb","slide":1,"name":"Editable 225 rect","bbox":[1237,812,42,12]}
+{"kind":"shape","id":"sh/p8fetsr2","slide":1,"name":"Editable 226 rect","bbox":[1237,830,42,12]}
+{"kind":"textbox","id":"sh/476dknah","slide":1,"name":"Editable 227 U_3","text":"U_3","textPreview":"U_3","textChars":3,"textLines":1,"bbox":[1297.98,800,56.03,33]}
+{"kind":"shape","id":"sh/ruxwvi9s","slide":1,"name":"Editable 228 path","bbox":[766,567,340,158]}
+{"kind":"shape","id":"sh/qtovmdsn","slide":1,"name":"Editable 228 path arrow","bbox":[1101.5,576,9,10]}
+{"kind":"shape","id":"sh/dwzexsry","slide":1,"name":"Editable 229 path","bbox":[789,668,317,57]}
+{"kind":"shape","id":"sh/cv6donad","slide":1,"name":"Editable 229 path arrow","bbox":[1101.5,675,9,10]}
+{"kind":"shape","id":"sh/7ydcjy9o","slide":1,"name":"Editable 230 path","bbox":[789,725,317,59]}
+{"kind":"shape","id":"sh/6d4vats3","slide":1,"name":"Editable 230 path arrow","bbox":[1101.5,774,9,10]}
+{"kind":"shape","id":"sh/wjitkzq1","slide":1,"name":"Editable 231 path","bbox":[1358,619,33,248]}
+{"kind":"shape","id":"sh/x4rat47m","slide":1,"name":"Editable 231 path","bbox":[1358,718,33,0.1]}
+{"kind":"shape","id":"sh/ah0bip8v","slide":1,"name":"Editable 231 path","bbox":[1358,817,33,0.1]}
+{"kind":"shape","id":"sh/vi9srupg","slide":1,"name":"Editable 232 rect","bbox":[842,866,549,36]}
+{"kind":"textbox","id":"sh/8fitgfq5","slide":1,"name":"Editable 233 Aggregate + project + unpool → ΔF_mem","text":"Aggregate + project + unpool → ΔF_mem","textPreview":"Aggregate + project + unpool → ΔF_mem","textChars":37,"textLines":1,"bbox":[893.36,869,457.28,33]}
+{"kind":"shape","id":"sh/9grapk7a","slide":1,"name":"Editable 234 path","bbox":[1390,867,1,17]}
+{"kind":"shape","id":"sh/mdgre58z","slide":1,"name":"Editable 234 path arrow","bbox":[1390,873.75,10.25,10.25]}
+{"kind":"textbox","id":"sh/ne9snapk","slide":1,"name":"Editable 235 Rectangles: operations   ·   Bars/grids: features   ·   ⊕: addition   ·   Dashed arrows: offline construction","text":"Blue: current regions     Orange: historical support     Gray: base network     Dashed: offline","textPreview":"Blue: current regions     Orange: historical support     Gray: base network     Dashed: offline","textChars":95,"textLines":1,"bbox":[25,930,1440,32]}
+{"kind":"textbox","id":"sh/sb2tsjq9","slide":1,"name":"Editable 236 Candidate model: regions, support cards and output map are schematic, not measured results.","text":"*Example map and region/support icons illustrate the workflow, not validated model outputs.","textPreview":"*Example map and region/support icons illustrate the workflow, not validated model outputs.","textChars":91,"textLines":1,"bbox":[25,963,1440,32]}
+{"kind":"textbox","id":"sh/tcba1o7u","slide":1,"name":"Editable 237 Y = h(F_A + ΔF_mem)","text":"Y = h(F_A + ΔF_mem)","textPreview":"Y = h(F_A + ΔF_mem)","textChars":19,"textLines":1,"bbox":[1160.16,448,262.67,34]}
+{"kind":"textbox","id":"sh/1cf6lgzy","slide":1,"name":"Editable 238 Input examples: BRIGHT, Chen et al. (2025), Fig. 6, Turkey-EQ-2023; imagery credits: Table 2.","text":"Input examples: BRIGHT, Chen et al. (2025), Fig. 6, Turkey-EQ-2023; imagery credits: Table 2.","textPreview":"Input examples: BRIGHT, Chen et al. (2025), Fig. 6, Turkey-EQ-2023; imagery credits: Table 2.","textChars":93,"textLines":1,"bbox":[25,997,1017.34,33]}
+{"kind":"textbox","id":"sh/of6pwvyp","slide":1,"name":"Label Soft regions","text":"Soft regions","textPreview":"Soft regions","textChars":12,"textLines":1,"bbox":[559,226,145,26]}
+{"kind":"textbox","id":"sh/nexonqh4","slide":1,"name":"Label Tokens","text":"Tokens","textPreview":"Tokens","textChars":6,"textLines":1,"bbox":[704,226,90,26]}
+{"kind":"textbox","id":"sh/2do7ulgj","slide":1,"name":"Label Query","text":"Query","textPreview":"Query","textChars":5,"textLines":1,"bbox":[865,125,85,25]}
+{"kind":"textbox","id":"sh/5kv6dwzq","slide":1,"name":"Label Support","text":"Support","textPreview":"Support","textChars":7,"textLines":1,"bbox":[1025,125,105,25]}
+{"kind":"textbox","id":"sh/4j25kbil","slide":1,"name":"Label Pixel features","text":"Pixel features","textPreview":"Pixel features","textChars":14,"textLines":1,"bbox":[365,222,145,26]}
+{"kind":"textbox","id":"sh/up03uxw3","slide":1,"name":"Label Addition","text":"Addition","textPreview":"Addition","textChars":8,"textLines":1,"bbox":[1130,220,95,25]}
+{"kind":"textbox","id":"sh/vq94n2xo","slide":1,"name":"Label V₁","text":"V₁","textPreview":"V₁","textChars":2,"textLines":1,"bbox":[974,585,38,26]}
+{"kind":"textbox","id":"sh/wrilw7e9","slide":1,"name":"Label V₂","text":"V₂","textPreview":"V₂","textChars":2,"textLines":1,"bbox":[974,684,38,26]}
+{"kind":"textbox","id":"sh/hsbmpcfu","slide":1,"name":"Label V₃","text":"V₃","textPreview":"V₃","textChars":2,"textLines":1,"bbox":[974,783,38,26]}
+{"kind":"textbox","id":"sh/itk3yhwf","slide":1,"name":"Label Query tokens","text":"Query tokens","textPreview":"Query tokens","textChars":12,"textLines":1,"bbox":[698,766,135,25]}
+{"kind":"textbox","id":"sh/jet4rmx0","slide":1,"name":"Label Readouts","text":"Readouts","textPreview":"Readouts","textChars":8,"textLines":1,"bbox":[1228,568,112,26]}
+{"kind":"image","id":"im/25wri1of","slide":1,"name":"图片 282","bbox":[44,70,96,96]}
+{"kind":"image","id":"im/n658r6p0","slide":1,"name":"图片 284","bbox":[44,191,96,96]}
+{"kind":"image","id":"im/cby9ob6x","slide":1,"name":"图片 4","bbox":[1302.27,166,98,100]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"Source: user-provided Desktop/BRIGHT_model_editable_v1.pptx. Retains user image edits and model topology. Inputs: Chen et al., BRIGHT (ESSD 2025), doi:10.5194/essd-17-6217-2025, Figure 6 Turkey event; imagery credits Table 2. The output image is retained from the supplied deck and is labelled Example map because its provenance as a model prediction has not been established. Blue denotes current-region representations, orange historical support, and gray base-network components. V_j: local-token set of support building j. U_j: current-query-aligned readout from that support. Q: soft pixel-to-region assignment. Icon colours do not represent measured feature values."}

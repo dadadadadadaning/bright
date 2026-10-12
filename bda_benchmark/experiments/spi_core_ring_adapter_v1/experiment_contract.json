@@ -1,0 +1,23 @@
+{
+  "protocol": "SPI_CORE_RING_ADAPTER_v1",
+  "research_question": "Can pseudo-building support and core-ring contrast improve raw P3 semantic damage segmentation without instance labels?",
+  "training_ground_truth": "standard-ML semantic TIFF only",
+  "validation_ground_truth": "standard-ML Val450 semantic TIFF only",
+  "official_instances": "forbidden",
+  "test_split": "forbidden",
+  "frozen_backbone": "P3 including RGB/SAR encoders, localization head, fusion and original damage head",
+  "variants": {
+    "m0_frozen_p3": "locked 60.5020% reference; evaluation only",
+    "m1_readout_finetune": "same-step trainable copy of P3 damage readout",
+    "m2_local_adapter": "parameter-matched local 5x5 context inside LocCC support",
+    "m3_loccc_region": "same adapter/support, whole-LocCC mean token",
+    "m4_core_ring_region": "same adapter/support, core token and core-minus-ring contrast"
+  },
+  "fixed_across_m2_m4": [
+    "P3 checkpoint", "train/validation split", "optimizer steps", "optimizer",
+    "adapter parameters", "LocCC support", "semantic objective", "anchor objective"
+  ],
+  "primary_metric": "raw semantic valid_mIoU on standard-ML Val450",
+  "automatic_rule": "500-step pilot; continue to 3000 only if all preregistered checks pass"
+}
+

@@ -1,0 +1,2518 @@
+
+
+===== PDF_PAGE_001 =====
+
+Two-Stage Learning to Defer with Multiple Experts
+Anqi Mao
+Courant Institute
+New York, NY 10012
+aqmao@cims.nyu.edu
+Christopher Mohri
+Stanford University
+Stanford, CA 94305
+xmohri@stanford.edu
+Mehryar Mohri
+Google Research & CIMS
+New York, NY 10011
+mohri@google.com
+Yutao Zhong
+Courant Institute
+New York, NY 10012
+yutao@cims.nyu.edu
+Abstract
+We study a two-stage scenario for learning to defer with multiple experts, which is
+crucial in practice for many applications. In this scenario, a predictor is derived in
+a ﬁrst stage by training with a common loss function such as cross-entropy. In the
+second stage, a deferral function is learned to assign the most suitable expert to each
+input. We design a new family of surrogate loss functions for this scenario both in
+the score-based and the predictor-rejector settings and prove that they are supported
+by H-consistency bounds, which implies their Bayes-consistency. Moreover, we
+show that, for a constant cost function, our two-stage surrogate losses are realizable
+H-consistent. While the main focus of this work is a theoretical analysis, we also
+report the results of several experiments on CIFAR-10 and SVHN datasets.
+1 Introduction
+Large language models (LLMs) have achieved a remarkable performance on diverse tasks across
+multiple domains, as reported in recent surveys [Wei et al., 2022, Bubeck et al., 2023]. However,
+their practical application faces two critical challenges: the occurrence of hallucinations, that is
+the generation of incorrect or misleading content, and an inefﬁcient inference. Leveraging multiple
+experts can address both issues. To reduce hallucinations, one can refrain from using the original
+predictor in uncertain instances and defer to one of the more complex and more accurate experts.
+To enhance efﬁciency, one can derive models of different sizes distilled from the original complex
+model and use one of these more streamlined versions, while deferring to the more complex and
+less efﬁcient ones for suitable contexts. Both problems require assigning each instance to the most
+suitable expert. This motivates the problem of learning to defer in the presence of multiple experts.
+The scenario of single-stage learning to defer has been studied by several publications, starting with
+the foundational framework introduced by Cortes, DeSalvo, and Mohri [2016a,b, 2023] for learning
+to reject and followed by a series of studies on abstention and deferral [Madras et al., 2018, Raghu
+et al., 2019, Mozannar and Sontag, 2020, Wilder et al., 2021, Pradier et al., 2021, Keswani et al.,
+2021, Raman and Yee, 2021, Liu et al., 2022, Verma and Nalisnick, 2022, Charusaie et al., 2022, Cao
+et al., 2022, Verma et al., 2023, Mao et al., 2023f,b,c, Mozannar et al., 2023]. In the single-stage
+scenario, a predictor and a deferral function are learned simultaneously, with the deferral function
+determining the best expert assigned to each input instance. However, in practice, a predictor such
+as an LLM is already available and retraining one in conjunction with a deferral function could be
+prohibitively costly: depending on its size and the amount of data used, retraining could take several
+weeks or months. Thus, the single-stage learning to defer scenario and its solutions often do not align
+with the practical challenges encountered in real-world applications.
+37th Conference on Neural Information Processing Systems (NeurIPS 2023).
+
+
+===== PDF_PAGE_002 =====
+
+Alternative post-hoc methods have been proposed to address the learning to defer problem. Okati
+et al. [2021] proposed an iterative approach optimizing a predictor and a rejector over multiple epochs.
+Within each epoch, ﬁrst the predictor is trained on points where its loss is lower than that of a human
+expert; second, the rejector is ﬁtted to predict which of the predictor or the human expert has a
+lower loss. Narasimhan et al. [2022] suggested a post-hoc correction to the single-stage learning to
+defer surrogate losses, speciﬁcally the cost-sensitive softmax cross-entropy (CSS) surrogate loss in
+[Mozannar and Sontag, 2020] and the one-versus-all (OvA) surrogate loss in [Verma and Nalisnick,
+2022] for cases where they suffer from underﬁtting. However, as with the single-stage learning to
+defer solutions, post-hoc approaches do not apply to scenarios where an existing predictor, pre-trained
+using a standard classiﬁcation loss function such as cross-entropy, is already available.
+Can we derive a principled algorithm for learning to defer with multiple experts in such scenarios?
+Which surrogate loss should we adopt and what consistency guarantee can we rely on? This paper
+deals precisely with these questions.
+A key criterion for surrogate losses in learning to defer is Bayes-consistency [Zhang, 2004, Bartlett
+et al., 2006, Steinwart, 2007], that is minimizing the surrogate loss over the family of measurable
+functions leads to the minimization of the deferral loss. The surrogate losses proposed in [Mozannar
+and Sontag, 2020, Verma and Nalisnick, 2022] have been shown to be Bayes-consistent for defer-
+ral. However, Bayes-consistency is not relevant in learning tasks since the hypothesis set used, for
+example that of some family of linear functions or neural networks, never includes all measurable
+functions. Long and Servedio [2013] proposed a notion of realizable H-consistency, that is consis-
+tency associated with a speciﬁc hypothesis set in the realizable scenario. Mozannar et al. [2023]
+recently showed that existing Bayes-consistent surrogate losses in [Mozannar and Sontag, 2020,
+Verma and Nalisnick, 2022] are not realizable H-consistent for learning with deferral, which can
+pose signiﬁcant challenges when learning with a restricted hypothesis setH, even for simple linear
+models. Instead, they proposed a new surrogate loss that is realizable H-consistent when H is closed
+under scaling. However, they also observed that the loss function of Madras et al. [2018], which is
+not Bayes-consistent, is actually realizable H-consistent. They acknowledged their inability to prove
+or disprove whether their proposed surrogate loss is Bayes-consistent. Consequently, it has remained
+an open problem to identify a surrogate loss that is both consistent and realizable-consistent.
+In recent work, Verma et al. [2023] proposed the ﬁrst Bayes-consistent surrogate losses in the scenario
+of single-stage learning to defer with multiple experts [Hemmer et al., 2022, Keswani et al., 2021,
+Kerrigan et al., 2021, Straitouri et al., 2022, Benz and Rodriguez, 2022]. This scenario is more
+attractive and signiﬁcant in applications such as large language models, where multiple models are
+often available for deferral. However, the surrogate losses proposed by the authors do not beneﬁt
+from realizable H-consistency, even in the single-expert setting, since they are a straightforward
+generalization of those of Mozannar and Sontag [2020] and Verma and Nalisnick [2022].
+Bayes-consistency, or even realizable H-consistency for a speciﬁc hypothesis setH, is an asymptotic
+property, and provides no guarantee for approximate minimizers since convergence could be arbitrarily
+slow. More favorable guarantees, known as H-consistency bounds, were recently introduced for
+standard classiﬁcation settings [Awasthi, Mao, Mohri, and Zhong, 2022b,a]. These guarantees are
+upper bounds on the target estimation loss expressed in terms of the surrogate estimation loss. They
+are stronger and more informative guarantees than Bayes-consistency andH-consistency because they
+are both hypothesis set-speciﬁc and non-asymptotic. More recently, Mao et al. [2023b] introduced a
+new family of surrogate losses and algorithms for the general problem of single-stage learning to
+defer with multiple experts that beneﬁt from strongH-consistency bounds.
+Our contributions. We study a two-stage scenario for learning to defer with multiple experts that is
+crucial in practice for many applications. In this scenario, a predictor is derived in a ﬁrst stage by
+training with a common loss function such as cross-entropy. In the second stage, a deferral function
+is learned to assign the most suitable expert to each input. We design a new family of surrogate
+loss functions for this scenario both in the score-based setting (Section 3) and the predictor-rejector
+setting (Section 4) and prove that they are supported by H-consistency bounds, which implies their
+Bayes-consistency. Moreover, we show that, for a constant cost function, our two-stage surrogate
+losses are realizable H-consistent. While the main focus of this work is a theoretical analysis, we
+also report the results of several experiments on CIFAR-10 and SVHN datasets (Section 5). We
+give a comprehensive discussion of related work in Appendix A. We begin by providing some basic
+deﬁnitions and notation (Section 2).
+2
+
+
+===== PDF_PAGE_003 =====
+
+2 Preliminaries
+We consider the standard multi-class classiﬁcation setting with an input spaceX and a set ofn≥ 2
+labels Y= [n], where we use the notation [n]to denote the set {1,...,n }. We study the scenario of
+learning to defer with multiple experts, where the label set Y is augmented withne additional labels
+{n+ 1,...,n +ne} corresponding tone pre-deﬁned expertsh1,...,h ne. In this scenario, the learner
+has the option of returning a labely ∈ Y, which represents the category predicted, or a labely =n+j,
+j ≥ 1, in which case it is deferring to experthj. This setting is referred to as the score-based setting
+[Mozannar and Sontag, 2020, Cao et al., 2022, Mao et al., 2023f], since the deferral corresponds
+to extrane scoring functions. An alternative setting is the predictor-rejector setting [Cortes et al.,
+2016a, 2023, Mohri et al., 2023, Mao et al., 2023c], where the deferral function is selected from a
+separate family of functions R. We introduce that setting and include the corresponding results in
+Section 4 for completeness.
+We denote by Y = [n+ne] the augmented label set and consider a hypothesis set H of functions
+mapping from X× Y to R. The prediction associated by h ∈ H to an input x ∈ X is denoted by
+h(x) and deﬁned as the element inY with the highest score, h(x)= argmaxy∈[n+ne]h(x,y), with
+an arbitrary but ﬁxed deterministic strategy for breaking ties. We denote by Hall the family of all
+measurable functions.
+The deferral loss function Ldef is deﬁned as follows for anyh∈ H and (x,y)∈ X× Y:
+Ldef(h,x,y )= 1h(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j (1)
+Thus, the loss incurred coincides with the standard zero-one classiﬁcation loss whenh(x), the label
+predicted, is in Y. Otherwise, when h(x) is equal ton+j, the loss incurred iscj(x,y), the cost of
+deferring to experthj. Let ¯cj(x,y)= 1−cj(x,y). We will denote bycj ≥ 0 andcj ≤ 1 ﬁnite lower
+and upper bounds on the cost ¯cj, that is ¯cj(x,y) ∈ [cj,cj] for all (x,y) ∈ X× Y. There are many
+possible choices for these costs. Our analysis for Theorem 1, Corollary 2, Theorem 6 is general and
+requires no assumption other than their boundedness. One natural choice is to deﬁne cost cj as a
+function of experthj’s inaccuracy, for examplecj(x,y)=αj1hj(x)≠y+βj, withαj,βj > 0, where
+hj(x) is the prediction made byhjth for inputx. Typically, the hyperparameterαj has two potential
+values: zero or one. When αj is set to one, the ﬁrst term of the formulation pertains to the inaccuracy
+of expert experthj. Conversely, withαj set to zero, the ﬁrst term vanishes, focusing solely on the
+inference cost. Theorems 5 and 7 are analyzed under this assumption. The βj in the second term
+corresponds to the inference cost incurred by experthj.
+Given a distribution D over X× Y, we will denote by ELdef(h) the expected deferral loss of a
+hypothesis h ∈ H, ELdef(h) = E(x,y)∼D[Ldef(h,x,y )], and by E∗
+Ldef(H) = infh∈H ELdef(h) its
+inﬁmum or best-in-class expected loss. We will adopt similar deﬁnitions for other loss functions.
+Given a hypothesis set H, an H-consistency bound [Awasthi et al., 2021a,b, 2022b,a, 2023a,b, Mao
+et al., 2023h,d,e, Zheng et al., 2023, Mao et al., 2023a,g] for a surrogate loss ℓ1 of a target loss
+functionℓ2 is an inequality of the form
+∀h∈ H, Eℓ2(h)− E∗
+ℓ2(H)+ Mℓ1(H)≤ Γ/parenleft.alt1Eℓ1(h)− E∗
+ℓ1(H)+ Mℓ1(H/parenright.alt1), (2)
+where Γ∶ R+→ R+ is a non-decreasing function withΓ(0)= 0 and where Mℓ(H) is the minimizability
+gap for the hypothesis set H and loss function ℓ. Mℓ(H) is deﬁned as the difference of the
+best-in-class expected loss and that of the expected pointwise inﬁmum loss: Mℓ(H) = E∗
+ℓ(H)−
+Ex/bracketleft.alt1infh∈H Ey/divides.alt0x[ℓ(h,x,y )]/bracketright.alt. By the super-additivity of the inﬁmum, the minimizability gap is always
+non-negative. The minimizability gap vanishes when the best-in-class error E∗
+ℓ(H) coincides with
+the Bayes error E∗
+ℓ(Hall), in particular when H= Hall [Awasthi et al., 2022a,b].
+Thus, the H-consistency bound (2) relates the minimization of the estimation error for the surrogate
+lossℓ1 to that of the target lossℓ2 in a quantitative way. It is a stronger and more informative guarantee
+than Bayes-consistency which implies Bayes-consistency, as can be seen by setting H= Hall.
+3
+
+
+===== PDF_PAGE_004 =====
+
+Table 1: Common surrogate losses in standard multi-class classiﬁcation.
+Name Formulation
+Sum exponential loss ℓexp(h,x,y )= ∑y′≠yeh(x,y′)−h(x,y).
+Multinomial logistic loss ℓlog(h,x,y )= log/parenleft.alt2∑y′∈Y∪{0}eh(x,y′)−h(x,y)/parenright.alt2.
+Generalized cross-entropy loss ℓgce(h,x,y )= 1
+α/bracketleft.alt31−/bracketleft.alt3eh(x,y)
+∑y′∈Y∪{0}eh(x,y′ )/bracketright.alt3
+α
+/bracketright.alt3,α ∈ (0, 1).
+Mean absolute error loss ℓmae(h,x,y )= 1− eh(x,y)
+∑y′∈Y∪{0}eh(x,y′ ) .
+3 Two-stage H-consistent surrogate loss
+In this section, we consider an importanttwo-stage scenario for learning to defer with multiple experts.
+This is a critical scenario in practice for many applications where a predictor is already available, as
+a result of training with a loss functionℓ supported by H-consistency bounds, such as the logistic
+loss (ﬁrst stage). The logistic loss coincides with the cross-entropy loss when a softmax activation is
+applied to the output of a neural network. The problem then consists of learning a deferral function
+(second stage) to assign the most suitable expert to each input instance.
+We ﬁrst design a new family of surrogate losses for thistwo-stage scenario (Section 3.1). Next, we
+show that our surrogate losses beneﬁt fromH-consistency bounds (Section 3.2). As a by-product,
+we prove H-consistency bounds in standard multi-class classiﬁcation, whereH denotes hypothesis
+sets with a ﬁxed scoring function (Section 3.3). These bounds have not been studied before and can
+be of independent interest in other consistency studies. Moreover, we show that, for a constant cost
+function, our two-stage surrogate losses are realizable H-consistent (Section 3.4).
+3.1 General surrogate losses
+A hypothesis set H of functions mapping from X×[n+ne]to R can be decomposed as H= Hp× Hd,
+where Hp denotes the hypothesis set spanned by the ﬁrstn scores, used for prediction, and Hd the
+hypothesis set spanned by the ﬁnalne scores, used for deferral. Thus, anyh∈ H can be written as a
+pairh= (hp,hd) withhp ∈ Hp andhd ∈ Hd.
+Letℓ be a surrogate loss for standard multi-class classiﬁcation with n classes. We consider the
+following two-stage scenario: in the ﬁrst stage,hp is learned using the surrogate lossℓ1; in the second
+stage,hd is learned using a surrogate loss Lhp that depends on the prediction functionhp learned in
+the ﬁrst stage.
+To any hd ∈ Hd, we associate a hypothesis hd deﬁned over (ne + 1) classes {0, 1,...,n e} by
+hd(x, 0) = maxy∈Yhp(x,y), that is the maximal score assigned by hp to its predicted label, and
+hd(x,j) =hd(x,j) forj ∈ [ne]. We can then deﬁne our suggested surrogate loss for the second
+stage as follows:
+Lhp(hd,x,y )= 1hp(x)=yℓ2(hd,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(hd,x,j ), (3)
+whereℓ2(hd,x,j ) is a surrogate loss for standard multi-class classiﬁcation with(ne+ 1) categories
+{0, 1,...,n e}. Intuitively, the indicator term 1h(x)≠n+j in the deferral loss (1) penalizeshd(x,j)
+when it has a small value. Similarly, for a standard surrogate lossℓ2(hd,x,j ) such as the logistic loss,
+it penalizeshd(x,j) when it has a small value as well. In Table 2, we present a summary of examples
+of such second-stage surrogate losses, whereℓ2 is selected from common surrogate losses in standard
+multi-class classiﬁcation deﬁned in Table 1. A detailed derivation is presented in Appendix B.
+From the point of view of the second stage,x/uni21A6hd(x, 0)= maxy∈Yhp(x,y) is a ﬁxed function. We
+will denote by Hd the family of hypotheseshd∶ X×{0, 1,...,n e}→ R whose ﬁrst scoring function,
+hd(⋅, 0), is ﬁxed and not to be learned in the second stage.
+Our formulation bears some similarity with the design of a surrogate loss function for rejectors in
+[Cortes et al., 2016a, 2023] for learning with rejection in binary classiﬁcation, where the cost is a
+4
+
+
+===== PDF_PAGE_005 =====
+
+constant. However, our surrogate loss is tailored to accommodate a general cost function depending
+on both x andy for deferral, in contrast with a constant one, and it allows for multiple deferral
+options, as opposed to only one rejection option.
+3.2 H-consistency bounds for two-stage surrogate losses
+In this section, we provide strong guarantees for two-stage surrogate losses, provided that the ﬁrst-
+stage loss functionℓ1 admits an Hp-consistency bound, and the second-stage surrogateℓ2 admits an
+Hd-consistency bound.
+Theorem 1 (H-consistency bounds for score-based two-stage surrogates). Assume thatℓ1 admits
+an Hp-consistency bound andℓ2 admits an Hd-consistency bound with respect to the multi-class
+zero-one classiﬁcation lossℓ0−1 respectively. Thus, there are non-decreasing concave functionsΓ1
+and Γ2 such that, for allhp ∈ Hp andhd ∈ Hd, we have
+Eℓ0−1(hp)− E∗
+ℓ0−1(Hp)+ Mℓ0−1(Hp)≤ Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)+ Mℓ1(Hp)/parenright.alt1
+Eℓ0−1(hd)− E∗
+ℓ0−1(Hd)+ Mℓ0−1(Hd)≤ Γ2/parenleft.alt1Eℓ2(hd)− E∗
+ℓ2(Hd)+ Mℓ2(Hd)/parenright.alt1.
+Then, the following holds for allh∈ H:
+ELdef(h)− E∗
+Ldef(H)+ MLdef(H)
+≤ Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)+ Mℓ1(Hp)/parenright.alt1+/parenleft.alt41+
+ne
+/summation.disp
+j=1
+cj/parenright.alt4Γ2/parenleft.alt4
+ELhp(hd)− E∗
+Lhp
+(Hd)+ MLhp(Hd)
+∑ne
+j=1cj
+/parenright.alt4.
+Furthermore, constant factors/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1and 1
+∑ne
+j=1cj
+can be removed when Γ2 is linear.
+The proof is given in Appendix D. It consists of expressing the conditional regret of the deferral
+loss as the sum of two regrets, ﬁrst by minimizing hd for a ﬁxedhp and then by minimizing hp.
+Subsequently, we show how each regret can be upper-bounded in terms of the conditional regret of
+each stage’s surrogate loss, leveraging the Hp-consistency bound ofℓ1 and Hd-consistency bound of
+ℓ2 with respect to the zero-one loss. This, in conjunction with the concavity of functions Γ1 and Γ2,
+establishes our H-consistency bounds.
+Thus, the theorem provides a strong guarantee for the two-stage surrogate losses. A speciﬁc instance of
+Theorem 1 holds for the case whereE∗
+ℓ1(Hp)= E∗
+ℓ1(Hall) and E∗
+Lhp
+(Hd)= E∗
+Lhp
+(Hall), ensuring that
+the Bayes-error coincides with the best-in-class error and, consequently, Mℓ1(Hp)= MLhp(Hd)= 0.
+Given Theorem 1 and the non-negativity property ofMLdef(H), we can derive the following corollary.
+Corollary 2. Assume thatℓ satisﬁes the same assumption as in Theorem 1. Then, for allh∈ H and
+any distribution such that E∗
+ℓ1(Hp)= E∗
+ℓ1(Hall) and E∗
+Lhp
+(Hd)= E∗
+Lhp
+(Hall), we have
+ELdef(h)− E∗
+Ldef(H)≤ Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)/parenright.alt1+/uni239B
+/uni239D1+
+ne
+/summation.disp
+j=1
+cj
+/uni239E
+/uni23A0Γ2
+/uni239B
+/uni239D
+ELhp(hd)− E∗
+Lhp
+(Hd)
+∑ne
+j=1cj
+/uni239E
+/uni23A0,
+where the constant factors/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1and 1
+∑ne
+j=1cj
+can be removed when Γ2 is linear.
+Corollary 2 implies that when the estimation error of the ﬁrst-stage surrogate loss,Eℓ1(hp)−E∗
+ℓ1(Hp),
+is reduced toϵ1, and the estimation error of the second-stage surrogate loss, ELhp(hd)− E∗
+Lhp
+(Hd),
+is reduced toϵ2, the estimation error of the deferral loss, ELdef(h)− E∗
+Ldef(H), is upper-bound by
+Γ1(ϵ1)+/uni239B
+/uni239D1+
+ne
+/summation.disp
+j=1
+cj
+/uni239E
+/uni23A0Γ2/parenleft.alt4ϵ2
+∑ne
+j=1cj
+/parenright.alt4.
+The common surrogate losses mentioned earlier all satisfy the ﬁrst-stage requirement; however, it
+was unclear if they would meet the second-stage criterion since the Hd-consistency bound is for
+hypothesis sets Hd with a ﬁxed ﬁrst scoring function. This has not been previously studied in the
+literature. In the next section, we prove for the ﬁrst time that common multi-class surrogate losses,
+5
+
+
+===== PDF_PAGE_006 =====
+
+Table 2: Examples for score-based second-stage surrogate losses (3).
+ℓ2 Lhp
+ℓexp 1hp(x)=y ∑ne
+i=1eh(x,n+i)−maxy∈Yh(x,y)+∑ne
+j=1cj(x,y)/bracketleft.alt1∑ne
+i=1,i≠jeh(x,n+i)−h(x,n+j)+emaxy∈Yh(x,y)−h(x,n+j)/bracketright.alt
+ℓlog −1hp(x)=ylog/parenleft.alt3emaxy∈Yh(x,y)
+emaxy∈Yh(x,y)+∑ne
+i=1eh(x,n+i)/parenright.alt3−∑ne
+j=1cj(x,y)log/parenleft.alt3eh(x,n+j)
+emaxy∈Yh(x,y)+∑ne
+i=1eh(x,n+i)/parenright.alt3
+ℓgce 1hp(x)=y 1
+α/bracketleft.alt31−/bracketleft.alt3emaxy∈Yh(x,y)
+emaxy∈Yh(x,y)+∑ne
+i=1eh(x,n+i)/bracketright.alt3
+α
+/bracketright.alt3+∑ne
+j=1cj(x,y)1
+α/bracketleft.alt31−/bracketleft.alt3eh(x,n+j)
+emaxy∈Yh(x,y)+∑ne
+i=1eh(x,n+i)/bracketright.alt3
+α
+/bracketright.alt3
+ℓmae 1hp(x)=y/bracketleft.alt31− emaxy∈Yh(x,y)
+emaxy∈Yh(x,y)+∑ne
+i=1eh(x,n+i)/bracketright.alt3+∑ne
+j=1cj(x,y)/bracketleft.alt31− eh(x,n+j)
+emaxy∈Yh(x,y)+∑ne
+i=1eh(x,n+i)/bracketright.alt3
+such as the logistic loss, satisfy this requirement and can be incorporated into both the ﬁrst and second
+stage. Hence, based on [Mao et al., 2023h, Theorem 1] and Theorem 3 in Section 3.3, when using
+logistic loss in both stages, the concave functions are Γ1(t) = Γ2(t) =
+√
+2t, and thus Corollary 2
+yields the following H-consistency bound:
+ELdef(h)− E∗
+Ldef(H)≤
+√
+2/bracketleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)/bracketright.alt
+1
+2
++
+√
+2
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1+
+ne
+/summation.disp
+j=1
+cj
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+ELhp(hd)− E∗
+Lhp
+(Hd)
+∑ne
+j=1cj
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+1
+2
+.
+In particular, the bound implies the Bayes-consistency of the two-stage surrogate loss whenℓ1 =ℓ2 =
+ℓlog. Similarly, for other choices ofℓ1 andℓ2 deﬁned in Table 1, the two-stage surrogate loss beneﬁts
+from an H-consistency bound and is also Bayes-consistent.
+3.3 H-consistency bounds for standard surrogate loss functions
+In this section, we seek to derive H-consistency bounds for common surrogate losses deﬁned in
+Table 1 in the standard multi-class classiﬁcation scenario. Recall that the ﬁrst scoring function of
+hypotheses in Hd is the function maxy∈Yhp(⋅,y). Here, for any given functionλ mapping from X to
+R, we deﬁne the hypothesis setH augmented byλ in a similar way, that is to anyh∈ H we associate
+a hypothesish∈ H deﬁned byh(x, 0)=λ(x) andh(x,j)=h(x,j) forj ≥ 1. These H-consistency
+bounds offer strong guarantees when the loss functions in Table 1 are used in the second stage of
+the two-stage learning to defer surrogate losses (3) instantiated in Table 2. We believe that these
+results are of independent interest and can admit other applications in the study of H-consistency
+bounds. As with [Mao et al., 2023h], we assume that the hypothesis set H is symmetric and complete.
+A hypothesis set is said to be symmetric if there exists a family F of functions f mapping from
+X to R such that {[h(x, 1),...,h (x,n)]∶h∈ H} = {[f1(x),...,f n(x)]∶f1,...,f n ∈ F}, for any
+x ∈ X. A hypothesis set H is said to be complete if the set of scores it generates spans R, that is,
+{h(x,y)∶h∈ H}= R, for any (x,y)∈ X× Y.
+Note that for a symmetric and complete H, the associated H is not symmetric and complete.
+Therefore, the proof of Mao et al. [2023h] cannot be generalized to our setting. Our proofs are
+presented in Appendix E. We give a new method for upper bounding the conditional regret of the
+zero-one loss by that of a surrogate loss. To achieve this, we upper bound the minimal conditional
+surrogate loss by the conditional loss of a carefully constructed hypothesis in H denoted byhµ. The
+resulting softmax Sµ of this hypothesis only differs from the original softmax S corresponding toh
+on exactly two of the labels.
+Theorem 3 (H-consistency bounds). Assume that H is symmetric and complete. Then, for any
+functionλ mapping from X to R, hypothesish in the associated hypothesis set H and any distribution,
+the following inequality holds:
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤ Γ/parenleft.alt1Eℓ/parenleft.alt1h/parenright.alt1− E∗
+ℓ/parenleft.alt1H/parenright.alt1+ Mℓ/parenleft.alt1H/parenright.alt1/parenright.alt1− Mℓ0−1/parenleft.alt1H/parenright.alt1,
+where Γ(t) =
+√
+2t forℓ =ℓlog orℓexp; Γ(t) =
+/radical.alt1
+2(n+ 1)αt forℓ =ℓgce; and Γ(t) = (n+ 1)t for
+ℓ=ℓmae.
+Let us underscore that our proof technique is novel and distinct from the approach used in [Mao
+et al., 2023h]. Their method is tailored for hypothesis sets where each score can span across R. This
+is not applicable in our context where the hypothesis set adheres to a predeﬁned scoring function.
+6
+
+
+===== PDF_PAGE_007 =====
+
+In their proof, to set an upper bound on the estimation error of the zero-one loss using that of the
+surrogate loss, they select an auxiliary functionhµ for any hypothesish. This function is contingent
+on the distinct scores of h. Subsequently, the authors choose an optimal µ to set these bounds.
+Nevertheless, if any ofh’s scores are ﬁxed, an optimalµ does not exist, preventing the establishment
+of a meaningful bound. Instead, our new proof method overcomes this limitation by choosing hµ
+based on the softmax, as the softmax corresponding to the label zero can still vary due to the inﬂuence
+of changes in other scores, even when the scoring function on label zero is ﬁxed.
+3.4 Realizable H-consistency
+Recently, Mozannar et al. [2023] showed that even in the straightforward single-expert setting,
+existing Bayes-consistent single-stage surrogate losses [Mozannar and Sontag, 2020, Verma and
+Nalisnick, 2022] are not realizable H-consistent [Long and Servedio, 2013, Zhang and Agarwal,
+2020] for learning with deferral. This can pose signiﬁcant challenges when learning with a restricted
+hypothesis set H, even for simple linear models. Instead, they proposed a new surrogate loss that
+is realizable H-consistent when H is closed under scaling, meaning that it satisﬁes the condition
+h ∈ H⇒ τh ∈ H for all τ in the set of real numbers. However, they stated that they could not
+prove or disprove whether their proposed surrogate loss is Bayes-consistent. Consequently, it has
+become crucial to identify a surrogate loss that is both consistent and realizable-consistent, which has
+remained an open problem.
+Deﬁnition 4 (Realizable H-consistency). A surrogate loss L is considered a realizable H-consistent
+loss function for the deferral loss Ldef if, for any distribution that is H-realizable, that is, there exists
+a zero loss solutionh∗ ∈ H with ELdef(h∗)= 0, optimizing the surrogate loss results in obtaining the
+zero-error solution:
+EL(hn)− E∗
+L(H)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0 /Leftrightline⇒ELdef(hn)− E∗
+Ldef(H)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0.
+In the following result, we show that our two-stage surrogate losses are realizable H-consistent.
+Combined with their Bayes-consistency properties, which have already been established in Section 3.2,
+we effectively ﬁnd surrogate losses that are both Bayes-consistent and realizable consistent in the
+multi-expert setting, including the single-expert setting as a special case. For simplicity, here, we
+study the case whereℓ1 =ℓ2 =ℓlog, a similar proof holds for other choices of ℓ1 andℓ2 deﬁned in
+Table 1. The proof is included in Appendix F.
+Theorem 5 (Realizable H-consistency for score-based two-stage surrogates). Assume that H is
+closed under scaling andcj(x,y)=βj,∀(x,y)∈ X× Y. Letℓ1 andℓ2 be the logistic loss. Let ˆhp be
+the minimizer of Eℓ1 and ˆhd be the minimizer of ELˆhp
+such that ELˆhp
+(ˆhd)= minh ELhp(hd). Then,
+the following equality holds for any (H, R) -realizable distribution,
+ELdef(ˆh)= 0, where ˆh= (ˆhp, ˆhd).
+Theorem 5 suggests that when the estimation error of the ﬁrst-stage surrogate loss, Eℓ1(hn
+p)−
+E∗
+ℓ1(Hp)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0, and the estimation error of the second-stage surrogate loss, ELhp(hn
+d) −
+E∗
+Lhp
+(Hd)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0, the estimation error of the deferral loss, ELdef(hn)− E∗
+Ldef(H)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0.
+This result demonstrates that our two-stage surrogate losses are not only Bayes-consistent, but also
+realizable H-consistent when only the inference cost (βj) exists.
+4 Predictor-rejector setting
+The results of the previous sections were all given for the score-based setting. We note that another
+popular setting in learning with deferral/abstention is the predictor-rejector setting [Cortes et al.,
+2016a, 2023], where the deferral corresponds to a separate function R instead of extra scores. For
+completeness, we introduce this setting as well. Here too, we design a family of two-stage surrogate
+losses beneﬁting from both(H, R)-consistency bounds and realizable consistency. For simplicity,
+we overload the notation as with score-based setting based on the context.
+Let H be a hypothesis set of prediction functions mapping from X× Y to R. The label predicted
+forx ∈ X using a hypothesish ∈ H is denoted by h(x) and deﬁned as one with the highest score,
+7
+
+
+===== PDF_PAGE_008 =====
+
+Table 3: Examples for predictor-rejector second-stage surrogate losses (5).
+ℓ2 Lhp
+ℓexp 1h(x)=y ∑ne
+i=1e−ri(x)+ ∑ne
+j=1 ¯cj(x,y)/bracketleft.alt1∑ne
+i=1,i≠jerj(x)−ri(x)+erj(x)/bracketright.alt
+ℓlog −1h(x)=y log/parenleft.alt31
+1+∑ne
+i=1e−ri (x)/parenright.alt3− ∑ne
+j=1 ¯cj(x,y) log/parenleft.alt3e−rj (x)
+1+∑ne
+i=1e−ri (x)/parenright.alt3
+ℓgce 1h(x)=y
+1
+α/bracketleft.alt31−/bracketleft.alt31
+1+∑ne
+i=1e−ri (x)/bracketright.alt3
+α
+/bracketright.alt3+ ∑ne
+j=1 ¯cj(x,y) 1
+α/bracketleft.alt31−/bracketleft.alt3e−rj (x)
+1+∑ne
+i=1e−ri (x)/bracketright.alt3
+α
+/bracketright.alt3
+ℓmae 1h(x)=y/bracketleft.alt31− 1
+1+∑ne
+i=1e−ri (x)/bracketright.alt3+ ∑ne
+j=1 ¯cj(x,y)/bracketleft.alt31− e−rj (x)
+1+∑ne
+i=1e−ri (x)/bracketright.alt3
+h(x)= argmaxy∈Yh(x,y), with an arbitrary but ﬁxed deterministic strategy for breaking ties. Let
+R be a family of deferring functions mapping from X to Rne, wherene is the number of experts.
+A deferral r = (r1,...,r ne) ∈ R is used to defer the prediction on input x to the jth experthj if
+rj(x)≤ 0 andrj(x)< minne
+i=1,i≠jri(x), in which case a costcj(x,y)= 1− ¯cj(x,y)∈ [1−cj, 1−cj]
+is incurred with 0 <cj ≤cj ≤ 1. A natural choice of the cost is cj(x,y) =αj1hj(x)≠y+βj, where
+αj,βj > 0 and hj is the prediction of thejth expert. The βj in the second term corresponds to the
+inference cost incurred by expert hj. Let r0 = 0 and deﬁne r(x) = 0 ifr0(x) < minj∈[ne]rj(x);
+otherwise, r(x)= argminj∈[ne]rj(x), with an arbitrary but ﬁxed deterministic strategy for breaking
+ties. The learning to defer loss Ldef withne experts is deﬁned as follows for any(h,r)∈ H× R and
+(x,y)∈ X× Y:
+Ldef(h,r,x,y )= 1h(x)≠y1r(x)=0+
+ne
+/summation.disp
+j=1
+cj(x,y)1r(x)=j. (4)
+Given a distribution D over X× Y, we will denote by ELdef(h,r) the expected deferral loss of a
+predictorh∈ H and a deferralr ∈ R, ELdef(h,r)= E(x,y)∼D[Ldef(h,r,x,y )], and by E∗
+Ldef(H, R)=
+infh∈H,r∈R ELdef(h,r) its inﬁmum or best-in class expected loss. We will adopt similar deﬁnitions
+for other loss functions. We denote by ML(H, R)= E∗
+L(H, R)− Ex/bracketleft.alt1infh∈H,r∈R Ey/divides.alt0x[L(h,r,x,y )]/bracketright.alt
+the minimizability gap for hypothesis sets (H,R) and a loss function L.
+Letℓ1 be a surrogate loss for standard multi-class classiﬁcation with n classes. We consider the
+following two-stage scenario: in the ﬁrst stage, a predictorh is learned using the surrogate lossℓ1;
+in the second stage,r is learned using a surrogate loss Lh that depends on the prediction functionh
+learned in the ﬁrst stage.
+To anyr ∈ R, we associate a hypothesisr deﬁned over(ne+ 1) classes {0, 1,...,n e} byr(x, 0)= 0,
+that is zero scoring function, andr(x,j)=−rj(x) forj ∈ [ne]. We can then deﬁne our suggested
+surrogate loss for the second stage:
+Lh(r,x,y )= 1h(x)=yℓ2(r,x, 0)+
+ne
+/summation.disp
+j=1
+cj(x,y)ℓ2(r,x,j ). (5)
+Here,ℓ2(r,x,j ) is a surrogate loss for standard multi-class classiﬁcation with(ne+ 1) categories
+{0, 1,...,n e}. Intuitively, the indicator term 1r(x)≠j in the deferral loss penalizes rj(x) when it
+has a large value. However, a standard surrogate lossℓ2(r,x,j ) such as the logistic loss penalizes
+r(x,j) when it has a small value. This is why we use a negative sign in the deﬁnition ofr to maintain
+consistency between the deﬁnitions ofLh and Ldef. In Table 3, we present a summary of examples of
+such second-stage surrogate losses, whereℓ2 is selected from common surrogate losses in standard
+multi-class classiﬁcation deﬁned in Table 1. A detailed derivation is presented in Appendix C.
+From the point of view of the second stage, we will denote by R the family of hypotheses r∶ X×
+{0, 1,...,n e}→ R whose ﬁrst scoring function,r(⋅, 0), is zero function and will not be learned in
+the second stage. We will provide strong guarantees for two-stage surrogate losses, provided that the
+ﬁrst-stage loss functionℓ1 admits an H-consistency bound, and the second-stage loss function ℓ2
+admits an R-consistency bound.
+Theorem 6 ((H, R)-consistency bounds for predictor-rejector two-stage surrogates ). Assume
+thatℓ1 admits an H-consistency bound andℓ2 admits an R-consistency bound with respect to the
+multi-class zero-one classiﬁcation lossℓ0−1 respectively. Thus, there are non-decreasing concave
+8
+
+
+===== PDF_PAGE_009 =====
+
+functions Γ1 and Γ2 such that, for allh∈ H andr ∈ R, we have
+Eℓ0−1(h)− E∗
+ℓ0−1(H)+ Mℓ0−1(H)≤ Γ1/parenleft.alt1Eℓ1(h)− E∗
+ℓ1(H)+ Mℓ1(H/parenright.alt1
+Eℓ0−1(r)− E∗
+ℓ0−1(R)+ Mℓ0−1(R)≤ Γ2/parenleft.alt1Eℓ2(r)− E∗
+ℓ2(R)+ Mℓ2(R)/parenright.alt1.
+Then, the following holds for allh∈ H andr ∈ R:
+ELdef(h,r)− E∗
+Ldef(H, R)+ MLdef(H, R)
+≤ Γ1/parenleft.alt1Eℓ1(h)− E∗
+ℓ1(H)+ Mℓ1(H)/parenright.alt1+/uni239B
+/uni239D1+
+ne
+/summation.disp
+j=1
+cj
+/uni239E
+/uni23A0Γ2/parenleft.alt4
+ELh(r)− E∗
+Lh(R)+ MLh(R)
+∑ne
+j=1cj
+/parenright.alt4,
+where the constant factors/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1and 1
+∑ne
+j=1cj
+can be removed when Γ2 is linear.
+As with the score-based setting, a speciﬁc instance of Theorem 6 holds for the case whereE∗
+ℓ1(H)=
+E∗
+ℓ1(Hall) and E∗
+Lh(R)= E∗
+Lh(Rall), ensuring that the Bayes-error coincides with the best-in-class
+error and, consequently, Mℓ1(H) = MLh(R) = 0. In these cases, when the estimation error of
+the ﬁrst-stage surrogate loss, Eℓ1(h)− E∗
+ℓ1(H), is reduced to ϵ1, and the estimation error of the
+second-stage surrogate loss, ELh(r)− E∗
+Lh(R), is reduced toϵ2, the estimation error of the deferral
+loss, ELdef(h,r)− E∗
+Ldef(H, R), is upper bounded by
+Γ1(ϵ1)+/uni239B
+/uni239D1+
+ne
+/summation.disp
+j=1
+cj
+/uni239E
+/uni23A0Γ2/parenleft.alt4ϵ2
+∑ne
+j=1cj
+/parenright.alt4.
+Next, we show that our two-stage surrogate losses are realizable (H, R)-consistent. We say that
+the distribution is (H, R)-realizable, if there exists a zero error solution (h∗,r∗) ∈ H× R with
+ELdef(h∗,r∗)= 0.
+Theorem 7 (Realizable (H, R)-consistency for predictor-rejector two-stage surrogates ). As-
+sume that H and R is closed under scaling andcj(x,y)=βj,∀(x,y)∈ X× Y. Letℓ1 andℓ2 be the
+logistic loss. Let ˆh be the minimizer of Eℓ1 and ˆr be the minimizer of ELˆh. Then, the following holds
+for any (H, R) -realizable distribution,
+ELdef(ˆh, ˆr)= 0.
+The proof is included in Appendix H. Theorem 7 suggests that the two-stage surrogate loss is realizable
+consistent: when the estimation error of the ﬁrst-stage surrogate lossEℓ1(hn)−E∗
+ℓ1(H)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0, and
+the estimation error of the second-stage surrogate loss ELh(rn)− E∗
+Lh(R)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0, the estimation
+error of the deferral loss, ELdef(hn,rn)− E∗
+Ldef(H, R)
+n→+∞
+/leftrightline/leftrightline/leftrightline→0. By Theorem 6 and Theorem 7, in
+the predictor-rejector setting, we also effectively ﬁnd both Bayes-consistent and realizable consistent
+surrogate losses with multiple experts when only the inference cost (βj) exists.
+Note that while Sections 3 and 4 both propose new two-stage algorithms based on H-consistent
+surrogate losses, they differ in an important way. Section 3 learns with deferral in a score-based
+framework, where deferral is associated with extra scores. In contrast, Section 4 learns with deferral
+in a predictor-rejector setting, where deferral corresponds to a separate function. These represent two
+distinct learning frameworks that have been studied in the literature. Deriving consistent surrogate
+losses in the predictor-rejector setting has historically been challenging for traditional single-stage
+scenarios, leading many to opt for the score-based approach.
+We should also highlight that our H-consistency bounds in Theorems 1 and 6 can be used to derive
+ﬁnite sample estimation bounds for the minimizer of the surrogate loss over a hypothesis set H.
+This is achieved by upper bounding the estimation error of the minimizer of the surrogate loss using
+standard Rademacher complexity bounds (see [Mao et al., 2023h]).
+5 Experiments
+In this section, we report the results of our experiments on CIFAR-10 [Krizhevsky, 2009] and SVHN
+[Netzer et al., 2011] datasets to test the effectiveness of our proposed algorithms for two-stage
+9
+
+
+===== PDF_PAGE_010 =====
+
+Table 4: Accuracy of deferral with multiple experts: mean± standard deviation over three runs.
+Dataset Base cost Base model Single expert Two experts Three experts
+SVHN  91.12 91.85 ± 0.01% 92.77 ± 0.02% 93.30 ± 0.02%
+CIFAR-10  70.56 72.63 ± 0.20% 75.84 ± 0.35% 77.68 ± 0.07%
+SVHN  91.12 91.66 ± 0.01% 92.05 ± 0.10% 92.19 ± 0.03%
+CIFAR-10  70.56 71.73 ± 0.06% 72.31 ± 0.31% 72.42 ± 0.12%
+learning to defer with multiple experts. We evaluated the overall accuracy of the learned pairs of
+predictor and deferral model across different scenarios involving varying the number of experts,
+where the predictor is pre-learned in the ﬁrst stage and the deferral is subsequently learned using our
+proposed surrogate loss. We ﬁnd that as the number of experts increases, the overall accuracy of the
+learned pairs also increases, in both scenarios with zero and non-zero base costs. This observation
+highlights the signiﬁcance of using a multiple expert framework in our approach and the effectiveness
+of our surrogate loss within the framework.
+We used ResNet architectures [He et al., 2016] for the prediction model, the deferral model and
+expert models. More precisely, we used ResNet-4 for both the predictor and the deferral. We adopted
+three expert models: ResNet-10, ResNet-16, ResNet-28 with increasing capacity. For training, we
+used the Adam optimizer [Kingma and Ba, 2014] with a batch size of 128 and weight decay 1× 10−4.
+Training was run for 15 epochs for SVHN and 50 epochs for CIFAR-10 with the default learning rate.
+No data augmentation was used in our experiments. We used our two-stage surrogate loss (3) with
+the logistic lossℓ=ℓlog to train the deferral model ResNet-4, with a pre-learned predictor ResNet-4
+trained using logistic loss. A check mark indicates the presence of a base cost in the cost function,
+whereas a cross mark signiﬁes its absence. We ﬁrst set the cost function to be 1hj(x)≠y without a
+base cost. Next, for the experimental results shown in the last two row of Table 4, we chose base
+costsβj associated with each expert model as: 0.1, 0.12, 0.14 increasing with model capacity for
+SVHN and 0.3, 0.32, 0.34 increasing with model capacity for CIFAR-10. A base cost value that is
+close to the misclassiﬁcation loss can strike a balance between improving accuracy and maintaining
+the ratio of deferral. We observed that other neighboring values lead to similar results. Note that the
+accuracy here refers to the overall accuracy of the learned pairs of predictor and deferral model. It is
+related to the deferral loss. Speciﬁcally, in the absence of the base cost, the accuracy aligns precisely
+with one minus the expected deferral loss. The results of Table 4 demonstrate the effectiveness of our
+proposed algorithms for two-stage learning to defer with multiple experts.
+To the best of our knowledge, our study pioneers the exploration of a two-stage learning approach for
+deferral, a framework that is essential in numerous practical applications. Thus, we are unaware of
+any established baselines within this context.
+It is important to underscore the differences between our learning scenario and those presented in
+[Okati et al., 2021, Narasimhan et al., 2022]. While both of them involve two phases, their methodolo-
+gies are considerably different from ours. Okati et al. [2021] required conditional probabilities paired
+with loss estimates from the expert—a component not available in our framework, as emphasized by
+Mozannar et al. [2023]. On the other hand, Narasimhan et al. [2022] proposed a post-hoc correction
+for single-stage learning to defer surrogate losses. This approach, however, is not applicable to a
+pre-trained predictor from the standard multi-class classiﬁcation. In contrast, our work focuses on
+enhancing the pre-trained predictor within the standard framework.
+A limitation of our study is that the cost function used within the deferral loss is not ﬁxed, and
+is typically determined through cross-validation in practice. There exists potential to introduce a
+principled method for selecting the cost function, which we have reserved for future research.
+6 Conclusion
+We introduced a novel family of surrogate loss functions and algorithms for a crucial two-stage
+learning to defer approach with multiple experts. We proved that these surrogate losses are supported
+by H-consistency bounds and established their realizable H-consistency properties for a constant
+cost function. This work paves the way for comparing different surrogate losses and cost functions
+within our framework. Further exploration, both theoretically and empirically, holds the potential to
+identify optimal choices for these quantities across diverse tasks.
+10
+
+
+===== PDF_PAGE_011 =====
+
+References
+D. A. E. Acar, A. Gangrade, and V . Saligrama. Budget learning via bracketing. In International
+Conference on Artiﬁcial Intelligence and Statistics, pages 4109–4119, 2020.
+P. Awasthi, N. Frank, A. Mao, M. Mohri, and Y . Zhong. Calibration and consistency of adversarial
+surrogate losses. In Advances in Neural Information Processing Systems, 2021a.
+P. Awasthi, A. Mao, M. Mohri, and Y . Zhong. A ﬁner calibration analysis for adversarial robustness.
+arXiv preprint arXiv:2105.01550, 2021b.
+P. Awasthi, A. Mao, M. Mohri, and Y . Zhong. Multi-classH-consistency bounds. In Advances in
+neural information processing systems, 2022a.
+P. Awasthi, A. Mao, M. Mohri, and Y . Zhong.H-consistency bounds for surrogate loss minimizers.
+In International Conference on Machine Learning, 2022b.
+P. Awasthi, A. Mao, M. Mohri, and Y . Zhong. Theoretically grounded loss functions and algorithms
+for adversarial robustness. In International Conference on Artiﬁcial Intelligence and Statistics,
+pages 10077–10094, 2023a.
+P. Awasthi, A. Mao, M. Mohri, and Y . Zhong. DC-programming for neural network optimizations.
+Journal of Global Optimization, 2023b.
+G. Bansal, B. Nushi, E. Kamar, E. Horvitz, and D. S. Weld. Is the most accurate ai the best teammate?
+optimizing ai for teamwork. In Proceedings of the AAAI Conference on Artiﬁcial Intelligence ,
+pages 11405–11414, 2021.
+P. L. Bartlett and M. H. Wegkamp. Classiﬁcation with a reject option using a hinge loss.Journal of
+Machine Learning Research, 9(8), 2008.
+P. L. Bartlett, M. I. Jordan, and J. D. McAuliffe. Convexity, classiﬁcation, and risk bounds.Journal
+of the American Statistical Association, 101(473):138–156, 2006.
+N. L. C. Benz and M. G. Rodriguez. Counterfactual inference of second opinions. In Uncertainty in
+Artiﬁcial Intelligence, pages 453–463. PMLR, 2022.
+S. Bubeck, V . Chandrasekaran, R. Eldan, J. Gehrke, E. Horvitz, E. Kamar, P. Lee, Y . T. Lee, Y . Li,
+S. Lundberg, et al. Sparks of artiﬁcial general intelligence: Early experiments with gpt-4. arXiv
+preprint arXiv:2303.12712, 2023.
+Y . Cao, T. Cai, L. Feng, L. Gu, J. Gu, B. An, G. Niu, and M. Sugiyama. Generalizing consistent
+multi-class classiﬁcation with rejection to be compatible with arbitrary losses. In Advances in
+neural information processing systems, 2022.
+N. Charoenphakdee, Z. Cui, Y . Zhang, and M. Sugiyama. Classiﬁcation with rejection based on
+cost-sensitive classiﬁcation. In International Conference on Machine Learning, pages 1507–1517,
+2021.
+M.-A. Charusaie, H. Mozannar, D. Sontag, and S. Samadi. Sample efﬁcient learning of predictors
+that complement humans. In International Conference on Machine Learning, pages 2972–3005,
+2022.
+C. Chow. An optimum character recognition system using decision function. IEEE T. C., 1957.
+C. Chow. On optimum recognition error and reject tradeoff. IEEE Transactions on information
+theory, 16(1):41–46, 1970.
+C. Cortes, G. DeSalvo, and M. Mohri. Learning with rejection. In International Conference on
+Algorithmic Learning Theory, pages 67–82, 2016a.
+C. Cortes, G. DeSalvo, and M. Mohri. Boosting with abstention. In Advances in Neural Information
+Processing Systems, pages 1660–1668, 2016b.
+C. Cortes, G. DeSalvo, and M. Mohri. Theory and algorithms for learning with rejection in binary
+classiﬁcation. Annals of Mathematics and Artiﬁcial Intelligence, to appear, 2023.
+11
+
+
+===== PDF_PAGE_012 =====
+
+A. De, P. Koley, N. Ganguly, and M. Gomez-Rodriguez. Regression under human assistance. In
+Proceedings of the AAAI Conference on Artiﬁcial Intelligence, pages 2611–2620, 2020.
+R. El-Yaniv et al. On the foundations of noise-free selective classiﬁcation. Journal of Machine
+Learning Research, 11(5), 2010.
+A. Gangrade, A. Kag, and V . Saligrama. Selective classiﬁcation via one-sided prediction. In
+International Conference on Artiﬁcial Intelligence and Statistics, pages 2179–2187, 2021.
+R. Gao, M. Saar-Tsechansky, M. De-Arteaga, L. Han, M. K. Lee, and M. Lease. Human-ai collabora-
+tion with bandit feedback. arXiv preprint arXiv:2105.10614, 2021.
+Y . Geifman and R. El-Yaniv. Selective classiﬁcation for deep neural networks. InAdvances in neural
+information processing systems, 2017.
+Y . Geifman and R. El-Yaniv. Selectivenet: A deep neural network with an integrated reject option. In
+International conference on machine learning, pages 2151–2159, 2019.
+Y . Grandvalet, A. Rakotomamonjy, J. Keshet, and S. Canu. Support vector machines with a reject
+option. In Advances in neural information processing systems, 2008.
+K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning for image recognition. In Proceedings
+of the IEEE conference on computer vision and pattern recognition, pages 770–778, 2016.
+P. Hemmer, S. Schellhammer, M. Vössing, J. Jakubik, and G. Satzger. Forming effective human-ai
+teams: Building machine learning models that complement the capabilities of multiple experts.
+arXiv preprint arXiv:2206.07948, 2022.
+P. Hemmer, L. Thede, M. Vössing, J. Jakubik, and N. Kühl. Learning to defer with limited expert
+predictions. arXiv preprint arXiv:2304.07306, 2023.
+R. Herbei and M. Wegkamp. Classiﬁcation with reject option. Can. J. Stat., 2005.
+S. Joshi, S. Parbhoo, and F. Doshi-Velez. Pre-emptive learning-to-defer for sequential medical
+decision-making under uncertainty. arXiv preprint arXiv:2109.06312, 2021.
+A. T. Kalai, V . Kanade, and Y . Mansour. Reliable agnostic learning.Journal of Computer and System
+Sciences, 78(5):1481–1495, 2012.
+E. Kamar, S. Hacker, and E. Horvitz. Combining human and machine intelligence in large-scale
+crowdsourcing. In AAMAS, pages 467–474, 2012.
+G. Kerrigan, P. Smyth, and M. Steyvers. Combining human predictions with model probabilities
+via confusion matrices and calibration. Advances in Neural Information Processing Systems, 34:
+4421–4434, 2021.
+V . Keswani, M. Lease, and K. Kenthapadi. Towards unbiased and accurate deferral to multiple
+experts. In Proceedings of the 2021 AAAI/ACM Conference on AI, Ethics, and Society , pages
+154–165, 2021.
+D. P. Kingma and J. Ba. Adam: A method for stochastic optimization.arXiv preprint arXiv:1412.6980,
+2014.
+J. Kleinberg, H. Lakkaraju, J. Leskovec, J. Ludwig, and S. Mullainathan. Human decisions and
+machine predictions. The quarterly journal of economics, 133(1):237–293, 2018.
+A. Krizhevsky. Learning multiple layers of features from tiny images. Technical report, Toronto
+University, 2009.
+V . Kuznetsov, M. Mohri, and U. Syed. Multi-class deep boosting. InAdvances in Neural Information
+Processing Systems, pages 2501–2509, 2014.
+J. Liu, B. Gallego, and S. Barbieri. Incorporating uncertainty in learning to defer algorithms for safe
+computer-aided diagnosis. Scientiﬁc reports, 12(1):1762, 2022.
+12
+
+
+===== PDF_PAGE_013 =====
+
+P. Long and R. Servedio. Consistency versus realizable H-consistency for multiclass classiﬁcation.
+In International Conference on Machine Learning, pages 801–809, 2013.
+D. Madras, E. Creager, T. Pitassi, and R. Zemel. Learning adversarially fair and transferable
+representations. arXiv preprint arXiv:1802.06309, 2018.
+A. Mao, M. Mohri, and Y . Zhong. H-consistency bounds: Characterization and extensions. In
+Advances in Neural Information Processing Systems, 2023a.
+A. Mao, M. Mohri, and Y . Zhong. Principled approaches for learning to defer with multiple experts.
+arXiv preprint arXiv:2310.14774, 2023b.
+A. Mao, M. Mohri, and Y . Zhong. Predictor-rejector multi-class abstention: Theoretical analysis and
+algorithms. arXiv preprint arXiv:2310.14772, 2023c.
+A. Mao, M. Mohri, and Y . Zhong. H-consistency bounds for pairwise misranking loss surrogates. In
+International conference on Machine learning, 2023d.
+A. Mao, M. Mohri, and Y . Zhong. Ranking with abstention. In ICML 2023 Workshop The Many
+Facets of Preference-Based Learning, 2023e.
+A. Mao, M. Mohri, and Y . Zhong. Theoretically grounded loss functions and algorithms for score-
+based multi-class abstention. arXiv preprint arXiv:2310.14770, 2023f.
+A. Mao, M. Mohri, and Y . Zhong. Structured prediction with stronger consistency guarantees. In
+Advances in Neural Information Processing Systems, 2023g.
+A. Mao, M. Mohri, and Y . Zhong. Cross-entropy loss functions: Theoretical analysis and applications.
+In International Conference on Machine Learning, 2023h.
+C. Mohri, D. Andor, E. Choi, M. Collins, A. Mao, and Y . Zhong. Learning to reject with a ﬁxed
+predictor: Application to decontextualization. arXiv preprint arXiv:2301.09044, 2023.
+M. Mohri, A. Rostamizadeh, and A. Talwalkar.Foundations of Machine Learning. MIT Press, second
+edition, 2018.
+H. Mozannar and D. Sontag. Consistent estimators for learning to defer to an expert. In International
+Conference on Machine Learning, pages 7076–7087, 2020.
+H. Mozannar, A. Satyanarayan, and D. Sontag. Teaching humans when to defer to a classiﬁer via
+exemplars. In Proceedings of the AAAI Conference on Artiﬁcial Intelligence, pages 5323–5331,
+2022.
+H. Mozannar, H. Lang, D. Wei, P. Sattigeri, S. Das, and D. Sontag. Who should predict? exact
+algorithms for learning to defer to humans. In International Conference on Artiﬁcial Intelligence
+and Statistics, pages 10520–10545, 2023.
+H. Narasimhan, W. Jitkrittum, A. K. Menon, A. S. Rawat, and S. Kumar. Post-hoc estimators for
+learning to defer to an expert. In Advances in Neural Information Processing Systems, 2022.
+H. Narasimhan, A. K. Menon, W. Jitkrittum, and S. Kumar. Learning to reject meets ood detection:
+Are all abstentions created equal? arXiv preprint arXiv:2301.12386, 2023.
+Y . Netzer, T. Wang, A. Coates, A. Bissacco, B. Wu, and A. Y . Ng. Reading digits in natural images
+with unsupervised feature learning. In Advances in Neural Information Processing Systems, 2011.
+C. Ni, N. Charoenphakdee, J. Honda, and M. Sugiyama. On the calibration of multiclass classiﬁcation
+with rejection. In Advances in Neural Information Processing Systems, pages 2582–2592, 2019.
+N. Okati, A. De, and M. Rodriguez. Differentiable learning under triage. Advances in Neural
+Information Processing Systems, 34:9140–9151, 2021.
+M. F. Pradier, J. Zazo, S. Parbhoo, R. H. Perlis, M. Zazzi, and F. Doshi-Velez. Preferential mixture-
+of-experts: Interpretable models that rely on human expertise as much as possible. AMIA Summits
+on Translational Science Proceedings, 2021:525, 2021.
+13
+
+
+===== PDF_PAGE_014 =====
+
+M. Raghu, K. Blumer, G. Corrado, J. Kleinberg, Z. Obermeyer, and S. Mullainathan. The algorithmic
+automation problem: Prediction, triage, and human effort. arXiv preprint arXiv:1903.12220, 2019.
+N. Raman and M. Yee. Improving learning-to-defer algorithms through ﬁne-tuning. arXiv preprint
+arXiv:2112.10768, 2021.
+H. G. Ramaswamy, A. Tewari, and S. Agarwal. Consistent algorithms for multiclass classiﬁcation
+with an abstain option. Electronic Journal of Statistics, 12(1):530–554, 2018.
+I. Steinwart. How to compare different loss functions and their risks. Constructive Approximation,
+26(2):225–287, 2007.
+E. Straitouri, A. Singla, V . B. Meresht, and M. Gomez-Rodriguez. Reinforcement learning under
+algorithmic triage. arXiv preprint arXiv:2109.11328, 2021.
+E. Straitouri, L. Wang, N. Okati, and M. G. Rodriguez. Provably improving expert predictions with
+conformal prediction. arXiv preprint arXiv:2201.12006, 2022.
+S. Tan, J. Adebayo, K. Inkpen, and E. Kamar. Investigating human+ machine complementarity for
+recidivism predictions. arXiv preprint arXiv:1808.09123, 2018.
+R. Verma and E. Nalisnick. Calibrated learning to defer with one-vs-all classiﬁers. In International
+Conference on Machine Learning, pages 22184–22202, 2022.
+R. Verma, D. Barrejón, and E. Nalisnick. Learning to defer to multiple experts: Consistent surrogate
+losses, conﬁdence calibration, and conformal ensembles. In International Conference on Artiﬁcial
+Intelligence and Statistics, pages 11415–11434, 2023.
+J. Wei, Y . Tay, R. Bommasani, C. Raffel, B. Zoph, S. Borgeaud, D. Yogatama, M. Bosma, D. Zhou,
+D. Metzler, E. H. Chi, T. Hashimoto, O. Vinyals, P. Liang, J. Dean, and W. Fedus. Emergent
+abilities of large language models. CoRR, abs/2206.07682, 2022.
+Y . Wiener and R. El-Yaniv. Agnostic selective classiﬁcation. InAdvances in neural information
+processing systems, 2011.
+B. Wilder, E. Horvitz, and E. Kamar. Learning to complement humans. In International Joint
+Conferences on Artiﬁcial Intelligence, pages 1526–1533, 2021.
+M. Yuan and M. Wegkamp. Classiﬁcation methods with reject option based on convex risk minimiza-
+tion. Journal of Machine Learning Research, 11(1), 2010.
+M. Yuan and M. Wegkamp. SVMs with a reject option. In Bernoulli, 2011.
+M. Zhang and S. Agarwal. Bayes consistency vs. H-consistency: The interplay between surrogate
+loss functions and the scoring function class. In Advances in Neural Information Processing
+Systems, 2020.
+T. Zhang. Statistical behavior and consistency of classiﬁcation methods based on convex risk
+minimization. The Annals of Statistics, 32(1):56–85, 2004.
+J. Zhao, M. Agrawal, P. Razavi, and D. Sontag. Directing human attention in event localization for
+clinical timeline creation. In Machine Learning for Healthcare Conference, pages 80–102, 2021.
+C. Zheng, G. Wu, F. Bao, Y . Cao, C. Li, and J. Zhu. Revisiting discriminative vs. generative classiﬁers:
+Theory and implications. arXiv preprint arXiv:2302.02334, 2023.
+L. Ziyin, Z. Wang, P. P. Liang, R. Salakhutdinov, L.-P. Morency, and M. Ueda. Deep gamblers:
+Learning to abstain with portfolio theory. arXiv preprint arXiv:1907.00208, 2019.
+14
+
+
+===== PDF_PAGE_015 =====
+
+Contents of Appendix
+A Related work 16
+B Examples of two-stage score-based surrogate losses 17
+C Examples of two-stage predictor-rejector surrogate losses 18
+D Proof of H-consistency bounds for score-based two-stage surrogate losses (Theorem 1) 19
+E Proof of H-consistency bounds for standard surrogate loss functions (Theorem 3) 21
+E.1 Multinomial logistic loss . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+E.2 Sum exponential loss . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+E.3 Generalized cross-entropy loss . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+E.4 Mean absolute error loss . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+F Proof of realizable consistency for score-based two-stage surrogate losses (Theorem 5) 27
+G Proof of (H, R)-consistency bounds for predictor-rejector two-stage surrogate losses
+(Theorem 6) 27
+H Proof of realizable consistency for predictor-rejector two-stage surrogate losses (Theo-
+rem 7) 29
+15
+
+
+===== PDF_PAGE_016 =====
+
+A Related work
+The scenario of single-stage learning to defer has been extensively explored in previous research.
+The initial studies focused on the problem of abstention and introduced various approaches such as
+conﬁdence-based abstention [Chow, 1957, 1970, Herbei and Wegkamp, 2005, Bartlett and Wegkamp,
+2008, Grandvalet et al., 2008, Yuan and Wegkamp, 2010, 2011, Ramaswamy et al., 2018, Ni et al.,
+2019], selective classiﬁcation [El-Yaniv et al., 2010, Wiener and El-Yaniv, 2011, Kalai et al., 2012,
+Geifman and El-Yaniv, 2017, 2019, Ziyin et al., 2019, Acar et al., 2020, Gangrade et al., 2021], a
+predictor-rejector framework for abstention [Cortes et al., 2016a,b, Charoenphakdee et al., 2021,
+Cortes et al., 2023, Mohri et al., 2023, Mao et al., 2023c], and a score-based setting for abstention
+[Mozannar and Sontag, 2020, Raman and Yee, 2021, Liu et al., 2022, Verma and Nalisnick, 2022,
+Charusaie et al., 2022, Cao et al., 2022, Mao et al., 2023f, Verma et al., 2023, Mao et al., 2023b,
+Mozannar et al., 2023].
+Another line of research is centered around the joint learning of prediction and deferral functions.
+Several publications by Madras et al. [2018], Raghu et al. [2019], Wilder et al. [2021], Pradier et al.
+[2021], Keswani et al. [2021] delve into this topic, considering single-stage learning to defer and
+its variants. Additionally, the concept of learning to defer has been explored in different scenarios,
+including combining human and machine predictions, investigating human preferences, regression
+problems, reinforcement learning, and more [Kamar et al., 2012, Tan et al., 2018, Kleinberg et al.,
+2018, Bansal et al., 2021, De et al., 2020, Straitouri et al., 2021, Zhao et al., 2021, Joshi et al., 2021,
+Gao et al., 2021, Mozannar et al., 2022, Hemmer et al., 2023, Narasimhan et al., 2023]. However, in
+practice, a predictor such as an LLM is already available and retraining one in conjunction with a
+deferral function could be prohibitively costly: depending on its size and the amount of data used,
+retraining could take several weeks or months. Thus, the single-stage learning to defer scenario and
+its solutions often do not align with the practical challenges encountered in real-world applications.
+Alternative post-hoc methods have been proposed to address the learning to defer problem. Okati
+et al. [2021] proposed an iterative approach optimizing a predictor and a rejector over multiple epochs.
+Within each epoch, ﬁrst the predictor is trained on points where its loss is lower than that of a human
+expert; second, the rejector is ﬁtted to predict which of the predictor or the human expert has a
+lower loss. Narasimhan et al. [2022] suggested a post-hoc correction to the single-stage learning to
+defer surrogate losses, speciﬁcally the cost-sensitive softmax cross-entropy (CSS) surrogate loss in
+[Mozannar and Sontag, 2020] and the one-versus-all (OvA) surrogate loss in [Verma and Nalisnick,
+2022] for cases where they suffer from underﬁtting. However, as with the single-stage learning to
+defer solutions, post-hoc approaches do not apply to scenarios where an existing predictor, pre-trained
+using a standard classiﬁcation loss function such as cross-entropy, is already available.
+A key criterion for surrogate losses in the scenario of learning to defer is Bayes-consistency (also
+known as consistency) [Zhang, 2004, Bartlett et al., 2006, Steinwart, 2007, Mohri et al., 2018]. This
+property guarantees that minimizing the surrogate loss over the family of measurable functions leads
+to the minimization of the deferral loss. The surrogate losses proposed in [Mozannar and Sontag,
+2020, Verma and Nalisnick, 2022] have shown to be Bayes-consistent for deferral. However, Bayes-
+consistency is a property associated with the family of all measurable functions, which of course is
+considerably broader than the hypothesis sets typically used in learning algorithms, including linear
+hypothesis sets and the family of neural networks.
+Instead, Long and Servedio [2013], Kuznetsov et al. [2014], Zhang and Agarwal [2020] proposed a
+notion of realizable H-consistency, that is consistency associated with a speciﬁc hypothesis set in the
+realizable scenario. Mozannar et al. [2023] recently showed that existing Bayes-consistent surrogate
+losses in [Mozannar and Sontag, 2020, Verma and Nalisnick, 2022] are not realizable H-consistent
+for learning with deferral, which can pose signiﬁcant challenges when learning with a restricted
+hypothesis set H, even for simple linear models. Instead, they proposed a new surrogate loss that is
+realizable H-consistent when H is closed under scaling. However, they also observed that the loss
+function of Madras et al. [2018], which is not Bayes-consistent, is actually realizable H-consistent.
+They acknowledged their inability to prove or disprove whether their proposed surrogate loss is
+Bayes-consistent. Consequently, it has remained an open problem to identify a surrogate loss that is
+both consistent and realizable-consistent.
+In recent work, Verma et al. [2023] proposed the ﬁrst Bayes-consistent surrogate losses in the scenario
+of learning to defer with multiple experts [Hemmer et al., 2022, Keswani et al., 2021, Kerrigan et al.,
+16
+
+
+===== PDF_PAGE_017 =====
+
+2021, Straitouri et al., 2022, Benz and Rodriguez, 2022]. This scenario is more attractive and
+signiﬁcant in applications such as large language models, where multiple models are often available
+for deferral. However, the surrogate losses proposed by the authors do not beneﬁt from realizable
+H-consistency, even in the single-expert setting, since they are a straightforward generalization of
+those of Mozannar and Sontag [2020] and Verma and Nalisnick [2022].
+In summary, the problem of learning to defer in a single-stage scenario has been extensively studied,
+but it is often impractical in real-world applications. Post-hoc methods and surrogate losses have
+been explored, but the challenge remains to ﬁnd a surrogate loss that is both consistent and realizable-
+consistent. Recent research has made progress in the scenario of learning to defer with multiple
+experts but has not achieved realizable H-consistency even in a single-expert setting.
+B Examples of two-stage score-based surrogate losses
+Example:ℓ2 =ℓexp. Forℓ2(hd,x,y )=ℓexp(hd,x,y )= ∑y′≠yehd(x,y′)−hd(x,y), by (3), we have
+Lhp(hd,x,y )
+= 1hp(x)=yℓ2(hd,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(hd,x,j )
+= 1hp(x)=y /summation.disp
+y′≠0
+ehd(x,y′)−hd(x,0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y) /summation.disp
+y′≠j
+ehd(x,y′)−hd(x,j)
+= 1hp(x)=y
+ne
+/summation.disp
+i=1
+eh(x,n+i)−maxy∈Yh(x,y)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+i=1,i≠j
+eh(x,n+i)−h(x,n+j)+emaxy∈Yh(x,y)−h(x,n+j)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+.
+Example:ℓ2 =ℓlog. Forℓ2(hd,x,y )=ℓlog(hd,x,y )= log/parenleft.alt2∑y′∈Y∪{0}ehd(x,y′)−hd(x,y)/parenright.alt2, by (3), we
+have
+Lhp(hd,x,y )
+= 1hp(x)=yℓ2(hd,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(hd,x,j )
+= 1hp(x)=y log/uni239B
+/uni239D/summation.disp
+y′∈Y∪{0}
+ehd(x,y′)−hd(x,0)/uni239E
+/uni23A0+
+ne
+/summation.disp
+j=1
+¯cj(x,y) log/uni239B
+/uni239D/summation.disp
+y′∈Y∪{0}
+ehd(x,y′)−hd(x,j)/uni239E
+/uni23A0
+=−1hp(x)=y log/parenleft.alt4emaxy∈Yh(x,y)
+emaxy∈Yh(x,y)+ ∑ne
+i=1eh(x,n+i)/parenright.alt4−
+ne
+/summation.disp
+j=1
+¯cj(x,y) log/parenleft.alt4eh(x,n+j)
+emaxy∈Yh(x,y)+ ∑ne
+i=1eh(x,n+i)/parenright.alt4.
+Example:ℓ2 =ℓgce. Forℓ2(hd,x,y )=ℓgce(hd,x,y )= 1
+α/bracketleft.alt31−/bracketleft.alt3ehd (x,y)
+∑y′∈Y∪{0}ehd (x,y′)/bracketright.alt3
+α
+/bracketright.alt3,α ∈ (0, 1), by
+(3), we have
+Lhp(hd,x,y )
+= 1hp(x)=yℓ2(hd,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(hd,x,j )
+= 1hp(x)=y
+1
+α
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+1−
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+ehd(x,0)
+∑y′∈Y∪{0}ehd(x,y′)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+α/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
++
+ne
+/summation.disp
+j=1
+¯cj(x,y) 1
+α
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+1−
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+ehd(x,j)
+∑y′∈Y∪{0}ehd(x,y′)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+α/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+= 1hp(x)=y
+1
+α/bracketleft.alt41−/bracketleft.alt4emaxy∈Yh(x,y)
+emaxy∈Yh(x,y)+ ∑ne
+i=1eh(x,n+i)/bracketright.alt4
+α
+/bracketright.alt4+
+ne
+/summation.disp
+j=1
+¯cj(x,y) 1
+α/bracketleft.alt41−/bracketleft.alt4eh(x,n+j)
+emaxy∈Yh(x,y)+ ∑ne
+i=1eh(x,n+i)/bracketright.alt4
+α
+/bracketright.alt4.
+17
+
+
+===== PDF_PAGE_018 =====
+
+Example:ℓ2 =ℓmae. Forℓ2(hd,x,y )=ℓmae(hd,x,y )= 1− ehd (x,y)
+∑y′∈Y∪{0}ehd (x,y′ ) , by (3), we have
+Lhp(hd,x,y )
+= 1hp(x)=yℓ2(hd,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(hd,x,j )
+= 1hp(x)=y
+/uni239B
+/uni239D1− ehd(x,0)
+∑y′∈Y∪{0}ehd(x,y′)
+/uni239E
+/uni23A0+
+ne
+/summation.disp
+j=1
+¯cj(x,y)/uni239B
+/uni239D1− ehd(x,j)
+∑y′∈Y∪{0}ehd(x,y′)
+/uni239E
+/uni23A0
+= 1hp(x)=y/bracketleft.alt41− emaxy∈Yh(x,y)
+emaxy∈Yh(x,y)+ ∑ne
+i=1eh(x,n+i)/bracketright.alt4+
+ne
+/summation.disp
+j=1
+¯cj(x,y)/bracketleft.alt41− eh(x,n+j)
+emaxy∈Yh(x,y)+ ∑ne
+i=1eh(x,n+i)/bracketright.alt4.
+C Examples of two-stage predictor-rejector surrogate losses
+Example:ℓ2 =ℓexp. Forℓ2(r,x,y )=ℓexp(r,x,y )= ∑y′≠yer(x,y′)−r(x,y), by (5), we have
+Lh(r,x,y )
+= 1h(x)=yℓ2(r,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(r,x,j )
+= 1h(x)=y /summation.disp
+y′≠0
+er(x,y′)−r(x,0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y) /summation.disp
+y′≠j
+er(x,y′)−r(x,j)
+= 1h(x)=y
+ne
+/summation.disp
+i=1
+e−ri(x)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+i=1,i≠j
+erj(x)−ri(x)+erj(x)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+.
+Example:ℓ2 =ℓlog. Forℓ2(r,x,y )=ℓlog(r,x,y )= log/parenleft.alt2∑y′∈Y∪{0}er(x,y′)−r(x,y)/parenright.alt2, by (5), we have
+Lh(r,x,y )
+= 1h(x)=yℓ2(r,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(r,x,j )
+= 1h(x)=y log/uni239B
+/uni239D/summation.disp
+y′∈Y∪{0}
+er(x,y′)−r(x,0)/uni239E
+/uni23A0+
+ne
+/summation.disp
+j=1
+¯cj(x,y) log/uni239B
+/uni239D/summation.disp
+y′∈Y∪{0}
+er(x,y′)−r(x,j)/uni239E
+/uni23A0
+=−1h(x)=y log/parenleft.alt41
+1+ ∑ne
+i=1e−ri(x)/parenright.alt4−
+ne
+/summation.disp
+j=1
+¯cj(x,y) log/parenleft.alt4e−rj(x)
+1+ ∑ne
+i=1e−ri(x)/parenright.alt4.
+Example: ℓ2 =ℓgce. Forℓ2(r,x,y )=ℓgce(r,x,y )= 1
+α/bracketleft.alt31−/bracketleft.alt3er(x,y)
+∑y′∈Y∪{0}er(x,y′)/bracketright.alt3
+α
+/bracketright.alt3,α ∈ (0, 1), by (5),
+we have
+Lh(r,x,y )
+= 1h(x)=yℓ2(r,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(r,x,j )
+= 1h(x)=y
+1
+α/bracketleft.alt41−/bracketleft.alt4er(x,0)
+∑y′∈Y∪{0}er(x,y′)/bracketright.alt4
+α
+/bracketright.alt4+
+ne
+/summation.disp
+j=1
+¯cj(x,y) 1
+α/bracketleft.alt41−/bracketleft.alt4er(x,j)
+∑y′∈Y∪{0}er(x,y′)/bracketright.alt4
+α
+/bracketright.alt4
+= 1h(x)=y
+1
+α/bracketleft.alt41−/bracketleft.alt41
+1+ ∑ne
+i=1e−ri(x)/bracketright.alt4
+α
+/bracketright.alt4+
+ne
+/summation.disp
+j=1
+¯cj(x,y) 1
+α/bracketleft.alt41−/bracketleft.alt4e−rj(x)
+1+ ∑ne
+i=1e−ri(x)/bracketright.alt4
+α
+/bracketright.alt4.
+18
+
+
+===== PDF_PAGE_019 =====
+
+Example:ℓ2 =ℓmae. Forℓ2(r,x,y )=ℓmae(r,x,y )= 1− er(x,y)
+∑y′∈Y∪{0}er(x,y′) , by (5), we have
+Lh(r,x,y )
+= 1h(x)=yℓ2(r,x, 0)+
+ne
+/summation.disp
+j=1
+¯cj(x,y)ℓ2(r,x,j )
+= 1h(x)=y /parenleft.alt41− er(x,0)
+∑y′∈Y∪{0}er(x,y′)/parenright.alt4+
+ne
+/summation.disp
+j=1
+¯cj(x,y)/parenleft.alt41− er(x,j)
+∑y′∈Y∪{0}er(x,y′)/parenright.alt4
+= 1h(x)=y/bracketleft.alt41− 1
+1+ ∑ne
+i=1e−ri(x)/bracketright.alt4+
+ne
+/summation.disp
+j=1
+¯cj(x,y)/bracketleft.alt41− e−rj(x)
+1+ ∑ne
+i=1e−ri(x)/bracketright.alt4.
+D Proof of H-consistency bounds for score-based two-stage surrogate losses
+(Theorem 1)
+Theorem 1 (H-consistency bounds for score-based two-stage surrogates). Assume thatℓ1 admits
+an Hp-consistency bound andℓ2 admits an Hd-consistency bound with respect to the multi-class
+zero-one classiﬁcation lossℓ0−1 respectively. Thus, there are non-decreasing concave functionsΓ1
+and Γ2 such that, for allhp ∈ Hp andhd ∈ Hd, we have
+Eℓ0−1(hp)− E∗
+ℓ0−1(Hp)+ Mℓ0−1(Hp)≤ Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)+ Mℓ1(Hp)/parenright.alt1
+Eℓ0−1(hd)− E∗
+ℓ0−1(Hd)+ Mℓ0−1(Hd)≤ Γ2/parenleft.alt1Eℓ2(hd)− E∗
+ℓ2(Hd)+ Mℓ2(Hd)/parenright.alt1.
+Then, the following holds for allh∈ H:
+ELdef(h)− E∗
+Ldef(H)+ MLdef(H)
+≤ Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)+ Mℓ1(Hp)/parenright.alt1+/parenleft.alt41+
+ne
+/summation.disp
+j=1
+cj/parenright.alt4Γ2/parenleft.alt4
+ELhp(hd)− E∗
+Lhp
+(Hd)+ MLhp(Hd)
+∑ne
+j=1cj
+/parenright.alt4.
+Furthermore, constant factors/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1and 1
+∑ne
+j=1cj
+can be removed when Γ2 is linear.
+Proof. If h(x)∈ [n], then h(x)= hp(x). Thus, the learning to defer loss can be expressed as follows:
+Ldef(h,x,y )= 1h(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+= 1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j.
+Let ¯c0(x,y)= 1hp(x)=y. Sinceh= (hp,hd), we can rewrite ELdef(h)− E∗
+Ldef(H)+ MLdef(H) as
+ELdef(h)− E∗
+Ldef(H)+ MLdef(H)
+= EX/bracketleft.alt1CLdef(h,x)− C∗
+Ldef(H,x)/bracketright.alt
+= EX/bracketleft.alt3CLdef(h,x)− inf
+hd∈Hd
+CLdef(h,x)+ inf
+hd∈Hd
+CLdef(h,x)− C∗
+Ldef(H,x)/bracketright.alt3
+= EX/bracketleft.alt3CLdef(h,x)− inf
+hd∈Hd
+CLdef(h,x)/bracketright.alt3+ EX/bracketleft.alt3inf
+hd∈Hd
+CLdef(h,x)− C∗
+Ldef(H,x)/bracketright.alt3.
+(6)
+Letp(x,j)= Ey[¯cj(x,y)]
+Ey/bracketleft.alt2∑ne
+j=0 ¯cj(x,y)/bracketright.alt2
+for anyj ∈ {0,...,n e}. Note that p(x,⋅) is the probability vector on
+the label space {0,...,n e}. For any h ∈ H, we deﬁneh as its augmented hypothesis: h(x, 0) =
+19
+
+
+===== PDF_PAGE_020 =====
+
+maxy∈Yh(x,y),h(x, 1)=h(x, 1),..., h(x,ne)=h(x,ne). By the assumptions, we have
+CLdef(h,x)− inf
+hd∈Hd
+CLdef(h,x)
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+− inf
+hd∈Hd
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+×
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+p(x,j)ℓ0−1(h,x,j )− inf
+hd∈Hd
+ne
+/summation.disp
+j=0
+p(x,j)ℓ0−1(h,x,j )
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+≤ E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+× Γ2
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+p(x,j)ℓ2(h,x,j )− inf
+hd∈Hd
+ne
+/summation.disp
+j=0
+p(x,j)ℓ2(h,x,j )
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+(By Hd-consistency bounds ofℓ2 under assumption,λ= maxy∈Yh(x,y))
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+Γ2
+/uni239B
+/uni239D
+Ey/bracketleft.alt1Lhp(hd,x,y )/bracketright.alt− infhd∈Hd Ey/bracketleft.alt1Lhp(hd,x,y )/bracketright.alt
+Ey/bracketleft.alt1∑ne
+j=0 ¯cj(x,y)/bracketright.alt
+/uni239E
+/uni23A0
+(p(x,j)= Ey[¯cj(x,y)]
+Ey/bracketleft.alt2∑ne
+j=0 ¯cj(x,y)/bracketright.alt2
+,h(x, 0)= maxy∈Yh(x,y) and formulation (3))
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+Γ2
+/uni239B
+/uni239D
+CLhp(hd,x)− C∗
+Lhp
+(Hd,x)
+Ey/bracketleft.alt1∑ne
+j=0 ¯cj(x,y)/bracketright.alt
+/uni239E
+/uni23A0
+≤
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23AA/uni23A9
+Γ2/parenleft.alt2CLhp(hd,x)− C∗
+Lhp
+(Hd,x)/parenright.alt2when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt4
+CLhp(hd,x)−C∗
+Lhp
+(Hd,x)
+∑ne
+j=1cj
+/parenright.alt4otherwise
+(∑ne
+j=1cj ≤ Ey/bracketleft.alt1∑ne
+j=0 ¯cj(x,y)/bracketright.alt≤ 1+ ∑ne
+j=1cj and Γ2 is non-decreasing)
+=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+Γ2/parenleft.alt2∆CLhp,Hd(hd,x)/parenright.alt2when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt3
+∆CLhp,Hd(hd,x)
+∑ne
+j=1cj
+/parenright.alt3otherwise
+and
+inf
+hd∈Hd
+CLdef(h,x)− C∗
+Ldef(H,x)
+= inf
+hd∈Hd
+CLdef(h,x)− inf
+hp∈Hp,hd∈Hd
+CLdef(h,x)
+= inf
+hd∈Hd
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+− inf
+hp∈Hp,hd∈Hd
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+= inf
+hd∈Hd
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+− inf
+hd∈Hd
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+inf
+hp∈Hp
+1hp(x)≠y1h(x)∈[n]+
+ne
+/summation.disp
+j=1
+cj(x,y)1h(x)=n+j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+= min/braceleft.alt4E
+y
+/bracketleft.alt11hp(x)≠y/bracketright.alt, min
+j∈[p]
+E
+y
+[cj(x,y)]/braceright.alt4− min/braceleft.alt4inf
+hp∈Hp
+E
+y
+/bracketleft.alt11hp(x)≠y/bracketright.alt, min
+j∈[p]
+E
+y
+[cj(x,y)]/braceright.alt4
+≤ E
+y
+/bracketleft.alt11hp(x)≠y/bracketright.alt− inf
+hp∈Hp
+E
+y
+/bracketleft.alt11hp(x)≠y/bracketright.alt
+= Cℓ0−1(hp,x)− C∗
+ℓ0−1(Hp,x)
+= ∆Cℓ0−1,Hp(hp,x)
+≤ Γ1/parenleft.alt1∆Cℓ1,Hp(hp,x)/parenright.alt1. (By Hp-consistency bounds ofℓ under assumption)
+20
+
+
+===== PDF_PAGE_021 =====
+
+Therefore, by (6), we obtain
+ELdef(h)− E∗
+Ldef(H)+ MLdef(H)
+≤
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+EX/bracketleft.alt2Γ2/parenleft.alt2∆CLhp,Hd(hd,x)/parenright.alt2/bracketright.alt2+ EX/bracketleft.alt1Γ1/parenleft.alt1∆Cℓ1,Hp(hp,x)/parenright.alt1/bracketright.altwhen Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1EX/bracketleft.alt3Γ2/parenleft.alt3
+∆CLhp,Hd(hd,x)
+∑ne
+j=1cj
+/parenright.alt3/bracketright.alt3+ EX/bracketleft.alt1Γ1/parenleft.alt1∆Cℓ1,Hp(hp,x)/parenright.alt1/bracketright.altotherwise
+≤
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+Γ2/parenleft.alt2EX/bracketleft.alt2∆CLhp,Hd(hd,x)/bracketright.alt2/parenright.alt2+ Γ1/parenleft.alt1EX/bracketleft.alt1∆Cℓ1,Hp(hp,x)/bracketright.alt/parenright.alt1when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt31
+∑ne
+j=1cj
+EX/bracketleft.alt2∆CLhp,Hd(hd,x)/bracketright.alt2/parenright.alt3+ Γ1/parenleft.alt1EX/bracketleft.alt1∆Cℓ1,Hp(hp,x)/bracketright.alt/parenright.alt1otherwise
+(Γ1 and Γ2 are concave)
+=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23AA/uni23A9
+Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)+ Mℓ1(Hp)/parenright.alt1+ Γ2/parenleft.alt2ELhp(hd)− E∗
+Lhp
+(Hd)+ MLhp(Hd)/parenright.alt2when Γ2 is linear
+Γ1/parenleft.alt1Eℓ1(hp)− E∗
+ℓ1(Hp)+ Mℓ1(Hp)/parenright.alt1+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt4
+ELhp(hd)−E∗
+Lhp
+(Hd)+MLhp(Hd)
+∑ne
+j=1cj
+/parenright.alt4otherwise,
+which completes the proof.
+E Proof of H-consistency bounds for standard surrogate loss functions
+(Theorem 3)
+Recall that for a hypothesis h∶ X× Y → R, we deﬁne h as its augmented hypothesis: h(⋅, 0) =
+λ,h(⋅, 1)=h(x, 1),..., h(⋅,n)=h(x,n) with some constantλ∈ R. We deﬁneH as the hypothesis
+set that consists of all such augmented hypotheses of H: H= /braceleft.alt1h∶h∈ H/braceright.alt1. The prediction associated
+byh∈ H to an inputx∈ X is denoted by h(x) and deﬁned as the element inY∪{0} with the highest
+score, h(x)= argmaxy∈Y∪{0}h(x,y), with an arbitrary but ﬁxed deterministic strategy for breaking
+ties. For any x ∈ X and label space Y∪ {0}, we will denote, by H(x) the set of labels generated
+by hypotheses in H: H(x)= /braceleft.alt1h(x)∶h∈ H/braceright.alt1. By [Awasthi et al., 2022a, Lemma 3] with label space
+Y∪{0} and a conditional probability vectorp(x,⋅) on Y∪{0}, the minimal conditionalℓ0−1-loss
+and the corresponding calibration gap can be characterized as follows.
+Lemma 8. For anyx∈ X, the minimal conditionalℓ0−1-risk and the calibration gap forℓ0−1 can be
+expressed as follows:
+C∗
+ℓ0−1(x)= 1− max
+y∈H(x)
+p(x,y)
+∆Cℓ0−1(h,x)= max
+y∈H(x)
+p(x,y)−p(x, h(x)).
+E.1 Multinomial logistic loss
+Theorem 9 (H-consistency bound for multinomial logistic loss). Assume that H is symmetric and
+complete. Then, for anyλ∈ R, hypothesish∈ H and any distribution,
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤
+√
+2/parenleft.alt2Eℓlog/parenleft.alt1h/parenright.alt1− E∗
+ℓlog/parenleft.alt1H/parenright.alt1+ Mℓlog/parenleft.alt1H/parenright.alt1/parenright.alt2
+1
+2
+− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+Proof. For the multinomial logistic lossℓlog, the conditionalℓlog-risk can be expressed as follows:
+Cℓlog/parenleft.alt1h,x)/parenright.alt1= /summation.disp
+y∈Y∪{0}
+p(x,y) log/uni239B
+/uni239D/summation.disp
+y′∈Y∪{0}
+eh(x,y′)−h(x,y)/uni239E
+/uni23A0=− /summation.disp
+y∈Y∪{0}
+p(x,y) log(S(x,y))
+where we let S(x,y) = eh(x,y)
+∑y′∈Y∪{0}eh(x,y′) ∈ [0, 1] for any y ∈ Y ∪ {0} with the constraint that
+∑y∈Y∪{0} S(x,y) = 1. Let ymax = argmaxy∈Y∪{0}p(x,y), where we choose the label with the
+same deterministic strategy for breaking ties as that ofh(x). For anyh∈ H such that h(x)≠ymax
+andx ∈ X, by the symmetry and completeness of H, we can always ﬁnd a family of hypotheses
+21
+
+
+===== PDF_PAGE_022 =====
+
+/braceleft.alt1hµ∶µ∈ [−S(x,y max), S(x, h(x))]/braceright.alt1⊂ H such that Sµ(x,⋅)= ehµ (x,⋅)
+∑y′∈Y∪{0}ehµ (x,y′) take the following
+values:
+Sµ(x,y)=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23AA/uni23A9
+S(x,y) ify /slash.left∈ /braceleft.alt1ymax, h(x)/braceright.alt1
+S(x,y max)+µ ify = h(x)
+S(x, h(x))−µ ify =ymax.
+Note that Sµ satisﬁes the constraint:
+/summation.disp
+y∈Y∪{0}
+Sµ(x,y)= /summation.disp
+y∈Y∪{0}
+S(x,y)= 1,∀µ∈ [−S(x,y max), S(x, h(x))].
+Let h ∈ H be a hypothesis such that h(x) ≠ ymax. By the deﬁnition and using the fact that
+H(x)= Y∪{0} when H is symmetric, we obtain
+∆Cℓlog,H/parenleft.alt1h,x/parenright.alt1
+= Cℓlog/parenleft.alt1h,x/parenright.alt1− C∗
+ℓlog/parenleft.alt1H,x/parenright.alt1
+≥ Cℓlog/parenleft.alt1h,x/parenright.alt1− inf
+µ∈[−S(x,ymax),S(x,h(x))]
+Cℓlog/parenleft.alt1hµ,x/parenright.alt1
+= sup
+µ∈[−S(x,ymax),S(x,h(x))]
+/braceleft.alt4p(x,y max)/bracketleft.alt1− log(S(x,y max))+ log/parenleft.alt1S(x, h(x))−µ/parenright.alt1/bracketright.alt
++p(x, h(x))/bracketleft.alt1− log/parenleft.alt1S(x, h(x))/parenright.alt1+ log(S(x,y max)+µ)/bracketright.alt/braceright.alt4
+Differentiating with respect toµ yields the optimum valueµ∗ = p(x,h(x))S(x,h(x))−p(x,ymax)S(x,ymax)
+p(x,ymax)+p(x,h(x)) .
+Plugging that value in the inequality gives:
+∆Cℓlog,H/parenleft.alt1h,x/parenright.alt1≥p(x,y max) log
+/bracketleft.alt1S(x, h(x))+ S(x,y max)/bracketright.altp(x,y max)
+S(x,y max)/bracketleft.alt1p(x,y max)+p(x, h(x))/bracketright.alt
++p(x, h(x)) log
+/bracketleft.alt1S(x, h(x))+ S(x,y max)/bracketright.altp(x, h(x))
+S(x, h(x))/bracketleft.alt1p(x,y max)+p(x, h(x))/bracketright.alt
+.
+Differentiating with respect to S to show that the minimum is attained for S(x, h(x))= S(x,y max),
+which implies
+∆Cℓlog,H/parenleft.alt1h,x/parenright.alt1≥p(x,y max) log 2p(x,y max)
+p(x,y max)+p(x, h(x))
++p(x, h(x)) log 2p(x, h(x))
+p(x,y max)+p(x, h(x))
+.
+By Pinsker’s inequality, we have, fora,b ∈ [0, 1],a log 2a
+a+b+b log 2b
+a+b ≥ (a−b)2
+2(a+b). Using this inequality,
+we obtain:
+∆Cℓlog,H/parenleft.alt1h,x/parenright.alt1≥
+/parenleft.alt1p(x, h(x))−p(x,y max)/parenright.alt1
+2
+2/parenleft.alt1p(x, h(x))+p(x,y max)/parenright.alt1
+≥
+/parenleft.alt1p(x, h(x))−p(x,y max)/parenright.alt1
+2
+2 (0≤p(x, h(x))+p(x,y max)≤ 1)
+= 1
+2/parenleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/parenright.alt2
+2
+. (by Lemma 8 and H(x)= Y∪{0})
+Since the function t2
+2 is convex, by Jensen’s inequality, we obtain for any hypothesish∈ H and any
+distribution,
+/parenleft.alt2EX/bracketleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2/parenright.alt2
+2
+2 ≤ E
+X
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1
+2
+2
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+≤ E
+X
+/bracketleft.alt2∆Cℓlog,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2,
+which leads to
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤
+√
+2/parenleft.alt2Eℓlog/parenleft.alt1h/parenright.alt1− E∗
+ℓlog/parenleft.alt1H/parenright.alt1+ Mℓlog/parenleft.alt1H/parenright.alt1/parenright.alt2
+1
+2
+− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+22
+
+
+===== PDF_PAGE_023 =====
+
+E.2 Sum exponential loss
+Theorem 10 (H-consistency bound for sum exponential loss). Assume that H is symmetric and
+complete. Then, for anyλ∈ R, hypothesish∈ H and any distribution,
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤
+√
+2/parenleft.alt1Eℓexp/parenleft.alt1h/parenright.alt1− E∗
+ℓexp/parenleft.alt1H/parenright.alt1+ Mℓexp/parenleft.alt1H/parenright.alt1/parenright.alt1
+1
+2
+− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+Proof. For the sum exponential lossℓexp, the conditionalℓexp-risk can be expressed as follows:
+Cℓexp/parenleft.alt1h,x)/parenright.alt1= /summation.disp
+y∈Y∪{0}
+p(x,y)/uni239B
+/uni239D/summation.disp
+y′∈Y∪{0}
+eh(x,y′)−h(x,y)/uni239E
+/uni23A0− 1= /summation.disp
+y∈Y∪{0}
+p(x,y)
+S(x,y) − 1
+where we let S(x,y) = eh(x,y)
+∑y′∈Y∪{0}eh(x,y′) ∈ [0, 1] for any y ∈ Y ∪ {0} with the constraint that
+∑y∈Y∪{0} S(x,y) = 1. Let ymax = argmaxy∈Y∪{0}p(x,y), where we choose the label with the
+highest index under the natural ordering of labels as the tie-breaking strategy. For anyh∈ H such
+that h(x)≠ymax andx∈ X, by the symmetry and completeness of H, we can always ﬁnd a family of
+hypotheses /braceleft.alt1hµ∶µ∈ [−S(x,y max), S(x, h(x))]/braceright.alt1⊂ H such that Sµ(x,⋅)= ehµ (x,⋅)
+∑y′∈Y∪{0}ehµ (x,y′) take the
+following values:
+Sµ(x,y)=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23AA/uni23A9
+S(x,y) ify /slash.left∈ /braceleft.alt1ymax, h(x)/braceright.alt1
+S(x,y max)+µ ify = h(x)
+S(x, h(x))−µ ify =ymax.
+Note that Sµ satisﬁes the constraint:
+/summation.disp
+y∈Y
+Sµ(x,y)= /summation.disp
+y∈Y
+S(x,y)= 1,∀µ∈ [−S(x,y max), S(x, h(x))].
+Let h ∈ H be a hypothesis such that h(x) ≠ ymax. By the deﬁnition and using the fact that
+H(x)= Y∪{0} when H is symmetric, we obtain
+∆Cℓexp,H/parenleft.alt1h,x/parenright.alt1
+= Cℓexp/parenleft.alt1h,x/parenright.alt1− C∗
+ℓexp/parenleft.alt1H,x/parenright.alt1
+≥ Cℓexp/parenleft.alt1h,x/parenright.alt1− inf
+µ∈[−S(x,ymax),S(x,h(x))]
+Cℓexp/parenleft.alt1hµ,x/parenright.alt1
+= sup
+µ∈[−S(x,ymax),S(x,h(x))]
+/braceleft.alt4p(x,y max)/bracketleft.alt41
+S(x,y max) − 1
+S(x, h(x))−µ
+/bracketright.alt4
++p(x, h(x))/bracketleft.alt41
+S(x, h(x))
+− 1
+S(x,y max)+µ/bracketright.alt4/braceright.alt4.
+Differentiating with respect toµ yields the optimal value
+µ∗ =
+/radical.alt2
+p(x, h(x))S(x, h(x))−
+/radical.alt1
+p(x,y max)S(x,y max)
+/radical.alt1
+p(x,y max)+
+/radical.alt2
+p(x, h(x))
+.
+Plugging that value in the inequality gives:
+∆Cℓexp,H/parenleft.alt1h,x/parenright.alt1≥ p(x,y max)
+S(x,y max) + p(x, h(x))
+S(x, h(x))
+−
+/parenleft.alt3
+/radical.alt1
+p(x,y max)+
+/radical.alt2
+p(x, h(x))/parenright.alt3
+2
+S(x,y max)+ S(x, h(x))
+.
+23
+
+
+===== PDF_PAGE_024 =====
+
+Differentiating with respect to S to show that the minimum is attained for S(x, h(x))= S(x,y max)=
+1
+2, which implies
+∆Cℓexp,H/parenleft.alt1h,x/parenright.alt1≥ /parenleft.alt3
+/radical.alt1
+p(x,y max)−
+/radical.alt2
+p(x, h(x))/parenright.alt3
+2
+=
+/parenleft.alt1p(x, h(x))−p(x,y max)/parenright.alt1
+2
+/parenleft.alt3
+/radical.alt2
+p(x, h(x))+
+/radical.alt1
+p(x,y max)/parenright.alt3
+2.
+By the concavity of the square-root function, for alla,b ∈ [0, 1], we have 1
+2/parenleft.alt1√a+
+√
+b/parenright.alt1≤
+/radical.alt2
+1
+2(a+b),
+thus we can write
+∆Cℓexp,H/parenleft.alt1h,x/parenright.alt1≥
+/parenleft.alt1p(x, h(x))−p(x,y max)/parenright.alt1
+2
+2/parenleft.alt1p(x, h(x))+p(x,y max)/parenright.alt1
+≥
+/parenleft.alt1p(x, h(x))−p(x,y max)/parenright.alt1
+2
+2 (p(x, h(x))+p(x,y max)≤ 1)
+= 1
+2/parenleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/parenright.alt2
+2
+. (by Lemma 8 and H(x)= Y∪{0})
+Since the function t2
+2 is convex, by Jensen’s inequality, we obtain for any hypothesish∈ H and any
+distribution,
+/parenleft.alt2EX/bracketleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2/parenright.alt2
+2
+2 ≤ E
+X
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1
+2
+2
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+≤ E
+X
+/bracketleft.alt2∆Cℓexp,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2,
+which leads to
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤
+√
+2/parenleft.alt1Eℓexp/parenleft.alt1h/parenright.alt1− E∗
+ℓexp/parenleft.alt1H/parenright.alt1+ Mℓexp/parenleft.alt1H/parenright.alt1/parenright.alt1
+1
+2
+− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+E.3 Generalized cross-entropy loss
+Theorem 11 (H-consistency bound for generalized cross-entropy loss). Assume that H is sym-
+metric and complete. Then, for anyλ∈ R, hypothesish∈ H and any distribution,
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤
+/radical.alt1
+2(n+ 1)α/parenleft.alt1Eℓgce/parenleft.alt1h/parenright.alt1− E∗
+ℓgce/parenleft.alt1H/parenright.alt1+ Mℓgce/parenleft.alt1H/parenright.alt1/parenright.alt1
+1
+2
+− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+Proof. For the generalized cross-entropy loss ℓgce, the conditional ℓgce-risk can be expressed as
+follows:
+Cℓgce/parenleft.alt1h,x)/parenright.alt1= /summation.disp
+y∈Y∪{0}
+p(x,y) 1
+α
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+1−
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+eh(x,y)
+∑y′∈Y∪0eh(x,y′)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+α/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+= 1
+α /summation.disp
+y∈Y∪{0}
+p(x,y)(1− S(x,y)α)
+where we let S(x,y) = eh(x,y)
+∑y′∈Y∪{0}eh(x,y′) ∈ [0, 1] for any y ∈ Y ∪ {0} with the constraint that
+∑y∈Y∪{0} S(x,y) = 1. Let ymax = argmaxy∈Y∪{0}p(x,y), where we choose the label with the
+same deterministic strategy for breaking ties as that ofh(x). For anyh∈ H such that h(x)≠ymax
+andx ∈ X, by the symmetry and completeness of H, we can always ﬁnd a family of hypotheses
+/braceleft.alt1hµ∶µ∈ [−S(x,y max), S(x, h(x))]/braceright.alt1⊂ H such that Sµ(x,⋅)= ehµ (x,⋅)
+∑y′∈Y∪{0}ehµ (x,y′) take the following
+values:
+Sµ(x,y)=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23AA/uni23A9
+S(x,y) ify /slash.left∈ /braceleft.alt1ymax, h(x)/braceright.alt1
+S(x,y max)+µ ify = h(x)
+S(x, h(x))−µ ify =ymax.
+24
+
+
+===== PDF_PAGE_025 =====
+
+Note that Sµ satisﬁes the constraint:
+/summation.disp
+y∈Y∪{0}
+Sµ(x,y)= /summation.disp
+y∈Y∪{0}
+S(x,y)= 1,∀µ∈ [−S(x,y max), S(x, h(x))].
+Let h ∈ H be a hypothesis such that h(x) ≠ ymax. By the deﬁnition and using the fact that
+H(x)= Y∪{0} when H is symmetric, we obtain
+∆Cℓgce,H/parenleft.alt1h,x/parenright.alt1
+= Cℓgce/parenleft.alt1h,x/parenright.alt1− C∗
+ℓgce/parenleft.alt1H,x/parenright.alt1
+≥ Cℓgce/parenleft.alt1h,x/parenright.alt1− inf
+µ∈[−S(x,ymax),S(x,h(x))]
+Cℓgce/parenleft.alt1hµ,x/parenright.alt1
+= 1
+α sup
+µ∈[−S(x,ymax),S(x,h(x))]
+/braceleft.alt4p(x,y max)/bracketleft.alt2−S(x,y max)α+/parenleft.alt1S(x, h(x))−µ/parenright.alt1
+α
+/bracketright.alt2
++p(x, h(x))/bracketleft.alt1−S(x, h(x))α+(S(x,y max)+µ)α/bracketright.alt/braceright.alt4.
+Differentiating with respect toµ yields the optimal value
+µ∗ = p(x, h(x))
+1
+1−α S(x, h(x))−p(x,y max)
+1
+1−α S(x,y max)
+p(x,y max)
+1
+1−α +p(x, h(x))
+1
+1−α
+.
+Plugging that value in the inequality gives:
+∆Cℓgce,H/parenleft.alt1h,x/parenright.alt1≥ 1
+α/parenleft.alt1S(x, h(x))+ S(x,y max)/parenright.alt1
+α
+/parenleft.alt2p(x,y max)
+1
+1−α +p(x, h(x))
+1
+1−α/parenright.alt2
+1−α
+− 1
+αp(x,y max)S(x,y max)α− 1
+αp(x, h(x))S(x, h(x))α.
+Differentiating with respect to S to show that the minimum is attained for S(x, h(x))= S(x,y max)=
+1
+n+1, which implies
+∆Cℓgce,H/parenleft.alt1h,x/parenright.alt1≥ 1
+α(n+ 1)α/bracketleft.alt32α/parenleft.alt2p(x,y max)
+1
+1−α +p(x, h(x))
+1
+1−α/parenright.alt2
+1−α
+−p(x,y max)−p(x, h(x))/bracketright.alt3.
+By using the fact that for alla,b ∈ [0, 1], 0≤a+b≤ 1, we have /parenleft.alt3a
+1
+1−α+b
+1
+1−α
+2 /parenright.alt3
+1−α
+− a+b
+2 ≥ α
+4(a−b)2,
+thus we can write
+∆Cℓgce,H/parenleft.alt1h,x/parenright.alt1≥
+/parenleft.alt1p(x, h(x))−p(x,y max)/parenright.alt1
+2
+2(n+ 1)α
+= 1
+2(n+ 1)α/parenleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/parenright.alt2
+2
+. (by Lemma 8 and H(x)= Y∪{0})
+Since the function t2
+2(n+1)α is convex, by Jensen’s inequality, we obtain for any hypothesish∈ H and
+any distribution,
+/parenleft.alt2EX/bracketleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2/parenright.alt2
+2
+2(n+ 1)α ≤ E
+X
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A2/uni23A2/uni23A3
+∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1
+2
+2(n+ 1)α
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A5/uni23A5/uni23A6
+≤ E
+X
+/bracketleft.alt2∆Cℓgce,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2
+which leads to
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤
+/radical.alt1
+2(n+ 1)α/parenleft.alt1Eℓgce/parenleft.alt1h/parenright.alt1− E∗
+ℓgce/parenleft.alt1H/parenright.alt1+ Mℓgce/parenleft.alt1H/parenright.alt1/parenright.alt1
+1
+2
+− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+25
+
+
+===== PDF_PAGE_026 =====
+
+E.4 Mean absolute error loss
+Theorem 12 (H-consistency bound for mean absolute error loss). Assume that H is symmetric
+and complete. Then, for anyλ∈ R, hypothesish∈ H and any distribution,
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤ (n+ 1)/parenleft.alt1Eℓmae/parenleft.alt1h/parenright.alt1− E∗
+ℓmae/parenleft.alt1H/parenright.alt1+ Mℓmae/parenleft.alt1H/parenright.alt1/parenright.alt1− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+Proof. For the mean absolute error lossℓmae, the conditionalℓmae-risk can be expressed as follows:
+Cℓmae/parenleft.alt1h,x)/parenright.alt1= /summation.disp
+y∈Y∪{0}
+p(x,y)/uni239B
+/uni239D1− eh(x,y)
+∑y′∈Y∪0eh(x,y′)
+/uni239E
+/uni23A0= /summation.disp
+y∈Y∪{0}
+p(x,y)(1− S(x,y))
+where we let S(x,y) = eh(x,y)
+∑y′∈Y∪{0}eh(x,y′) ∈ [0, 1] for any y ∈ Y ∪ {0} with the constraint that
+∑y∈Y∪{0} S(x,y) = 1. Let ymax = argmaxy∈Y∪{0}p(x,y), where we choose the label with the
+same deterministic strategy for breaking ties as that ofh(x). For anyh∈ H such that h(x)≠ymax
+andx ∈ X, by the symmetry and completeness of H, we can always ﬁnd a family of hypotheses
+/braceleft.alt1hµ∶µ∈ [−S(x,y max), S(x, h(x))]/braceright.alt1⊂ H such that Sµ(x,⋅)= ehµ (x,⋅)
+∑y′∈Y∪{0}ehµ (x,y′) take the following
+values:
+Sµ(x,y)=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23AA/uni23A9
+S(x,y) ify /slash.left∈ /braceleft.alt1ymax, h(x)/braceright.alt1
+S(x,y max)+µ ify = h(x)
+S(x, h(x))−µ ify =ymax.
+Note that Sµ satisﬁes the constraint:
+/summation.disp
+y∈Y∪{0}
+Sµ(x,y)= /summation.disp
+y∈Y∪{0}
+S(x,y)= 1,∀µ∈ [−S(x,y max), S(x, h(x))].
+Let h ∈ H be a hypothesis such that h(x) ≠ ymax. By the deﬁnition and using the fact that
+H(x)= Y∪{0} when H is symmetric, we obtain
+∆Cℓmae,H/parenleft.alt1h,x/parenright.alt1
+= Cℓmae/parenleft.alt1h,x/parenright.alt1− C∗
+ℓmae/parenleft.alt1H,x/parenright.alt1
+≥ Cℓmae/parenleft.alt1h,x/parenright.alt1− inf
+µ∈[−S(x,ymax),S(x,h(x))]
+Cℓmae/parenleft.alt1hµ,x/parenright.alt1
+= sup
+µ∈[−S(x,ymax),S(x,h(x))]
+/braceleft.alt4p(x,y max)/bracketleft.alt1−S(x,y max)+ S(x, h(x))−µ/bracketright.alt
++p(x, h(x))/bracketleft.alt1−S(x, h(x))+ S(x,y max)+µ/bracketright.alt/braceright.alt4.
+Differentiating with respect toµ yields the optimum valueµ∗ =−S(x,y max). Plugging that value in
+the inequality gives:
+∆Cℓmae,H/parenleft.alt1h,x/parenright.alt1≥p(x,y max)S(x, h(x))−p(x, h(x))S(x, h(x)).
+Differentiating with respect to S to show that the minimum is attained for S(x, h(x))= 1
+n+1, which
+implies
+∆Cℓmae,H/parenleft.alt1h,x/parenright.alt1≥ 1
+n+ 1/parenleft.alt1p(x,y max)−p(x, h(x))/parenright.alt1
+= 1
+n+ 1/parenleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/parenright.alt2. (by Lemma 8 and H(x)= Y∪{0})
+Therefore, we obtain for any hypothesish∈ H and any distribution,
+EX/bracketleft.alt2∆Cℓ0−1,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2
+n+ 1 ≤ E
+X
+/bracketleft.alt2∆Cℓmae,H/parenleft.alt1h,x/parenright.alt1/bracketright.alt2,
+which leads to
+Eℓ0−1/parenleft.alt1h/parenright.alt1− E∗
+ℓ0−1/parenleft.alt1H/parenright.alt1≤ (n+ 1)/parenleft.alt1Eℓmae/parenleft.alt1h/parenright.alt1− E∗
+ℓmae/parenleft.alt1H/parenright.alt1+ Mℓmae/parenleft.alt1H/parenright.alt1/parenright.alt1− Mℓ0−1/parenleft.alt1H/parenright.alt1.
+26
+
+
+===== PDF_PAGE_027 =====
+
+F Proof of realizable consistency for score-based two-stage surrogate losses
+(Theorem 5)
+Theorem 5 (Realizable H-consistency for score-based two-stage surrogates). Assume that H is
+closed under scaling andcj(x,y)=βj,∀(x,y)∈ X× Y. Letℓ1 andℓ2 be the logistic loss. Let ˆhp be
+the minimizer of Eℓ1 and ˆhd be the minimizer of ELˆhp
+such that ELˆhp
+(ˆhd)= minh ELhp(hd). Then,
+the following equality holds for any (H, R) -realizable distribution,
+ELdef(ˆh)= 0, where ˆh= (ˆhp, ˆhd).
+Proof. First, by deﬁnition, it is straightforward to see that for anyh,x,y , Lhp(hd,x,y ) upper bounds
+the deferral loss Ldef. Consider a data distribution and costs under which there existsh∗ ∈ H such
+that ELdef(h∗)= 0.
+Let ˆhp be the minimizer of Eℓ1 and ˆhd the minimizer of ELˆhp
+Then, using the fact that Lh upper
+bounds the deferral loss Ldef, we have ELdef(ˆh)≤ ELˆhp
+(ˆhd).
+Next we analyze two cases. If for a point x, deferral occurs, that is there exists j∗ ∈ [ne], such
+that h∗(x) = n+j∗, then we must have cj∗ = 0 for all x since the data is realizable and cj∗ is
+constant. Therefore, there exists an optimalh∗∗ deferring all the points to thej∗th expert. Then, by
+the assumption that H is closed under scaling and the Lebesgue dominated convergence theorem, for
+ℓ2 being the logistic loss, ELdef(ˆh)≤ ELˆhp
+(ˆhd)≤ limτ →+∞ ELh∗∗p
+(τh∗∗
+d )= 0, where we used the fact
+that in the limit ofτ→+∞ the logistic loss termℓ2(h
+∗∗
+d ,x,j ) corresponding toj ≠j∗ is zero.
+On the other hand, if no deferral occurs for any point, that ish∗(x)∈ [n]for anyx, then we must have
+1h∗p(x)≠y = 0 for all(x,y) since the data is realizable. Using the fact thatH is closed under scaling and
+that the logistic loss is realizable H-consistent in the standard classiﬁcation, we obtain1ˆhp(x)≠y = 0
+for all (x,y). Then, by the assumption that H is closed under scaling and the Lebesgue dominated
+convergence theorem, forℓ2 being the logistic loss, ELdef(ˆh)≤ ELˆhp
+(ˆhd)≤ limτ →+∞ ELh∗p
+(τh∗
+d)= 0,
+where we used the fact that in the limit ofτ→+∞ the logistic loss termℓ2(h
+∗
+d,x,j ) corresponding
+toj ≠ 0 is zero.
+Therefore, the optimal solution from minimizing score-based two-stage surrogates leads to a zero
+error solution of the deferral loss, which proves that the score-based two-stage surrogate loss is
+realizable consistent.
+G Proof of (H, R)-consistency bounds for predictor-rejector two-stage
+surrogate losses (Theorem 6)
+Theorem 6 ((H, R)-consistency bounds for predictor-rejector two-stage surrogates ). Assume
+thatℓ1 admits an H-consistency bound andℓ2 admits an R-consistency bound with respect to the
+multi-class zero-one classiﬁcation lossℓ0−1 respectively. Thus, there are non-decreasing concave
+functions Γ1 and Γ2 such that, for allh∈ H andr ∈ R, we have
+Eℓ0−1(h)− E∗
+ℓ0−1(H)+ Mℓ0−1(H)≤ Γ1/parenleft.alt1Eℓ1(h)− E∗
+ℓ1(H)+ Mℓ1(H/parenright.alt1
+Eℓ0−1(r)− E∗
+ℓ0−1(R)+ Mℓ0−1(R)≤ Γ2/parenleft.alt1Eℓ2(r)− E∗
+ℓ2(R)+ Mℓ2(R)/parenright.alt1.
+Then, the following holds for allh∈ H andr ∈ R:
+ELdef(h,r)− E∗
+Ldef(H, R)+ MLdef(H, R)
+≤ Γ1/parenleft.alt1Eℓ1(h)− E∗
+ℓ1(H)+ Mℓ1(H)/parenright.alt1+/uni239B
+/uni239D1+
+ne
+/summation.disp
+j=1
+cj
+/uni239E
+/uni23A0Γ2/parenleft.alt4
+ELh(r)− E∗
+Lh(R)+ MLh(R)
+∑ne
+j=1cj
+/parenright.alt4,
+where the constant factors/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1and 1
+∑ne
+j=1cj
+can be removed when Γ2 is linear.
+27
+
+
+===== PDF_PAGE_028 =====
+
+Proof. By deﬁnition,
+Ldef(h,r,x,y )= 1h(x)≠y1r(x)=0+
+ne
+/summation.disp
+j=1
+cj(x,y)1r(x)=j.
+Let ¯c0(x,y)= 1h(x)=y. We can rewrite ELdef(h,r)− E∗
+Ldef(H, R)+ MLdef(H, R) as
+ELdef(h,r)− E∗
+Ldef(H, R)+ MLdef(H, R)
+= EX/bracketleft.alt1CLdef(h,r,x )− C∗
+Ldef(H, R,x)/bracketright.alt
+= EX/bracketleft.alt3CLdef(h,r,x )− inf
+r∈R
+CLdef(h,r,x )+ inf
+r∈R
+CLdef(h,r,x )− C∗
+Ldef(H, R,x)/bracketright.alt3
+= EX/bracketleft.alt3CLdef(h,r,x )− inf
+r∈R
+CLdef(h,r,x )/bracketright.alt3+ EX/bracketleft.alt3inf
+r∈R
+CLdef(h,r,x )− C∗
+Ldef(H, R,x)/bracketright.alt3
+(7)
+Letp(x,j)= Ey[¯cj(x,y)]
+∑ne
+j=0 Ey[¯cj(x,y)] for anyj ∈ {0,...,n e}. Note that p(x,⋅) is the probability vector on
+the label space {0,...,n e}. For any r ∈ R, we deﬁner as its augmented hypothesis: r(x, 0) =
+0,r(x, 1)=−r1(x),..., r(x,ne)=−rne(x). By the assumptions, we have
+CLdef(h,r,x )− inf
+r∈R
+CLdef(h,r,x )
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1h(x)≠y1r(x)=0+
+ne
+/summation.disp
+j=1
+cj(x,y)1r(x)=j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+− inf
+r∈R
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1h(x)≠y1r(x)=0+
+ne
+/summation.disp
+j=1
+cj(x,y)1r(x)=j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+×
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+p(x,j)ℓ0−1(r,x,j )− inf
+r∈R
+ne
+/summation.disp
+j=0
+p(x,j)ℓ0−1(r,x,j )
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+≤ E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+× Γ2
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+p(x,j)ℓ2(r,x,j )− inf
+r∈R
+ne
+/summation.disp
+j=0
+p(x,j)ℓ2(r,x,j )
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+(By R-consistency bounds ofℓ2 under assumption)
+= E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+ne
+/summation.disp
+j=0
+¯cj(x,y)
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+Γ2
+/uni239B
+/uni239D
+Ey[Lh(r,x,y )]− infr∈R Ey[Lh(r,x,y )]
+Ey/bracketleft.alt1∑ne
+j=0 ¯cj(x,y)/bracketright.alt
+/uni239E
+/uni23A0
+(p(x,j)= Ey[¯cj(x,y)]
+∑ne
+j=0 Ey[¯cj(x,y)] and formulation (5))
+≤
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+Γ2/parenleft.alt1CLh(r,x)− C∗
+Lh(R,x)/parenright.alt1when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt3
+CLh(r,x)−C∗
+Lh(R,x)
+∑ne
+j=1cj
+/parenright.alt3otherwise
+(∑ne
+j=1cj ≤ Ey/bracketleft.alt1∑ne
+j=0 ¯cj(x,y)/bracketright.alt≤ 1+ ∑ne
+j=1cj and Γ2 is non-decreasing)
+=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+Γ2(∆CLh,R(r,x)) when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt3
+∆CLh,R(r,x)
+∑ne
+j=1cj
+/parenright.alt3otherwise
+and
+inf
+r∈R
+CLdef(h,r,x )− C∗
+Ldef(H, R,x)
+= inf
+r∈R
+CLdef(h,r,x )− inf
+h∈H,r∈R
+CLdef(h,r,x )
+= inf
+r∈R
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1h(x)≠y1r(x)=0+
+ne
+/summation.disp
+j=1
+cj(x,y)1r(x)=j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+− inf
+h∈H,r∈R
+E
+y
+/uni23A1/uni23A2/uni23A2/uni23A2/uni23A3
+1h(x)≠y1r(x)=0+
+ne
+/summation.disp
+j=1
+cj(x,y)1r(x)=j
+/uni23A4/uni23A5/uni23A5/uni23A5/uni23A6
+= min/braceleft.alt3E
+y
+/bracketleft.alt11h(x)≠y/bracketright.alt, E
+y
+[cj(x,y)]/braceright.alt3− min/braceleft.alt3inf
+h∈H
+E
+y
+/bracketleft.alt11h(x)≠y/bracketright.alt, E
+y
+[cj(x,y)]/braceright.alt3
+≤ E
+y
+/bracketleft.alt11h(x)≠y/bracketright.alt− inf
+h∈H
+E
+y
+/bracketleft.alt11h(x)≠y/bracketright.alt
+= Cℓ0−1(h,x)− C∗
+ℓ0−1(H,x)
+= ∆Cℓ0−1(h,x)
+≤ Γ1(∆Cℓ(h,x)). (By H-consistency bounds ofℓ under assumption)
+28
+
+
+===== PDF_PAGE_029 =====
+
+Therefore, by (7), we obtain
+ELdef(h,r)− E∗
+Ldef(H, R)+ MLdef(H, R)
+≤
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+EX[Γ2(∆CLh,R(r,x))]+ EX[Γ1(∆Cℓ(h,x))] when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1EX/bracketleft.alt3Γ2/parenleft.alt3
+∆CLh,R(r,x)
+∑ne
+j=1cj
+/parenright.alt3/bracketright.alt3+ EX[Γ1(∆Cℓ(h,x))] otherwise
+≤
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+Γ2(EX[Γ2(∆CLh,R(r,x))])+ Γ1(EX[∆Cℓ(h,x)]) when Γ2 is linear
+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt3EX/bracketleft.alt3
+∆CLh,R(r,x)
+∑ne
+j=1cj
+/bracketright.alt3/parenright.alt3+ Γ1(EX[∆Cℓ(h,x)]) otherwise
+(Γ1 and Γ2 are concave)
+=
+/uni23A7/uni23AA/uni23AA/uni23AA/uni23A8/uni23AA/uni23AA/uni23AA/uni23A9
+Γ1(Eℓ(h)− E∗
+ℓ(H)+ Mℓ(H))+ Γ2/parenleft.alt1ELh(r)− E∗
+Lh(R)+ MLh(R)/parenright.alt1when Γ2 is linear
+Γ1(Eℓ(h)− E∗
+ℓ(H)+ Mℓ(H))+/parenleft.alt11+ ∑ne
+j=1cj/parenright.alt1Γ2/parenleft.alt3
+ELh(r)−E∗
+Lh(R)+MLh(R)
+∑ne
+j=1cj
+/parenright.alt3otherwise,
+which completes the proof.
+H Proof of realizable consistency for predictor-rejector two-stage surrogate
+losses (Theorem 7)
+Theorem 7 (Realizable (H, R)-consistency for predictor-rejector two-stage surrogates ). As-
+sume that H and R is closed under scaling andcj(x,y)=βj,∀(x,y)∈ X× Y. Letℓ1 andℓ2 be the
+logistic loss. Let ˆh be the minimizer of Eℓ1 and ˆr be the minimizer of ELˆh. Then, the following holds
+for any (H, R) -realizable distribution,
+ELdef(ˆh, ˆr)= 0.
+Proof. First, by deﬁnition, it is straightforward to see that for anyh,r,x,y , Lh(r,x,y ) upper bounds
+the deferral loss Ldef. Consider a data distribution and costs under which there exists h∗ ∈ H and
+r∗ ∈ R such that ELdef(h∗,r∗)= 0.
+Let ˆh be the minimizer of Eℓ1 and ˆr the minimizer of ELˆh Then, using the fact that Lh upper bounds
+the deferral loss Ldef, we have ELdef(ˆh, ˆr)≤ ELˆh(ˆr).
+Next we analyze two cases. If for a point x, deferral occurs, that is there exists j∗ ∈ [ne], such
+that r∗(x)=j∗, then we must havecj∗ = 0 for allx since the data is realizable andcj∗ is constant.
+Therefore, there exists an optimal r∗∗ deferring all the points to the j∗th expert. Then, by the
+assumption that R is closed under scaling and the Lebesgue dominated convergence theorem, forℓ2
+being the logistic loss, ELdef(ˆh, ˆr)≤ ELˆh(ˆr)≤ limτ →+∞ ELˆh(τr∗∗)= 0, where we used the fact that
+in the limit ofτ→+∞ the logistic loss termℓ2(r∗∗,x,j ) corresponding toj ≠j∗ is zero.
+On the other hand, if no deferral occurs for any point, that is r∗(x)= 0 for anyx, then we must have
+1h∗(x)≠y = 0 for all (x,y) since the data is realizable. Using the fact that H is closed under scaling
+and that the logistic loss is realizableH-consistent in the standard classiﬁcation, we obtain1ˆh(x)≠y = 0
+for all (x,y). Then, by the assumption that R is closed under scaling and the Lebesgue dominated
+convergence theorem, forℓ2 being the logistic loss, ELdef(ˆh, ˆr)≤ ELˆh(ˆr)≤ limτ →+∞ ELˆh(τr∗)= 0,
+where we used the fact that in the limit ofτ→+∞ the logistic loss termℓ2(r∗,x,j ) corresponding
+toj ≠ 0 is zero.
+Therefore, the optimal solution from minimizing predictor-rejector two-stage surrogates leads to a
+zero error solution of the deferral loss, which proves that the predictor-rejector two-stage surrogate
+loss is realizable consistent.
+29

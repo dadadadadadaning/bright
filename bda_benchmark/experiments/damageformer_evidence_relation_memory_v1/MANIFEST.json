@@ -1,0 +1,25 @@
+{
+  "package": "damageformer_evidence_relation_memory_v1",
+  "files": [
+    "MANIFEST.json",
+    "README_ZH.md",
+    "__init__.py",
+    "cache.py",
+    "config.py",
+    "evaluate_history.py",
+    "evaluate_utility.py",
+    "history.py",
+    "memory.py",
+    "metrics.py",
+    "prototype.py",
+    "regions.py",
+    "relation_audit.py",
+    "run.sh",
+    "specialist.py",
+    "summarize.py",
+    "test_contract.py",
+    "train_utility.py",
+    "utility.py"
+  ],
+  "compile_errors": {}
+}

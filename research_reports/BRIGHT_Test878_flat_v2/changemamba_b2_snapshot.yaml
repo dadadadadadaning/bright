@@ -1,0 +1,108 @@
+AMP_ENABLE: true
+AMP_OPT_LEVEL: ''
+AUG:
+  AUTO_AUGMENT: rand-m9-mstd0.5-inc1
+  COLOR_JITTER: 0.4
+  CUTMIX: 1.0
+  CUTMIX_MINMAX: null
+  MIXUP: 0.8
+  MIXUP_MODE: batch
+  MIXUP_PROB: 1.0
+  MIXUP_SWITCH_PROB: 0.5
+  RECOUNT: 1
+  REMODE: pixel
+  REPROB: 0.25
+BASE:
+- ''
+DATA:
+  BATCH_SIZE: 128
+  CACHE_MODE: part
+  DATASET: imagenet
+  DATA_PATH: ''
+  IMG_SIZE: 224
+  INTERPOLATION: bicubic
+  MASK_PATCH_SIZE: 32
+  MASK_RATIO: 0.6
+  NUM_WORKERS: 8
+  PIN_MEMORY: true
+  ZIP_MODE: false
+ENABLE_AMP: false
+EVAL_MODE: false
+FUSED_LAYERNORM: false
+MODEL:
+  CHECKPOINT: ''
+  DROP_PATH_RATE: 0.2
+  DROP_RATE: 0.0
+  LABEL_SMOOTHING: 0.1
+  MMCKPT: false
+  NAME: vssm1_tiny_0229flex
+  NUM_CLASSES: 1000
+  PRETRAINED: ''
+  RESUME: ''
+  TYPE: vssm
+  VSSM:
+    DEPTHS:
+    - 2
+    - 2
+    - 4
+    - 2
+    DOWNSAMPLE: v3
+    EMBED_DIM: 96
+    GMLP: false
+    IN_CHANS: 3
+    MLP_ACT_LAYER: gelu
+    MLP_DROP_RATE: 0.0
+    MLP_RATIO: 4.0
+    NORM_LAYER: ln
+    PATCHEMBED: v2
+    PATCH_NORM: true
+    PATCH_SIZE: 4
+    SSM_ACT_LAYER: silu
+    SSM_CONV: 3
+    SSM_CONV_BIAS: false
+    SSM_DROP_RATE: 0.0
+    SSM_DT_RANK: auto
+    SSM_D_STATE: 1
+    SSM_FORWARDTYPE: v3noz
+    SSM_INIT: v0
+    SSM_RANK_RATIO: 2.0
+    SSM_RATIO: 2.0
+OUTPUT: vssm1_tiny_0229flex/default
+PRINT_FREQ: 10
+SAVE_FREQ: 1
+SEED: 0
+TAG: default
+TEST:
+  CROP: true
+  SEQUENTIAL: false
+  SHUFFLE: false
+THROUGHPUT_MODE: false
+TRAIN:
+  ACCUMULATION_STEPS: 1
+  AUTO_RESUME: true
+  BASE_LR: 0.0005
+  CLIP_GRAD: 5.0
+  EPOCHS: 300
+  LAYER_DECAY: 1.0
+  LR_SCHEDULER:
+    DECAY_EPOCHS: 30
+    DECAY_RATE: 0.1
+    GAMMA: 0.1
+    MULTISTEPS: []
+    NAME: cosine
+    WARMUP_PREFIX: true
+  MIN_LR: 5.0e-06
+  MOE:
+    SAVE_MASTER: false
+  OPTIMIZER:
+    BETAS:
+    - 0.9
+    - 0.999
+    EPS: 1.0e-08
+    MOMENTUM: 0.9
+    NAME: adamw
+  START_EPOCH: 0
+  USE_CHECKPOINT: false
+  WARMUP_EPOCHS: 20
+  WARMUP_LR: 5.0e-07
+  WEIGHT_DECAY: 0.05

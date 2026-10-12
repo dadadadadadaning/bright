@@ -1,0 +1,63 @@
+from __future__ import annotations
+
+import random
+import sys
+from pathlib import Path
+from typing import Iterable, List
+
+import numpy as np
+import torch
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+BDA_ROOT = (SCRIPT_DIR / "../..").resolve()
+for p in (str(BDA_ROOT), str(BDA_ROOT / "model"), str(SCRIPT_DIR)):
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
+
+def read_list(path: str) -> List[str]:
+    with open(path, "r", encoding="utf-8") as f:
+        return [x.strip() for x in f if x.strip()]
+
+
+def build_dataset(root: str, list_path: str, size: int, split: str):
+    from dataset.make_data_loader import MultimodalDamageAssessmentDatset
+    return MultimodalDamageAssessmentDatset(root, read_list(list_path), size, None, split)
+
+
+def parse_batch(batch, device):
+    instance_hint = None
+    if isinstance(batch, dict):
+        def pick(keys: Iterable[str]):
+            for k in keys:
+                if k in batch:
+                    return batch[k]
+            raise KeyError(f"Missing any of {list(keys)}; available={list(batch.keys())}")
+        pre = pick(["pre_img", "pre_data", "pre", "image_pre"])
+        post = pick(["post_img", "post_data", "post", "image_post"])
+        loc = pick(["label_loc", "labels_loc", "loc", "building_mask"])
+        dam = pick(["label_dam", "labels_clf", "damage", "label_cls"])
+        for key in ("instance_map", "building_instance", "building_instances"):
+            if key in batch:
+                instance_hint = batch[key]
+                break
+        name = batch.get("file_name", batch.get("name", [""] * pre.shape[0]))
+    else:
+        if len(batch) == 5:
+            pre, post, loc, dam, name = batch
+        elif len(batch) == 6:
+            pre, post, instance_hint, loc, dam, name = batch
+        else:
+            raise ValueError(f"Unsupported batch length={len(batch)}")
+    pre, post = pre.to(device, non_blocking=True).float(), post.to(device, non_blocking=True).float()
+    loc, dam = loc.to(device, non_blocking=True).long(), dam.to(device, non_blocking=True).long()
+    if loc.ndim == 4 and loc.shape[1] == 1: loc = loc[:, 0]
+    if dam.ndim == 4 and dam.shape[1] == 1: dam = dam[:, 0]
+    if instance_hint is not None:
+        instance_hint = instance_hint.to(device, non_blocking=True).long()
+        if instance_hint.ndim == 4 and instance_hint.shape[1] == 1: instance_hint = instance_hint[:, 0]
+    return pre, post, loc, dam, instance_hint, name
+
+
+def set_seed(seed: int):
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed); torch.cuda.manual_seed_all(seed)

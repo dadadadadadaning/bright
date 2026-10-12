@@ -1,0 +1,171 @@
+import inspect
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from .ChangeDecoder_BRIGHT import ChangeDecoder
+from .SemanticDecoder import SemanticDecoder
+from .builders import build_backbone, build_head, resolve_decoder_components, resize_to_input
+from .isolated_mamba_fusion import DiffMambaFusion
+
+
+def _build_fusion_auto(cls, channels):
+    """
+    Try to instantiate isolated_mamba_fusion modules with common argument names.
+    This makes the wrapper robust to slightly different constructor definitions.
+    """
+    candidates = [
+        {"channels": channels},
+        {"dim": channels},
+        {"in_channels": channels},
+        {"embed_dim": channels},
+        {"c": channels},
+        {},
+    ]
+
+    last_error = None
+    for kwargs in candidates:
+        try:
+            return cls(**kwargs)
+        except Exception as e:
+            last_error = e
+
+    sig = inspect.signature(cls.__init__)
+    raise RuntimeError(
+        f"Cannot instantiate {cls.__name__} with channels={channels}. "
+        f"Signature={sig}. Last error={repr(last_error)}"
+    )
+
+
+def _to_nchw(x, channels, name="feature"):
+    """
+    Robustly convert a 4D feature map to NCHW.
+
+    Possible formats:
+      NCHW: [B, C, H, W]
+      NHWC: [B, H, W, C]
+      NHCW: [B, H, C, W]  # occasionally appears after wrong permute
+
+    We infer layout by locating the known channel dimension.
+    """
+    if x.dim() != 4:
+        raise RuntimeError(f"{name} must be 4D, got shape={tuple(x.shape)}")
+
+    if x.shape[1] == channels:
+        return x.contiguous()
+
+    if x.shape[-1] == channels:
+        return x.permute(0, 3, 1, 2).contiguous()
+
+    if x.shape[2] == channels:
+        return x.permute(0, 2, 1, 3).contiguous()
+
+    raise RuntimeError(
+        f"Cannot convert {name} to NCHW. "
+        f"shape={tuple(x.shape)}, expected channels={channels}"
+    )
+
+
+
+class ChangeMambaMMBDA_B2_DiffFusion(nn.Module):
+    """
+    B2: ChangeMamba-BRIGHT + DiffMambaFusion.
+
+    Based on B0:
+      pre/post -> VMamba encoders
+      pre_features -> building decoder -> building logits
+      pre/post features -> original damage decoder -> damage_feat
+
+    New in B2:
+      use deepest pre/post encoder features to compute explicit RGB-SAR difference enhancement;
+      project it to decoder feature channels;
+      add it to damage_feat before main damage classifier.
+    """
+
+    def __init__(self, output_building, output_damage, pretrained, **kwargs):
+        super().__init__()
+
+        self.encoder_1 = build_backbone(pretrained=pretrained, **kwargs)
+        self.encoder_2 = build_backbone(pretrained=pretrained, **kwargs)
+
+        norm_layer, ssm_act_layer, mlp_act_layer, clean_kwargs = resolve_decoder_components(kwargs)
+
+        self.decoder_building = SemanticDecoder(
+            encoder_dims=self.encoder_1.dims,
+            channel_first=self.encoder_1.channel_first,
+            norm_layer=norm_layer,
+            ssm_act_layer=ssm_act_layer,
+            mlp_act_layer=mlp_act_layer,
+            **clean_kwargs,
+        )
+
+        self.decoder_damage = ChangeDecoder(
+            encoder_dims=self.encoder_2.dims,
+            channel_first=self.encoder_2.channel_first,
+            norm_layer=norm_layer,
+            ssm_act_layer=ssm_act_layer,
+            mlp_act_layer=mlp_act_layer,
+            **clean_kwargs,
+        )
+
+        self.main_clf = build_head(out_channels=output_damage)
+        self.aux_clf = build_head(out_channels=output_building)
+
+        # Use deepest stage feature for stable and low-cost difference modeling.
+        enc_last_dim = self.encoder_1.dims[-1]
+        self.enc_last_dim = enc_last_dim
+
+        # The final damage decoder feature channel is 128 in ChangeMamba-BRIGHT.
+        # diff_feat must be projected to the same channel number before residual addition.
+        dec_out_dim = 128
+
+        self.diff_fusion = _build_fusion_auto(DiffMambaFusion, enc_last_dim)
+
+        self.diff_proj = nn.Sequential(
+            nn.Conv2d(enc_last_dim, dec_out_dim, kernel_size=1, bias=False),
+            nn.BatchNorm2d(dec_out_dim),
+            nn.GELU(),
+        )
+
+        # Start conservatively: gamma=0 means B2 initially behaves exactly like B0.
+        # During training it learns how much diff enhancement to add.
+        self.diff_gamma = nn.Parameter(torch.zeros(1))
+
+    def forward(self, pre_data, post_data):
+        pre_features = self.encoder_1(pre_data)
+        post_features = self.encoder_2(post_data)
+
+        building_feat = self.decoder_building(pre_features)
+        output_building = resize_to_input(
+            self.aux_clf(building_feat),
+            pre_data,
+        )
+
+        damage_feat = self.decoder_damage(pre_features, post_features)
+
+        # Deepest encoder features
+        pre_deep = _to_nchw(pre_features[-1], self.enc_last_dim, "pre_deep")
+        post_deep = _to_nchw(post_features[-1], self.enc_last_dim, "post_deep")
+
+        diff_feat = self.diff_fusion(pre_deep, post_deep)
+
+        # Ensure NCHW
+        diff_feat = _to_nchw(diff_feat, self.enc_last_dim, "diff_feat")
+
+        diff_feat = self.diff_proj(diff_feat)
+        diff_feat = F.interpolate(
+            diff_feat,
+            size=damage_feat.shape[-2:],
+            mode="bilinear",
+            align_corners=False,
+        )
+
+        damage_feat = damage_feat + torch.tanh(self.diff_gamma) * diff_feat
+
+        output_damage = resize_to_input(
+            self.main_clf(damage_feat),
+            post_data,
+        )
+
+        return output_building, output_damage

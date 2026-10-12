@@ -1,0 +1,35 @@
+{
+  "samples": 18,
+  "models": [
+    "UNet",
+    "DeepLabV3Plus",
+    "SiamAttnUNet",
+    "SiamCRNN",
+    "DamageFormer",
+    "Ours_A1"
+  ],
+  "column_order": [
+    "Pre-event RGB",
+    "Post-event SAR",
+    "GT (reference)",
+    "UNet",
+    "DeepLabV3+",
+    "SiamAttnUNet",
+    "SiamCRNN",
+    "DamageFormer",
+    "A1"
+  ],
+  "counts_by_hazard": {
+    "conflict": 2,
+    "earthquake": 4,
+    "explosion": 2,
+    "flood": 1,
+    "hurricane": 3,
+    "volcano": 4,
+    "wildfire": 2
+  },
+  "gt": "Original dataset target; exported raw PNG checked pixel-for-pixel; annotation accuracy not independently adjudicated.",
+  "data_root": "F:\\建筑损毁分类数据集",
+  "prediction_root": "research_reports\\BRIGHT_Test878_gallery_20261009\\predictions",
+  "tile": 320
+}

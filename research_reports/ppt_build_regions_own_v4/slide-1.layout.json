@@ -1,0 +1,1914 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/y90nupkv",
+    "id": "y90nupkv",
+    "slide": 1,
+    "layoutId": "/ppt/slideLayouts/slideLayout1.xml",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "fontScheme": {
+      "name": "Office",
+      "majorFont": {
+        "latinTypeface": "Calibri Light",
+        "eastAsianTypeface": "Calibri Light",
+        "complexScriptTypeface": "Calibri Light"
+      },
+      "minorFont": {
+        "latinTypeface": "Calibri",
+        "eastAsianTypeface": "Calibri",
+        "complexScriptTypeface": "Calibri"
+      }
+    },
+    "typefaces": [
+      "Calibri",
+      "Calibri Light",
+      "Microsoft YaHei"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "/ppt/slideLayouts/slideLayout1.xml",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "/ppt/slideMasters/slideMaster1.xml",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "/ppt/slideMasters/slideMaster1.xml",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h072l4jy",
+      "id": "33",
+      "bbox": [
+        30,
+        22,
+        1380,
+        55
+      ],
+      "geometry": "rect",
+      "text": "建筑内区域划分基线：规则网格与内容区域",
+      "textPreview": "建筑内区域划分基线：规则网格与内容区域",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "建筑内区域划分基线：规则网格与内容区域"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "建筑内区域划分基线：规则网格与内容区域",
+          "resolvedTextStyle": {
+            "fontSize": 36,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "建筑内区域划分基线：规则网格与内容区域",
+              "fontSize": 36,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/547294r6",
+      "id": "2",
+      "bbox": [
+        30,
+        83,
+        1380,
+        40
+      ],
+      "geometry": "rect",
+      "text": "用途：比较固定网格与RGB内容分区的区域形态，为学习区域模块确定必要对照",
+      "textPreview": "用途：比较固定网格与RGB内容分区的区域形态，为学习区域模块确定必要对照",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "用途：比较固定网格与RGB内容分区的区域形态，为学习区域模块确定必要对照"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "用途：比较固定网格与RGB内容分区的区域形态，为学习区域模块确定必要对照",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "用途：比较固定网格与RGB内容分区的区域形态，为学习区域模块确定必要对照",
+              "fontSize": 23,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3yl0zql",
+      "id": "3",
+      "bbox": [
+        30,
+        135,
+        218,
+        36
+      ],
+      "geometry": "rect",
+      "text": "灾前 RGB",
+      "textPreview": "灾前 RGB",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "灾前 RGB"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "灾前 RGB",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "灾前 RGB",
+              "fontSize": 24,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qp4be9c",
+      "id": "4",
+      "bbox": [
+        263,
+        135,
+        218,
+        36
+      ],
+      "geometry": "rect",
+      "text": "灾后 SAR",
+      "textPreview": "灾后 SAR",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "灾后 SAR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "灾后 SAR",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "灾后 SAR",
+              "fontSize": 24,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65g3298r",
+      "id": "5",
+      "bbox": [
+        496,
+        135,
+        218,
+        36
+      ],
+      "geometry": "rect",
+      "text": "GT 建筑轮廓",
+      "textPreview": "GT 建筑轮廓",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GT 建筑轮廓"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GT 建筑轮廓",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "GT 建筑轮廓",
+              "fontSize": 24,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ts7md4r2",
+      "id": "6",
+      "bbox": [
+        729,
+        135,
+        218,
+        36
+      ],
+      "geometry": "rect",
+      "text": "规则网格",
+      "textPreview": "规则网格",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "规则网格"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "规则网格",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "规则网格",
+              "fontSize": 24,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sryl4zqx",
+      "id": "7",
+      "bbox": [
+        962,
+        135,
+        218,
+        36
+      ],
+      "geometry": "rect",
+      "text": "RGB SLIC 分区",
+      "textPreview": "RGB SLIC 分区",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "RGB SLIC 分区"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "RGB SLIC 分区",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RGB SLIC 分区",
+              "fontSize": 24,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fu94fe98",
+      "id": "8",
+      "bbox": [
+        1195,
+        135,
+        218,
+        36
+      ],
+      "geometry": "rect",
+      "text": "选中区域",
+      "textPreview": "选中区域",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "选中区域"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "选中区域",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "选中区域",
+              "fontSize": 24,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/utg3698n",
+      "id": "9",
+      "bbox": [
+        30,
+        175,
+        950,
+        32
+      ],
+      "geometry": "rect",
+      "text": "刚果火山  congo-volcano_00000013",
+      "textPreview": "刚果火山  congo-volcano_00000013",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "刚果火山  congo-volcano_00000013"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "刚果火山  congo-volcano_00000013",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#596777"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "刚果火山  congo-volcano_00000013",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#596777"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wn6dc7eh",
+      "id": "10",
+      "bbox": [
+        1110,
+        175,
+        300,
+        32
+      ],
+      "geometry": "rect",
+      "text": "网格 7 区 / SLIC 7 区",
+      "textPreview": "网格 7 区 / SLIC 7 区",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "网格 7 区 / SLIC 7 区"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "网格 7 区 / SLIC 7 区",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#596777"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "网格 7 区 / SLIC 7 区",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#596777"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/5kjidwzq",
+      "id": "34",
+      "bbox": [
+        30,
+        210,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 1",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image.png",
+        "contentType": "image/png",
+        "byteLength": 88085
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image.png",
+        "contentType": "image/png",
+        "byteLength": 88085
+      }
+    },
+    {
+      "order": 12,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/kjq1kri5",
+      "id": "35",
+      "bbox": [
+        263,
+        210,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 2",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 38558
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image2.png",
+        "contentType": "image/png",
+        "byteLength": 38558
+      }
+    },
+    {
+      "order": 13,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/jih0bmhk",
+      "id": "36",
+      "bbox": [
+        496,
+        210,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 3",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image3.png",
+        "contentType": "image/png",
+        "byteLength": 88974
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image3.png",
+        "contentType": "image/png",
+        "byteLength": 88974
+      }
+    },
+    {
+      "order": 14,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/ih8jih0z",
+      "id": "37",
+      "bbox": [
+        729,
+        210,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 4",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image4.png",
+        "contentType": "image/png",
+        "byteLength": 88573
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image4.png",
+        "contentType": "image/png",
+        "byteLength": 88573
+      }
+    },
+    {
+      "order": 15,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/t8jihgzm",
+      "id": "38",
+      "bbox": [
+        962,
+        210,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 5",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image5.png",
+        "contentType": "image/png",
+        "byteLength": 89903
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image5.png",
+        "contentType": "image/png",
+        "byteLength": 89903
+      }
+    },
+    {
+      "order": 16,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/s7a1obih",
+      "id": "39",
+      "bbox": [
+        1195,
+        210,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 6",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image6.png",
+        "contentType": "image/png",
+        "byteLength": 82659
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image6.png",
+        "contentType": "image/png",
+        "byteLength": 82659
+      }
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qxwn2x8",
+      "id": "17",
+      "bbox": [
+        30,
+        440,
+        950,
+        32
+      ],
+      "geometry": "rect",
+      "text": "巴塔爆炸  bata-explosion_00000001",
+      "textPreview": "巴塔爆炸  bata-explosion_00000001",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "巴塔爆炸  bata-explosion_00000001"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "巴塔爆炸  bata-explosion_00000001",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#596777"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "巴塔爆炸  bata-explosion_00000001",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#596777"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfqdkrep",
+      "id": "18",
+      "bbox": [
+        1110,
+        440,
+        300,
+        32
+      ],
+      "geometry": "rect",
+      "text": "网格 8 区 / SLIC 8 区",
+      "textPreview": "网格 8 区 / SLIC 8 区",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "网格 8 区 / SLIC 8 区"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "网格 8 区 / SLIC 8 区",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Microsoft YaHei",
+            "color": "#596777"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "网格 8 区 / SLIC 8 区",
+              "fontSize": 20,
+              "typeface": "Microsoft YaHei",
+              "color": "#596777"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/43elgf2p",
+      "id": "40",
+      "bbox": [
+        30,
+        475,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 7",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image7.png",
+        "contentType": "image/png",
+        "byteLength": 45998
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image7.png",
+        "contentType": "image/png",
+        "byteLength": 45998
+      }
+    },
+    {
+      "order": 20,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/p4nmp0ju",
+      "id": "41",
+      "bbox": [
+        263,
+        475,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 8",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image8.png",
+        "contentType": "image/png",
+        "byteLength": 23989
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image8.png",
+        "contentType": "image/png",
+        "byteLength": 23989
+      }
+    },
+    {
+      "order": 21,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/21c3e5kj",
+      "id": "42",
+      "bbox": [
+        496,
+        475,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 9",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image9.png",
+        "contentType": "image/png",
+        "byteLength": 46913
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image9.png",
+        "contentType": "image/png",
+        "byteLength": 46913
+      }
+    },
+    {
+      "order": 22,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/32lkna14",
+      "id": "43",
+      "bbox": [
+        729,
+        475,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 10",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image10.png",
+        "contentType": "image/png",
+        "byteLength": 46517
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image10.png",
+        "contentType": "image/png",
+        "byteLength": 46517
+      }
+    },
+    {
+      "order": 23,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/gzulcv2d",
+      "id": "44",
+      "bbox": [
+        962,
+        475,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 11",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image11.png",
+        "contentType": "image/png",
+        "byteLength": 47077
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image11.png",
+        "contentType": "image/png",
+        "byteLength": 47077
+      }
+    },
+    {
+      "order": 24,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/h032l0jy",
+      "id": "45",
+      "bbox": [
+        1195,
+        475,
+        210,
+        210
+      ],
+      "geometry": "rect",
+      "alt": "Region baseline evidence image 12",
+      "contentType": "image/png",
+      "imageCrop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "/ppt/media/image12.png",
+        "contentType": "image/png",
+        "byteLength": 43340
+      },
+      "fillImage": {
+        "assetId": "/ppt/media/image12.png",
+        "contentType": "image/png",
+        "byteLength": 43340
+      }
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ozmd8r65",
+      "id": "25",
+      "bbox": [
+        30,
+        715,
+        420,
+        38
+      ],
+      "geometry": "rect",
+      "text": "这张图能够回答什么",
+      "textPreview": "这张图能够回答什么",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "这张图能够回答什么"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "这张图能够回答什么",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "这张图能够回答什么",
+              "fontSize": 27,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nydczmpk",
+      "id": "26",
+      "bbox": [
+        30,
+        760,
+        435,
+        135
+      ],
+      "geometry": "rect",
+      "text": "SLIC 随 RGB 外观形成不规则分区\n部分边界细碎，需检查稳定性\n粉色突出选中区域，不代表损毁位置",
+      "textPreview": "SLIC 随 RGB 外观形成不规则分区 | 部分边界细碎，需检查稳定性 | 粉色突出选中区域，不代表损毁位置",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SLIC 随 RGB 外观形成不规则分区"
+          },
+          {
+            "index": 2,
+            "text": "部分边界细碎，需检查稳定性"
+          },
+          {
+            "index": 3,
+            "text": "粉色突出选中区域，不代表损毁位置"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SLIC 随 RGB 外观形成不规则分区",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SLIC 随 RGB 外观形成不规则分区",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "部分边界细碎，需检查稳定性",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "部分边界细碎，需检查稳定性",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "粉色突出选中区域，不代表损毁位置",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "粉色突出选中区域，不代表损毁位置",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mx4v6hoz",
+      "id": "27",
+      "bbox": [
+        505,
+        715,
+        430,
+        38
+      ],
+      "geometry": "rect",
+      "text": "这张图不能回答什么",
+      "textPreview": "这张图不能回答什么",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "这张图不能回答什么"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "这张图不能回答什么",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "这张图不能回答什么",
+              "fontSize": 27,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4bu5s76",
+      "id": "28",
+      "bbox": [
+        505,
+        760,
+        435,
+        135
+      ],
+      "geometry": "rect",
+      "text": "检查跨楼、背景混入与碎片比例\n控制区域数量，检查连通性与稳定性\n此处用 GT 限制范围，不能验证定位",
+      "textPreview": "检查跨楼、背景混入与碎片比例 | 控制区域数量，检查连通性与稳定性 | 此处用 GT 限制范围，不能验证定位",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "检查跨楼、背景混入与碎片比例"
+          },
+          {
+            "index": 2,
+            "text": "控制区域数量，检查连通性与稳定性"
+          },
+          {
+            "index": 3,
+            "text": "此处用 GT 限制范围，不能验证定位"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "检查跨楼、背景混入与碎片比例",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "检查跨楼、背景混入与碎片比例",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "控制区域数量，检查连通性与稳定性",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "控制区域数量，检查连通性与稳定性",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "此处用 GT 限制范围，不能验证定位",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "此处用 GT 限制范围，不能验证定位",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/432dwn6l",
+      "id": "29",
+      "bbox": [
+        980,
+        715,
+        430,
+        38
+      ],
+      "geometry": "rect",
+      "text": "你的学习区域怎样验证",
+      "textPreview": "你的学习区域怎样验证",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "你的学习区域怎样验证"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "你的学习区域怎样验证",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "你的学习区域怎样验证",
+              "fontSize": 27,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/uxgjq907",
+      "id": "30",
+      "bbox": [
+        980,
+        760,
+        430,
+        135
+      ],
+      "geometry": "rect",
+      "text": "同预算对比像素、网格与学习区域\n评价 Damaged 的 IoU、精确率和召回率\n检查各事件收益，单独消融 Memory",
+      "textPreview": "同预算对比像素、网格与学习区域 | 评价 Damaged 的 IoU、精确率和召回率 | 检查各事件收益，单独消融 Memory",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "同预算对比像素、网格与学习区域"
+          },
+          {
+            "index": 2,
+            "text": "评价 Damaged 的 IoU、精确率和召回率"
+          },
+          {
+            "index": 3,
+            "text": "检查各事件收益，单独消融 Memory"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "同预算对比像素、网格与学习区域",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "同预算对比像素、网格与学习区域",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "评价 Damaged 的 IoU、精确率和召回率",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "评价 Damaged 的 IoU、精确率和召回率",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "检查各事件收益，单独消融 Memory",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#263343"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "检查各事件收益，单独消融 Memory",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#263343"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vyp0je1s",
+      "id": "31",
+      "bbox": [
+        30,
+        908,
+        1380,
+        34
+      ],
+      "geometry": "rect",
+      "text": "说明：本页仍是GT轮廓约束的网格与SLIC基线，不是你的学习区域输出，也不用于证明精度提升。",
+      "textPreview": "说明：本页仍是GT轮廓约束的网格与SLIC基线，不是你的学习区域输出，也不用于证明精度提升。",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "说明：本页仍是GT轮廓约束的网格与SLIC基线，不是你的学习区域输出，也不用于证明精度提升。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "说明：本页仍是GT轮廓约束的网格与SLIC基线，不是你的学习区域输出，也不用于证明精度提升。",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Microsoft YaHei",
+            "color": "#805329",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "说明：本页仍是GT轮廓约束的网格与SLIC基线，不是你的学习区域输出，也不用于证明精度提升。",
+              "fontSize": 21,
+              "typeface": "Microsoft YaHei",
+              "color": "#805329",
+              "bold": true
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wzy1szid",
+      "id": "32",
+      "bbox": [
+        30,
+        953,
+        1380,
+        30
+      ],
+      "geometry": "rect",
+      "text": "两例均使用同坐标完整建筑裁剪；SAR仅做1–99%显示拉伸；网格与SLIC区域数在每个案例内保持一致。",
+      "textPreview": "两例均使用同坐标完整建筑裁剪；SAR仅做1–99%显示拉伸；网格与SLIC区域数在每个案例内保持一致。",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Calibri",
+        "color": "tx1",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "两例均使用同坐标完整建筑裁剪；SAR仅做1–99%显示拉伸；网格与SLIC区域数在每个案例内保持一致。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "两例均使用同坐标完整建筑裁剪；SAR仅做1–99%显示拉伸；网格与SLIC区域数在每个案例内保持一致。",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Microsoft YaHei",
+            "color": "#596777"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "两例均使用同坐标完整建筑裁剪；SAR仅做1–99%显示拉伸；网格与SLIC区域数在每个案例内保持一致。",
+              "fontSize": 18,
+              "typeface": "Microsoft YaHei",
+              "color": "#596777"
+            }
+          ],
+          "bulletCharacter": "",
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,2 @@
+﻿model,checkpoint,rank,event,destroyed_impact_score,impact_score,target_3class_miou,destroyed_iou,num_destroyed_pixels,diagnosis_code,recommended_direction
+M01_BGCA_none,best_model.pth,1,bata-explosion,0.0,0.0,0.1823046368874468,0.008174251109006629,135114,MIXED_OR_NO_DOMINANT_ERROR,"Inspect event confusion, support, precision/recall and qualitative samples"

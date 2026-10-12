@@ -1,0 +1,409 @@
+{"kind":"deck","id":"pr/dlj1ja","name":"Deck"}
+{"kind":"layout","layoutId":"03f17bd6-9304-4fd7-88a1-d8052fb4bcd7","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"a659c187-337a-4dbd-9058-98d8a3da1156","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/6dcoxg","slide":1,"title":"BRIGHT building damage assessment","textShapes":19}
+{"kind":"textbox","id":"sh/9ovul4fi","slide":1,"text":"BRIGHT building damage assessment","textPreview":"BRIGHT building damage assessment","textChars":33,"textLines":1,"bbox":[20,15,1560,32]}
+{"kind":"textbox","id":"sh/m14bapgr","slide":1,"text":"Test comparison 1 of 4 (18 cases in total)","textPreview":"Test comparison 1 of 4 (18 cases in total)","textChars":42,"textLines":1,"bbox":[20,51,1560,24]}
+{"kind":"textbox","id":"sh/n2dsjuxc","slide":1,"text":"Pre-event\nRGB","textPreview":"Pre-event | RGB","textChars":13,"textLines":2,"bbox":[112,83,160,40]}
+{"kind":"textbox","id":"sh/0zmt8zyl","slide":1,"text":"Post-event\nSAR","textPreview":"Post-event | SAR","textChars":14,"textLines":2,"bbox":[275,83,160,40]}
+{"kind":"textbox","id":"sh/10vahkf6","slide":1,"text":"Reference\nGT","textPreview":"Reference | GT","textChars":12,"textLines":2,"bbox":[438,83,160,40]}
+{"kind":"textbox","id":"sh/exkb6pgv","slide":1,"text":"UNet","textPreview":"UNet","textChars":4,"textLines":1,"bbox":[601,83,160,40]}
+{"kind":"textbox","id":"sh/zydsfuxg","slide":1,"text":"DeepLabV3+","textPreview":"DeepLabV3+","textChars":10,"textLines":1,"bbox":[764,83,160,40]}
+{"kind":"textbox","id":"sh/cv2t4fyp","slide":1,"text":"SiamAttnUNet","textPreview":"SiamAttnUNet","textChars":12,"textLines":1,"bbox":[927,83,160,40]}
+{"kind":"textbox","id":"sh/dwbadkfa","slide":1,"text":"SiamCRNN","textPreview":"SiamCRNN","textChars":8,"textLines":1,"bbox":[1090,83,160,40]}
+{"kind":"textbox","id":"sh/t0v69obe","slide":1,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1253,83,160,40]}
+{"kind":"textbox","id":"sh/szm5gjut","slide":1,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1416,83,160,40]}
+{"kind":"textbox","id":"sh/7yto7et8","slide":1,"text":"bata\nexplosion\n#00000062\n512 px","textPreview":"bata | explosion | #00000062 | 512 px","textChars":31,"textLines":4,"bbox":[5,130,103,160]}
+{"kind":"shape","id":"sh/5wb65obi","slide":1,"bbox":[112,130,160,160]}
+{"kind":"shape","id":"sh/juto3etc","slide":1,"bbox":[275,130,160,160]}
+{"kind":"shape","id":"sh/xsb614b6","slide":1,"bbox":[438,130,160,160]}
+{"kind":"shape","id":"sh/obmpoz2h","slide":1,"bbox":[601,130,160,160]}
+{"kind":"shape","id":"sh/294nm9kr","slide":1,"bbox":[764,130,160,160]}
+{"kind":"shape","id":"sh/07m5kz2l","slide":1,"bbox":[927,130,160,160]}
+{"kind":"shape","id":"sh/elknipkf","slide":1,"bbox":[1090,130,160,160]}
+{"kind":"shape","id":"sh/k36pwj2p","slide":1,"bbox":[1253,130,160,160]}
+{"kind":"shape","id":"sh/vy1svilc","slide":1,"bbox":[1416,130,160,160]}
+{"kind":"textbox","id":"sh/uxsrmx4r","slide":1,"text":"bata\nexplosion\n#00000049\n512 px","textPreview":"bata | explosion | #00000049 | 512 px","textChars":31,"textLines":4,"bbox":[5,293,103,160]}
+{"kind":"shape","id":"sh/gza9onmx","slide":1,"bbox":[112,293,160,160]}
+{"kind":"shape","id":"sh/i1srqx43","slide":1,"bbox":[275,293,160,160]}
+{"kind":"shape","id":"sh/43a9s7m9","slide":1,"bbox":[438,293,160,160]}
+{"kind":"shape","id":"sh/y58red4z","slide":1,"bbox":[601,293,160,160]}
+{"kind":"shape","id":"sh/bqls3id0","slide":1,"bbox":[764,293,160,160]}
+{"kind":"shape","id":"sh/dc3a58v6","slide":1,"bbox":[927,293,160,160]}
+{"kind":"shape","id":"sh/zels7idc","slide":1,"bbox":[1090,293,160,160]}
+{"kind":"shape","id":"sh/lg3a9sv2","slide":1,"bbox":[1253,293,160,160]}
+{"kind":"shape","id":"sh/7i5sb2d8","slide":1,"bbox":[1416,293,160,160]}
+{"kind":"textbox","id":"sh/hormhgjm","slide":1,"text":"hawaii\nwildfire\n#00000014\n512 px","textPreview":"hawaii | wildfire | #00000014 | 512 px","textChars":32,"textLines":4,"bbox":[5,456,103,160]}
+{"kind":"shape","id":"sh/vm9kvq1w","slide":1,"bbox":[112,456,160,160]}
+{"kind":"shape","id":"sh/5crml0jy","slide":1,"bbox":[275,456,160,160]}
+{"kind":"shape","id":"sh/3q94jq1s","slide":1,"bbox":[438,456,160,160]}
+{"kind":"shape","id":"sh/dgbmp0zu","slide":1,"bbox":[601,456,160,160]}
+{"kind":"shape","id":"sh/cja5sjql","slide":1,"bbox":[764,456,160,160]}
+{"kind":"shape","id":"sh/qx8nq98f","slide":1,"bbox":[927,456,160,160]}
+{"kind":"shape","id":"sh/0na5wjqh","slide":1,"bbox":[1090,456,160,160]}
+{"kind":"shape","id":"sh/ylsnut8r","slide":1,"bbox":[1253,456,160,160]}
+{"kind":"shape","id":"sh/grq5kzqd","slide":1,"bbox":[1416,456,160,160]}
+{"kind":"textbox","id":"sh/1szmt47y","slide":1,"text":"hawaii\nwildfire\n#00000003\n512 px","textPreview":"hawaii | wildfire | #00000003 | 512 px","textChars":32,"textLines":4,"bbox":[5,619,103,160]}
+{"kind":"shape","id":"sh/ilwrqxsv","slide":1,"bbox":[112,619,160,160]}
+{"kind":"shape","id":"sh/4ne9s7a1","slide":1,"bbox":[275,619,160,160]}
+{"kind":"shape","id":"sh/uhw7mdsz","slide":1,"bbox":[438,619,160,160]}
+{"kind":"shape","id":"sh/wje9onap","slide":1,"bbox":[601,619,160,160]}
+{"kind":"shape","id":"sh/mdc7idsn","slide":1,"bbox":[764,619,160,160]}
+{"kind":"shape","id":"sh/za90nmlg","slide":1,"bbox":[927,619,160,160]}
+{"kind":"shape","id":"sh/lcripc36","slide":1,"bbox":[1090,619,160,160]}
+{"kind":"shape","id":"sh/b6p0j2l4","slide":1,"bbox":[1253,619,160,160]}
+{"kind":"shape","id":"sh/x8rilc3a","slide":1,"bbox":[1416,619,160,160]}
+{"kind":"textbox","id":"sh/u1kz2143","slide":1,"text":"libya\nflood\n#00000021\n768 px","textPreview":"libya | flood | #00000021 | 768 px","textChars":28,"textLines":4,"bbox":[5,782,103,160]}
+{"kind":"shape","id":"sh/5wv2l0nq","slide":1,"bbox":[112,782,160,160]}
+{"kind":"shape","id":"sh/judkjq5k","slide":1,"bbox":[275,782,160,160]}
+{"kind":"shape","id":"sh/h8v2hgne","slide":1,"bbox":[438,782,160,160]}
+{"kind":"shape","id":"sh/v6tkf65o","slide":1,"bbox":[601,782,160,160]}
+{"kind":"shape","id":"sh/14f2tkny","slide":1,"bbox":[764,782,160,160]}
+{"kind":"shape","id":"sh/l43ax47i","slide":1,"bbox":[927,782,160,160]}
+{"kind":"shape","id":"sh/zi1svups","slide":1,"bbox":[1090,782,160,160]}
+{"kind":"shape","id":"sh/dgjat47m","slide":1,"bbox":[1253,782,160,160]}
+{"kind":"shape","id":"sh/be1srupg","slide":1,"bbox":[1416,782,160,160]}
+{"kind":"textbox","id":"sh/qdsryp8v","slide":1,"text":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textPreview":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textChars":75,"textLines":1,"bbox":[112,957,1468,24]}
+{"kind":"textbox","id":"sh/pcjapk7a","slide":1,"text":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textPreview":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textChars":86,"textLines":1,"bbox":[20,985,1560,25]}
+{"kind":"textbox","id":"sh/obq9wfq5","slide":1,"text":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textPreview":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textChars":104,"textLines":1,"bbox":[20,1010,1560,25]}
+{"kind":"image","id":"im/18zy9sjy","slide":1,"name":"","alt":"bata-explosion_00000062 Pre-event RGB","bbox":[112,130,160,160]}
+{"kind":"image","id":"im/nahgbi14","slide":1,"name":"","alt":"bata-explosion_00000062 Post-event SAR","bbox":[275,130,160,160]}
+{"kind":"image","id":"im/9czydsja","slide":1,"name":"","alt":"bata-explosion_00000062 Reference GT","bbox":[438,130,160,160]}
+{"kind":"image","id":"im/3edgzy10","slide":1,"name":"","alt":"bata-explosion_00000062 UNet","bbox":[601,130,160,160]}
+{"kind":"image","id":"im/6hkvyp07","slide":1,"name":"","alt":"bata-explosion_00000062 DeepLabV3+","bbox":[764,130,160,160]}
+{"kind":"image","id":"im/8j2d0zix","slide":1,"name":"","alt":"bata-explosion_00000062 SiamAttnUNet","bbox":[927,130,160,160]}
+{"kind":"image","id":"im/yt0vup0v","slide":1,"name":"","alt":"bata-explosion_00000062 SiamCRNN","bbox":[1090,130,160,160]}
+{"kind":"image","id":"im/kvidwfi1","slide":1,"name":"","alt":"bata-explosion_00000062 DamageFormer","bbox":[1253,130,160,160]}
+{"kind":"image","id":"im/ip4v690f","slide":1,"name":"","alt":"bata-explosion_00000062 Ours (A1)","bbox":[1416,130,160,160]}
+{"kind":"image","id":"im/etwry1gr","slide":1,"name":"","alt":"bata-explosion_00000049 Pre-event RGB","bbox":[112,293,160,160]}
+{"kind":"image","id":"im/ozy94byt","slide":1,"name":"","alt":"bata-explosion_00000049 Post-event SAR","bbox":[275,293,160,160]}
+{"kind":"image","id":"im/mxgr2lgn","slide":1,"name":"","alt":"bata-explosion_00000049 Reference GT","bbox":[438,293,160,160]}
+{"kind":"image","id":"im/wnyt8vyp","slide":1,"name":"","alt":"bata-explosion_00000049 UNet","bbox":[601,293,160,160]}
+{"kind":"image","id":"im/xkf21wfe","slide":1,"name":"","alt":"bata-explosion_00000049 DeepLabV3+","bbox":[764,293,160,160]}
+{"kind":"image","id":"im/vyxkzmx8","slide":1,"name":"","alt":"bata-explosion_00000049 SiamAttnUNet","bbox":[927,293,160,160]}
+{"kind":"image","id":"im/9wf2xcfi","slide":1,"name":"","alt":"bata-explosion_00000049 SiamCRNN","bbox":[1090,293,160,160]}
+{"kind":"image","id":"im/nux0v2xc","slide":1,"name":"","alt":"bata-explosion_00000049 DamageFormer","bbox":[1253,293,160,160]}
+{"kind":"image","id":"im/tsz29gfm","slide":1,"name":"","alt":"bata-explosion_00000049 Ours (A1)","bbox":[1416,293,160,160]}
+{"kind":"image","id":"im/bytg3id4","slide":1,"name":"","alt":"hawaii-wildfire_00000014 Pre-event RGB","bbox":[112,456,160,160]}
+{"kind":"image","id":"im/d0by58va","slide":1,"name":"","alt":"hawaii-wildfire_00000014 Post-event SAR","bbox":[275,456,160,160]}
+{"kind":"image","id":"im/3u9gzyds","slide":1,"name":"","alt":"hawaii-wildfire_00000014 Reference GT","bbox":[438,456,160,160]}
+{"kind":"image","id":"im/pwby18vy","slide":1,"name":"","alt":"hawaii-wildfire_00000014 UNet","bbox":[601,456,160,160]}
+{"kind":"image","id":"im/nqdgb2dc","slide":1,"name":"","alt":"hawaii-wildfire_00000014 DeepLabV3+","bbox":[764,456,160,160]}
+{"kind":"image","id":"im/i9wvupc3","slide":1,"name":"","alt":"hawaii-wildfire_00000014 SiamAttnUNet","bbox":[927,456,160,160]}
+{"kind":"image","id":"im/kbydwzu9","slide":1,"name":"","alt":"hawaii-wildfire_00000014 SiamCRNN","bbox":[1090,456,160,160]}
+{"kind":"image","id":"im/6dgvypcf","slide":1,"name":"","alt":"hawaii-wildfire_00000014 DamageFormer","bbox":[1253,456,160,160]}
+{"kind":"image","id":"im/sfyd0zu5","slide":1,"name":"","alt":"hawaii-wildfire_00000014 Ours (A1)","bbox":[1416,456,160,160]}
+{"kind":"image","id":"im/c7idsja9","slide":1,"name":"","alt":"hawaii-wildfire_00000003 Pre-event RGB","bbox":[112,619,160,160]}
+{"kind":"image","id":"im/q50vq9sj","slide":1,"name":"","alt":"hawaii-wildfire_00000003 Post-event SAR","bbox":[275,619,160,160]}
+{"kind":"image","id":"im/43idozad","slide":1,"name":"","alt":"hawaii-wildfire_00000003 Reference GT","bbox":[438,619,160,160]}
+{"kind":"image","id":"im/2hgvmps7","slide":1,"name":"","alt":"hawaii-wildfire_00000003 UNet","bbox":[601,619,160,160]}
+{"kind":"image","id":"im/gfydkzah","slide":1,"name":"","alt":"hawaii-wildfire_00000003 DeepLabV3+","bbox":[764,619,160,160]}
+{"kind":"image","id":"im/9cb2xcba","slide":1,"name":"","alt":"hawaii-wildfire_00000003 SiamAttnUNet","bbox":[927,619,160,160]}
+{"kind":"image","id":"im/7atkvmtk","slide":1,"name":"","alt":"hawaii-wildfire_00000003 SiamCRNN","bbox":[1090,619,160,160]}
+{"kind":"image","id":"im/hgb21wbm","slide":1,"name":"","alt":"hawaii-wildfire_00000003 DamageFormer","bbox":[1253,619,160,160]}
+{"kind":"image","id":"im/vetkzmtg","slide":1,"name":"","alt":"hawaii-wildfire_00000003 Ours (A1)","bbox":[1416,619,160,160]}
+{"kind":"image","id":"im/43mlcbax","slide":1,"name":"","alt":"libya-flood_00000021 Pre-event RGB","bbox":[112,782,160,160]}
+{"kind":"image","id":"im/nqp0zy90","slide":1,"name":"","alt":"libya-flood_00000021 Post-event SAR","bbox":[275,782,160,160]}
+{"kind":"image","id":"im/ps7i18r6","slide":1,"name":"","alt":"libya-flood_00000021 Reference GT","bbox":[438,782,160,160]}
+{"kind":"image","id":"im/bep03i9c","slide":1,"name":"","alt":"libya-flood_00000021 UNet","bbox":[601,782,160,160]}
+{"kind":"image","id":"im/xg7i58r2","slide":1,"name":"","alt":"libya-flood_00000021 DeepLabV3+","bbox":[764,782,160,160]}
+{"kind":"image","id":"im/zi907i98","slide":1,"name":"","alt":"libya-flood_00000021 SiamAttnUNet","bbox":[927,782,160,160]}
+{"kind":"image","id":"im/l8vu94fa","slide":1,"name":"","alt":"libya-flood_00000021 SiamCRNN","bbox":[1090,782,160,160]}
+{"kind":"image","id":"im/z6dc7ux4","slide":1,"name":"","alt":"libya-flood_00000021 DamageFormer","bbox":[1253,782,160,160]}
+{"kind":"image","id":"im/9wfud4f6","slide":1,"name":"","alt":"libya-flood_00000021 Ours (A1)","bbox":[1416,782,160,160]}
+{"kind":"notes","id":"nt/6dcoxg","slide":1,"text":"Source: user-provided BRIGHT_test_sixmodels_images.zip, predictions/run_manifest.json and selection.json. RGB/SAR/GT extracted from local original BRIGHT archives, matched by sample ID and xywh. Verified GT class counts against the selection record. Prediction masks come from the uploaded run only. Six checkpoints use the same display crop per row. Ours_A1 SHA256 cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add. Automatically screened Test examples, not full-Test performance and not evidence of a matched retraining budget. 7 hazard types, 10 of 14 events. Missing Beirut, Haiti, Morocco and Marshall. ChangeOS and ChangeMamba are not included.\nbata-explosion_00000062: crop=0,512,512,512; GT counts=240010,6162,5647,10325\nbata-explosion_00000049: crop=512,0,512,512; GT counts=227718,4412,3585,26429\nhawaii-wildfire_00000014: crop=0,512,512,512; GT counts=192725,34906,14902,19611\nhawaii-wildfire_00000003: crop=0,0,512,512; GT counts=184229,8208,13329,56378\nlibya-flood_00000021: crop=256,256,768,768; GT counts=363581,18550,205407,2286"}
+{"kind":"slide","id":"sl/aora7x","slide":2,"title":"BRIGHT building damage assessment","textShapes":19}
+{"kind":"textbox","id":"sh/0rq9ori9","slide":2,"text":"BRIGHT building damage assessment","textPreview":"BRIGHT building damage assessment","textChars":33,"textLines":1,"bbox":[20,15,1560,32]}
+{"kind":"textbox","id":"sh/zqhsv614","slide":2,"text":"Test comparison 2 of 4 (18 cases in total)","textPreview":"Test comparison 2 of 4 (18 cases in total)","textChars":42,"textLines":1,"bbox":[20,51,1560,24]}
+{"kind":"textbox","id":"sh/ep8rm10j","slide":2,"text":"Pre-event\nRGB","textPreview":"Pre-event | RGB","textChars":13,"textLines":2,"bbox":[112,83,160,40]}
+{"kind":"textbox","id":"sh/9gja1gz6","slide":2,"text":"Post-event\nSAR","textPreview":"Post-event | SAR","textChars":14,"textLines":2,"bbox":[275,83,160,40]}
+{"kind":"textbox","id":"sh/ofa9sbil","slide":2,"text":"Reference\nGT","textPreview":"Reference | GT","textChars":12,"textLines":2,"bbox":[438,83,160,40]}
+{"kind":"textbox","id":"sh/ne1sz610","slide":2,"text":"UNet","textPreview":"UNet","textChars":4,"textLines":1,"bbox":[601,83,160,40]}
+{"kind":"textbox","id":"sh/mt8rq10f","slide":2,"text":"DeepLabV3+","textPreview":"DeepLabV3+","textChars":10,"textLines":1,"bbox":[764,83,160,40]}
+{"kind":"textbox","id":"sh/pkfqpcjm","slide":2,"text":"SiamAttnUNet","textPreview":"SiamAttnUNet","textChars":12,"textLines":1,"bbox":[927,83,160,40]}
+{"kind":"textbox","id":"sh/4j69g7ih","slide":2,"text":"SiamCRNN","textPreview":"SiamCRNN","textChars":8,"textLines":1,"bbox":[1090,83,160,40]}
+{"kind":"textbox","id":"sh/eh0jy143","slide":2,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1253,83,160,40]}
+{"kind":"textbox","id":"sh/fi9076lo","slide":2,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1416,83,160,40]}
+{"kind":"textbox","id":"sh/gj210bmt","slide":2,"text":"congo\nvolcano\n#00000085\n512 px","textPreview":"congo | volcano | #00000085 | 512 px","textChars":30,"textLines":4,"bbox":[5,130,103,160]}
+{"kind":"shape","id":"sh/2lkj2lkz","slide":2,"bbox":[112,130,160,160]}
+{"kind":"shape","id":"sh/on214b25","slide":2,"bbox":[275,130,160,160]}
+{"kind":"shape","id":"sh/q9kj6lkb","slide":2,"bbox":[438,130,160,160]}
+{"kind":"shape","id":"sh/ned03q1o","slide":2,"bbox":[601,130,160,160]}
+{"kind":"shape","id":"sh/9gvi50ju","slide":2,"bbox":[764,130,160,160]}
+{"kind":"shape","id":"sh/zqd0zq1s","slide":2,"bbox":[927,130,160,160]}
+{"kind":"shape","id":"sh/lcvi1gjy","slide":2,"bbox":[1090,130,160,160]}
+{"kind":"shape","id":"sh/bmt0v61g","slide":2,"bbox":[1253,130,160,160]}
+{"kind":"shape","id":"sh/grixw7yt","slide":2,"bbox":[1416,130,160,160]}
+{"kind":"textbox","id":"sh/1srypcze","slide":2,"text":"congo\nvolcano\n#00000092\n512 px","textPreview":"congo | volcano | #00000092 | 512 px","textChars":30,"textLines":4,"bbox":[5,293,103,160]}
+{"kind":"shape","id":"sh/fqpgn2h8","slide":2,"bbox":[112,293,160,160]}
+{"kind":"shape","id":"sh/pwrytczq","slide":2,"bbox":[275,293,160,160]}
+{"kind":"shape","id":"sh/3u9grmhk","slide":2,"bbox":[438,293,160,160]}
+{"kind":"shape","id":"sh/507exsz6","slide":2,"bbox":[601,293,160,160]}
+{"kind":"shape","id":"sh/wraxkr2h","slide":2,"bbox":[764,293,160,160]}
+{"kind":"shape","id":"sh/apsfihkb","slide":2,"bbox":[927,293,160,160]}
+{"kind":"shape","id":"sh/o3axg725","slide":2,"bbox":[1090,293,160,160]}
+{"kind":"shape","id":"sh/m1sfexkz","slide":2,"bbox":[1253,293,160,160]}
+{"kind":"shape","id":"sh/0zqxcn29","slide":2,"bbox":[1416,293,160,160]}
+{"kind":"textbox","id":"sh/qt43q9wv","slide":2,"text":"la_palma\nvolcano\n#00000597\n768 px","textPreview":"la_palma | volcano | #00000597 | 768 px","textChars":33,"textLines":4,"bbox":[5,456,103,160]}
+{"kind":"shape","id":"sh/svmlsjel","slide":2,"bbox":[112,456,160,160]}
+{"kind":"shape","id":"sh/ip43mpwj","slide":2,"bbox":[275,456,160,160]}
+{"kind":"shape","id":"sh/4rmlozep","slide":2,"bbox":[438,456,160,160]}
+{"kind":"shape","id":"sh/u1k3ipwn","slide":2,"bbox":[601,456,160,160]}
+{"kind":"shape","id":"sh/z690zqd0","slide":2,"bbox":[764,456,160,160]}
+{"kind":"shape","id":"sh/l8ri1gvq","slide":2,"bbox":[927,456,160,160]}
+{"kind":"shape","id":"sh/7u9k3qdw","slide":2,"bbox":[1090,456,160,160]}
+{"kind":"shape","id":"sh/twr250v2","slide":2,"bbox":[1253,456,160,160]}
+{"kind":"shape","id":"sh/nyp0r6ds","slide":2,"bbox":[1416,456,160,160]}
+{"kind":"textbox","id":"sh/2dwji1c7","slide":2,"text":"la_palma\nvolcano\n#00000353\n512 px","textPreview":"la_palma | volcano | #00000353 | 512 px","textChars":33,"textLines":4,"bbox":[5,619,103,160]}
+{"kind":"shape","id":"sh/d43y1cba","slide":2,"bbox":[112,619,160,160]}
+{"kind":"shape","id":"sh/rilgz2tk","slide":2,"bbox":[275,619,160,160]}
+{"kind":"shape","id":"sh/5g3yxsbe","slide":2,"bbox":[438,619,160,160]}
+{"kind":"shape","id":"sh/3e1gvit8","slide":2,"bbox":[601,619,160,160]}
+{"kind":"shape","id":"sh/pcnytwbi","slide":2,"bbox":[764,619,160,160]}
+{"kind":"shape","id":"sh/wbyt0j2h","slide":2,"bbox":[927,619,160,160]}
+{"kind":"shape","id":"sh/a9gbytkb","slide":2,"bbox":[1090,619,160,160]}
+{"kind":"shape","id":"sh/kfit432d","slide":2,"bbox":[1253,619,160,160]}
+{"kind":"shape","id":"sh/id0b2tkn","slide":2,"bbox":[1416,619,160,160]}
+{"kind":"textbox","id":"sh/lknal43u","slide":2,"text":"turkey\nearthquake\n#00001065\n512 px","textPreview":"turkey | earthquake | #00001065 | 512 px","textChars":34,"textLines":4,"bbox":[5,782,103,160]}
+{"kind":"shape","id":"sh/qpcr2507","slide":2,"bbox":[112,782,160,160]}
+{"kind":"shape","id":"sh/cru94fid","slide":2,"bbox":[275,782,160,160]}
+{"kind":"shape","id":"sh/etwr6p03","slide":2,"bbox":[438,782,160,160]}
+{"kind":"shape","id":"sh/0fe98zi9","slide":2,"bbox":[601,782,160,160]}
+{"kind":"shape","id":"sh/uxs7ul0z","slide":2,"bbox":[764,782,160,160]}
+{"kind":"shape","id":"sh/wj2lgjat","slide":2,"bbox":[927,782,160,160]}
+{"kind":"shape","id":"sh/ah03e9sn","slide":2,"bbox":[1090,782,160,160]}
+{"kind":"shape","id":"sh/kn2lkjap","slide":2,"bbox":[1253,782,160,160]}
+{"kind":"shape","id":"sh/ilk3itsz","slide":2,"bbox":[1416,782,160,160]}
+{"kind":"textbox","id":"sh/jmtkry9k","slide":2,"text":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textPreview":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textChars":75,"textLines":1,"bbox":[112,957,1468,24]}
+{"kind":"textbox","id":"sh/srmlo3q1","slide":2,"text":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textPreview":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textChars":86,"textLines":1,"bbox":[20,985,1560,25]}
+{"kind":"textbox","id":"sh/tcvmx8rm","slide":2,"text":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textPreview":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textChars":104,"textLines":1,"bbox":[20,1010,1560,25]}
+{"kind":"image","id":"im/yxwja94z","slide":2,"name":"","alt":"congo-volcano_00000085 Pre-event RGB","bbox":[112,130,160,160]}
+{"kind":"image","id":"im/8ny1gjmh","slide":2,"name":"","alt":"congo-volcano_00000085 Post-event SAR","bbox":[275,130,160,160]}
+{"kind":"image","id":"im/m1gje94b","slide":2,"name":"","alt":"congo-volcano_00000085 Reference GT","bbox":[438,130,160,160]}
+{"kind":"image","id":"im/gry1kjmd","slide":2,"name":"","alt":"congo-volcano_00000085 UNet","bbox":[601,130,160,160]}
+{"kind":"image","id":"im/1wf29cbu","slide":2,"name":"","alt":"congo-volcano_00000085 DeepLabV3+","bbox":[764,130,160,160]}
+{"kind":"image","id":"im/fuxk72t4","slide":2,"name":"","alt":"congo-volcano_00000085 SiamAttnUNet","bbox":[927,130,160,160]}
+{"kind":"image","id":"im/p0zmdcb6","slide":2,"name":"","alt":"congo-volcano_00000085 SiamCRNN","bbox":[1090,130,160,160]}
+{"kind":"image","id":"im/3yh4b2t0","slide":2,"name":"","alt":"congo-volcano_00000085 DamageFormer","bbox":[1253,130,160,160]}
+{"kind":"image","id":"im/54v21sb2","slide":2,"name":"","alt":"congo-volcano_00000085 Ours (A1)","bbox":[1416,130,160,160]}
+{"kind":"image","id":"im/9k36p0va","slide":2,"name":"","alt":"congo-volcano_00000092 Pre-event RGB","bbox":[112,293,160,160]}
+{"kind":"image","id":"im/zu1oj6d8","slide":2,"name":"","alt":"congo-volcano_00000092 Post-event SAR","bbox":[275,293,160,160]}
+{"kind":"image","id":"im/lw36lgve","slide":2,"name":"","alt":"congo-volcano_00000092 Reference GT","bbox":[438,293,160,160]}
+{"kind":"image","id":"im/bq1of6dc","slide":2,"name":"","alt":"congo-volcano_00000092 UNet","bbox":[601,293,160,160]}
+{"kind":"image","id":"im/qxcra9sb","slide":2,"name":"","alt":"congo-volcano_00000092 DeepLabV3+","bbox":[764,293,160,160]}
+{"kind":"image","id":"im/szu9czah","slide":2,"name":"","alt":"congo-volcano_00000092 SiamAttnUNet","bbox":[927,293,160,160]}
+{"kind":"image","id":"im/i9sr6psf","slide":2,"name":"","alt":"congo-volcano_00000092 SiamCRNN","bbox":[1090,293,160,160]}
+{"kind":"image","id":"im/4bu98za5","slide":2,"name":"","alt":"congo-volcano_00000092 DamageFormer","bbox":[1253,293,160,160]}
+{"kind":"image","id":"im/u5sr25s3","slide":2,"name":"","alt":"congo-volcano_00000092 Ours (A1)","bbox":[1416,293,160,160]}
+{"kind":"image","id":"im/wbil47yx","slide":2,"name":"","alt":"la_palma-volcano_00000597 Pre-event RGB","bbox":[112,456,160,160]}
+{"kind":"image","id":"im/a9032xgr","slide":2,"name":"","alt":"la_palma-volcano_00000597 Post-event SAR","bbox":[275,456,160,160]}
+{"kind":"image","id":"im/o7il07y1","slide":2,"name":"","alt":"la_palma-volcano_00000597 Reference GT","bbox":[438,456,160,160]}
+{"kind":"image","id":"im/m5g3yxgv","slide":2,"name":"","alt":"la_palma-volcano_00000597 UNet","bbox":[601,456,160,160]}
+{"kind":"image","id":"im/03ylwnyp","slide":2,"name":"","alt":"la_palma-volcano_00000597 DeepLabV3+","bbox":[764,456,160,160]}
+{"kind":"image","id":"im/dobm5sn6","slide":2,"name":"","alt":"la_palma-volcano_00000597 SiamAttnUNet","bbox":[927,456,160,160]}
+{"kind":"image","id":"im/rmt43250","slide":2,"name":"","alt":"la_palma-volcano_00000597 SiamCRNN","bbox":[1090,456,160,160]}
+{"kind":"image","id":"im/5krm1snu","slide":2,"name":"","alt":"la_palma-volcano_00000597 DamageFormer","bbox":[1253,456,160,160]}
+{"kind":"image","id":"im/3i94zi54","slide":2,"name":"","alt":"la_palma-volcano_00000597 Ours (A1)","bbox":[1416,456,160,160]}
+{"kind":"image","id":"im/zaxoj6pg","slide":2,"name":"","alt":"la_palma-volcano_00000353 Pre-event RGB","bbox":[112,619,160,160]}
+{"kind":"image","id":"im/lcz6lg7m","slide":2,"name":"","alt":"la_palma-volcano_00000353 Post-event SAR","bbox":[275,619,160,160]}
+{"kind":"image","id":"im/7ehonqpc","slide":2,"name":"","alt":"la_palma-volcano_00000353 Reference GT","bbox":[438,619,160,160]}
+{"kind":"image","id":"im/9gz6p07i","slide":2,"name":"","alt":"la_palma-volcano_00000353 UNet","bbox":[601,619,160,160]}
+{"kind":"image","id":"im/nidobmp8","slide":2,"name":"","alt":"la_palma-volcano_00000353 DeepLabV3+","bbox":[764,619,160,160]}
+{"kind":"image","id":"im/qtkfm5wn","slide":2,"name":"","alt":"la_palma-volcano_00000353 SiamAttnUNet","bbox":[927,619,160,160]}
+{"kind":"image","id":"im/cv2xofet","slide":2,"name":"","alt":"la_palma-volcano_00000353 SiamCRNN","bbox":[1090,619,160,160]}
+{"kind":"image","id":"im/exkfqpcz","slide":2,"name":"","alt":"la_palma-volcano_00000353 DamageFormer","bbox":[1253,619,160,160]}
+{"kind":"image","id":"im/0zmxsfup","slide":2,"name":"","alt":"la_palma-volcano_00000353 Ours (A1)","bbox":[1416,619,160,160]}
+{"kind":"image","id":"im/f29w7qd0","slide":2,"name":"","alt":"turkey-earthquake_00001065 Pre-event RGB","bbox":[112,782,160,160]}
+{"kind":"image","id":"im/wv6hkjex","slide":2,"name":"","alt":"turkey-earthquake_00001065 Post-event SAR","bbox":[275,782,160,160]}
+{"kind":"image","id":"im/atozi9g7","slide":2,"name":"","alt":"turkey-earthquake_00001065 Reference GT","bbox":[438,782,160,160]}
+{"kind":"image","id":"im/kjqho3e9","slide":2,"name":"","alt":"turkey-earthquake_00001065 UNet","bbox":[601,782,160,160]}
+{"kind":"image","id":"im/ihozmtw3","slide":2,"name":"","alt":"turkey-earthquake_00001065 DeepLabV3+","bbox":[764,782,160,160]}
+{"kind":"image","id":"im/0nmhczyp","slide":2,"name":"","alt":"turkey-earthquake_00001065 SiamAttnUNet","bbox":[927,782,160,160]}
+{"kind":"image","id":"im/wjalcnmt","slide":2,"name":"","alt":"turkey-earthquake_00001065 SiamCRNN","bbox":[1090,782,160,160]}
+{"kind":"image","id":"im/ahs3ax4n","slide":2,"name":"","alt":"turkey-earthquake_00001065 DamageFormer","bbox":[1253,782,160,160]}
+{"kind":"image","id":"im/knulg7m5","slide":2,"name":"","alt":"turkey-earthquake_00001065 Ours (A1)","bbox":[1416,782,160,160]}
+{"kind":"notes","id":"nt/aora7x","slide":2,"text":"Source: user-provided BRIGHT_test_sixmodels_images.zip, predictions/run_manifest.json and selection.json. RGB/SAR/GT extracted from local original BRIGHT archives, matched by sample ID and xywh. Verified GT class counts against the selection record. Prediction masks come from the uploaded run only. Six checkpoints use the same display crop per row. Ours_A1 SHA256 cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add. Automatically screened Test examples, not full-Test performance and not evidence of a matched retraining budget. 7 hazard types, 10 of 14 events. Missing Beirut, Haiti, Morocco and Marshall. ChangeOS and ChangeMamba are not included.\ncongo-volcano_00000085: crop=512,512,512,512; GT counts=196727,20584,4813,40020\ncongo-volcano_00000092: crop=512,0,512,512; GT counts=182034,60146,4434,15530\nla_palma-volcano_00000597: crop=0,256,768,768; GT counts=535424,8616,2796,42988\nla_palma-volcano_00000353: crop=256,256,512,512; GT counts=211070,45915,590,4569\nturkey-earthquake_00001065: crop=256,0,512,512; GT counts=116268,46421,51096,48359"}
+{"kind":"slide","id":"sl/b3jhaq","slide":3,"title":"BRIGHT building damage assessment","textShapes":18}
+{"kind":"textbox","id":"sh/b6hkz69k","slide":3,"text":"BRIGHT building damage assessment","textPreview":"BRIGHT building damage assessment","textChars":33,"textLines":1,"bbox":[20,15,1560,32]}
+{"kind":"textbox","id":"sh/c7ql8bq5","slide":3,"text":"Test comparison 3 of 4 (18 cases in total)","textPreview":"Test comparison 3 of 4 (18 cases in total)","textChars":42,"textLines":1,"bbox":[20,51,1560,24]}
+{"kind":"textbox","id":"sh/d8z21gra","slide":3,"text":"Pre-event\nRGB","textPreview":"Pre-event | RGB","textChars":13,"textLines":2,"bbox":[112,83,160,40]}
+{"kind":"textbox","id":"sh/yt83al8v","slide":3,"text":"Post-event\nSAR","textPreview":"Post-event | SAR","textChars":14,"textLines":2,"bbox":[275,83,160,40]}
+{"kind":"textbox","id":"sh/zuhk3q9g","slide":3,"text":"Reference\nGT","textPreview":"Reference | GT","textChars":12,"textLines":2,"bbox":[438,83,160,40]}
+{"kind":"textbox","id":"sh/0valcvq1","slide":3,"text":"UNet","textPreview":"UNet","textChars":4,"textLines":1,"bbox":[601,83,160,40]}
+{"kind":"textbox","id":"sh/lwj2507m","slide":3,"text":"DeepLabV3+","textPreview":"DeepLabV3+","textChars":10,"textLines":1,"bbox":[764,83,160,40]}
+{"kind":"textbox","id":"sh/edojyh8r","slide":3,"text":"SiamAttnUNet","textPreview":"SiamAttnUNet","textChars":12,"textLines":1,"bbox":[927,83,160,40]}
+{"kind":"textbox","id":"sh/fyxkrm9c","slide":3,"text":"SiamCRNN","textPreview":"SiamCRNN","textChars":8,"textLines":1,"bbox":[1090,83,160,40]}
+{"kind":"textbox","id":"sh/futgfylk","slide":3,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1253,83,160,40]}
+{"kind":"textbox","id":"sh/etkfmtkz","slide":3,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1416,83,160,40]}
+{"kind":"textbox","id":"sh/1wvyh83q","slide":3,"text":"turkey\nearthquake\n#00001074\n512 px","textPreview":"turkey | earthquake | #00001074 | 512 px","textChars":34,"textLines":4,"bbox":[5,130,103,160]}
+{"kind":"shape","id":"sh/r6tgbylo","slide":3,"bbox":[112,130,160,160]}
+{"kind":"shape","id":"sh/t8byd83e","slide":3,"bbox":[275,130,160,160]}
+{"kind":"shape","id":"sh/j29g7elc","slide":3,"bbox":[438,130,160,160]}
+{"kind":"shape","id":"sh/mx0zq9oz","slide":3,"bbox":[601,130,160,160]}
+{"kind":"shape","id":"sh/8zihsj6p","slide":3,"bbox":[764,130,160,160]}
+{"kind":"shape","id":"sh/a10zutov","slide":3,"bbox":[927,130,160,160]}
+{"kind":"shape","id":"sh/w32hw3m1","slide":3,"bbox":[1090,130,160,160]}
+{"kind":"shape","id":"sh/i5kzyt4r","slide":3,"bbox":[1253,130,160,160]}
+{"kind":"shape","id":"sh/t0v2xs7u","slide":3,"bbox":[1416,130,160,160]}
+{"kind":"textbox","id":"sh/szm1onq9","slide":3,"text":"noto\nearthquake\n#00000038\n768 px","textPreview":"noto | earthquake | #00000038 | 768 px","textChars":32,"textLines":4,"bbox":[5,293,103,160]}
+{"kind":"shape","id":"sh/6x4jmx83","slide":3,"bbox":[112,293,160,160]}
+{"kind":"shape","id":"sh/gn61s765","slide":3,"bbox":[275,293,160,160]}
+{"kind":"shape","id":"sh/el4jqxoz","slide":3,"bbox":[438,293,160,160]}
+{"kind":"shape","id":"sh/or61wr6h","slide":3,"bbox":[601,293,160,160]}
+{"kind":"shape","id":"sh/lojmxgru","slide":3,"bbox":[764,293,160,160]}
+{"kind":"shape","id":"sh/zm14vq94","slide":3,"bbox":[927,293,160,160]}
+{"kind":"shape","id":"sh/dkzmtgry","slide":3,"bbox":[1090,293,160,160]}
+{"kind":"shape","id":"sh/bih4r69s","slide":3,"bbox":[1253,293,160,160]}
+{"kind":"shape","id":"sh/xg3m50r2","slide":3,"bbox":[1416,293,160,160]}
+{"kind":"textbox","id":"sh/7a58vutk","slide":3,"text":"noto\nearthquake\n#00000049\n512 px","textPreview":"noto | earthquake | #00000049 | 512 px","textChars":32,"textLines":4,"bbox":[5,456,103,160]}
+{"kind":"shape","id":"sh/tcnqx4ba","slide":3,"bbox":[112,456,160,160]}
+{"kind":"shape","id":"sh/fep8zetg","slide":3,"bbox":[275,456,160,160]}
+{"kind":"shape","id":"sh/107q1obm","slide":3,"bbox":[438,456,160,160]}
+{"kind":"shape","id":"sh/vilonatc","slide":3,"bbox":[601,456,160,160]}
+{"kind":"shape","id":"sh/y94jihgb","slide":3,"bbox":[764,456,160,160]}
+{"kind":"shape","id":"sh/kbm1kryh","slide":3,"bbox":[927,456,160,160]}
+{"kind":"shape","id":"sh/a5kjehgf","slide":3,"bbox":[1090,456,160,160]}
+{"kind":"shape","id":"sh/c721g7yl","slide":3,"bbox":[1253,456,160,160]}
+{"kind":"shape","id":"sh/2h0jaxgj","slide":3,"bbox":[1416,456,160,160]}
+{"kind":"textbox","id":"sh/nit032ho","slide":3,"text":"mexico\nhurricane\n#00000005\n512 px","textPreview":"mexico | hurricane | #00000005 | 512 px","textChars":33,"textLines":4,"bbox":[5,619,103,160]}
+{"kind":"shape","id":"sh/4vq5gvi1","slide":3,"bbox":[112,619,160,160]}
+{"kind":"shape","id":"sh/i98nel0v","slide":3,"bbox":[275,619,160,160]}
+{"kind":"shape","id":"sh/w76lcvip","slide":3,"bbox":[438,619,160,160]}
+{"kind":"shape","id":"sh/u5o3al0j","slide":3,"bbox":[601,619,160,160]}
+{"kind":"shape","id":"sh/836l8bit","slide":3,"bbox":[764,619,160,160]}
+{"kind":"shape","id":"sh/lkratwvm","slide":3,"bbox":[927,619,160,160]}
+{"kind":"shape","id":"sh/jip8rmdg","slide":3,"bbox":[1090,619,160,160]}
+{"kind":"shape","id":"sh/t8raxwvi","slide":3,"bbox":[1253,619,160,160]}
+{"kind":"shape","id":"sh/769sv6dc","slide":3,"bbox":[1416,619,160,160]}
+{"kind":"textbox","id":"sh/gb298bu9","slide":3,"text":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textPreview":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textChars":75,"textLines":1,"bbox":[112,794,1468,24]}
+{"kind":"textbox","id":"sh/hcba1gvu","slide":3,"text":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textPreview":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textChars":86,"textLines":1,"bbox":[20,822,1560,25]}
+{"kind":"textbox","id":"sh/r6dcraxw","slide":3,"text":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textPreview":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textChars":104,"textLines":1,"bbox":[20,847,1560,25]}
+{"kind":"image","id":"im/zypgj6x4","slide":3,"name":"","alt":"turkey-earthquake_00001074 Pre-event RGB","bbox":[112,130,160,160]}
+{"kind":"image","id":"im/dw7yhgze","slide":3,"name":"","alt":"turkey-earthquake_00001074 Post-event SAR","bbox":[275,130,160,160]}
+{"kind":"image","id":"im/rupgf6h8","slide":3,"name":"","alt":"turkey-earthquake_00001074 Reference GT","bbox":[438,130,160,160]}
+{"kind":"image","id":"im/xsbyt0fi","slide":3,"name":"","alt":"turkey-earthquake_00001074 UNet","bbox":[601,130,160,160]}
+{"kind":"image","id":"im/kbepormp","slide":3,"name":"","alt":"turkey-earthquake_00001074 DeepLabV3+","bbox":[764,130,160,160]}
+{"kind":"image","id":"im/y9w7m14z","slide":3,"name":"","alt":"turkey-earthquake_00001074 SiamAttnUNet","bbox":[927,130,160,160]}
+{"kind":"image","id":"im/w7upkrmt","slide":3,"name":"","alt":"turkey-earthquake_00001074 SiamCRNN","bbox":[1090,130,160,160]}
+{"kind":"image","id":"im/a5c7ih4n","slide":3,"name":"","alt":"turkey-earthquake_00001074 DamageFormer","bbox":[1253,130,160,160]}
+{"kind":"image","id":"im/o3upg7mh","slide":3,"name":"","alt":"turkey-earthquake_00001074 Ours (A1)","bbox":[1416,130,160,160]}
+{"kind":"image","id":"im/0ba5cn2l","slide":3,"name":"","alt":"noto-earthquake_00000038 Pre-event RGB","bbox":[112,293,160,160]}
+{"kind":"image","id":"im/ql836dkj","slide":3,"name":"","alt":"noto-earthquake_00000038 Post-event SAR","bbox":[275,293,160,160]}
+{"kind":"image","id":"im/s7ql8329","slide":3,"name":"","alt":"noto-earthquake_00000038 Reference GT","bbox":[438,293,160,160]}
+{"kind":"image","id":"im/iho32tk7","slide":3,"name":"","alt":"noto-earthquake_00000038 UNet","bbox":[601,293,160,160]}
+{"kind":"image","id":"im/vuh0ne5o","slide":3,"name":"","alt":"noto-earthquake_00000038 DeepLabV3+","bbox":[764,293,160,160]}
+{"kind":"image","id":"im/hwjip4nu","slide":3,"name":"","alt":"noto-earthquake_00000038 SiamAttnUNet","bbox":[927,293,160,160]}
+{"kind":"image","id":"im/76h0ju5c","slide":3,"name":"","alt":"noto-earthquake_00000038 SiamCRNN","bbox":[1090,293,160,160]}
+{"kind":"image","id":"im/98zil4ni","slide":3,"name":"","alt":"noto-earthquake_00000038 DamageFormer","bbox":[1253,293,160,160]}
+{"kind":"image","id":"im/z2x0fu5g","slide":3,"name":"","alt":"noto-earthquake_00000038 Ours (A1)","bbox":[1416,293,160,160]}
+{"kind":"image","id":"im/p8vypg3e","slide":3,"name":"","alt":"noto-earthquake_00000049 Pre-event RGB","bbox":[112,456,160,160]}
+{"kind":"image","id":"im/n6dgnql8","slide":3,"name":"","alt":"noto-earthquake_00000049 Post-event SAR","bbox":[275,456,160,160]}
+{"kind":"image","id":"im/xcfyt03a","slide":3,"name":"","alt":"noto-earthquake_00000049 Reference GT","bbox":[438,456,160,160]}
+{"kind":"image","id":"im/badgrql4","slide":3,"name":"","alt":"noto-earthquake_00000049 UNet","bbox":[601,456,160,160]}
+{"kind":"image","id":"im/dgbehw36","slide":3,"name":"","alt":"noto-earthquake_00000049 DeepLabV3+","bbox":[764,456,160,160]}
+{"kind":"image","id":"im/8zalw3ax","slide":3,"name":"","alt":"noto-earthquake_00000049 SiamAttnUNet","bbox":[927,456,160,160]}
+{"kind":"image","id":"im/mxs3uts7","slide":3,"name":"","alt":"noto-earthquake_00000049 SiamCRNN","bbox":[1090,456,160,160]}
+{"kind":"image","id":"im/wna503a9","slide":3,"name":"","alt":"noto-earthquake_00000049 DamageFormer","bbox":[1253,456,160,160]}
+{"kind":"image","id":"im/uls3yts3","slide":3,"name":"","alt":"noto-earthquake_00000049 Ours (A1)","bbox":[1416,456,160,160]}
+{"kind":"image","id":"im/2xoji58n","slide":3,"name":"","alt":"mexico-hurricane_00000005 Pre-event RGB","bbox":[112,619,160,160]}
+{"kind":"image","id":"im/oz61kfqt","slide":3,"name":"","alt":"mexico-hurricane_00000005 Post-event SAR","bbox":[275,619,160,160]}
+{"kind":"image","id":"im/a1ojmp8z","slide":3,"name":"","alt":"mexico-hurricane_00000005 Reference GT","bbox":[438,619,160,160]}
+{"kind":"image","id":"im/c361ozqp","slide":3,"name":"","alt":"mexico-hurricane_00000005 UNet","bbox":[601,619,160,160]}
+{"kind":"image","id":"im/y58jq98v","slide":3,"name":"","alt":"mexico-hurricane_00000005 DeepLabV3+","bbox":[764,619,160,160]}
+{"kind":"image","id":"im/jyxgv6tw","slide":3,"name":"","alt":"mexico-hurricane_00000005 SiamAttnUNet","bbox":[927,619,160,160]}
+{"kind":"image","id":"im/5kfyxgb2","slide":3,"name":"","alt":"mexico-hurricane_00000005 SiamCRNN","bbox":[1090,619,160,160]}
+{"kind":"image","id":"im/rmxgz6ts","slide":3,"name":"","alt":"mexico-hurricane_00000005 DamageFormer","bbox":[1253,619,160,160]}
+{"kind":"image","id":"im/tofy1gby","slide":3,"name":"","alt":"mexico-hurricane_00000005 Ours (A1)","bbox":[1416,619,160,160]}
+{"kind":"notes","id":"nt/b3jhaq","slide":3,"text":"Source: user-provided BRIGHT_test_sixmodels_images.zip, predictions/run_manifest.json and selection.json. RGB/SAR/GT extracted from local original BRIGHT archives, matched by sample ID and xywh. Verified GT class counts against the selection record. Prediction masks come from the uploaded run only. Six checkpoints use the same display crop per row. Ours_A1 SHA256 cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add. Automatically screened Test examples, not full-Test performance and not evidence of a matched retraining budget. 7 hazard types, 10 of 14 events. Missing Beirut, Haiti, Morocco and Marshall. ChangeOS and ChangeMamba are not included.\nturkey-earthquake_00001074: crop=256,512,512,512; GT counts=109387,79523,35771,37463\nnoto-earthquake_00000038: crop=0,0,768,768; GT counts=307325,98929,25449,158121\nnoto-earthquake_00000049: crop=0,0,512,512; GT counts=164547,85215,3613,8769\nmexico-hurricane_00000005: crop=512,0,512,512; GT counts=186537,13966,21172,40469"}
+{"kind":"slide","id":"sl/kwb26s","slide":4,"title":"BRIGHT building damage assessment","textShapes":18}
+{"kind":"textbox","id":"sh/pwfutof2","slide":4,"text":"BRIGHT building damage assessment","textPreview":"BRIGHT building damage assessment","textChars":33,"textLines":1,"bbox":[20,15,1560,32]}
+{"kind":"textbox","id":"sh/2tovytwr","slide":4,"text":"Test comparison 4 of 4 (18 cases in total)","textPreview":"Test comparison 4 of 4 (18 cases in total)","textChars":42,"textLines":1,"bbox":[20,51,1560,24]}
+{"kind":"textbox","id":"sh/3uxcryxw","slide":4,"text":"Pre-event\nRGB","textPreview":"Pre-event | RGB","textChars":13,"textLines":2,"bbox":[112,83,160,40]}
+{"kind":"textbox","id":"sh/grmdwjyl","slide":4,"text":"Post-event\nSAR","textPreview":"Post-event | SAR","textChars":14,"textLines":2,"bbox":[275,83,160,40]}
+{"kind":"textbox","id":"sh/hsvupof6","slide":4,"text":"Reference\nGT","textPreview":"Reference | GT","textChars":12,"textLines":2,"bbox":[438,83,160,40]}
+{"kind":"textbox","id":"sh/up4vu9gf","slide":4,"text":"UNet","textPreview":"UNet","textChars":4,"textLines":1,"bbox":[601,83,160,40]}
+{"kind":"textbox","id":"sh/fqdcnex0","slide":4,"text":"DeepLabV3+","textPreview":"DeepLabV3+","textChars":10,"textLines":1,"bbox":[764,83,160,40]}
+{"kind":"textbox","id":"sh/snmdsjy9","slide":4,"text":"SiamAttnUNet","textPreview":"SiamAttnUNet","textChars":12,"textLines":1,"bbox":[927,83,160,40]}
+{"kind":"textbox","id":"sh/tovul4fu","slide":4,"text":"SiamCRNN","textPreview":"SiamCRNN","textChars":8,"textLines":1,"bbox":[1090,83,160,40]}
+{"kind":"textbox","id":"sh/p0bal4j2","slide":4,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1253,83,160,40]}
+{"kind":"textbox","id":"sh/oz2tszih","slide":4,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1416,83,160,40]}
+{"kind":"textbox","id":"sh/nytsju1w","slide":4,"text":"myanmar\nhurricane\n#00000107\n768 px","textPreview":"myanmar | hurricane | #00000107 | 768 px","textChars":34,"textLines":4,"bbox":[5,130,103,160]}
+{"kind":"shape","id":"sh/1wbahkjq","slide":4,"bbox":[112,130,160,160]}
+{"kind":"shape","id":"sh/fu9sfa10","slide":4,"bbox":[275,130,160,160]}
+{"kind":"shape","id":"sh/dsradkju","slide":4,"bbox":[438,130,160,160]}
+{"kind":"shape","id":"sh/4bmt0fa5","slide":4,"bbox":[601,130,160,160]}
+{"kind":"shape","id":"sh/i94by5sz","slide":4,"bbox":[764,130,160,160]}
+{"kind":"shape","id":"sh/w72twva9","slide":4,"bbox":[927,130,160,160]}
+{"kind":"shape","id":"sh/ulkbu5s3","slide":4,"bbox":[1090,130,160,160]}
+{"kind":"shape","id":"sh/g36t8zqd","slide":4,"bbox":[1253,130,160,160]}
+{"kind":"shape","id":"sh/byhwryt0","slide":4,"bbox":[1416,130,160,160]}
+{"kind":"textbox","id":"sh/qx8vytcf","slide":4,"text":"myanmar\nhurricane\n#00000099\n1024 px","textPreview":"myanmar | hurricane | #00000099 | 1024 px","textChars":35,"textLines":4,"bbox":[5,293,103,160]}
+{"kind":"shape","id":"sh/czad03al","slide":4,"bbox":[112,293,160,160]}
+{"kind":"shape","id":"sh/y1sv2dsr","slide":4,"bbox":[275,293,160,160]}
+{"kind":"shape","id":"sh/03ax43ah","slide":4,"bbox":[438,293,160,160]}
+{"kind":"shape","id":"sh/e5ovq9c7","slide":4,"bbox":[601,293,160,160]}
+{"kind":"shape","id":"sh/7q1wfe1o","slide":4,"bbox":[764,293,160,160]}
+{"kind":"shape","id":"sh/tcjehoju","slide":4,"bbox":[927,293,160,160]}
+{"kind":"shape","id":"sh/felwjy1k","slide":4,"bbox":[1090,293,160,160]}
+{"kind":"shape","id":"sh/hg3elojq","slide":4,"bbox":[1253,293,160,160]}
+{"kind":"shape","id":"sh/3ilwny1w","slide":4,"bbox":[1416,293,160,160]}
+{"kind":"textbox","id":"sh/do7qtw7a","slide":4,"text":"ukraine\nconflict\n#00000354\n512 px","textPreview":"ukraine | conflict | #00000354 | 512 px","textChars":33,"textLines":4,"bbox":[5,456,103,160]}
+{"kind":"shape","id":"sh/bmp8rmp4","slide":4,"bbox":[112,456,160,160]}
+{"kind":"shape","id":"sh/lsrqxw76","slide":4,"bbox":[275,456,160,160]}
+{"kind":"shape","id":"sh/zq98v6pg","slide":4,"bbox":[438,456,160,160]}
+{"kind":"shape","id":"sh/9grq1g7i","slide":4,"bbox":[601,456,160,160]}
+{"kind":"shape","id":"sh/szqt4fe9","slide":4,"bbox":[764,456,160,160]}
+{"kind":"shape","id":"sh/6x8r2pw3","slide":4,"bbox":[927,456,160,160]}
+{"kind":"shape","id":"sh/gnat8ze5","slide":4,"bbox":[1090,456,160,160]}
+{"kind":"shape","id":"sh/ulsb6pwz","slide":4,"bbox":[1253,456,160,160]}
+{"kind":"shape","id":"sh/wr69wve1","slide":4,"bbox":[1416,456,160,160]}
+{"kind":"textbox","id":"sh/xsfap0fm","slide":4,"text":"ukraine\nconflict\n#00000315\n768 px","textPreview":"ukraine | conflict | #00000315 | 768 px","textChars":33,"textLines":4,"bbox":[5,619,103,160]}
+{"kind":"shape","id":"sh/elwv2tgj","slide":4,"bbox":[112,619,160,160]}
+{"kind":"shape","id":"sh/0ned43yp","slide":4,"bbox":[275,619,160,160]}
+{"kind":"shape","id":"sh/qhcvytg7","slide":4,"bbox":[438,619,160,160]}
+{"kind":"shape","id":"sh/cjud03yd","slide":4,"bbox":[601,619,160,160]}
+{"kind":"shape","id":"sh/2tcvu9gb","slide":4,"bbox":[764,619,160,160]}
+{"kind":"shape","id":"sh/fap4zito","slide":4,"bbox":[927,619,160,160]}
+{"kind":"shape","id":"sh/hcrm1sbu","slide":4,"bbox":[1090,619,160,160]}
+{"kind":"shape","id":"sh/76p4vits","slide":4,"bbox":[1253,619,160,160]}
+{"kind":"shape","id":"sh/t87mx8by","slide":4,"bbox":[1416,619,160,160]}
+{"kind":"textbox","id":"sh/q10nyxsr","slide":4,"text":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textPreview":"Background (white)     Intact (green)     Damaged (tan)     Destroyed (red)","textChars":75,"textLines":1,"bbox":[112,794,1468,24]}
+{"kind":"textbox","id":"sh/r2t472tw","slide":4,"text":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textPreview":"Selected Test crops with four GT classes. A1 step 15000. Cloud screening is heuristic.","textChars":86,"textLines":1,"bbox":[20,822,1560,25]}
+{"kind":"textbox","id":"sh/1wvqxwve","slide":4,"text":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textPreview":"Different crop sizes share the same display size. These examples do not represent full-Test performance.","textChars":104,"textLines":1,"bbox":[20,847,1560,25]}
+{"kind":"image","id":"im/p47i5s36","slide":4,"name":"","alt":"myanmar-hurricane_00000107 Pre-event RGB","bbox":[112,130,160,160]}
+{"kind":"image","id":"im/fy50zil4","slide":4,"name":"","alt":"myanmar-hurricane_00000107 Post-event SAR","bbox":[275,130,160,160]}
+{"kind":"image","id":"im/10ni1s3a","slide":4,"name":"","alt":"myanmar-hurricane_00000107 Reference GT","bbox":[438,130,160,160]}
+{"kind":"image","id":"im/zu90bml8","slide":4,"name":"","alt":"myanmar-hurricane_00000107 UNet","bbox":[601,130,160,160]}
+{"kind":"image","id":"im/udsfu9kf","slide":4,"name":"","alt":"myanmar-hurricane_00000107 DeepLabV3+","bbox":[764,130,160,160]}
+{"kind":"image","id":"im/gfaxwji5","slide":4,"name":"","alt":"myanmar-hurricane_00000107 SiamAttnUNet","bbox":[927,130,160,160]}
+{"kind":"image","id":"im/i1sfy90b","slide":4,"name":"","alt":"myanmar-hurricane_00000107 SiamCRNN","bbox":[1090,130,160,160]}
+{"kind":"image","id":"im/43ux0jih","slide":4,"name":"","alt":"myanmar-hurricane_00000107 DamageFormer","bbox":[1253,130,160,160]}
+{"kind":"image","id":"im/q5cf2t07","slide":4,"name":"","alt":"myanmar-hurricane_00000107 Ours (A1)","bbox":[1416,130,160,160]}
+{"kind":"image","id":"im/29wvqtgf","slide":4,"name":"","alt":"myanmar-hurricane_00000099 Pre-event RGB","bbox":[112,293,160,160]}
+{"kind":"image","id":"im/07udojyp","slide":4,"name":"","alt":"myanmar-hurricane_00000099 Post-event SAR","bbox":[275,293,160,160]}
+{"kind":"image","id":"im/e5cvm9gj","slide":4,"name":"","alt":"myanmar-hurricane_00000099 Reference GT","bbox":[438,293,160,160]}
+{"kind":"image","id":"im/s3udkjyd","slide":4,"name":"","alt":"myanmar-hurricane_00000099 UNet","bbox":[601,293,160,160]}
+{"kind":"image","id":"im/h8zulkfq","slide":4,"name":"","alt":"myanmar-hurricane_00000099 DeepLabV3+","bbox":[764,293,160,160]}
+{"kind":"image","id":"im/vmhsjaxk","slide":4,"name":"","alt":"myanmar-hurricane_00000099 SiamAttnUNet","bbox":[927,293,160,160]}
+{"kind":"image","id":"im/5cjupkfm","slide":4,"name":"","alt":"myanmar-hurricane_00000099 SiamCRNN","bbox":[1090,293,160,160]}
+{"kind":"image","id":"im/3a1cnaxw","slide":4,"name":"","alt":"myanmar-hurricane_00000099 DamageFormer","bbox":[1253,293,160,160]}
+{"kind":"image","id":"im/lgfad0fi","slide":4,"name":"","alt":"myanmar-hurricane_00000099 Ours (A1)","bbox":[1416,293,160,160]}
+{"kind":"image","id":"im/bmd8n6dg","slide":4,"name":"","alt":"ukraine-conflict_00000354 Pre-event RGB","bbox":[112,456,160,160]}
+{"kind":"image","id":"im/xovqpwv6","slide":4,"name":"","alt":"ukraine-conflict_00000354 Post-event SAR","bbox":[275,456,160,160]}
+{"kind":"image","id":"im/zqx8r6dc","slide":4,"name":"","alt":"ukraine-conflict_00000354 Reference GT","bbox":[438,456,160,160]}
+{"kind":"image","id":"im/lsfqtgvi","slide":4,"name":"","alt":"ukraine-conflict_00000354 UNet","bbox":[601,456,160,160]}
+{"kind":"image","id":"im/fut8f2d8","slide":4,"name":"","alt":"ukraine-conflict_00000354 DeepLabV3+","bbox":[764,456,160,160]}
+{"kind":"image","id":"im/ilwfy9o3","slide":4,"name":"","alt":"ukraine-conflict_00000354 SiamAttnUNet","bbox":[927,456,160,160]}
+{"kind":"image","id":"im/4nyx0j69","slide":4,"name":"","alt":"ukraine-conflict_00000354 SiamCRNN","bbox":[1090,456,160,160]}
+{"kind":"image","id":"im/uxwvu9o7","slide":4,"name":"","alt":"ukraine-conflict_00000354 DamageFormer","bbox":[1253,456,160,160]}
+{"kind":"image","id":"im/wjedwz6d","slide":4,"name":"","alt":"ukraine-conflict_00000354 Ours (A1)","bbox":[1416,456,160,160]}
+{"kind":"image","id":"im/czat0vmt","slide":4,"name":"","alt":"ukraine-conflict_00000315 Pre-event RGB","bbox":[112,619,160,160]}
+{"kind":"image","id":"im/qxsbyl4n","slide":4,"name":"","alt":"ukraine-conflict_00000315 Post-event SAR","bbox":[275,619,160,160]}
+{"kind":"image","id":"im/03ut4fm5","slide":4,"name":"","alt":"ukraine-conflict_00000315 Reference GT","bbox":[438,619,160,160]}
+{"kind":"image","id":"im/y1sb254z","slide":4,"name":"","alt":"ukraine-conflict_00000315 UNet","bbox":[601,619,160,160]}
+{"kind":"image","id":"im/8rut8fm1","slide":4,"name":"","alt":"ukraine-conflict_00000315 DeepLabV3+","bbox":[764,619,160,160]}
+{"kind":"image","id":"im/xsr6p4be","slide":4,"name":"","alt":"ukraine-conflict_00000315 SiamAttnUNet","bbox":[927,619,160,160]}
+{"kind":"image","id":"im/vq9onut8","slide":4,"name":"","alt":"ukraine-conflict_00000315 SiamCRNN","bbox":[1090,619,160,160]}
+{"kind":"image","id":"im/9or6l4b2","slide":4,"name":"","alt":"ukraine-conflict_00000315 DamageFormer","bbox":[1253,619,160,160]}
+{"kind":"image","id":"im/nm9ojutc","slide":4,"name":"","alt":"ukraine-conflict_00000315 Ours (A1)","bbox":[1416,619,160,160]}
+{"kind":"notes","id":"nt/kwb26s","slide":4,"text":"Source: user-provided BRIGHT_test_sixmodels_images.zip, predictions/run_manifest.json and selection.json. RGB/SAR/GT extracted from local original BRIGHT archives, matched by sample ID and xywh. Verified GT class counts against the selection record. Prediction masks come from the uploaded run only. Six checkpoints use the same display crop per row. Ours_A1 SHA256 cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add. Automatically screened Test examples, not full-Test performance and not evidence of a matched retraining budget. 7 hazard types, 10 of 14 events. Missing Beirut, Haiti, Morocco and Marshall. ChangeOS and ChangeMamba are not included.\nmyanmar-hurricane_00000107: crop=0,0,768,768; GT counts=545157,42882,1147,638\nmyanmar-hurricane_00000099: crop=0,0,1024,1024; GT counts=1033604,7824,4777,2371\nukraine-conflict_00000354: crop=512,256,512,512; GT counts=201636,55090,2778,2640\nukraine-conflict_00000315: crop=256,256,768,768; GT counts=451956,119029,16542,2297"}

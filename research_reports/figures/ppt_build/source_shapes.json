@@ -1,0 +1,3525 @@
+[
+  {
+    "id": "281",
+    "name": "Editable 1 rect",
+    "pos": {
+      "left": 10.6,
+      "top": 0,
+      "width": 1500,
+      "height": 1040
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "2",
+    "name": "Editable 2 a  Current image + retrieved building evidence",
+    "pos": {
+      "left": 25,
+      "top": 10,
+      "width": 597.9375328083989,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": "a  Current image + retrieved building evidence"
+  },
+  {
+    "id": "4",
+    "name": "Editable 4 Pre-event RGB",
+    "pos": {
+      "left": 10.632860892388452,
+      "top": 162,
+      "width": 174.73438320209974,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Pre-event RGB"
+  },
+  {
+    "id": "6",
+    "name": "Editable 6 Post-event SAR",
+    "pos": {
+      "left": 6.6249868766404205,
+      "top": 289,
+      "width": 183.41018372703414,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Post-event SAR"
+  },
+  {
+    "id": "7",
+    "name": "Editable 7 rect",
+    "pos": {
+      "left": 209,
+      "top": 80,
+      "width": 290,
+      "height": 230
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "8",
+    "name": "Editable 8 DamageFormer",
+    "pos": {
+      "left": 255.9609448818898,
+      "top": 86,
+      "width": 211.56293963254595,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": "DamageFormer"
+  },
+  {
+    "id": "9",
+    "name": "Editable 9 rect",
+    "pos": {
+      "left": 222,
+      "top": 136,
+      "width": 112,
+      "height": 48
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "10",
+    "name": "Editable 10 RGB",
+    "pos": {
+      "left": 251.9922309711286,
+      "top": 145,
+      "width": 64.01564304461942,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "RGB"
+  },
+  {
+    "id": "11",
+    "name": "Editable 11 rect",
+    "pos": {
+      "left": 222,
+      "top": 235,
+      "width": 112,
+      "height": 48
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "12",
+    "name": "Editable 12 SAR",
+    "pos": {
+      "left": 253.32031496062993,
+      "top": 244,
+      "width": 62.015643044619424,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "SAR"
+  },
+  {
+    "id": "13",
+    "name": "Editable 13 rect",
+    "pos": {
+      "left": 376,
+      "top": 181,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "14",
+    "name": "Editable 14 rect",
+    "pos": {
+      "left": 392,
+      "top": 181,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "15",
+    "name": "Editable 15 rect",
+    "pos": {
+      "left": 408,
+      "top": 181,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "16",
+    "name": "Editable 16 rect",
+    "pos": {
+      "left": 424,
+      "top": 181,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "17",
+    "name": "Editable 17 rect",
+    "pos": {
+      "left": 376,
+      "top": 197,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "18",
+    "name": "Editable 18 rect",
+    "pos": {
+      "left": 392,
+      "top": 197,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "19",
+    "name": "Editable 19 rect",
+    "pos": {
+      "left": 408,
+      "top": 197,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "20",
+    "name": "Editable 20 rect",
+    "pos": {
+      "left": 424,
+      "top": 197,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "21",
+    "name": "Editable 21 rect",
+    "pos": {
+      "left": 376,
+      "top": 213,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "22",
+    "name": "Editable 22 rect",
+    "pos": {
+      "left": 392,
+      "top": 213,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "23",
+    "name": "Editable 23 rect",
+    "pos": {
+      "left": 408,
+      "top": 213,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "24",
+    "name": "Editable 24 rect",
+    "pos": {
+      "left": 424,
+      "top": 213,
+      "width": 14,
+      "height": 14
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "25",
+    "name": "Editable 25 Fusion",
+    "pos": {
+      "left": 372.9765879265092,
+      "top": 254,
+      "width": 84.04682414698163,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Fusion"
+  },
+  {
+    "id": "26",
+    "name": "Editable 26 path",
+    "pos": {
+      "left": 152,
+      "top": 121,
+      "width": 70,
+      "height": 39
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "27",
+    "name": "Editable 26 path arrow",
+    "pos": {
+      "left": 212,
+      "top": 155.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "28",
+    "name": "Editable 27 path",
+    "pos": {
+      "left": 152,
+      "top": 247,
+      "width": 70,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "29",
+    "name": "Editable 27 path arrow",
+    "pos": {
+      "left": 212,
+      "top": 242.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "30",
+    "name": "Editable 28 path",
+    "pos": {
+      "left": 334,
+      "top": 160,
+      "width": 39,
+      "height": 30
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "31",
+    "name": "Editable 28 path arrow",
+    "pos": {
+      "left": 363,
+      "top": 185.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "32",
+    "name": "Editable 29 path",
+    "pos": {
+      "left": 334,
+      "top": 220,
+      "width": 39,
+      "height": 39
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "33",
+    "name": "Editable 29 path arrow",
+    "pos": {
+      "left": 363,
+      "top": 215.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "34",
+    "name": "Editable 30 rect",
+    "pos": {
+      "left": 548,
+      "top": 80,
+      "width": 242,
+      "height": 230
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "35",
+    "name": "Editable 31 Regional context (b)",
+    "pos": {
+      "left": 561.6093438320211,
+      "top": 90,
+      "width": 226.7890813648294,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Regional context (b)"
+  },
+  {
+    "id": "36",
+    "name": "Editable 32 path",
+    "pos": {
+      "left": 573,
+      "top": 136,
+      "width": 90.24000000000001,
+      "height": 86.48
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "37",
+    "name": "Editable 33 path",
+    "pos": {
+      "left": 573,
+      "top": 136,
+      "width": 38.540052493438324,
+      "height": 33.84
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "38",
+    "name": "Editable 34 path",
+    "pos": {
+      "left": 611.5400524934383,
+      "top": 136,
+      "width": 51.70005249343832,
+      "height": 52.45942257217848
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "39",
+    "name": "Editable 35 path",
+    "pos": {
+      "left": 573,
+      "top": 169.84,
+      "width": 58.13175853018373,
+      "height": 37.6
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "40",
+    "name": "Editable 36 path",
+    "pos": {
+      "left": 671,
+      "top": 183,
+      "width": 29,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "41",
+    "name": "Editable 36 path arrow",
+    "pos": {
+      "left": 690,
+      "top": 178.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "42",
+    "name": "Editable 37 rect",
+    "pos": {
+      "left": 713,
+      "top": 152,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "43",
+    "name": "Editable 38 rect",
+    "pos": {
+      "left": 713,
+      "top": 172,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "44",
+    "name": "Editable 39 rect",
+    "pos": {
+      "left": 713,
+      "top": 192,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "45",
+    "name": "Editable 40 Pool + interact",
+    "pos": {
+      "left": 591.9531758530184,
+      "top": 253,
+      "width": 166.4218372703412,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Pool + interact"
+  },
+  {
+    "id": "46",
+    "name": "Editable 41 path",
+    "pos": {
+      "left": 499,
+      "top": 196,
+      "width": 49,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "47",
+    "name": "Editable 41 path arrow",
+    "pos": {
+      "left": 538,
+      "top": 191.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "48",
+    "name": "Editable 42 F",
+    "pos": {
+      "left": 515.6640419947506,
+      "top": 154,
+      "width": 26.671916010498688,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "F"
+  },
+  {
+    "id": "49",
+    "name": "Editable 43 rect",
+    "pos": {
+      "left": 843,
+      "top": 80,
+      "width": 258,
+      "height": 230
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "50",
+    "name": "Editable 44 Support reading (c)",
+    "pos": {
+      "left": 869.2733858267717,
+      "top": 90,
+      "width": 217.45312335958005,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Support reading (c)"
+  },
+  {
+    "id": "51",
+    "name": "Editable 45 rect",
+    "pos": {
+      "left": 866,
+      "top": 152,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "52",
+    "name": "Editable 46 rect",
+    "pos": {
+      "left": 866,
+      "top": 172,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "53",
+    "name": "Editable 47 rect",
+    "pos": {
+      "left": 866,
+      "top": 192,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "54",
+    "name": "Editable 48 rect",
+    "pos": {
+      "left": 1031,
+      "top": 152,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "55",
+    "name": "Editable 49 rect",
+    "pos": {
+      "left": 1031,
+      "top": 172,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "56",
+    "name": "Editable 50 rect",
+    "pos": {
+      "left": 1031,
+      "top": 192,
+      "width": 46,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "57",
+    "name": "Editable 51 path",
+    "pos": {
+      "left": 912,
+      "top": 158,
+      "width": 119,
+      "height": 20
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "58",
+    "name": "Editable 51 path",
+    "pos": {
+      "left": 912,
+      "top": 158,
+      "width": 119,
+      "height": 20
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "59",
+    "name": "Editable 51 path",
+    "pos": {
+      "left": 912,
+      "top": 198,
+      "width": 119,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "60",
+    "name": "Editable 52 path",
+    "pos": {
+      "left": 972,
+      "top": 218,
+      "width": 0.10005249343832022,
+      "height": 20
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "61",
+    "name": "Editable 52 path arrow",
+    "pos": {
+      "left": 967.5000524934384,
+      "top": 228,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "62",
+    "name": "Editable 53 Read → aggregate",
+    "pos": {
+      "left": 870.5937007874016,
+      "top": 253,
+      "width": 214.81249343832022,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Read → aggregate"
+  },
+  {
+    "id": "63",
+    "name": "Editable 54 path",
+    "pos": {
+      "left": 790,
+      "top": 196,
+      "width": 53,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "64",
+    "name": "Editable 54 path arrow",
+    "pos": {
+      "left": 833,
+      "top": 191.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "65",
+    "name": "Editable 55 T_A",
+    "pos": {
+      "left": 792.9922309711286,
+      "top": 154,
+      "width": 57.007769028871394,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "T_A"
+  },
+  {
+    "id": "66",
+    "name": "Editable 56 circle",
+    "pos": {
+      "left": 1152,
+      "top": 178,
+      "width": 36,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "67",
+    "name": "Editable 57 +",
+    "pos": {
+      "left": 1162.1093963254593,
+      "top": 179,
+      "width": 27.781207349081367,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": "+"
+  },
+  {
+    "id": "68",
+    "name": "Editable 58 path",
+    "pos": {
+      "left": 1101,
+      "top": 196,
+      "width": 49,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "69",
+    "name": "Editable 58 path arrow",
+    "pos": {
+      "left": 1140,
+      "top": 191.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "70",
+    "name": "Editable 59 path",
+    "pos": {
+      "left": 771,
+      "top": 57,
+      "width": 399,
+      "height": 119
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "71",
+    "name": "Editable 59 path arrow",
+    "pos": {
+      "left": 1165.5000524934383,
+      "top": 166,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "72",
+    "name": "Editable 60 Pixel pathway F_A",
+    "pos": {
+      "left": 882.6172178477691,
+      "top": 26,
+      "width": 211.75391076115486,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Pixel pathway F_A"
+  },
+  {
+    "id": "73",
+    "name": "Editable 61 rect",
+    "pos": {
+      "left": 1240,
+      "top": 87,
+      "width": 229,
+      "height": 61
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "74",
+    "name": "Editable 62 Pixel classifier",
+    "pos": {
+      "left": 1278.476535433071,
+      "top": 102.50005249343832,
+      "width": 165.04682414698163,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Pixel classifier"
+  },
+  {
+    "id": "81",
+    "name": "Editable 68 Damage map",
+    "pos": {
+      "left": 1282.0276115485565,
+      "top": 277,
+      "width": 156.07811023622048,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Damage map"
+  },
+  {
+    "id": "82",
+    "name": "Editable 69 path",
+    "pos": {
+      "left": 1190,
+      "top": 118,
+      "width": 50,
+      "height": 78
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "83",
+    "name": "Editable 69 path arrow",
+    "pos": {
+      "left": 1230,
+      "top": 113.50005249343832,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "84",
+    "name": "Editable 70 path",
+    "pos": {
+      "left": 1354,
+      "top": 148,
+      "width": 0.10005249343832022,
+      "height": 18
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "86",
+    "name": "Editable 71 rect",
+    "pos": {
+      "left": 33,
+      "top": 355,
+      "width": 108,
+      "height": 68.4
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "87",
+    "name": "Editable 72 path",
+    "pos": {
+      "left": 33,
+      "top": 393.70005249343836,
+      "width": 108,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "88",
+    "name": "Editable 72 path",
+    "pos": {
+      "left": 96.90005249343832,
+      "top": 355,
+      "width": 0.10005249343832022,
+      "height": 68.4
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "89",
+    "name": "Editable 73 path",
+    "pos": {
+      "left": 42,
+      "top": 363.10005249343834,
+      "width": 35.10005249343832,
+      "height": 25.2
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "90",
+    "name": "Editable 74 rect",
+    "pos": {
+      "left": 109.50005249343832,
+      "top": 364.8999475065617,
+      "width": 22.50005249343832,
+      "height": 21.6
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "91",
+    "name": "Editable 75 rect",
+    "pos": {
+      "left": 44.70005249343832,
+      "top": 404.5000524934383,
+      "width": 36.89994750656168,
+      "height": 12.6
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "92",
+    "name": "Editable 76 Train cases",
+    "pos": {
+      "left": 25.421837270341207,
+      "top": 433,
+      "width": 135.15622047244096,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Train cases"
+  },
+  {
+    "id": "93",
+    "name": "Editable 77 rect",
+    "pos": {
+      "left": 215,
+      "top": 360,
+      "width": 240,
+      "height": 70
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "94",
+    "name": "Editable 78 Matched encoder",
+    "pos": {
+      "left": 242.27338582677166,
+      "top": 380,
+      "width": 198.45700787401574,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Matched encoder"
+  },
+  {
+    "id": "95",
+    "name": "Editable 79 path",
+    "pos": {
+      "left": 142,
+      "top": 393,
+      "width": 73,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "96",
+    "name": "Editable 79 path arrow",
+    "pos": {
+      "left": 205,
+      "top": 388.5000524934383,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "97",
+    "name": "Editable 80 path",
+    "pos": {
+      "left": 534,
+      "top": 377,
+      "width": 202,
+      "height": 60
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "98",
+    "name": "Editable 81 ellipse",
+    "pos": {
+      "left": 534,
+      "top": 356,
+      "width": 202,
+      "height": 42
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "99",
+    "name": "Editable 82 Memory",
+    "pos": {
+      "left": 591.6640419947507,
+      "top": 393,
+      "width": 99.67191601049869,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Memory"
+  },
+  {
+    "id": "100",
+    "name": "Editable 83 path",
+    "pos": {
+      "left": 455,
+      "top": 393,
+      "width": 78,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "101",
+    "name": "Editable 83 path arrow",
+    "pos": {
+      "left": 523,
+      "top": 388.5000524934383,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "102",
+    "name": "Editable 84 Train-only entries",
+    "pos": {
+      "left": 541.7421522309711,
+      "top": 435,
+      "width": 196.5155905511811,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Train-only entries"
+  },
+  {
+    "id": "103",
+    "name": "Editable 85 path",
+    "pos": {
+      "left": 736,
+      "top": 393,
+      "width": 102,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "104",
+    "name": "Editable 85 path arrow",
+    "pos": {
+      "left": 828,
+      "top": 388.5000524934383,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "105",
+    "name": "Editable 86 rect",
+    "pos": {
+      "left": 843,
+      "top": 347,
+      "width": 258,
+      "height": 98
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "106",
+    "name": "Editable 87 path",
+    "pos": {
+      "left": 858,
+      "top": 356,
+      "width": 59.52,
+      "height": 57.04
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "107",
+    "name": "Editable 88 path",
+    "pos": {
+      "left": 858,
+      "top": 356,
+      "width": 25.42005249343832,
+      "height": 22.32
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "108",
+    "name": "Editable 89 path",
+    "pos": {
+      "left": 883.4200524934383,
+      "top": 356,
+      "width": 34.10005249343832,
+      "height": 34.600839895013124
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "109",
+    "name": "Editable 90 path",
+    "pos": {
+      "left": 858,
+      "top": 378.32,
+      "width": 38.342257217847774,
+      "height": 24.8
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "110",
+    "name": "Editable 91 rect",
+    "pos": {
+      "left": 854,
+      "top": 419,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "111",
+    "name": "Editable 92 rect",
+    "pos": {
+      "left": 854,
+      "top": 427,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "112",
+    "name": "Editable 93 rect",
+    "pos": {
+      "left": 854,
+      "top": 435,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "113",
+    "name": "Editable 94 path",
+    "pos": {
+      "left": 938,
+      "top": 356,
+      "width": 59.52,
+      "height": 57.04
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "114",
+    "name": "Editable 95 path",
+    "pos": {
+      "left": 938,
+      "top": 356,
+      "width": 25.42005249343832,
+      "height": 22.32
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "115",
+    "name": "Editable 96 path",
+    "pos": {
+      "left": 963.4200524934383,
+      "top": 356,
+      "width": 34.10005249343832,
+      "height": 34.600839895013124
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "116",
+    "name": "Editable 97 path",
+    "pos": {
+      "left": 938,
+      "top": 378.32,
+      "width": 38.342257217847774,
+      "height": 24.8
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "117",
+    "name": "Editable 98 rect",
+    "pos": {
+      "left": 934,
+      "top": 419,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "118",
+    "name": "Editable 99 rect",
+    "pos": {
+      "left": 934,
+      "top": 427,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "119",
+    "name": "Editable 100 rect",
+    "pos": {
+      "left": 934,
+      "top": 435,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "120",
+    "name": "Editable 101 path",
+    "pos": {
+      "left": 1018,
+      "top": 356,
+      "width": 59.52,
+      "height": 57.04
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "121",
+    "name": "Editable 102 path",
+    "pos": {
+      "left": 1018,
+      "top": 356,
+      "width": 25.42005249343832,
+      "height": 22.32
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "122",
+    "name": "Editable 103 path",
+    "pos": {
+      "left": 1043.4200524934383,
+      "top": 356,
+      "width": 34.10005249343832,
+      "height": 34.600839895013124
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "123",
+    "name": "Editable 104 path",
+    "pos": {
+      "left": 1018,
+      "top": 378.32,
+      "width": 38.342257217847774,
+      "height": 24.8
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "124",
+    "name": "Editable 105 rect",
+    "pos": {
+      "left": 1014,
+      "top": 419,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "125",
+    "name": "Editable 106 rect",
+    "pos": {
+      "left": 1014,
+      "top": 427,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "126",
+    "name": "Editable 107 rect",
+    "pos": {
+      "left": 1014,
+      "top": 435,
+      "width": 59,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "127",
+    "name": "Editable 108 Retrieved buildings",
+    "pos": {
+      "left": 869.9375328083989,
+      "top": 451,
+      "width": 216.12503937007875,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Retrieved buildings"
+  },
+  {
+    "id": "128",
+    "name": "Editable 109 path",
+    "pos": {
+      "left": 669,
+      "top": 310,
+      "width": 199,
+      "height": 37
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "129",
+    "name": "Editable 109 path arrow",
+    "pos": {
+      "left": 863.5000524934384,
+      "top": 337,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "130",
+    "name": "Editable 110 Query key",
+    "pos": {
+      "left": 737.3125459317586,
+      "top": 301,
+      "width": 122.37112860892388,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Query key"
+  },
+  {
+    "id": "131",
+    "name": "Editable 111 path",
+    "pos": {
+      "left": 1053,
+      "top": 311,
+      "width": 0.10005249343832022,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "132",
+    "name": "Editable 111 path arrow",
+    "pos": {
+      "left": 1048.5000524934383,
+      "top": 311,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "133",
+    "name": "Editable 112 Local region sets",
+    "pos": {
+      "left": 1195.2733858267718,
+      "top": 352,
+      "width": 193.45312335958005,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Local region sets"
+  },
+  {
+    "id": "134",
+    "name": "Editable 113 + building labels",
+    "pos": {
+      "left": 1199.6015748031496,
+      "top": 386,
+      "width": 184.7968503937008,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "+ building labels"
+  },
+  {
+    "id": "135",
+    "name": "Editable 114 rect",
+    "pos": {
+      "left": 24,
+      "top": 507,
+      "width": 641,
+      "height": 408
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "136",
+    "name": "Editable 115 rect",
+    "pos": {
+      "left": 689,
+      "top": 507,
+      "width": 787,
+      "height": 408
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "137",
+    "name": "Editable 116 b  Pixels → regions → pixel update",
+    "pos": {
+      "left": 43,
+      "top": 520,
+      "width": 453.12503937007875,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": "b  Pixels → regions → pixel update"
+  },
+  {
+    "id": "138",
+    "name": "Editable 117 Building prior",
+    "pos": {
+      "left": 43.960944881889766,
+      "top": 562,
+      "width": 153.08199475065618,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Building prior"
+  },
+  {
+    "id": "139",
+    "name": "Editable 118 path",
+    "pos": {
+      "left": 69,
+      "top": 608,
+      "width": 76.8,
+      "height": 73.60000000000001
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "140",
+    "name": "Editable 119 path",
+    "pos": {
+      "left": 69,
+      "top": 608,
+      "width": 32.800000000000004,
+      "height": 28.8
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "141",
+    "name": "Editable 120 path",
+    "pos": {
+      "left": 101.8,
+      "top": 608,
+      "width": 44,
+      "height": 44.64629921259843
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "142",
+    "name": "Editable 121 path",
+    "pos": {
+      "left": 69,
+      "top": 636.8000000000001,
+      "width": 49.47380577427822,
+      "height": 32
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "143",
+    "name": "Editable 122 path",
+    "pos": {
+      "left": 153,
+      "top": 646,
+      "width": 46,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "144",
+    "name": "Editable 122 path arrow",
+    "pos": {
+      "left": 189,
+      "top": 641.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "145",
+    "name": "Editable 123 rect",
+    "pos": {
+      "left": 202,
+      "top": 609,
+      "width": 159,
+      "height": 67
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "146",
+    "name": "Editable 124 Association",
+    "pos": {
+      "left": 219.13280839895015,
+      "top": 613.5000524934384,
+      "width": 135.73438320209974,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Association"
+  },
+  {
+    "id": "147",
+    "name": "Editable 125 R + centres",
+    "pos": {
+      "left": 219.80472440944882,
+      "top": 641.5000524934384,
+      "width": 135.39065616797902,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "R + centres"
+  },
+  {
+    "id": "148",
+    "name": "Editable 126 path",
+    "pos": {
+      "left": 361,
+      "top": 642,
+      "width": 41,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "149",
+    "name": "Editable 126 path arrow",
+    "pos": {
+      "left": 392,
+      "top": 637.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "150",
+    "name": "Editable 127 rect",
+    "pos": {
+      "left": 407,
+      "top": 610,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "151",
+    "name": "Editable 128 rect",
+    "pos": {
+      "left": 424,
+      "top": 610,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "152",
+    "name": "Editable 129 rect",
+    "pos": {
+      "left": 441,
+      "top": 610,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "153",
+    "name": "Editable 130 rect",
+    "pos": {
+      "left": 458,
+      "top": 610,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "154",
+    "name": "Editable 131 rect",
+    "pos": {
+      "left": 407,
+      "top": 627,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "155",
+    "name": "Editable 132 rect",
+    "pos": {
+      "left": 424,
+      "top": 627,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "156",
+    "name": "Editable 133 rect",
+    "pos": {
+      "left": 441,
+      "top": 627,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "157",
+    "name": "Editable 134 rect",
+    "pos": {
+      "left": 458,
+      "top": 627,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "158",
+    "name": "Editable 135 rect",
+    "pos": {
+      "left": 407,
+      "top": 644,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "159",
+    "name": "Editable 136 rect",
+    "pos": {
+      "left": 424,
+      "top": 644,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "160",
+    "name": "Editable 137 rect",
+    "pos": {
+      "left": 441,
+      "top": 644,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "161",
+    "name": "Editable 138 rect",
+    "pos": {
+      "left": 458,
+      "top": 644,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "162",
+    "name": "Editable 139 rect",
+    "pos": {
+      "left": 407,
+      "top": 661,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "163",
+    "name": "Editable 140 rect",
+    "pos": {
+      "left": 424,
+      "top": 661,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "164",
+    "name": "Editable 141 rect",
+    "pos": {
+      "left": 441,
+      "top": 661,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "165",
+    "name": "Editable 142 rect",
+    "pos": {
+      "left": 458,
+      "top": 661,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "166",
+    "name": "Editable 143 Q",
+    "pos": {
+      "left": 433.6640419947507,
+      "top": 686,
+      "width": 31,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Q"
+  },
+  {
+    "id": "167",
+    "name": "Editable 144 path",
+    "pos": {
+      "left": 480,
+      "top": 643,
+      "width": 51,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "168",
+    "name": "Editable 144 path arrow",
+    "pos": {
+      "left": 521,
+      "top": 638.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "169",
+    "name": "Editable 145 rect",
+    "pos": {
+      "left": 533,
+      "top": 609,
+      "width": 111,
+      "height": 68
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "170",
+    "name": "Editable 146 Pool",
+    "pos": {
+      "left": 564.4765354330709,
+      "top": 628,
+      "width": 60.04682414698163,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Pool"
+  },
+  {
+    "id": "171",
+    "name": "Editable 147 rect",
+    "pos": {
+      "left": 58,
+      "top": 748,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "172",
+    "name": "Editable 148 rect",
+    "pos": {
+      "left": 75,
+      "top": 748,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "173",
+    "name": "Editable 149 rect",
+    "pos": {
+      "left": 92,
+      "top": 748,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "174",
+    "name": "Editable 150 rect",
+    "pos": {
+      "left": 109,
+      "top": 748,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "175",
+    "name": "Editable 151 rect",
+    "pos": {
+      "left": 58,
+      "top": 765,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "176",
+    "name": "Editable 152 rect",
+    "pos": {
+      "left": 75,
+      "top": 765,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "177",
+    "name": "Editable 153 rect",
+    "pos": {
+      "left": 92,
+      "top": 765,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "178",
+    "name": "Editable 154 rect",
+    "pos": {
+      "left": 109,
+      "top": 765,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "179",
+    "name": "Editable 155 rect",
+    "pos": {
+      "left": 58,
+      "top": 782,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "180",
+    "name": "Editable 156 rect",
+    "pos": {
+      "left": 75,
+      "top": 782,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "181",
+    "name": "Editable 157 rect",
+    "pos": {
+      "left": 92,
+      "top": 782,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "182",
+    "name": "Editable 158 rect",
+    "pos": {
+      "left": 109,
+      "top": 782,
+      "width": 15,
+      "height": 15
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "183",
+    "name": "Editable 159 Pixels F",
+    "pos": {
+      "left": 50.32031496062992,
+      "top": 807,
+      "width": 97.35937007874016,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Pixels F"
+  },
+  {
+    "id": "184",
+    "name": "Editable 160 path",
+    "pos": {
+      "left": 132,
+      "top": 659,
+      "width": 401,
+      "height": 116
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "185",
+    "name": "Editable 160 path arrow",
+    "pos": {
+      "left": 523,
+      "top": 654.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "186",
+    "name": "Editable 161 path",
+    "pos": {
+      "left": 590,
+      "top": 677,
+      "width": 0.10005249343832022,
+      "height": 75
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "187",
+    "name": "Editable 161 path arrow",
+    "pos": {
+      "left": 585.5000524934384,
+      "top": 742,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "188",
+    "name": "Editable 162 rect",
+    "pos": {
+      "left": 505,
+      "top": 754,
+      "width": 139,
+      "height": 61
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "189",
+    "name": "Editable 163 Attention",
+    "pos": {
+      "left": 526.1328083989501,
+      "top": 769.5000524934384,
+      "width": 107.73438320209974,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Attention"
+  },
+  {
+    "id": "190",
+    "name": "Editable 164 path",
+    "pos": {
+      "left": 440,
+      "top": 784,
+      "width": 65,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "191",
+    "name": "Editable 164 path arrow",
+    "pos": {
+      "left": 440,
+      "top": 779.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "192",
+    "name": "Editable 165 rect",
+    "pos": {
+      "left": 268,
+      "top": 754,
+      "width": 172,
+      "height": 61
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "193",
+    "name": "Editable 166 Project +",
+    "pos": {
+      "left": 306.30467191601053,
+      "top": 755.5000524934384,
+      "width": 107.390656167979,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Project +"
+  },
+  {
+    "id": "194",
+    "name": "Editable 167 Q-unpool",
+    "pos": {
+      "left": 304.63286089238846,
+      "top": 783.5000524934384,
+      "width": 110.73438320209974,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Q-unpool"
+  },
+  {
+    "id": "195",
+    "name": "Editable 168 path",
+    "pos": {
+      "left": 238,
+      "top": 784,
+      "width": 30,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "196",
+    "name": "Editable 168 path arrow",
+    "pos": {
+      "left": 238,
+      "top": 779.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "197",
+    "name": "Editable 169 circle",
+    "pos": {
+      "left": 198,
+      "top": 766,
+      "width": 36,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "198",
+    "name": "Editable 170 +",
+    "pos": {
+      "left": 208.10939632545933,
+      "top": 767,
+      "width": 27.781207349081367,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": "+"
+  },
+  {
+    "id": "199",
+    "name": "Editable 171 path",
+    "pos": {
+      "left": 131,
+      "top": 784,
+      "width": 65,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "200",
+    "name": "Editable 171 path arrow",
+    "pos": {
+      "left": 186,
+      "top": 779.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "201",
+    "name": "Editable 172 path",
+    "pos": {
+      "left": 216,
+      "top": 803,
+      "width": 60,
+      "height": 57
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "202",
+    "name": "Editable 172 path arrow",
+    "pos": {
+      "left": 266,
+      "top": 855.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "203",
+    "name": "Editable 173 F_A",
+    "pos": {
+      "left": 311.0703412073491,
+      "top": 845,
+      "width": 58.174803149606305,
+      "height": 34
+    },
+    "fill": {},
+    "line": {},
+    "text": "F_A"
+  },
+  {
+    "id": "204",
+    "name": "Editable 174 F_A = F + ΔF_local",
+    "pos": {
+      "left": 344.9922309711286,
+      "top": 872,
+      "width": 226.01564304461942,
+      "height": 34
+    },
+    "fill": {},
+    "line": {},
+    "text": "F_A = F + ΔF_local"
+  },
+  {
+    "id": "205",
+    "name": "Editable 175 c  Read local evidence from each support",
+    "pos": {
+      "left": 709,
+      "top": 520,
+      "width": 538.177217847769,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": "c  Read local evidence from each support"
+  },
+  {
+    "id": "206",
+    "name": "Editable 176 rect",
+    "pos": {
+      "left": 714,
+      "top": 696,
+      "width": 52,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "207",
+    "name": "Editable 177 rect",
+    "pos": {
+      "left": 714,
+      "top": 721,
+      "width": 52,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "208",
+    "name": "Editable 178 rect",
+    "pos": {
+      "left": 714,
+      "top": 746,
+      "width": 52,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "209",
+    "name": "Editable 179 T_A",
+    "pos": {
+      "left": 722.9922309711286,
+      "top": 649,
+      "width": 57.007769028871394,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "T_A"
+  },
+  {
+    "id": "210",
+    "name": "Editable 180 rect",
+    "pos": {
+      "left": 832,
+      "top": 580,
+      "width": 135,
+      "height": 78
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "211",
+    "name": "Editable 181 path",
+    "pos": {
+      "left": 840,
+      "top": 592,
+      "width": 46.08,
+      "height": 44.160000000000004
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "212",
+    "name": "Editable 182 path",
+    "pos": {
+      "left": 840,
+      "top": 592,
+      "width": 19.68,
+      "height": 17.28
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "213",
+    "name": "Editable 183 path",
+    "pos": {
+      "left": 859.6800000000001,
+      "top": 592,
+      "width": 26.400000000000002,
+      "height": 26.787716535433074
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "214",
+    "name": "Editable 184 path",
+    "pos": {
+      "left": 840,
+      "top": 609.28,
+      "width": 29.684304461942258,
+      "height": 19.2
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "215",
+    "name": "Editable 185 rect",
+    "pos": {
+      "left": 902,
+      "top": 593,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "216",
+    "name": "Editable 186 rect",
+    "pos": {
+      "left": 902,
+      "top": 612,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "217",
+    "name": "Editable 187 rect",
+    "pos": {
+      "left": 902,
+      "top": 631,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "218",
+    "name": "Editable 188 rect",
+    "pos": {
+      "left": 1014,
+      "top": 586,
+      "width": 185,
+      "height": 66
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "219",
+    "name": "Editable 189 Cross-attention",
+    "pos": {
+      "left": 1025.1250393700789,
+      "top": 604,
+      "width": 174.75002624671916,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Cross-attention"
+  },
+  {
+    "id": "220",
+    "name": "Editable 190 path",
+    "pos": {
+      "left": 967,
+      "top": 619,
+      "width": 47,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "221",
+    "name": "Editable 190 path arrow",
+    "pos": {
+      "left": 1004,
+      "top": 614.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "222",
+    "name": "Editable 191 path",
+    "pos": {
+      "left": 1199,
+      "top": 619,
+      "width": 35,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "223",
+    "name": "Editable 191 path arrow",
+    "pos": {
+      "left": 1224,
+      "top": 614.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "224",
+    "name": "Editable 192 rect",
+    "pos": {
+      "left": 1237,
+      "top": 596,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "225",
+    "name": "Editable 193 rect",
+    "pos": {
+      "left": 1237,
+      "top": 614,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "226",
+    "name": "Editable 194 rect",
+    "pos": {
+      "left": 1237,
+      "top": 632,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "227",
+    "name": "Editable 195 U_1",
+    "pos": {
+      "left": 1297.9843569553807,
+      "top": 602,
+      "width": 56.03128608923885,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "U_1"
+  },
+  {
+    "id": "228",
+    "name": "Editable 196 rect",
+    "pos": {
+      "left": 832,
+      "top": 679,
+      "width": 135,
+      "height": 78
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "229",
+    "name": "Editable 197 path",
+    "pos": {
+      "left": 840,
+      "top": 691,
+      "width": 46.08,
+      "height": 44.160000000000004
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "230",
+    "name": "Editable 198 path",
+    "pos": {
+      "left": 840,
+      "top": 691,
+      "width": 19.68,
+      "height": 17.28
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "231",
+    "name": "Editable 199 path",
+    "pos": {
+      "left": 859.6800000000001,
+      "top": 691,
+      "width": 26.400000000000002,
+      "height": 26.787716535433074
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "232",
+    "name": "Editable 200 path",
+    "pos": {
+      "left": 840,
+      "top": 708.28,
+      "width": 29.684304461942258,
+      "height": 19.2
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "233",
+    "name": "Editable 201 rect",
+    "pos": {
+      "left": 902,
+      "top": 692,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "234",
+    "name": "Editable 202 rect",
+    "pos": {
+      "left": 902,
+      "top": 711,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "235",
+    "name": "Editable 203 rect",
+    "pos": {
+      "left": 902,
+      "top": 730,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "236",
+    "name": "Editable 204 rect",
+    "pos": {
+      "left": 1014,
+      "top": 685,
+      "width": 185,
+      "height": 66
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "237",
+    "name": "Editable 205 Cross-attention",
+    "pos": {
+      "left": 1025.1250393700789,
+      "top": 703,
+      "width": 174.75002624671916,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Cross-attention"
+  },
+  {
+    "id": "238",
+    "name": "Editable 206 path",
+    "pos": {
+      "left": 967,
+      "top": 718,
+      "width": 47,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "239",
+    "name": "Editable 206 path arrow",
+    "pos": {
+      "left": 1004,
+      "top": 713.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "240",
+    "name": "Editable 207 path",
+    "pos": {
+      "left": 1199,
+      "top": 718,
+      "width": 35,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "241",
+    "name": "Editable 207 path arrow",
+    "pos": {
+      "left": 1224,
+      "top": 713.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "242",
+    "name": "Editable 208 rect",
+    "pos": {
+      "left": 1237,
+      "top": 695,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "243",
+    "name": "Editable 209 rect",
+    "pos": {
+      "left": 1237,
+      "top": 713,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "244",
+    "name": "Editable 210 rect",
+    "pos": {
+      "left": 1237,
+      "top": 731,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "245",
+    "name": "Editable 211 U_2",
+    "pos": {
+      "left": 1297.9843569553807,
+      "top": 701,
+      "width": 56.03128608923885,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "U_2"
+  },
+  {
+    "id": "246",
+    "name": "Editable 212 rect",
+    "pos": {
+      "left": 832,
+      "top": 778,
+      "width": 135,
+      "height": 78
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "247",
+    "name": "Editable 213 path",
+    "pos": {
+      "left": 840,
+      "top": 790,
+      "width": 46.08,
+      "height": 44.160000000000004
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "248",
+    "name": "Editable 214 path",
+    "pos": {
+      "left": 840,
+      "top": 790,
+      "width": 19.68,
+      "height": 17.28
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "249",
+    "name": "Editable 215 path",
+    "pos": {
+      "left": 859.6800000000001,
+      "top": 790,
+      "width": 26.400000000000002,
+      "height": 26.787716535433074
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "250",
+    "name": "Editable 216 path",
+    "pos": {
+      "left": 840,
+      "top": 807.2800000000001,
+      "width": 29.684304461942258,
+      "height": 19.2
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "251",
+    "name": "Editable 217 rect",
+    "pos": {
+      "left": 902,
+      "top": 791,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "252",
+    "name": "Editable 218 rect",
+    "pos": {
+      "left": 902,
+      "top": 810,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "253",
+    "name": "Editable 219 rect",
+    "pos": {
+      "left": 902,
+      "top": 829,
+      "width": 49,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "254",
+    "name": "Editable 220 rect",
+    "pos": {
+      "left": 1014,
+      "top": 784,
+      "width": 185,
+      "height": 66
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "255",
+    "name": "Editable 221 Cross-attention",
+    "pos": {
+      "left": 1025.1250393700789,
+      "top": 802,
+      "width": 174.75002624671916,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Cross-attention"
+  },
+  {
+    "id": "256",
+    "name": "Editable 222 path",
+    "pos": {
+      "left": 967,
+      "top": 817,
+      "width": 47,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "257",
+    "name": "Editable 222 path arrow",
+    "pos": {
+      "left": 1004,
+      "top": 812.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "258",
+    "name": "Editable 223 path",
+    "pos": {
+      "left": 1199,
+      "top": 817,
+      "width": 35,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "259",
+    "name": "Editable 223 path arrow",
+    "pos": {
+      "left": 1224,
+      "top": 812.5000524934384,
+      "width": 10,
+      "height": 9
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "260",
+    "name": "Editable 224 rect",
+    "pos": {
+      "left": 1237,
+      "top": 794,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "261",
+    "name": "Editable 225 rect",
+    "pos": {
+      "left": 1237,
+      "top": 812,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "262",
+    "name": "Editable 226 rect",
+    "pos": {
+      "left": 1237,
+      "top": 830,
+      "width": 42,
+      "height": 12
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "263",
+    "name": "Editable 227 U_3",
+    "pos": {
+      "left": 1297.9843569553807,
+      "top": 800,
+      "width": 56.03128608923885,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "U_3"
+  },
+  {
+    "id": "264",
+    "name": "Editable 228 path",
+    "pos": {
+      "left": 766,
+      "top": 567,
+      "width": 340,
+      "height": 158
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "265",
+    "name": "Editable 228 path arrow",
+    "pos": {
+      "left": 1101.5000524934383,
+      "top": 576,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "266",
+    "name": "Editable 229 path",
+    "pos": {
+      "left": 789,
+      "top": 668,
+      "width": 317,
+      "height": 57
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "267",
+    "name": "Editable 229 path arrow",
+    "pos": {
+      "left": 1101.5000524934383,
+      "top": 675,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "268",
+    "name": "Editable 230 path",
+    "pos": {
+      "left": 789,
+      "top": 725,
+      "width": 317,
+      "height": 59
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "269",
+    "name": "Editable 230 path arrow",
+    "pos": {
+      "left": 1101.5000524934383,
+      "top": 774,
+      "width": 9,
+      "height": 10
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "270",
+    "name": "Editable 231 path",
+    "pos": {
+      "left": 1358,
+      "top": 619,
+      "width": 33,
+      "height": 248
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "271",
+    "name": "Editable 231 path",
+    "pos": {
+      "left": 1358,
+      "top": 718,
+      "width": 33,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "272",
+    "name": "Editable 231 path",
+    "pos": {
+      "left": 1358,
+      "top": 817,
+      "width": 33,
+      "height": 0.10005249343832022
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "273",
+    "name": "Editable 232 rect",
+    "pos": {
+      "left": 842,
+      "top": 866,
+      "width": 549,
+      "height": 36
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "274",
+    "name": "Editable 233 Aggregate + project + unpool → ΔF_mem",
+    "pos": {
+      "left": 893.3593700787402,
+      "top": 869,
+      "width": 457.2812598425197,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Aggregate + project + unpool → ΔF_mem"
+  },
+  {
+    "id": "275",
+    "name": "Editable 234 path",
+    "pos": {
+      "left": 1390,
+      "top": 867,
+      "width": 1,
+      "height": 17
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "276",
+    "name": "Editable 234 path arrow",
+    "pos": {
+      "left": 1390,
+      "top": 873.7469816272966,
+      "width": 10.253018372703412,
+      "height": 10.253018372703412
+    },
+    "fill": {},
+    "line": {},
+    "text": ""
+  },
+  {
+    "id": "277",
+    "name": "Editable 235 Rectangles: operations   ·   Bars/grids: features   ·   ⊕: addition   ·   Dashed arrows: offline construction",
+    "pos": {
+      "left": 25,
+      "top": 930,
+      "width": 1020.5781627296589,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Rectangles: operations   ·   Bars/grids: features   ·   ⊕: addition   ·   Dashed arrows: offline construction"
+  },
+  {
+    "id": "278",
+    "name": "Editable 236 Candidate model: regions, support cards and output map are schematic, not measured results.",
+    "pos": {
+      "left": 25,
+      "top": 958,
+      "width": 1017.8906036745407,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Candidate model: regions, support cards and output map are schematic, not measured results."
+  },
+  {
+    "id": "279",
+    "name": "Editable 237 Y = h(F_A + ΔF_mem)",
+    "pos": {
+      "left": 1160.164094488189,
+      "top": 448,
+      "width": 262.6719160104987,
+      "height": 34
+    },
+    "fill": {},
+    "line": {},
+    "text": "Y = h(F_A + ΔF_mem)"
+  },
+  {
+    "id": "280",
+    "name": "Editable 238 Input examples: BRIGHT, Chen et al. (2025), Fig. 6, Turkey-EQ-2023; imagery credits: Table 2.",
+    "pos": {
+      "left": 25,
+      "top": 997,
+      "width": 1017.3437270341208,
+      "height": 33
+    },
+    "fill": {},
+    "line": {},
+    "text": "Input examples: BRIGHT, Chen et al. (2025), Fig. 6, Turkey-EQ-2023; imagery credits: Table 2."
+  }
+]

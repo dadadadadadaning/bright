@@ -1,0 +1,81 @@
+{"kind":"deck","id":"pr/8has2x","name":"Deck"}
+{"kind":"layout","layoutId":"3197ad5e-f0e0-4be0-ad99-cfe6552246d3","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"f3e3c188-858a-4888-afc7-eac5c0b923fe","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/bylmpy","slide":1,"title":"Recovered Damaged region in Turkey","textShapes":12}
+{"kind":"textbox","id":"sh/tojm1gfe","slide":1,"text":"Recovered Damaged region in Turkey","textPreview":"Recovered Damaged region in Turkey","textChars":34,"textLines":1,"bbox":[45,20,1710,55]}
+{"kind":"textbox","id":"sh/6ls3q1wn","slide":1,"text":"turkey-earthquake_00001074   /   Earthquake   /   Selected Test example","textPreview":"turkey-earthquake_00001074   /   Earthquake   /   Selected Test example","textChars":71,"textLines":1,"bbox":[45,80,1710,40]}
+{"kind":"textbox","id":"sh/rm14z6x8","slide":1,"text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[45,142,325,42]}
+{"kind":"shape","id":"sh/1s3m5gfa","slide":1,"bbox":[45,193,320,320]}
+{"kind":"shape","id":"sh/eps3ulwz","slide":1,"bbox":[284.38,294.25,80.62,80.62]}
+{"kind":"shape","id":"sh/oful0ve1","slide":1,"bbox":[45,580,320,320]}
+{"kind":"textbox","id":"sh/pg3m90fm","slide":1,"text":"Post-event SAR","textPreview":"Post-event SAR","textChars":14,"textLines":1,"bbox":[392,142,325,42]}
+{"kind":"shape","id":"sh/kn210vad","slide":1,"bbox":[392,193,320,320]}
+{"kind":"shape","id":"sh/jmt07q9s","slide":1,"bbox":[631.38,294.25,80.62,80.62]}
+{"kind":"shape","id":"sh/tsbid0ru","slide":1,"bbox":[392,580,320,320]}
+{"kind":"textbox","id":"sh/8r214va9","slide":1,"text":"Reference GT","textPreview":"Reference GT","textChars":12,"textLines":1,"bbox":[739,142,325,42]}
+{"kind":"shape","id":"sh/6pkj2lsj","slide":1,"bbox":[739,193,320,320]}
+{"kind":"shape","id":"sh/9wri1grq","slide":1,"bbox":[978.38,294.25,80.62,80.62]}
+{"kind":"shape","id":"sh/gz218bi1","slide":1,"bbox":[739,580,320,320]}
+{"kind":"textbox","id":"sh/10vihgzm","slide":1,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1086,142,325,42]}
+{"kind":"shape","id":"sh/fyt0f61g","slide":1,"bbox":[1086,193,320,320]}
+{"kind":"shape","id":"sh/o3m1cbix","slide":1,"bbox":[1325.38,294.25,80.62,80.62]}
+{"kind":"shape","id":"sh/214jal07","slide":1,"bbox":[1086,580,320,320]}
+{"kind":"textbox","id":"sh/n2d0jqhs","slide":1,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1433,142,325,42]}
+{"kind":"shape","id":"sh/xsf2p0zu","slide":1,"bbox":[1433,193,320,320]}
+{"kind":"shape","id":"sh/7mh4fu1w","slide":1,"bbox":[1672.38,294.25,80.62,80.62]}
+{"kind":"shape","id":"sh/9ozmh4j2","slide":1,"bbox":[1433,580,320,320]}
+{"kind":"textbox","id":"sh/8nqloz2h","slide":1,"text":"Same spatial window in every column (129 x 129 source pixels)","textPreview":"Same spatial window in every column (129 x 129 source pixels)","textChars":61,"textLines":1,"bbox":[45,531,1710,40]}
+{"kind":"textbox","id":"sh/zyx4ba10","slide":1,"text":"Damaged IoU in the enlarged window: 6.0% to 46.0%","textPreview":"Damaged IoU in the enlarged window: 6.0% to 46.0%","textChars":49,"textLines":1,"bbox":[45,924,1710,42]}
+{"kind":"textbox","id":"sh/yxo3ipkf","slide":1,"text":"Remaining error: some GT Destroyed pixels still receive the Damaged label.","textPreview":"Remaining error: some GT Destroyed pixels still receive the Damaged label.","textChars":74,"textLines":1,"bbox":[45,972,1710,38]}
+{"kind":"textbox","id":"sh/l0zmdkjq","slide":1,"text":"Classes: white = background, green = intact, tan = damaged, red = destroyed.","textPreview":"Classes: white = background, green = intact, tan = damaged, red = destroyed.","textChars":76,"textLines":1,"bbox":[45,1018,1710,33]}
+{"kind":"textbox","id":"sh/kzqlkf25","slide":1,"text":"Selected after inspecting predictions. These local examples do not establish full-Test gains or region/Memory causality.","textPreview":"Selected after inspecting predictions. These local examples do not establish full-Test gains or region/Memory causality.","textChars":120,"textLines":1,"bbox":[45,1063,1710,34]}
+{"kind":"image","id":"im/54veds3m","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_RGB.png","bbox":[45,193,320,320]}
+{"kind":"image","id":"im/i1kfix4b","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_3_0.png","bbox":[45,580,320,320]}
+{"kind":"image","id":"im/yts7y1cv","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SAR.png","bbox":[392,193,320,320]}
+{"kind":"image","id":"im/lw3qtgv6","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_3_1.png","bbox":[392,580,320,320]}
+{"kind":"image","id":"im/crapwrup","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_GT.png","bbox":[739,193,320,320]}
+{"kind":"image","id":"im/32hojmd8","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_3_2.png","bbox":[739,580,320,320]}
+{"kind":"image","id":"im/twvedo7u","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_DamageFormer.png","bbox":[1086,193,320,320]}
+{"kind":"image","id":"im/ux4v6tof","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_3_7.png","bbox":[1086,580,320,320]}
+{"kind":"image","id":"im/b2tc3upg","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_Ours_A1.png","bbox":[1433,193,320,320]}
+{"kind":"image","id":"im/18rax0ne","slide":1,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_3_8.png","bbox":[1433,580,320,320]}
+{"kind":"notes","id":"nt/bylmpy","slide":1,"text":"Sources: BRIGHT_test_sixmodels_images.zip and original paired images/GT in F:/建筑损毁分类数据集. Existing fixed A1 and DamageFormer predictions. No retraining or threshold tuning. Candidates searched only inside the previous 18 selected Test crops. Recovered GT Damaged connected components used to locate diagnostic windows. Components may not equal building instances. Local metrics cover the whole displayed zoom window, including false positives. Original prediction pixels unchanged. {\"sample_id\":\"turkey-earthquake_00001074\",\"crop\":[256,512,512,512],\"window\":[383,162,129,129],\"local_metrics\":{\"component\":6,\"area\":3667,\"recovered\":3433,\"reverse\":0,\"recall_a\":0.9364603217889282,\"recall_b\":0,\"baseline_intact_fraction\":0.9642759749113717,\"zoom_xywh\":[383,162,129,129],\"iou_a\":0.4599121996303142,\"iou_b\":0.05989750160153748,\"new_errors\":974,\"corrected\":5344,\"score\":23.437584504548898}}"}
+{"kind":"slide","id":"sl/jw47h0","slide":2,"title":"Recovered Damaged regions in Myanmar","textShapes":12}
+{"kind":"textbox","id":"sh/436503m9","slide":2,"text":"Recovered Damaged regions in Myanmar","textPreview":"Recovered Damaged regions in Myanmar","textChars":36,"textLines":1,"bbox":[45,20,1710,55]}
+{"kind":"textbox","id":"sh/32xoryl4","slide":2,"text":"myanmar-hurricane_00000099   /   Hurricane   /   Selected Test example","textPreview":"myanmar-hurricane_00000099   /   Hurricane   /   Selected Test example","textChars":70,"textLines":1,"bbox":[45,80,1710,40]}
+{"kind":"textbox","id":"sh/21onyt4j","slide":2,"text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[45,142,325,42]}
+{"kind":"shape","id":"sh/crq54nml","slide":2,"bbox":[45,193,320,320]}
+{"kind":"shape","id":"sh/rqhovil0","slide":2,"bbox":[119.69,483,30,30]}
+{"kind":"shape","id":"sh/1wz61s32","slide":2,"bbox":[45,580,320,320]}
+{"kind":"textbox","id":"sh/0vq58nmh","slide":2,"text":"Post-event SAR","textPreview":"Post-event SAR","textChars":14,"textLines":1,"bbox":[392,142,325,42]}
+{"kind":"shape","id":"sh/z6hoj61k","slide":2,"bbox":[392,193,320,320]}
+{"kind":"shape","id":"sh/k7qpcbip","slide":2,"bbox":[466.69,483,30,30]}
+{"kind":"shape","id":"sh/m987el0v","slide":2,"bbox":[392,580,320,320]}
+{"kind":"textbox","id":"sh/7ahonq1g","slide":2,"text":"Reference GT","textPreview":"Reference GT","textChars":12,"textLines":1,"bbox":[739,142,325,42]}
+{"kind":"shape","id":"sh/9wz6p0jm","slide":2,"bbox":[739,193,320,320]}
+{"kind":"shape","id":"sh/2d4n2h0r","slide":2,"bbox":[813.69,483,30,30]}
+{"kind":"shape","id":"sh/rit4jih4","slide":2,"bbox":[739,580,320,320]}
+{"kind":"textbox","id":"sh/6hk3axgj","slide":2,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1086,142,325,42]}
+{"kind":"shape","id":"sh/sj2lcnyp","slide":2,"bbox":[1086,193,320,320]}
+{"kind":"shape","id":"sh/je9kfihs","slide":2,"bbox":[1160.69,483,30,30]}
+{"kind":"shape","id":"sh/5gb2hszy","slide":2,"bbox":[1086,580,320,320]}
+{"kind":"textbox","id":"sh/4f2l8nyd","slide":2,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1433,142,325,42]}
+{"kind":"shape","id":"sh/2943ihgr","slide":2,"bbox":[1433,193,320,320]}
+{"kind":"shape","id":"sh/kve1czy9","slide":2,"bbox":[1507.69,483,30,30]}
+{"kind":"shape","id":"sh/ytwza9g3","slide":2,"bbox":[1433,580,320,320]}
+{"kind":"textbox","id":"sh/zu50jexo","slide":2,"text":"Same spatial window in every column (96 x 96 source pixels)","textPreview":"Same spatial window in every column (96 x 96 source pixels)","textChars":59,"textLines":1,"bbox":[45,531,1710,40]}
+{"kind":"textbox","id":"sh/8jy1gje5","slide":2,"text":"Damaged IoU in the enlarged window: 47.3% to 78.2%","textPreview":"Damaged IoU in the enlarged window: 47.3% to 78.2%","textChars":50,"textLines":1,"bbox":[45,924,1710,42]}
+{"kind":"textbox","id":"sh/9k7ipofq","slide":2,"text":"Remaining error: a small intact prediction persists and some background receives building labels.","textPreview":"Remaining error: a small intact prediction persists and some background receives building labels.","textChars":97,"textLines":1,"bbox":[45,972,1710,38]}
+{"kind":"textbox","id":"sh/mhgje9wz","slide":2,"text":"Classes: white = background, green = intact, tan = damaged, red = destroyed.","textPreview":"Classes: white = background, green = intact, tan = damaged, red = destroyed.","textChars":76,"textLines":1,"bbox":[45,1018,1710,33]}
+{"kind":"textbox","id":"sh/7ip0nexk","slide":2,"text":"Selected after inspecting predictions. These local examples do not establish full-Test gains or region/Memory causality.","textPreview":"Selected after inspecting predictions. These local examples do not establish full-Test gains or region/Memory causality.","textChars":120,"textLines":1,"bbox":[45,1063,1710,34]}
+{"kind":"image","id":"im/o3q10vat","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_RGB.png","bbox":[45,193,320,320]}
+{"kind":"image","id":"im/32h0rq98","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_6_0.png","bbox":[45,580,320,320]}
+{"kind":"image","id":"im/lkzq1k3m","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SAR.png","bbox":[392,193,320,320]}
+{"kind":"image","id":"im/yh8r65kv","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_6_1.png","bbox":[392,580,320,320]}
+{"kind":"image","id":"im/bex8valk","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_GT.png","bbox":[739,193,320,320]}
+{"kind":"image","id":"im/or690vmt","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_6_2.png","bbox":[739,580,320,320]}
+{"kind":"image","id":"im/ut8re5cj","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_DamageFormer.png","bbox":[1086,193,320,320]}
+{"kind":"image","id":"im/t8zq50be","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_6_7.png","bbox":[1086,580,320,320]}
+{"kind":"image","id":"im/c3u9ofax","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_Ours_A1.png","bbox":[1433,193,320,320]}
+{"kind":"image","id":"im/mxwbe9wz","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_reselected_examples\\build\\assets\\candidate_6_8.png","bbox":[1433,580,320,320]}
+{"kind":"notes","id":"nt/jw47h0","slide":2,"text":"Sources: BRIGHT_test_sixmodels_images.zip and original paired images/GT in F:/建筑损毁分类数据集. Existing fixed A1 and DamageFormer predictions. No retraining or threshold tuning. Candidates searched only inside the previous 18 selected Test crops. Recovered GT Damaged connected components used to locate diagnostic windows. Components may not equal building instances. Local metrics cover the whole displayed zoom window, including false positives. Original prediction pixels unchanged. {\"sample_id\":\"myanmar-hurricane_00000099\",\"crop\":[0,0,1024,1024],\"window\":[239,928,96,96],\"local_metrics\":{\"component\":10,\"area\":403,\"recovered\":136,\"reverse\":0,\"recall_a\":0.9354838709677419,\"recall_b\":0.13399503722084366,\"baseline_intact_fraction\":0.337468982630273,\"zoom_xywh\":[239,928,96,96],\"iou_a\":0.7822265625,\"iou_b\":0.47256438969764836,\"new_errors\":285,\"corrected\":380,\"score\":3.6112504665275704}}"}

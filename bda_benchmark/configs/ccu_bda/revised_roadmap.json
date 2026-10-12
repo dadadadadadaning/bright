@@ -1,0 +1,56 @@
+{
+  "protocol": "CCU_BDA_revised_roadmap_v2",
+  "status": "audit_before_training",
+  "core_hypothesis": "Only reliable intact-building correspondence should be unified; reliable change must be preserved and unreliable SAR evidence rejected.",
+  "current_c0_c4_status": "implementation_prototypes_not_yet_validated_as_paper_ablation",
+  "stages": [
+    {
+      "id": "E0",
+      "name": "Local-Correspondence-Audit",
+      "training": false,
+      "split": "validation_only",
+      "source": "locked_H6_A2_stage3_stage4_pre_correspondence_common_features",
+      "outputs": ["classwise_matching_geometry", "eventwise_matching_geometry", "effect_sizes", "event_direction_consistency"],
+      "pass_gate": {"minimum_absolute_cohen_d": 0.25, "minimum_comparable_events": 10, "minimum_consistent_events": 10}
+    },
+    {
+      "id": "E1",
+      "name": "Clean-Heterogeneous-Dual-Stream-Baseline",
+      "variables": ["modality_specific_encoders", "late_fusion"],
+      "forbidden": ["local_matching", "alignment_loss", "hierarchy", "transfer_pretraining"]
+    },
+    {
+      "id": "E2",
+      "name": "Difference-Operator-Ablation",
+      "variants": ["absolute_difference", "hetecd_style_3d_difference", "building_local_correlation"],
+      "requires": "E0_pass"
+    },
+    {
+      "id": "E3",
+      "name": "Alignment-Scope-Ablation",
+      "variants": ["none", "global", "intact_only", "reliable_intact_only"],
+      "new_loss_count": 1,
+      "alignment_weight_detached": true,
+      "background_assumed_unchanged": false,
+      "changed_pixels_forced_apart": false,
+      "requires": "E2_local_correlation_beats_simple_difference"
+    },
+    {
+      "id": "E4",
+      "name": "SAR-Transfer-Ablation",
+      "variants": ["supervised_from_scratch", "sardet_style_transfer", "croma_style_radar_initialization", "dstcd_style_registration_pretraining"],
+      "changes_only": "sar_initialization_and_transfer"
+    },
+    {
+      "id": "E5",
+      "name": "Hierarchical-Severity-Ablation",
+      "variants": ["flat_four_class", "building_affected_destroyed"],
+      "changes_only": "severity_parameterization"
+    }
+  ],
+  "selection_policy": {
+    "test_is_selector": false,
+    "validation_metrics": ["valid_miou", "damaged_iou", "destroyed_iou", "event_mean", "event_worst", "event_std", "nonnegative_event_count"],
+    "test_frequency": "once_after_design_and_checkpoint_are_validation_locked"
+  }
+}

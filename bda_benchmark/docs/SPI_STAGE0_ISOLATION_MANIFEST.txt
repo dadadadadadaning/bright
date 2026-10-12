@@ -1,0 +1,13 @@
+SPI Stage-0 isolated additions
+================================
+
+script/standard_ML/spi_stage0/__init__.py
+script/standard_ML/spi_stage0/core.py
+script/standard_ML/spi_stage0/audit.py
+tests/spi_stage0/__init__.py
+tests/spi_stage0/test_core.py
+run/run_SPI_STAGE0_isolated.sh
+docs/SPI_STAGE0_EXPERIMENT_ZH.md
+docs/SPI_STAGE0_ISOLATION_MANIFEST.txt
+
+No legacy P3, H7, H9, RGID, CMR, V1, V2, or C0 file is modified by this experiment.

@@ -1,0 +1,988 @@
+{
+  "rows": [
+    {
+      "sample_id": "bata-explosion_00000062",
+      "event": "bata-explosion",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.019034636116527635,
+      "class_pixels": [
+        240010,
+        6162,
+        5647,
+        10325
+      ],
+      "largest_class_components": [
+        1431,
+        1535,
+        1128
+      ],
+      "dark_fraction": 4.1961669921875e-05,
+      "building_dark_fraction": 4.5179362067407606e-05,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.004718780517578125,
+      "largest_suspected_cloud_fraction": 0.00250244140625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000062_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "bata-explosion_00000049",
+      "event": "bata-explosion",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013664070572185744,
+      "class_pixels": [
+        227718,
+        4412,
+        3585,
+        26429
+      ],
+      "largest_class_components": [
+        958,
+        1519,
+        2214
+      ],
+      "dark_fraction": 0.001346588134765625,
+      "building_dark_fraction": 0.00011619125079881485,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0,
+      "largest_suspected_cloud_fraction": 0.0,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\bata-explosion_00000049_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000014",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.05151724435583198,
+      "class_pixels": [
+        192725,
+        34906,
+        14902,
+        19611
+      ],
+      "largest_class_components": [
+        3533,
+        4451,
+        3199
+      ],
+      "dark_fraction": 0.02672576904296875,
+      "building_dark_fraction": 0.0024056814416802317,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.021862030029296875,
+      "largest_suspected_cloud_fraction": 0.00508880615234375,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000014_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000003",
+      "event": "hawaii-wildfire",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.027704684527948626,
+      "class_pixels": [
+        184229,
+        8208,
+        13329,
+        56378
+      ],
+      "largest_class_components": [
+        3835,
+        2096,
+        3880
+      ],
+      "dark_fraction": 0.02387237548828125,
+      "building_dark_fraction": 0.00020535198613874094,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.01865386962890625,
+      "largest_suspected_cloud_fraction": 0.0035858154296875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "libya-flood_00000021",
+      "event": "libya-flood",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.00011517485901794858,
+      "class_pixels": [
+        363581,
+        18550,
+        205407,
+        2286
+      ],
+      "largest_class_components": [
+        6209,
+        100994,
+        1310
+      ],
+      "dark_fraction": 0.07834370930989583,
+      "building_dark_fraction": 0.01917407389399893,
+      "near_black_fraction": 1.3563368055555555e-05,
+      "suspected_cloud_fraction": 0.024968465169270832,
+      "largest_suspected_cloud_fraction": 0.0020734998914930555,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\libya-flood_00000021_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "congo-volcano_00000085",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013856810604416007,
+      "class_pixels": [
+        196727,
+        20584,
+        4813,
+        40020
+      ],
+      "largest_class_components": [
+        2020,
+        1395,
+        4586
+      ],
+      "dark_fraction": 0.091796875,
+      "building_dark_fraction": 0.04034119571365241,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.005035400390625,
+      "largest_suspected_cloud_fraction": 0.000469207763671875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000085_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "congo-volcano_00000092",
+      "event": "congo-volcano",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.013620346044574452,
+      "class_pixels": [
+        182034,
+        60146,
+        4434,
+        15530
+      ],
+      "largest_class_components": [
+        2210,
+        817,
+        1126
+      ],
+      "dark_fraction": 0.09864425659179688,
+      "building_dark_fraction": 0.026912994632380477,
+      "near_black_fraction": 1.52587890625e-05,
+      "suspected_cloud_fraction": 0.004352569580078125,
+      "largest_suspected_cloud_fraction": 0.00060272216796875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "la_palma-volcano_00000597",
+      "event": "la_palma-volcano",
+      "xywh": [
+        0,
+        256,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.0036792694291258162,
+      "class_pixels": [
+        535424,
+        8616,
+        2796,
+        42988
+      ],
+      "largest_class_components": [
+        2133,
+        2052,
+        11503
+      ],
+      "dark_fraction": 0.0977817111545139,
+      "building_dark_fraction": 0.08229779411764705,
+      "near_black_fraction": 0.0004526774088541667,
+      "suspected_cloud_fraction": 0.0011579725477430555,
+      "largest_suspected_cloud_fraction": 0.00018988715277777778,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000597_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "la_palma-volcano_00000353",
+      "event": "la_palma-volcano",
+      "xywh": [
+        256,
+        256,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.004430329592855236,
+      "class_pixels": [
+        211070,
+        45915,
+        590,
+        4569
+      ],
+      "largest_class_components": [
+        6879,
+        590,
+        1668
+      ],
+      "dark_fraction": 0.0760650634765625,
+      "building_dark_fraction": 0.0396875122371461,
+      "near_black_fraction": 0.00048065185546875,
+      "suspected_cloud_fraction": 0.0100555419921875,
+      "largest_suspected_cloud_fraction": 0.002712249755859375,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\la_palma-volcano_00000353_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "turkey-earthquake_00001065",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.16857506937864153,
+      "class_pixels": [
+        116268,
+        46421,
+        51096,
+        48359
+      ],
+      "largest_class_components": [
+        8499,
+        17211,
+        12447
+      ],
+      "dark_fraction": 0.08880996704101562,
+      "building_dark_fraction": 0.04165866900655351,
+      "near_black_fraction": 1.1444091796875e-05,
+      "suspected_cloud_fraction": 0.011142730712890625,
+      "largest_suspected_cloud_fraction": 0.00434112548828125,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "turkey-earthquake_00001074",
+      "event": "turkey-earthquake",
+      "xywh": [
+        256,
+        512,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.13113696403495675,
+      "class_pixels": [
+        109387,
+        79523,
+        35771,
+        37463
+      ],
+      "largest_class_components": [
+        23817,
+        6960,
+        8572
+      ],
+      "dark_fraction": 0.08243560791015625,
+      "building_dark_fraction": 0.021943347931682344,
+      "near_black_fraction": 8.0108642578125e-05,
+      "suspected_cloud_fraction": 0.00605010986328125,
+      "largest_suspected_cloud_fraction": 0.003124237060546875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001074_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "noto-earthquake_00000038",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.042109171549479164,
+      "class_pixels": [
+        307325,
+        98929,
+        25449,
+        158121
+      ],
+      "largest_class_components": [
+        11346,
+        5434,
+        18141
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.0029924180772569445,
+      "largest_suspected_cloud_fraction": 0.00103759765625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "noto-earthquake_00000049",
+      "event": "noto-earthquake",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.0091400146484375,
+      "class_pixels": [
+        164547,
+        85215,
+        3613,
+        8769
+      ],
+      "largest_class_components": [
+        4859,
+        588,
+        2507
+      ],
+      "dark_fraction": 0.0,
+      "building_dark_fraction": 0.0,
+      "near_black_fraction": 0.0,
+      "suspected_cloud_fraction": 0.008502960205078125,
+      "largest_suspected_cloud_fraction": 0.004642486572265625,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000049_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "mexico-hurricane_00000005",
+      "event": "mexico-hurricane",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.042283762339326424,
+      "class_pixels": [
+        186537,
+        13966,
+        21172,
+        40469
+      ],
+      "largest_class_components": [
+        8215,
+        9545,
+        22969
+      ],
+      "dark_fraction": 0.0920257568359375,
+      "building_dark_fraction": 0.011427513325485736,
+      "near_black_fraction": 7.2479248046875e-05,
+      "suspected_cloud_fraction": 0.053394317626953125,
+      "largest_suspected_cloud_fraction": 0.00984954833984375,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\mexico-hurricane_00000005_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000107",
+      "event": "myanmar-hurricane",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.0018406029515331858,
+      "class_pixels": [
+        545157,
+        42882,
+        1147,
+        638
+      ],
+      "largest_class_components": [
+        1004,
+        627,
+        638
+      ],
+      "dark_fraction": 0.03854539659288195,
+      "building_dark_fraction": 0.023305796225401302,
+      "near_black_fraction": 8.477105034722223e-06,
+      "suspected_cloud_fraction": 0.002526177300347222,
+      "largest_suspected_cloud_fraction": 0.0005917019314236111,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000107_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000099",
+      "event": "myanmar-hurricane",
+      "xywh": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": -0.0033849270306199174,
+      "class_pixels": [
+        1033604,
+        7824,
+        4777,
+        2371
+      ],
+      "largest_class_components": [
+        1196,
+        694,
+        1206
+      ],
+      "dark_fraction": 0.05663299560546875,
+      "building_dark_fraction": 0.0252471279722148,
+      "near_black_fraction": 0.0022792816162109375,
+      "suspected_cloud_fraction": 0.012583732604980469,
+      "largest_suspected_cloud_fraction": 0.0031213760375976562,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\myanmar-hurricane_00000099_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "ukraine-conflict_00000354",
+      "event": "ukraine-conflict",
+      "xywh": [
+        512,
+        256,
+        512,
+        512
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.006522379219709325,
+      "class_pixels": [
+        201636,
+        55090,
+        2778,
+        2640
+      ],
+      "largest_class_components": [
+        3979,
+        980,
+        2640
+      ],
+      "dark_fraction": 0.09998703002929688,
+      "building_dark_fraction": 0.006263634560719244,
+      "near_black_fraction": 0.0001220703125,
+      "suspected_cloud_fraction": 0.019214630126953125,
+      "largest_suspected_cloud_fraction": 0.00292205810546875,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000354_Ours_A1.png"
+      ]
+    },
+    {
+      "sample_id": "ukraine-conflict_00000315",
+      "event": "ukraine-conflict",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "approved": true,
+      "review_status": "inference_authorized_cloud_review_PENDING",
+      "selection_score": 0.0025031299930288846,
+      "class_pixels": [
+        451956,
+        119029,
+        16542,
+        2297
+      ],
+      "largest_class_components": [
+        2198,
+        1858,
+        1242
+      ],
+      "dark_fraction": 0.09841071234809028,
+      "building_dark_fraction": 0.003909536658252822,
+      "near_black_fraction": 6.442599826388889e-05,
+      "suspected_cloud_fraction": 0.014063517252604166,
+      "largest_suspected_cloud_fraction": 0.0010002983940972222,
+      "paths": [
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_RGB.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_SAR.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_GT.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_UNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_DeepLabV3Plus.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_SiamAttnUNet.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_SiamCRNN.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_DamageFormer.png",
+        "D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\ukraine-conflict_00000315_Ours_A1.png"
+      ]
+    }
+  ],
+  "models": [
+    "UNet",
+    "DeepLabV3Plus",
+    "SiamAttnUNet",
+    "SiamCRNN",
+    "DamageFormer",
+    "Ours_A1"
+  ],
+  "records": [
+    {
+      "name": "UNet",
+      "factory": "bda_benchmark.model.UNet:UNet",
+      "kwargs": {
+        "in_channels": 6,
+        "num_classes": 4
+      },
+      "input_mode": "concat",
+      "output_index": null,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_UNet_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "46c11db38011b8c48cbf1223c3bfc629569f64ee6df300806211479eb5a5bcc2",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5228290,
+          143753,
+          50327,
+          27565
+        ],
+        [
+          132848,
+          553590,
+          66361,
+          3579
+        ],
+        [
+          62354,
+          115215,
+          230451,
+          9828
+        ],
+        [
+          58217,
+          257106,
+          39654,
+          164286
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "DeepLabV3Plus",
+      "factory": "bda_benchmark.model.DeepLabV3Plus:DeepLabV3Plus",
+      "kwargs": {
+        "in_channels": 6,
+        "num_classes": 4
+      },
+      "input_mode": "concat",
+      "output_index": null,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DeepLabV3Plus_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "3ff8cca5b61c5a636601ec896724fa248c4ffecc4eb76d811ee8c60f4d2323e3",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5210193,
+          169050,
+          48841,
+          21851
+        ],
+        [
+          136085,
+          536910,
+          64998,
+          18385
+        ],
+        [
+          54594,
+          118492,
+          237746,
+          7016
+        ],
+        [
+          78073,
+          243528,
+          53428,
+          144234
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "SiamAttnUNet",
+      "factory": "bda_benchmark.model.SiamAttnUNet:SiamAttnUNet",
+      "kwargs": {
+        "in_channels": 3,
+        "num_classes": 4
+      },
+      "input_mode": "pair",
+      "output_index": null,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamAttnUNet_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "0cf7825c10489cb432c99faba8f7126768bd01270f4c3d9d9ad69afeed466f51",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5222407,
+          160272,
+          41049,
+          26207
+        ],
+        [
+          126637,
+          554600,
+          38270,
+          36871
+        ],
+        [
+          63932,
+          203518,
+          136668,
+          13730
+        ],
+        [
+          67298,
+          237354,
+          46982,
+          167629
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "SiamCRNN",
+      "factory": "bda_benchmark.model.SiamCRNN:SiamCRNN",
+      "kwargs": {},
+      "input_mode": "pair",
+      "output_index": 1,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamCRNN_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "3ea5c6e720f0dcde66d0a37e12d3ab7e2305c83c30c9806b17e1f45af79f1cc0",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5264473,
+          118352,
+          43430,
+          23680
+        ],
+        [
+          124546,
+          545324,
+          70099,
+          16409
+        ],
+        [
+          57820,
+          122409,
+          224678,
+          12941
+        ],
+        [
+          94964,
+          203047,
+          54150,
+          167102
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "DamageFormer",
+      "factory": "bda_benchmark.model.DamageFormer:DamageFormer",
+      "kwargs": {
+        "use_pretrained_swin": false
+      },
+      "input_mode": "pair",
+      "output_index": 1,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DamageFormer_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "0d2da93c631574c0887447e6fc1c865728d5df44ee7fc2bb5adc0bf454594f24",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5288086,
+          115119,
+          30544,
+          16186
+        ],
+        [
+          102994,
+          583946,
+          60721,
+          8717
+        ],
+        [
+          49023,
+          125862,
+          224737,
+          18226
+        ],
+        [
+          79414,
+          234894,
+          42547,
+          162408
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "Ours_A1",
+      "factory": "bda_benchmark.model.DamageFormer_S8_MICB_DSMIL:DamageFormer_S8_MICB_DSMIL",
+      "kwargs": {
+        "roi_alpha": 0.1,
+        "detach_building_prior": true,
+        "token_dim": 128,
+        "mil_topk": 8,
+        "max_tokens_per_bag": 256,
+        "mil_residual_scale": 0.0
+      },
+      "input_mode": "pair",
+      "output_index": 1,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/best/best_val_miou.pth",
+      "enabled": true,
+      "expected_sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+      "expected_variant": "a1",
+      "sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5275733,
+          115932,
+          27172,
+          31098
+        ],
+        [
+          89008,
+          572090,
+          65628,
+          29652
+        ],
+        [
+          55130,
+          110537,
+          238378,
+          13803
+        ],
+        [
+          60391,
+          135284,
+          51636,
+          271952
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "DamageFormer",
+  "factory": "bda_benchmark.model.DamageFormer:DamageFormer",
+  "kwargs": {
+    "use_pretrained_swin": false
+  },
+  "input_mode": "pair",
+  "output_index": 1,
+  "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DamageFormer_standard_ML_split.pth",
+  "enabled": true,
+  "sha256": "0d2da93c631574c0887447e6fc1c865728d5df44ee7fc2bb5adc0bf454594f24",
+  "status": "complete",
+  "confusion_visual_subset": [
+    [
+      5288086,
+      115119,
+      30544,
+      16186
+    ],
+    [
+      102994,
+      583946,
+      60721,
+      8717
+    ],
+    [
+      49023,
+      125862,
+      224737,
+      18226
+    ],
+    [
+      79414,
+      234894,
+      42547,
+      162408
+    ]
+  ],
+  "split": "test",
+  "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+}

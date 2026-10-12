@@ -1,0 +1,21 @@
+{
+  "files": [
+    "README_ZH.md",
+    "__init__.py",
+    "adapter_template.py",
+    "build_memory.py",
+    "evaluate.py",
+    "local_matcher.py",
+    "memory_retriever.py",
+    "pipeline.py",
+    "prototype.py",
+    "run.sh",
+    "schema.py",
+    "specialist.py",
+    "superpixel_memory.py",
+    "test_core.py",
+    "train_utility.py",
+    "utility.py"
+  ],
+  "compile_errors": {}
+}

@@ -1,0 +1,24 @@
+CMR-V2 EC0--EC3 isolated additions only
+
+ADDED:
+model/cmr_v2/__init__.py
+model/cmr_v2/event_factorization.py
+script/standard_ML/cmr_v2/__init__.py
+script/standard_ML/cmr_v2/audit_ec0_ec3.py
+tests/cmr_v2/__init__.py
+tests/cmr_v2/test_event_factorization.py
+configs/cmr_v2/paths.example.env
+run/run_CMR_V2_EC0_EC3_isolated.sh
+docs/CMR_V2_EC0_EC3_ISOLATED_ZH.md
+docs/CMR_V2_ISOLATION_MANIFEST.txt
+
+READ-ONLY UPSTREAM:
+CMR-P0 train/query pooling caches
+CMR-M3 train/validation Raw-Mean Top-20 caches
+
+NOT IMPLEMENTED BY PROTOCOL:
+EC4 multi-prototype
+EC5 soft-event mixture
+EC6 P3 acceptance/fusion
+
+No existing CMR/V0/V1/P3 file is overwritten.

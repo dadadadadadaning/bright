@@ -1,0 +1,142 @@
+{"kind":"deck","id":"pr/rte6ou","name":"Deck"}
+{"kind":"layout","layoutId":"5f9b712b-ce7f-4e5b-9704-9d80e33683d5","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"6b73146d-361e-4c84-b8af-8ec8b543418b","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/nmksc3","slide":1,"title":"A1 gains and failures on 18 selected Test crops","textShapes":8}
+{"kind":"textbox","id":"sh/58r6pk7i","slide":1,"text":"A1 gains and failures on 18 selected Test crops","textPreview":"A1 gains and failures on 18 selected Test crops","textChars":47,"textLines":1,"bbox":[60,30,1480,60]}
+{"kind":"textbox","id":"sh/i50nup87","slide":1,"text":"Pooled pixel metrics, not full-Test performance. DamageFormer is the reference checkpoint.","textPreview":"Pooled pixel metrics, not full-Test performance. DamageFormer is the reference checkpoint.","textChars":90,"textLines":1,"bbox":[60,98,1480,40]}
+{"kind":"textbox","id":"sh/w3i5sfq1","slide":1,"text":"12 crops improve and 6 decline in foreground mIoU.","textPreview":"12 crops improve and 6 decline in foreground mIoU.","textChars":50,"textLines":1,"bbox":[60,640,1480,45]}
+{"kind":"textbox","id":"sh/x4rmlk7m","slide":1,"text":"Destroyed IoU: 28.88% to 45.80%.  Damaged IoU: 40.74% to 42.39%.","textPreview":"Destroyed IoU: 28.88% to 45.80%.  Damaged IoU: 40.74% to 42.39%.","textChars":64,"textLines":1,"bbox":[60,705,1480,45]}
+{"kind":"textbox","id":"sh/a1gnq58v","slide":1,"text":"Damaged predicted Intact: 125,862 to 110,537 pixels.","textPreview":"Damaged predicted Intact: 125,862 to 110,537 pixels.","textChars":52,"textLines":1,"bbox":[60,765,1480,45]}
+{"kind":"textbox","id":"sh/v2p4japg","slide":1,"text":"Intact predicted Damaged: 60,721 to 65,628 pixels.","textPreview":"Intact predicted Damaged: 60,721 to 65,628 pixels.","textChars":50,"textLines":1,"bbox":[60,825,1480,45]}
+{"kind":"textbox","id":"sh/gz25oj65","slide":1,"text":"Improved recall comes with more intact-building false alarms. ROI causality requires the matched A0 control.","textPreview":"Improved recall comes with more intact-building false alarms. ROI causality requires the matched A0 control.","textChars":108,"textLines":1,"bbox":[60,905,1480,70]}
+{"kind":"textbox","id":"sh/10b6x47q","slide":1,"text":"Crop sizes vary. Larger crops contribute more pixels. No confidence intervals or full-Test claims.","textPreview":"Crop sizes vary. Larger crops contribute more pixels. No confidence intervals or full-Test claims.","textChars":98,"textLines":1,"bbox":[60,1000,1480,35]}
+{"kind":"table","id":"tb/6dc7axkj","slide":1,"name":"","rows":7,"cols":5,"preview":"Model | Foreground mIoU | Damaged IoU | Destroyed IoU | Damaged F1","bbox":[60,175,1480,420]}
+{"kind":"notes","id":"nt/nmksc3","slide":1,"text":"Source: BRIGHT_test_sixmodels_images.zip, label PNGs, run_manifest.json, and matched BRIGHT GT. Metrics recomputed from label IDs and verified against the saved confusion matrices. Selected Test crops only. No equal-training-budget claim. This is A1, not the proposed region-memory architecture. Case selection was diagnostic after observing predictions, showing both gains and regressions. "}
+{"kind":"slide","id":"sl/zinx9j","slide":2,"title":"Largest foreground mIoU gain","textShapes":10}
+{"kind":"textbox","id":"sh/6lwj6d0j","slide":2,"text":"Largest foreground mIoU gain","textPreview":"Largest foreground mIoU gain","textChars":28,"textLines":1,"bbox":[60,24,1480,52]}
+{"kind":"textbox","id":"sh/to7ihsza","slide":2,"text":"noto-earthquake_00000038     Crop: 768 px     Foreground mIoU change: +22.09 pp     Damaged IoU change: +0.00 pp","textPreview":"noto-earthquake_00000038     Crop: 768 px     Foreground mIoU change: +22.09 pp     Damaged IoU change: +0.00 pp","textChars":112,"textLines":1,"bbox":[60,85,1480,48]}
+{"kind":"textbox","id":"sh/sny18nip","slide":2,"text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[85,142,310,35]}
+{"kind":"shape","id":"sh/ihwj2d0n","slide":2,"bbox":[85,190,300,300]}
+{"kind":"shape","id":"sh/5knidszy","slide":2,"bbox":[172.5,202.5,75,75]}
+{"kind":"shape","id":"sh/vel07yhw","slide":2,"bbox":[85,570,300,300]}
+{"kind":"textbox","id":"sh/adczyt0b","slide":2,"text":"Reference GT","textPreview":"Reference GT","textChars":12,"textLines":1,"bbox":[470,142,310,35]}
+{"kind":"shape","id":"sh/l83e9cbu","slide":2,"bbox":[470,190,300,300]}
+{"kind":"shape","id":"sh/y5cvyhs3","slide":2,"bbox":[557.5,202.5,75,75]}
+{"kind":"shape","id":"sh/c3adw7ad","slide":2,"bbox":[470,570,300,300]}
+{"kind":"textbox","id":"sh/d4je5cbi","slide":2,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[855,142,310,35]}
+{"kind":"shape","id":"sh/b21w32ts","slide":2,"bbox":[855,190,300,300]}
+{"kind":"shape","id":"sh/wzex8rah","slide":2,"bbox":[942.5,202.5,75,75]}
+{"kind":"shape","id":"sh/54zm5czu","slide":2,"bbox":[855,570,300,300]}
+{"kind":"textbox","id":"sh/k3q5c7y9","slide":2,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1240,142,310,35]}
+{"kind":"shape","id":"sh/ih8naxg3","slide":2,"bbox":[1240,190,300,300]}
+{"kind":"shape","id":"sh/xgzm1szy","slide":2,"bbox":[1327.5,202.5,75,75]}
+{"kind":"shape","id":"sh/veh4zihs","slide":2,"bbox":[1240,570,300,300]}
+{"kind":"textbox","id":"sh/ado36dg7","slide":2,"text":"Identical blue-box crop in all columns, enlarged 4x","textPreview":"Identical blue-box crop in all columns, enlarged 4x","textChars":51,"textLines":1,"bbox":[85,510,1450,40]}
+{"kind":"textbox","id":"sh/9cfmxszm","slide":2,"text":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textPreview":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textChars":79,"textLines":1,"bbox":[60,910,1480,35]}
+{"kind":"textbox","id":"sh/8b6l4ny1","slide":2,"text":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textPreview":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textChars":89,"textLines":1,"bbox":[60,954,1480,35]}
+{"kind":"textbox","id":"sh/yh4jetwz","slide":2,"text":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textPreview":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textChars":123,"textLines":1,"bbox":[60,1005,1480,35]}
+{"kind":"image","id":"im/2d8nmdob","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_RGB.png","bbox":[85,190,300,300]}
+{"kind":"image","id":"im/p0z6hsnm","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_0.png","bbox":[85,570,300,300]}
+{"kind":"image","id":"im/nq9wfi1c","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_GT.png","bbox":[470,190,300,300]}
+{"kind":"image","id":"im/orixon2x","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_2.png","bbox":[470,570,300,300]}
+{"kind":"image","id":"im/1o7ed8j6","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_DamageFormer.png","bbox":[855,190,300,300]}
+{"kind":"image","id":"im/qhwvetkj","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_7.png","bbox":[855,570,300,300]}
+{"kind":"image","id":"im/gfexsjmh","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\noto-earthquake_00000038_Ours_A1.png","bbox":[1240,190,300,300]}
+{"kind":"image","id":"im/3i5gny58","slide":2,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\noto-earthquake_00000038_zoom_8.png","bbox":[1240,570,300,300]}
+{"kind":"notes","id":"nt/zinx9j","slide":2,"text":"Source: BRIGHT_test_sixmodels_images.zip, label PNGs, run_manifest.json, and matched BRIGHT GT. Metrics recomputed from label IDs and verified against the saved confusion matrices. Selected Test crops only. No equal-training-budget claim. This is A1, not the proposed region-memory architecture. Case selection was diagnostic after observing predictions, showing both gains and regressions. {\"sample\":\"noto-earthquake_00000038\",\"xywh\":[0,0,768,768],\"zoom\":[224,32,192,192],\"rule\":\"Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.\"}"}
+{"kind":"slide","id":"sl/g6mked","slide":3,"title":"Damaged IoU gain","textShapes":10}
+{"kind":"textbox","id":"sh/ul8fep83","slide":3,"text":"Damaged IoU gain","textPreview":"Damaged IoU gain","textChars":16,"textLines":1,"bbox":[60,24,1480,52]}
+{"kind":"textbox","id":"sh/hozy947u","slide":3,"text":"turkey-earthquake_00001065     Crop: 512 px     Foreground mIoU change: +12.00 pp     Damaged IoU change: +26.18 pp","textPreview":"turkey-earthquake_00001065     Crop: 512 px     Foreground mIoU change: +12.00 pp     Damaged IoU change: +26.18 pp","textChars":115,"textLines":1,"bbox":[60,85,1480,48]}
+{"kind":"textbox","id":"sh/gnqhgzq9","slide":3,"text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[85,142,310,35]}
+{"kind":"shape","id":"sh/6hofap8r","slide":3,"bbox":[85,190,300,300]}
+{"kind":"shape","id":"sh/tkzylk7i","slide":3,"bbox":[216.25,377.5,75,75]}
+{"kind":"shape","id":"sh/re1gfepw","slide":3,"bbox":[85,570,300,300]}
+{"kind":"textbox","id":"sh/qdszm98b","slide":3,"text":"Reference GT","textPreview":"Reference GT","textChars":12,"textLines":1,"bbox":[470,142,310,35]}
+{"kind":"shape","id":"sh/947mlona","slide":3,"bbox":[470,190,300,300]}
+{"kind":"shape","id":"sh/m1gnqt4j","slide":3,"bbox":[601.25,377.5,75,75]}
+{"kind":"shape","id":"sh/0ze5ojmt","slide":3,"bbox":[470,570,300,300]}
+{"kind":"textbox","id":"sh/l0nmhone","slide":3,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[855,142,310,35]}
+{"kind":"shape","id":"sh/zy54fe58","slide":3,"bbox":[855,190,300,300]}
+{"kind":"shape","id":"sh/cvelkzmh","slide":3,"bbox":[986.25,377.5,75,75]}
+{"kind":"shape","id":"sh/tgvu1wbu","slide":3,"bbox":[855,570,300,300]}
+{"kind":"textbox","id":"sh/sfmtsbu9","slide":3,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1240,142,310,35]}
+{"kind":"shape","id":"sh/6d4bq1c3","slide":3,"bbox":[1240,190,300,300]}
+{"kind":"shape","id":"sh/5svaxwbi","slide":3,"bbox":[1371.25,377.5,75,75]}
+{"kind":"shape","id":"sh/jqtsvmts","slide":3,"bbox":[1240,570,300,300]}
+{"kind":"textbox","id":"sh/ipkbmhc7","slide":3,"text":"Identical blue-box crop in all columns, enlarged 4x","textPreview":"Identical blue-box crop in all columns, enlarged 4x","textChars":51,"textLines":1,"bbox":[85,510,1450,40]}
+{"kind":"textbox","id":"sh/pofu9gb2","slide":3,"text":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textPreview":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textChars":79,"textLines":1,"bbox":[60,910,1480,35]}
+{"kind":"textbox","id":"sh/4n6t0vah","slide":3,"text":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textPreview":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textChars":89,"textLines":1,"bbox":[60,954,1480,35]}
+{"kind":"textbox","id":"sh/mt0rudsz","slide":3,"text":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textPreview":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textChars":123,"textLines":1,"bbox":[60,1005,1480,35]}
+{"kind":"image","id":"im/e9ofel07","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_RGB.png","bbox":[85,190,300,300]}
+{"kind":"image","id":"im/1wfy90jy","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_0.png","bbox":[85,570,300,300]}
+{"kind":"image","id":"im/jihs3als","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_GT.png","bbox":[470,190,300,300]}
+{"kind":"image","id":"im/kjq9wfmd","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_2.png","bbox":[470,570,300,300]}
+{"kind":"image","id":"im/t8ja9k3u","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_DamageFormer.png","bbox":[855,190,300,300]}
+{"kind":"image","id":"im/u9sb2p4f","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_7.png","bbox":[855,570,300,300]}
+{"kind":"image","id":"im/cje5sna5","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\turkey-earthquake_00001065_Ours_A1.png","bbox":[1240,190,300,300]}
+{"kind":"image","id":"im/3e54fi9o","slide":3,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\turkey-earthquake_00001065_zoom_8.png","bbox":[1240,570,300,300]}
+{"kind":"notes","id":"nt/g6mked","slide":3,"text":"Source: BRIGHT_test_sixmodels_images.zip, label PNGs, run_manifest.json, and matched BRIGHT GT. Metrics recomputed from label IDs and verified against the saved confusion matrices. Selected Test crops only. No equal-training-budget claim. This is A1, not the proposed region-memory architecture. Case selection was diagnostic after observing predictions, showing both gains and regressions. {\"sample\":\"turkey-earthquake_00001065\",\"xywh\":[256,0,512,512],\"zoom\":[224,320,128,128],\"rule\":\"Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.\"}"}
+{"kind":"slide","id":"sl/jg018n","slide":4,"title":"Damaged IoU regression","textShapes":10}
+{"kind":"textbox","id":"sh/sjilg7yh","slide":4,"text":"Damaged IoU regression","textPreview":"Damaged IoU regression","textChars":22,"textLines":1,"bbox":[60,24,1480,52]}
+{"kind":"textbox","id":"sh/7i94n2xw","slide":4,"text":"hawaii-wildfire_00000003     Crop: 512 px     Foreground mIoU change: -7.68 pp     Damaged IoU change: -9.65 pp","textPreview":"hawaii-wildfire_00000003     Crop: 512 px     Foreground mIoU change: -7.68 pp     Damaged IoU change: -9.65 pp","textChars":111,"textLines":1,"bbox":[60,85,1480,48]}
+{"kind":"textbox","id":"sh/6hg3exgb","slide":4,"text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[85,142,310,35]}
+{"kind":"shape","id":"sh/kvylc7yl","slide":4,"bbox":[85,190,300,300]}
+{"kind":"shape","id":"sh/jup4j2x0","slide":4,"bbox":[85,208.75,75,75]}
+{"kind":"shape","id":"sh/xs7mhsfu","slide":4,"bbox":[85,570,300,300]}
+{"kind":"textbox","id":"sh/wryl8ny9","slide":4,"text":"Reference GT","textPreview":"Reference GT","textChars":12,"textLines":1,"bbox":[470,142,310,35]}
+{"kind":"shape","id":"sh/v25wvy1k","slide":4,"bbox":[470,190,300,300]}
+{"kind":"shape","id":"sh/w3ed43i5","slide":4,"bbox":[470,208.75,75,75]}
+{"kind":"shape","id":"sh/mxwvyt03","slide":4,"bbox":[470,570,300,300]}
+{"kind":"textbox","id":"sh/7y5wry18","slide":4,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[855,142,310,35]}
+{"kind":"shape","id":"sh/90netoje","slide":4,"bbox":[855,190,300,300]}
+{"kind":"shape","id":"sh/ytcvu90r","slide":4,"bbox":[855,208.75,75,75]}
+{"kind":"shape","id":"sh/ne1svah4","slide":4,"bbox":[855,570,300,300]}
+{"kind":"textbox","id":"sh/2dsbm5gj","slide":4,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1240,142,310,35]}
+{"kind":"shape","id":"sh/ozatofyp","slide":4,"bbox":[1240,190,300,300]}
+{"kind":"shape","id":"sh/b21szuh0","slide":4,"bbox":[1240,208.75,75,75]}
+{"kind":"shape","id":"sh/x4ja1kz6","slide":4,"bbox":[1240,570,300,300]}
+{"kind":"textbox","id":"sh/c3atszyl","slide":4,"text":"Identical blue-box crop in all columns, enlarged 4x","textPreview":"Identical blue-box crop in all columns, enlarged 4x","textChars":51,"textLines":1,"bbox":[85,510,1450,40]}
+{"kind":"textbox","id":"sh/r6hsnqhw","slide":4,"text":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textPreview":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textChars":79,"textLines":1,"bbox":[60,910,1480,35]}
+{"kind":"textbox","id":"sh/q5orelgb","slide":4,"text":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textPreview":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textChars":89,"textLines":1,"bbox":[60,954,1480,35]}
+{"kind":"textbox","id":"sh/gbmpore9","slide":4,"text":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textPreview":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textChars":123,"textLines":1,"bbox":[60,1005,1480,35]}
+{"kind":"image","id":"im/oz2h87al","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_RGB.png","bbox":[85,190,300,300]}
+{"kind":"image","id":"im/3yt0f29g","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_0.png","bbox":[85,570,300,300]}
+{"kind":"image","id":"im/lo7m9wfe","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_GT.png","bbox":[470,190,300,300]}
+{"kind":"image","id":"im/ylwne1gn","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_2.png","bbox":[470,570,300,300]}
+{"kind":"image","id":"im/7qp4b6xk","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_DamageFormer.png","bbox":[855,190,300,300]}
+{"kind":"image","id":"im/gvi5oby1","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_7.png","bbox":[855,570,300,300]}
+{"kind":"image","id":"im/e98fytsj","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\hawaii-wildfire_00000003_Ours_A1.png","bbox":[1240,190,300,300]}
+{"kind":"image","id":"im/p0jyd8r6","slide":4,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\hawaii-wildfire_00000003_zoom_8.png","bbox":[1240,570,300,300]}
+{"kind":"notes","id":"nt/jg018n","slide":4,"text":"Source: BRIGHT_test_sixmodels_images.zip, label PNGs, run_manifest.json, and matched BRIGHT GT. Metrics recomputed from label IDs and verified against the saved confusion matrices. Selected Test crops only. No equal-training-budget claim. This is A1, not the proposed region-memory architecture. Case selection was diagnostic after observing predictions, showing both gains and regressions. {\"sample\":\"hawaii-wildfire_00000003\",\"xywh\":[0,0,512,512],\"zoom\":[0,32,128,128],\"rule\":\"Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.\"}"}
+{"kind":"slide","id":"sl/alhtp3","slide":5,"title":"Foreground mIoU regression","textShapes":10}
+{"kind":"textbox","id":"sh/m98rypwb","slide":5,"text":"Foreground mIoU regression","textPreview":"Foreground mIoU regression","textChars":26,"textLines":1,"bbox":[60,24,1480,52]}
+{"kind":"textbox","id":"sh/9cjat4v2","slide":5,"text":"congo-volcano_00000092     Crop: 512 px     Foreground mIoU change: -2.72 pp     Damaged IoU change: +0.07 pp","textPreview":"congo-volcano_00000092     Crop: 512 px     Foreground mIoU change: -2.72 pp     Damaged IoU change: +0.07 pp","textChars":109,"textLines":1,"bbox":[60,85,1480,48]}
+{"kind":"textbox","id":"sh/8ba90zeh","slide":5,"text":"Pre-event RGB","textPreview":"Pre-event RGB","textChars":13,"textLines":1,"bbox":[85,142,310,35]}
+{"kind":"shape","id":"sh/adsr29wn","slide":5,"bbox":[85,190,300,300]}
+{"kind":"shape","id":"sh/xgjax4vy","slide":5,"bbox":[291.25,208.75,75,75]}
+{"kind":"shape","id":"sh/bixsjado","slide":5,"bbox":[85,570,300,300]}
+{"kind":"textbox","id":"sh/qhorq5wj","slide":5,"text":"Reference GT","textPreview":"Reference GT","textChars":12,"textLines":1,"bbox":[470,142,310,35]}
+{"kind":"shape","id":"sh/xcjaxkv2","slide":5,"bbox":[470,190,300,300]}
+{"kind":"shape","id":"sh/a9sr2pwb","slide":5,"bbox":[676.25,208.75,75,75]}
+{"kind":"shape","id":"sh/kfu98zed","slide":5,"bbox":[470,570,300,300]}
+{"kind":"textbox","id":"sh/l03a14vy","slide":5,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[855,142,310,35]}
+{"kind":"shape","id":"sh/zelszud8","slide":5,"bbox":[855,190,300,300]}
+{"kind":"shape","id":"sh/0jq9wve9","slide":5,"bbox":[1061.25,208.75,75,75]}
+{"kind":"shape","id":"sh/horyds3m","slide":5,"bbox":[855,570,300,300]}
+{"kind":"textbox","id":"sh/wnyx4721","slide":5,"text":"Ours (A1)","textPreview":"Ours (A1)","textChars":9,"textLines":1,"bbox":[1240,142,310,35]}
+{"kind":"shape","id":"sh/u1gf2xkv","slide":5,"bbox":[1240,190,300,300]}
+{"kind":"shape","id":"sh/5sryhc3i","slide":5,"bbox":[1446.25,208.75,75,75]}
+{"kind":"shape","id":"sh/jq9gf2lc","slide":5,"bbox":[1240,570,300,300]}
+{"kind":"textbox","id":"sh/ip0f6xkr","slide":5,"text":"Identical blue-box crop in all columns, enlarged 4x","textPreview":"Identical blue-box crop in all columns, enlarged 4x","textChars":51,"textLines":1,"bbox":[85,510,1450,40]}
+{"kind":"textbox","id":"sh/twbylc3e","slide":5,"text":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textPreview":"GT and predictions: background white, intact green, damaged tan, destroyed red.","textChars":79,"textLines":1,"bbox":[60,910,1480,35]}
+{"kind":"textbox","id":"sh/svihcr29","slide":5,"text":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textPreview":"Boxes mark error changes for diagnosis. They are not learned regions or an attention map.","textChars":89,"textLines":1,"bbox":[60,954,1480,35]}
+{"kind":"textbox","id":"sh/a1cv690b","slide":5,"text":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textPreview":"Metrics above refer to the full displayed crop, not just the blue box. Case selection uses observed prediction differences.","textChars":123,"textLines":1,"bbox":[60,1005,1480,35]}
+{"kind":"image","id":"im/md4b21oz","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_RGB.png","bbox":[85,190,300,300]}
+{"kind":"image","id":"im/9gfadwna","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_0.png","bbox":[85,570,300,300]}
+{"kind":"image","id":"im/j6hgvi1k","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_GT.png","bbox":[470,190,300,300]}
+{"kind":"image","id":"im/47qhon25","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_2.png","bbox":[470,570,300,300]}
+{"kind":"image","id":"im/twjy1sjm","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_DamageFormer.png","bbox":[855,190,300,300]}
+{"kind":"image","id":"im/mdofetkr","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_7.png","bbox":[855,570,300,300]}
+{"kind":"image","id":"im/cve14bml","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_comparison_ppt\\build\\assets\\congo-volcano_00000092_Ours_A1.png","bbox":[1240,190,300,300]}
+{"kind":"image","id":"im/nqlkr6l4","slide":5,"name":"","alt":"D:\\software\\dowmload\\BRIGHT-master\\research_reports\\test_evidence_details\\build\\assets\\congo-volcano_00000092_zoom_8.png","bbox":[1240,570,300,300]}
+{"kind":"notes","id":"nt/alhtp3","slide":5,"text":"Source: BRIGHT_test_sixmodels_images.zip, label PNGs, run_manifest.json, and matched BRIGHT GT. Metrics recomputed from label IDs and verified against the saved confusion matrices. Selected Test crops only. No equal-training-budget claim. This is A1, not the proposed region-memory architecture. Case selection was diagnostic after observing predictions, showing both gains and regressions. {\"sample\":\"congo-volcano_00000092\",\"xywh\":[512,0,512,512],\"zoom\":[352,32,128,128],\"rule\":\"Extremal signed error-change sum on a 32-pixel grid; diagnostic selection after prediction.\"}"}

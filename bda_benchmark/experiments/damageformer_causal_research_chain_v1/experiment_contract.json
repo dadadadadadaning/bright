@@ -1,0 +1,15 @@
+{
+  "protocol": "DAMAGEFORMER_CAUSAL_RESEARCH_CHAIN_V1",
+  "test_access": "FORBIDDEN until the final frozen method",
+  "forward_partition_gt": false,
+  "stage_a_source": "damageformer_building_internal_change_partition_v2",
+  "stage_b_representation": "immutable Stage-1 building/region cache",
+  "stage_c_expert": "binary Intact-vs-Damaged ranking/correction only",
+  "stage_d_prototype": "Train-only support; Validation query only",
+  "stage_e_memory": "Train-only memory; optional same-event exclusion; Validation read-only",
+  "verifier_training": "train-only fit/calibration split; never Validation",
+  "experiment_isolation": "unique output directory per method, K, control, and seed",
+  "primary_tail_metric": "Damaged-vs-Intact AUROC plus Damaged F1 and D->I",
+  "primary_selective_metric": "Rescue/Harm at fixed coverage",
+  "memory_admission": "instance memory retained only if it exceeds prototype oracle and negative controls"
+}

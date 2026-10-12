@@ -1,0 +1,29 @@
+{
+  "protocol": "SEC_ALIGNMENT_V1",
+  "question": "Can known synthetic translations make the existing D1 correspondence offsets respond correctly without damaging clean damage classification?",
+  "completed_reference": "SALT-D1 pilot8000",
+  "variants": {
+    "s1": "shift augmentation control",
+    "s2": "s1 plus relative offset-delta supervision",
+    "s3": "s2 plus building-masked prediction consistency",
+    "s2r0": "query/key-only alignment with full-image support",
+    "s2r": "query/key-only alignment with training-only GT-building support",
+    "s2rp": "query/key-only alignment with predicted soft-building support",
+    "s2rr": "query/key-only alignment with predicted building-and-ring support",
+    "s2rcf": "predicted building-and-ring support with stage-3 coarse and stage-2 residual matching"
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.005,
+    "effective_batch_size": 16,
+    "probe_steps": 5000,
+    "pilot_steps": 8000,
+    "short_steps": 20000,
+    "final_steps": 50000,
+    "synthetic_shifts": [4, 8]
+  },
+  "validation_shifts": [4, 8, 16],
+  "official_instances_accessed": false,
+  "test_accessed": false
+}

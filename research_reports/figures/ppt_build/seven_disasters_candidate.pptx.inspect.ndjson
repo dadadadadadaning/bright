@@ -1,0 +1,108 @@
+{"kind":"deck","id":"pr/57wmyi","name":"Deck"}
+{"kind":"layout","layoutId":"cc9c1b57-587c-4b77-b080-aef264173051","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"65aef6e3-b89a-4355-9e1a-9e2edb4ef967","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/wdl2vo","slide":1,"title":"七类灾害的建筑区域对照","textShapes":54}
+{"kind":"textbox","id":"sh/k7qhcf6d","slide":1,"text":"七类灾害的建筑区域对照","textPreview":"七类灾害的建筑区域对照","textChars":11,"textLines":1,"bbox":[30,25,1740,60]}
+{"kind":"textbox","id":"sh/z6hgjaps","slide":1,"text":"真实配对影像与 GT 约束分区。当前使用模型：DamageFormer（预测待填）","textPreview":"真实配对影像与 GT 约束分区。当前使用模型：DamageFormer（预测待填）","textChars":41,"textLines":1,"bbox":[30,93,1740,40]}
+{"kind":"textbox","id":"sh/y58fa5o7","slide":1,"text":"灾前 RGB","textPreview":"灾前 RGB","textChars":6,"textLines":1,"bbox":[200,158,219,42]}
+{"kind":"textbox","id":"sh/x4zyh07m","slide":1,"text":"灾后 SAR","textPreview":"灾后 SAR","textChars":6,"textLines":1,"bbox":[425,158,219,42]}
+{"kind":"textbox","id":"sh/c3qx8v6h","slide":1,"text":"GT 范围","textPreview":"GT 范围","textChars":5,"textLines":1,"bbox":[650,158,219,42]}
+{"kind":"textbox","id":"sh/b2hgfapw","slide":1,"text":"规则网格","textPreview":"规则网格","textChars":4,"textLines":1,"bbox":[875,158,219,42]}
+{"kind":"textbox","id":"sh/a1of65ob","slide":1,"text":"RGB SLIC","textPreview":"RGB SLIC","textChars":8,"textLines":1,"bbox":[1100,158,219,42]}
+{"kind":"textbox","id":"sh/p0fyd07q","slide":1,"text":"选中区域","textPreview":"选中区域","textChars":4,"textLines":1,"bbox":[1325,158,219,42]}
+{"kind":"textbox","id":"sh/oz6x4v65","slide":1,"text":"DamageFormer","textPreview":"DamageFormer","textChars":12,"textLines":1,"bbox":[1550,158,219,42]}
+{"kind":"textbox","id":"sh/ih4v6xwf","slide":1,"text":"地震","textPreview":"地震","textChars":2,"textLines":1,"bbox":[30,249,160,43]}
+{"kind":"textbox","id":"sh/jidwz2d0","slide":1,"text":"土耳其","textPreview":"土耳其","textChars":3,"textLines":1,"bbox":[30,301,165,37]}
+{"kind":"textbox","id":"sh/kjmx87e5","slide":1,"text":"样本 00000012","textPreview":"样本 00000012","textChars":11,"textLines":1,"bbox":[30,346,165,30]}
+{"kind":"textbox","id":"sh/5kve1cvq","slide":1,"text":"网格 6 / SLIC 6","textPreview":"网格 6 / SLIC 6","textChars":13,"textLines":1,"bbox":[30,382,165,30]}
+{"kind":"shape","id":"sh/bupczetk","slide":1,"bbox":[1550,225,200,200]}
+{"kind":"textbox","id":"sh/qtgb69cz","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,290,180,36]}
+{"kind":"textbox","id":"sh/dwru1oba","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,330,180,34]}
+{"kind":"textbox","id":"sh/cvit8jup","slide":1,"text":"爆炸","textPreview":"爆炸","textChars":2,"textLines":1,"bbox":[30,464,160,43]}
+{"kind":"textbox","id":"sh/zy9c3ytg","slide":1,"text":"巴塔","textPreview":"巴塔","textChars":2,"textLines":1,"bbox":[30,516,165,37]}
+{"kind":"textbox","id":"sh/yx0batcv","slide":1,"text":"样本 00000001","textPreview":"样本 00000001","textChars":11,"textLines":1,"bbox":[30,561,165,30]}
+{"kind":"textbox","id":"sh/l0ru58bm","slide":1,"text":"网格 8 / SLIC 8","textPreview":"网格 8 / SLIC 8","textChars":13,"textLines":1,"bbox":[30,597,165,30]}
+{"kind":"shape","id":"sh/j6l8zq94","slide":1,"bbox":[1550,440,200,200]}
+{"kind":"textbox","id":"sh/w3apovad","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,505,180,36]}
+{"kind":"textbox","id":"sh/h4jqx0ry","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,545,180,34]}
+{"kind":"textbox","id":"sh/uhs7mls7","slide":1,"text":"火山","textPreview":"火山","textChars":2,"textLines":1,"bbox":[30,679,160,43]}
+{"kind":"textbox","id":"sh/v218vq9s","slide":1,"text":"刚果","textPreview":"刚果","textChars":2,"textLines":1,"bbox":[30,731,165,37]}
+{"kind":"textbox","id":"sh/gze90fah","slide":1,"text":"样本 00000013","textPreview":"样本 00000013","textChars":11,"textLines":1,"bbox":[30,776,165,30]}
+{"kind":"textbox","id":"sh/10nq9kr2","slide":1,"text":"网格 7 / SLIC 7","textPreview":"网格 7 / SLIC 7","textChars":13,"textLines":1,"bbox":[30,812,165,30]}
+{"kind":"shape","id":"sh/zaxw7il8","slide":1,"bbox":[1550,655,200,200]}
+{"kind":"textbox","id":"sh/e9ofex43","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,720,180,36]}
+{"kind":"textbox","id":"sh/90zedc3q","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,760,180,34]}
+{"kind":"textbox","id":"sh/oz6xk7m5","slide":1,"text":"野火","textPreview":"野火","textChars":2,"textLines":1,"bbox":[30,894,160,43]}
+{"kind":"textbox","id":"sh/6l0be9kn","slide":1,"text":"夏威夷","textPreview":"夏威夷","textChars":3,"textLines":1,"bbox":[30,946,165,37]}
+{"kind":"textbox","id":"sh/7m9c7e18","slide":1,"text":"样本 00000000","textPreview":"样本 00000000","textChars":11,"textLines":1,"bbox":[30,991,165,30]}
+{"kind":"textbox","id":"sh/s7itgz2d","slide":1,"text":"网格 8 / SLIC 8","textPreview":"网格 8 / SLIC 8","textChars":13,"textLines":1,"bbox":[30,1027,165,30]}
+{"kind":"shape","id":"sh/3etcfy10","slide":1,"bbox":[1550,870,200,200]}
+{"kind":"textbox","id":"sh/zids3yh8","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,935,180,36]}
+{"kind":"textbox","id":"sh/eh4batgn","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,975,180,34]}
+{"kind":"textbox","id":"sh/14va5oze","slide":1,"text":"洪水","textPreview":"洪水","textChars":2,"textLines":1,"bbox":[30,1109,160,43]}
+{"kind":"textbox","id":"sh/0jmtc3yt","slide":1,"text":"利比亚","textPreview":"利比亚","textChars":3,"textLines":1,"bbox":[30,1161,165,37]}
+{"kind":"textbox","id":"sh/retszehc","slide":1,"text":"样本 00000004","textPreview":"样本 00000004","textChars":11,"textLines":1,"bbox":[30,1206,165,30]}
+{"kind":"textbox","id":"sh/qdkr69gr","slide":1,"text":"网格 8 / SLIC 8","textPreview":"网格 8 / SLIC 8","textChars":13,"textLines":1,"bbox":[30,1242,165,30]}
+{"kind":"shape","id":"sh/6tg7u5wn","slide":1,"bbox":[1550,1085,200,200]}
+{"kind":"textbox","id":"sh/7up83axs","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,1150,180,36]}
+{"kind":"textbox","id":"sh/gjip0fep","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,1190,180,34]}
+{"kind":"textbox","id":"sh/hkrq9kfa","slide":1,"text":"冲突","textPreview":"冲突","textChars":2,"textLines":1,"bbox":[30,1324,160,43]}
+{"kind":"textbox","id":"sh/uh07y5wj","slide":1,"text":"乌克兰","textPreview":"乌克兰","textChars":3,"textLines":1,"bbox":[30,1376,165,37]}
+{"kind":"textbox","id":"sh/fi987ax4","slide":1,"text":"样本 00000022","textPreview":"样本 00000022","textChars":11,"textLines":1,"bbox":[30,1421,165,30]}
+{"kind":"textbox","id":"sh/wnepovy5","slide":1,"text":"网格 7 / SLIC 7","textPreview":"网格 7 / SLIC 7","textChars":13,"textLines":1,"bbox":[30,1457,165,30]}
+{"kind":"shape","id":"sh/c3a5s7e1","slide":1,"bbox":[1550,1300,200,200]}
+{"kind":"textbox","id":"sh/r214z2dg","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,1365,180,36]}
+{"kind":"textbox","id":"sh/q1s3qxwv","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,1405,180,34]}
+{"kind":"textbox","id":"sh/x0nmdgvq","slide":1,"text":"飓风","textPreview":"飓风","textChars":2,"textLines":1,"bbox":[30,1539,160,43]}
+{"kind":"textbox","id":"sh/wze54bu5","slide":1,"text":"缅甸","textPreview":"缅甸","textChars":2,"textLines":1,"bbox":[30,1591,165,37]}
+{"kind":"textbox","id":"sh/ut4bi98b","slide":1,"text":"样本 00000063","textPreview":"样本 00000063","textChars":11,"textLines":1,"bbox":[30,1636,165,30]}
+{"kind":"textbox","id":"sh/vuxsbepw","slide":1,"text":"网格 5 / SLIC 5","textPreview":"网格 5 / SLIC 5","textChars":13,"textLines":1,"bbox":[30,1672,165,30]}
+{"kind":"shape","id":"sh/ql8bqtoj","slide":1,"bbox":[1550,1515,200,200]}
+{"kind":"textbox","id":"sh/rmhcjyp4","slide":1,"text":"待填真实预测","textPreview":"待填真实预测","textChars":6,"textLines":1,"bbox":[1564,1580,180,36]}
+{"kind":"textbox","id":"sh/kfaxsjat","slide":1,"text":"尚未运行推理","textPreview":"尚未运行推理","textChars":6,"textLines":1,"bbox":[1564,1620,180,34]}
+{"kind":"textbox","id":"sh/5gjylore","slide":1,"text":"用途：比较不同灾害场景下的区域形态、碎片与边界。SLIC 仅作对照，不代表学习区域或损毁位置。","textPreview":"用途：比较不同灾害场景下的区域形态、碎片与边界。SLIC 仅作对照，不代表学习区域或损毁位置。","textChars":47,"textLines":1,"bbox":[30,1745,1740,40]}
+{"kind":"textbox","id":"sh/idsfqtsn","slide":1,"text":"判断效果需同预算模型消融和 Damaged 指标。DamageFormer 保留原名，暂不标为原创 Ours。","textPreview":"判断效果需同预算模型消融和 Damaged 指标。DamageFormer 保留原名，暂不标为原创 Ours。","textChars":55,"textLines":1,"bbox":[30,1793,1740,37]}
+{"kind":"textbox","id":"sh/je1gje98","slide":1,"text":"乌克兰、缅甸采用像素 GT 的连通域作为范围，其余采用实例标注。所有区域数如实列出，未严格匹配。SAR 仅作显示拉伸。","textPreview":"乌克兰、缅甸采用像素 GT 的连通域作为范围，其余采用实例标注。所有区域数如实列出，未严格匹配。SAR 仅作显示拉伸。","textChars":59,"textLines":1,"bbox":[30,1840,1740,38]}
+{"kind":"image","id":"im/54nm54fy","slide":1,"name":"","alt":"turkey-earthquake_00000012 灾前 RGB","bbox":[200,225,200,200]}
+{"kind":"image","id":"im/4jelczyd","slide":1,"name":"","alt":"turkey-earthquake_00000012 灾后 SAR","bbox":[425,225,200,200]}
+{"kind":"image","id":"im/3i543ux8","slide":1,"name":"","alt":"turkey-earthquake_00000012 GT 范围","bbox":[650,225,200,200]}
+{"kind":"image","id":"im/ihw3apgn","slide":1,"name":"","alt":"turkey-earthquake_00000012 规则网格","bbox":[875,225,200,200]}
+{"kind":"image","id":"im/l8j2t0fu","slide":1,"name":"","alt":"turkey-earthquake_00000012 RGB SLIC","bbox":[1100,225,200,200]}
+{"kind":"image","id":"im/knal0vy9","slide":1,"name":"","alt":"turkey-earthquake_00000012 选中区域","bbox":[1325,225,200,200]}
+{"kind":"image","id":"im/j6pc7ets","slide":1,"name":"","alt":"bata-explosion_00000001 灾前 RGB","bbox":[200,440,200,200]}
+{"kind":"image","id":"im/8vid4jap","slide":1,"name":"","alt":"bata-explosion_00000001 灾后 SAR","bbox":[425,440,200,200]}
+{"kind":"image","id":"im/twrudoru","slide":1,"name":"","alt":"bata-explosion_00000001 GT 范围","bbox":[650,440,200,200]}
+{"kind":"image","id":"im/3qdg3itc","slide":1,"name":"","alt":"bata-explosion_00000001 规则网格","bbox":[875,440,200,200]}
+{"kind":"image","id":"im/ipkfudcr","slide":1,"name":"","alt":"bata-explosion_00000001 RGB SLIC","bbox":[1100,440,200,200]}
+{"kind":"image","id":"im/5svy5sbi","slide":1,"name":"","alt":"bata-explosion_00000001 选中区域","bbox":[1325,440,200,200]}
+{"kind":"image","id":"im/m54jq183","slide":1,"name":"","alt":"congo-volcano_00000013 灾前 RGB","bbox":[200,655,200,200]}
+{"kind":"image","id":"im/n6d0z69o","slide":1,"name":"","alt":"congo-volcano_00000013 灾后 SAR","bbox":[425,655,200,200]}
+{"kind":"image","id":"im/o7m1sbq9","slide":1,"name":"","alt":"congo-volcano_00000013 GT 范围","bbox":[650,655,200,200]}
+{"kind":"image","id":"im/98v21wru","slide":1,"name":"","alt":"congo-volcano_00000013 规则网格","bbox":[875,655,200,200]}
+{"kind":"image","id":"im/e1kjmh87","slide":1,"name":"","alt":"congo-volcano_00000013 RGB SLIC","bbox":[1100,655,200,200]}
+{"kind":"image","id":"im/z2t0vm9s","slide":1,"name":"","alt":"congo-volcano_00000013 选中区域","bbox":[1325,655,200,200]}
+{"kind":"image","id":"im/658325sn","slide":1,"name":"","alt":"hawaii-wildfire_00000000 灾前 RGB","bbox":[200,870,200,200]}
+{"kind":"image","id":"im/54zmt0b2","slide":1,"name":"","alt":"hawaii-wildfire_00000000 灾后 SAR","bbox":[425,870,200,200]}
+{"kind":"image","id":"im/k36l0vah","slide":1,"name":"","alt":"hawaii-wildfire_00000000 GT 范围","bbox":[650,870,200,200]}
+{"kind":"image","id":"im/j2x4ratw","slide":1,"name":"","alt":"hawaii-wildfire_00000000 规则网格","bbox":[875,870,200,200]}
+{"kind":"image","id":"im/y1o3y5sb","slide":1,"name":"","alt":"hawaii-wildfire_00000000 RGB SLIC","bbox":[1100,870,200,200]}
+{"kind":"image","id":"im/p0jm54r6","slide":1,"name":"","alt":"hawaii-wildfire_00000000 选中区域","bbox":[1325,870,200,200]}
+{"kind":"image","id":"im/e90fix4r","slide":1,"name":"","alt":"libya-flood_00000004 灾前 RGB","bbox":[200,1085,200,200]}
+{"kind":"image","id":"im/za9wrilc","slide":1,"name":"","alt":"libya-flood_00000004 灾后 SAR","bbox":[425,1085,200,200]}
+{"kind":"image","id":"im/cnixgnm1","slide":1,"name":"","alt":"libya-flood_00000004 GT 范围","bbox":[650,1085,200,200]}
+{"kind":"image","id":"im/doreps3m","slide":1,"name":"","alt":"libya-flood_00000004 规则网格","bbox":[875,1085,200,200]}
+{"kind":"image","id":"im/fipgzip8","slide":1,"name":"","alt":"libya-flood_00000004 RGB SLIC","bbox":[1100,1085,200,200]}
+{"kind":"image","id":"im/uhgfqdon","slide":1,"name":"","alt":"libya-flood_00000004 选中区域","bbox":[1325,1085,200,200]}
+{"kind":"image","id":"im/q90zyxov","slide":1,"name":"","alt":"ukraine-conflict_00000022 灾前 RGB","bbox":[200,1300,200,200]}
+{"kind":"image","id":"im/yxgjmhkz","slide":1,"name":"","alt":"ukraine-conflict_00000022 灾后 SAR","bbox":[425,1300,200,200]}
+{"kind":"image","id":"im/zypkvmlk","slide":1,"name":"","alt":"ukraine-conflict_00000022 GT 范围","bbox":[650,1300,200,200]}
+{"kind":"image","id":"im/0zy1or25","slide":1,"name":"","alt":"ukraine-conflict_00000022 规则网格","bbox":[875,1300,200,200]}
+{"kind":"image","id":"im/lkr2xw3q","slide":1,"name":"","alt":"ukraine-conflict_00000022 RGB SLIC","bbox":[1100,1300,200,200]}
+{"kind":"image","id":"im/ml0jq1kb","slide":1,"name":"","alt":"ukraine-conflict_00000022 选中区域","bbox":[1325,1300,200,200]}
+{"kind":"image","id":"im/jit4ra54","slide":1,"name":"","alt":"myanmar-hurricane_00000063 灾前 RGB","bbox":[200,1515,200,200]}
+{"kind":"image","id":"im/ihkny54j","slide":1,"name":"","alt":"myanmar-hurricane_00000063 灾后 SAR","bbox":[425,1515,200,200]}
+{"kind":"image","id":"im/tovmxkn6","slide":1,"name":"","alt":"myanmar-hurricane_00000063 GT 范围","bbox":[650,1515,200,200]}
+{"kind":"image","id":"im/snm54fml","slide":1,"name":"","alt":"myanmar-hurricane_00000063 规则网格","bbox":[875,1515,200,200]}
+{"kind":"image","id":"im/rmd4va50","slide":1,"name":"","alt":"myanmar-hurricane_00000063 RGB SLIC","bbox":[1100,1515,200,200]}
+{"kind":"image","id":"im/6l4n254f","slide":1,"name":"","alt":"myanmar-hurricane_00000063 选中区域","bbox":[1325,1515,200,200]}
+{"kind":"notes","id":"nt/wdl2vo","slide":1,"text":"编辑依据：C:/Users/梁嘎嘎/Desktop/BRIGHT_real_regions_onepage_v3.pptx，保留六列区域对照，增加灾害类型与当前模型列。来源 F:/建筑损毁分类数据集。预览用于区域形态检查，未核验样本属于训练还是验证划分，不应作为模型泛化证据。图像为真实数据，SLIC为GT辅助算法对照。DamageFormer预测格全部待填。乌克兰和缅甸无实例JSON，采用target.zip中前景连通域，可能合并相邻建筑。[{\"sample_id\":\"turkey-earthquake_00000012\",\"annotation\":\"target_instance_level/turkey-earthquake_00000012_instance_damage.json\",\"instance_id\":15,\"category_id\":1,\"crop_xywh\":[43,803,199,199],\"rgb_member\":\"pre-event/turkey-earthquake_00000012_pre_disaster.tif\",\"sar_member\":\"post-event/turkey-earthquake_00000012_post_disaster.tif\",\"sar_display_percentiles\":[1,165],\"slic_regions\":6,\"grid_regions\":6,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"bata-explosion_00000001\",\"annotation\":\"target_instance_level/bata-explosion_00000001_instance_damage.json\",\"instance_id\":96,\"category_id\":1,\"crop_xywh\":[417,755,169,169],\"rgb_member\":\"pre-event/bata-explosion_00000001_pre_disaster.tif\",\"sar_member\":\"post-event/bata-explosion_00000001_post_disaster.tif\",\"sar_display_percentiles\":[0,173],\"slic_regions\":8,\"grid_regions\":8,\"selected_region\":2,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"congo-volcano_00000013\",\"annotation\":\"target_instance_level/congo-volcano_00000013_instance_damage.json\",\"instance_id\":1,\"category_id\":1,\"crop_xywh\":[180,1,216,216],\"rgb_member\":\"pre-event/congo-volcano_00000013_pre_disaster.tif\",\"sar_member\":\"post-event/congo-volcano_00000013_post_disaster.tif\",\"sar_display_percentiles\":[0,183],\"slic_regions\":7,\"grid_regions\":7,\"selected_region\":2,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"hawaii-wildfire_00000000\",\"annotation\":\"target_instance_level/hawaii-wildfire_00000000_instance_damage.json\",\"instance_id\":1,\"category_id\":1,\"crop_xywh\":[799,202,168,168],\"rgb_member\":\"pre-event/hawaii-wildfire_00000000_pre_disaster.tif\",\"sar_member\":\"post-event/hawaii-wildfire_00000000_post_disaster.tif\",\"sar_display_percentiles\":[0,92],\"slic_regions\":8,\"grid_regions\":8,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"libya-flood_00000004\",\"annotation\":\"target_instance_level/libya-flood_00000004_instance_damage.json\",\"instance_id\":119,\"category_id\":2,\"crop_xywh\":[319,157,232,232],\"rgb_member\":\"pre-event/libya-flood_00000004_pre_disaster.tif\",\"sar_member\":\"post-event/libya-flood_00000004_post_disaster.tif\",\"sar_display_percentiles\":[0,149],\"slic_regions\":8,\"grid_regions\":8,\"selected_region\":3,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"ukraine-conflict_00000022\",\"annotation\":\"target/ukraine-conflict_00000022_building_damage.tif\",\"instance_id\":125,\"category_id\":1,\"crop_xywh\":[180,679,345,345],\"rgb_member\":\"pre-event/ukraine-conflict_00000022_pre_disaster.tif\",\"sar_member\":\"post-event/ukraine-conflict_00000022_post_disaster.tif\",\"sar_display_percentiles\":[0,202],\"slic_regions\":7,\"grid_regions\":7,\"selected_region\":5,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"},{\"sample_id\":\"myanmar-hurricane_00000063\",\"annotation\":\"target/myanmar-hurricane_00000063_building_damage.tif\",\"instance_id\":81,\"category_id\":1,\"crop_xywh\":[522,209,248,248],\"rgb_member\":\"pre-event/myanmar-hurricane_00000063_pre_disaster.tif\",\"sar_member\":\"post-event/myanmar-hurricane_00000063_post_disaster.tif\",\"sar_display_percentiles\":[26,223],\"slic_regions\":5,\"grid_regions\":5,\"selected_region\":1,\"selection\":\"first 30 eligible buildings per event; area closest to 16000 pixels\",\"caveat\":\"GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction\"}]"}

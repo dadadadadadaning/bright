@@ -1,0 +1,1050 @@
+
+
+===== PDF_PAGE_001 =====
+
+Assessing the transferability of post-disaster building damage 
+assessment using synthetic aperture radar and machine learning
+James Currie
+ , Karin Reinke
+*
+Mathematical and Geospatial Sciences, School of Science, RMIT University, Melbourne, Australia
+ARTICLE INFO
+Keywords:
+Synthetic aperture radar
+Random forest
+Building damage
+Disaster
+Generalisation
+Remote sensing
+ABSTRACT
+A timely understanding of the scale and distribution of damage to infrastructure such as buildings 
+and dwellings following disasters is crucial for efficient and effective response and recovery. 
+Synthetic Aperture Radar (SAR) is a valuable tool for remotely assessing damage, and when 
+coupled with Machine Learning (ML) has the potential to safely and effectively map damage at an 
+individual building level. For practical disaster response, SAR ML models must generalise to new 
+disaster events beyond their training data. Model transferability to new disaster events in 
+differing contexts has been untested with medium resolution SAR. Therefore, this study evaluates 
+transferability of medium resolution SAR ML models using Sentinel-1 coherence and intensity for 
+mapping damage across 11 disaster events of various types (including earthquakes, hurricanes, 
+wildfires, tsunamis and volcanic eruptions) across different global locations. Models were trained 
+and tested under three scenarios: a reference scenario requiring no transferability, and two 
+transferability scenarios utilising event-based cross-validation: (a) a global scenario and (b) a fire- 
+specific scenario. Model performance decreased substantially under the global transferability 
+scenario compared to the reference scenario, indicating the models struggled to adapt to varying 
+disaster characteristics and geographic contexts. The fire specific scenario outperformed the 
+disaster-agnostic global scenario, suggesting that further research may benefit from focusing on 
+disaster-type specific models. Although performance across all scenarios was inconsistent, several 
+disaster events saw positive performance, particularly in the fire-specific scenario. Further 
+research is necessary before models should be operationally utilised for disaster response.
+1. Introduction
+Natural Disasters have killed more than 5,000,000 people since the year 2000 [ 1 ], and affect nearly 200,000,000 people each year 
+[ 2 ]. Natural disasters result in acute effects, such as infrastructure damage and building collapse which demand timely response and 
+intervention, as-well as long-term and secondary effects including mass forced displacement [ 3 ], water and food insecurity and famine 
+[ 4 ], disease outbreak [ 5 ] and short and long term economic damage [ 6 ]. A timely understanding of the scale and spatial distribution of 
+damage is crucial for providing humanitarian support and coordinating post-disaster recovery efforts [ 7 – 9 ]. The primary method of 
+collecting information about disaster impact and humanitarian needs is typically on ground surveys and door-to-door questionnaires, 
+which, due to the scale of events and complexities of safety and site accessibility, can result in significant delays and can lack in 
+repeatable or uniform assessment methods across the extent of the disaster event [ 10 , 11 ]. Inconsistent datasets can also lead to gaps in 
+* Corresponding author.
+E-mail addresses: Jcurrie987@gmail.com (J. Currie), karin.reinke@rmit.edu.au (K. Reinke). 
+Contents lists available at ScienceDirect
+International Journal of Disaster Risk Reduction
+journal homep age: www.el sevier.com/l ocate/ijdrr
+https://doi.org/10.1016/j.ijdrr.2026.106048
+Received 11 July 2025; Received in revised form 28 January 2026; Accepted 6 February 2026  
+International Journal of Disaster Risk Reduction 136 (2026) 106048 
+Available online 13 February 2026 
+2212-4209/© 2026 Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license 
+( http://creativecommons.org/licenses/by-nc-nd/4.0/ ).
+
+
+===== PDF_PAGE_002 =====
+
+systematic understanding of the impacts of natural disasters globally [ 4 ].
+Satellite remote sensing is increasingly being utilised for post-disaster damage assessment [ 10 ], with organisations such as the 
+United Nations Satellite Centre and the Copernicus Emergency Management Service utilising Very High Resolution (VHR) optical 
+imagery to visually assess the extent and distribution of damage, and then providing these damage assessments for humanitarian 
+organisations to utilise in planning and prioritising disaster response [ 12 , 13 ]. While faster than on-ground assessment, this can be 
+significantly delayed by the time taken to capture a suitable image, which is often limited due to cloud cover or smoke [ 14 ].
+Synthetic Aperture Radar (SAR) is an active form of remote sensing, particularly useful for rapid disaster response as it is not 
+interrupted by cloud cover or smoke [ 15 ], and through interferometry, millimetre changes in height can be detected [ 16 ]. Despite 
+these advantages, medium-resolution SAR, such as from Sentinel-1, faces limitations for precise, building-level damage detection due 
+to factors such as resolution, speckle and shadow [ 15 ]. While a variety of change detection techniques are commonly used for 
+interferometric coherence and intensity-based SAR damage assessment, Machine Learning (ML) is relatively untested [ 17 , 18 ]. Pre -
+vious attempts at using ML and medium resolution SAR have resulted in a wide range of model performance, and have generally 
+consisted of small case studies focusing on one or two events. A gap exists in how these models are validated, and limited testing has 
+been completed at a large scale.
+For a ML algorithm to be useful for rapid disaster assessment, it must be transferable to new disaster events beyond its training 
+context [ 19 ]. Existing SAR ML studies have largely overlooked generalisability testing, with most training and testing conducted on 
+ground truth data from the same disaster event [ 20 – 23 ], which fails to represent the differing disaster characteristics and geographic 
+environments that these models must adapt to in practice. Studies that have tested transferability reported significant performance loss 
+compared to those that did not [ 24 – 26 ]. To the best of the authors' knowledge, no transferability testing has been conducted for 
+medium-resolution SAR intensity and coherence ML disaster damage mapping. Consequently, previous studies that failed to assess 
+transferability may be unreliable in practice.
+To understand the feasibility of a SAR ML damage detecting model, the limitations of the model adaptability and transferability 
+must be appropriately understood. This study, therefore, defines two research questions: Firstly, to what extent does the performance 
+of SAR building damage ML classification models decline when transferring to unseen disaster events across different disaster types 
+and geographic regions? Secondly, does a disaster-specific model outperform a disaster-agnostic model?
+To answer these questions, Sentinel-1 SAR features are used with ground-truth building damage labels from multiple disaster 
+events to build ML models under three different training and testing scenarios, namely: 1) a reference scenario, acting as an idealised 
+baseline that does not reflect realistic generalisability requirements, 2) a global transferability scenario, and 3) a wildfire-specific 
+scenario.
+2. Background
+2.1. Introduction to Sentinel-1 SAR data
+Sentinel-1 operates a C-band SAR instrument, which, in Interferometric Wide-Swath (IW) mode, captures both intensity and phase 
+information. Intensity information is a measure of the fraction of incident radar energy reflected to the sensor, often called backscatter 
+[ 27 ]. The phase of the returning radar signal is also captured, where one complete cycle of phase corresponds to one full wavelength of 
+the sensor. With two measurements over time, a phase difference can be captured and therefore displacement can be measured, and is 
+referred to as SAR interferometry or inSAR [ 15 ].
+The Level-1 Single-Look Complex (SLC) Sentinel-1 SAR image has a spatial resolution of approximately 5 × 20 m due to the slant 
+incident angle and is highly noisy. ‘Speckle ’ , particularly, is a salt-and-pepper like noise effect caused by constructive or destructive 
+interference of the SAR signal within a single resolution cell, which can obscure and complicate detection of small features. Therefore, 
+some level of averaging or ‘multilooking ’ is typically applied to achieve square pixels, reduce noise, and improve radiometric accuracy 
+[ 15 ]. Sentinel-1 captures information in a variety of polarisations, of which the ‘VV ’ polarisation has been identified as being the most 
+suitable for damage detection [ 22 ], meaning that the radar signal is both transmitted and received in a vertical polarisation.
+2.2. Statistical damage assessment techniques
+Many change detection methods have been proposed to assess damage using SAR, with the most successful methods incorporating 
+both phase and intensity information [ 17 ].
+Phase information is typically incorporated into SAR damage assessment through coherence, calculated from two complex images 
+using a moving cross-correlation window [ 15 ]. High coherence indicates unchanged areas, while low coherence suggests change, 
+making it useful for detecting disaster-related damage [ 28 ]. However, coherence is also naturally low in vegetation, water, and other 
+dynamic surfaces [ 15 ], leading to false positives. To address this, many approaches compare pre-event coherence (normal variability) 
+with co-event coherence (event-related change) to better isolate damage [ 17 ]. A variety of methods of comparing the two coherence 
+images exist to produce a ‘proxy ’ for damage, including a ratio comprising the normalised difference of pre and co-event coherence 
+[ 20 ]. Others [ 29 , 30 ] calibrate the pre-event image to the co-event image through histogram matching, and then subtract the pre-event 
+image from the co-event image.
+The application of these metrics at the building level faces inherent resolution constraints. Natsuaki et al. [ 31 ] suggests that for 
+building level damaged to be detected reliably, the damaged building must be the size of the window used for coherence calculation. 
+Given that Sentinel-1 has an effective square pixel size of roughly 14m (with a coherence window even larger), detecting damage at an 
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+2
+
+
+===== PDF_PAGE_003 =====
+
+individual building size is challenging. Akhmadiya et al. [ 20 ] argue that it is impossible to distinguish individual buildings in a SAR 
+image, but suggest use of additional variables such as dual polarisation and intensity features may be able to overcome this issue with 
+regards to detecting the signal of damage. A significant number of attempts with varying levels of success have been made to find pixel 
+or building-level damage using Sentinel-1 [ 17 , 20 , 21 , 32 ].
+Intensity varies due to the characteristics of the scene, particularly due to the shape and roughness of the ground target - therefore, 
+with two images over time, the intensity is likely to change if there is damage [ 17 ]. Intensity, generally first converted into Decibels 
+(dB), is often integrated into statistical damage detection models through image differencing, correlation or ratio-based methods.
+2.3. Data driven modelling approaches using SAR
+Previous work, as shown in Table 1 , demonstrates clear potential for ML to extract damage information from SAR, but the evidence 
+is limited, biased towards using high-resolution sensors, and often reliant on ancillary data. For relatively high-resolution SAR, pre and 
+post-event intensity has generally been utilised with classifiers such as decision-tree [ 24 ] and Support Vector Machine [ 26 ]. Attempts 
+have also been made at utilising only one post-event intensity image, with reasonable performance (53-86% accuracy) achieved using 
+a Convolutional Neural Network (CNN) [ 33 ] and Random Forests [ 25 ] on VHR Capella SAR intensity imagery.
+Medium resolution SAR has generally been supplemented with data from other sensors or ancillary information to boost assessment 
+accuracy. Optical imagery sources have frequently been fused with SAR to boost classification performance, including the use of 
+Sentinel-2 and higher resolution multispectral imagery [ 34 , 37 , 40 ]. Where coherence has been utilised in the form of Damage Proxy 
+Table 1 
+Previous studies using data-driven approaches for SAR building damage detection (RF = Random Forest, CNN = Convolutional Neural Network, PCA 
+= Principal Component Analysis, CCF = Canonical Correlation Forest).
+Sensor (Resolution) SAR Input 
+Features
+Disaster Events Algorithm Model Performance Key 
+Reference
+Cappella SAR (50 cm) Intensity-based 
+Features
+4 Earthquakes RF Binary classification OA of 53-72% under 
+generalisation scenarios, 70-86% under 
+localised scenarios.
+[ 25 ]
+TerraSAR-X (3m) Intensity-based 
+Features
+1 Earthquake/ 
+Tsunami
+Decision Tree Three class OA of 58.7% under generalisation 
+scenario, 67.4% under localised scenario.
+[ 24 ]
+TerraSAR-X (3m) and 
+ALOS PALSAR (10m)
+Intensity-based 
+Features
+1 Earthquake/ 
+Tsunami
+Support Vector 
+Machine
+Binary classification Macro F1 Score of 0.78 
+under localised scenario.
+[ 26 ]
+TerraSAR-X (3m) Intensity 1 Earthquake/ 
+Tsunami
+CNN Three class OA of 74.6% under localised 
+scenario.
+[ 33 ]
+Multiple SAR and Optical Intensity 6 Earthquakes, 2 
+Tunsamis, 1 
+Typhoon
+CNN Three class Macro F1 Score of 0.25 when only 
+using SAR inputs under random training/ 
+testing split across all disaster events.
+[ 34 ]
+ALOS-2 PALSAR-2 (10m) Intensity-based 
+Features
+1 Earthquake K-Nearest 
+Neighbours
+Binary classification OA of 62.2% under 
+localised scenario.
+[ 35 ]
+Envisat ASAR (20m) Intensity-based 
+Features
+1 Earthquake Texture analysis, 
+PCA and Binary 
+Thresholding
+Binary classification OA of 82.9% under 
+localised scenario.
+[ 36 ]
+Sentinel 1 IW (5 × 20m) 
+and Sentinel 2 
+Optical (20m)
+Intensity-based 
+Features
+1 Earthquake RF Three class OA of 62% under localised 
+scenario.
+[ 37 ]
+Sentinel-1 IW (5 × 20m) Coherence- 
+derived Damage 
+Proxy Map
+4 Earthquakes RF Binary classification Macro F1 Scores of 0.47- 
+0.79 under localised scenarios.
+[ 38 ]
+Sentinel-1 IW (5 × 20m) Coherence- 
+derived Damage 
+Proxy Map
+1 Fire Multiple Binary classification Macro F1 Score of 0.91 for 
+residential buildings and 0.77 for commercial 
+buildings under localised scenario.
+[ 23 ]
+Sentinel-1 IW (5 × 20m) Coherence- 
+derived Damage 
+Proxy Map
+1 Cyclone Causal Bayesian 
+Network
+Binary classification Area Under Curve of 0.76 
+under localised scenario.
+[ 39 ]
+Multiple SAR and Optical Intensity and 
+Coherence-based 
+Features
+1 Earthquake/ 
+Tsunami
+RF, Rotation Forest, 
+CCF
+Four class OA of 86.54% under localised 
+scenario, however suffered substantial class 
+imbalance with an average accuracy score of 
+45.57% across all classes.
+[ 40 ]
+Tested Sentinel 2 IW (5 ×
+20m) and ALOS-2 
+PALSAR-2 (10m) 
+separately
+Intensity and 
+Coherence-based 
+Features
+1 Earthquake Linear Discriminant 
+Function
+Binary classification OA of 84% under 
+localised scenario.
+[ 22 ]
+Sentinel-1 IW (5 × 20m) Intensity and 
+Coherence-based 
+Features
+2 Earthquakes Artificial Neural 
+Network
+Binary classification producers' accuracy of 58- 
+69% for intact buildings and 78-95% for 
+damaged buildings under localised scenarios.
+[ 20 ]
+Sentinel-1 IW (5 × 20m) Intensity and 
+Coherence-based 
+Features
+1 Earthquake Maximum 
+Likelihood and 
+Mahalanobis
+Binary classification OA of 77.08 under 
+localised testing scenario.
+[ 21 ]
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+3
+
+
+===== PDF_PAGE_004 =====
+
+Maps (DPMs), it has been combined with non-sensor ancillary data to provide additional information. Impressive performance has 
+been achieved by integrating SAR DPMs with building attributes, such as age, structure details and geographic coordinates (binary F1 
+score of 92.7% for residential buildings [ 23 ]), and varying performance has been achieved physical hazard data, including USGS 
+Shakemaps [ 38 ] and environmental variables like wind speed and flood depth [ 39 ]. The key limitation of multi-sensor fusion and/or 
+use of ancillary data sources is the requirement to wait for the other inputs to be captured or produced, which could cause significant 
+delays, and discount the advantages of SAR.
+Few examples utilise medium resolution SAR without multi-sensor fusion or ancillary data with ML to classify damage. Solely 
+intensity-based texture analysis has yielded mixed results, ranging from relatively poor (62.2% overall accuracy [ 35 ]) to impressive 
+performance (82.9% binary F1-score [ 36 ]). A variety of studies have leveraged both intensity and coherence features, achieving 
+overall accuracies between 77 and 84% [ 20 – 22 ]. These approaches have found that texture features calculated from relatively large 
+window sizes, ranging from 3x3 up to 19x19 were important for building-level damage detection [ 20 , 21 ], with key features including 
+Homogeneity and Dissimilarity for Intensity data, and Mean for coherence data [ 21 ].
+2.4. The importance of model transferability and robust performance evaluation
+For a damage-assessment algorithm to be useful, it is essential that the algorithm is applicable to a new disaster scene outside of the 
+context of the data used to train the model. Therefore, accuracy statistics should be calculated using disaster events entirely separate 
+from the events in the training data [ 19 ]. Data utilised for model validation and error calculation should be independent from the data 
+used to train the model, and generally, this is satisfied through randomly splitting data into train and test groups, however for spatial 
+data, this generally underestimates predictive errors for regions outside of the sampled region [ 41 ] Ploton et al. [ 42 ] established that 
+(for forest biomass estimation) almost all predictive power was lost when using a spatially segmented validation method as compared 
+to a random split, indicating that almost all the model predictive power was due to local spatial autocorrelation in the input datasets. 
+This particularly raises concerns with studies such as Xie et al. [ 23 ], where geographic coordinates are an input and spatial validation 
+techniques aren't used, and therefore the model could effectively simply be learning interpolation. Robustness in testing is even 
+more-so important for a disaster-assessment algorithm, where the algorithm will also need to be adaptable to disaster events of 
+different magnitudes and scales, as well as to different landscapes and urban settings. The interferometric and backscattering char -
+acteristics of a destroyed structure will likely vary significantly based on the changing setting and characteristics of that structure, 
+which varies geographically, as shown in Fig. 1 .
+Most models reviewed failed to test transferability, and those that did, suffered significant performance losses. Gokon et al. [ 24 ], 
+utilising pre and post-event TerraSAR-X intensity, and a decision tree to classify damage to buildings after the 2011 Tohoku earthquake 
+and tsunami, achieved reasonable accuracy with a three class classification of 67.4%, however when the model was transferred to a 
+new region, the accuracy was reduced to 58.7%. Wieland, Liu and Yamazaki [ 26 ] chose the same event, however utilised TerraSAR-X 
+as-well as ALOS PALSAR intensity images, pre and post event, on a binary classification task of ‘change ’ and ‘no change ’ , using a 
+Support Vector Machine. This model achieved a Macro F1 score of 85%, however when trained on a local subset of the training data to 
+test transferability, the score reduced to 78%, with the optimal number features selected also changing. Macchiarulo et al. [ 25 ], using 
+post-event Capella intensity imagery with a RF on a series of earthquake events, utilised event-based cross validation, thoroughly 
+testing the transferability and applicability to new earthquakes. The model achieved a binary accuracy between 73% and 86% when 
+Fig. 1. Post-disaster VHR true colour imagery from a hurricane in Panama City, USA (Left) and a tsunami in Palu, Indonesia (Right), taken from the 
+xBD dataset [ 43 ].
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+4
+
+
+===== PDF_PAGE_005 =====
+
+tested in-domain on individual case studies, but when tested out-of-domain, the overall accuracy was reduced to a low of 53%, with 
+little improvement over random, and a highest accuracy of 72%. Notably, medium resolution interferometric SAR transferability to 
+unseen disaster events hasn't been tested.
+Class imbalance can also result in misleading accuracy statistics and poor model performance. Adriano et al. [ 40 ] achieved an 
+overall 4 class accuracy of 86.54% utilising Canonical Correlation Forests CCF, however the Palu dataset suffered from significant class 
+imbalance, where the ‘No Damage ’ scenario received a producer's accuracy of 99.28%, while the producer's accuracy for the damaged 
+classes ranged from 6.66% (Damaged) to 47.62% (Destroyed), with an average accuracy score of 45.57% among all classes. Rao et al. 
+[ 38 ] achieved reasonable results for the 2015 Ghorka earthquake with an overall binary accuracy of 89% and a macro average ac -
+curacy of 79%, however results for the 2020 Puerto Rico and 2020 Zagreb earthquakes were very poor, with a ‘Damaged ’ class F1 score 
+of 0.01 and 0.11 respectively. The former featured 185,468 undamaged buildings in the test set while only having 125 damaged 
+buildings, with a similar but less severe imbalance in the latter. Damage metrics such as Macro F1 score or Kappa score should be used 
+to assess model accuracy, as they are more robust to class imbalances.
+3. Methods
+This study employed a Random Forest (RF) classifier to detect building damage from Sentinel-1 SAR data across multiple disaster 
+types, including earthquakes, wildfires, hurricanes, tsunamis, and volcanic eruptions, evaluating how model performance changed 
+under different transferability testing scenarios. Ground truth building damage labels were sourced from the xBD dataset and the 
+Copernicus Emergency Management Service. SAR data from Sentinel-1 was pre-processed to extract features such as coherence and 
+intensity, as-well as derived image texture metrics. Three testing scenarios were applied: a reference scenario, a global scenario, and a 
+wildfire-specific scenario. Model performance was evaluated using Overall Accuracy (OA) and Macro F1-Score to address class im -
+balances between damaged and undamaged buildings, as-well as Precision-Recall Area Under Curve (PR-AUC) to understand model 
+discriminative power. Subsequent sections provide further details on the disaster types and study area, ground truth dataset selection, 
+methods for SAR image processing, testing scenarios, ML algorithm implementation and model evaluation.
+3.1. Disaster types and study area
+Eleven disaster events, displayed in Fig. 2 below, were chosen to be utilised for model training and evaluation. Disaster events were 
+included from different geographic contexts, including eight different countries over three continents, enabling testing of model 
+transferability and adaptability to different natural and built environmental contexts.
+Fig. 2. Map of ground truth disaster event locations used in this study. a) North and Central America, b) South-West Europe c) Australia 
+and Indonesia.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+5
+
+
+===== PDF_PAGE_006 =====
+
+A variety of disaster types were included in the study, including earthquakes, wildfires, hurricanes, a tsunami, and a volcanic 
+eruption. By incorporating multiple disaster types, the number of available samples for model training and evaluation was increased, 
+allowing for the testing of the algorithm's transferability across different disaster contexts. Disaster events were included on the basis 
+that the damage, or collapse of a building would be structurally similar and potentially appear similar to the SAR sensor across the 
+selected disaster types. Inundation-driven damage such as floods fundamentally alter the SAR signal through water-related absorption 
+and specular reflection [ 15 ]. Because flood impacts produce a different set of scattering behaviours that are not directly comparable to 
+collapse-type damage, flood events were excluded from this study.
+3.2. Datasets
+3.2.1. Ground truth building damage labels
+3.2.1.1. Ground truth dataset selection. Ground truth data was sourced from the xBD dataset [ 43 ] and the Copernicus Emergency 
+Management Service (CEMS) Rapid Mapping Archive [ 12 ]. The xBD dataset, produced by the United States Defence Innovation Unit, 
+was originally designed for a VHR optical satellite imagery machine learning challenge, however the labels have been provided as open 
+data with georeferencing information for alternative uses. The xBD dataset has been reviewed by a variety of experts including the 
+California Air National Guard and the United States Federal Emergency Management Agency, and can be considered a very reliable 
+source of ground truth building damage assessment, with an estimated error rate of less than 2-3% [ 43 ]. The CEMS Rapid Mapping 
+Archive, produced by a programme of the European Union, are damage grading products released for active disaster response, digitised 
+manually from very high resolution optical satellite imagery with an estimated thematic accuracy of 85% [ 44 ] and released as open 
+data [ 12 ]. From these two sources, a total of 205,731 ground truth building polygons were gathered.
+For this study, the polygons from the ground truth dataset were used for SAR feature extraction, as discussed later in section 2.3.3.2. 
+Building polygons from the CEMS included polygons derived from globally available datasets such as OpenStreetMap, meaning in the 
+practical application of this method, the required building footprints would be readily accessible from either OpenStreetMap or other 
+available datasets such as the Microsoft Building Dataset [ 45 ] without preprocessing delays.
+3.2.1.2. Label classification. Building damage gradings were reclassified to either ‘Damaged’, meaning the partial or complete collapse 
+of walls, roof, or the complete building, or ‘Undamaged’, meaning minor missing building elements, cracks or a completely unaffected 
+building. Based upon the respective damage grading scales and visual analysis of the xBD dataset and Copernicus products, the input 
+datasets were aligned as per the below Table 2 .
+for the xBD dataset, ‘Major-damage’ or above was considered as damaged, and for the CEMS products, ‘moderately damaged’ or 
+higher was considered as damaged. The resulting ground truth dataset includes a significant class imbalance, with most buildings 
+classified as undamaged across the eleven disaster events, as demonstrated in Fig. 3 .
+3.2.2. SAR data
+3.2.2.1. SAR image selection and acquisition. For each disaster event, the three (two pre-event, one post-event) timeliest Sentinel-1 
+Interferometric Wide Swath Single-Look-Complex (SLC) images of consistent orbit with both VV and VH polarisations and with 
+coverage of the disaster area was acquired, sourced from Alaska Satellite Facility [ 46 ]. Although the acquisition repeat time was 
+generally spaced evenly at 6 or 12 days, this was not always the case, as shown in Table 3 . This variation in acquisition repeat time was 
+deemed acceptable because it reflects the realistic acquisition consistency and frequency that may exist when a real disaster occurs.
+ASF SAR data was accessed through the Search API as per the following URL:
+https://docs.asf.alaska.edu/api/basics/
+3.2.2.2. SAR image preprocessing. For each disaster event, 12 primary features were extracted from the three SLC images. This includes 
+the six metrics described below in Table 4 , repeated for both the VV and VH polarisations.
+Pre-Event and Co-Event Coherence, as well as Pre-Event and Post-Event Intensity were generated using the SeNtinel Applications 
+Platform (SNAP) Graph Processing Tool [ 47 ], automated through Python.
+For coherence processing the SLC was refined to the study area using TopSAR-Split. The precise orbit file was then applied, and 
+image pairs were registered using back-geocoding and enhanced spectral diversity. The second image in the set (Image 2 in Fig. 4
+above) is used as the master in the co-registration of both image pairs, such that both stacks for pre-event coherence and post-event 
+Table 2 
+Classification of labels based upon damage grading from the xBD and Copernicus EMS datasets.
+xBD Dataset Copernicus EMS dataset Our Classification
+Destroyed Destroyed Damaged
+Major Damage Highly Damaged
+Moderately Damaged
+Minor Damage Negligble to slight damage Undamaged
+No Damage No Damage
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+6
+
+
+===== PDF_PAGE_007 =====
+
+coherence are spatially aligned.
+Coherence for both pre and co-event image pairs was calculated with a 3 x 10 (Azimuth x Range) window, calculated to a square 
+pixel with topographic phase subtracted, using a Shuttle-Radar-Topography-Mission (SRTM) 1 Second Digital Elevation Model (DEM). 
+The coherence images were then deburst and terrain corrected using the same DEM and bi-linear interpolation. Processing for each 
+disaster event was completed using the relevant Universal Transverse Mercator (UTM) (WGS84) Zone, resulting in a roughly 14m pixel 
+size.
+The pre-event coherence was calibrated to the co-event coherence through histogram matching, which guarantees that both image 
+pixel values have similar statistics, reducing biases in coherence difference to improve the signal to noise ratio [ 29 ]. Then, the 
+pre-event coherence image was subtracted from the co-event coherence to produce histogram matched coherence difference.
+For Intensity processing, the most recent pre-event and post-event SLCs were refined to the study area using TopSAR Split with 
+applied orbit file and were calibrated to Sigma nought to represent backscatter coefficient at ground area [ 48 ]. Images were then 
+deburst and multiooked at 1 x 3 (Azimuth x Range) to a square pixel. The product was transformed to decibel measurements, and 
+terrain corrected to an approximate 14m square pixel using the SRTM DEM. The intensity products were aligned to the coherence 
+Fig. 3. Distribution of building damage ground truth label classifications by disaster scene, selected from the xBD dataset and CEMS Rapid 
+Mapping Archive.
+Table 3 
+Disaster event names and dates. For further details regarding image acquisition 
+dates and platforms, see Table S1 .
+Disaster Event Event Date
+Amatrice Earthquake 24/08/2016
+Central Italy Earthquake 26/10/2016
+Guatemala Eruption 03/06/2018
+Indonesia Tsunami 22/12/2018
+Mexico City Earthquake 19/09/2017
+Hurricane Michael 10/10/2018
+Pinery Fire 25/11/2015
+Portugal Fire 17/06/2017 until 24/06/2017
+Santa Rosa Fire 08/10/2017 until 14/10/2017
+St Martin Hurricane 06/09/2017
+Woolsey Fire 08/11/2018
+Table 4 
+Primary SAR Features and their associated descriptions.
+Feature Description
+Pre-Event Coherence Interferometric coherence, calculated from two pre-event images.
+Co-Event Coherence Interferometric coherence, calculated from one pre-event and one post-event image.
+Histogram-Matched Coherence Difference The histogram-matched difference between pre and co-Event coherence.
+Pre-Event Intensity Sigma-nought Intensity, calculated from one pre-event image.
+Post-Event Intensity Sigma-nought Intensity, calculated from one post-event image.
+Intensity Difference The difference between pre and post-event intensity.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+7
+
+
+===== PDF_PAGE_008 =====
+
+Fig. 4. Timeline showing SAR image capture and primary coherence feature processing workflow, as-well as example of features in the VV 
+polarisation shown on an area of the Santa Rosa Wildfire.
+Fig. 5. Timeline showing SAR image capture and primary intensity feature processing workflow, as-well as primary instensity features as shown on 
+an area the Santa Rosa wildfire.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+8
+
+
+===== PDF_PAGE_009 =====
+
+products using GDAL and Lanczos interpolation, and the intensity difference calculated by the subtraction of post-event intensity from 
+pre-event intensity (see Fig. 5 ).
+3.2.2.3. SAR image texture feature extraction and labelled data sampling. Using SNAP, for each of the 12 primary features, texture 
+features were extracted using GLCM Mean, Dissimilarity and Homogeneity (see Fig. 6 ) with a window size of 5 x 5 (equivalent to an 
+area of roughly 350 m
+2
+). A small window size is chosen to minimise smoothing effects and maintain building-level detail as much as 
+possible, while still providing effective analysis of image texture characteristics.
+Using the Geospatial Data Abstraction Library (GDAL) [ 49 ] implemented through Python, for each building polygon, the mean of 
+all intersecting pixels were sampled from all primary features and texture features, which can then be used to predict damage. Polygon 
+area was also calculated in the local UTM zone projection as an input feature.
+3.3. Testing scenarios
+Three different testing scenarios were utilised for the assessment of transferability and are outlined below.
+3.3.1. Scenario 1 - reference scenario
+The reference scenario acts as an idealised baseline of previous algorithm performance under in-domain testing scenarios. For each 
+disaster event, the labelled data was split randomly into 80% training and 20% testing data. A model was then built and evaluated for 
+each disaster event. This represents situations where a model has been trained and tested on local data from the same disaster event, 
+which is the most favourable conditions for performance but is not representative of real-world generalisation requirements.
+3.3.2. Scenario 2 - global scenario
+The global scenario evaluates cross-event generalisation with no event-specific training data. Utilising an event-based ‘leave-one- 
+out ’ cross validation training/testing split, described in Fig. 7 below, where, for every disaster event, an algorithm was trained on all 
+data from all other disaster events, and then tested on the left-out disaster event.
+This represents a model as if it were applied to map building damage rapidly following the disaster, without access to any local 
+training data from that specific disaster event. The global scenario specifically evaluates the operational case where a model leverages 
+all available historical disaster data to maximise training samples, accepting that training from diverse disaster types may introduce 
+conflicting signals between different damage mechanisms.
+3.3.3. Scenario 3 - wildfire specific scenario
+The wildfire specific scenario assesses whether a wildfire-specific model improves generalisation relative to a multi-hazard model. 
+It employs a ‘leave-one-out ’ cross validation training/testing split, however the model is only trained and tested on the wildfire disaster 
+events. This represents a hazard-specific wildfire model as if it were applied to map building damage due to a wildfire rapidly following 
+the disaster, without access to any local training data from that specific event. Wildfires were selected for this scenario as there were 
+four disaster events in the ground truth damage labels, enabling use of ‘leave-one-out ’ testing.
+Fig. 6. Example of texture feature extraction as applied to Histogram-Matched Coherence Difference on the Santa Rosa Wildfire.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+9
+
+
+===== PDF_PAGE_010 =====
+
+3.4. Machine learning model selection and implementation
+A Random Forest (RF) classifier was utilised for its computational efficiency and competitive performance, as-well as its robust 
+handling of high dimensional data [ 50 ]. The RF is also well established in SAR damage mapping literature [ 23 , 25 , 37 , 38 , 40 ] and offers 
+feature explainability metrics [ 51 ], allowing for interpretation and comparison of model mechanisms across different scenarios, as 
+opposed to deep learning methods such as CNNs which are relatively untested in SAR damage mapping and offer limited model 
+transparency.
+A Scikit-Learn implementation of the Random Forest Classifier [ 52 ] was utilised, with 100 estimators and a minimum number of 
+samples per leaf of 5 to limit model overfitting. A classification threshold of 0.5 was used. The same machine learning model pa -
+rameters were used for each testing scenario, such that model performance differences would be solely due to the different train -
+ing/testing split scenarios themselves.
+Due to the significant imbalance of ‘damaged ’ and ‘un-damaged ’ classes across disaster scenes, the class weight parameter was set 
+to ‘balanced ’ . This means that the weights applied to each sample used for training the model were inversely proportional to the class 
+frequency in the training dataset [ 52 ].
+3.5. Model performance and evaluation metrics
+For each testing scenario, Overall Accuracy (OA) and Macro Average F1-Score (Macro F1 Score) and Area Under the Precision – 
+Recall Curve (PR AUC) were used to evaluate classification performance for each individual disaster event. These are described in 
+equations 1, 2 and 3below, where TP refers to True Positives, FP refers to False Positives, and FN refers to False Negatives. 
+Overall Accuracy =
+Correctly Classified Samples
+Total Number of Samples
+(1) 
+Macro F 1 =
+F 1
+Un   Damaged
++ F 1
+Damaged
+2
+(2) 
+where: 
+F 1 =
+2 × Precision × Recall
+Precision + Recall 
+Precision =
+TP
+TP + FP 
+Recall =
+TP
+TP + FN 
+PR AUC =
+∫
+1
+0
+P ( r ) dr (3) 
+where P is precision and r is Recall.
+While OA is easily interpretable, it becomes an unreliable performance indicator when class prevalence is imbalanced [ 51 ]. Macro 
+F1 Score is a more reliable classification performance metric in datasets with severe class imbalance, giving a balanced weighting to 
+each class regardless of the number of occurrences [ 50 ], and therefore representing unbiased model performance for classification of 
+each class. PR AUC is used to evaluate model performance at distinguishing between the positive and negative class, regardless of 
+decision thresholding, and is reliable with class imbalance [ 53 ], and is implemented through the trapezoidal rule implemented in 
+Sci-kit Learn.
+Feature importance is evaluated using Gini and Shapley Additive exPlantations (SHAP) importance, implemented through Sci-kit 
+Learn and the SHAP python package. Under Gini, features are provided a relative ranking of importance as a by-product of the model 
+Fig. 7. Graphic showing disaster event-based leave-one-out cross validation, where for every disaster event, the algorithm is trained on all other 
+disaster events and tested on the left-out event.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+10
+
+
+===== PDF_PAGE_011 =====
+
+training, based on feature performance at distinguishing between the classes over all nodes within the whole Random Forest [ 54 ]. 
+SHAP importance values provide feature importance scores by computing how much each feature contributes to shifting the prediction 
+from a baseline value [ 55 ]. Due to the large training dataset size, a subset of 1000 features are randomly sampled for each model for 
+SHAP importance calculation. Gini and SHAP importance are normalised to between 0 (least important) to 1 (most important) using 
+min-max normalization for comparison.
+4. Results
+4.1. Scenario 1 and 2 (reference and global scenarios)
+In both testing scenarios, the model performance as shown by Macro F1 score varied substantially, with a range of 0.31 and 0.37 in 
+the global and reference scenarios respectively. While OA in both scenarios was generally high, the Macro F1 Score was generally 
+lower. The distribution of both Accuracy and F1 Macro score decreased when moving from the reference testing scenario to the global 
+testing scenario, as shown in Fig. 8 . Reported metrics are based on the selected classification threshold (0.5) as per section 3.4 .
+The difference in distribution between the reference and global scenario is clearly shown in the Macro F1 score, with the median F1 
+macro score moving from 0.68 to 0.54. The median accuracy score was a high 0.94 for the reference scenario, which dropped to 0.87 in 
+the global scenario. The Macro F1 score varied more substantially in the reference scenario, with an interquartile range of 0.21 as 
+compared to 0.12 in the global scenario. The reference scenario featured an outlier in terms of accuracy - the St Martin Hurricane, with 
+a low accuracy of 71%, although this was still higher than the lowest accuracy under the Global Scenario, which was 62%, also for the 
+St Martin Hurricane, with Hurricane Michael only just performing better at 66% in the global scenario, despite receiving a high 88% 
+accuracy in the reference scenario.
+For several disaster events (notably the Central Italy Earthquake, Hurricane Michael, and the Portugal Wildfire) algorithm per -
+formance as measured by F1 Macro Score was nearly comparable to a random classifier (which would produce an F1 Macro Score of 
+0.5) even in the reference case (0.56, 0.53, and 0.58 respectively), as shown in Fig. 9 . The Central Italy Earthquake, Portugal Wildfire 
+and Mexico City Earthquake also saw large disparities between Macro F1 Scores and Accuracy, featuring large class imbalances as per 
+Fig. 10 . Detailed per-class performance metrics, including F1-score, precision and recall are provided in Supplementary Material 
+Tables S2 and S3 .
+All disaster scenes suffered a performance drop across all metrics when moving from the reference to the global scenario except for 
+the Portugal Wildfire, which saw an improvement in Accuracy of 0.003, however the Macro F1 and PR AUC both dropped. The St 
+Martin Hurricane, Guatemala Volcano and the Santa Rosa Wildfire all saw substantial drops in F1 Macro Score (0.27, 0.25 and 0.25 
+respectively), with the St Martin Hurricane receiving a performance of 0.41, worse than a random classifier in the global scenario. The 
+Mexico City Earthquake, with a severe class imbalance (99.89%% buildings undamaged in the reference test set) achieved an almost 
+perfect accuracy score of 99.90% in the reference case, however only achieved a Macro F1 score of 0.58, achieving poor predictive 
+Fig. 8. Box plots of Macro F1 and OA scores comparing the reference scenario, with random splits for training and testing on the same disaster 
+event, and the global scenario, with event-based cross-validation to assess transferability. The boxes represent the 25th to 75th percentiles, the 
+centre line marks the median, and the whiskers indicate the range, excluding outliers beyond Q1-1.5IQR and Q3 + 1.5IQR (InterQuartile Range).
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+11
+
+
+===== PDF_PAGE_012 =====
+
+performance on the underrepresented damaged class – this dropped to 92.6% accuracy and a Macro F1 score of 0.48 in the global 
+scenario. The Mexico City Earthquake, Central Italy Earthquake and Sunda Tsunami all saw performance drop substantially to PR AUC 
+near 0, with the models nearly completely unable to distinguish between classes despite previously reasonable performance under the 
+reference scenario. Performance was still reasonable in the case of the Amatrice Earthquake and Woolsey Wildfire however, achieving 
+Macro F1 scores of 0.71 and 0.72 respectively, however performance still decreased from 0.87 to 0.77 respectively.
+The performance of the algorithm overall was inconsistent and varied substantially, with some disaster events showing promise, 
+however others featuring algorithm performance comparable to that of a random classifier, particularly in disaster events with severe 
+class imbalances. Performance generally declined when transitioning from a localised (reference) scenario to the global transferability 
+scenario, highlighting difficulties in model generalisation, with substantial performance drops in several cases.
+The predicted proportion of damaged buildings for each disaster scene generally aligned with the ground truth proportion of 
+damaged buildings in the reference scenario. In the global scenario, however, the predicted rate of damage tended to less clearly align 
+to the ground truth proportion of damage, resulting in substantial overestimations and underestimations of damage. For the St Martin 
+Hurricane, notably, only 1.95% of buildings were predicted as damaged, compared to 38.35% being damaged in the ground truth set. 
+In the case of the Mexico City Earthquake, conversely, 7.31% were predicted as damaged as compared to a ground truth of 0.11%.
+The most important features differed substantially by disaster event in both Gini an SHAP importance the Reference Scenario, 
+however aligned more between disaster events under the global scenario. Generally, SHAP and Gini importance aligned closely, and 
+while there were minor differences, the ranking of features between disaster events was generally consistent. Between both the 
+reference and global scenario, the most important features were generally co-event coherence or co-event coherence derived, and the 
+least important features were generally GLCM Dissimilarity and Homogeneity texture features, however this was not always the case, 
+especially in the reference scenario. Further information regarding feature importance in the global and reference scenarios can be 
+found in Figs. S1 and S2 .
+In the case of the Amatrice Earthquake in Fig. 11 , as-well as the wildfire disaster events and, to a lesser extent, the Central Italy 
+Earthquake in Fig. S5 , predicted damage generally followed the same distribution over the disaster event, with minor local inac -
+curacies as-well as over or under-prediction.
+For other disaster events, such as Hurricane Michael in Fig. 12 , damage distribution under the predicted and ground-truth scenarios 
+bore little resemblance to each other, as-well as wide-scale under and over-prediction of damage.
+In the reference scenario, predicted damage proportions generally closely correspond to the ground truth, while the global scenario 
+exhibited significant over and under estimations of damage. Feature importance varied across different disaster events within the 
+reference scenario, but became more consistent under global conditions, with co-event coherence emerging as a key predictor. Under 
+Fig. 9. Dumbbell chart displaying PR AUC (left) Macro F1 Score (middle) and Overall Accuracy (right) for each individual disaster event in the 
+reference and global scenario.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+12
+
+
+===== PDF_PAGE_013 =====
+
+the global scenario, some disaster events maintained spatial consistency in predicted damage distribution, while others showed poor 
+alignment with ground truth.
+4.2. Scenario 3 (Wildfire specific scenario)
+When comparing the wildfire disaster events under the global scenario and the wildfire specific scenario, the Macro F1 Score 
+generally improved under the wildfire specific scenario (see Fig. 13 ), although this was not true in the Pinery wildfire event (which 
+reduced by 0.02 from 0.60 in the global scenario to 0.58 under the wildfire specific scenario). A small Macro F1 Score improvement 
+was observed in the Woolsey and Portugal Wildfire events, and a substantial improvement in the Santa Rosa Wildfire (an improvement 
+of 0.02, 0.05 and 0.22 respectively). The algorithm on the Santa Rosa wildfire achieved very effective performance in the wildfire 
+specific scenario, reaching a Macro F1 Score of 0.87 and an accuracy of 0.90. The Portugal Wildfire also received a high accuracy of 
+0.96%, however received a lower F1 macro score of 0.58, suffering from severe class imbalance. The PR AUC increased in every 
+disaster event under the fire-specific scenario as compared to the global scenario, meaning that the fire specific model performed better 
+at distinguishing damaged and undamaged buildings. The average Macro F1 score in the fire-specific testing scenario was a reasonable 
+0.69, as compared to 0.63 for fires in the global scenario.
+While the F1 scores generally improved, the accuracy scores generally decreased, moving from a global scenario score of 0.86, 0.77 
+and 0.98 in the Pinery, Woolsey and Portugal wildfires to 0.81, 0.75 and 0.96 in the wildfire specific scenario. In the case of the Santa 
+Fig. 10. Proportions of buildings classified as damaged or undamaged per scene, comparing the ground truth (top) to the predictions (bottom) for 
+the reference scenario (left) and the global scenario (right).
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+13
+
+
+===== PDF_PAGE_014 =====
+
+Fig. 11. Map of ground truth damage distribution (left) and predicted damage distribution under the global scenario (right) for the Amatrice 
+Earthquake. Examples of representative SAR imagery alongside model predictions are included in appendix A , and larger figures including other 
+disaster events are including in supplementary material.
+Fig. 12. Map of ground truth damage distribution (left) and predicted damage distribution under the global scenario (right) for Hurricane Michael. 
+Examples of representative SAR imagery alongside model predictions are included in appendix A , and larger figures including other disaster events 
+are including in supplementary material.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+14
+
+
+===== PDF_PAGE_015 =====
+
+Fig. 13. Dumbbell chart displaying a comparison of the global and fire specific scenarios PR AUC (left) Macro F1 Score (middle) and Overall 
+Accuracy (right) for each individual disaster event.
+Fig. 14. Stacked bar charts showing proportions of buildings classified as damaged or undamaged per scene, comparing the ground truth (top) to 
+the predictions (bottom) for the global scenario (left) and the fire specific scenario (right).
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+15
+
+
+===== PDF_PAGE_016 =====
+
+Rosa fire, however, the accuracy score increased substantially from 0.80 to 0.90 when moving from the global to the wildfire specific 
+scenario. Detailed per-class performance metrics are provided in Supplementary Material Tables S3 and S4 .
+Under the global scenario the proportion of damaged buildings was generally underestimated, at 0.41%, 7.68% and 25.66% for the 
+Portugal, Santa Rosa and Woolsey wildfires predicted rather than a ground truth of 2.21%, 27.00% and 29.32% (see Fig. 14 ). The fire 
+specific scenario, however, predicted 3.11%, 24.53% and 45.42%, improving in the first two cases by 0.90%, and 16.85% respectively, 
+however in the case of the Wooley Wildfire, overpredicting by 16.11%, which was 12.45% worse than the global model. Under the 
+Pinery Bushfire, the damage was overestimated under both the global scenario, at 6.46% over, and the Fire Specific scenario, which 
+was 13.68% over the ground truth figure of 6.03%.
+Under the wildfire-specific scenario, a few features accounted for the majority of Gini and SHAP importance across disaster events. 
+Only four features exceeded a normalised importance threshold of 0.4, compared to 11 in the global scenario, indicating a stronger 
+reliance on a smaller subset of predictors. Most importance derived from co-event coherence mean, co-event coherence, and coherence 
+difference mean, as-well as coherence difference, with both polarisations being important. Dissimilarity and Homogeneity texture 
+features based on coherence and intensity features were generally of very low importance, although there were some exceptions. 
+Further information regarding feature importance in the wildfire specific scenario can be found in Fig. S3 .
+For the Santa Rosa Fire in Fig. 15 , as-well as the Woolsey wildfire in Fig. S14 , the distribution of damage as mapped under the Fire 
+Specific Scenario aligned well with the ground truth scenario, with most predicted damage aligned to the clustered ground truth 
+damage, however small pockets of predicted damage are distant from the ground truth (see Fig. 14 ). This is a substantial improvement 
+over the global scenario, where damage predicted appears to be in the appropriate region, although it is substantially underestimated.
+In the cases of the Portugal Wildfire and Pinery Bushfire in Fig. 16 and Fig. S11 , damage was distributed in small, sparsely spread 
+buildings, while the larger clusters of buildings were generally less effected, which was reflected in both the global and reference 
+scenario despite the low Macro F1 scores. The overprediction in the fire specific scenario is evident in the case of Fig. S10 however, 
+with larger swathes of buildings appearing damaged instead of undamaged.
+Overall, the wildfire-specific scenario generally showed promising performance, with improved Macro F1 scores compared to the 
+global scenario, although the improvement was not consistent across all disaster events. All events did see an improvement in PR AUC 
+however, indicating that all models were better able to distinguish between classes, and where Macro-F1 did not improve this was due 
+to the classification threshold being less optimal. The performance improvement in the case of the Santa Rosa Wildfire was particularly 
+high. While the wildfire-specific model generally performed better at estimating proportions of damaged buildings, it did lead to 
+overpredictions in all but one wildfire. Feature importance became more concentrated in the fire-specific scenario, with co-event 
+coherence and coherence differences emerging as key predictors. The spatial distribution of damage also improved under the fire- 
+specific scenario, however small local inaccuracies and over-predictions persisted.
+5. Discussion
+This study evaluates the transferability of medium-resolution SAR ML Models to map building damage following natural disasters. 
+By utilising three testing scenarios, model adaptability under different combinations of disaster types and geographic contexts was able 
+to be tested, enabling an understanding of the model performance in real-world scenarios. Specifically, the objectives were to 
+determine the extent of decline in performance when models were required to generalise to unseen disaster events in varying contexts 
+and evaluate whether a disaster-type specific model outperformed a general disaster-agnostic model.
+The application of a realistic transferability testing scheme in the global testing scenario reduced model performance, substantially 
+lowering median Macro F1 Score, PR-AUC and OA as compared to the reference scenario by 20.6%, 42.9% and 7.5% respectively. This 
+suggests that previous studies which did not test for transferability may have been overly optimistic in their reported performances. 
+This could be due to similar issues described by Ploton et al. [ 42 ], in that training and test sets in the reference scenario were not 
+spatially segmented, and rather than finding the characteristics of damage itself, algorithm predictive power was due to local spatial 
+autocorrelation. The performance drop between testing scenarios aligned broadly to previous studies using higher resolution SAR 
+intensity which evaluated transferability [ 24–26 ]. These previous studies generally evaluated local model transferability on the same 
+disaster events or disaster types within similar geographic regions. The requirement for the global scenario algorithm to adapt to 
+differing building characteristics, geographical and environmental contexts globally likely reduced the model ability to classify 
+damage, as-well as the differing characteristics and severity of individual disaster events and specific disaster types.
+To contextualise these transferability findings, our reference model testing scenario performance was comparable to previous 
+coherence and intensity-based machine learning studies. The best performing disaster event in the reference scenario, the Santa Rosa 
+fire (F1 score of 0.90), was comparable to the performance achieved by Xie et al. [ 23 ], who, focused on the Camp Fire in the same U.S. 
+state and year as the Santa Rosa fire and achieved an F1 score of 0.93 when focusing on residential buildings, although only 0.77 on 
+commercial buildings. Other variations in performance were consistent with results reported by Rao et al. [ 38 ], where the effects of 
+class imbalance likely contributed to instances of near-random model performance, while more balanced classifications achieved 
+respectable Macro F1 scores, ranging from 0.47 to 0.79. Our reference scenario model exceeded performance of Akhmadiya et al. [ 21 ] 
+(OA of 77%) and Karimzadeh and Mastuoka [ 22 ] (OA of 84%) for the Amatrice Earthquake in both the reference and global scenarios 
+(OA of 94% and 87% respectively), although we acknowledge the study area extent and damage type classification were not identical 
+between these studies.
+In this study, a wildfire specific model outperformed a disaster-agnostic model. This suggests that the characteristics of damage as 
+viewed by a SAR sensor differs between wildfires and the other disaster types assessed. This is not unexpected, as different disaster 
+types are expected to result in different impacts on infrastructure. Under the wildfire-specific scenario, a few features accounted for the 
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+16
+
+
+===== PDF_PAGE_017 =====
+
+majority of importance across disaster events, as shown in Fig. S3 . Only four features exceeded an importance threshold of 0. 4, 
+compared to 11 in the global scenario, indicating a stronger reliance on a smaller subset of predictors. This reflects a shift in the 
+distribution of relative importance, rather than a difference in overall predictive power — a pattern that should be expected given the 
+more focused modelling context. Additionally, coherence and coherence-derived features calculated from larger windows are more 
+important in the fire-specific scenario, while intensity dissimilarity features are relatively more important in the global scenario.
+The burn scar and change in vegetation structure due to the wildfire itself could substantially increase the footprint and signal of the 
+damage, with Sentinel-1 SAR being used with impressive performance to map burnt area [ 56 , 57 ], although the burn scar also has the 
+Fig. 15. Map of ground truth damage distribution (left) and predicted damage distribution under the global scenario (centre) and fire specific 
+scenario (right) for the Santa Rosa Wildfire. Examples of representative SAR imagery alongside model predictions are included in appendix A , and 
+larger figures including other disaster events are including in supplementary material.
+Fig. 16. Map of ground truth damage distribution (left) and predicted damage distribution under the global scenario (centre) and fire specific 
+scenario (right) for the Portugal Wildfire. Examples of representative SAR imagery alongside model predictions are included in appendix A , and 
+larger figures including other disaster events are including in supplementary material.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+17
+
+
+===== PDF_PAGE_018 =====
+
+potential to confound the signal of the structural building damage itself, potentially resulting in false positives. The outperformance of 
+the wildfire-specific scenario is in line with Nitsche et al. [ 58 ], who found that with VHR optical imagery, a flood-specific model 
+outperformed a universal model. This finding is based solely on four wildfire disaster events, so further research should be conducted 
+investigating disaster-type specific models with larger sample sizes.
+The inconsistent model performance for building damage classification can potentially be explained by the spatial resolution of the 
+Sentinel-1 sensor under Interferometric Wide-Swath mode. As shown in Figures A1, A2 and S4 to S14, the most successful model 
+performance often occurred when building damage was spatially clustered together. In contrast, for Hurricane Michael, the Mexico 
+City Earthquake and the Pinery Bushfire, building damage was isolated, and buildings that had suffered damage were often surrounded 
+by unaffected buildings. It is possible that when the damage was clustered, the signal of the damage was large enough to overcome the 
+limitation of spatial resolution. For coherence features, this limit was suggested by Natsuaki et al. [ 31 ] as the window used for 
+coherence calculation, and so would be roughly 20 to 40 m
+2 
+under the configuration used in this study, depending on ground geometry 
+and incidence angle. With a pixel size of approximately 14m, individual buildings may be smaller than a single pixel, making isolated 
+damage particularly difficult to detect. Given the spatial resolution of Sentinel-1 and the window used for coherence calculation, model 
+predictions may therefore reflect neighbourhood-scale change rather than isolated building-level damage. Small, isolated pockets of 
+damage are therefore more likely to be missed by the model, which could delay disaster response and result in misunderstanding of 
+damage distribution. Use of higher resolution sensors which capture the phase information needed for interferometric coherence 
+calculation, such TerraSAR-X/Tandem-X or the commercial ICEYE or Capella sensors, would therefore likely be able to overcome this 
+limitation.
+A particular example of poor model performance was the St Martin Hurricane, which was an outlier in terms of low accuracy in the 
+reference scenario, and suffered the lowest Macro F1 Score in the global scenario (0.40). This low performance could be due to the 
+unique characteristics of the geography of St Martin Island, being the only island studied, and featuring a uniquely high rate of damage 
+(38%). Performance was also low in both the reference and global transferability scenario for Hurricane Michael, the only other 
+hurricane event reviewed in this study, indicating that the damage caused by storms may be difficult to map using SAR due to the 
+characteristics of storm-induced damage. Additionally, label uncertainty in the ground truth data, particularly in the case of the 
+Copernicus EMS dataset (reported OA of 85%), may have contributed to reduced performance in some cases.
+Several key limitations constrain the interpretation of this studies findings. Beyond the technical limitations of Sentinel-1 relating 
+to noise and resolution of damage at the individual building level, there are limitations relating to study design worthy of note. The 
+limited sample size in terms of the number of events (n = 11) studied remains relatively limited and does not capture global geographic 
+and disaster characteristic variability, and as the ground-truth datasets are from two sources where the definition of “ damage ” varies 
+slightly, and the interpretation or application of these damage definitions may vary across disaster types, the comparisons and gen -
+eralisations across events should be interpreted with caution. The reported performance metrics are dependent on the selected 
+threshold, and model outputs correspond to uncalibrated RF class scores. These model output scores should not be interpreted as 
+probabilities, and would require calibration before being suitable for direct operational decision-making. Further, while the use of a 
+Random Forest with manually extracted SAR features acts as a baseline through which transferability can be assessed, whether the 
+observed transferability limitations and associated drop in performance extends to more complex model types to the same extent 
+remains to be tested.
+A limitation of this study and previous research into coherence and intensity based damage mapping is the length of the timeseries 
+utilised as a baseline, utilising three images, generally covering 18 or 32 days over time. Dietrich et al. [ 59 ], utilising intensity data 
+from a three-month time series to map damage from the war in Ukraine, when testing transferability to other regions, achieved a macro 
+average F1 score of 0.71. Incorporating a longer time-series of coherence into model predictions as-well as intensity would establish a 
+better baseline of natural variation and therefore could improve model performance, however this may lead to longer processing time 
+and therefore delayed disaster response. A cost-benefit analysis, investigating the performance improvement and processing delays 
+associated with a longer baseline would demonstrate whether the inclusion of the longer baseline is worthwhile.
+Another improvement could be the inclusion of more features for model prediction. Backscattering characteristics are not only 
+affected by the shape and roughness of the target, but also by the dielectric properties, heavily influenced by factors such as soil 
+moisture [ 60 ], with soil moisture being mapped using Sentinel-1 backscattering [ 61 ]. Damage mapping algorithms could likely be 
+improved by incorporating soil moisture data, especially when transferring to regions with different environmental characteristics. 
+Given coherence's sensitivity to vegetation [ 15 ], inclusion of Normalised-Difference-Vegetation-Index products could potentially also 
+boost classifier results. Other information, such as the number of stories in the building, tested by Rao et al. [ 38 ], could also improve 
+performance.
+Deep learning algorithms are gaining popularity as alternatives to traditional machine learning methods, with CNNs consistently 
+outperforming conventional algorithms [ 62 ]. The primary advantage of CNNs is automatic feature extraction, where the CNN auto -
+matically extracts the most important features in the input images [ 63 ]. Rather than individual pixel values as the input, the CNN takes 
+an array of pixels and considers the contextual information in the image to produce a result [ 64 ]. This could be valuable for damage 
+detection using SAR imagery, as key texture features manually extracted from SAR images rely on contextual spatial information. SAR 
+interferometry has been relatively unexplored with CNNs [ 18 ]. While there have been a few efforts using SAR coherence and intensity 
+for flood mapping [ 65 , 66 ], only one study has applied inSAR with CNNs for damage detection. Xie et al. [ 23 ] tested a CNN on the 2018 
+Camp Fire, where it was only slightly outperformed by a GBM. A comparative study that evaluates out-of-domain model performance, 
+leveraging a larger and more diverse dataset, should therefore be conducted to test the applicability for CNNs for medium resolution 
+SAR damage mapping.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+18
+
+
+===== PDF_PAGE_019 =====
+
+6. Conclusions
+This study evaluated the transferability of coherence and intensity based SAR building damage mapping using machine learning, 
+achieved by using a large ground truth dataset of 205,731 buildings from 11 different disaster events. To date, there is little published 
+on this topic in the literature. This study revealed several significant insights regarding model performance and transferability.
+This study established that when Random Forest models were applied to unseen disaster events across diverse geographic, envi -
+ronmental and urban contexts as-well as various disaster types, there was a notable decline in performance. This finding suggests that 
+earlier assessments of SAR machine learning model performance may have been overly optimistic in studies that did not rigorously 
+evaluate model transferability. While whether a similar performance drop extends to more complex model classes such as Deep 
+Learning architectures with learned feature representations remains an open question without direct comparative evidence, the 
+observed performance drop highlights the necessity of testing algorithms beyond their training contexts to ensure reliability in real- 
+world applications.
+In addition, this study found that a model trained on one specific disaster type outperformed a disaster-agnostic model in the case of 
+wildfires. This indicates that the building damage characteristics of wildfires differ from the other assessed disaster types as seen by the 
+SAR sensor, and focusing the model on one disaster type can outweigh the value of extra training data from other disaster types, 
+however this has yet to be tested beyond wildfires.
+Overall, the performance of the algorithms was too inconsistent and insufficient for effective building-level damage mapping for 
+disaster response. However, there were positive outcomes for several disaster events, and the performance in the wildfire-specific 
+scenario showed considerable promise. Future research should focus on expanding the number of disaster events utilised to ensure 
+robustness in results, and further testing of context-specific algorithms focused on specific disaster types and geographic regions. 
+Further, the effectiveness of deep learning algorithms as well as the inclusion of longer SAR time series and ancillary data sources 
+should be evaluated and tested to improve model performance.
+In conclusion, while this study has highlighted critical challenges and opportunities in SAR-based building damage mapping, it also 
+emphasizes the urgent need for further research. Given the increasing frequency and severity of natural disasters [ 67 ], enhancing the 
+accuracy and timeliness of damage assessment methods is critical for improving disaster response and recovery efforts across the globe.
+CRediT authorship contribution statement
+James Currie: Writing – original draft, Visualization, Validation, Methodology, Investigation, Formal analysis, Data curation, 
+Conceptualization. Karin Reinke: Writing – review & editing, Validation, Supervision.
+Declaration of competing interest
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to 
+influence the work reported in this paper.
+Acknowledgements
+The authors would like to acknowledge the experts who were kind enough to lend their time to provide advice and input into this 
+study. This includes Akram Hourani, Roberto Del Prete, Nermine Hendy and Debaditya Acharya.
+This project utilised Copernicus Sentinel data [2015-18]. Retrieved from ASF DAAC [2024], processed by ESA.
+The authors would also like to acknowledge the U.S Defense Innovation Unit and the Copernicus Emergency Management Service 
+for open access to the ground truth building damage labels.
+Appendix A. Representative SAR Imagery and Model Predictions
+The following figures display a representative selection of areas taken from the disaster events, SAR imagery and associated model 
+predictions for the purpose of demonstrating the key success and failure cases of the model as they relate to the scale of the building 
+footprints relative to the SAR imagery resolution, the appearance of the SAR signal under varying disaster types and the varying 
+distribution of damage.
+Histogram-Matched Coherence Difference in the Vertical-Vertical polarisation is selected as the most easily interpretable and 
+representative SAR feature, however it should be noted that it is only one of 37 features used for model prediction and does not 
+represent the entire signal captured by the sensor.  
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+19
+
+
+===== PDF_PAGE_020 =====
+
+Fig. A1. Selection of four examples of SAR imagery where ground truth damage distribution is clustered alongside model predictions under the 
+Global Scenario and Wildfire Specific scenario.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+20
+
+
+===== PDF_PAGE_021 =====
+
+Fig. A2. Selection of four examples of SAR imagery where ground truth damage distribution is diffuse alongside model predictions under the Global 
+Scenario and Wildfire Specific scenario.
+Appendix B. Supplementary data
+Supplementary data to this article can be found online at https://doi.org/10.1016/j.ijdrr.2026.106048 .
+Data availability
+Copernicus Sentinel-1 SAR data utilised in this study is available online from the ASF DAAC. Building damage labels, sourced from 
+the xBD dataset and the Copernicus Emergency Management Service are also available online. Other data will be provided upon 
+request.
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+21
+
+
+===== PDF_PAGE_022 =====
+
+References
+[1] H. Ritchie, P. Rosado, M. Roser, Natural disasters, our world in data. https://ourworldindata.org/natural-disasters , 2022.
+[2] Centre for Research on the Epidemiology of Disasters, Disasters in numbers: climate in action, 2023. https://www.cred.be/sites/default/files/2022_EMDAT_ 
+report.pdf , 2022. (Accessed 18 March 2024).
+[3] K. Iserson, Tackling the global challenge: humanitarian catastrophes, West. J. Emerg. Med. 15 (2014) 231 – 240, https://doi.org/10.5811/ 
+westjem.2013.12.20125 .
+[4] FAO, The impact of disasters on agriculture and food security 2023 – avoiding and reducing losses through investment in resilience, Rome. https://doi.org/10. 
+4060/cc7900en , 2023.
+[5] M. Walika, M. Moitinho De Almeida, R. Castro Delgado, P. Arcos Gonz ´alez, Outbreaks following natural disasters: a review of the literature, Disaster Med. Public 
+Health Prep. 17 (2023) e444, https://doi.org/10.1017/dmp.2023.96 .
+[6] W. Botzen, O. Deschenes, M. Sanders, The economic impacts of natural disasters: a review of models and empirical studies, Rev. Environ. Econ. Pol. 13 (2019) 
+167 – 188, https://doi.org/10.1093/reep/rez004 .
+[7] M. Moshtari, P. Gonçalves, Factors influencing interorganizational collaboration within a disaster relief context, Voluntas Int. J. Voluntary Nonprofit Organ. 28 
+(2017) 1673 – 1694, https://doi.org/10.1007/s11266-016-9767-3 .
+[8] H. Safarpour, S. Fooladlou, M. Safi-Keykaleh, S. Mousavipour, D. Pirani, A. Sahebi, H. Ghodsi, I. Farahi-Ashtiani, A. Dehghani, Challenges and barriers of 
+humanitarian aid management in 2017 Kermanshah earthquake: a qualitative study, BMC Public Health 20 (2020) 563, https://doi.org/10.1186/s12889-020- 
+08722-5 .
+[9] M. Wendelbo, F. La China, H. Dekeyser, L. Tacceti, Sebastiano Mori, V. Aggarwal, O. Alam, A. Savoldi, R. Zielonka, The Crisis Response to the Nepal Earthquake: 
+Lessons Learned, 2016 .
+[10] M.W.G. Bosmans, C. Baliatsas, C.J. Yzermans, M.L.A. Dückers, A systematic review of rapid needs assessments and their usefulness for disaster decision making: 
+methods, strengths and weaknesses and value for disaster relief policy, Int. J. Disaster Risk Reduct. 71 (2022) 102807, https://doi.org/10.1016/j. 
+ijdrr.2022.102807 .
+[11] J. Wartman, J.W. Berman, A. Bostrom, S. Miles, M. Olsen, K. Gurley, J. Irish, L. Lowes, T. Tanner, J. Dafni, M. Grilliot, A. Lyda, J. Peltier, Research needs, 
+challenges, and strategic approaches for natural hazards and disaster reconnaissance, Front. Built Environ. 6 (2020). https://www.frontiersin.org/articles/10. 
+3389/fbuil.2020.573068 .
+[12] Copernicus EMS, Rapid mapping portfolio. https://emergency.copernicus.eu/mapping/ems/rapid-mapping-portfolio , 2024. (Accessed 30 March 2024).
+[13] United Nations Satellite Centre, 8 September 2023 M6.8 Adassil/Al Haouz Earthquake, Preliminary Satellite-based Comprehensive Damage Assessment Report, 
+United Nations Institute for Training and Research - United Nations Satellite Centre, 2023. https://unosat.org/products/3683 .
+[14] T.R. Robinson, N. Rosser, R.J. Walters, The spatial and temporal influence of cloud cover on satellite-based emergency mapping of earthquake disasters, Sci. 
+Rep. 9 (2019) 12455, https://doi.org/10.1038/s41598-019-49008-0 .
+[15] A. Ferretti, A. Monti-Guarnieri, C. Prati, F. Rocca, D. Massonet, InSAR principles - Guidelines for SAR interferometry processing and interpretation, ESA Train. 
+Manual 19 (2007) .
+[16] A. Hooper, H. Zebker, P. Segall, B. Kampes, A new method for measuring deformation on volcanoes and other natural terrains using InSAR persistent scatterers, 
+Geophys. Res. Lett. 31 (2004), https://doi.org/10.1029/2004GL021737 .
+[17] P. Ge, H. Gokon, K. Meguro, A review on synthetic aperture radar-based building damage assessment in disasters, Rem. Sens. Environ. 240 (2020) 111693, 
+https://doi.org/10.1016/j.rse.2020.111693 .
+[18] X.X. Zhu, S. Montazeri, M. Ali, Y. Hua, Y. Wang, L. Mou, Y. Shi, F. Xu, R. Bamler, Deep learning meets SAR: concepts, models, pitfalls, and perspectives, IEEE 
+Geosci. Rem. Sens. Magaz. 9 (2021) 143 – 172, https://doi.org/10.1109/MGRS.2020.3046356 .
+[19] V. Benson, A. Ecker, Assessing out-of-domain generalization for robust building damage detection. arXiv Preprint arXiv:2011, 2020 10328 .
+[20] Zeng Akhmadiya, Use of Sentinel-1 data for earthquake damage assessment in cases of amatrice and Sarpol-E zahab, in: IGARSS 2018 - 2018 IEEE International 
+Geoscience and Remote Sensing Symposium, 2018, pp. 4877 – 4880, https://doi.org/10.1109/IGARSS.2018.8517285 .
+[21] A. Akhmadiya, N. Nabiyev, K. Moldamurat, K. Dyussekeyev, S. Atanov, Use of Sentinel-1 dual polarization multi-temporal data with gray level Co-Occurrence 
+matrix textural parameters for building damage assessment, Pattern Recogn. Image Anal. 31 (2021) 240 – 250, https://doi.org/10.1134/S1054661821020036 .
+[22] S. Karimzadeh, M. Mastuoka, Building damage assessment using multisensor dual-polarized synthetic aperture radar data for the 2016 M 6.2 amatrice 
+earthquake, Italy, Remote Sens. 9 (2017), https://doi.org/10.3390/rs9040330 .
+[23] B. Xie, J. Xu, J. Jung, S.-H. Yun, E. Zeng, E.M. Brooks, M. Dolk, L. Narasimhalu, Machine learning on satellite radar images to estimate damages after natural 
+disasters, in: Proceedings of the 28th International Conference on Advances in Geographic Information Systems, Association for Computing Machinery, New 
+York, NY, USA, 2020, pp. 461 – 464, https://doi.org/10.1145/3397536.3422349 .
+[24] H. Gokon, J. Post, E. Stein, S. Martinis, A. Twele, M. Mück, C. Gei ß , S. Koshimura, M. Matsuoka, A method for detecting buildings destroyed by the 2011 Tohoku 
+earthquake and tsunami using multitemporal TerraSAR-X data, IEEE Geosci. Rem. Sens. Lett. 12 (2015) 1277 – 1281, https://doi.org/10.1109/ 
+LGRS.2015.2392792 .
+[25] V. Macchiarulo, G. Giardina, P. Milillo, Y.D. Aktas, M.R.Z. Whitworth, Integrating post-event very high resolution SAR imagery and machine learning for 
+building-level earthquake damage assessment, Bull. Earthq. Eng. (2024), https://doi.org/10.1007/s10518-024-01877-1 .
+[26] M. Wieland, W. Liu, F. Yamazaki, Learning change from synthetic aperture radar images: performance evaluation of a support vector machine to detect 
+earthquake and tsunami-induced changes, Remote Sens. 8 (2016), https://doi.org/10.3390/rs8100792 .
+[27] European Space Agency, ASAR product handbook. https://earth.esa.int/eogateway/documents/20142/37627/ASAR-Product-Handbook.pdf , 2007.
+[28] W. Liu, F. Yamazaki, Extraction of collapsed buildings in the 2016 Kumamoto earthquake using multi-temporal PALSAR-2 data, J. Disaster Res. 12 (2017) 
+241 – 250, https://doi.org/10.20965/jdr.2017.p0241 .
+[29] S.-H. Yun, E. Jameson Fielding, F.H. Webb, M. Simons, Damage proxy map from interferometric synthetic aperture radar coherence. https://patents.google. 
+com/patent/US9207318 , 2015.
+[30] NASA JPL, Palu - ARIA damage proxy map. https://aria-share.jpl.nasa.gov/20180928-Sulawesi_EQ/DPM/ , 2018.
+[31] R. Natsuaki, H. Nagai, N. Tomii, T. Tadono, Sensitivity and limitation in damage detection for individual buildings using InSAR coherence — A case study in 
+2016 Kumamoto earthquakes, Remote Sens. 10 (2018), https://doi.org/10.3390/rs10020245 .
+[32] D. Oxoli, P. Boccardo, M.A. Brovelli, M.E. Molinari, A. Monti Guarnieri, Coherent change detection for repeated-pass interferometric SAR images: AN 
+APPLICATION TO EARTHQUAKE DAMAGE ASSESSMENT ON BUILDINGS, the international archives of the photogrammetry, Rem. Sens. Spatial Inform. Sci. 
+XLII-3/W4 (2018) 383 – 388, https://doi.org/10.5194/isprs-archives-XLII-3-W4-383-2018 .
+[33] Y. Bai, C. Gao, S. Singh, M. Koch, B. Adriano, E. Mas, S. Koshimura, A framework of rapid regional tsunami damage recognition from post-event TerraSAR-X 
+imagery using deep neural networks, IEEE Geosci. Rem. Sens. Lett. 15 (2018) 43 – 47, https://doi.org/10.1109/LGRS.2017.2772349 .
+[34] B. Adriano, N. Yokoya, J. Xia, H. Miura, W. Liu, M. Matsuoka, S. Koshimura, Learning from multimodal and multitemporal earth observation data for building 
+damage mapping, ISPRS J. Photogrammetry Remote Sens. 175 (2021) 132 – 143, https://doi.org/10.1016/j.isprsjprs.2021.02.016 .
+[35] Y. Bai, B. Adriano, E. Mas, S. Koshimura, Machine learning based building damage mapping from the ALOS-2/PALSAR-2 SAR imagery: case study of 2016 
+Kumamoto earthquake, J. Disaster Res. 12 (2017) 646 – 655, https://doi.org/10.20965/jdr.2017.p0646 .
+[36] Q. Li, L. Gong, J. Zhang, A correlation change detection method integrating PCA and multi- texture features of SAR image for building damage detection, Europ. 
+J. Rem. Sens. 52 (2019) 435 – 447, https://doi.org/10.1080/22797254.2019.1630322 .
+[37] A.F. Sandhini Putri, W. Widyatmanti, D.A. Umarhadi, Sentinel-1 and Sentinel-2 data fusion to distinguish building damage level of the 2018 Lombok 
+Earthquake, Remote Sens. Appl.: Soc. Environ. 26 (2022) 100724, https://doi.org/10.1016/j.rsase.2022.100724 .
+[38] A. Rao, J. Jung, V. Silva, G. Molinario, S.-H. Yun, Earthquake building damage detection based on synthetic-aperture-radar imagery and machine learning, Nat. 
+Hazards Earth Syst. Sci. 23 (2023) 789 – 807, https://doi.org/10.5194/nhess-23-789-2023 .
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+22
+
+
+===== PDF_PAGE_023 =====
+
+[39] C. Wang, Y. Liu, X. Zhang, X. Li, V. Paramygin, P. Sheng, X. Zhao, S. Xu, Scalable and rapid building damage detection after hurricane Ian using causal Bayesian 
+networks and InSAR imagery, Int. J. Disaster Risk Reduct. 104 (2024) 104371, https://doi.org/10.1016/j.ijdrr.2024.104371 .
+[40] B. Adriano, J. Xia, G. Baier, N. Yokoya, S. Koshimura, Multi-source data fusion based on ensemble learning for rapid building damage mapping during the 2018 
+Sulawesi earthquake and tsunami in Palu, Indonesia, Remote Sens. 11 (2019), https://doi.org/10.3390/rs11070886 .
+[41] D.R. Roberts, V. Bahn, S. Ciuti, M.S. Boyce, J. Elith, G. Guillera-Arroita, S. Hauenstein, J.J. Lahoz-Monfort, B. Schr ¨oder, W. Thuiller, D.I. Warton, B.A. Wintle, 
+F. Hartig, C.F. Dormann, Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure, Ecography 40 (2017) 913 – 929, 
+https://doi.org/10.1111/ecog.02881 .
+[42] P. Ploton, F. Mortier, M. R ´ejou-M ´echain, N. Barbier, N. Picard, V. Rossi, C. Dormann, G. Cornu, G. Viennois, N. Bayol, A. Lyapustin, S. Gourlet-Fleury, 
+R. P ´elissier, Spatial validation reveals poor predictive performance of large-scale ecological mapping models, Nat. Commun. 11 (2020) 4540, https://doi.org/ 
+10.1038/s41467-020-18321-y .
+[43] R. Gupta, R. Hosfelt, S. Sajeev, N. Patel, B. Goodman, J. Doshi, E. Heim, H. Choset, M. Gaston, Xbd: a dataset for assessing building damage from satellite 
+imagery, arXiv Preprint arXiv:1911.09296 (2019). https://xview2.org/dataset .
+[44] UN Office for Outer Space Affairs, Copernicus risk and recovery mapping. https://www.un-spider.org/copernicus-risk-and-recovery-mapping . (Accessed 22 
+November 2025).
+[45] Microsoft, microsoft building footprints. https://planetarycomputer.microsoft.com/dataset/ms-buildings , 2023. (Accessed 24 November 2025).
+[46] ASF, ASF data search. https://asf.alaska.edu/asfsardaac/ , 2024. (Accessed 27 October 2024).
+[47] European Space Agency, SeNtinel Application Program, 2022 .
+[48] ASF, Sentinel-1 RTC product guide. https://hyp3-docs.asf.alaska.edu/guides/rtc_product_guide/ , 2024. (Accessed 27 October 2024).
+[49] GDAL/OGR contributors, Geospatial Data Abstraction software Library. https://gdal.org , 2024.
+[50] M. Belgiu, L. Dr ˘agut ¸ , Random forest in remote sensing: a review of applications and future directions, ISPRS J. Photogrammetry Remote Sens. 114 (2016) 
+24 – 31, https://doi.org/10.1016/j.isprsjprs.2016.01.011 .
+[51] R. Couronn ´e, P. Probst, A.-L. Boulesteix, Random forest versus logistic regression: a large-scale benchmark experiment, BMC Bioinf. 19 (2018) 270, https://doi. 
+org/10.1186/s12859-018-2264-5 .
+[52] F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, 
+D. Cournapeau, M. Brucher, M. Perrot, 
+´
+E. Duchesnay, Scikit-learn: machine learning in python, J. Mach. Learn. Res. 12 (2011) 2825 – 2830 .
+[53] H.R. Sofaer, J.A. Hoeting, C.S. Jarnevich, The area under the precision-recall curve as a performance metric for rare binary events, Methods Ecol. Evol. (2019) 
+565 – 577, https://doi.org/10.1111/2041-210X.13140 .
+[54] B.H. Menze, B.M. Kelm, R. Masuch, U. Himmelreich, P. Bachert, W. Petrich, F.A. Hamprecht, A comparison of random forest and its Gini importance with 
+standard chemometric methods for the feature selection and classification of spectral data, BMC Bioinf. 10 (2009) 213, https://doi.org/10.1186/1471-2105-10- 
+213 .
+[55] S. Lundberg, S. Lee, A unified approach to interpreting model predictions. https://doi.org/10.48550/arXiv.1705.07874 , 2017.
+[56] Y. Ban, P. Zhang, A. Nascetti, A.R. Bevington, M.A. Wulder, Near real-time wildfire progression monitoring with Sentinel-1 SAR time series and deep learning, 
+Sci. Rep. 10 (2020) 1322, https://doi.org/10.1038/s41598-019-56967-x .
+[57] M. Hosseini, S. Lim, Burned area detection using Sentinel-1 SAR data: a case study of Kangaroo Island, South Australia, Appl. Geogr. 151 (2023) 102854, 
+https://doi.org/10.1016/j.apgeog.2022.102854 .
+[58] M. Nitsche, S.K. Mukkavilli, N. Kühl, T. Brunschwiler, AB2CD: AI for Building Climate Damage Classification and Detection, 2023, pp. 115 – 123 .
+[59] O. Dietrich, T. Peters, V. Sainte Fare Garnot, V. Sticher, T. Whelan, K. Schindler, J. Wegner, An open-source tool for mapping war destruction at scale in Ukraine 
+using Sentinel-1 time series. https://doi.org/10.48550/arXiv.2406.02506 , 2024.
+[60] L. Karthikeyan, M. Pan, N. Wanders, D.N. Kumar, E.F. Wood, Four decades of microwave satellite soil moisture observations: part 1. A review of retrieval 
+algorithms, Adv. Water Resour. 109 (2017) 106 – 120, https://doi.org/10.1016/j.advwatres.2017.09.006 .
+[61] N. Bhogapurapu, S. Dey, S. Homayouni, A. Bhattacharya, Y.S. Rao, Field-scale soil moisture estimation using sentinel-1 GRD SAR data, Adv. Space Res. 70 
+(2022) 3845 – 3858, https://doi.org/10.1016/j.asr.2022.03.019 .
+[62] J. Schmidhuber, Deep learning in neural networks: an overview, Neural Netw. 61 (2015) 85 – 117, https://doi.org/10.1016/j.neunet.2014.09.003 .
+[63] L. Alzubaidi, J. Zhang, A.J. Humaidi, A. Al-Dujaili, Y. Duan, O. Al-Shamma, J. Santamaría, M.A. Fadhel, M. Al-Amidie, L. Farhan, Review of deep learning: 
+concepts, CNN architectures, challenges, applications, future directions, J. Big Data 8 (2021) 53, https://doi.org/10.1186/s40537-021-00444-8 .
+[64] I. Dimitrovski, I. Kitanovski, D. Kocev, N. Simidjievski, Current trends in deep learning for Earth observation: an open-source benchmark arena for image 
+classification, ISPRS J. Photogrammetry Remote Sens. 197 (2023) 18 – 35, https://doi.org/10.1016/j.isprsjprs.2023.01.014 .
+[65] J. Zhao, Y. Li, P. Matgen, R. Pelich, R. Hostache, W. Wagner, M. Chini, Urban-aware U-Net for large-scale urban flood mapping using multitemporal Sentinel-1 
+intensity and interferometric coherence, IEEE Trans. Geosci. Rem. Sens. 60 (2022) 1 – 21, https://doi.org/10.1109/TGRS.2022.3199036 .
+[66] Y. Li, S. Martinis, M. Wieland, Urban flood mapping with an active self-learning convolutional neural network based on TerraSAR-X intensity and 
+interferometric coherence, ISPRS J. Photogrammetry Remote Sens. 152 (2019) 178 – 191, https://doi.org/10.1016/j.isprsjprs.2019.04.014 .
+[67] IPCC, Climate change 2021: the physical science basis. Contribution of working group I to the sixth assessment report of the intergovernmental panel on climate 
+change. https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/ , 2021. (Accessed 27 October 2024).
+J. Currie and K. Reinke                                                                                                                                                                                              International Journal of Disaster Risk Reduction 136 (2026) 106048 
+23

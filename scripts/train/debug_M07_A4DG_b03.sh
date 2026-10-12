@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd /root/shared-nvme/BRIGHT-master
+export PYTHONPATH=/root/shared-nvme/BRIGHT-master:/root/shared-nvme/BRIGHT-master/bda_benchmark:${PYTHONPATH:-}
+
+TRAIN_SCRIPT="/root/shared-nvme/BRIGHT-master/bda_benchmark/script/standard_ML/train_DamageFormer_BGCA_Method05_06.py"
+DATASET_ROOT="/root/shared-nvme/BRIGHT-master/bda_benchmark/dataset"
+TRAIN_LIST="/root/shared-nvme/BRIGHT-master/bda_benchmark/dataset/splitname/standard_ML/train_set.txt"
+VAL_LIST="/root/shared-nvme/BRIGHT-master/bda_benchmark/dataset/splitname/standard_ML/val_set.txt"
+SAVE_ROOT="/root/shared-nvme/BRIGHT-master/saved_weights/BGCA_clean"
+LOG_DIR="/root/shared-nvme/BRIGHT-master/logs/BGCA_clean"
+mkdir -p "${SAVE_ROOT}" "${LOG_DIR}"
+
+if [[ -n "${GPU_ID:-}" ]]; then
+  export CUDA_VISIBLE_DEVICES="${GPU_ID}"
+  echo "GPU_ID provided; CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
+else
+  echo "GPU_ID not provided; leaving CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES-<unset>}"
+fi
+
+python "${TRAIN_SCRIPT}" \
+  --device "${DEVICE:-auto}" \
+  --dataset DEBUG_M07_A4DG_b03 \
+  --train_dataset_path "${DATASET_ROOT}" \
+  --train_data_list_path "${TRAIN_LIST}" \
+  --val_dataset_path "${DATASET_ROOT}" \
+  --val_data_list_path "${VAL_LIST}" \
+  --crop_size 640 \
+  --train_batch_size 1 \
+  --eval_batch_size 1 \
+  --num_workers 0 \
+  --max_iters 20 \
+  --learning_rate 1e-4 \
+  --weight_decay 5e-3 \
+  --model_param_path "${SAVE_ROOT}" \
+  --roi_mode dilated_soft \
+  --roi_fusion multiplicative \
+  --roi_beta 1.0 \
+  --roi_alpha 0.1 \
+  --roi_dilate 5 \
+  --use_mddm \
+  --mddm_variant dual_scale_gate \
+  --mddm_gamma_init 0.0 \
+  --mddm_use_roi \
+  --dg_gate_reduction 4 \
+  --dg_gamma_init 0.0 \
+  --dg_gamma_mode sigmoid01 \
+  --dg_large_beta 0.3 \
+  --use_lovasz \
+  --ce_weight 1.0 \
+  --lovasz_weight 1.0 \
+  --save_policy smart \
+  2>&1 | tee "${LOG_DIR}/DEBUG_M07_A4DG_b03.log"

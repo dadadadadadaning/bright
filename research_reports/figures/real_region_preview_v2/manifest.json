@@ -1,0 +1,71 @@
+[
+  {
+    "sample_id": "turkey-earthquake_00000012",
+    "annotation": "target_instance_level/turkey-earthquake_00000012_instance_damage.json",
+    "instance_id": 15,
+    "category_id": 1,
+    "crop_xywh": [
+      43,
+      803,
+      199,
+      199
+    ],
+    "rgb_member": "pre-event/turkey-earthquake_00000012_pre_disaster.tif",
+    "sar_member": "post-event/turkey-earthquake_00000012_post_disaster.tif",
+    "sar_display_percentiles": [
+      1.0,
+      165.0
+    ],
+    "slic_regions": 6,
+    "grid_regions": 6,
+    "selected_region": 3,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "bata-explosion_00000007",
+    "annotation": "target_instance_level/bata-explosion_00000007_instance_damage.json",
+    "instance_id": 69,
+    "category_id": 1,
+    "crop_xywh": [
+      783,
+      679,
+      216,
+      216
+    ],
+    "rgb_member": "pre-event/bata-explosion_00000007_pre_disaster.tif",
+    "sar_member": "post-event/bata-explosion_00000007_post_disaster.tif",
+    "sar_display_percentiles": [
+      0.0,
+      182.0
+    ],
+    "slic_regions": 7,
+    "grid_regions": 6,
+    "selected_region": 3,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  },
+  {
+    "sample_id": "beirut-explosion_00000011",
+    "annotation": "target_instance_level/beirut-explosion_00000011_instance_damage.json",
+    "instance_id": 57,
+    "category_id": 1,
+    "crop_xywh": [
+      619,
+      387,
+      195,
+      195
+    ],
+    "rgb_member": "pre-event/beirut-explosion_00000011_pre_disaster.tif",
+    "sar_member": "post-event/beirut-explosion_00000011_post_disaster.tif",
+    "sar_display_percentiles": [
+      1.0,
+      209.0
+    ],
+    "slic_regions": 6,
+    "grid_regions": 6,
+    "selected_region": 4,
+    "selection": "first 30 eligible buildings per event; area closest to 16000 pixels",
+    "caveat": "GT-assisted baseline only; not predicted mask, learned Q, memory attention or damage prediction"
+  }
+]

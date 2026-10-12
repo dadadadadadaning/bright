@@ -1,0 +1,1639 @@
+
+
+===== PDF_PAGE_001 =====
+
+SARMAE: Masked Autoencoder for SAR Representation Learning
+Danxu Liu1,4∗, Di Wang2,4∗, Hebaixu Wang3,4∗, Haoyang Chen2,4∗, Wentao Jiang2
+Yilin Cheng4,5, Haonan Guo4,6, Wei Cui1†, Jing Zhang2,4†
+1School of Information and Electronics, Beijing Institute of Technology, Beijing, China
+2School of Computer Science, Wuhan University, Wuhan, China
+3School of Electronic Information, Wuhan University, Wuhan, China
+4Zhongguancun Academy, Beijing, China
+5School of Data Science, Fudan University, Shanghai, China
+6State Key Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing,
+Wuhan University, Wuhan, China
+Abstract
+Synthetic Aperture Radar (SAR) imagery plays a criti-
+cal role in all-weather, day-and-night remote sensing appli-
+cations. However, existing SAR-oriented deep learning is
+constrained by data scarcity, while the physically grounded
+speckle noise in SAR imagery further hampers fine-grained
+semantic representation learning. To address these chal-
+lenges, we propose SARMAE, a Noise-Aware Masked Au-
+toencoder for self-supervised SAR representation learning.
+Specifically, we construct SAR-1M, the first million-scale
+SAR dataset, with additional paired optical images, to en-
+able large-scale pre-training. Building upon this, we de-
+sign Speckle-Aware Representation Enhancement (SARE),
+which injects SAR-specific speckle noise into Masked Au-
+toencoder to facilitate noise-aware and robust representa-
+tion learning. Furthermore, we introduce Semantic Anchor
+Representation Constraint (SARC), which leverages paired
+optical priors to align SAR features and ensure semantic
+consistency. Extensive experiments across multiple SAR
+datasets demonstrate that SARMAE achieves state-of-the-
+art performance on classification, detection, and segmenta-
+tion tasks. Code, data, and models available at SARMAE.
+1. Introduction
+Synthetic Aperture Radar (SAR) imagery, characterized by
+its all-weather, day-and-night imaging capability, serves
+as a critical source of remote sensing information [2, 4,
+20, 28, 60, 98]. Owing to this robustness against chal-
+lenging atmospheric and illumination variations, SAR has
+been widely applied in various domains such as ocean
+*Equal contributions.
+†Corresponding authors.
+Figure 1. SARMAE outperforms SOTA methods on multiple
+datasets. 1: 40-SHOT; 2: 30% labeled. a: Multi-classes; b: Water.
+monitoring, disaster assessment, and urban scene analy-
+sis [46, 48, 49, 51, 59, 80, 83].
+The emergence of deep learning has greatly advanced
+SAR image interpretation [96]. Early approaches were
+typically designed for specific tasks [31], exhibiting lim-
+ited generalization across diverse downstream applica-
+tions. To overcome this limitation, subsequent represen-
+tation learning methods adopted the pretraining–finetuning
+paradigm [15, 33, 34, 43, 81] to achieve unified and gen-
+eralized interpretation. In this context, self-supervised pre-
+training methods [1, 7, 25] have shown great potential for
+learning transferable representations from unlabeled data,
+thereby inspiring the development of analogous frameworks
+tailored for SAR imagery [16, 35].
+arXiv:2512.16635v2  [cs.CV]  17 Mar 2026
+
+
+===== PDF_PAGE_002 =====
+
+Despite these advances, existing SAR representation
+learning methods still face several limitations. First, due
+to the high cost of SAR data acquisition, current stud-
+ies often lack sufficiently large and diverse pretraining
+datasets, limiting the ability of models to learn general-
+purpose SAR representations [11, 29, 57, 62–64]. Second,
+the unique imaging mechanism of SAR introduces severe
+speckle noise, leading to low semantic content and weak
+structural cues [10, 28, 50, 68–70]. However, prevailing
+pre-training methods simply adopt strategies borrowed from
+optical imagery [15], overlooking the physical nature of
+SAR noise. Third, pretraining paradigms that rely exclu-
+sively on SAR data are inherently limited by its semantic
+scope [8, 37, 52]. This overlooks the valuable guidance
+that could be drawn from complementary, information-rich
+modalities such as optical imagery [19]. Consequently, the
+learned representations often lack the semantic richness and
+generalizability required for diverse downstream tasks.
+To address these challenges, we propose SARMAE,
+a Masked Autoencoder (MAE) [25]-based framework for
+SAR representation learning. Specifically, we construct
+SAR-1M, the first million-scale SAR dataset that covers
+diverse scenes, targets, and sensor characteristics, provid-
+ing over 1.3 million SAR images for large-scale pretrain-
+ing. We then introduce Speckle-Aware Representation
+Enhancement (SARE), which explicitly incorporates SAR
+imaging noise during pretraining. By reconstructing the
+original image from perturbed inputs injected with SAR-
+specific speckle noise, SARE encourages the network to
+perceive and capture the intrinsic speckle characteristics of
+SAR imagery, thereby learning noise-resistant representa-
+tions and improving robustness. Finally, we design Seman-
+tic Anchor Representation Constraint (SARC). Considering
+the more discernible semantic structure of optical imagery,
+SARC aligns SAR features with geographically paired op-
+tical priors to guide the encoder learning. This alignment
+enforces semantic consistency, accelerates model conver-
+gence, and enhances the generalization of pretrained repre-
+sentations. Extensive experiments on various downstream
+tasks demonstrate that SARMAE achieves state-of-the-art
+performance across multiple SAR datasets, as illustrated in
+Fig. 1. Our main contributions are summarized as follows:
+•We propose SAR-1M, the first million-scale SAR dataset
+covering diverse resolutions, scenes, scales, targets, and
+task scenarios, along with additional paired optical im-
+ages, enabling large-scale pretraining.
+•We introduce Speckle-Aware Representation Enhance-
+ment to enforce robust feature learning by reconstructing
+inputs corrupted with physically grounded speckle noise,
+thereby mitigating the adverse impact of noise on SAR
+feature extraction.
+•We design Semantic Anchor Representation Constraint to
+align SAR features with paired optical priors to regular-
+ize encoder learning, ensuring semantic consistency and
+enhancing representation generalization.
+2. Related work
+2.1. SAR Datasets for Representation Learning
+Many SAR datasets are characterized by extreme special-
+ization, either focusing on single-category targets such as
+MSTAR [12] or SSDD [88], or being curated for a single
+downstream task, as exemplified by the detection dataset
+SAR-Det100k [38]. Beyond this narrow scope lies a more
+fundamental limitation: the lack of scale across the commu-
+nity’s available resources. Consequently, even state-of-the-
+art pretrained models such as SARATR-X [35] and SUM-
+MIT [16] are trained on relatively small datasets contain-
+ing only 180k and 560k images, respectively. This com-
+bination of limited semantic diversity, task specificity, and
+insufficient data volume imposes a clear ceiling on model
+performance and hinders the development of generalizable
+pretraining paradigms for SAR representation learning. To
+this end, we introduce SAR-1M, the first million-scale SAR
+dataset spanning diverse resolutions, imaging scales, object
+categories, and task scenarios, providing the scale and se-
+mantic richness required for large-scale pretraining.
+2.2. SAR Representation Learning
+Recently, large-scale self-supervised pretraining paradigms
+have been introduced to remote sensing [21, 66, 67, 71].
+SeCo [47] adopts a MoCo-style [24] framework for scene
+classification, while RVSA [62] leverages MAE [25] pre-
+training to obtain initial weights and further introduces ro-
+tated varied-size window attention to enhance representa-
+tion learning. SatMAE [9] extends MAE to multispec-
+tral and multitemporal imagery, and ScaleMAE [53] in-
+troduces scale-aware masking to improve generalization
+across spatial resolutions. Other approaches aim to learn
+task-agnostic representations by leveraging massive unla-
+beled datasets across diverse modalities [18, 26, 58, 65, 79].
+However, these efforts remain predominantly focused on
+optical imagery, overlooking the unique characteristics of
+SAR data—particularly its inherent speckle noise and dis-
+tinct imaging physics.
+Motivated by the success of unsupervised pretraining
+paradigms in optical imagery, several studies have explored
+self-supervised SAR representation learning. BIDFC [85]
+adopts a contrastive learning framework with weak super-
+vision, while SAR-JEPA [32] leverages masked autoen-
+coding and local reconstruction to extract spatial features.
+MSFA [38] further introduces a multi-stage filter-based
+strategy. Although these approaches provide valuable in-
+sights, they remain constrained to single-task settings.To
+address these limitations, recent works have proposed uni-
+fied pretraining frameworks tailored for SAR imagery.
+
+
+===== PDF_PAGE_003 =====
+
+Model Pretrain Dataset Modality Task Types Size Targets Resolution Band
+MSFA [38] DOTA [76] OPT Det. - - - -
+SAR-JEPA [32] SAR-JEPA SAR Cls. 90k 21 0.3m-25m C/X
+SARATR-X [35] SAR-VSA SAR Cls.&Det. 180k 25 0.1m-25m C/X/Ku/Ka
+SUMMIT [16] MuSID SAR Cls.&Det. 560k 41 0.1m-25m C/X
+SARMAE SAR-1M SAR&OPT Cls.&Det.&Seg. 1.3M SAR/2.3M Total* 57 0.1m-60m C/X/Ku/Ka
+Table 1. Pretraining datasets for SAR Representation Learning. *Our dataset comprises 1.3M SAR and 1M paired OPT images.
+SARATR-X [35] employs a HiViT [89] with a two-stage
+self-supervised learning framework for unified SAR target
+detection and classification, while SUMMIT [16] adopts a
+masked image modeling framework with multiple auxiliary
+self-supervised tasks to adapt to diverse downstream scenar-
+ios. These two models demonstrate the feasibility of learn-
+ing general-purpose SAR representations through large-
+scale pretraining. However, both methods overlook the in-
+trinsic physical priors of SAR imaging and rely solely on
+low-quality, noise-contaminated data for pretraining, which
+limits the semantic richness of their learned representations.
+In this paper, we propose SARMAE, a noise-aware frame-
+work that explicitly models realistic speckle characteristics
+during pretraining and incorporates high-fidelity paired op-
+tical imagery as semantic guidance, thereby enhancing the
+model’s capability to learn robust and semantically consis-
+tent representations from complex SAR data.
+3. Method
+In this section, we first introduce the constructed SAR-1M
+dataset. Based on this foundation, we then present SAR-
+MAE, which incorporates two key innovations: Speckle-
+Aware Representation Enhancement (SARE) and Semantic
+Anchor Representation Constraint (SARC).
+3.1. SAR-1M Dataset
+Existing public datasets for SAR image analysis are ham-
+pered by limitations in scale and task diversity. To over-
+come these obstacles, we construct a million-scale, multi-
+source dataset, termed SAR-1M.
+SAR-1M is a curated aggregation of 18 publicly avail-
+able datasets, as illustrated in Fig. 2. During data collec-
+tion, we adhered to two core principles: semantic richness
+and sensor diversity. For semantic richness, we selected
+datasets covering representative object categories such as
+ship, aircraft, vehicle, and bridge, as well as land-cover
+types including bareland, rangeland, agricultural land, and
+mountains. In addition, SAR-1M incorporates event-related
+scenes (e.g., earthquake), further enriching the contextual
+variety. Notably, many of these datasets were originally de-
+signed for detection or segmentation tasks, meaning that
+their samples typically have larger spatial coverage and
+richer fine-grained semantics. As a result, SAR-1M encom-
+Figure 2. The organization of data sources in SAR-1M.
+passes over 50 distinct categories, offering extensive seman-
+tic diversity and enhancing the representation capability of
+SAR-oriented models.
+Beyond semantic diversity, SAR-1M integrates imagery
+from multiple sensors: Sentinel-1, Gaofen-3, RadarSat-2,
+Terma A/S, and TerraSAR-X, covering multiple frequency
+bands (C, X, Ku, Ka) and polarization modes (HH, HV , VV ,
+VH). These diverse configurations yield data with varying
+ground resolutions and scattering characteristics, enriching
+the representation of different imaging conditions. More-
+over, as several source datasets were collected on a global
+scale (e.g., SEN1-2 [55]), SAR-1M exhibits remarkable ge-
+ographical diversity, which further enhances the generaliza-
+tion and adaptability of pretrained models.
+Unlike existing SAR-only datasets, SAR-1M also incor-
+porates geographically aligned SAR–optical pairs, resulting
+in approximately 2.3 million samples. Even when restricted
+to the SAR modality, it still comprises over 1.3 million im-
+ages, providing ample scale for robust pretraining.
+It is worth noting that the number of channels in the orig-
+inally collected SAR images varies across datasets. To en-
+sure consistency for unified pretraining, each polarization
+mode was expanded to a three-channel format when the
+original image contained a number of channels not equal
+to three. A detailed comparison between SAR-1M and ex-
+isting SAR pretraining datasets is presented in Table 1.
+
+
+===== PDF_PAGE_004 =====
+
+3.2. SARMAE
+3.2.1. Overall framework
+Fig. 3 illustrates the overall framework of SARMAE for
+pretraining, which consists of a SAR branch and an op-
+tical branch. The SAR branch follows the architecture of
+MAE [25], where the encoder adopts a ViT backbone and
+the decoder is composed of multiple Transformer layers
+same as the original MAE. The optical branch employs
+a frozen DINOv3 [56] network that shares the same ViT-
+based encoder architecture as the SAR branch, facilitating
+subsequent feature alignment between the two modalities.
+During pretraining, a SAR image is fed into the SAR
+branch, following the same procedure as MAE. To cope
+with the speckle noise inherent in SAR imagery, we ex-
+plicitly introduce it into the SAR branch and enforce
+the network to learn effective denoising representations.
+This mechanism, termed Speckle-Aware Representation
+Enhancement (SARE), improves the model’s ability to cap-
+ture robust and discriminative SAR features. Furthermore,
+considering that some SAR images are paired with optical
+counterparts, we propose a Semantic Anchor Representa-
+tion Constraint (SARC) to fully exploit such multimodal
+correspondence. In this design, the optical image is passed
+through the frozen DINOv3 branch to obtain discriminative
+semantic features, which serve as semantic anchors to guide
+the SAR encoder’s representation learning. This constraint
+not only facilitates model convergence but also enhances
+generalization capability.
+It is worth noting that if a SAR image does not have a
+paired optical counterpart, it is only processed by the SAR
+branch. The following sections provide detailed explana-
+tions of SARE and SARC.
+3.2.2. Speckle Aware Representation Enhancement
+Unlike additive Gaussian noise, speckle is a multiplica-
+tive phenomenon arising from the coherent summation of
+backscattered signals within a resolution cell. For a multi-
+look SAR intensity image, the observed intensityZis the
+result of incoherently averagingLindependent single-look
+measurements{I i}L
+i=1, where eachI i follows an exponen-
+tial distribution with mean ¯Iequal to the true backscattering
+intensity. This process is formally described as:
+Z= 1
+L
+LX
+i=1
+Ii,whereI i ∼Exp( ¯I), E[I i] = ¯I.(1)
+Consequently, the multi-look intensityZfollows a Gamma
+distribution, with its probability density function (PDF)
+given by:
+pZ(z| ¯I, L) = LL
+Γ(L)¯I L zL−1 exp
+
+− Lz
+¯I
+
+, z≥0,(2)
+whereΓ(·)is the Gamma function,Lis the number of
+looks, and the mean ofZisE[Z] = ¯I. Equation 2 provides
+a physically grounded model for speckle, explicitly show-
+ing that the observed pixel intensityzis a random variable
+drawn from a distribution whose shape is determined by the
+true scene signal ¯I. This statistical entanglement is pre-
+cisely what confuses standard pre-training paradigms and
+motivates our physics-informed design.
+Grounded in this statistical model, we design SARE. In-
+stead of merely reconstruct the original (and already noisy)
+masked patches, we reformulate the self-supervised task so
+that the model is trained to denoise a synthetically corrupted
+version of the input back to the original SAR patch. Specif-
+ically, for any given input SAR patchx, it is treated as the
+best available estimate of the true signal (i.e.,x≈ ¯I). A
+more heavily corrupted observationx ′ is then synthesized
+by sampling from the Gamma distribution with a reduced
+synthetic look numberL syn:
+x′(i, j)∼Gamma
+
+Lsyn, x(i, j)
+Lsyn
+
+.(3)
+This construction preserves the pixel-wise mean
+E[x′(i, j)] =x(i, j)while increasing the variance
+through the lower look number. Here,L syn is chosen to be
+significantly smaller than the effective number of looks in
+the original patch, ensuring that the synthesized patchx ′
+exhibits a higher noise level.
+The pre-training task is then formulated as a denoising
+reconstruction objective. Given the synthetically corrupted
+patchx ′, we apply random masking with a high masking
+ratio (75% following MAE) to obtain a masked version˜x′,
+retaining only a subset of visible patches indexed byV. The
+visible patches are fed to the encoderE SAR to produce la-
+tent representations, which are then processed by the de-
+coderDalong with learnable mask tokens to reconstruct
+the original patchx. The reconstruction loss of SARE is
+defined as the mean squared error (MSE) between the pre-
+dicted patches and the corresponding original patches in the
+masked regionsM:
+LSARE = 1
+|M|
+X
+p∈M
+∥D(ESAR(˜x′))p −x p∥2
+2,(4)
+wherepindexes the masked patch positions,|M|denotes
+the number of masked patches,D(E SAR(˜x′))p represents
+the reconstructed patch at positionp, andx p is the corre-
+sponding ground-truth patch from the original input. This
+formulation trains the model to map noisy inputs to clean
+and complete representations. By doing so, the encoder
+learns features that are robust to the statistical fluctuations
+inherent to SAR imaging and are largely disentangled from
+speckle noise.
+Notably, in our implementation, in addition to the
+Gamma model, we also incorporate Rayleigh, Gaussian,
+and Uniform noise, to generate more diverse corrupted sam-
+ples and further improve model robustness.
+
+
+===== PDF_PAGE_005 =====
+
+Figure 3. Overview of the SARMAE pretraining framework. The framework consists of two branches: (i) a SAR branch following the
+MAE architecture with Speckle-Aware Representation Enhancement (SARE) to handle inherent speckle noise, and (ii) an optical branch
+using a frozen DINOv3 encoder. For paired SAR-optical data, Semantic Anchor Representation Constraint (SARC) aligns SAR features
+with semantic-rich optical representations. Unpaired SAR images are processed solely through the SAR branch.
+3.2.3. Semantic Anchor Representation Constraint
+While SARE improves robustness to speckle noise, it does
+not provide the high-level semantic cues that are readily
+available in paired optical imagery. To this end, we intro-
+duce the SARC.
+For a given co-registered image pair(I SAR, IOP T ), the
+SAR image is masked using the MAE strategy and passed
+throughE SAR to obtain embeddings for the visible patches,
+fSAR ={f i
+SAR}i∈V ,(5)
+whereVdenotes the set of visible patch indices. Con-
+currently, the unmasked optical image is processed by the
+frozen encoderE OP T to produce a full sequence of anchor
+embeddings,
+fOP T ={f i
+OP T }N
+i=1.(6)
+Then, we enforce that the representation of a SAR patch
+should be semantically aligned with its spatially corre-
+sponding optical patch. This is achieved through a patch-
+wise cosine distance loss. For each visible SAR patch em-
+beddingf i
+SAR at spatial positioni∈ V, the optical patch
+embeddingf i
+OP T at the same location serves as the seman-
+tic target. Accordingly, the SARC loss is defined as the
+mean cosine distance over all visible patches:
+LSARC = 1
+|V|
+X
+i∈V
+
+1− f i
+SAR ·f i
+OP T
+∥f i
+SAR∥2∥f i
+OP T ∥2
+
+.(7)
+This objective directly minimizes the cosine distance be-
+tween the SAR and optical feature vectors, enforcing strong
+directional alignment in the embedding space. As a result,
+the SAR encoderE SAR learns not only SAR-specific struc-
+tural cues, but also embeds them in a feature space shaped
+by the discernible semantic structure provided by the frozen
+optical teacher.
+Overall Pre-training Objective.The overall pre-
+training loss consists of two components: the SARE loss
+and the SARC loss:
+Lpretrain =L SARE +λL SARC ,(8)
+whereλbalances the modality-specific reconstruction ob-
+jective and the cross-modal semantic alignment. In our im-
+plementation, we setλ= 0.1. Through this dual-objective
+optimization, the SAR encoder learns representations that
+are simultaneously robust to speckle noise and enriched
+with meaningful semantics, enabling superior performance
+across downstream perception tasks.
+4. Experiments
+In this section, we conduct comprehensive experiments to
+evaluate the proposed method across multiple downstream
+tasks, including SAR target classification, object detection,
+and semantic segmentation. We also assess the effective-
+ness of the SAR-1M dataset and the contributions of the
+proposed SARE and SARC modules through ablation stud-
+ies. We initialize the SAR-branch encoder with ViT weights
+pretrained on ImageNet [11] using MAE [25]. The model
+is trained for 300 epochs using AdamW (learning rate =
+
+
+===== PDF_PAGE_006 =====
+
+Method FUSAR-SHIP MSTAR SAR-ACD
+40-shot 30% 40-shot 30% 30%
+ResNet-50 [23] - 58.41 - 89.94 59.70
+Swin Transformer [41]- 60.79 - 82.97 67.50
+Beit [1] 59.70 71.13 40.70 69.75 79.77
+LoMaR [36] 82.70 - 77.00 - -
+SAR-JEPA [32] 85.80 - 91.60 - -
+SUMMIT [16] - 71.91 - 98.39 84.25
+Copernicus FM [73]87.61 - - - 92.63
+CROMA [18] 83.71 - - - 88.99
+SARMAE(ViT-B) 89.3092.92 96.7099.61 95.06
+SARMAE(ViT-L) 90.8692.80 97.2498.92 95.63
+Table 2. Performance comparison (Top1 Accuracy, %) of different
+methods on the target classification task.
+Method SARDet-100k SSDD Method RSAR
+ImageNet [11] 52.30 66.40 RoI-Transformer [13] 35.02
+Deformable DETR [97] 50.00 52.60Def. DETR [97] 46.62
+Swin Transformer [41] 53.80 40.70 RetinaNet [39] 57.67
+ConvNeXt [42] 55.10 - ARS-DETR [84] 61.14
+CATNet [14] - 64.66 R3Det [82] 63.94
+MSFA [38] 56.40 - ReDet [22] 64.71
+SARATR-X [35] 57.30 67.50 O-RCNN [87] 64.82
+SARMAE(ViT-B) 57.90 68.10 SARMAE(ViT-B) 66.80
+SARMAE(ViT-L)63.10 69.30 SARMAE(ViT-L)72.20
+Table 3. Performance comparison (mAP, %) of different methods
+on horizontal and oriented object detection tasks.
+1×10−3, weight decay = 0.05) with a batch size of 1024
+and a cosine learning-rate schedule. All the experiments are
+performed on NVIDIA A800 GPU. All fine-tuning details
+are provided in the supplementary material.
+4.1. Main Results
+We compare SARMAE with existing state-of-the-art meth-
+ods. In addition to general-purpose visual representation
+models such as ImageNet-pretrained MAE [25], BEiT [1],
+and Swin Transformer [41], we also include the most re-
+cent SAR-specific approaches, including SAR-JEPA [32],
+SARATR-X [35], MSFA [38], and SUMMIT [16].
+The scene classification and object detection compari-
+son results are obtained from SAR-JEPA [32], SARATR-
+X [35], and SUMMIT [16], while the semantic seg-
+mentation results are directly sourced from AIR-PolSAR-
+Seg [95]. The downstream performance of ViT-B and ViT-L
+after pretraining is presented in the corresponding tables.
+Target Classification.We first evaluate SARMAE on
+the target classification task, which does not require an
+additional decoder and therefore provides a direct assess-
+ment of the model’s representation capability. In imple-
+mentation, the feature map from the last ViT layer is pro-
+cessed by global average pooling and then passed through
+a linear classifier to produce logits corresponding to the
+number of classes. We conduct experiments on three
+widely used datasets: FUSAR-SHIP [27], MSTAR [12],
+and SAR-ACD [91]. We compare the performance of SAR-
+MAE with Copernicus FM [73] and CROMA [18], which
+adopts DINO distillation and contrastive learning respec-
+tively. Table 2 shows superior performance of SARMAE
+on FUSAR and SAR-ACD. Then, following the protocols
+in [16, 32], we adopt the 40-shot and 30% label settings for
+the FUSAR-SHIP and MSTAR datasets. As shown in Ta-
+ble 2, SARMAE consistently achieves state-of-the-art per-
+formance across all evaluation settings. For example, under
+the 30% label setting on FUSAR-SHIP, our ViT-B model
+reaches 92.92% accuracy, outperforming the previous best
+by a large margin of 21.01%. These results clearly demon-
+strate the effectiveness of the our approach.
+Horizontal & Oriented Object Detection.We then
+evaluate the transferability of the learned representations on
+the object detection task. For horizontal object detection,
+we use the classical SSDD [88] dataset and the more chal-
+lenging SARDet-100k [38]. For oriented bounding box de-
+tection, we adopt the recently proposed large-scale RSAR
+dataset [90]. Following the fine-tuning protocols of [35], we
+integrate our pretrained backbones into Faster R-CNN [54]
+and Oriented R-CNN [87] for horizontal and oriented de-
+tection, respectively. The results are detailed in Table 3.
+In the horizontal object detection scenario represented
+by SARDet-100k, our model with a standard ViT-B back-
+bone achieves 57.9 mAP, slightly outperforming SARATR-
+X (built on HiViT-B) which reports 57.3 mAP. This result
+is particularly noteworthy because HiViT [89], with its hi-
+erarchical and pyramidal design, is generally regarded as an
+improved variant of ViT and typically delivers stronger per-
+formance. Nevertheless, our ViT-based model still attains
+the best results, underscoring that the performance gain pri-
+marily arises from the superior representations learned by
+SARMAE, rather than architectural advantages.
+In the oriented object detection task, SARMAE also se-
+cures top performance with 66.8% mAP, surpassing exist-
+ing methods by a large margin. Notably, our model exhibits
+excellent scalability: upgrading the backbone from ViT-B
+to ViT-L further boosts performance by +5.4 mAP, thereby
+widening the gap over previous approaches.
+Semantic Segmentation.Beyond image-level and
+object-level evaluation, we further assess the pretrained
+model on pixel-level tasks through semantic segmentation.
+For this purpose, we adopt the well-known AIR-PolSAR-
+Seg dataset [95], which includes two settings: multiclass
+segmentation and single-class water extraction. Our imple-
+mentation follows the protocol in [95], using UperNet [78]
+as the segmentation framework. As shown in Table 4, SAR-
+MAE achieves clear and consistent advantages over existing
+methods. By incorporating optical cues through SARC dur-
+ing pretraining, SARMAE captures clearer semantic struc-
+tures, such as boundaries and texture structures, yielding su-
+perior segmentation results, particularly for the more chal-
+
+
+===== PDF_PAGE_007 =====
+
+lenging multiclass setting.
+Method Multiple classes WaterIndustrial Area Natural Area Land Use Water Housing Other mIoUIoU
+FCN [44] 37.78 71.58 1.24 72.76 67.69 39.05 48.35 85.95ANN [99] 41.23 72.92 0.97 75.95 68.40 56.01 52.58 87.32PSPNet [92] 33.99 72.31 0.93 76.51 68.07 57.07 51.48 87.13DeepLab V3+ [6] 40.62 70.67 0.55 72.93 69.96 34.53 48.2187.53PSANet [93] 40.70 69.46 1.33 69.46 68.75 32.68 47.14 86.18DANet [17] 39.56 72.00 1.00 74.95 67.79 56.28 39.56 89.29
+SARMAE(ViT-B)65.8775.65 29.20 84.01 73.2371.2166.53 92.31SARMAE(ViT-L) 65.8478.04 29.47 87.12 75.2269.3467.5193.06
+Table 4. Performance comparison of semantic segmentation meth-
+ods on multiple classes and water classes.
+4.2. Ablation Study
+In this section, we investigate the effectiveness of the SAR-
+1M dataset and conduct ablation studies on SARMAE.
+We use a ViT-B model pretrained on ImageNet [11] with
+MAE [25] as our baseline to clearly highlight the contri-
+bution of each component in our method. All our abla-
+tion models training on SAR-1M use the same settings,
+i.e., 300 epochs, ensuring a controlled and fair comparison.
+For efficient verification, all ablation comparisons are con-
+ducted using the ViT-B backbone, and the effectiveness of
+each variant is demonstrated through fine-tuning on differ-
+ent downstream tasks.
+Efficacy of SAR-1M.As shown in Table 5, we evaluate
+the impact of in-domain pretraining by applying the stan-
+dard MAE framework across different datasets and fine-
+tuning on various SAR downstream tasks. It can be seen
+that, models pretrained from scratch on SAR-1M consis-
+tently outperform those pretrained on ImageNet or Mil-
+lionAID. For example, on the FUSAR-SHIP classification
+benchmark, in-domain pretraining on SAR-1M improves
+accuracy from 75.40% (ImageNet) to 82.22%, yielding a
+substantial +6.82% absolute gain. Similarly, we observe
+improvements of +0.2 mAP on detection and +4.08 mIoU
+on segmentation. These results demonstrate that the unique
+characteristics of SAR imagery introduce a significant dis-
+tribution gap from both natural and optical remote-sensing
+images, making it difficult for models pretrained on those
+modalities to transfer effectively. This underscores the ne-
+cessity of constructing a large-scale SAR-specific pretrain-
+ing dataset. Therefore, SAR-1M is not merely a large col-
+lection of images, but a high-quality, domain-aligned re-
+source that facilitates the development of powerful repre-
+sentation models tailored for SAR imagery.
+Ablation on SARE.We further validate the effective-
+ness of the SARE module by integrating it into the SAR-
+1M–pretrained MAE. As shown in Table 5, injecting physi-
+cally grounded speckle noise yields consistent and substan-
+tial gains across all downstream tasks: classification accu-
+racy on FUSAR-SHIP improves by +4.58%, and segmenta-
+tion mIoU on AIR-PolSARSeg increases by +0.79%. These
+results support our central hypothesis that compelling the
+Model Pretrain Dataset SARE SARCFUSAR SSDD AIR-PolSAR-SegMAE (Baseline) ImageNet-1K [11] 75.40 64.00 60.28MAE MillionAID [45] 80.16 63.60 62.29DINOv3 LVD-1689M [56] 74.25 61.60 58.42MAE* SAR-1M (only SAR) 82.22 64.20 64.36MAE* (Add noise) SAR-1M (only SAR)✓86.80 64.40 65.15SARMAE* SAR-1M (SAR/OPT)✓ ✓89.30 68.10 66.53
+Table 5. Ablation of SARE and SARC on multiple SAR datasets.
+*: Initialized with ImageNet pretrained MAE.
+Figure 4. SARE significantly enhances the model’s semantic per-
+ception. Attention maps are computed by measuring the atten-
+tion between the MAE encoder’s final-layer class token and image
+patch tokens.
+model to reconstruct denoised targets enables it to better un-
+derstand the noise characteristics of SAR imagery, thereby
+achieving noise-aware representation learning.
+To provide more intuitive insights, we qualitatively ex-
+amine how the model perceives scene content, as shown
+in Figure 4. With SARE, scene-relevant objects are more
+distinctly highlighted and exhibit clearer contours, indicat-
+ing that the model can overcome noise interference and ac-
+curately capture semantic structures. Notably, the model
+is able to attend to subtle yet semantically relevant objects
+(see the yellow box), further indicating its enhanced ability
+to capture meaningful structures in noisy SAR imagery.
+Ablation on SARC.Building upon MAE (add noise),
+we further evaluate the effectiveness of the SARC module
+by incorporating paired optical images during pretraining.
+As shown in Table 5, SARC yields consistent and signifi-
+cant improvements across all three downstream tasks. The
+effect is particularly notable on the SSDD detection bench-
+mark, where performance increases by +3.7% (from 64.4%
+to 68.1%). In our experiments on this dataset, we observe
+that models often suffer from overfitting manifested as ex-
+cessive false alarms, likely because the network misinter-
+prets speckle noise as potential targets, indicating insuffi-
+cient ability to capture true object semantics. By leverag-
+ing paired optical images, SARC provides clearer and more
+discriminative structural cues, enabling the model to better
+separate meaningful objects from noise. As a result, the
+detection accuracy improves substantially. Interestingly, al-
+though DINOv3 [56] has achieved remarkable performance
+on natural images, simply finetuning it on SAR images
+yields suboptimal results. This observation indicates that
+the effectiveness of SARC stems from explicit SAR–optical
+
+
+===== PDF_PAGE_008 =====
+
+Figure 5. SARC leverages paired optical priors to recover the
+structural details of the original SAR image, which the model fails
+to reconstruct without this module.
+Figure 6. Visualization of Horizontal Object Detection Tasks on
+SSDD [88] and SAR-Det100k [38] in line 1. Oriented Object De-
+tection Tasks on RSAR [90].
+alignment, rather than from the strength of the optical back-
+bone itself (i.e., DINOv3).
+To further illustrate this mechanism, we visualize recon-
+structions from different pretrained MAE variants, as shown
+in Figure 5. With SARC, the model can recover the local
+scene structures present in the original SAR image (see the
+red box), whereas training on noisy SAR data alone results
+in blurred or incomplete reconstructions. This demonstrates
+that SARC injects clear optical semantic priors, enabling
+the model to discern true scene content and substantially en-
+hancing the noise-aware masked image modeling process.
+Based on the above ablation results, we find that SARE
+encourages the model to identify noise components irrele-
+vant to scene understanding, enabling it to learn the correct
+information. In contrast, SARC introduces paired optical
+priors that guide the model toward clearer semantic struc-
+tures. Together, these two components operate from com-
+plementary perspectives and jointly enhance the model’s
+representation and generalization ability on SAR imagery.
+Figure 7. Visualization of segmentation tasks on AIR-PolSAR-
+Seg [95].
+4.3. Visualization
+Figure 6–7 present the qualitative results of our model on
+detection and segmentation tasks, respectively. As shown,
+our model can accurately detect targets of varying loca-
+tions, shapes, and sizes in SAR imagery. In particular, for
+the challenging oriented detection scenario, our approach
+successfully captures the ship docked at the port with high
+confidence (see the yellow box in the second row of Fig-
+ure 6), even though its appearance is difficult to distinguish
+from the surrounding environment. For single-class seman-
+tic segmentation, our model achieves robust performance:
+despite strong noise interference, it is still able to correctly
+identify water bodies with clear and coherent boundaries. In
+multi-class segmentation tasks, our method also produces
+segmentation maps of high visual quality. These results in-
+tuitively demonstrate the effectiveness of our approach.
+5. Conclusion
+In this paper, we present SARMAE, a self-supervised pre-
+training framework tailored for SAR representation learn-
+ing. We introduce SAR-1M, the first million-scale SAR
+dataset with paired optical imagery, enabling large-scale
+pretraining directly aligned with SAR-specific character-
+istics. Building upon this, we propose two core in-
+novations: Speckle-Aware Representation Enhancement
+(SARE), which explicitly models the statistical behavior of
+SAR speckle to learn noise-aware representations, and Se-
+mantic Anchor Representation Constraint (SARC), which
+leverages paired optical priors to guide SAR feature learn-
+ing and improve semantic fidelity. Extensive experiments
+across classification, detection, and segmentation demon-
+strate that SARMAE achieves SOTA performance, validat-
+ing both the quality of SAR-1M and the effectiveness of
+our pre-training framework. We believe that SAR-1M and
+SARMAE will constitute a strong foundation for future re-
+search in SAR representation learning and foster the devel-
+opment of SAR-oriented foundation models.
+
+
+===== PDF_PAGE_009 =====
+
+Acknowledgement
+This work was supported in part by the Fundamental
+and Interdisciplinary Disciplines Breakthrough Plan of the
+Ministry of Education of China (JYB2025XDXM101),
+the National Natural Science Foundation of China
+(624B2109, 623B2079, 62225113), the Zhongguancun
+Academy Project (20240308), and the Key Technology Re-
+search Project of China National Petroleum Corporation
+(2025ZG82).
+References
+[1] Hangbo Bao, Li Dong, Songhao Piao, and Furu Wei. Beit:
+Bert pre-training of image transformers. InInternational
+Conference on Learning Representations, 2022. 1, 6
+[2] Yee Kit Chan and V oon Koo. An introduction to synthetic
+aperture radar (sar).Progress In Electromagnetics Research
+B, 2:27–60, 2008. 1
+[3] Hongruixuan Chen, Jian Song, Olivier Dietrich, Clifford
+Broni-Bediako, Weihao Xuan, Junjue Wang, Xinlei Shao,
+Yimin Wei, Junshi Xia, Cuiling Lan, et al. Bright: A globally
+distributed multimodal building damage assessment dataset
+with very-high-resolution for all-weather disaster response.
+Earth System Science Data Discussions, 2025:1–51, 2025. 2
+[4] Haoyang Chen, Jing Zhang, Hebaixu Wang, Shiqin Wang,
+Pohsun Huang, Jiayuan Li, Haonan Guo, Di Wang,
+Zheng Wang, and Bo Du. Any2any: Unified arbitrary
+modality translation for remote sensing.arXiv preprint
+arXiv:2603.04114, 2026. 1
+[5] Jie Chen, Zhixiang Huang, Runfan Xia, Bocai Wu, Lei
+Sheng, Long Sun, and Baidong Yao. Large-scale multi-class
+sar image target detection dataset-1.0.Journal of Radars, 14:
+1488, 2022. 2
+[6] Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian
+Schroff, and Hartwig Adam. Encoder-decoder with atrous
+separable convolution for semantic image segmentation. In
+ECCV, pages 801–818, 2018. 7
+[7] Ting Chen, Simon Kornblith, Mohammad Norouzi, and Ge-
+offrey Hinton. A simple framework for contrastive learning
+of visual representations. InICML, pages 1597–1607, 2020.
+1
+[8] Xinlei Chen, Saining Xie, and Kaiming He. An empirical
+study of training self-supervised vision transformers.CoRR,
+abs/2104.02057, 2021. 2
+[9] Yezhen Cong, Samar Khanna, Chenlin Meng, Patrick Liu,
+Erik Rozi, Yutong He, Marshall Burke, David Lobell, and
+Stefano Ermon. Satmae: Pre-training transformers for tem-
+poral and multi-spectral satellite imagery.NeurIPS, 35:197–
+211, 2022. 2
+[10] Zhen Dai, Guangwen Mu, Wei Zha, and Renzheng Xu. A
+review on SAR image denoising algorithm using deep learn-
+ing theory. InProceedings of the International Conference
+on Digital Image Processing, page 1327419. International
+Society for Optics and Photonics, SPIE, 2024. 2
+[11] Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li,
+and Li Fei-Fei. Imagenet: A large-scale hierarchical image
+database. InCVPR, pages 248–255, 2009. 2, 5, 6, 7
+[12] Joseph R Diemunsch and John Wissinger. Moving and
+stationary target acquisition and recognition (mstar) model-
+based automatic target recognition: Search technology for a
+robust atr. InAlgorithms for Synthetic Aperture Radar Im-
+agery V, pages 481–492. SPIE, 1998. 2, 6, 3
+[13] Jian Ding, Nan Xue, Yang Long, Gui-Song Xia, and Qikai
+Lu. Learning roi transformer for detecting oriented objects
+in aerial images.arXiv preprint arXiv:1812.00155, 2018. 6
+[14] Dixon Domfeh and Saeid Safarveisi. Catnet: A geometric
+deep learning approach for cat bond spread prediction in the
+primary market.arXiv preprint arXiv:2508.10208, 2025. 6
+[15] Yuntao Du, Yushi Chen, Lingbo Huang, Yahu Yang, Pedram
+Ghamisi, and Qian Du. Summit: A sar foundation model
+with multiple auxiliary tasks enhanced intrinsic characteris-
+tics.International Journal of Applied Earth Observation and
+Geoinformation, 141:104624, 2025. 1, 2
+[16] Yuntao Du, Yushi Chen, Lingbo Huang, Yahu Yang, Pedram
+Ghamisi, and Qian Du. Summit: A sar foundation model
+with multiple auxiliary tasks enhanced intrinsic characteris-
+tics.International Journal of Applied Earth Observation and
+Geoinformation, 141:104624, 2025. 1, 2, 3, 6
+[17] Jun Fu, Jing Liu, Haijie Tian, Yong Li, Yongjun Bao, Zhiwei
+Fang, and Hanqing Lu. Dual attention network for scene
+segmentation. InCVPR, pages 3146–3154, 2019. 7
+[18] Anthony Fuller, Koreen Millard, and James Green. Croma:
+Remote sensing representations with contrastive radar-
+optical masked autoencoders.NeurIPS, 36:5506–5538,
+2023. 2, 6
+[19] Anthony Fuller, Koreen Millard, and James Green. Croma:
+Remote sensing representations with contrastive radar-
+optical masked autoencoders.NeurIPS, 36:5506–5538,
+2023. 2
+[20] Rudiger Gens and John L Van Genderen. Review article sar
+interferometry—issues, techniques, applications.Interna-
+tional Journal of Remote Sensing, 17(10):1803–1835, 1996.
+1
+[21] Ziyang Gong, Zhixiang Wei, Di Wang, Xiaoxing Hu, Xi-
+anzheng Ma, Hongruixuan Chen, Yuru Jia, Yupeng Deng,
+Zhenming Ji, Xiangwei Zhu, Xue Yang, Naoto Yokoya, Jing
+Zhang, Bo Du, Junchi Yan, and Liangpei Zhang. Crossearth:
+Geospatial vision foundation model for domain generaliz-
+able remote sensing semantic segmentation.IEEE Trans-
+actions on Pattern Analysis and Machine Intelligence, pages
+1–18, 2025. 2
+[22] Jiaming Han, Jian Ding, Nan Xue, and Gui-Song Xia. Redet:
+A rotation-equivariant detector for aerial object detection. In
+CVPR, pages 2786–2795, 2021. 6
+[23] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+Deep residual learning for image recognition. InCVPR,
+pages 770–778, 2016. 6
+[24] Kaiming He, Haoqi Fan, Yuxin Wu, Saining Xie, and Ross
+Girshick. Momentum contrast for unsupervised visual rep-
+resentation learning. InCVPR, pages 9729–9738, 2020. 2
+[25] Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr
+Doll´ar, and Ross Girshick. Masked autoencoders are scalable
+vision learners. InCVPR, pages 16000–16009, 2022. 1, 2,
+4, 5, 6, 7
+
+
+===== PDF_PAGE_010 =====
+
+[26] Danfeng Hong, Bing Zhang, Xuyang Li, Yuxuan Li, Chenyu
+Li, Jing Yao, Naoto Yokoya, Hao Li, Pedram Ghamisi, Xi-
+uping Jia, et al. Spectralgpt: Spectral remote sensing foun-
+dation model.IEEE Transactions on Pattern Analysis and
+Machine Intelligence, 2024. 2
+[27] Xiyue Hou, Wei Ao, Qian Song, Jian Lai, Haipeng Wang,
+and Feng Xu. Fusar-ship: Building a high-resolution sar-ais
+matchup dataset of gaofen-3 for ship detection and recog-
+nition.Science China Information Sciences, 63(4):140303,
+2020. 6, 2, 3, 4
+[28] Gerhard Krieger. Mimo-sar: Opportunities and pitfalls.
+IEEE Transactions on Geoscience and Remote Sensing, 52
+(5):2628–2645, 2013. 1, 2
+[29] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton.
+Imagenet classification with deep convolutional neural net-
+works. InNeurIPS. Curran Associates, Inc., 2012. 2
+[30] Boying Li, Bin Liu, Lanqing Huang, Weiwei Guo, Zenghui
+Zhang, and Wenxian Yu. Opensarship 2.0: A large-volume
+dataset for deeper interpretation of ship targets in sentinel-
+1 imagery. InSAR in Big Data Era: Models, Methods and
+Applications, pages 1–5. IEEE, 2017. 2
+[31] Feng Li, Shuya Chen, and Xin Zhang. Era-net: End-to-
+end recognition-aware sparse sar imaging network. InIEEE
+International Conference on Signal, Information and Data
+Processing, pages 1–5, 2024. 1
+[32] Weijie Li, Wei Yang, Tianpeng Liu, Yuenan Hou, Yuxuan Li,
+Zhen Liu, Yongxiang Liu, and Li Liu. Predicting gradient is
+better: Exploring self-supervised learning for sar atr with a
+joint-embedding predictive architecture.ISPRS Journal of
+Photogrammetry and Remote Sensing, 218:326–338, 2024.
+2, 3, 6
+[33] Weijie Li, Wei Yang, Tianpeng Liu, Yuenan Hou, Yuxuan Li,
+Zhen Liu, Yongxiang Liu, and Li Liu. Predicting gradient is
+better: Exploring self-supervised learning for sar atr with a
+joint-embedding predictive architecture.ISPRS Journal of
+Photogrammetry and Remote Sensing, 218:326–338, 2024.
+1
+[34] Weijie Li, Wei Yang, Yuenan Hou, Li Liu, Yongxiang Liu,
+and Xiang Li. Saratr-x: Toward building a foundation model
+for sar target recognition.IEEE Transactions on Image Pro-
+cessing, 34:869–884, 2025. 1
+[35] Weijie Li, Wei Yang, Yuenan Hou, Li Liu, Yongxiang Liu,
+and Xiang Li. Saratr-x: Towards building a foundation
+model for sar target recognition.IEEE Transactions on Im-
+age Processing, 2025. 1, 2, 3, 6
+[36] Xingyu Li, Zhe Qu, Shangqing Zhao, Bo Tang, Zhuo Lu, and
+Yao Liu. Lomar: A local defense against poisoning attack on
+federated learning.IEEE Transactions on Dependable and
+Secure Computing, 20(1):437–450, 2021. 6
+[37] Yanghao Li, Haoqi Fan, Ronghang Hu, Christoph Feichten-
+hofer, and Kaiming He. Scaling language-image pre-training
+via masking. InCVPR, pages 23390–23400, 2023. 2
+[38] Yuxuan Li, Xiang Li, Weijie Li, Qibin Hou, Li Liu, Ming-
+Ming Cheng, and Jian Yang. Sardet-100k: Towards open-
+source benchmark and toolkit for large-scale sar object de-
+tection.NeurIPS, 37:128430–128461, 2024. 2, 3, 6, 8
+[39] Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and
+Piotr Doll´ar. Focal loss for dense object detection. InICCV,
+pages 2980–2988, 2017. 6
+[40] Xin Lin, Bo Zhang, Fan Wu, Chao Wang, Yali Yang, and
+Huiqin Chen. Sived: A sar image dataset for vehicle detec-
+tion based on rotatable bounding box.Remote Sensing, 15
+(11), 2023. 2
+[41] Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng
+Zhang, Stephen Lin, and Baining Guo. Swin transformer:
+Hierarchical vision transformer using shifted windows. In
+ICCV, pages 10012–10022, 2021. 6
+[42] Zhuang Liu, Hanzi Mao, Chao-Yuan Wu, Christoph Feicht-
+enhofer, Trevor Darrell, and Saining Xie. A convnet for the
+2020s. InCVPR, pages 11976–11986, 2022. 6
+[43] Ziyuan Liu, Shaoping Wang, and Yuantao Gu. Optimiz-
+ing sar target detection through the multi-stage pre-training
+and fine-tuning strategy. InProceedings of the International
+Conference on Computer Science and Network Technology,
+pages 178–181, 2024. 1
+[44] Jonathan Long, Evan Shelhamer, and Trevor Darrell. Fully
+convolutional networks for semantic segmentation. In
+CVPR, pages 3431–3440, 2015. 7
+[45] Yang Long, Gui-Song Xia, Shengyang Li, Wen Yang,
+Michael Ying Yang, Xiao Xiang Zhu, Liangpei Zhang,
+and Deren Li. Dirs: On creating benchmark datasets
+for remote sensing image interpretation.arXiv preprint
+arXiv:2006.12485, 2020. 7
+[46] Jiming Lv, Daiyin Zhu, Zhe Geng, Shengliang Han, Yu
+Wang, Weixing Yang, Zheng Ye, and Tao Zhou. Recogni-
+tion of deformation military targets in the complex scenes
+via minisar submeter images with fasar-net.IEEE Transac-
+tions on Geoscience and Remote Sensing, 61:1–19, 2023. 1
+[47] Oscar Manas, Alexandre Lacoste, Xavier Gir ´o-i Nieto,
+David Vazquez, and Pau Rodriguez. Seasonal contrast: Un-
+supervised pre-training from uncurated remote sensing data.
+InICCV, pages 9414–9423, 2021. 2
+[48] H McNairn and B Brisco. The application of c-band polari-
+metric sar for agriculture: A review.Canadian Journal of
+Remote Sensing, 30(3):525–542, 2004. 1
+[49] Victor-Emil Neagoe, Serban-Vasile Carata, and Adrian-
+Dumitru Ciotec. An advanced neural network-based ap-
+proach for military ground vehicle recognition in sar aerial
+imagery.International Scientific Committee, 41, 2016. 1
+[50] Saurabh Parhad, Khushboo Warhade, and Sanjay Shitole.
+Speckle noise reduction in sar images using improved fil-
+tering and supervised classification.Multimedia Tools and
+Applications, 83:1–22, 2023. 2
+[51] Xiaolei Qin, Di Wang, Jing Zhang, Fengxiang Wang, Xin Su,
+Bo Du, and Liangpei Zhang. Timo: Spatiotemporal founda-
+tion model for satellite image time series.arXiv preprint
+arXiv:2505.08723, 2025. 1
+[52] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya
+Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,
+Amanda Askell, Pamela Mishkin, Jack Clark, et al. Learn-
+ing transferable visual models from natural language super-
+vision. InICML, pages 8748–8763. PmLR, 2021. 2
+[53] Colorado J Reed, Ritwik Gupta, Shufan Li, Sarah Brock-
+man, Christopher Funk, Brian Clipp, Kurt Keutzer, Salvatore
+
+
+===== PDF_PAGE_011 =====
+
+Candido, Matt Uyttendaele, and Trevor Darrell. Scale-mae:
+A scale-aware masked autoencoder for multiscale geospatial
+representation learning. InICCV, pages 4088–4099, 2023. 2
+[54] Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun.
+Faster r-cnn: Towards real-time object detection with region
+proposal networks.NeurIPS, 28, 2015. 6, 4
+[55] Michael Schmitt, Lloyd Hughes, and Xiao Xiang Zhu. The
+sen1-2 dataset for deep learning in sar-optical data fusion.
+ISPRS Annals of the Photogrammetry, Remote Sensing and
+Spatial Information Sciences, pages 141–146, 2018. 3, 2
+[56] Oriane Sim ´eoni, Huy V V o, Maximilian Seitzer, Federico
+Baldassarre, Maxime Oquab, Cijo Jose, Vasil Khalidov,
+Marc Szafraniec, Seungeun Yi, Micha ¨el Ramamonjisoa,
+et al. Dinov3.arXiv preprint arXiv:2508.10104, 2025. 4,
+7, 3
+[57] Mannat Singh, Quentin Duval, Kalyan Vasudev Alwala,
+Haoqi Fan, Vaibhav Aggarwal, Aaron B. Adcock, Armand
+Joulin, Piotr Doll’ar, Christoph Feichtenhofer, Ross B. Gir-
+shick, Rohit Girdhar, and Ishan Misra. The effectiveness
+of mae pre-pretraining for billion-scale pretraining.ICCV,
+pages 5461–5471, 2023. 2
+[58] Xian Sun, Peijin Wang, Wanxuan Lu, Zicong Zhu, Xiao-
+nan Lu, Qibin He, Junxi Li, Xuee Rong, Zhujun Yang, Hao
+Chang, et al. Ringmo: A remote sensing foundation model
+with masked image modeling.IEEE Transactions on Geo-
+science and Remote Sensing, 61:1–22, 2022. 2
+[59] Kiyo Tomiyasu. Tutorial review of synthetic-aperture radar
+(sar) with applications to imaging of the ocean surface.Pro-
+ceedings of the IEEE, 66(5):563–583, 2005. 1
+[60] Arsenios Tsokas, Maciej Rysz, Panos M. Pardalos, and
+Kathleen Dipple. Sar data applications in earth observa-
+tion: An overview.Expert Systems with Applications, 205:
+117342, 2022. 1
+[61] Chao Wang, Wei Lu, Xiang Li, Jian Yang, and Lei Luo.
+M4-sar: A multi-resolution, multi-polarization, multi-scene,
+multi-source dataset and benchmark for optical-sar fusion
+object detection.arXiv preprint arXiv:2505.10931, 2025. 2
+[62] Di Wang, Qiming Zhang, Yufei Xu, Jing Zhang, Bo Du,
+Dacheng Tao, and Liangpei Zhang. Advancing plain vision
+transformer toward remote sensing foundation model.IEEE
+Transactions on Geoscience and Remote Sensing, 61:1–15,
+2022. 2
+[63] Di Wang, Jing Zhang, Bo Du, Minqiang Xu, Lin Liu,
+Dacheng Tao, and Liangpei Zhang. Samrs: Scaling-up re-
+mote sensing segmentation dataset with segment anything
+model. InNeurIPS, pages 8815–8827, 2023.
+[64] Di Wang, Jing Zhang, Minqiang Xu, Lin Liu, Dongsheng
+Wang, Erzhong Gao, Chengxi Han, Haonan Guo, Bo Du,
+Dacheng Tao, and Liangpei Zhang. Mtp: Advancing remote
+sensing foundation model via multitask pretraining.IEEE
+Journal of Selected Topics in Applied Earth Observations
+and Remote Sensing, 17:11632–11654, 2024. 2
+[65] Di Wang, Meiqi Hu, Yao Jin, Yuchun Miao, Jiaqi Yang,
+Yichu Xu, Xiaolei Qin, Jiaqi Ma, Lingyu Sun, Chenxing Li,
+et al. Hypersigma: Hyperspectral intelligence comprehen-
+sion foundation model.IEEE Transactions on Pattern Anal-
+ysis and Machine Intelligence, 2025. 2
+[66] Fengxiang Wang, Hongzhen Wang, Di Wang, Zonghao Guo,
+Zhenyu Zhong, Long Lan, Wenjing Yang, and Jing Zhang.
+Harnessing massive satellite imagery with efficient masked
+image modeling. InICCV, pages 6935–6947, 2025. 2
+[67] Fengxiang Wang, Yulin Wang, Mingshuo Chen, Haotian
+Wang, Hongzhen Wang, Haiyan Zhao, Yangang Sun, Shuo
+Wang, Di Wang, Long Lan, Wenjing Yang, and Jing Zhang.
+RoMA: Scaling up mamba-based foundation models for re-
+mote sensing. InNeurIPS, 2025. 2
+[68] Hebaixu Wang and Jiayi Ma. Deep adaptive unfolded net-
+work via spatial morphology stripping and spectral filtration
+for pan-sharpening. InICCV, pages 10730–10740, 2025. 2
+[69] Hebaixu Wang, Jing Zhang, Haoyang Chen, Haonan Guo, Di
+Wang, Jiayi Ma, and Bo Du. Residual diffusion bridge model
+for image restoration.arXiv preprint arXiv:2510.23116,
+2025.
+[70] Hebaixu Wang, Jing Zhang, Haonan Guo, Di Wang, Jiayi
+Ma, and Bo Du. Dgsolver: Diffusion generalist solver with
+universal posterior sampling for image restoration.arXiv
+preprint arXiv:2504.21487, 2025. 2
+[71] Hebaixu Wang, Jing Zhang, Haonan Guo, Di Wang, Jiayi
+Ma, Bo Du, and Liangpei Zhang. Universal pansharpening
+foundation model.arXiv preprint arXiv:2603.03831, 2026.
+2
+[72] Yuanyuan Wang, Chao Wang, Hong Zhang, Yingbo Dong,
+and Sisi Wei. A sar dataset of ship detection for deep learn-
+ing under complex backgrounds.Remote Sensing, 11(7):765,
+2019. 2
+[73] Yi Wang, Zhitong Xiong, Chenying Liu, Adam J. Stewart,
+Thomas Dujardin, Nikolaos Ioannis Bountos, Angelos Za-
+vras, Franziska Gerken, Ioannis Papoutsis, Laura Leal-Taix´e,
+and Xiao Xiang Zhu. Towards a unified copernicus foun-
+dation model for earth vision. InICCV, pages 9888–9899,
+2025. 6
+[74] Zhirui Wang, Yuzhuo Kang, Xuan Zeng, et al. Sar-aircraft-
+1.0: High-resolution sar aircraft detection and recognition
+dataset.Journal of Radars, 12(4):906–922, 2023. 2
+[75] Shunjun Wei, Xiangfeng Zeng, Qizhe Qu, Mou Wang, Hao
+Su, and Jun Shi. Hrsid: A high-resolution sar images dataset
+for ship detection and instance segmentation.Ieee Access, 8:
+120234–120254, 2020. 2
+[76] Gui-Song Xia, Xiang Bai, Jian Ding, Zhen Zhu, Serge J. Be-
+longie, Jiebo Luo, Mihai Datcu, Marcello Pelillo, and Liang-
+pei Zhang. Dota: A large-scale dataset for object detection
+in aerial images.CVPR, pages 3974–3983, 2017. 3
+[77] Junshi Xia, Hongruixuan Chen, Clifford Broni-Bediako,
+Yimin Wei, Jian Song, and Naoto Yokoya. Openearthmap-
+sar: A benchmark synthetic aperture radar dataset for
+global high-resolution land cover mapping.arXiv preprint
+arXiv:2501.10891, 2025. 2
+[78] Tete Xiao, Yingcheng Liu, Bolei Zhou, Yuning Jiang, and
+Jian Sun. Unified perceptual parsing for scene understand-
+ing. InECCV, pages 418–434, 2018. 6
+[79] Zhitong Xiong, Yi Wang, Fahong Zhang, Adam J Stewart,
+Jo¨elle Hanna, Damian Borth, Ioannis Papoutsis, Bertrand Le
+Saux, Gustau Camps-Valls, and Xiao Xiang Zhu. Neural
+plasticity-inspired foundation model for observing the earth
+
+
+===== PDF_PAGE_012 =====
+
+crossing modalities.arXiv preprint arXiv:2403.15356, 2024.
+2
+[80] Yoshio Yamaguchi. Disaster monitoring by fully polarimet-
+ric sar data acquired with alos-palsar.Proceedings of the
+IEEE, 100(10):2851–2860, 2012. 1
+[81] Haodong Yang, Xinyue Kang, Long Liu, Yujiang Liu, and
+Zhongling Huang. Sar-hub: Pre-training, fine-tuning, and
+explaining.Remote Sensing, 15(23), 2023. 1
+[82] Xue Yang, Junchi Yan, Ziming Feng, and Tao He. R3det:
+Refined single-stage detector with feature refinement for ro-
+tating object. InAAAI, pages 3163–3171, 2021. 6
+[83] SHAO Yun, Tuya Hasi, et al. Research advances of sar re-
+mote sensing for agriculture applications: A review.Journal
+of Integrative Agriculture, 18(3):506–525, 2019. 1
+[84] Ying Zeng, Xue Yang, Qingyun Li, Yushi Chen, and Junchi
+Yan. Ars-detr: Aspect ratio-sensitive detection transformer
+for aerial oriented object detection.IEEE Transactions on
+Geoscience and Remote Sensing, 62:1–15, 2023. 6
+[85] Yikui Zhai, Wenlve Zhou, Bing Sun, Jingwen Li, Qirui Ke,
+Zilu Ying, Junying Gan, Chaoyun Mai, Ruggero Donida La-
+bati, Vincenzo Piuri, et al. Weakly contrastive learning via
+batch instance discrimination and feature clustering for small
+sample sar atr.IEEE Transactions on Geoscience and Re-
+mote Sensing, 60:1–17, 2021. 2
+[86] Peng Zhang, Hao Xu, Tian Tian, Peng Gao, Linfeng Li, Tian-
+ming Zhao, Nan Zhang, and Jinwen Tian. Sefepnet: Scale
+expansion and feature enhancement pyramid network for sar
+aircraft detection with small sample dataset.IEEE Journal of
+Selected Topics in Applied Earth Observations and Remote
+Sensing, 15:3365–3375, 2022. 2
+[87] Shifeng Zhang, Longyin Wen, Xiao Bian, Zhen Lei, and
+Stan Z Li. Occlusion-aware r-cnn: Detecting pedestrians in
+a crowd. InECCV, pages 637–653, 2018. 6
+[88] Tianwen Zhang, Xiaoling Zhang, Jianwei Li, Xiaowo Xu,
+Baoyou Wang, Xu Zhan, Yanqin Xu, Xiao Ke, Tianjiao
+Zeng, Hao Su, et al. Sar ship detection dataset (ssdd): Offi-
+cial release and comprehensive data analysis.Remote Sens-
+ing, 13(18):3690, 2021. 2, 6, 8, 4
+[89] Xiaosong Zhang, Yunjie Tian, Wei Huang, Qixiang Ye, Qi
+Dai, Lingxi Xie, and Qi Tian. Hivit: Hierarchical vision
+transformer meets masked image modeling.arXiv preprint
+arXiv:2205.14949, 2022. 3, 6
+[90] Xin Zhang, Xue Yang, Yuxuan Li, Jian Yang, Ming-Ming
+Cheng, and Xiang Li. Rsar: Restricted state angle resolver
+and rotated sar benchmark.CVPR, 2025. 6, 8, 2
+[91] Chenxi Zhao, Daochang Wang, Siqian Zhang, and Gangyao
+Kuang. Global discriminative information search and fo-
+cus for sar target recognition.IEEE Sensors Journal, 25(9):
+15735–15749, 2025. 6, 3, 4
+[92] Hengshuang Zhao, Jianping Shi, Xiaojuan Qi, Xiaogang
+Wang, and Jiaya Jia. Pyramid scene parsing network. In
+CVPR, pages 2881–2890, 2017. 7
+[93] Hengshuang Zhao, Yi Zhang, Shu Liu, Jianping Shi,
+Chen Change Loy, Dahua Lin, and Jiaya Jia. Psanet: Point-
+wise spatial attention network for scene parsing. InECCV,
+2018. 7
+[94] Zhicheng Zhao, Changfu Zhou, Yu Zhang, Chenglong Li,
+Xiaoliang Ma, and Jin Tang. Text-guided coarse-to-fine fu-
+sion network for robust remote sensing visual question an-
+swering.ISPRS Journal of Photogrammetry and Remote
+Sensing, 230:1–17, 2025. 2
+[95] W ANG Zhirui, ZHAO Liangjin, W ANG Yuelei, ZENG
+Xuan, KANG Jian, Y ANG Jian, and SUN Xian. Air-polsar-
+seg-2.0: Polarimetric sar ground terrain classification dataset
+for large-scale complex scenes.Journal of Radars, 14(2):
+353–365, 2025. 6, 8, 2, 4
+[96] Xiaoxiang Zhu, Sina Montazeri, Mohsin Ali, Yuansheng
+Hua, Yuanyuan Wang, Lichao Mou, Yilei Shi, Feng Xu, and
+Richard Bamler. Deep learning meets sar: Concepts, mod-
+els, pitfalls, and perspectives.IEEE Geoscience and Remote
+Sensing Magazine, 9:143–172, 2020. 1
+[97] Xizhou Zhu, Weijie Su, Lewei Lu, Bin Li, Xiaogang Wang,
+and Jifeng Dai. Deformable detr: Deformable transformers
+for end-to-end object detection. InInternational Conference
+on Learning Representations, 2020. 6
+[98] Xiao Xiang Zhu, Sina Montazeri, Mohsin Ali, Yuansheng
+Hua, Yuanyuan Wang, Lichao Mou, Yilei Shi, Feng Xu, and
+Richard Bamler. Deep learning meets sar: Concepts, mod-
+els, pitfalls, and perspectives.IEEE Geoscience and Remote
+Sensing Magazine, 9(4):143–172, 2021. 1
+[99] Zhen Zhu, Mengde Xu, Song Bai, Tengteng Huang, and Xi-
+ang Bai. Asymmetric non-local neural networks for semantic
+segmentation. InICCV, pages 593–602, 2019. 7
+
+
+===== PDF_PAGE_013 =====
+
+SARMAE: Masked Autoencoder for SAR Representation Learning
+Supplementary Material
+6. Overview
+This supplementary material provides comprehensive de-
+tails for the proposed SARMAE framework and the con-
+structed SAR-1M dataset. These details were omitted from
+the main paper due to space constraints. The supplementary
+material is organized as follows:
+• Section 7. Detailed composition and statistics of SAR-
+1M dataset;
+• Section 8. Implementation details of Speckle-Aware Rep-
+resentation Enhancement (SARE);
+• Section 12. Fine-tuning configurations for downstream
+tasks;
+• Section 13. Extended visualization results;
+• Section 14. Datasheet for SAR-1M.
+7. Details for SAR-1M.
+SAR-1M aggregates 18 publicly available SAR datasets,
+encompassing diverse imaging conditions, geographic lo-
+cations, and task scenarios. Images in RSAR are the same
+in SAR-Det100k. Tab. 6 presents the detailed breakdown of
+each source dataset, including the image quantity, task type,
+image size, target type and spatial resolution. Datasets with
+paired SAR&OPT images are indicated in the last column,
+comprising 1,042,156 pairs in total.
+SAR-1M encompasses 57 distinct categories, covering a
+diverse range of scene types. These categories span mar-
+itime objects, aerial targets, ground vehicles, infrastructure
+elements, land cover types, and event-related scenes, with
+visualizations of different scenarios, either SAR images or
+SAR–optical paired images, shown in Fig. 8-9.
+SAR-1M employs hash-based deduplication to eliminate
+any potential overlap with the test sets of the downstream
+datasets used in the main paper. Even when trained on only
+30% of SAR-1M (Tab. 7), SARMAE-S still outperforms
+SUMMIT, demonstrating both the stronger capacity of our
+model and the benefits brought by increased data scale.
+8. Implementation Details of SARE
+To enable the model to learn noise-aware representations
+while preserving its ability to reconstruct clean SAR im-
+agery, we implement SARE through a carefully designed
+noise injection strategy during pretraining. Unlike conven-
+tional denoising approaches that process all samples uni-
+formly, we adopt a probabilistic augmentation scheme in
+which each training iteration carries a 50% chance of ap-
+plying synthetic noise corruption to the input. This dynamic
+sampling mechanism allows the encoder to simultaneously
+Figure 8. Various categories in SAR-1M.
+Figure 9. Diverse scenes with SAR-OPT pairs in SAR-1M.
+learn to reconstruct clean SAR content and to handle diverse
+noise characteristics.
+
+
+===== PDF_PAGE_014 =====
+
+Table 6. Detailed composition of SAR-1M dataset.
+Dataset Year Tasks Imgs. Img. Size (px) Targets (Cls.) Res. (m) Modality
+MSTAR[12] 1995 Cls. 14,577 128∼193 10 0.3 SAR
+OpenSARShip[30] 2017 Cls. 26,679 9∼445 14 2.3∼17.4 SAR
+SEN1-2[55] 2018 Det./Seg. 282,384 256 / 10 SAR&OPT
+SAR-Ship[72] 2019 Det. 39,729 256 1 3∼25 SAR
+FUSAR-ship[27] 2020 Cls. 5,243 512 10 / SAR
+HRSID[75] 2020 Det./Seg. 89,664 256 1 0.5∼3 SAR
+SSDD[88] 2021 Det. 1,160 214∼668 1 1∼15 SAR
+SADD[86] 2022 Det. 2,966 224 1 0.5∼3 SAR
+MSAR[5] 2022 Det. 28,499 256∼2048 4 1 SAR
+SAR-AIRcraft[74] 2023 Det. 18,818 512 7 1 SAR
+SIVED[40] 2023 Det. 1,044 512 1 0.1∼0.3 SAR
+OGSOD[94] 2023 Det./Seg. 22,366 256 3 3 SAR
+SAR-Det100k[38] 2024 Det. 94,493 512 6 0.5∼25 SAR
+RSAR[90] 2025 Det. / 512 6 0.5∼25 SAR
+M4 SAR[61] 2025 Det. 448,696 256 6 10,60 SAR&OPT
+Bright[3] 2025 Seg. 149,872 256 3 0.3∼1 SAR&OPT
+OpenEarthMap[77] 2025 Seg. 80,544 256 8 0.15∼0.5 SAR&OPT
+AIR-PolSAR-Seg[95] 2025 Det./Seg. 6,168 512 6 8 SAR
+SAR-1M 2025 Cls./Det./Seg. 1,312,902 9∼2048 57 0.1∼60 SAR&OPT
+Figure 10. Images of different resolutions in SAR-1M.
+When an image is selected for augmentation, one of four
+physically motivated noise models is randomly chosen and
+applied.
+The first category is additive Gaussian noise, which sim-
+ulates random interference and is defined as:
+x′(i, j) =x(i, j) +N(0, σ 2),(9)
+whereσis randomly sampled from the range[0.0,0.5]to
+represent different noise levels.
+The second category introduces multiplicative Rayleigh
+noise, which models the amplitude statistics of single-look
+SAR data:
+x′(i, j) =x(i, j)· R(σ),(10)
+whereR(σ)denotes a Rayleigh-distributed random vari-
+able with scale parameterσsampled from[0.0,0.5].
+The third noise type is Gamma-distributed multiplicative
+noise, representing the multi-look SAR intensity formation
+described in Eq.1 of the main text:
+x′(i, j)∼Gamma(L syn, x(i, j)/Lsyn),(11)
+where the synthetic look numberL syn is randomly selected
+from1,2,3,4to yield varying noise intensity levels.
+The fourth category is additive uniform noise, which
+simulates sensor-induced perturbations. It is formulated as:
+x′(i, j) =x(i, j) +U(−α, α),(12)
+whereU(−α, α)denotes a uniform random variable drawn
+from the interval[−α, α], andαis randomly sampled from
+[0.0,0.5]to control the perturbation magnitude.
+
+
+===== PDF_PAGE_015 =====
+
+Table 7. Comparison of performance across different datasets. All models adopt ViT-B as the backbone.
+Model Dataset Dataset Scale FUSAR30%[27]SAR-ACD[91]
+SUMMIT [16] MuSID 560k 71.91 84.25
+SARMAE-S SAR-1M(30%) 300k 88.27 93.76
+SARMAE SAR-1M 1000k 92.92 95.06
+Each chosen noise model further samples its related hy-
+perparameters from the corresponding ranges, ensuring di-
+verse corruption patterns both across iterations and within
+each training batch.
+During training, if augmentation is applied, the cor-
+rupted imagex ′ is masked and encoded following the MAE
+protocol, while the reconstruction target remains the orig-
+inal clean patchx. This formulation compels the encoder
+to map noisy, incomplete inputs back to clean and com-
+plete scene content. For iterations where augmentation is
+skipped, standard MAE reconstruction is performed with-
+out synthetic noise. This probabilistic dual-mode training
+paradigm enables SARMAE to learn noise-robust and se-
+mantically rich representations without compromising re-
+construction quality or training stability.
+Pretraining with pseudo-clean targets generated by SAR
+denoisers (LEE, BM3D, FROST) yields suboptimal classi-
+fication accuracy (Tab. 8), as such targets often distort se-
+mantic structures. SARE learns to adaptively model com-
+plex SAR noise and capture task-relevant representations.
+As shown in Tab. 9, SARE outperforms both standard
+MAE and Gaussian denoising baselines. These results pro-
+vide strong evidence that physics-driven noise modeling in
+SARE offers more robust SAR representations than stan-
+dard augmentation strategies.
+Table 8. Classification accuracy by pretraining on varied denoiser.
+Denoiser None LEE BM3D FROST
+MSTAR [12] 90.66 77.81 82.16 76.30
+9. Implementation Details of SARC
+We exclude optical images with cloud cover≥20%to en-
+sure data quality. To avoid over-regularization from the op-
+tical modality, SARC is assigned a low loss weight (λ=
+0.1), and additional unpaired SAR samples (0.3M) are in-
+corporated to preserve feature autonomy in the SAR branch.
+As shown in Tab. 9, replacing SARC with contrastive loss
+leads to performance degradation, likely because speckle
+noise in SAR imagery makes negative pairs highly unreli-
+able and interferes with stable feature alignment. In con-
+trast, cosine similarity focuses on aligning positive pairs
+without aggressive repulsion, which is more suitable for
+bridging these distinct modalities. Moreover, Tab. 9 shows
+that SARE and SARC complement each other, yielding fur-
+ther performance gains when combined.
+10. Rationale for DINOv3
+DINOv3 [56] offers superior optical representations, com-
+pared to ImageNet pretrained MAE-ViT (see Tab. 10, both
+models adopt the Base version). We froze DINOv3 encoder
+to prevent it from adapting to SAR domain, which provides
+purely semantic guidance in the optical modality.
+11. Model Scalability Analysis
+In terms of efficiency, scaling from ViT-B to ViT-L intro-
+duces a moderate training overhead (+33%) on 8×A800
+GPUs (Tab. 11), indicating that SARMAE scales efficiently
+with model size. While ViT-L tends to overfit on smaller
+datasets (FUSAR-SHIP, MSTAR) due to its higher capac-
+ity, it consistently outperforms ViT-B on large-scale bench-
+marks (SARDet-100K). These results suggest that SAR-
+MAE follows standard scaling behavior, where larger mod-
+els benefit from sufficient training data.
+12. Fine-tuning Configurations for Down-
+stream Tasks
+All experiments are conducted using the pretrained ViT-B
+and ViT-L backbones initialized with SARMAE weights.
+And all experiments are conducted on 8 NVIDIA A800
+GPUs (40GB). We use PyTorch Distributed Data Parallel
+(DDP) for multi-GPU training. Gradient clipping with a
+maximum norm of 1.0 is applied across all tasks. For ViT-
+L models, we apply checkpoints to maintain the effective
+batch size when GPU memory is limited.
+12.1. Target Classification
+For target classification tasks, we evaluate SARMAE on
+three datasets: FUSAR-SHIP [27], MSTAR [12], and SAR-
+ACD [91]. The pretrained ViT encoder is adapted for clas-
+sification by appending a global average pooling layer fol-
+lowed by a linear classification head. The number of out-
+put dimension in the linear layer corresponds to the num-
+ber of classes in each dataset. The training configurations
+are detailed in Tab. 12. For the 40-shot experiments on
+FUSAR-SHIP and MSTAR, we randomly sample 40 im-
+ages per class for training while using the full test set for
+evaluation. For the 30% labeled setting on FUSAR-SHIP,
+
+
+===== PDF_PAGE_016 =====
+
+Table 9. Ablation study on noise addition and loss functions.
+Model Noise Addition Loss Function FUSAR40[27]SSDD[88]AIR-PolSAR-Seg[95]
+MAE [25] - - 82.22 64.20 64.36
+MAE + G Gaussian - 85.16 62.60 63.19
+SARE Ours - 86.80 64.40 65.15
+SARE + C Ours Contrastive Loss 86.95 62.40 63.41
+SARMAE Ours SARC 89.30 68.10 66.53
+Table 10. Comparison of different teachers for the Optical Branch.
+ViT-B is adopted as the backbone.
+Optical Branch Init. FUSAR 40[27]SAR-ACD[91]
+MAE-ViT [25] 84.29 89.87
+DINOv3 [56] (Ours) 89.30 95.06
+Table 11. Efficiency Analysis.
+Model Params (M) FLOPs (G) Training Cost (h)
+ViT-B (Baseline) 86 17.6∼45
+ViT-L 307 61.6∼60
+MSTAR and SAR-ACD, we randomly select 30% of the
+training data while keeping the test set unchanged. Each
+experiment is repeated 3 times with different random seeds,
+and we report the average accuracy.
+12.2. Horizontal&Oriented Object Detection
+For horizontal bounding box detection, we integrate the pre-
+trained SARMAE backbone into the Faster R-CNN [54]
+framework with a Feature Pyramid Network (FPN) neck.
+We evaluate on two datasets: SSDD and SARDet-100k.
+And for oriented bounding box detection on the RSAR
+dataset, we adopt Oriented R-CNN as the detection frame-
+work, which extends Faster R-CNN with rotated Region of
+Interest (RoI) features and oriented bounding box regres-
+sion. The training configurations are detailed in Tab. 12.
+To preserve the pretrained representations, we freeze all
+layers of the ViT backbone except the final layer during
+fine-tuning. This approach maintains the general SAR
+features learned during pretraining while allowing task-
+specific adaptation through the detection head.
+12.3. Semantic Segmentation
+For pixel-level semantic segmentation on the AIR-PolSAR-
+Seg dataset, we utilize UperNet as the segmentation frame-
+work. For the multi-class segmentation task, we report
+mean Intersection over Union (mIoU) across all categories.
+For the single-class water extraction task, we report the IoU
+for the water class. The training settings have been shown
+in Tab. 12.
+13. Extended visualization results
+Fig. 11 presents detection results on SSDD, SARDet-
+100k, and RSAR datasets. The visualizations demon-
+strate the model’s capability to accurately localize ships
+in diverse scenarios, including multi-scale detection, dense
+harbor scenes, and oriented bounding box prediction for
+arbitrarily-oriented vessels.
+Fig. 12 illustrates semantic segmentation results on AIR-
+PolSAR-Seg dataset. The model achieves precise pixel-
+level classification for multiple terrain categories and ac-
+curate water body extraction, demonstrating strong perfor-
+mance on fine-grained segmentation tasks.
+14. Datasheets
+14.1. Motivation
+The questions in this section are primarily intended to en-
+courage dataset creators to clearly articulate their reasons
+for creating the dataset and to promote transparency about
+funding interests. The latter may be particularly relevant for
+datasets created for research purposes.
+1.“For what purpose was the dataset created?”
+A:SAR-1M was created to address the lack of large-
+scale, diverse SAR datasets for self-supervised repre-
+sentation learning. Existing SAR datasets are limited in
+scale ( 100k-500k) and diversity, hindering the develop-
+ment of foundation models for SAR imagery.
+2.“Who created the dataset (e.g., which team, research
+group) and on behalf of which entity?”
+A:The dataset was curated by us as part of research on
+SAR representation learning. It aggregates 18 publicly
+available SAR datasets.
+3.“Who funded the creation of the dataset?”
+A:The dataset creation was funded by the affiliations of
+the authors involved in this work.
+14.2. Composition
+Most of the questions in this section are intended to provide
+dataset consumers with the information they need to make
+informed decisions about using the dataset for their chosen
+tasks. Some of the questions are designed to elicit informa-
+tion about compliance with the EU’s General Data Protec-
+
+
+===== PDF_PAGE_017 =====
+
+Table 12. Training configurations for different tasks.
+Config Classification Detection Segmentation
+optimizer AdamW AdamW AdamW
+base learning rate1.0×10 −3 1.0×10 −4 6.0×10 −5
+weight decay 0.05 0.05 0.05
+optimizer momentumβ 1, β2 = 0.9,0.95β 1, β2 = 0.9,0.95β 1, β2 = 0.9,0.99
+batch size 25 16 4
+learning rate schedule Cosine Step Polynomial
+warmup iterations 2000 1000 1500
+warmup type Constant Linear Linear
+warmup learning rate1.0×10 −5 0.333336.0×10 −8
+tion Regulation (GDPR) or comparable regulations in other
+jurisdictions. Questions that apply only to datasets that re-
+late to people are grouped together at the end of the section.
+We recommend taking a broad interpretation of whether a
+dataset relates to people. For example, any dataset contain-
+ing text that was written by people relates to people.
+1.“What do the instances that comprise our datasets rep-
+resent (e.g., documents, photos, people, countries)?”
+A:The dataset primarily comprises SAR imagery cap-
+tured by satellites. All datasets utilized in SAR-1M are
+publicly accessible and nonprofit.
+2.“How many instances are there in total (of each type, if
+appropriate)?”
+A:SAR-1M contains 1.3 million SAR image instances
+captured by satellites and 1 million paired SAR-OPT, 2.3
+million in total.
+3.“Does the dataset contain all possible instances or is it
+a sample (not necessarily random) of instances from a
+larger set?”
+A:Yes, our dataset contains all possible instances that
+have been collected so far.
+4.“Is there a label or target associated with each in-
+stance?”
+A:No, our dataset is intended for self-supervised learn-
+ing. Therefore, each instance is an individual SAR/OPT
+image and does not contain annotations.
+5.“Is any information missing from individual instances?”
+A:No.
+6.“Are relationships between individual instances made
+explicit (e.g., users’ movie ratings, social network
+links)?”
+A:Yes, the relationship between individual instances is
+explicit.
+7.“Are there recommended data splits (e.g., training, de-
+velopment/validation, testing)?”
+A:Yes, the entire dataset is intended for self-supervised
+methods, and we recommend using the whole dataset for
+self-supervised learning research.
+8.“Is the dataset self-contained, or does it link to or oth-
+erwise rely on external resources (e.g., websites, tweets,
+other datasets)?”
+A:Yes, our dataset relies on many publicly available
+SAR datasets, which we have detailed in the main text.
+9.“Does the dataset contain data that might be considered
+confidential (e.g., data that is protected by legal privi-
+lege or by doctor–patient confidentiality, data that in-
+cludes the content of individuals’ non-public communi-
+cations)?”
+A:No, all data are clearly licensed.
+10.“Does the dataset contain data that, if viewed directly,
+might be offensive, insulting, threatening, or might oth-
+erwise cause anxiety?”
+A:No.
+14.3. Collection Process
+In addition to the goals outlined in the previous section, the
+questions in this section are designed to elicit information
+that may help researchers and practitioners create alterna-
+tive datasets with similar characteristics. Again, questions
+that apply only to datasets that relate to people are grouped
+together at the end of the section.
+1.“How was the data associated with each instance ac-
+quired?”
+A:Please refer to the details listed in the main text Sec.
+2.
+2.“What mechanisms or procedures were used to collect
+the data (e.g., hardware apparatuses or sensors, manual
+human curation, software programs, software APIs)?”
+A:Please refer to the details listed in the main text Sec.
+2.
+3.“If the dataset is a sample from a larger set, what was
+the sampling strategy (e.g., deterministic, probabilistic
+with specific sampling probabilities)?”
+A:Please refer to the details listed in the main text Sec.
+2.
+
+
+===== PDF_PAGE_018 =====
+
+Figure 11. Object detection visualization results.
+
+
+===== PDF_PAGE_019 =====
+
+Figure 12. Semantic segmentation visualization results. Blue: Industrial. Green: Natural. Red: Land Use. Cyan: Water. White: Other.
+Yellow: Housing.
+
+
+===== PDF_PAGE_020 =====
+
+14.4. Preprocessing, Cleaning, and Labeling
+The questions in this section are intended to provide dataset
+consumers with the information they need to determine
+whether the “raw” data has been processed in ways that are
+compatible with their chosen tasks. For example, text that
+has been converted into a “bag-of-words” is not suitable for
+tasks involving word order.
+1.“Was any preprocessing/cleaning/labeling of the data
+done (e.g., discretization or bucketing, tokenization,
+part-of-speech tagging, SIFT feature extraction, removal
+of instances, processing of missing values)?”
+A:Yes, we preprocessed and cleaned data in our dataset.
+2.“Was the ‘raw’ data saved in addition to the prepro-
+cessed/cleaned/labeled data (e.g., to support unantici-
+pated future uses)?”
+A:Yes, raw data is accessible.
+3.“Is the software that was used to preprocess/clean/label
+the data available?”
+A:Yes, the necessary software used to preprocess and
+clean the data is publicly available.
+14.5. Uses
+The questions in this section are intended to encourage
+dataset creators to reflect on tasks for which the dataset
+should and should not be used. By explicitly highlight-
+ing these tasks, dataset creators can help dataset consumers
+make informed decisions, thereby avoiding potential risks
+or harms.
+1.“Has the dataset been used for any tasks already?”
+A:No.
+2.“Is there a repository that links to any or all papers or
+systems that use the dataset?”
+A:Not yet, but we will provide such links in our GitHub
+repository soon in the future.
+3.“What (other) tasks could the dataset be used for?”
+A:The dataset could be used for training the SAR foun-
+dation models with the self-supervised learning method.
+4.“Is there anything about the composition of the
+dataset or the way it was collected and prepro-
+cessed/cleaned/labeled that might impact future uses?”
+A:N/A.
+5.“Are there tasks for which the dataset should not be
+used?”
+A:N/A.
+14.6. Distribution
+Dataset creators should provide answers to these questions
+prior to distributing the dataset either internally within the
+entity on behalf of which the dataset was created or exter-
+nally to third parties.
+1.“Will the dataset be distributed to third parties outside
+of the entity (e.g., company, institution, organization) on
+behalf of which the dataset was created?”
+A:No.
+2.“How will the dataset be distributed (e.g., tarball on
+website, API, GitHub)?”
+A:Very likely to be distributed by website, API, and
+GitHub repository.
+3.“When will the dataset be distributed?”
+A:The datasets are publicly accessible, our SAR-1M
+will be publicly available soon.
+4.“Will the dataset be distributed under a copyright or
+other intellectual property (IP) license, and/or under ap-
+plicable terms of use (ToU)?”
+A:Yes, the dataset is under the Creative Com-
+mons Attribution-NonCommercial-ShareAlike 4.0 Inter-
+national License.
+5.“Have any third parties imposed IP-based or other re-
+strictions on the data associated with the instances?”
+A:No.
+6.“Do any export controls or other regulatory restrictions
+apply to the dataset or to individual instances?”
+A:No.
+14.7. Maintenance
+As with the questions in the previous section, dataset cre-
+ators should provide answers to these questions prior to
+distributing the dataset. The questions in this section are
+intended to encourage dataset creators to plan for dataset
+maintenance and communicate this plan to dataset con-
+sumers.
+1.“Who will be supporting/hosting/maintaining the
+dataset?”
+A:The authors of this work serve to support, host, and
+maintain the datasets.
+2.“How can the owner/curator/manager of the dataset be
+contacted (e.g., email address)?”
+A:The curators can be contacted via the email addresses
+listed on our webpage.
+3.“Is there an erratum?”
+A:There is no explicit erratum; updates and known er-
+rors will be specified in future versions.
+4.“Will the dataset be updated (e.g., to correct labeling
+errors, add new instances, delete instances)?”
+A:Yes, for the current version. Future updates (if any)
+will be posted on the dataset website.
+5.“Will older versions of the dataset continue to be sup-
+ported/hosted/maintained?”
+A:Yes. This is the first version of the release; future up-
+dates will be posted and older versions will be replaced.
+6.“If others want to extend/augment/build on/contribute to
+the dataset, is there a mechanism for them to do so?”
+A:Yes, we provide detailed instructions for future ex-
+tensions.

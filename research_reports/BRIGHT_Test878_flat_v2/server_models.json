@@ -1,0 +1,93 @@
+[
+  {
+    "name": "UNet",
+    "factory": "bda_benchmark.model.UNet:UNet",
+    "kwargs": {
+      "in_channels": 6,
+      "num_classes": 4
+    },
+    "input_mode": "concat",
+    "output_index": null,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_UNet_standard_ML_split.pth",
+    "enabled": true,
+    "expected_sha256": "46c11db38011b8c48cbf1223c3bfc629569f64ee6df300806211479eb5a5bcc2"
+  },
+  {
+    "name": "DeepLabV3Plus",
+    "factory": "bda_benchmark.model.DeepLabV3Plus:DeepLabV3Plus",
+    "kwargs": {
+      "in_channels": 6,
+      "num_classes": 4
+    },
+    "input_mode": "concat",
+    "output_index": null,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DeepLabV3Plus_standard_ML_split.pth",
+    "enabled": true,
+    "expected_sha256": "3ff8cca5b61c5a636601ec896724fa248c4ffecc4eb76d811ee8c60f4d2323e3"
+  },
+  {
+    "name": "SiamAttnUNet",
+    "factory": "bda_benchmark.model.SiamAttnUNet:SiamAttnUNet",
+    "kwargs": {
+      "in_channels": 3,
+      "num_classes": 4
+    },
+    "input_mode": "pair",
+    "output_index": null,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamAttnUNet_standard_ML_split.pth",
+    "enabled": true,
+    "expected_sha256": "0cf7825c10489cb432c99faba8f7126768bd01270f4c3d9d9ad69afeed466f51"
+  },
+  {
+    "name": "SiamCRNN",
+    "factory": "bda_benchmark.model.SiamCRNN:SiamCRNN",
+    "kwargs": {},
+    "input_mode": "pair",
+    "output_index": 1,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamCRNN_standard_ML_split.pth",
+    "enabled": true,
+    "expected_sha256": "3ea5c6e720f0dcde66d0a37e12d3ab7e2305c83c30c9806b17e1f45af79f1cc0"
+  },
+  {
+    "name": "DamageFormer",
+    "factory": "bda_benchmark.model.DamageFormer:DamageFormer",
+    "kwargs": {
+      "use_pretrained_swin": false
+    },
+    "input_mode": "pair",
+    "output_index": 1,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DamageFormer_standard_ML_split.pth",
+    "enabled": true,
+    "expected_sha256": "0d2da93c631574c0887447e6fc1c865728d5df44ee7fc2bb5adc0bf454594f24"
+  },
+  {
+    "name": "ChangeMamba",
+    "factory": "changemamba_b2_diff",
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/chagemamba/best_model.pth",
+    "cfg": "changemamba_b2_snapshot.yaml",
+    "kwargs": {},
+    "input_mode": "pair",
+    "output_index": 1,
+    "enabled": true,
+    "display_name": "ChangeMamba B2 DiffFusion",
+    "expected_sha256": "13fc73c0a1660d122d77009dfce33aecb0a443c0f817230e17f3626ef9358f35"
+  },
+  {
+    "name": "Ours_A1",
+    "factory": "bda_benchmark.model.DamageFormer_S8_MICB_DSMIL:DamageFormer_S8_MICB_DSMIL",
+    "kwargs": {
+      "roi_alpha": 0.1,
+      "detach_building_prior": true,
+      "token_dim": 128,
+      "mil_topk": 8,
+      "max_tokens_per_bag": 256,
+      "mil_residual_scale": 0.0
+    },
+    "input_mode": "pair",
+    "output_index": 1,
+    "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/best/best_val_miou.pth",
+    "enabled": true,
+    "expected_sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+    "expected_variant": "a1"
+  }
+]
