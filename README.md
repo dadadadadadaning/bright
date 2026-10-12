@@ -1,3 +1,22 @@
+# BRIGHT Memory key comparison V2
+
+Download [bright_memory_key_compare_v2.zip](bright_memory_key_compare_v2.zip) and [its SHA256 file](bright_memory_key_compare_v2.zip.sha256).
+
+V2 is a separate experiment; V1 code and failed outputs remain unchanged. It retains actual FP32 replay tokens and checks compatibility with archived FP16 rounding intervals at the fixed 2e-5 absolute/relative tolerance. FP32 archives keep direct comparison. Reports distinguish definitely within tolerance, storage uncertainty and definite drift. Storage compatibility does not establish exact historical FP32 reproduction. Original bank rows/T128/labels and the independent Val450 absolute 1e-5 gate remain unchanged.
+
+- 77 CPU unit/integration tests and five CLI entry checks passed.
+- 18 installer tests passed; the actual ZIP passed a simulated EINVAL shared-filesystem install and read-only repeat.
+- Real CUDA / BRIGHT images and Val450 were not run in the delivery environment.
+- [Server installation and staged instructions](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v2/README.md)
+- [Saved replay evidence checker](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v2/recheck_replay.py)
+- [Matched correction training source](bda_benchmark/experiments/damageformer_srac_memory_key_compare_v2/train_correction.py)
+
+V2 ZIP SHA256: `4557ff9e3a533eb26ad030cd9843c33ee48448191f39c114b10609be2edc077e`.
+
+Upload the V2 archive to `/root/shared-nvme/`. Start with preflight and build_smoke using a fresh V2 output root and the actual passed E0. Do not begin formal training before the full retrieval diagnostic passes.
+
+---
+
 # BRIGHT Memory key comparison package
 
 Standalone delivery of the new `damageformer_srac_memory_key_compare_v1` experiment.
