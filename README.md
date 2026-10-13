@@ -1,9 +1,9 @@
-# BRIGHT 联合训练池化越界诊断包
+# BRIGHT Memory联合训练：独立候选修复和1500步后继续训练
 
-[下载工具包 ZIP](https://github.com/dadadadadadaning/bright/raw/refs/heads/codex/joint-pool-diagnose-v1/bright_joint_pool_diagnose_v1.zip)
+代码与说明：[joint_pool_recovery_v1/README.md](joint_pool_recovery_v1/README.md)。
 
-[使用说明](joint_pool_diagnose_v1/README.md)
+下载：bright_joint_pool_recovery_v1.zip。仅新增独立工具目录；保留原模型、库、失败运行和SAR队列。候选GPU修复尚需服务器验证。
 
-代码请解压到 `/root/shared-nvme/BRIGHT-master/New` 的新目录。读取旧失败现场，分别重放原池化与连续索引候选，并执行原完整初始验证定位。不会自动启动正式训练。
+ZIP SHA256：`34018a9be0a52a144667cf55eed0fb8fb0c3f5e046971136c695228041c09041`
 
-42 项 CPU 合成测试及独立 CPU CLI 重放通过；真实服务器快照、BRIGHT 与 CUDA 尚需服务器验证。候选通过不等于已找到并解决根因。
+60项CPU测试与独立CPU重放通过。新入口先等待指定SAR四组与SAR＋soft完成，再验证候选、重评1500步权重，并在新目录继续原三组预算到5000。新证据明确标记修复后继续训练，不声称精确历史复现。
