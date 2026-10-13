@@ -1,0 +1,8 @@
+{
+  "format": "SRAC_JOINT_SYNC_LAUNCH_RELEASE_V1",
+  "cpu_synthetic_tests": 13,
+  "cpu_synthetic_tests_passed": true,
+  "real_training_launched_by_cloud": false,
+  "source_diagnostic_evidence": "User uploaded: five diagnostics passed including native initial Val450 under CUDA_LAUNCH_BLOCKING=1",
+  "server_install_parent": "/root/shared-nvme/BRIGHT-master/New"
+}

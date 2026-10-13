@@ -1,0 +1,18 @@
+test_changed_original_tool_rejected_even_with_updated_local_manifest (test_start_joint_sync.LauncherContracts.test_changed_original_tool_rejected_even_with_updated_local_manifest) ... ok
+test_dry_run_writes_nothing_and_launches_nothing (test_start_joint_sync.LauncherContracts.test_dry_run_writes_nothing_and_launches_nothing) ... ok
+test_extra_python_file_is_not_allowed (test_start_joint_sync.LauncherContracts.test_extra_python_file_is_not_allowed) ... ok
+test_incomplete_val_or_head_gates_reject_before_launch (test_start_joint_sync.LauncherContracts.test_incomplete_val_or_head_gates_reject_before_launch) ... ok
+test_launch_failure_is_recorded_without_claiming_success (test_start_joint_sync.LauncherContracts.test_launch_failure_is_recorded_without_claiming_success) ... ok
+test_mocked_launch_records_fresh_pid_log_and_preserves_old_files (test_start_joint_sync.LauncherContracts.test_mocked_launch_records_fresh_pid_log_and_preserves_old_files) ... ok
+test_new_results_cannot_be_placed_inside_preserved_tool_or_diagnosis (test_start_joint_sync.LauncherContracts.test_new_results_cannot_be_placed_inside_preserved_tool_or_diagnosis) ... ok
+test_nonformal_original_budget_rejected (test_start_joint_sync.LauncherContracts.test_nonformal_original_budget_rejected) ... ok
+test_old_manifest_change_rejected (test_start_joint_sync.LauncherContracts.test_old_manifest_change_rejected) ... ok
+test_original_explicit_protocol_and_cublas_are_retained (test_start_joint_sync.LauncherContracts.test_original_explicit_protocol_and_cublas_are_retained) ... ok
+test_passed_evidence_pins_original_full_command_and_environment (test_start_joint_sync.LauncherContracts.test_passed_evidence_pins_original_full_command_and_environment) ... ok
+test_protocol_binding_mismatch_rejected (test_start_joint_sync.LauncherContracts.test_protocol_binding_mismatch_rejected) ... ok
+test_skipped_or_failed_diagnostic_stage_rejects_before_launch (test_start_joint_sync.LauncherContracts.test_skipped_or_failed_diagnostic_stage_rejects_before_launch) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.015s
+
+OK
