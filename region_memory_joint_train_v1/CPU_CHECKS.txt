@@ -1,0 +1,55 @@
+test_all_padding_is_finite_and_zero_context (test_model.JointContracts.test_all_padding_is_finite_and_zero_context) ... ok
+test_chunked_output_and_gradients_match (test_model.JointContracts.test_chunked_output_and_gradients_match) ... ok
+test_identical_support_tensors_produce_identical_result_independent_of_source (test_model.JointContracts.test_identical_support_tensors_produce_identical_result_independent_of_source) ... ok
+test_initial_full_resolution_base_and_zero_delta (test_model.JointContracts.test_initial_full_resolution_base_and_zero_delta) ... ok
+test_invalid_padding_nan_inf_cannot_affect_prediction_or_gradient (test_model.JointContracts.test_invalid_padding_nan_inf_cannot_affect_prediction_or_gradient) ... ok
+test_invalid_q_and_ids_are_rejected (test_model.JointContracts.test_invalid_q_and_ids_are_rejected) ... ok
+test_neighbor_order_permutation_and_invalid_extension_do_not_change_result (test_model.JointContracts.test_neighbor_order_permutation_and_invalid_extension_do_not_change_result) ... ok
+test_pixel_outputs_need_not_be_constant_inside_one_region (test_model.JointContracts.test_pixel_outputs_need_not_be_constant_inside_one_region) ... ok
+test_shape_dtype_labels_and_valid_nan_are_rejected (test_model.JointContracts.test_shape_dtype_labels_and_valid_nan_are_rejected) ... ok
+test_sparse_pool_exact_mean_and_empty_region (test_model.JointContracts.test_sparse_pool_exact_mean_and_empty_region) ... ok
+test_sparse_unpool_constant_and_duplicate_weighted_ids (test_model.JointContracts.test_sparse_unpool_constant_and_duplicate_weighted_ids) ... ok
+test_support_labels_and_features_have_independent_gradient_paths (test_model.JointContracts.test_support_labels_and_features_have_independent_gradient_paths) ... ok
+test_zero_base_entries_finite_with_only_documented_log_clamp (test_model.JointContracts.test_zero_base_entries_finite_with_only_documented_log_clamp) ... ok
+test_zero_initialized_reader_starts_learning_after_first_head_update (test_model.JointContracts.test_zero_initialized_reader_starts_learning_after_first_head_update) ... ok
+test_failed_smoke_never_launches_formal_training (test_runner.PipelineContracts.test_failed_smoke_never_launches_formal_training) ... ok
+test_read_report_handles_failed_stage_without_modifying_it (test_runner.PipelineContracts.test_read_report_handles_failed_stage_without_modifying_it) ... ok
+test_zero_exit_without_complete_smoke_is_not_accepted (test_runner.PipelineContracts.test_zero_exit_without_complete_smoke_is_not_accepted) ... ok
+test_bad_negative_and_outside_ids (test_runtime.GatherTests.test_bad_negative_and_outside_ids) ... ok
+test_exclusion_is_rechecked (test_runtime.GatherTests.test_exclusion_is_rechecked) ... ok
+test_heldout_sentinel_does_not_exclude_train (test_runtime.GatherTests.test_heldout_sentinel_does_not_exclude_train) ... ok
+test_invalid_padded_nan_is_not_read (test_runtime.GatherTests.test_invalid_padded_nan_is_not_read) ... ok
+test_same_row_binding_and_zero_padding (test_runtime.GatherTests.test_same_row_binding_and_zero_padding) ... ok
+test_selected_bad_label_rejected (test_runtime.GatherTests.test_selected_bad_label_rejected) ... ok
+test_inactive_and_padding (test_runtime.LocalSupportTests.test_inactive_and_padding) ... ok
+test_invalid_centroid_fails (test_runtime.LocalSupportTests.test_invalid_centroid_fails) ... ok
+test_self_included_and_region_id_tie (test_runtime.LocalSupportTests.test_self_included_and_region_id_tie) ... ok
+test_single_region_has_only_self_support (test_runtime.LocalSupportTests.test_single_region_has_only_self_support) ... ok
+test_bank_fingerprint_detects_value_and_identity_changes (test_runtime.RuntimeBridgeTests.test_bank_fingerprint_detects_value_and_identity_changes) ... ok
+test_cleanup_preserves_original_error_and_closes_other_hook (test_runtime.RuntimeBridgeTests.test_cleanup_preserves_original_error_and_closes_other_hook) ... ok
+test_close_restores_guard_and_closes_both_hooks (test_runtime.RuntimeBridgeTests.test_close_restores_guard_and_closes_both_hooks) ... ok
+test_prepare_uses_one_pass_no_gt_in_keys_or_current_labels (test_runtime.RuntimeBridgeTests.test_prepare_uses_one_pass_no_gt_in_keys_or_current_labels) ... ok
+test_raw_invalid_labels_fail_before_front_and_cast (test_runtime.RuntimeBridgeTests.test_raw_invalid_labels_fail_before_front_and_cast) ... ok
+test_smoke_chooses_distinct_legal_events_without_labels (test_runtime.RuntimeBridgeTests.test_smoke_chooses_distinct_legal_events_without_labels) ... ok
+test_source_protocol_resolves_source_ledger_not_key_protocol (test_runtime.RuntimeBridgeTests.test_source_protocol_resolves_source_ledger_not_key_protocol) ... ok
+test_val_uses_verified_absent_image_sentinel (test_runtime.RuntimeBridgeTests.test_val_uses_verified_absent_image_sentinel) ... ok
+test_verify_rejects_in_memory_bank_change (test_runtime.RuntimeBridgeTests.test_verify_rejects_in_memory_bank_change) ... ok
+test_checkpoint_manifest_and_re_evaluation_match (test_train.TrainerContracts.test_checkpoint_manifest_and_re_evaluation_match) ... ok
+test_cpu_smoke_shared_preparation_and_matched_updates (test_train.TrainerContracts.test_cpu_smoke_shared_preparation_and_matched_updates) ... ok
+test_different_bank_binding_refused (test_train.TrainerContracts.test_different_bank_binding_refused) ... ok
+test_distinct_training_seed_after_historical_seed_reset (test_train.TrainerContracts.test_distinct_training_seed_after_historical_seed_reset) ... ok
+test_formal_budget_cannot_be_silently_shortened (test_train.TrainerContracts.test_formal_budget_cannot_be_silently_shortened) ... ok
+test_guard_restore_failure_prevents_complete (test_train.TrainerContracts.test_guard_restore_failure_prevents_complete) ... ok
+test_illegal_target_is_checked_before_uint8_wrap (test_train.TrainerContracts.test_illegal_target_is_checked_before_uint8_wrap) ... ok
+test_old_output_is_never_overwritten (test_train.TrainerContracts.test_old_output_is_never_overwritten) ... ok
+test_probability_tolerance_not_argmax_tie_is_initial_gate (test_train.TrainerContracts.test_probability_tolerance_not_argmax_tie_is_initial_gate) ... ok
+test_saved_predictions_reconstruct_confusion_and_ignore_label (test_train.TrainerContracts.test_saved_predictions_reconstruct_confusion_and_ignore_label) ... ok
+test_tampered_checkpoint_stops_before_runtime (test_train.TrainerContracts.test_tampered_checkpoint_stops_before_runtime) ... ok
+test_terminal_weights_survive_final_integrity_failure (test_train.TrainerContracts.test_terminal_weights_survive_final_integrity_failure) ... ok
+test_transition_accounting (test_train.TrainerContracts.test_transition_accounting) ... ok
+test_twenty_updates_epoch_rollover_and_intermediate_checkpoints (test_train.TrainerContracts.test_twenty_updates_epoch_rollover_and_intermediate_checkpoints) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 1.326s
+
+OK

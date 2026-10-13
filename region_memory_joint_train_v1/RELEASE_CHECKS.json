@@ -1,0 +1,24 @@
+{
+  "format": "BRIGHT_JOINT_PACKAGE_CHECKS_V1",
+  "date": "2026-10-13",
+  "torch": "2.2.1+cpu",
+  "cpu_synthetic_contracts": 50,
+  "cpu_tests_passed": true,
+  "bash_syntax_passed": true,
+  "cli_help_passed": true,
+  "python_compile_passed": true,
+  "real_bright_train_validated": false,
+  "real_val450_validated": false,
+  "cuda_validated": false,
+  "test_dataset_accessed": false,
+  "runtime_dependency": "Existing unchanged server BRIGHT + completed SRAC_MEMORY_REBUILD_V3 bank",
+  "entrypoints": [
+    "full",
+    "preflight",
+    "smoke",
+    "train",
+    "evaluate",
+    "report"
+  ],
+  "no_test_entrypoint": true
+}
