@@ -1,0 +1,86 @@
+test_different_source_formula_is_rejected_even_if_hash_matches (test_diagnose.DiagnosticContracts.test_different_source_formula_is_rejected_even_if_hash_matches) ... ok
+test_environment_preserves_legacy_without_forcing_determinism (test_diagnose.DiagnosticContracts.test_environment_preserves_legacy_without_forcing_determinism) ... ok
+test_existing_output_is_never_overwritten (test_diagnose.DiagnosticContracts.test_existing_output_is_never_overwritten) ... ok
+test_failed_single_image_prevents_redundant_val_sequence (test_diagnose.DiagnosticContracts.test_failed_single_image_prevents_redundant_val_sequence) ... 原失败图片: event_0001
+原池化现场: /tmp/tmp_afcor1m/old/train/pool_debug/input_000735.pth
+START replay_cpu
+START replay_native
+START replay_contiguous
+START sequence_failed_image (no training)
+ok
+test_inspection_binds_original_files_without_editing (test_diagnose.DiagnosticContracts.test_inspection_binds_original_files_without_editing) ... ok
+test_invalid_cpu_snapshot_stops_gpu_workers (test_diagnose.DiagnosticContracts.test_invalid_cpu_snapshot_stops_gpu_workers) ... 诊断报告: /tmp/tmp_afcor1m/new/summary.json
+失败图片: event_0001
+replay_cpu PASS 
+replay_native PASS 
+replay_contiguous PASS 
+sequence_failed_image FAIL 
+sequence_val450 SKIPPED single image already failed; inspect its synchronous traceback
+诊断执行完成: True ；训练: false；Test: false
+单算子/初始化检查通过不代表旧故障根因已确认，也不代表获得训练后Val450成绩。
+原失败图片: event_0001
+原池化现场: /tmp/tmpi_ijgr02/old/train/pool_debug/input_000735.pth
+START replay_cpu
+ok
+test_missing_snapshot_is_not_a_success (test_diagnose.DiagnosticContracts.test_missing_snapshot_is_not_a_success) ... ok
+test_native_failure_does_not_prevent_other_isolated_tests (test_diagnose.DiagnosticContracts.test_native_failure_does_not_prevent_other_isolated_tests) ... 原失败图片: event_0001
+原池化现场: /tmp/tmp9bklo82n/old/train/pool_debug/input_000735.pth
+START replay_cpu
+START replay_native
+START replay_contiguous
+START sequence_failed_image (no training)
+START sequence_val450 (no training)
+ok
+test_original_source_and_arithmetic_must_match (test_diagnose.DiagnosticContracts.test_original_source_and_arithmetic_must_match) ... ok
+test_source_runtime_must_not_be_guessed (test_diagnose.DiagnosticContracts.test_source_runtime_must_not_be_guessed) ... ok
+test_attention_weights_are_not_renormalized (test_pool_ops.PoolTests.test_attention_weights_are_not_renormalized) ... ok
+test_comparison_fixed_tolerance_and_nonfinite (test_pool_ops.PoolTests.test_comparison_fixed_tolerance_and_nonfinite) ... ok
+test_contiguous_candidate_exact_cpu (test_pool_ops.PoolTests.test_contiguous_candidate_exact_cpu) ... ok
+test_cpu_thread_scope_restores (test_pool_ops.PoolTests.test_cpu_thread_scope_restores) ... ok
+test_cpu_worker_and_existing_output_refusal (test_pool_ops.PoolTests.test_cpu_worker_and_existing_output_refusal) ... 诊断报告: /tmp/tmp9bklo82n/new/summary.json
+失败图片: event_0001
+replay_cpu PASS 
+replay_native FAIL 
+replay_contiguous PASS 
+sequence_failed_image PASS 
+sequence_val450 PASS 
+诊断执行完成: True ；训练: false；Test: false
+单算子/初始化检查通过不代表旧故障根因已确认，也不代表获得训练后Val450成绩。
+{"repeat": 1, "vs_cpu": {"tokens": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "mass": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "reconstruction": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "passed": true}, "vs_first": {"tokens": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "mass": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "reconstruction": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "passed": true}}
+{"repeat": 2, "vs_cpu": {"tokens": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "mass": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "reconstruction": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "passed": true}, "vs_first": {"tokens": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "mass": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "reconstruction": {"passed": true, "finite": true, "max_abs": 0.0, "mean_abs": 0.0, "elements_outside_tolerance": 0, "atol": 2e-05, "rtol": 2e-05}, "passed": true}}
+SAVED INPUT REPLAY COMPLETE. One input only. No training. No formal BRIGHT validation.
+ok
+test_empty_tokens_and_tiny_mass_keep_clamp (test_pool_ops.PoolTests.test_empty_tokens_and_tiny_mass_keep_clamp) ... ok
+test_gpu_worker_without_runtime_preserves_cpu_report (test_pool_ops.PoolTests.test_gpu_worker_without_runtime_preserves_cpu_report) ... ok
+test_matches_scalar_loop_with_duplicate_routes (test_pool_ops.PoolTests.test_matches_scalar_loop_with_duplicate_routes) ... ok
+test_noncontiguous_inputs (test_pool_ops.PoolTests.test_noncontiguous_inputs) ... ok
+test_reject_bad_ids (test_pool_ops.PoolTests.test_reject_bad_ids) ... ok
+test_reject_fractional_id_dtype (test_pool_ops.PoolTests.test_reject_fractional_id_dtype) ... ok
+test_reject_inconsistent_broadcast_values (test_pool_ops.PoolTests.test_reject_inconsistent_broadcast_values) ... ok
+test_reject_negative_and_ambiguous_layout (test_pool_ops.PoolTests.test_reject_negative_and_ambiguous_layout) ... ok
+test_reject_nonfinite_and_negative_weights (test_pool_ops.PoolTests.test_reject_nonfinite_and_negative_weights) ... ok
+test_reject_wrong_shape_and_count (test_pool_ops.PoolTests.test_reject_wrong_shape_and_count) ... ok
+test_restore_consistent_zero_stride (test_pool_ops.PoolTests.test_restore_consistent_zero_stride) ... ok
+test_restore_holes_offset_and_transpose (test_pool_ops.PoolTests.test_restore_holes_offset_and_transpose) ... ok
+test_runtime_version_mismatch_rejected_before_apply (test_pool_ops.PoolTests.test_runtime_version_mismatch_rejected_before_apply) ... ok
+test_simulated_cuda_assert_does_not_retry_or_probe_device (test_pool_ops.PoolTests.test_simulated_cuda_assert_does_not_retry_or_probe_device) ... ok
+test_zero_weights (test_pool_ops.PoolTests.test_zero_weights) ... ok
+test_bank_binding_drift_is_rejected (test_sequence_worker.SequenceWorkerTests.test_bank_binding_drift_is_rejected) ... ok
+test_cuda_failure_records_cpu_evidence_without_gpu_verification (test_sequence_worker.SequenceWorkerTests.test_cuda_failure_records_cpu_evidence_without_gpu_verification) ... ok
+test_empty_historical_support_cannot_pass_diagnostic (test_sequence_worker.SequenceWorkerTests.test_empty_historical_support_cannot_pass_diagnostic) ... ok
+test_existing_output_or_original_tree_never_overwritten (test_sequence_worker.SequenceWorkerTests.test_existing_output_or_original_tree_never_overwritten) ... ok
+test_failed_image_replays_same_seed_initialization_and_never_steps (test_sequence_worker.SequenceWorkerTests.test_failed_image_replays_same_seed_initialization_and_never_steps) ... SEQUENCE DIAGNOSTIC COMPLETE. No training. No Test. No trained-model score claim.
+ok
+test_failed_run_with_updates_not_treated_as_initial_failure (test_sequence_worker.SequenceWorkerTests.test_failed_run_with_updates_not_treated_as_initial_failure) ... ok
+test_preserved_evidence_drift_fails_end_gate (test_sequence_worker.SequenceWorkerTests.test_preserved_evidence_drift_fails_end_gate) ... ok
+test_requires_preimport_cuda_blocking_and_source_cublas (test_sequence_worker.SequenceWorkerTests.test_requires_preimport_cuda_blocking_and_source_cublas) ... ok
+test_runtime_val_order_drift_is_rejected (test_sequence_worker.SequenceWorkerTests.test_runtime_val_order_drift_is_rejected) ... ok
+test_source_code_drift_is_rejected_before_runtime (test_sequence_worker.SequenceWorkerTests.test_source_code_drift_is_rejected_before_runtime) ... ok
+test_unknown_image_is_rejected_before_runtime (test_sequence_worker.SequenceWorkerTests.test_unknown_image_is_rejected_before_runtime) ... ok
+test_val450_preserves_order_and_cannot_claim_trained_evidence (test_sequence_worker.SequenceWorkerTests.test_val450_preserves_order_and_cannot_claim_trained_evidence) ... SEQUENCE DIAGNOSTIC COMPLETE. No training. No Test. No trained-model score claim.
+ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.474s
+
+OK

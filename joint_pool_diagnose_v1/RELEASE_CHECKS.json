@@ -1,0 +1,13 @@
+{
+  "format": "SRAC_JOINT_POOL_DIAGNOSE_RELEASE_V1",
+  "cpu_synthetic_tests": 42,
+  "cpu_synthetic_tests_passed": true,
+  "cpu_cli_subprocess_three_repeats_passed": true,
+  "torch_version": "2.2.1+cpu",
+  "real_server_failure_snapshot_tested": false,
+  "real_bright_tested": false,
+  "cuda_tested": false,
+  "training_performed": false,
+  "independent_review": "No blocking correctness issues found; diagnostic only",
+  "server_install_parent": "/root/shared-nvme/BRIGHT-master/New"
+}
