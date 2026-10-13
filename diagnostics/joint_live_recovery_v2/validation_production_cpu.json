@@ -1,0 +1,43 @@
+{
+  "synthetic": true,
+  "real_gpu_tested": false,
+  "shape": [
+    1,
+    512,
+    256,
+    256
+  ],
+  "token_count": 1024,
+  "route_count": 9,
+  "original_cpu_fp32_bitwise_equal": {
+    "tokens": true,
+    "mass": true,
+    "reconstruction": true
+  },
+  "cpu_continuation_checks_passed": true,
+  "cpu64_reference_agreement": true,
+  "cpu32_reference_reproduced": true,
+  "timings_seconds": {
+    "actual_vs_exact_live_expected": 0.8839430849911878,
+    "cpu32_source_threads": 0.9109698880056385,
+    "exact_live_expected_vs_cpu32_source_threads": 0.9068033280054806,
+    "live_actual_vs_cpu32_source_threads": 0.9871083820034983,
+    "cpu32_four_threads": 0.9148091649985872,
+    "cpu32_four_threads_vs_source_threads": 1.0247424010012764,
+    "exact_live_expected_vs_cpu32_four_threads": 0.9369887189968722,
+    "live_actual_vs_cpu32_four_threads": 0.9121191730082501,
+    "cpu64_literal_scatter": 1.6908293419983238,
+    "cpu64_independent_grouped": 1.3383134399919072,
+    "cpu64_scatter_vs_grouped": 0.5107455779943848,
+    "live_actual_vs_cpu64": 0.43043002601189073,
+    "exact_live_expected_vs_cpu64": 0.44806805400003213,
+    "cpu32_source_threads_vs_cpu64": 0.41382232699834276,
+    "cpu32_four_threads_vs_cpu64": 0.45399573699978646
+  },
+  "total_seconds": 16.975785624003038,
+  "guard_restored": true,
+  "tolerance": {
+    "atol": 2e-05,
+    "rtol": 2e-05
+  }
+}
