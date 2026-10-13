@@ -1,0 +1,1631 @@
+{
+  "provenance": {
+    "kind": "derived_from_terminal_four_decimal_report",
+    "not_raw_server_result": true,
+    "source": "User-provided terminal detailed analysis output, 2026-10-13; not raw server result.json",
+    "source_sha256": "bd6bb04b625e9c94589ad1f4e7b2ac372711f4cfcc5f6ca384b12710552d581c",
+    "result_root": "/root/shared-nvme/BRIGHT-checkpoints/SRAC_MEMORY_REBUILD_V3/run_20261013_100220_049144_3778665",
+    "decimal_fields_precision": "4 decimals as printed; global/class IoUs and rates are percentages, compatibilities/Jaccard are probabilities; counts exact as printed.",
+    "reported_scope_checks": "User terminal reports completion/scope/nine flags and small JSON source binding consistent; large bank/weights/code/data not rehashed by summarizer."
+  },
+  "limitations": [
+    "Terminal script declares it validated completion/scope/nine flags and small-JSON bindings only; it did not re-hash large bank/weights/code/data.",
+    "Event macro is descriptive and is not the primary split-global confusion aggregated foreground mIoU.",
+    "No per-event rescue/harm or exact complete confusion matrices in this transcript.",
+    "No baseline-to-candidate full class transition matrix; cannot attribute class FP increases to specific true classes.",
+    "FP/netTP ratio is defined only for positive netTP and does not by itself measure treatment utility.",
+    "Approximate IoU reconstruction estimates baseline TP from rounded rates; it is a numerical consistency check, not independent raw-confusion verification.",
+    "Class coverage is query-label-mass weighted TopK dominant-class presence, not pixel recall or proof the support is useful.",
+    "The candidate is untrained labelvote; no trained Reader result or random/shuffled/off controls here.",
+    "Posthoc query-label partitions and their error rates must not be used as inference-time GT routing."
+  ],
+  "metrics": {
+    "a1_pixel": {
+      "foreground_mIoU_percent": 61.6867,
+      "class_IoUs_percent": [
+        96.9231,
+        76.3883,
+        43.9538,
+        64.7179
+      ],
+      "delta_grid_pp": -0.1515
+    },
+    "direct_region": {
+      "foreground_mIoU_percent": 61.422,
+      "class_IoUs_percent": [
+        96.7345,
+        75.5846,
+        42.9067,
+        65.7747
+      ],
+      "delta_grid_pp": -0.4162
+    },
+    "grid_probq": {
+      "foreground_mIoU_percent": 61.8382,
+      "class_IoUs_percent": [
+        96.7435,
+        75.7758,
+        44.0493,
+        65.6895
+      ],
+      "delta_grid_pp": 0.0
+    },
+    "labelvote_t128_top8": {
+      "foreground_mIoU_percent": 58.763,
+      "class_IoUs_percent": [
+        96.6813,
+        73.422,
+        39.6161,
+        63.2509
+      ],
+      "delta_grid_pp": -3.0752
+    },
+    "labelvote_t128_top64": {
+      "foreground_mIoU_percent": 60.022,
+      "class_IoUs_percent": [
+        96.7084,
+        74.2872,
+        41.4844,
+        64.2945
+      ],
+      "delta_grid_pp": -1.8162
+    },
+    "labelvote_f256_top8": {
+      "foreground_mIoU_percent": 58.5472,
+      "class_IoUs_percent": [
+        96.6106,
+        73.9367,
+        41.1046,
+        60.6003
+      ],
+      "delta_grid_pp": -3.291
+    },
+    "labelvote_f256_top64": {
+      "foreground_mIoU_percent": 59.347,
+      "class_IoUs_percent": [
+        96.5733,
+        74.3444,
+        42.2836,
+        61.413
+      ],
+      "delta_grid_pp": -2.4912
+    }
+  },
+  "retrieval": [
+    {
+      "key/TopK": "t128_top8",
+      "查询数": 460800,
+      "支持查询数": 460800,
+      "支持覆盖 %": 100.0,
+      "支持查询软相容度": 0.9122,
+      "加权支持纯度": 0.9552
+    },
+    {
+      "key/TopK": "t128_top64",
+      "查询数": 460800,
+      "支持查询数": 460800,
+      "支持覆盖 %": 100.0,
+      "支持查询软相容度": 0.9124,
+      "加权支持纯度": 0.9566
+    },
+    {
+      "key/TopK": "f256_top8",
+      "查询数": 460800,
+      "支持查询数": 460800,
+      "支持覆盖 %": 100.0,
+      "支持查询软相容度": 0.9136,
+      "加权支持纯度": 0.9573
+    },
+    {
+      "key/TopK": "f256_top64",
+      "查询数": 460800,
+      "支持查询数": 460800,
+      "支持覆盖 %": 100.0,
+      "支持查询软相容度": 0.9145,
+      "加权支持纯度": 0.9593
+    }
+  ],
+  "class_evidence": {
+    "t128_top8": {
+      "Background": {
+        "query_class_mass": 386947.1777,
+        "class_soft_compatibility": 0.9617,
+        "dominant_class_coverage_percent": 97.2147
+      },
+      "Intact": {
+        "query_class_mass": 59178.7564,
+        "class_soft_compatibility": 0.6753,
+        "dominant_class_coverage_percent": 88.9814
+      },
+      "Damaged": {
+        "query_class_mass": 7753.8868,
+        "class_soft_compatibility": 0.4953,
+        "dominant_class_coverage_percent": 85.4037
+      },
+      "Destroyed": {
+        "query_class_mass": 6920.1802,
+        "class_soft_compatibility": 0.6371,
+        "dominant_class_coverage_percent": 84.1994
+      }
+    },
+    "t128_top64": {
+      "Background": {
+        "query_class_mass": 386947.1777,
+        "class_soft_compatibility": 0.9633,
+        "dominant_class_coverage_percent": 97.5323
+      },
+      "Intact": {
+        "query_class_mass": 59178.7564,
+        "class_soft_compatibility": 0.6683,
+        "dominant_class_coverage_percent": 92.9205
+      },
+      "Damaged": {
+        "query_class_mass": 7753.8868,
+        "class_soft_compatibility": 0.4828,
+        "dominant_class_coverage_percent": 96.7424
+      },
+      "Destroyed": {
+        "query_class_mass": 6920.1802,
+        "class_soft_compatibility": 0.6385,
+        "dominant_class_coverage_percent": 93.7632
+      }
+    },
+    "f256_top8": {
+      "Background": {
+        "query_class_mass": 386947.1777,
+        "class_soft_compatibility": 0.9633,
+        "dominant_class_coverage_percent": 97.1759
+      },
+      "Intact": {
+        "query_class_mass": 59178.7564,
+        "class_soft_compatibility": 0.68,
+        "dominant_class_coverage_percent": 89.4467
+      },
+      "Damaged": {
+        "query_class_mass": 7753.8868,
+        "class_soft_compatibility": 0.5013,
+        "dominant_class_coverage_percent": 84.1727
+      },
+      "Destroyed": {
+        "query_class_mass": 6920.1802,
+        "class_soft_compatibility": 0.5919,
+        "dominant_class_coverage_percent": 82.3444
+      }
+    },
+    "f256_top64": {
+      "Background": {
+        "query_class_mass": 386947.1777,
+        "class_soft_compatibility": 0.9644,
+        "dominant_class_coverage_percent": 97.6246
+      },
+      "Intact": {
+        "query_class_mass": 59178.7564,
+        "class_soft_compatibility": 0.6834,
+        "dominant_class_coverage_percent": 92.3871
+      },
+      "Damaged": {
+        "query_class_mass": 7753.8868,
+        "class_soft_compatibility": 0.5018,
+        "dominant_class_coverage_percent": 95.6129
+      },
+      "Destroyed": {
+        "query_class_mass": 6920.1802,
+        "class_soft_compatibility": 0.5647,
+        "dominant_class_coverage_percent": 92.8374
+      }
+    }
+  },
+  "partitions": [
+    {
+      "key/TopK": "t128_top8",
+      "分组": "all",
+      "查询数": 460800,
+      "查询占比 %": 100.0,
+      "支持查询数": 460800,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9122,
+      "标签质量加权相容度": 0.9214,
+      "Intact→损毁 %": 7.947,
+      "损毁→Intact %": 18.6605
+    },
+    {
+      "key/TopK": "t128_top8",
+      "分组": "foreground_pure",
+      "查询数": 58737,
+      "查询占比 %": 12.7467,
+      "支持查询数": 58737,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.6922,
+      "标签质量加权相容度": 0.6991,
+      "Intact→损毁 %": 6.4177,
+      "损毁→Intact %": 16.1524
+    },
+    {
+      "key/TopK": "t128_top8",
+      "分组": "foreground_mixed",
+      "查询数": 2253,
+      "查询占比 %": 0.4889,
+      "支持查询数": 2253,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.3375,
+      "标签质量加权相容度": 0.3374,
+      "Intact→损毁 %": 37.5965,
+      "损毁→Intact %": 40.8618
+    },
+    {
+      "key/TopK": "t128_top8",
+      "分组": "background_diluted",
+      "查询数": 23342,
+      "查询占比 %": 5.0655,
+      "支持查询数": 23342,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.5213,
+      "标签质量加权相容度": 0.5357,
+      "Intact→损毁 %": 11.5765,
+      "损毁→Intact %": 17.923
+    },
+    {
+      "key/TopK": "t128_top8",
+      "分组": "mostly_background",
+      "查询数": 376468,
+      "查询占比 %": 81.6988,
+      "支持查询数": 376468,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9742,
+      "标签质量加权相容度": 0.9747,
+      "Intact→损毁 %": null,
+      "损毁→Intact %": null
+    },
+    {
+      "key/TopK": "t128_top64",
+      "分组": "all",
+      "查询数": 460800,
+      "查询占比 %": 100.0,
+      "支持查询数": 460800,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9124,
+      "标签质量加权相容度": 0.9216,
+      "Intact→损毁 %": 6.045,
+      "损毁→Intact %": 20.1851
+    },
+    {
+      "key/TopK": "t128_top64",
+      "分组": "foreground_pure",
+      "查询数": 58737,
+      "查询占比 %": 12.7467,
+      "支持查询数": 58737,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.6854,
+      "标签质量加权相容度": 0.6912,
+      "Intact→损毁 %": 4.2939,
+      "损毁→Intact %": 17.5655
+    },
+    {
+      "key/TopK": "t128_top64",
+      "分组": "foreground_mixed",
+      "查询数": 2253,
+      "查询占比 %": 0.4889,
+      "支持查询数": 2253,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.3382,
+      "标签质量加权相容度": 0.3379,
+      "Intact→损毁 %": 32.3043,
+      "损毁→Intact %": 45.9881
+    },
+    {
+      "key/TopK": "t128_top64",
+      "分组": "background_diluted",
+      "查询数": 23342,
+      "查询占比 %": 5.0655,
+      "支持查询数": 23342,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.5242,
+      "标签质量加权相容度": 0.5394,
+      "Intact→损毁 %": 10.753,
+      "损毁→Intact %": 18.0032
+    },
+    {
+      "key/TopK": "t128_top64",
+      "分组": "mostly_background",
+      "查询数": 376468,
+      "查询占比 %": 81.6988,
+      "支持查询数": 376468,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9753,
+      "标签质量加权相容度": 0.9758,
+      "Intact→损毁 %": null,
+      "损毁→Intact %": null
+    },
+    {
+      "key/TopK": "f256_top8",
+      "分组": "all",
+      "查询数": 460800,
+      "查询占比 %": 100.0,
+      "支持查询数": 460800,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9136,
+      "标签质量加权相容度": 0.9228,
+      "Intact→损毁 %": 5.5392,
+      "损毁→Intact %": 20.924
+    },
+    {
+      "key/TopK": "f256_top8",
+      "分组": "foreground_pure",
+      "查询数": 58737,
+      "查询占比 %": 12.7467,
+      "支持查询数": 58737,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.6891,
+      "标签质量加权相容度": 0.6958,
+      "Intact→损毁 %": 4.6766,
+      "损毁→Intact %": 17.1809
+    },
+    {
+      "key/TopK": "f256_top8",
+      "分组": "foreground_mixed",
+      "查询数": 2253,
+      "查询占比 %": 0.4889,
+      "支持查询数": 2253,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.352,
+      "标签质量加权相容度": 0.3524,
+      "Intact→损毁 %": 28.9967,
+      "损毁→Intact %": 48.4398
+    },
+    {
+      "key/TopK": "f256_top8",
+      "分组": "background_diluted",
+      "查询数": 23342,
+      "查询占比 %": 5.0655,
+      "支持查询数": 23342,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.5223,
+      "标签质量加权相容度": 0.5375,
+      "Intact→损毁 %": 7.1027,
+      "损毁→Intact %": 22.8549
+    },
+    {
+      "key/TopK": "f256_top8",
+      "分组": "mostly_background",
+      "查询数": 376468,
+      "查询占比 %": 81.6988,
+      "支持查询数": 376468,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9762,
+      "标签质量加权相容度": 0.9767,
+      "Intact→损毁 %": null,
+      "损毁→Intact %": null
+    },
+    {
+      "key/TopK": "f256_top64",
+      "分组": "all",
+      "查询数": 460800,
+      "查询占比 %": 100.0,
+      "支持查询数": 460800,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9145,
+      "标签质量加权相容度": 0.924,
+      "Intact→损毁 %": 4.2428,
+      "损毁→Intact %": 22.9812
+    },
+    {
+      "key/TopK": "f256_top64",
+      "分组": "foreground_pure",
+      "查询数": 58737,
+      "查询占比 %": 12.7467,
+      "支持查询数": 58737,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.6866,
+      "标签质量加权相容度": 0.6929,
+      "Intact→损毁 %": 3.1226,
+      "损毁→Intact %": 19.6583
+    },
+    {
+      "key/TopK": "f256_top64",
+      "分组": "foreground_mixed",
+      "查询数": 2253,
+      "查询占比 %": 0.4889,
+      "支持查询数": 2253,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.3524,
+      "标签质量加权相容度": 0.3524,
+      "Intact→损毁 %": 23.925,
+      "损毁→Intact %": 52.9718
+    },
+    {
+      "key/TopK": "f256_top64",
+      "分组": "background_diluted",
+      "查询数": 23342,
+      "查询占比 %": 5.0655,
+      "支持查询数": 23342,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.5225,
+      "标签质量加权相容度": 0.5384,
+      "Intact→损毁 %": 7.0473,
+      "损毁→Intact %": 21.6921
+    },
+    {
+      "key/TopK": "f256_top64",
+      "分组": "mostly_background",
+      "查询数": 376468,
+      "查询占比 %": 81.6988,
+      "支持查询数": 376468,
+      "支持比例 %": 100.0,
+      "等权软相容度": 0.9778,
+      "标签质量加权相容度": 0.9784,
+      "Intact→损毁 %": null,
+      "损毁→Intact %": null
+    }
+  ],
+  "global_transitions": {
+    "t128_top8": {
+      "Intact": {
+        "rescued_pixels": 228850,
+        "harmed_pixels": 2717415,
+        "rescue_rate_percent": 3.3352,
+        "harm_rate_percent": 5.5815,
+        "net_TP": -2488565,
+        "delta_FP": -1329573,
+        "delta_FP_per_net_TP_if_positive": null
+      },
+      "Damaged": {
+        "rescued_pixels": 433421,
+        "harmed_pixels": 142966,
+        "rescue_rate_percent": 13.5506,
+        "harm_rate_percent": 3.5352,
+        "net_TP": 290455,
+        "delta_FP": 1760542,
+        "delta_FP_per_net_TP_if_positive": 6.06132447367062,
+        "delta_FP_per_net_TP_exceeds_baseline_IoU_improvement_threshold": true
+      },
+      "Destroyed": {
+        "rescued_pixels": 179773,
+        "harmed_pixels": 90197,
+        "rescue_rate_percent": 10.4074,
+        "harm_rate_percent": 1.8936,
+        "net_TP": 89576,
+        "delta_FP": 421181,
+        "delta_FP_per_net_TP_if_positive": 4.701940251853175,
+        "delta_FP_per_net_TP_exceeds_baseline_IoU_improvement_threshold": true
+      }
+    },
+    "t128_top64": {
+      "Intact": {
+        "rescued_pixels": 209260,
+        "harmed_pixels": 2059364,
+        "rescue_rate_percent": 3.0497,
+        "harm_rate_percent": 4.2299,
+        "net_TP": -1850104,
+        "delta_FP": -1202941,
+        "delta_FP_per_net_TP_if_positive": null
+      },
+      "Damaged": {
+        "rescued_pixels": 334840,
+        "harmed_pixels": 121635,
+        "rescue_rate_percent": 10.4685,
+        "harm_rate_percent": 3.0078,
+        "net_TP": 213205,
+        "delta_FP": 1081587,
+        "delta_FP_per_net_TP_if_positive": 5.07299078351821,
+        "delta_FP_per_net_TP_exceeds_baseline_IoU_improvement_threshold": true
+      },
+      "Destroyed": {
+        "rescued_pixels": 132379,
+        "harmed_pixels": 71664,
+        "rescue_rate_percent": 7.6637,
+        "harm_rate_percent": 1.5045,
+        "net_TP": 60715,
+        "delta_FP": 251754,
+        "delta_FP_per_net_TP_if_positive": 4.1464876883801365,
+        "delta_FP_per_net_TP_exceeds_baseline_IoU_improvement_threshold": true
+      }
+    },
+    "f256_top8": {
+      "Intact": {
+        "rescued_pixels": 311603,
+        "harmed_pixels": 1990007,
+        "rescue_rate_percent": 4.5413,
+        "harm_rate_percent": 4.0874,
+        "net_TP": -1678404,
+        "delta_FP": -671860,
+        "delta_FP_per_net_TP_if_positive": null
+      },
+      "Damaged": {
+        "rescued_pixels": 393609,
+        "harmed_pixels": 188532,
+        "rescue_rate_percent": 12.3059,
+        "harm_rate_percent": 4.662,
+        "net_TP": 205077,
+        "delta_FP": 1156628,
+        "delta_FP_per_net_TP_if_positive": 5.639969377355823,
+        "delta_FP_per_net_TP_exceeds_baseline_IoU_improvement_threshold": true
+      },
+      "Destroyed": {
+        "rescued_pixels": 115594,
+        "harmed_pixels": 187194,
+        "rescue_rate_percent": 6.6919,
+        "harm_rate_percent": 3.93,
+        "net_TP": -71600,
+        "delta_FP": 490782,
+        "delta_FP_per_net_TP_if_positive": null
+      }
+    },
+    "f256_top64": {
+      "Intact": {
+        "rescued_pixels": 489550,
+        "harmed_pixels": 1329093,
+        "rescue_rate_percent": 7.1346,
+        "harm_rate_percent": 2.7299,
+        "net_TP": -839543,
+        "delta_FP": 107796,
+        "delta_FP_per_net_TP_if_positive": null
+      },
+      "Damaged": {
+        "rescued_pixels": 273100,
+        "harmed_pixels": 86280,
+        "rescue_rate_percent": 8.5383,
+        "harm_rate_percent": 2.1335,
+        "net_TP": 186820,
+        "delta_FP": 825214,
+        "delta_FP_per_net_TP_if_positive": 4.417160903543518,
+        "delta_FP_per_net_TP_exceeds_baseline_IoU_improvement_threshold": true
+      },
+      "Destroyed": {
+        "rescued_pixels": 43568,
+        "harmed_pixels": 283782,
+        "rescue_rate_percent": 2.5222,
+        "harm_rate_percent": 5.9578,
+        "net_TP": -240214,
+        "delta_FP": 113775,
+        "delta_FP_per_net_TP_if_positive": null
+      }
+    }
+  },
+  "events": {
+    "bata-explosion": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 23.4482,
+        "t128_top64_delta_pp": 6.7427,
+        "f256_top64_delta_pp": 1.0229
+      },
+      "Intact": {
+        "GT_pixels": 806155,
+        "grid_percent": 64.0812,
+        "t128_top64_delta_pp": 0.003,
+        "f256_top64_delta_pp": -0.5001
+      },
+      "Damaged": {
+        "GT_pixels": 59294,
+        "grid_percent": 6.2634,
+        "t128_top64_delta_pp": 9.269,
+        "f256_top64_delta_pp": 3.5689
+      },
+      "Destroyed": {
+        "GT_pixels": 46176,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 10.9559,
+        "f256_top64_delta_pp": 0.0
+      }
+    },
+    "beirut-explosion": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 45.2713,
+        "t128_top64_delta_pp": 0.4295,
+        "f256_top64_delta_pp": -1.0598
+      },
+      "Intact": {
+        "GT_pixels": 5943392,
+        "grid_percent": 78.6961,
+        "t128_top64_delta_pp": -0.2466,
+        "f256_top64_delta_pp": -1.6674
+      },
+      "Damaged": {
+        "GT_pixels": 115663,
+        "grid_percent": 4.325,
+        "t128_top64_delta_pp": 1.4395,
+        "f256_top64_delta_pp": 0.839
+      },
+      "Destroyed": {
+        "GT_pixels": 335647,
+        "grid_percent": 52.7928,
+        "t128_top64_delta_pp": 0.0957,
+        "f256_top64_delta_pp": -2.3509
+      }
+    },
+    "congo-volcano": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 52.4786,
+        "t128_top64_delta_pp": 0.0304,
+        "f256_top64_delta_pp": -1.8668
+      },
+      "Intact": {
+        "GT_pixels": 748438,
+        "grid_percent": 79.7616,
+        "t128_top64_delta_pp": -0.8794,
+        "f256_top64_delta_pp": -2.1664
+      },
+      "Damaged": {
+        "GT_pixels": 7116,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 5.4388,
+        "f256_top64_delta_pp": 0.0137
+      },
+      "Destroyed": {
+        "GT_pixels": 241878,
+        "grid_percent": 77.6743,
+        "t128_top64_delta_pp": -4.4683,
+        "f256_top64_delta_pp": -3.4477
+      }
+    },
+    "haiti-earthquake": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 25.6305,
+        "t128_top64_delta_pp": -0.3031,
+        "f256_top64_delta_pp": -0.4706
+      },
+      "Intact": {
+        "GT_pixels": 1744400,
+        "grid_percent": 76.8915,
+        "t128_top64_delta_pp": -0.9093,
+        "f256_top64_delta_pp": -1.4119
+      },
+      "Damaged": {
+        "GT_pixels": 34896,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 0.0,
+        "f256_top64_delta_pp": 0.0
+      },
+      "Destroyed": {
+        "GT_pixels": 2663,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 0.0,
+        "f256_top64_delta_pp": 0.0
+      }
+    },
+    "hawaii-wildfire": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 54.2776,
+        "t128_top64_delta_pp": -1.1883,
+        "f256_top64_delta_pp": -2.2696
+      },
+      "Intact": {
+        "GT_pixels": 376778,
+        "grid_percent": 72.4384,
+        "t128_top64_delta_pp": -3.7459,
+        "f256_top64_delta_pp": -5.7067
+      },
+      "Damaged": {
+        "GT_pixels": 28660,
+        "grid_percent": 14.7797,
+        "t128_top64_delta_pp": 0.4049,
+        "f256_top64_delta_pp": 0.8954
+      },
+      "Destroyed": {
+        "GT_pixels": 380925,
+        "grid_percent": 75.6149,
+        "t128_top64_delta_pp": -0.224,
+        "f256_top64_delta_pp": -1.9974
+      }
+    },
+    "la_palma-volcano": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 54.8159,
+        "t128_top64_delta_pp": 0.407,
+        "f256_top64_delta_pp": -1.1765
+      },
+      "Intact": {
+        "GT_pixels": 5577239,
+        "grid_percent": 81.1962,
+        "t128_top64_delta_pp": 0.158,
+        "f256_top64_delta_pp": -1.2808
+      },
+      "Damaged": {
+        "GT_pixels": 74070,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 1.0242,
+        "f256_top64_delta_pp": 0.0
+      },
+      "Destroyed": {
+        "GT_pixels": 3679897,
+        "grid_percent": 83.2516,
+        "t128_top64_delta_pp": 0.0388,
+        "f256_top64_delta_pp": -2.2486
+      }
+    },
+    "libya-flood": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 59.6014,
+        "t128_top64_delta_pp": 4.4425,
+        "f256_top64_delta_pp": -12.9147
+      },
+      "Intact": {
+        "GT_pixels": 1373459,
+        "grid_percent": 77.9796,
+        "t128_top64_delta_pp": 1.1206,
+        "f256_top64_delta_pp": -1.5846
+      },
+      "Damaged": {
+        "GT_pixels": 1085270,
+        "grid_percent": 62.048,
+        "t128_top64_delta_pp": 3.0835,
+        "f256_top64_delta_pp": -7.4198
+      },
+      "Destroyed": {
+        "GT_pixels": 413678,
+        "grid_percent": 38.7765,
+        "t128_top64_delta_pp": 9.1233,
+        "f256_top64_delta_pp": -29.7397
+      }
+    },
+    "marshall-wildfire": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 44.1604,
+        "t128_top64_delta_pp": 2.7682,
+        "f256_top64_delta_pp": 1.9592
+      },
+      "Intact": {
+        "GT_pixels": 446651,
+        "grid_percent": 74.6448,
+        "t128_top64_delta_pp": -0.9136,
+        "f256_top64_delta_pp": -0.3088
+      },
+      "Damaged": {
+        "GT_pixels": 1993,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 7.8241,
+        "f256_top64_delta_pp": 6.0476
+      },
+      "Destroyed": {
+        "GT_pixels": 33743,
+        "grid_percent": 57.8363,
+        "t128_top64_delta_pp": 1.3941,
+        "f256_top64_delta_pp": 0.1388
+      }
+    },
+    "mexico-hurricane": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 35.2382,
+        "t128_top64_delta_pp": -0.419,
+        "f256_top64_delta_pp": 0.0682
+      },
+      "Intact": {
+        "GT_pixels": 253529,
+        "grid_percent": 12.4907,
+        "t128_top64_delta_pp": 1.5391,
+        "f256_top64_delta_pp": -1.9106
+      },
+      "Damaged": {
+        "GT_pixels": 2459758,
+        "grid_percent": 69.9049,
+        "t128_top64_delta_pp": -0.391,
+        "f256_top64_delta_pp": -0.639
+      },
+      "Destroyed": {
+        "GT_pixels": 173429,
+        "grid_percent": 23.319,
+        "t128_top64_delta_pp": -2.4052,
+        "f256_top64_delta_pp": 2.7542
+      }
+    },
+    "morocco-earthquake": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 23.6206,
+        "t128_top64_delta_pp": -0.1231,
+        "f256_top64_delta_pp": -0.3922
+      },
+      "Intact": {
+        "GT_pixels": 874028,
+        "grid_percent": 70.8618,
+        "t128_top64_delta_pp": -0.3693,
+        "f256_top64_delta_pp": -1.1765
+      },
+      "Damaged": {
+        "GT_pixels": 25246,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 0.0,
+        "f256_top64_delta_pp": 0.0
+      },
+      "Destroyed": {
+        "GT_pixels": 22428,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 0.0,
+        "f256_top64_delta_pp": 0.0
+      }
+    },
+    "myanmar-hurricane": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 22.5063,
+        "t128_top64_delta_pp": 0.3987,
+        "f256_top64_delta_pp": -0.8131
+      },
+      "Intact": {
+        "GT_pixels": 363665,
+        "grid_percent": 54.5057,
+        "t128_top64_delta_pp": -2.1107,
+        "f256_top64_delta_pp": -1.0968
+      },
+      "Damaged": {
+        "GT_pixels": 85528,
+        "grid_percent": 13.0131,
+        "t128_top64_delta_pp": 3.3068,
+        "f256_top64_delta_pp": -1.3426
+      },
+      "Destroyed": {
+        "GT_pixels": 3852,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 0.0,
+        "f256_top64_delta_pp": 0.0
+      }
+    },
+    "noto-earthquake": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 25.2089,
+        "t128_top64_delta_pp": -6.423,
+        "f256_top64_delta_pp": -3.7217
+      },
+      "Intact": {
+        "GT_pixels": 594099,
+        "grid_percent": 67.7107,
+        "t128_top64_delta_pp": -24.6135,
+        "f256_top64_delta_pp": -14.7946
+      },
+      "Damaged": {
+        "GT_pixels": 23871,
+        "grid_percent": 0.0,
+        "t128_top64_delta_pp": 3.0146,
+        "f256_top64_delta_pp": 0.9111
+      },
+      "Destroyed": {
+        "GT_pixels": 44916,
+        "grid_percent": 7.9159,
+        "t128_top64_delta_pp": 2.33,
+        "f256_top64_delta_pp": 2.7185
+      }
+    },
+    "turkey-earthquake": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 41.1589,
+        "t128_top64_delta_pp": 0.0625,
+        "f256_top64_delta_pp": -0.5536
+      },
+      "Intact": {
+        "GT_pixels": 32487031,
+        "grid_percent": 79.0318,
+        "t128_top64_delta_pp": -1.1169,
+        "f256_top64_delta_pp": -0.8696
+      },
+      "Damaged": {
+        "GT_pixels": 1604352,
+        "grid_percent": 10.7528,
+        "t128_top64_delta_pp": 2.4715,
+        "f256_top64_delta_pp": 0.9426
+      },
+      "Destroyed": {
+        "GT_pixels": 1047262,
+        "grid_percent": 33.692,
+        "t128_top64_delta_pp": -1.167,
+        "f256_top64_delta_pp": -1.7337
+      }
+    },
+    "ukraine-conflict": {
+      "mIoU": {
+        "GT_pixels": null,
+        "grid_percent": 29.2992,
+        "t128_top64_delta_pp": -2.162,
+        "f256_top64_delta_pp": -2.2983
+      },
+      "Intact": {
+        "GT_pixels": 3958786,
+        "grid_percent": 51.1276,
+        "t128_top64_delta_pp": -7.3125,
+        "f256_top64_delta_pp": -5.614
+      },
+      "Damaged": {
+        "GT_pixels": 1636876,
+        "grid_percent": 36.2672,
+        "t128_top64_delta_pp": -2.2105,
+        "f256_top64_delta_pp": -1.2437
+      },
+      "Destroyed": {
+        "GT_pixels": 64044,
+        "grid_percent": 0.5027,
+        "t128_top64_delta_pp": 3.0371,
+        "f256_top64_delta_pp": -0.0373
+      }
+    }
+  },
+  "inventory": {
+    "all": {
+      "region_count": 3411,
+      "source_image_count": 1184,
+      "dominant_counts": [
+        896,
+        896,
+        853,
+        766
+      ]
+    },
+    "eligible": {
+      "region_count": 3411,
+      "source_image_count": 1184,
+      "dominant_counts": [
+        896,
+        896,
+        853,
+        766
+      ]
+    }
+  },
+  "inventory_proportions": [
+    {
+      "eligible 类别": "Background",
+      "主类条数占比 %": 26.268,
+      "软标签质量占比 %": 37.2167,
+      "有效标签质量占比 %": 40.5459
+    },
+    {
+      "eligible 类别": "Intact",
+      "主类条数占比 %": 26.268,
+      "软标签质量占比 %": 25.46,
+      "有效标签质量占比 %": 23.9286
+    },
+    {
+      "eligible 类别": "Damaged",
+      "主类条数占比 %": 25.0073,
+      "软标签质量占比 %": 19.2511,
+      "有效标签质量占比 %": 18.8487
+    },
+    {
+      "eligible 类别": "Destroyed",
+      "主类条数占比 %": 22.4568,
+      "软标签质量占比 %": 18.0722,
+      "有效标签质量占比 %": 16.6767
+    }
+  ],
+  "bank_by_event": {
+    "bata-explosion": {
+      "same_event_eligible_support_count": 241,
+      "cross_event_support_count": 3170,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        49
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        717
+      ]
+    },
+    "beirut-explosion": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "congo-volcano": {
+      "same_event_eligible_support_count": 228,
+      "cross_event_support_count": 3183,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        36,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        817,
+        702
+      ]
+    },
+    "haiti-earthquake": {
+      "same_event_eligible_support_count": 200,
+      "cross_event_support_count": 3211,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        8
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        758
+      ]
+    },
+    "hawaii-wildfire": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "la_palma-volcano": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "libya-flood": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "marshall-wildfire": {
+      "same_event_eligible_support_count": 241,
+      "cross_event_support_count": 3170,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        49,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        804,
+        702
+      ]
+    },
+    "mexico-hurricane": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "morocco-earthquake": {
+      "same_event_eligible_support_count": 197,
+      "cross_event_support_count": 3214,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        5
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        761
+      ]
+    },
+    "myanmar-hurricane": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "noto-earthquake": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "turkey-earthquake": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    },
+    "ukraine-conflict": {
+      "same_event_eligible_support_count": 256,
+      "cross_event_support_count": 3155,
+      "same_event_dominant_counts": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "cross_event_dominant_counts": [
+        832,
+        832,
+        789,
+        702
+      ]
+    }
+  },
+  "neighbor_overlap": [
+    {
+      "T128/F256": "top8",
+      "双方支持比例 %": 100.0,
+      "双方支持 Jaccard": 0.1079,
+      "双方支持重合比例": 0.1779,
+      "双方支持 Top1 相同 %": 8.1836
+    },
+    {
+      "T128/F256": "top64",
+      "双方支持比例 %": 100.0,
+      "双方支持 Jaccard": 0.241,
+      "双方支持重合比例": 0.3729,
+      "双方支持 Top1 相同 %": 8.1836
+    }
+  ],
+  "derived": {
+    "foreground_GT_totals": {
+      "Intact": 55547650,
+      "Damaged": 7242593,
+      "Destroyed": 6490538
+    },
+    "total_foreground_GT_pixels": 69280781,
+    "event_GT_fraction_within_each_class": {
+      "bata-explosion": {
+        "Intact": 0.014512855179292013,
+        "Damaged": 0.00818684689309478,
+        "Destroyed": 0.0071143563137601225
+      },
+      "beirut-explosion": {
+        "Intact": 0.10699628157086753,
+        "Damaged": 0.01596983290376803,
+        "Destroyed": 0.05171327862189544
+      },
+      "congo-volcano": {
+        "Intact": 0.01347380132192811,
+        "Damaged": 0.0009825210390808927,
+        "Destroyed": 0.03726624819082794
+      },
+      "haiti-earthquake": {
+        "Intact": 0.031403668742062,
+        "Damaged": 0.004818163881361275,
+        "Destroyed": 0.00041028956305317064
+      },
+      "hawaii-wildfire": {
+        "Intact": 0.0067829692165195105,
+        "Damaged": 0.003957146287248227,
+        "Destroyed": 0.05868927968683028
+      },
+      "la_palma-volcano": {
+        "Intact": 0.10040458957309625,
+        "Damaged": 0.010227000191782142,
+        "Destroyed": 0.5669633241497084
+      },
+      "libya-flood": {
+        "Intact": 0.0247257804785621,
+        "Damaged": 0.1498455042275605,
+        "Destroyed": 0.06373554857856159
+      },
+      "marshall-wildfire": {
+        "Intact": 0.008040862214693151,
+        "Damaged": 0.00027517768843285823,
+        "Destroyed": 0.005198798620391715
+      },
+      "mexico-hurricane": {
+        "Intact": 0.004564171481601832,
+        "Damaged": 0.3396239440763826,
+        "Destroyed": 0.02672028112307485
+      },
+      "morocco-earthquake": {
+        "Intact": 0.015734743053936576,
+        "Damaged": 0.00348576814961161,
+        "Destroyed": 0.003455491671106463
+      },
+      "myanmar-hurricane": {
+        "Intact": 0.006546901624101109,
+        "Damaged": 0.011809030274102107,
+        "Destroyed": 0.0005934793078786381
+      },
+      "noto-earthquake": {
+        "Intact": 0.010695303941750911,
+        "Damaged": 0.0032959190168493522,
+        "Destroyed": 0.006920227568192344
+      },
+      "turkey-earthquake": {
+        "Intact": 0.5848497821239963,
+        "Damaged": 0.22151624425119568,
+        "Destroyed": 0.16135210979428824
+      },
+      "ukraine-conflict": {
+        "Intact": 0.07126828947759266,
+        "Damaged": 0.22600690111952998,
+        "Destroyed": 0.009867286810430816
+      }
+    },
+    "event_macro_descriptive_only": {
+      "mIoU": {
+        "grid_event_macro_percent": 38.33685714285714,
+        "t128_top64": {
+          "delta_event_macro_pp": 0.3330714285714286,
+          "candidate_event_macro_percent": 38.66992857142857,
+          "positive_events": 8,
+          "negative_events": 6,
+          "zero_events": 0,
+          "best_event": "bata-explosion",
+          "worst_event": "noto-earthquake"
+        },
+        "f256_top64": {
+          "delta_event_macro_pp": -1.7490428571428571,
+          "candidate_event_macro_percent": 36.58781428571429,
+          "positive_events": 3,
+          "negative_events": 11,
+          "zero_events": 0,
+          "best_event": "marshall-wildfire",
+          "worst_event": "libya-flood"
+        }
+      },
+      "Intact": {
+        "grid_event_macro_percent": 67.24412142857143,
+        "t128_top64": {
+          "delta_event_macro_pp": -2.8140714285714283,
+          "candidate_event_macro_percent": 64.43005000000001,
+          "positive_events": 4,
+          "negative_events": 10,
+          "zero_events": 0,
+          "best_event": "mexico-hurricane",
+          "worst_event": "noto-earthquake"
+        },
+        "f256_top64": {
+          "delta_event_macro_pp": -2.8634857142857144,
+          "candidate_event_macro_percent": 64.38063571428572,
+          "positive_events": 0,
+          "negative_events": 14,
+          "zero_events": 0,
+          "best_event": "marshall-wildfire",
+          "worst_event": "noto-earthquake"
+        }
+      },
+      "Damaged": {
+        "grid_event_macro_percent": 15.525292857142858,
+        "t128_top64": {
+          "delta_event_macro_pp": 2.4768142857142856,
+          "candidate_event_macro_percent": 18.002107142857145,
+          "positive_events": 10,
+          "negative_events": 2,
+          "zero_events": 2,
+          "best_event": "bata-explosion",
+          "worst_event": "ukraine-conflict"
+        },
+        "f256_top64": {
+          "delta_event_macro_pp": 0.1838,
+          "candidate_event_macro_percent": 15.709092857142858,
+          "positive_events": 7,
+          "negative_events": 4,
+          "zero_events": 3,
+          "best_event": "marshall-wildfire",
+          "worst_event": "libya-flood"
+        }
+      },
+      "Destroyed": {
+        "grid_event_macro_percent": 32.241142857142854,
+        "t128_top64": {
+          "delta_event_macro_pp": 1.3364571428571428,
+          "candidate_event_macro_percent": 33.5776,
+          "positive_events": 7,
+          "negative_events": 4,
+          "zero_events": 3,
+          "best_event": "bata-explosion",
+          "worst_event": "congo-volcano"
+        },
+        "f256_top64": {
+          "delta_event_macro_pp": -2.567414285714286,
+          "candidate_event_macro_percent": 29.67372857142857,
+          "positive_events": 3,
+          "negative_events": 7,
+          "zero_events": 4,
+          "best_event": "mexico-hurricane",
+          "worst_event": "libya-flood"
+        }
+      }
+    },
+    "cross_event_support_class_ranges": {
+      "Background": {
+        "min": 832,
+        "max": 832
+      },
+      "Intact": {
+        "min": 832,
+        "max": 832
+      },
+      "Damaged": {
+        "min": 789,
+        "max": 817
+      },
+      "Destroyed": {
+        "min": 702,
+        "max": 761
+      }
+    },
+    "cross_event_total_support_range": [
+      3155,
+      3214
+    ],
+    "approximate_global_class_IoU_consistency": {
+      "Intact": {
+        "GT_pixels": 55547650,
+        "baseline_TP_integer_interval_from_rounded_transition_rates": [
+          48686038,
+          48686066
+        ],
+        "baseline_TP_approx": 48686052.0,
+        "baseline_FN_approx": 6861598.0,
+        "baseline_FP_approx_from_grid_IoU": 8702482.628094979,
+        "formula": "IoU1=(TP0+netTP)/(GT+FP0+deltaFP); FP0=TP0/IoU0-GT; TP0 interval estimated from exact rescue/harm counts and 4-decimal rate rounding.",
+        "baseline_TP_is_estimated_not_exact": true,
+        "arms": {
+          "t128_top8": {
+            "candidate_IoU_percent_approx": 73.42192643081981,
+            "candidate_IoU_percent_reported": 73.422,
+            "approx_minus_reported_pp": -7.356918018786018e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              73.42187626909966,
+              73.42197659254124
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "t128_top64": {
+            "candidate_IoU_percent_approx": 74.28712808696946,
+            "candidate_IoU_percent_reported": 74.2872,
+            "approx_minus_reported_pp": -7.191303053843967e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              74.28707769775342,
+              74.28717847618651
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "f256_top8": {
+            "candidate_IoU_percent_approx": 73.93665486159733,
+            "candidate_IoU_percent_reported": 73.9367,
+            "approx_minus_reported_pp": -4.513840266895386e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              73.93660502514615,
+              73.93670469804931
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "f256_top64": {
+            "candidate_IoU_percent_approx": 74.34438929271717,
+            "candidate_IoU_percent_reported": 74.3444,
+            "approx_minus_reported_pp": -1.0707282825705988e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              74.34433990846411,
+              74.34443867697046
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          }
+        }
+      },
+      "Damaged": {
+        "GT_pixels": 7242593,
+        "baseline_TP_integer_interval_from_rounded_transition_rates": [
+          4044046,
+          4044052
+        ],
+        "baseline_TP_approx": 4044049.0,
+        "baseline_FN_approx": 3198544.0,
+        "baseline_FP_approx_from_grid_IoU": 1938140.8595618997,
+        "formula": "IoU1=(TP0+netTP)/(GT+FP0+deltaFP); FP0=TP0/IoU0-GT; TP0 interval estimated from exact rescue/harm counts and 4-decimal rate rounding.",
+        "baseline_TP_is_estimated_not_exact": true,
+        "arms": {
+          "t128_top8": {
+            "candidate_IoU_percent_approx": 39.61607453861929,
+            "candidate_IoU_percent_reported": 39.6161,
+            "approx_minus_reported_pp": -2.5461380715796622e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              39.61603404691732,
+              39.6161150303183
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "t128_top64": {
+            "candidate_IoU_percent_approx": 41.48431975826707,
+            "candidate_IoU_percent_reported": 41.4844,
+            "approx_minus_reported_pp": -8.024173293108561e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              41.48427593036087,
+              41.48436358617098
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "f256_top8": {
+            "candidate_IoU_percent_approx": 41.104549281784344,
+            "candidate_IoU_percent_reported": 41.1046,
+            "approx_minus_reported_pp": -5.07182156539443e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              41.10450590467234,
+              41.10459265889407
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "f256_top64": {
+            "candidate_IoU_percent_approx": 42.28354034402538,
+            "candidate_IoU_percent_reported": 42.2836,
+            "approx_minus_reported_pp": -5.965597461710104e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              42.28349510477704,
+              42.283585583271744
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          }
+        }
+      },
+      "Destroyed": {
+        "GT_pixels": 6490538,
+        "baseline_TP_integer_interval_from_rounded_transition_rates": [
+          4763176,
+          4763179
+        ],
+        "baseline_TP_approx": 4763177.5,
+        "baseline_FN_approx": 1727360.5,
+        "baseline_FP_approx_from_grid_IoU": 760510.4932904039,
+        "formula": "IoU1=(TP0+netTP)/(GT+FP0+deltaFP); FP0=TP0/IoU0-GT; TP0 interval estimated from exact rescue/harm counts and 4-decimal rate rounding.",
+        "baseline_TP_is_estimated_not_exact": true,
+        "arms": {
+          "t128_top8": {
+            "candidate_IoU_percent_approx": 63.25089081659874,
+            "candidate_IoU_percent_reported": 63.2509,
+            "approx_minus_reported_pp": -9.183401260770552e-06,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              63.250844589906784,
+              63.25093704328907
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "t128_top64": {
+            "candidate_IoU_percent_approx": 64.29454199699252,
+            "candidate_IoU_percent_reported": 64.2945,
+            "approx_minus_reported_pp": 4.199699252183109e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              64.29449427632493,
+              64.29458971765904
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "f256_top8": {
+            "candidate_IoU_percent_approx": 60.600364527046146,
+            "candidate_IoU_percent_reported": 60.6003,
+            "approx_minus_reported_pp": 6.452704614900995e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              60.60031982373684,
+              60.60040923035426
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          },
+          "f256_top64": {
+            "candidate_IoU_percent_approx": 61.41306039609189,
+            "candidate_IoU_percent_reported": 61.413,
+            "approx_minus_reported_pp": 6.039609189656403e-05,
+            "possible_candidate_IoU_percent_interval_from_rounding": [
+              61.41301304735526,
+              61.413107744829034
+            ],
+            "within_reporting_rounding_with_rate_uncertainty": true
+          }
+        }
+      }
+    },
+    "query_class_soft_mass_proportions": {
+      "Background": {
+        "mass_printed": 386947.1777,
+        "fraction": 0.8397291162680077,
+        "percent": 83.97291162680078
+      },
+      "Intact": {
+        "mass_printed": 59178.7564,
+        "fraction": 0.12842612035314946,
+        "percent": 12.842612035314945
+      },
+      "Damaged": {
+        "mass_printed": 7753.8868,
+        "fraction": 0.016827011244553575,
+        "percent": 1.6827011244553578
+      },
+      "Destroyed": {
+        "mass_printed": 6920.1802,
+        "fraction": 0.01501775213428922,
+        "percent": 1.5017752134289222
+      }
+    },
+    "positive_net_TP_IoU_improvement_thresholds": {
+      "Intact": {
+        "baseline_IoU_printed": 0.757758,
+        "max_delta_FP_per_positive_net_TP_for_IoU_increase": 1.3196825371688585,
+        "formula": "For netTP>0 and deltaFP>=0, IoU increases iff deltaFP/netTP < 1/baselineIoU; threshold derived from rounded reported IoU."
+      },
+      "Damaged": {
+        "baseline_IoU_printed": 0.440493,
+        "max_delta_FP_per_positive_net_TP_for_IoU_increase": 2.2701836351542477,
+        "formula": "For netTP>0 and deltaFP>=0, IoU increases iff deltaFP/netTP < 1/baselineIoU; threshold derived from rounded reported IoU."
+      },
+      "Destroyed": {
+        "baseline_IoU_printed": 0.656895,
+        "max_delta_FP_per_positive_net_TP_for_IoU_increase": 1.5223133073017758,
+        "formula": "For netTP>0 and deltaFP>=0, IoU increases iff deltaFP/netTP < 1/baselineIoU; threshold derived from rounded reported IoU."
+      }
+    }
+  }
+}
