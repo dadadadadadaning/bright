@@ -1,0 +1,25 @@
+{
+  "format": "SRAC_MEMORY_REBUILD_V3_CPU_DELIVERY_VALIDATION",
+  "cpu_tests": 133,
+  "installer_tests": 14,
+  "all_passed": true,
+  "actual_zip_install": true,
+  "identical_repeat_install": true,
+  "installed_preflight": true,
+  "relocated_shell_plan": true,
+  "original_tracked_repository_files_changed": false,
+  "synthetic_full_validation_loop": {
+    "image_count": 450,
+    "shape": [
+      2,
+      2
+    ],
+    "device": "cpu",
+    "real_bright": false
+  },
+  "real_gpu_validated": false,
+  "real_bright_val450_validated": false,
+  "reader_trained": false,
+  "test_dataset_accessed": false,
+  "zip_sha256": "72e5d3dc998f4821752412500522be0ecf5bf2ee3c3cf35eff515111a8d7f5d3"
+}
