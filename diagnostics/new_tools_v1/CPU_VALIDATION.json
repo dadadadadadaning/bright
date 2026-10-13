@@ -1,0 +1,23 @@
+{
+  "format": "BRIGHT_NEW_TOOLS_CPU_VALIDATION_V1",
+  "cpu_tests": {
+    "unified_and_memory_launcher": 17,
+    "memory_v1_debug": 30,
+    "prt_initial_debug": 19,
+    "prt_sequence": 36,
+    "region_night": 39,
+    "offline_installer": 14
+  },
+  "total_tests": 155,
+  "all_passed": true,
+  "checks": [
+    "actual ZIP bootstrap installation",
+    "byte-identical repeat installation",
+    "all six relocated dispatcher plans without child execution",
+    "existing user-file sentinel preserved",
+    "original numerical/source files verified byte-identical"
+  ],
+  "real_server_gpu_validated": false,
+  "real_shared_nvme_validated": false,
+  "test_dataset_accessed": false
+}

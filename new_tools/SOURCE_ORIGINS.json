@@ -1,0 +1,121 @@
+{
+  "format": "BRIGHT_NEW_TOOLS_SOURCE_ORIGINS_V1",
+  "memory_v2_probe": {
+    "original_sha256": "5c36a67f41c9c671fb1bd887d6031f2a4877ac1c788e0138195bb364a9064545",
+    "source_commit": "fb136104b1a835dee0996cc8f9ca66b30fcca12f",
+    "unchanged": true
+  },
+  "packages": {
+    "memory_replay_debug": {
+      "changed_files": [
+        "README.md",
+        "SHA256SUMS.json",
+        "run_debug.py",
+        "test_runner.py"
+      ],
+      "original_file_sha256": {
+        "README.md": "f86c6890d88af8f427bb31cb953dbf7cb70e2c71eea72b91e96b8b22a0671f70",
+        "SHA256SUMS.json": "57ffa9d061bfae4113f19158b53087a4f99cdc539d45165582076ed86df36a41",
+        "numeric.py": "4684f2f3af63cb16da1343398b0114185a5c66b74d344a04a0365f1e54b29161",
+        "run_debug.py": "7f57cdb5459b2fde5ace96f606c37ee6d70e41efa162b92e264e76685302041c",
+        "test_numeric.py": "405756bba1597b39af956a8a518d5144b749177a20d70c60b77981d5df3e0475",
+        "test_runner.py": "0994ba850d310bc9aa4245a35106c18eb1d7535b248d4efc03e04c35b7a60728"
+      },
+      "repository": "dadadadadadaning/bright",
+      "source_archive_sha256": "18673aed80ccf3d0122cf0dd950358015630938dcb26c34608630c6b9acff2a4",
+      "source_commit": "272d2a6c25e30c12b1c62e04999f0336c0ce526d",
+      "unchanged_files": [
+        "numeric.py",
+        "test_numeric.py"
+      ]
+    },
+    "prt_initial_debug": {
+      "changed_files": [
+        "README.md",
+        "SHA256SUMS.json",
+        "run.sh",
+        "test_diagnose.py"
+      ],
+      "original_file_sha256": {
+        "README.md": "2efce91b8be4428e1468a18e0e25e957045ce55650d57c8697e30031a4c458aa",
+        "SHA256SUMS.json": "e5b1cd6d4e36a8e999420ce19cf34c43ac0d4c1ecfb5b59ee4eebd64430cd19b",
+        "diag_core.py": "bfdb6de28ab3622671174861f0f74c12d0e7f8320500d9fbb9cd028be1507aa5",
+        "diagnose.py": "2862aae8197383048816d59c4554739f878bcaae743f425f5738719f5e65cf96",
+        "run.sh": "4930fb654f664188c2063b13be49b1e695ea0a13929f5eb4d3dff20c80db822a",
+        "summarize.py": "58259e581a0d6743f87ab9977721733b67656c5add3cce8f0945d12884dda4f8",
+        "test_diag_core.py": "f9c6f2180150c79f6bf9fa53a43655160f466a69c36ffa5c29a112b7b7f6e1b9",
+        "test_diagnose.py": "df87d739888bdb88c3f0efabca3dcf20f895a944375ac0f864c451af3babd694"
+      },
+      "repository": "dadadadadadaning/bright",
+      "source_archive_sha256": "4bec33de19e2ce54148074ffda63abe6e3d2d53237c0ef0c6c5e3b349e451d6a",
+      "source_commit": "8b8d87ff5c49245cc9fbc03b3d9458690fe71c87",
+      "unchanged_files": [
+        "diag_core.py",
+        "diagnose.py",
+        "summarize.py",
+        "test_diag_core.py"
+      ]
+    },
+    "prt_sequence_experiments": {
+      "changed_files": [
+        "README.md",
+        "SHA256SUMS.json",
+        "run.sh",
+        "run_sequence.py",
+        "test_run_sequence.py"
+      ],
+      "original_file_sha256": {
+        "README.md": "6c79d619a4e840fd681d11755a4865ee5d8128daa606194df40685359dc5e622",
+        "SHA256SUMS.json": "405ed88ad1ee63b61c529f8ac85eacbf537437c9bbb4355e8b533f70edd10c22",
+        "initial_sequence.py": "22f693a68356badfcfd566ae54f81f8f7a80a18086efbb1b004e1672027bf769",
+        "run.sh": "f8cc0e215b16b0f23096c47f647e93c20ac6c6fc64f6e3b443fabba802f77b2d",
+        "run_sequence.py": "2056937b223c6ae8e5e68dd846a1b99cf9b1ca5f5019d523edc7f9be516772cf",
+        "test_initial_sequence.py": "1b2d99b5b73f2fb717dc63bfc9df3b245a00f95d867a117f337b9c810ae65bb9",
+        "test_run_sequence.py": "66243500aeffb6d3845b8696bd0f78fa3df8b7b054a579d54d29ef8b0d1791f6"
+      },
+      "repository": "dadadadadadaning/bright",
+      "source_archive_sha256": "708f8a937e671893bf870129c7969e27c41d53dd2430220a7622bb17ec8d744b",
+      "source_commit": "9652e1b9f5081dbc1f502579ffcc9a3ba1ede712",
+      "unchanged_files": [
+        "initial_sequence.py",
+        "test_initial_sequence.py"
+      ]
+    },
+    "region_night": {
+      "changed_files": [
+        "README.md",
+        "SHA256SUMS.json",
+        "install_night.py"
+      ],
+      "original_file_sha256": {
+        "README.md": "3540e8ca551204889062a04b4552f1dea0bd796f179830247b1f2789ce27c1b0",
+        "SHA256SUMS.json": "727315735d314d946fe75e8fa0d2faa54f16b1f3db9cc54f4e4fcd076fb0f2c3",
+        "install_night.py": "202146008a82cf22776fdd8bb09ea0a57015eff903f96b2cad15c6cb0c86453e",
+        "night_run.py": "b2128d3a22f9a8cd9d238fd443380dfb0664f0d8af6d002b81f08a48a9f3616e",
+        "region_residual.py": "dea470976a8ee2ea12b23c6d1a0160b0c4fee948e618e6e2497fddb42d1aefa9",
+        "residual_core.py": "635739568119dcbef6ceac95201165cb0bbeabf4d43601591b7e9a264c377a90",
+        "residual_eval.py": "24e81a5096154d01922b86844c82d61ec6323cfdc23a4234cad6b41f2e61cbf9",
+        "test_install_night.py": "55b49569a15c14c9f2cce5096c09f497f1449c700c94e313ed61c1d11626fd48",
+        "test_night_run.py": "de8a1677464b96cbd9f6b8bf37753969ff65fa9828b8ff719c4d705d92471f7b",
+        "test_region_residual.py": "6d89272cbe7703fbeece9f19429c999e0ea2f374101b30abf5139c0fb863be9d",
+        "test_residual_core.py": "e217c86c75062048f0cff6639e84528abd5abc220dc555cbafbff64cc3183f5a",
+        "test_residual_eval.py": "ac93fdf0ad22047a0fef8406e589294cd81b07f0348b095d31be95405477c099"
+      },
+      "repository": "dadadadadadaning/bright",
+      "source_archive_sha256": "9d07b6c49623ecfb483e52a463be2734c37e6190e50ab4f4f10788f6c4778944",
+      "source_commit": "8c8e64d3e7cd5bd867aa3d2f7f0887bd43c07bd3",
+      "unchanged_files": [
+        "night_run.py",
+        "region_residual.py",
+        "residual_core.py",
+        "residual_eval.py",
+        "test_install_night.py",
+        "test_night_run.py",
+        "test_region_residual.py",
+        "test_residual_core.py",
+        "test_residual_eval.py"
+      ]
+    }
+  },
+  "scope": "Tool entry paths, import isolation, documentation and checksum manifests; model experiments, protocols, weights and datasets are not modified."
+}

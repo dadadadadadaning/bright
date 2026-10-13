@@ -1,0 +1,13 @@
+{
+  "README.md": "b98c58bc22a26ba7e1fd318deb9daa7c3fa96c41d492d723651ddc65d1a58ea6",
+  "install_night.py": "708affb0b58c52ac5a61546b735790fe20e86e0e73f10c78e8b95e7db16ffa83",
+  "night_run.py": "b2128d3a22f9a8cd9d238fd443380dfb0664f0d8af6d002b81f08a48a9f3616e",
+  "region_residual.py": "dea470976a8ee2ea12b23c6d1a0160b0c4fee948e618e6e2497fddb42d1aefa9",
+  "residual_core.py": "635739568119dcbef6ceac95201165cb0bbeabf4d43601591b7e9a264c377a90",
+  "residual_eval.py": "24e81a5096154d01922b86844c82d61ec6323cfdc23a4234cad6b41f2e61cbf9",
+  "test_install_night.py": "55b49569a15c14c9f2cce5096c09f497f1449c700c94e313ed61c1d11626fd48",
+  "test_night_run.py": "de8a1677464b96cbd9f6b8bf37753969ff65fa9828b8ff719c4d705d92471f7b",
+  "test_region_residual.py": "6d89272cbe7703fbeece9f19429c999e0ea2f374101b30abf5139c0fb863be9d",
+  "test_residual_core.py": "e217c86c75062048f0cff6639e84528abd5abc220dc555cbafbff64cc3183f5a",
+  "test_residual_eval.py": "ac93fdf0ad22047a0fef8406e589294cd81b07f0348b095d31be95405477c099"
+}
