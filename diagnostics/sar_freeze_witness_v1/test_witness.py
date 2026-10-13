@@ -141,6 +141,29 @@ class WitnessTests(unittest.TestCase):
         inspected.assert_called_once()
         probe.assert_not_called()
 
+    def test_environment_restores_recorded_flags(self):
+        import os
+        record = dict(runtime_settings=dict(environment={
+            'CUDA_VISIBLE_DEVICES': 'GPU-selected', 'NVIDIA_TF32_OVERRIDE': None,
+            'OMP_NUM_THREADS': '4', 'MKL_NUM_THREADS': None}, cublas_workspace_config=None))
+        with patch.dict(os.environ, {'NVIDIA_TF32_OVERRIDE': '0', 'MKL_NUM_THREADS': '32',
+                                     'CUBLAS_WORKSPACE_CONFIG': ':16:8'}):
+            result = tool.declared_environment(record)
+        self.assertEqual(result['CUDA_VISIBLE_DEVICES'], 'GPU-selected')
+        self.assertEqual(result['OMP_NUM_THREADS'], '4')
+        for name in ('NVIDIA_TF32_OVERRIDE', 'MKL_NUM_THREADS', 'CUBLAS_WORKSPACE_CONFIG'):
+            self.assertNotIn(name, result)
+
+    def test_duplicate_probe_rejected_before_gpu_work(self):
+        import fcntl
+        from types import SimpleNamespace
+        with (self.root / '.probe.lock').open('a+') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            with patch.object(tool, '_probe_locked') as work:
+                with self.assertRaisesRegex(RuntimeError, 'already queued'):
+                    tool.probe(SimpleNamespace(output_parent=str(self.root)))
+                work.assert_not_called()
+
 
 if __name__ == '__main__':
     unittest.main()

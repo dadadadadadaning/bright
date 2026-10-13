@@ -277,27 +277,68 @@ def child(args, extra):
         torch.optim.AdamW = original_adam
 
 
+def declared_environment(protocol):
+    env = dict(os.environ, CUDA_LAUNCH_BLOCKING='1', PYTHONDONTWRITEBYTECODE='1', PYTHONUNBUFFERED='1')
+    settings = protocol['runtime_settings']
+    for name in ('CUDA_VISIBLE_DEVICES', 'NVIDIA_TF32_OVERRIDE', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
+        value = settings['environment'][name]
+        if value is None:
+            env.pop(name, None)
+        elif isinstance(value, str):
+            env[name] = value
+        else:
+            raise ValueError('Invalid protocol environment: ' + name)
+    workspace = settings.get('cublas_workspace_config')
+    if workspace is None:
+        env.pop('CUBLAS_WORKSPACE_CONFIG', None)
+    elif isinstance(workspace, str):
+        env['CUBLAS_WORKSPACE_CONFIG'] = workspace
+    else:
+        raise ValueError('Invalid CUBLAS workspace configuration')
+    return env
+
+
 def probe(args):
+    import fcntl
+    parent = Path(args.output_parent)
+    parent.mkdir(parents=True, exist_ok=True)
+    # Only coordinates this diagnostic, never locks/kills unrelated experiments.
+    with (parent / '.probe.lock').open('a+') as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise RuntimeError('A SAR freeze probe is already queued/running in this output parent')
+        return _probe_locked(args)
+
+
+def _probe_locked(args):
     # No torch/model import in this parent before the existing GPU queue clears.
     sys.path.insert(0, args.tool)
     queue = importlib.import_module('gpu_queue')
     if Path(queue.__file__).resolve() != Path(args.tool).resolve() / 'gpu_queue.py':
         raise RuntimeError('Wrong GPU queue module')
     protocol = json.loads(Path(args.protocol).read_text())
+    env = declared_environment(protocol)
     device = protocol['arguments']['device']
     if not device.startswith('cuda:') or not device[5:].isdigit():
         raise ValueError('Expected an explicit CUDA device in the protocol')
-    queue.wait_for_idle(int(device[5:]), log=lambda s: print(s, flush=True))
+    # The queue must resolve the same visibility that the child will use.
+    visible_before = os.environ.get('CUDA_VISIBLE_DEVICES')
+    try:
+        if 'CUDA_VISIBLE_DEVICES' in env:
+            os.environ['CUDA_VISIBLE_DEVICES'] = env['CUDA_VISIBLE_DEVICES']
+        else:
+            os.environ.pop('CUDA_VISIBLE_DEVICES', None)
+        queue.wait_for_idle(int(device[5:]), log=lambda s: print(s, flush=True))
+    finally:
+        if visible_before is None:
+            os.environ.pop('CUDA_VISIBLE_DEVICES', None)
+        else:
+            os.environ['CUDA_VISIBLE_DEVICES'] = visible_before
     parent = Path(args.output_parent)
     parent.mkdir(parents=True, exist_ok=True)
     root = Path(tempfile.mkdtemp(prefix='probe_', dir=str(parent)))
     print('OUTPUT_ROOT=' + str(root), flush=True)
-    env = dict(os.environ, CUDA_LAUNCH_BLOCKING='1', PYTHONDONTWRITEBYTECODE='1', PYTHONUNBUFFERED='1')
-    workspace = protocol['runtime_settings'].get('cublas_workspace_config')
-    if workspace is None:
-        env.pop('CUBLAS_WORKSPACE_CONFIG', None)
-    else:
-        env['CUBLAS_WORKSPACE_CONFIG'] = workspace
     command = [sys.executable, '-u', str(Path(__file__).resolve()), 'child',
                '--repo', args.repo, '--evidence', str(root / 'witness'), '--',
                '--protocol', args.protocol, '--arm', 'baseline', '--output', str(root / 'fit'),
