@@ -1,0 +1,143 @@
+test_content_hash_covers_nested_values (test_build_values.BuildContracts.test_content_hash_covers_nested_values) ... ok
+test_failed_reference_stays_incomplete (test_build_values.BuildContracts.test_failed_reference_stays_incomplete) ... ok
+test_frozen_failure_stops_before_saved_bank (test_build_values.BuildContracts.test_frozen_failure_stops_before_saved_bank) ... Fresh paired child values 4/4
+ok
+test_full_and_smoke_member_written_rules (test_build_values.BuildContracts.test_full_and_smoke_member_written_rules) ... ok
+test_full_build_roundtrip_and_all_parent_identity (test_build_values.BuildContracts.test_full_build_roundtrip_and_all_parent_identity) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_incomplete_source_iteration_is_failure (test_build_values.BuildContracts.test_incomplete_source_iteration_is_failure) ... ok
+test_native_failure_is_preserved_no_fallback (test_build_values.BuildContracts.test_native_failure_is_preserved_no_fallback) ... ok
+test_reference_detects_slot_label_swap (test_build_values.BuildContracts.test_reference_detects_slot_label_swap) ... ok
+test_reference_ignored_area_and_both_rules (test_build_values.BuildContracts.test_reference_ignored_area_and_both_rules) ... ok
+test_smoke_explicit_and_cannot_overwrite (test_build_values.BuildContracts.test_smoke_explicit_and_cannot_overwrite) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_source_plan_cross_event_and_train_only (test_build_values.BuildContracts.test_source_plan_cross_event_and_train_only) ... ok
+test_source_plan_rejects_single_event_smoke (test_build_values.BuildContracts.test_source_plan_rejects_single_event_smoke) ... ok
+test_auto_discovery_accepts_complete_artifact_set (test_gates.BaselineEvidenceTests.test_auto_discovery_accepts_complete_artifact_set) ... ok
+test_complete_summary_does_not_override_failed_pipeline (test_gates.BaselineEvidenceTests.test_complete_summary_does_not_override_failed_pipeline) ... ok
+test_explicit_train_or_pipeline_root (test_gates.BaselineEvidenceTests.test_explicit_train_or_pipeline_root) ... ok
+test_find_does_not_modify_failed_evidence (test_gates.BaselineEvidenceTests.test_find_does_not_modify_failed_evidence) ... ok
+test_last_weights_must_match_manifest (test_gates.BaselineEvidenceTests.test_last_weights_must_match_manifest) ... ok
+test_missing_predictions_reopen_rejected (test_gates.BaselineEvidenceTests.test_missing_predictions_reopen_rejected) ... ok
+test_no_candidates_has_actionable_error (test_gates.BaselineEvidenceTests.test_no_candidates_has_actionable_error) ... ok
+test_old_bank_binding_cannot_be_substituted (test_gates.BaselineEvidenceTests.test_old_bank_binding_cannot_be_substituted) ... ok
+test_smoke_and_intermediate_not_accepted (test_gates.BaselineEvidenceTests.test_smoke_and_intermediate_not_accepted) ... ok
+test_summary_metric_disagreement_rejected (test_gates.BaselineEvidenceTests.test_summary_metric_disagreement_rejected) ... ok
+test_bad_label_or_probability_rejected (test_model.ModelContracts.test_bad_label_or_probability_rejected) ... ok
+test_bad_support_index_rejected (test_model.ModelContracts.test_bad_support_index_rejected) ... ok
+test_candidate_order_invariance (test_model.ModelContracts.test_candidate_order_invariance) ... ok
+test_chunk_outputs_and_gradients_equivalent (test_model.ModelContracts.test_chunk_outputs_and_gradients_equivalent) ... ok
+test_empty_support_table (test_model.ModelContracts.test_empty_support_table) ... ok
+test_first_update_unblocks_reader (test_model.ModelContracts.test_first_update_unblocks_reader) ... ok
+test_gradients_to_both_roles_and_memory_labels (test_model.ModelContracts.test_gradients_to_both_roles_and_memory_labels) ... ok
+test_invalid_child_is_masked (test_model.ModelContracts.test_invalid_child_is_masked) ... ok
+test_no_candidates_zero_context_not_nan (test_model.ModelContracts.test_no_candidates_zero_context_not_nan) ... ok
+test_pixel_branch_keeps_local_differences (test_model.ModelContracts.test_pixel_branch_keeps_local_differences) ... ok
+test_query_role_and_parent_backprojection (test_model.ModelContracts.test_query_role_and_parent_backprojection) ... ok
+test_support_table_encoded_once (test_model.ModelContracts.test_support_table_encoded_once) ... ok
+test_zero_initial_output_matches_base (test_model.ModelContracts.test_zero_initial_output_matches_base) ... ok
+test_check_never_requests_baseline_or_formal_train (test_runner.RunnerContracts.test_check_never_requests_baseline_or_formal_train) ... ok
+test_child_retains_log_and_reports_nonzero (test_runner.RunnerContracts.test_child_retains_log_and_reports_nonzero) ... ok
+test_existing_output_preserved (test_runner.RunnerContracts.test_existing_output_preserved) ... ok
+test_failed_smoke_stops_before_formal_build (test_runner.RunnerContracts.test_failed_smoke_stops_before_formal_build) ... ok
+test_find_baseline_reports_absence_without_success_claim (test_runner.RunnerContracts.test_find_baseline_reports_absence_without_success_claim) ... ok
+test_full_requires_baseline_before_creating_output (test_runner.RunnerContracts.test_full_requires_baseline_before_creating_output) ... ok
+test_full_revalidates_baseline_and_runs_all_stages (test_runner.RunnerContracts.test_full_revalidates_baseline_and_runs_all_stages) ... ok
+test_launch_script_syntax (test_runner.RunnerContracts.test_launch_script_syntax) ... ok
+test_missing_release_rejected (test_runner.RunnerContracts.test_missing_release_rejected) ... ok
+test_parser_formal_topk_fixed_to_64 (test_runner.RunnerContracts.test_parser_formal_topk_fixed_to_64) ... ok
+test_parser_requires_values_for_train (test_runner.RunnerContracts.test_parser_requires_values_for_train) ... ok
+test_plan_without_files_cuda_baseline_or_release (test_runner.RunnerContracts.test_plan_without_files_cuda_baseline_or_release) ... ok
+test_release_hashes_python_files (test_runner.RunnerContracts.test_release_hashes_python_files) ... ok
+test_release_rejects_parent_escape (test_runner.RunnerContracts.test_release_rejects_parent_escape) ... ok
+test_release_rejects_symlink (test_runner.RunnerContracts.test_release_rejects_symlink) ... ok
+test_release_rejects_unbound_python (test_runner.RunnerContracts.test_release_rejects_unbound_python) ... ok
+test_report_prints_four_arm_differences_and_no_false_formal (test_runner.RunnerContracts.test_report_prints_four_arm_differences_and_no_false_formal) ... ok
+test_report_reads_failed_partial_without_gates (test_runner.RunnerContracts.test_report_reads_failed_partial_without_gates) ... ok
+test_smoke_dispatch_preserves_small_value_permission_and_identity (test_runner.RunnerContracts.test_smoke_dispatch_preserves_small_value_permission_and_identity) ... ok
+test_train_dispatch_rechecks_baseline (test_runner.RunnerContracts.test_train_dispatch_rechecks_baseline) ... ok
+test_wrong_smoke_identity_rejected (test_runner.RunnerContracts.test_wrong_smoke_identity_rejected) ... ok
+test_zero_exit_with_incomplete_summary_rejected (test_runner.RunnerContracts.test_zero_exit_with_incomplete_summary_rejected) ... ok
+test_all_arms_connect_to_actual_model_and_zero_init (test_runtime.RuntimeContracts.test_all_arms_connect_to_actual_model_and_zero_init) ... ok
+test_building_capture_exact_partition_input (test_runtime.RuntimeContracts.test_building_capture_exact_partition_input) ... ok
+test_building_capture_zero_and_double_calls_fail (test_runtime.RuntimeContracts.test_building_capture_zero_and_double_calls_fail) ... ok
+test_ineligible_and_bad_ids_rejected (test_runtime.RuntimeContracts.test_ineligible_and_bad_ids_rejected) ... ok
+test_local_labels_are_same_route_native_predictions (test_runtime.RuntimeContracts.test_local_labels_are_same_route_native_predictions) ... ok
+test_one_parent_search_and_matched_local_memory_ids (test_runtime.RuntimeContracts.test_one_parent_search_and_matched_local_memory_ids) ... ok
+test_parent_padding_does_not_expand_bank_table (test_runtime.RuntimeContracts.test_parent_padding_does_not_expand_bank_table) ... ok
+test_query_gt_never_enters_supports_or_features (test_runtime.RuntimeContracts.test_query_gt_never_enters_supports_or_features) ... ok
+test_same_event_and_same_image_rechecked_before_gather (test_runtime.RuntimeContracts.test_same_event_and_same_image_rechecked_before_gather) ... ok
+test_changed_bank_file_rejected (test_runtime.ValueLoaderContracts.test_changed_bank_file_rejected) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_code_change_rejected (test_runtime.ValueLoaderContracts.test_code_change_rejected) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_original_identity_change_rejected_even_with_updated_file_sha (test_runtime.ValueLoaderContracts.test_original_identity_change_rejected_even_with_updated_file_sha) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_smoke_requires_both_explicit_flags (test_runtime.ValueLoaderContracts.test_smoke_requires_both_explicit_flags) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_source_image_changed_since_build_rejected (test_runtime.ValueLoaderContracts.test_source_image_changed_since_build_rejected) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_valid_formal_values_load (test_runtime.ValueLoaderContracts.test_valid_formal_values_load) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_valid_label_mass_cannot_exceed_feature_mass (test_runtime.ValueLoaderContracts.test_valid_label_mass_cannot_exceed_feature_mass) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_wrong_source_protocol_rejected (test_runtime.ValueLoaderContracts.test_wrong_source_protocol_rejected) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_wrong_value_schema_rejected (test_runtime.ValueLoaderContracts.test_wrong_value_schema_rejected) ... Fresh paired child values 4/4
+CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
+ok
+test_all_ignored_zero_labels_mass (test_slots.SlotContracts.test_all_ignored_zero_labels_mass) ... ok
+test_background_role_can_have_damaged_label (test_slots.SlotContracts.test_background_role_can_have_damaged_label) ... ok
+test_capacity_independent_of_building (test_slots.SlotContracts.test_capacity_independent_of_building) ... ok
+test_conservation_and_ids (test_slots.SlotContracts.test_conservation_and_ids) ... ok
+test_empty_slot_mean_and_readback (test_slots.SlotContracts.test_empty_slot_mean_and_readback) ... ok
+test_feature_and_labels_use_same_mass (test_slots.SlotContracts.test_feature_and_labels_use_same_mass) ... ok
+test_feature_gradients_and_frozen_q (test_slots.SlotContracts.test_feature_gradients_and_frozen_q) ... ok
+test_ignore_area_correct_denominator (test_slots.SlotContracts.test_ignore_area_correct_denominator) ... ok
+test_invalid_ids_rejected_even_zero_weight (test_slots.SlotContracts.test_invalid_ids_rejected_even_zero_weight) ... ok
+test_invalid_q_building_label_rejected (test_slots.SlotContracts.test_invalid_q_building_label_rejected) ... ok
+test_positive_tiny_mass_not_clamped (test_slots.SlotContracts.test_positive_tiny_mass_not_clamped) ... ok
+test_preparation_and_batched_ids (test_slots.SlotContracts.test_preparation_and_batched_ids) ... ok
+test_readback_preserves_pixel_role_difference (test_slots.SlotContracts.test_readback_preserves_pixel_role_difference) ... ok
+test_checkpoint_manifest_and_re_evaluation_match (test_train.TrainerContracts.test_checkpoint_manifest_and_re_evaluation_match) ... ok
+test_coverage_does_not_count_duplicate_case_as_independent_neighbor (test_train.TrainerContracts.test_coverage_does_not_count_duplicate_case_as_independent_neighbor) ... ok
+test_coverage_handles_empty_bank_and_inactive_query (test_train.TrainerContracts.test_coverage_handles_empty_bank_and_inactive_query) ... ok
+test_coverage_refuses_bad_parent_ids (test_train.TrainerContracts.test_coverage_refuses_bad_parent_ids) ... ok
+test_cpu_cannot_be_marked_formal (test_train.TrainerContracts.test_cpu_cannot_be_marked_formal) ... ok
+test_cpu_smoke_shared_preparation_and_matched_updates (test_train.TrainerContracts.test_cpu_smoke_shared_preparation_and_matched_updates) ... ok
+test_different_bank_binding_refused (test_train.TrainerContracts.test_different_bank_binding_refused) ... ok
+test_distinct_training_seed_after_historical_seed_reset (test_train.TrainerContracts.test_distinct_training_seed_after_historical_seed_reset) ... ok
+test_exact_twenty_update_smoke_budget (test_train.TrainerContracts.test_exact_twenty_update_smoke_budget) ... ok
+test_factorial_comparisons_use_percentage_points (test_train.TrainerContracts.test_factorial_comparisons_use_percentage_points) ... ok
+test_formal_budget_cannot_be_silently_shortened (test_train.TrainerContracts.test_formal_budget_cannot_be_silently_shortened) ... ok
+test_formal_eval_requires_saved_baseline_binding (test_train.TrainerContracts.test_formal_eval_requires_saved_baseline_binding) ... ok
+test_formal_eval_revalidated_baseline_is_injected_with_training_mode (test_train.TrainerContracts.test_formal_eval_revalidated_baseline_is_injected_with_training_mode) ... ok
+test_formal_eval_revalidates_saved_baseline_before_runtime (test_train.TrainerContracts.test_formal_eval_revalidates_saved_baseline_before_runtime) ... ok
+test_formal_training_independently_revalidates_baseline (test_train.TrainerContracts.test_formal_training_independently_revalidates_baseline) ... ok
+test_guard_restore_failure_prevents_complete (test_train.TrainerContracts.test_guard_restore_failure_prevents_complete) ... ok
+test_illegal_target_is_checked_before_uint8_wrap (test_train.TrainerContracts.test_illegal_target_is_checked_before_uint8_wrap) ... ok
+test_old_output_is_never_overwritten (test_train.TrainerContracts.test_old_output_is_never_overwritten) ... ok
+test_probability_tolerance_not_argmax_tie_is_initial_gate (test_train.TrainerContracts.test_probability_tolerance_not_argmax_tie_is_initial_gate) ... ok
+test_saved_predictions_reconstruct_confusion_and_ignore_label (test_train.TrainerContracts.test_saved_predictions_reconstruct_confusion_and_ignore_label) ... ok
+test_saved_report_has_all_factorial_comparisons (test_train.TrainerContracts.test_saved_report_has_all_factorial_comparisons) ... ok
+test_slot_coverage_counts_parents_and_child_slots_separately (test_train.TrainerContracts.test_slot_coverage_counts_parents_and_child_slots_separately) ... ok
+test_smoke_and_evaluation_set_runtime_flags_from_actual_mode (test_train.TrainerContracts.test_smoke_and_evaluation_set_runtime_flags_from_actual_mode) ... ok
+test_tampered_checkpoint_stops_before_runtime (test_train.TrainerContracts.test_tampered_checkpoint_stops_before_runtime) ... ok
+test_terminal_weights_survive_final_integrity_failure (test_train.TrainerContracts.test_terminal_weights_survive_final_integrity_failure) ... ok
+test_transition_accounting (test_train.TrainerContracts.test_transition_accounting) ... ok
+test_twenty_updates_epoch_rollover_and_intermediate_checkpoints (test_train.TrainerContracts.test_twenty_updates_epoch_rollover_and_intermediate_checkpoints) ... ok
+
+----------------------------------------------------------------------
+Ran 115 tests in 8.389s
+
+OK
