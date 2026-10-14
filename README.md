@@ -15,4 +15,4 @@ The package passed 118 CPU tests, including a regression against the actual
 V3 `select_neighbors` implementation, and archive extraction verification.
 Real BRIGHT/CUDA smoke and formal Val450 training have not been run here.
 
-ZIP SHA256: `85dfd4151e6f485ce8b0a7c4423b3e17c2985ad285c61dd42617ddd46030293e`
+ZIP SHA256: `7a77af303d09a2aaeebd44dd20ab26837b23ff70f1116eedb37f2a8c5a44ac28`

@@ -81,7 +81,7 @@ E0: 从 V3 pipeline_state.json 读取；否则使用既有 fresh_e0/protocol.jso
   test -s "$ZIP"
   UNPACK="$(mktemp -d /root/shared-nvme/BRIGHT-master/New/soft_memory_XXXXXXXX)"
   "$PYTHON" -m zipfile -e "$ZIP" "$UNPACK"
-  TOOL="$UNPACK/soft_memory_joint_v1_fix1"
+  TOOL="$UNPACK/soft_memory_joint_v1"
   "$PYTHON" "$TOOL/run.py" plan
   "$PYTHON" "$TOOL/run.py" find-baseline
   printf '%s\n' "$TOOL" > /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path_fix1.txt
