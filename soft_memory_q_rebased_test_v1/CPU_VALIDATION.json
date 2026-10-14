@@ -1,0 +1,11 @@
+{
+  "format": "SOFT_MEMORY_Q_REBASED_LOCKED_TEST_CPU_VALIDATION_V1",
+  "date_utc": "2026-10-14",
+  "tests_run": 8,
+  "passed": true,
+  "shell_syntax_passed": true,
+  "python_compile_passed": true,
+  "real_bright_test_images_accessed": false,
+  "cuda_inference_run": false,
+  "interpretation": "Synthetic protocol, split, score, hash and saved-prediction contracts only. The original four-arm run must first complete its formal 5000-step Val450 endpoint."
+}
