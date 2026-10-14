@@ -1,0 +1,25 @@
+test_all_present_needs_no_backup (test_restore_sources.RestoreTests.test_all_present_needs_no_backup) ... ok
+test_audit_reports_missing_without_creating_targets (test_restore_sources.RestoreTests.test_audit_reports_missing_without_creating_targets) ... ok
+test_backup_modified_after_search_rejected_before_install (test_restore_sources.RestoreTests.test_backup_modified_after_search_rejected_before_install) ... ok
+test_bad_install_checksum_removes_only_created_target (test_restore_sources.RestoreTests.test_bad_install_checksum_removes_only_created_target) ... ok
+test_broken_symlink_not_replaced (test_restore_sources.RestoreTests.test_broken_symlink_not_replaced) ... ok
+test_destination_outside_allowed_root_is_rejected (test_restore_sources.RestoreTests.test_destination_outside_allowed_root_is_rejected) ... ok
+test_existing_report_is_preserved (test_restore_sources.RestoreTests.test_existing_report_is_preserved) ... ok
+test_existing_wrong_file_is_never_overwritten (test_restore_sources.RestoreTests.test_existing_wrong_file_is_never_overwritten) ... ok
+test_explicit_allowed_root_may_be_platform_symlink (test_restore_sources.RestoreTests.test_explicit_allowed_root_may_be_platform_symlink) ... ok
+test_fallback_never_overwrites_concurrently_existing_target (test_restore_sources.RestoreTests.test_fallback_never_overwrites_concurrently_existing_target) ... ok
+test_incomplete_protocol_cannot_authorize_restore (test_restore_sources.RestoreTests.test_incomplete_protocol_cannot_authorize_restore) ... ok
+test_nested_zip_discovery_and_prefix_independence (test_restore_sources.RestoreTests.test_nested_zip_discovery_and_prefix_independence) ... ok
+test_report_cannot_occupy_frozen_input_or_create_it_as_directory (test_restore_sources.RestoreTests.test_report_cannot_occupy_frozen_input_or_create_it_as_directory) ... ok
+test_restore_raw_exact_bytes_preserves_protocol (test_restore_sources.RestoreTests.test_restore_raw_exact_bytes_preserves_protocol) ... ok
+test_shared_filesystem_link_fallback_preserves_bytes (test_restore_sources.RestoreTests.test_shared_filesystem_link_fallback_preserves_bytes) ... ok
+test_symlinked_parent_cannot_escape_allowed_root (test_restore_sources.RestoreTests.test_symlinked_parent_cannot_escape_allowed_root) ... ok
+test_tar_gz_regular_members (test_restore_sources.RestoreTests.test_tar_gz_regular_members) ... ok
+test_wrong_candidate_hash_never_restores (test_restore_sources.RestoreTests.test_wrong_candidate_hash_never_restores) ... ok
+test_wrong_same_name_candidate_does_not_hide_correct_copy (test_restore_sources.RestoreTests.test_wrong_same_name_candidate_does_not_hide_correct_copy) ... ok
+test_zip_symlink_does_not_restore_target (test_restore_sources.RestoreTests.test_zip_symlink_does_not_restore_target) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.580s
+
+OK

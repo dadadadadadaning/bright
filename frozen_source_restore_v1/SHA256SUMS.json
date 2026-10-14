@@ -1,0 +1,8 @@
+{
+  "CPU_TESTS.log": "d09ace6e6702e226fe957a4ba72c27cbb49841ffbdc7503d1b7a51b423bd875a",
+  "CPU_VALIDATION.json": "603dea76ef144ef20b6131609c5efe9f149fdb1a5c23c643b2a3de69612b4941",
+  "README.md": "95d24b990990a415f0c2dbf84d398e1161f9e4225bbdadb9aff96f446fa5947f",
+  "restore_sources.py": "d9b4057efe06ace24ae31878ed130f1bb5924259d8ab9cecfa50d3968929465f",
+  "run_server.sh": "042c72938e45b2745520d17ab1dab2db3f7ca48a47ea03d4c7f3b941f4343ca5",
+  "test_restore_sources.py": "9fbecededb81bb8ef8f87b1caa2a898094270efe2fbb2609fd9fc62d44795b3c"
+}

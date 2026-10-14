@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-10-14T10:44:59.401004+00:00",
+  "complete": true,
+  "tests_run": 20,
+  "tests_passed": 20,
+  "shell_syntax_passed": true,
+  "python_version": "3.12.14",
+  "scope": "Synthetic filesystem restoration; no real BRIGHT source files, no remote server execution",
+  "cuda_used": false,
+  "training": false,
+  "test_log_sha256": "d09ace6e6702e226fe957a4ba72c27cbb49841ffbdc7503d1b7a51b423bd875a"
+}
