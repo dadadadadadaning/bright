@@ -1,0 +1,11 @@
+{
+  "format": "SOFT_MEMORY_Q_REBASED_CPU_VALIDATION_V1",
+  "date_utc": "2026-10-14",
+  "test_command": "PYTHONPATH=/workspace/bright /workspace/bright-env/bin/python -m unittest discover -s /workspace/bright-followup/soft_memory_q_rebased_v1 -p 'test_*.py' -q",
+  "tests_run": 135,
+  "passed": true,
+  "real_bright_train_or_val": false,
+  "cuda_forward_or_training": false,
+  "server_checkpoint_verified": false,
+  "interpretation": "Synthetic CPU contracts and static scripts passed; server Q source, archived V3 membership, native CUDA pooling and Val450 require staged smoke/formal execution."
+}
