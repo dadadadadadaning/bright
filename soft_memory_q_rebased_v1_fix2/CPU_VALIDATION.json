@@ -1,0 +1,17 @@
+{
+  "format": "SOFT_MEMORY_Q_REBASED_CPU_VALIDATION_FIX2",
+  "date_utc": "2026-10-14",
+  "test_command": "BRIGHT_TEST_REPO=/workspace/bright PYTHONPATH=/workspace/bright /workspace/bright-env/bin/python -m unittest discover -s /workspace/bright-followup/soft_memory_q_rebased_v1_fix2 -p 'test_*.py' -q",
+  "tests_run": 139,
+  "passed": true,
+  "server_like_layout_targeted_tests": 8,
+  "server_like_layout_targeted_passed": true,
+  "standalone_fallback_targeted_tests": 8,
+  "standalone_fallback_targeted_passed": true,
+  "zero_dimensional_long_tensor_hash_regressions": 4,
+  "synthetic_parent_build_with_scalar_front_buffer": true,
+  "real_bright_train_or_val": false,
+  "cuda_forward_or_training": false,
+  "server_checkpoint_verified": false,
+  "interpretation": "Synthetic CPU contracts, relocated-package path checks, and zero-dimensional Long tensor hashing passed on PyTorch 2.2.1+cpu. Server Q source, archived V3 membership, native CUDA pooling and Val450 require staged smoke/formal execution."
+}
