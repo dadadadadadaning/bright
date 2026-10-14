@@ -1,0 +1,10 @@
+{
+  "format": "BRIGHT_EVIDENCE_AUDIT_VALIDATION_V1",
+  "generated_at": "2026-10-14T15:06:36.149419+08:00",
+  "stdlib_unit_tests_passed": 41,
+  "cli_synthetic_integration_passed": true,
+  "actual_server_scan": false,
+  "cuda_used": false,
+  "model_validation_performed": false,
+  "limitations": "Report inventory only; no model/data/artifact re-certification."
+}
