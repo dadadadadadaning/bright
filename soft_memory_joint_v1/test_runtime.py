@@ -16,7 +16,7 @@ from build_values import run_build
 from common import digest
 from model import JointRegionMemoryClassifier
 from server_runtime import (Runtime,FrozenSlotRuntime,BuildingCapture,validate_values,validate_selected,
-                            json_hash,VALUE_SCHEMA,LABEL_SCHEMA)
+                            json_hash,VALUE_SCHEMA,LABEL_SCHEMA,searchable_parent_view)
 from test_build_values import FakeBuildRuntime,parent_fixture,data_fixture
 
 
@@ -35,6 +35,7 @@ class QueryRuntime(Runtime):
         self.args=SimpleNamespace(topk=8,chunk_size=2,key_name='t128')
         self.device=torch.device('cpu');self.bank=parent_fixture();self._train_ids={'e0_0':0}
         self.retrieval_bank=self.bank
+        self.selection_bank=searchable_parent_view(self.retrieval_bank)
         self.select_calls=0;self._data=data_fixture(target_override=target)
         rules={}
         for rule,slot in self._data['slots'].items():

@@ -237,6 +237,26 @@ def validate_selected(ids, bank, *, event_id, image_id):
             raise ValueError('Selected a same-event or same-image parent: ' + field)
 
 
+def searchable_parent_view(bank):
+    """Make child-unavailable parent rows invisible to the frozen V3 ranker.
+
+    V3 derives key eligibility from both key norms and does not read the extra
+    ``eligible`` field. A smoke child bank writes only four source images, so
+    its other original parent rows must have zero keys in this *temporary*
+    search view. Parent row numbers and the verified bank stay untouched.
+    """
+    eligible = bank['eligible']
+    rows = len(bank['t128'])
+    if (eligible.dtype != torch.bool or eligible.shape != (rows,)
+            or any(bank[key].device != eligible.device for key in ('t128', 'f256'))):
+        raise ValueError('Search eligibility must match the parent key rows/device')
+    unavailable = ~eligible[:, None]
+    view = dict(bank)
+    for key in ('t128', 'f256'):
+        view[key] = bank[key].masked_fill(unavailable, 0)
+    return view
+
+
 class Runtime(FrozenSlotRuntime):
     def __enter__(self):
         try:
@@ -311,6 +331,7 @@ class Runtime(FrozenSlotRuntime):
             self.values_before = tree_hash(self.values)
             self.retrieval_bank = dict(self.bank)
             self.retrieval_bank['eligible'] = self.bank['eligible'] & self.values['written'].to(self.device)
+            self.selection_bank = searchable_parent_view(self.retrieval_bank)
             self.protocol_info.update(child_values=str(self.values_root), child_values_sha256=digest(self.values_root/'slot_bank.pt'),
                 child_manifest_sha256=digest(manifest_path), child_values_smoke=smoke,
                 child_value_schema=VALUE_SCHEMA, child_label_schema=LABEL_SCHEMA, parent_key=key,
@@ -345,7 +366,7 @@ class Runtime(FrozenSlotRuntime):
         eid = self.bank['event_names'].index(event) if event in self.bank['event_names'] else -1
         iid = self._train_ids.get(name,-1)
         key = getattr(self.args,'key_name','t128')
-        ids,_ = d.select_neighbors(pair[key].masked_fill(~active[:,None],0), self.retrieval_bank,
+        ids,_ = d.select_neighbors(pair[key].masked_fill(~active[:,None],0), self.selection_bank,
             key_name=key,event_id=eid,image_id=iid,topk=self.args.topk,policy='global',chunk_size=self.args.chunk_size)
         ids = ids.masked_fill(~active[:,None],-1)
         validate_selected(ids,self.retrieval_bank,event_id=eid,image_id=iid)

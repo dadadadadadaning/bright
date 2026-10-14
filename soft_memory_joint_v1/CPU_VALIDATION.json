@@ -2,8 +2,8 @@
   "date": "2026-10-14",
   "timezone": "Asia/Shanghai",
   "suite": "unittest discover test_*.py",
-  "tests": 115,
-  "seconds": 8.389,
+  "tests": 118,
+  "seconds": 8.492,
   "passed": true,
   "environment": {
     "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
@@ -17,5 +17,6 @@
   "server_shell_syntax_passed": true,
   "read_only_plan_passed": true,
   "known_frontend_pooling_fault_fixed": false,
-  "log_sha256": "0cdd9ee008ee1e97ce1079b2388d73295e1f4ddb0cfab3b6396c660f5b9c7265"
+  "real_v3_selection_regression_passed": true,
+  "log_sha256": "31b0220e55cd0940cb9aff7454eb89a804cdc5f844612912ff789652dc29262d"
 }

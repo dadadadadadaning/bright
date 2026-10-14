@@ -96,6 +96,9 @@ ok
 test_wrong_value_schema_rejected (test_runtime.ValueLoaderContracts.test_wrong_value_schema_rejected) ... Fresh paired child values 4/4
 CHILD VALUES COMPLETE. No training. Train only. Parent keys and membership unchanged.
 ok
+test_full_child_bank_matches_original_v3_selection_exactly (test_selection_v3.V3SelectionContracts.test_full_child_bank_matches_original_v3_selection_exactly) ... ok
+test_no_legal_cross_event_parent_returns_padding (test_selection_v3.V3SelectionContracts.test_no_legal_cross_event_parent_returns_padding) ... ok
+test_partial_child_bank_excludes_unwritten_rows_before_topk (test_selection_v3.V3SelectionContracts.test_partial_child_bank_excludes_unwritten_rows_before_topk) ... ok
 test_all_ignored_zero_labels_mass (test_slots.SlotContracts.test_all_ignored_zero_labels_mass) ... ok
 test_background_role_can_have_damaged_label (test_slots.SlotContracts.test_background_role_can_have_damaged_label) ... ok
 test_capacity_independent_of_building (test_slots.SlotContracts.test_capacity_independent_of_building) ... ok
@@ -138,6 +141,6 @@ test_transition_accounting (test_train.TrainerContracts.test_transition_accounti
 test_twenty_updates_epoch_rollover_and_intermediate_checkpoints (test_train.TrainerContracts.test_twenty_updates_epoch_rollover_and_intermediate_checkpoints) ... ok
 
 ----------------------------------------------------------------------
-Ran 115 tests in 8.389s
+Ran 118 tests in 8.492s
 
 OK

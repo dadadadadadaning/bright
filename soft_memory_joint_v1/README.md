@@ -4,6 +4,8 @@
 
 这是独立的 **A/B/C/D 四组实验工具**，复用服务器已有 E0 协议、V3 FP32 父案例库与 BRIGHT 代码。代码放在 `/root/shared-nvme/BRIGHT-master/New`；不会安装或覆盖原 `bda_benchmark`，不改旧库、旧报告或失败状态。
 
+本修订版修复 smoke 子库的父案例选择：原 V3 排序器仅根据 T128/F256 非零范数判断可检索性，不读取新双槽库的 `written` 标记。现在只在临时检索视图中将未写父行的两种 key 置零，保留原父库、行号以及选后合法性检查。此前失败目录不能续跑，需使用新工具目录和新输出目录重新运行 `check`。
+
 已实现真实数据建库、smoke、训练和 Val 驱动，但云端只有 CPU。发布前的测试结果见 `CPU_VALIDATION.json`：**CPU 合成测试不是 BRIGHT/CUDA 验证，也不是实验涨分结果。** 已知旧 native pooling 越界不在本包中被修复或绕过，发生时会停止并保存现场。
 
 ## 现在先做什么
@@ -63,10 +65,10 @@ E0: 从 V3 pipeline_state.json 读取；否则使用既有 fresh_e0/protocol.jso
 
 ## 解压与只读核对
 
-先把发布的 `bright_soft_memory_joint_v1.zip` 上传到：
+先把修订版 `bright_soft_memory_joint_v1_fix1.zip` 上传到：
 
 ```
-/root/shared-nvme/BRIGHT-master/New/bright_soft_memory_joint_v1.zip
+/root/shared-nvme/BRIGHT-master/New/bright_soft_memory_joint_v1_fix1.zip
 ```
 
 使用发布消息中的 SHA256 校验，然后解压到新的临时目录，保留稳定的工具路径记录：
@@ -75,14 +77,14 @@ E0: 从 V3 pipeline_state.json 读取；否则使用既有 fresh_e0/protocol.jso
 (
   set -euo pipefail
   PYTHON=/root/shared-nvme/conda-envs/bright4090/bin/python
-  ZIP=/root/shared-nvme/BRIGHT-master/New/bright_soft_memory_joint_v1.zip
+  ZIP=/root/shared-nvme/BRIGHT-master/New/bright_soft_memory_joint_v1_fix1.zip
   test -s "$ZIP"
   UNPACK="$(mktemp -d /root/shared-nvme/BRIGHT-master/New/soft_memory_XXXXXXXX)"
   "$PYTHON" -m zipfile -e "$ZIP" "$UNPACK"
-  TOOL="$UNPACK/soft_memory_joint_v1"
+  TOOL="$UNPACK/soft_memory_joint_v1_fix1"
   "$PYTHON" "$TOOL/run.py" plan
   "$PYTHON" "$TOOL/run.py" find-baseline
-  printf '%s\n' "$TOOL" > /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path.txt
+  printf '%s\n' "$TOOL" > /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path_fix1.txt
 )
 ```
 
@@ -93,7 +95,7 @@ E0: 从 V3 pipeline_state.json 读取；否则使用既有 fresh_e0/protocol.jso
 即使删除原终端，也可从记录文件恢复工具位置，不需再次 `read -p`：
 
 ```bash
-TOOL="$(cat /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path.txt)"
+TOOL="$(cat /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path_fix1.txt)"
 bash "$TOOL/start_server.sh" check
 ```
 
@@ -114,7 +116,7 @@ bash "$TOOL/start_server.sh" check
 自动发现通过核对的旧三组：
 
 ```bash
-TOOL="$(cat /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path.txt)"
+TOOL="$(cat /root/shared-nvme/BRIGHT-master/New/soft_memory_tool_path_fix1.txt)"
 bash "$TOOL/run.sh" baseline-check
 bash "$TOOL/start_server.sh" full
 ```
