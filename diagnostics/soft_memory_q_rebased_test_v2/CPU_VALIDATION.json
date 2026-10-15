@@ -1,0 +1,15 @@
+{
+  "new_cpu_contract_tests": {
+    "passed": 16,
+    "failed": 0
+  },
+  "original_v1_cpu_contract_tests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "real_fix2_model_and_checkpoint_writer_used": true,
+  "real_GPU_tested": false,
+  "real_Test878_accessed": false,
+  "uploaded_fix2_source_sha256": "b84e2867a4117911b8279e2f97ccf9c5fbd021a7dc539f59e6bbb06396546142",
+  "scope": "CPU synthetic contracts only; not evidence of server CUDA execution or model quality"
+}

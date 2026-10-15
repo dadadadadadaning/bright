@@ -1,0 +1,9 @@
+{
+  "new_contract_tests": 16,
+  "original_contract_tests": 8,
+  "standalone_help": true,
+  "standalone_real_checkpoint_format_plan": true,
+  "cuda_tested": false,
+  "real_test878_accessed": false,
+  "source_tool_sha256": "b84e2867a4117911b8279e2f97ccf9c5fbd021a7dc539f59e6bbb06396546142"
+}
