@@ -1,0 +1,14 @@
+{
+  "test_groups": {
+    "existing_checkpoint_and_real_head_cpu_tests": 16,
+    "numeric_profile_regressions": 16
+  },
+  "total_cpu_tests": 32,
+  "passed": true,
+  "python": "3.12",
+  "torch": "2.2.1+cpu",
+  "real_server_gpu_tested": false,
+  "actual_Test878_executed": false,
+  "training_code_modified": false,
+  "original_numeric_gate_preserved": true
+}

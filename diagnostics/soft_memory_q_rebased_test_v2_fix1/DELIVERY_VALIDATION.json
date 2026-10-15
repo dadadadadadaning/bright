@@ -1,0 +1,20 @@
+{
+  "inner": {
+    "file": "bright_soft_memory_q_rebased_test_v2_fix1.zip",
+    "sha256": "4a8983944cc5535d9e6cabe890cd074273849303d13a4298704f2e4d5a7395f7"
+  },
+  "launcher": {
+    "file": "RUN_SOFT_MEMORY_TEST_V2_FIX1.py",
+    "sha256": "c24c03e6b11e15b32cde760a3c41726a15ce18968f317d8bea8a795642a32e7d"
+  },
+  "delivery": {
+    "file": "bright_soft_memory_test_v2_fix1_delivery.zip",
+    "sha256": "e0728585e9d5e9153da213947483ad0ee6f5067d72b37cfb0326b85952cd7478"
+  },
+  "cpu_tests_passed": 32,
+  "embedded_launcher_help_passed": true,
+  "embedded_launcher_real_writer_plan_passed": true,
+  "embedded_launcher_tamper_rejected": true,
+  "real_GPU_tested": false,
+  "actual_Test878_executed": false
+}
