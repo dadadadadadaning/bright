@@ -1,0 +1,22 @@
+{
+  "论文正文_按结构图改写_结果待补": {
+    "paragraphs": 107,
+    "tables": 0,
+    "math_objects": 43,
+    "bytes": 23743
+  },
+  "实验与配图规划_空表与证据清单": {
+    "paragraphs": 82,
+    "tables": 19,
+    "math_objects": 0,
+    "bytes": 34415
+  },
+  "spreadsheet_sheets": 22,
+  "template_tables": 19,
+  "historical_scores_present": false,
+  "pdf_pages": {
+    "实验与配图规划_空表与证据清单.pdf": 17,
+    "论文正文_按结构图改写_结果待补.pdf": 9
+  },
+  "visual_checks": "已检查正文首页、公式页、规划首页及证据链示意图"
+}
