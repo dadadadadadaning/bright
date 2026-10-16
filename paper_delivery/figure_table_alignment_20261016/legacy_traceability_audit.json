@@ -1,0 +1,610 @@
+{
+  "scope": "历史18个Test裁窗的代码和保存元数据核对；不是全Test性能，不是重新读取原始预测与GT数组的验证。",
+  "source_files": {
+    "assembled_provenance": {
+      "path": "research_reports/A1_test_assembled_20261009_v2/provenance.json",
+      "sha256": "501b72757ec3e09691aef6f408196840b3025f3b3208b4e3867e1edc40160814"
+    },
+    "a1_model_manifest": {
+      "path": "research_reports/A1_test_lookup_20261009_v2/a1_models.json",
+      "sha256": "3b7959197df57bb510c1102b0b4df86a76e06095bef9171627bf4ad39e0415f8"
+    },
+    "selected_crop_records": {
+      "path": "research_reports/test_comparison_ppt/build/data.json",
+      "sha256": "4fd26995f7b1ca7b24fa440ee8dd1c704a6fd98b8409dc2cc1d36f31db6554a4"
+    },
+    "selected_crop_metrics": {
+      "path": "research_reports/test_evidence_details/build/analysis.json",
+      "sha256": "c05bdfbdacf71f8671131a236697e41902f58e4f8a703018566758b306a9bb13"
+    },
+    "recompute_script": {
+      "path": "tools/analyze_test_comparisons.py",
+      "sha256": "2ff32cba95978a34859d2477bcfbcb44de43563466647d3f7feb8d778e9181ca"
+    },
+    "assembly_script": {
+      "path": "tools/assemble_test_ppt_assets.py",
+      "sha256": "1d8280774b81c0bdf73ad2f950a1f41315969812e817e4f514e2568040cf4d64"
+    },
+    "run_script": {
+      "path": "tools/run_test_six_models.py",
+      "sha256": "8679c93d61f0f847b1948e9b8cc8f107fad54d89fef23774bbecd151238463cd"
+    }
+  },
+  "model_records": [
+    {
+      "name": "UNet",
+      "factory": "bda_benchmark.model.UNet:UNet",
+      "kwargs": {
+        "in_channels": 6,
+        "num_classes": 4
+      },
+      "input_mode": "concat",
+      "output_index": null,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_UNet_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "46c11db38011b8c48cbf1223c3bfc629569f64ee6df300806211479eb5a5bcc2",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5228290,
+          143753,
+          50327,
+          27565
+        ],
+        [
+          132848,
+          553590,
+          66361,
+          3579
+        ],
+        [
+          62354,
+          115215,
+          230451,
+          9828
+        ],
+        [
+          58217,
+          257106,
+          39654,
+          164286
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "DeepLabV3Plus",
+      "factory": "bda_benchmark.model.DeepLabV3Plus:DeepLabV3Plus",
+      "kwargs": {
+        "in_channels": 6,
+        "num_classes": 4
+      },
+      "input_mode": "concat",
+      "output_index": null,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DeepLabV3Plus_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "3ff8cca5b61c5a636601ec896724fa248c4ffecc4eb76d811ee8c60f4d2323e3",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5210193,
+          169050,
+          48841,
+          21851
+        ],
+        [
+          136085,
+          536910,
+          64998,
+          18385
+        ],
+        [
+          54594,
+          118492,
+          237746,
+          7016
+        ],
+        [
+          78073,
+          243528,
+          53428,
+          144234
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "SiamAttnUNet",
+      "factory": "bda_benchmark.model.SiamAttnUNet:SiamAttnUNet",
+      "kwargs": {
+        "in_channels": 3,
+        "num_classes": 4
+      },
+      "input_mode": "pair",
+      "output_index": null,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamAttnUNet_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "0cf7825c10489cb432c99faba8f7126768bd01270f4c3d9d9ad69afeed466f51",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5222407,
+          160272,
+          41049,
+          26207
+        ],
+        [
+          126637,
+          554600,
+          38270,
+          36871
+        ],
+        [
+          63932,
+          203518,
+          136668,
+          13730
+        ],
+        [
+          67298,
+          237354,
+          46982,
+          167629
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "SiamCRNN",
+      "factory": "bda_benchmark.model.SiamCRNN:SiamCRNN",
+      "kwargs": {},
+      "input_mode": "pair",
+      "output_index": 1,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_SiamCRNN_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "3ea5c6e720f0dcde66d0a37e12d3ab7e2305c83c30c9806b17e1f45af79f1cc0",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5264473,
+          118352,
+          43430,
+          23680
+        ],
+        [
+          124546,
+          545324,
+          70099,
+          16409
+        ],
+        [
+          57820,
+          122409,
+          224678,
+          12941
+        ],
+        [
+          94964,
+          203047,
+          54150,
+          167102
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "DamageFormer",
+      "factory": "bda_benchmark.model.DamageFormer:DamageFormer",
+      "kwargs": {
+        "use_pretrained_swin": false
+      },
+      "input_mode": "pair",
+      "output_index": 1,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/ckpt_DamageFormer_standard_ML_split.pth",
+      "enabled": true,
+      "sha256": "0d2da93c631574c0887447e6fc1c865728d5df44ee7fc2bb5adc0bf454594f24",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5288086,
+          115119,
+          30544,
+          16186
+        ],
+        [
+          102994,
+          583946,
+          60721,
+          8717
+        ],
+        [
+          49023,
+          125862,
+          224737,
+          18226
+        ],
+        [
+          79414,
+          234894,
+          42547,
+          162408
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    },
+    {
+      "name": "Ours_A1",
+      "factory": "bda_benchmark.model.DamageFormer_S8_MICB_DSMIL:DamageFormer_S8_MICB_DSMIL",
+      "kwargs": {
+        "roi_alpha": 0.1,
+        "detach_building_prior": true,
+        "token_dim": 128,
+        "mil_topk": 8,
+        "max_tokens_per_bag": 256,
+        "mil_residual_scale": 0.0
+      },
+      "input_mode": "pair",
+      "output_index": 1,
+      "checkpoint": "/root/shared-nvme/BRIGHT-checkpoints/best/best_val_miou.pth",
+      "enabled": true,
+      "expected_sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+      "expected_variant": "a1",
+      "sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add",
+      "status": "complete",
+      "confusion_visual_subset": [
+        [
+          5275733,
+          115932,
+          27172,
+          31098
+        ],
+        [
+          89008,
+          572090,
+          65628,
+          29652
+        ],
+        [
+          55130,
+          110537,
+          238378,
+          13803
+        ],
+        [
+          60391,
+          135284,
+          51636,
+          271952
+        ]
+      ],
+      "split": "test",
+      "note": "Selected crops only: NOT full split performance; no TTA or postprocessing."
+    }
+  ],
+  "samples": [
+    {
+      "sample_id": "bata-explosion_00000062",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "class_pixels": [
+        240010,
+        6162,
+        5647,
+        10325
+      ]
+    },
+    {
+      "sample_id": "bata-explosion_00000049",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "class_pixels": [
+        227718,
+        4412,
+        3585,
+        26429
+      ]
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000014",
+      "xywh": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "class_pixels": [
+        192725,
+        34906,
+        14902,
+        19611
+      ]
+    },
+    {
+      "sample_id": "hawaii-wildfire_00000003",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "class_pixels": [
+        184229,
+        8208,
+        13329,
+        56378
+      ]
+    },
+    {
+      "sample_id": "libya-flood_00000021",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "class_pixels": [
+        363581,
+        18550,
+        205407,
+        2286
+      ]
+    },
+    {
+      "sample_id": "congo-volcano_00000085",
+      "xywh": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "class_pixels": [
+        196727,
+        20584,
+        4813,
+        40020
+      ]
+    },
+    {
+      "sample_id": "congo-volcano_00000092",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "class_pixels": [
+        182034,
+        60146,
+        4434,
+        15530
+      ]
+    },
+    {
+      "sample_id": "la_palma-volcano_00000597",
+      "xywh": [
+        0,
+        256,
+        768,
+        768
+      ],
+      "class_pixels": [
+        535424,
+        8616,
+        2796,
+        42988
+      ]
+    },
+    {
+      "sample_id": "la_palma-volcano_00000353",
+      "xywh": [
+        256,
+        256,
+        512,
+        512
+      ],
+      "class_pixels": [
+        211070,
+        45915,
+        590,
+        4569
+      ]
+    },
+    {
+      "sample_id": "turkey-earthquake_00001065",
+      "xywh": [
+        256,
+        0,
+        512,
+        512
+      ],
+      "class_pixels": [
+        116268,
+        46421,
+        51096,
+        48359
+      ]
+    },
+    {
+      "sample_id": "turkey-earthquake_00001074",
+      "xywh": [
+        256,
+        512,
+        512,
+        512
+      ],
+      "class_pixels": [
+        109387,
+        79523,
+        35771,
+        37463
+      ]
+    },
+    {
+      "sample_id": "noto-earthquake_00000038",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "class_pixels": [
+        307325,
+        98929,
+        25449,
+        158121
+      ]
+    },
+    {
+      "sample_id": "noto-earthquake_00000049",
+      "xywh": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "class_pixels": [
+        164547,
+        85215,
+        3613,
+        8769
+      ]
+    },
+    {
+      "sample_id": "mexico-hurricane_00000005",
+      "xywh": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "class_pixels": [
+        186537,
+        13966,
+        21172,
+        40469
+      ]
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000107",
+      "xywh": [
+        0,
+        0,
+        768,
+        768
+      ],
+      "class_pixels": [
+        545157,
+        42882,
+        1147,
+        638
+      ]
+    },
+    {
+      "sample_id": "myanmar-hurricane_00000099",
+      "xywh": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "class_pixels": [
+        1033604,
+        7824,
+        4777,
+        2371
+      ]
+    },
+    {
+      "sample_id": "ukraine-conflict_00000354",
+      "xywh": [
+        512,
+        256,
+        512,
+        512
+      ],
+      "class_pixels": [
+        201636,
+        55090,
+        2778,
+        2640
+      ]
+    },
+    {
+      "sample_id": "ukraine-conflict_00000315",
+      "xywh": [
+        256,
+        256,
+        768,
+        768
+      ],
+      "class_pixels": [
+        451956,
+        119029,
+        16542,
+        2297
+      ]
+    }
+  ],
+  "saved_count_arithmetic_checks": {
+    "UNet": {
+      "matrix_gt_row_totals_match": true,
+      "stored_iou_arithmetic_matches": true,
+      "recorded_checkpoint_sha256": "46c11db38011b8c48cbf1223c3bfc629569f64ee6df300806211479eb5a5bcc2"
+    },
+    "DeepLabV3Plus": {
+      "matrix_gt_row_totals_match": true,
+      "stored_iou_arithmetic_matches": true,
+      "recorded_checkpoint_sha256": "3ff8cca5b61c5a636601ec896724fa248c4ffecc4eb76d811ee8c60f4d2323e3"
+    },
+    "SiamAttnUNet": {
+      "matrix_gt_row_totals_match": true,
+      "stored_iou_arithmetic_matches": true,
+      "recorded_checkpoint_sha256": "0cf7825c10489cb432c99faba8f7126768bd01270f4c3d9d9ad69afeed466f51"
+    },
+    "SiamCRNN": {
+      "matrix_gt_row_totals_match": true,
+      "stored_iou_arithmetic_matches": true,
+      "recorded_checkpoint_sha256": "3ea5c6e720f0dcde66d0a37e12d3ab7e2305c83c30c9806b17e1f45af79f1cc0"
+    },
+    "DamageFormer": {
+      "matrix_gt_row_totals_match": true,
+      "stored_iou_arithmetic_matches": true,
+      "recorded_checkpoint_sha256": "0d2da93c631574c0887447e6fc1c865728d5df44ee7fc2bb5adc0bf454594f24"
+    },
+    "Ours_A1": {
+      "matrix_gt_row_totals_match": true,
+      "stored_iou_arithmetic_matches": true,
+      "recorded_checkpoint_sha256": "cf834b5929c96f84642b8b856c985dc818eecac66a1f01ca3803e1b1dc200add"
+    }
+  },
+  "gt_totals": [
+    5449935,
+    756378,
+    417848,
+    519263
+  ],
+  "valid_selected_pixels": 7143424,
+  "raw_arrays_rechecked": false,
+  "current_workspace_original_arrays_available": false,
+  "server_prediction_root_recorded": "/root/shared-nvme/BRIGHT-test-sixmodels-v2/predictions",
+  "archive_member_patterns": [
+    "predictions/run_manifest.json",
+    "predictions/selection.json",
+    "predictions/{model}/{sample_id}_labels.png",
+    "predictions/{model}/{sample_id}_color.png"
+  ],
+  "reuse_plan": "原始预测标签PNG、原GT TIFF和现有裁窗坐标齐全即可复核与重排，无需重新训练。完整方法另补真实输出。"
+}

@@ -1,0 +1,43 @@
+{
+  "input_current_sha256": "b9b2e0c78fe3ca3ce145b1f5337c39dbfb7a80584c92c70ecd778aa8f50fd38e",
+  "input_old_sha256": "8b6dfceead56ee45837fc08e0386a0bff53ab633a82efff7c9b4dc53825ca076",
+  "original_omml_equations_preserved": 89,
+  "all_four_current_images_preserved_byte_for_byte": true,
+  "current_figure1_already_labels_frozen_MPF": true,
+  "old_prediction_images_restored_unchanged": [
+    {
+      "old_figure": 5,
+      "new_figure": 11,
+      "image": "image5.png",
+      "sha256": "1b4251cd439b25888a4bfeabd068a8db6e19b7b1be74c62fa4b266dba376047b"
+    },
+    {
+      "old_figure": 6,
+      "new_figure": 12,
+      "image": "image6.png",
+      "sha256": "65dc697c1b7c791f4b4a93e361c073ad2cede726c7107f6b78b360373a545962"
+    },
+    {
+      "old_figure": 7,
+      "new_figure": 13,
+      "image": "image7.png",
+      "sha256": "0f88cadb4e654202cc4d1f74663fe14bc00c8544790bfdbf8bf459e7690b0ad1"
+    }
+  ],
+  "embedded_local_score_images_archived_separately": [
+    8,
+    9,
+    10
+  ],
+  "main_document_inline_images": 7,
+  "main_data_tables": 11,
+  "numeric_result_cells_truly_blank": true,
+  "abstract_old_scores_removed": true,
+  "all_six_models_have_saved_factory_checkpoint_and_sha256": true,
+  "all_eighteen_samples_have_saved_xywh": true,
+  "model_identity_independently_checkpoint_verified": false,
+  "note": "已核对源码与保存元数据；未重新读取服务器权重和原标签数组。图表方法集合允许是子集。18窗矩阵不可填全Test表。",
+  "historical_six_model_saved_matrix_arithmetic_checked": true,
+  "selected_crop_pixel_total_checked": 7143424,
+  "rendered_pdf_pages": 25
+}

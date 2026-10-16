@@ -1,0 +1,110 @@
+{
+  "models": [
+    [
+      "A1",
+      "MPF",
+      "多模态像素前端",
+      "直接评价既有像素分类器；不等于完整检索框架"
+    ],
+    [
+      "J0",
+      "MPF-HA",
+      "像素分类头适配",
+      "固定同一前端，只按匹配预算训练像素分类头"
+    ],
+    [
+      "Jcur",
+      "Pixel–Region",
+      "像素–区域融合",
+      "当前区域特征直接回投，不使用支持读取器"
+    ],
+    [
+      "J1",
+      "Parametric Support",
+      "参数化支持对照",
+      "读取器使用可学习参考向量，不读取真实Train案例"
+    ],
+    [
+      "J2",
+      "Cosine Retrieval",
+      "余弦检索增强",
+      "固定Train库，按原始区域特征的余弦相似度选择支持"
+    ],
+    [
+      "J3",
+      "Supervised Retrieval",
+      "跨事件监督检索增强（完整方法）",
+      "同一Train库，通过跨事件类别监督投影选择支持；总体比较写Ours"
+    ]
+  ],
+  "figure_table_map": [
+    [
+      "旧图5–7的UNet",
+      "U-Net",
+      "表2；图11–13",
+      "定性图原列名按书写规范统一；没有总体计数时不填分数"
+    ],
+    [
+      "旧图5–7的DeepLabV3+",
+      "DeepLabv3+",
+      "表2；图11–13",
+      "大小写书写统一，不代表更换模型"
+    ],
+    [
+      "SiamAttnUNet / SiamCRNN / DamageFormer",
+      "保留各自模型名",
+      "表2；图11–13",
+      "每列单独绑定本地权重与预测；公开成绩不是该列的自动来源"
+    ],
+    [
+      "Ours (A1)",
+      "MPF",
+      "表2；图11–13",
+      "保存记录绑定best_val_miou.pth及SHA256；原标签数组尚待复核"
+    ],
+    [
+      "完整检索配置",
+      "Ours / Supervised Retrieval",
+      "表2 / 表5；图14",
+      "必须使用实际完整模型预测，不能复用MPF列作为完整输出"
+    ],
+    [
+      "ChangeOS / ChangeMamba",
+      "保留各自模型名",
+      "表2；旧图中没有该列",
+      "可只作定量比较；如需定性列则补真实预测"
+    ],
+    [
+      "旧图8–10",
+      "MPF局部案例归档",
+      "独立图件归档文件",
+      "局部内嵌分数待重算；与总体mIoU和完整模型分开"
+    ]
+  ],
+  "samples": [
+    [
+      "turkey-earthquake_00001065",
+      "turkey-earthquake_00001074",
+      "noto-earthquake_00000038",
+      "noto-earthquake_00000049",
+      "ukraine-conflict_00000354",
+      "ukraine-conflict_00000315"
+    ],
+    [
+      "congo-volcano_00000085",
+      "congo-volcano_00000092",
+      "la_palma-volcano_00000597",
+      "la_palma-volcano_00000353",
+      "hawaii-wildfire_00000014",
+      "hawaii-wildfire_00000003"
+    ],
+    [
+      "mexico-hurricane_00000005",
+      "myanmar-hurricane_00000107",
+      "myanmar-hurricane_00000099",
+      "libya-flood_00000021",
+      "bata-explosion_00000062",
+      "bata-explosion_00000049"
+    ]
+  ]
+}
