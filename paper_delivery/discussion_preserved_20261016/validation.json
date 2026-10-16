@@ -1,0 +1,22 @@
+{
+  "source_sha256": "8355f2f2fe76460c3c0d68d8255233b426f800a3a36c74d344b1dd059592c5a4",
+  "all_original_media_bytes_identical": 11,
+  "drawing_XML_identical": 11,
+  "original_math_identical": 89,
+  "references_unchanged": 40,
+  "complete_model_new_predictions_and_evaluation_confirmed_by_user": true,
+  "source_reported_69_62_preserved_and_marked": true,
+  "event_54_04_reported_unverified": true,
+  "unmeasured_controls": "待测",
+  "synthetic_values_in_manuscript": false,
+  "new_inference_executed": false,
+  "pdf_pages": {
+    "manuscript": 19,
+    "companion": 3
+  },
+  "image_relationships_unchanged": true,
+  "all_40_references_unchanged_and_cited": true,
+  "unknown_controls_still_pending": true,
+  "illustrative_numbers_only_in_separate_demo_files": true,
+  "independent_review_findings_resolved": 2
+}
