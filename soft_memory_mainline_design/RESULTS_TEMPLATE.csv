@@ -1,0 +1,1 @@
+﻿protocol_id,arm,seed,split,image_count,step,schedule_horizon,selection_rule,Q_source_sha256,bank_sha256,foreground_miou_percent,background_iou_percent,intact_iou_percent,damaged_iou_percent,destroyed_iou_percent,damaged_precision,damaged_recall,trainable_parameters,peak_gpu_mib,inference_ms_per_image,complete,evidence_path

@@ -1,0 +1,1 @@
+﻿case_id,image_id,event,split,crop_x,crop_y,crop_width,crop_height,native_width,native_height,selection_rule,stratum,arm,checkpoint_path,checkpoint_sha256,Q_source_sha256,bank_sha256,parent_region_id,support_parent_ids,displayed_neighbor_ranks,notes

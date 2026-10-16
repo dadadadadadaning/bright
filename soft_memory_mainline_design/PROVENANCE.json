@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-16",
+  "kind": "design_review_not_training_result",
+  "uploaded_ppt": {
+    "name": "新图.pptx",
+    "sha256": "65c7cd2969b8d7072d3af227e9d6e3ec8f8eb771d7df14c07f6a4aa8d703515b"
+  },
+  "reviewed_package": "soft_memory_q_rebased_v1_fix2",
+  "code_hashes": {
+    "model.py": "11f033a83dc3844f3ab1f9cf447b243f27278d984a3fbb726a0a7e12f86150f1",
+    "slots.py": "66460a792aaab4da7331b9c98cb7ed77ca616fdbd1966b23bbe193ac7c5f51f1",
+    "train.py": "c0fbc591b573ece26e97fb7cb3c019cc085c0061d491d28ee1f03565e35713d4",
+    "server_runtime.py": "9761b939c5bf5ca39cc8440da7f72c15db7c720660787e20476713c8d2ba9bfd"
+  },
+  "new_training_completed": false,
+  "original_ppt_modified": false
+}

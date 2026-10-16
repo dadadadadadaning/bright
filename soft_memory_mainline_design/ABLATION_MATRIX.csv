@@ -1,0 +1,13 @@
+﻿arm,routing,reference,label_input,training_rule,status,question
+P0,probability sharing,none,none,fixed,baseline_only,same-source reference
+A,spatial hard two-slot,local incl. self,A1 probabilities,matched,implemented_needs_paired_repeats,control
+B,building soft two-slot,local incl. self,A1 probabilities,matched,implemented_needs_paired_repeats,B-A soft policy effect
+C,spatial hard two-slot,Train T128 top64,Train soft GT,matched,implemented_needs_paired_repeats,C-A historical reference package
+D,building soft two-slot,Train T128 top64,Train soft GT,matched,implemented_needs_paired_repeats,D-B history; D-C routing; D-P0 system
+S-local,single slot,local incl. self,A1 probabilities,matched,proposed_not_implemented,same new-Q source single-slot control
+S-memory,single slot,Train T128 top64,Train soft GT,matched,proposed_not_implemented,same new-Q source single-slot control
+D-shiftB,shifted continuous B,same parent IDs as D,repool Train GT with shifted routing,matched,proposed_not_implemented,spatial correspondence of B
+D-random,building soft two-slot,random legal Train top64,correct paired Train soft GT,matched,proposed_not_implemented,retrieval selection beyond random history
+D-noLabel,building soft two-slot,same IDs as D,zero label input,matched,proposed_not_implemented,support label evidence
+D-shuffleLabel,building soft two-slot,same IDs as D,fixed support-label permutation,matched or sensitivity_only,proposed_not_implemented,feature-label correspondence
+D-noDirectPixel,building soft two-slot,same IDs as D,same as D,matched,proposed_not_implemented,direct F256 branch; pixel evidence remains in P0
