@@ -1,0 +1,56 @@
+{
+  "source_sha256": "8b6dfceead56ee45837fc08e0386a0bff53ab633a82efff7c9b4dc53825ca076",
+  "output_sha256": "ff80749ac8c68787192647d85274a2d174d40ed3c7e67ffae1d9bf0e62553f2f",
+  "original_formula_count": 89,
+  "preserved_formula_count": 89,
+  "all_original_formulas_unchanged": true,
+  "original_visible_images": 10,
+  "retained_original_images": 4,
+  "removed_old_result_images": [
+    "media/image10.png",
+    "media/image9.png",
+    "media/image8.png",
+    "media/image7.png",
+    "media/image6.png",
+    "media/image5.png"
+  ],
+  "new_blank_figure_slots": 8,
+  "data_tables": 11,
+  "numeric_cells_truly_empty": true,
+  "table_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "figure_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "old_score_scan_passed": true,
+  "original_file_unchanged": true,
+  "pdf_pages": 21,
+  "pdf_render_checked_pages": [
+    1,
+    12,
+    16
+  ],
+  "excel_tables": 11
+}
