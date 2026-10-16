@@ -1,0 +1,30 @@
+{
+  "Fig1_framework": {
+    "size": [
+      1473,
+      1023
+    ],
+    "identical_pixels": true
+  },
+  "Fig5a_external_comparison": {
+    "size": [
+      1473,
+      1023
+    ],
+    "identical_pixels": true
+  },
+  "Fig6_structure_diagnostic_template": {
+    "size": [
+      1473,
+      1023
+    ],
+    "identical_pixels": true
+  },
+  "FigS3_all_external_models": {
+    "size": [
+      1473,
+      1023
+    ],
+    "identical_pixels": true
+  }
+}

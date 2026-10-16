@@ -1,0 +1,31 @@
+{
+  "input_sha256": "1fd162eef2617bbd63563690a88e72f25404d6b3a00185a86c439e076dc9d04d",
+  "original_math_preserved": 89,
+  "main_figure_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "main_table_groups": 6,
+  "formal_performance_cells_blank": true,
+  "source_reported_values_archived_separately": true,
+  "predicted_performance_values_added": false,
+  "original_input_unchanged": true,
+  "note": "方法图是算子示意，真实预测像素不合成；缺实测的Ours/B/Q/支持图和结果值留白。",
+  "pdf_pages": {
+    "paper_wanet_style_revision": 18,
+    "figure_explanations_and_writing_guide": 11,
+    "supplementary_qualitative_atlas": 3
+  },
+  "word_excel_tables_match": true,
+  "short_tables_kept_together": true,
+  "three_line_tables_explicit": true,
+  "editable_ppt_slides": 12,
+  "original_crop_hash_records": 162,
+  "delivery_ooxml_zip_integrity": true
+}

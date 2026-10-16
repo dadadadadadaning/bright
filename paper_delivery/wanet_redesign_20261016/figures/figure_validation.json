@@ -1,0 +1,25 @@
+{
+  "slide_count": 12,
+  "method_font_min_pt": 9,
+  "original_crop_count": 162,
+  "unchanged_original_crops_verified": true,
+  "all_embedded_bitmaps_from_supplied_sources": true,
+  "invented_prediction_masks": 0,
+  "invented_numeric_results": 0,
+  "blank_Ours_column": true,
+  "Q_response_and_retrieval_support_placeholders": true,
+  "slides": {
+    "1": "Fig1_framework",
+    "2": "Fig2_region_encoding",
+    "3": "Fig3_retrieval_reader",
+    "4": "Fig4_original_map",
+    "5": "Fig5a_external_comparison",
+    "6": "Fig5b_external_comparison",
+    "7": "Fig6_structure_diagnostic_template",
+    "8": "Fig7_retrieval_diagnostic_template",
+    "9": "Fig8_frontend_failure_cases",
+    "10": "FigS1_all_external_models",
+    "11": "FigS2_all_external_models",
+    "12": "FigS3_all_external_models"
+  }
+}
