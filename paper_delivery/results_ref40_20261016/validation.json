@@ -1,0 +1,22 @@
+{
+  "input_sha256": "deaba61158753fbccd3e0b33c1dd94d70ef6d132e19fa1a120f79f126b954fb0",
+  "old_input_sha256": "8b6dfceead56ee45837fc08e0386a0bff53ab633a82efff7c9b4dc53825ca076",
+  "original_math_preserved": 89,
+  "references": 40,
+  "all_40_cited": true,
+  "uncertain_results_predicted": false,
+  "memory_mIoU_formal_cell_blank": true,
+  "old_prediction_identity": "MPF, not complete retrieval Ours",
+  "old_stage_values": "reported, source binding pending",
+  "new_control_performance_cells": "blank",
+  "pdf_pages": 24,
+  "main_results_order_verified": true,
+  "references_unique_and_cited": 40,
+  "all_12_figure_pages_present": true,
+  "unknown_controls_blank": true,
+  "source_reported_memory_miou_blank": true,
+  "all_figures_have_adjacent_captions": true,
+  "manuscript_review_findings_resolved": 4,
+  "original_user_doc_sha_unchanged": true,
+  "pdf_blank_pages": 0
+}

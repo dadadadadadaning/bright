@@ -1,0 +1,455 @@
+{
+  "source": "/workspace/attachments/7e5c5bb7-b6b4-4e41-828e-5a26ea52f1ae/新图.pptx",
+  "source_sha256": "c1a0e13a395f89ab5c124d5db7d3291f2ca7cb6dc6dc025750d1c62171001557",
+  "images": [
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 3,
+      "column": "Pre-event RGB",
+      "row": "overview",
+      "source_image_sha256": "ba721dd1324d4773488ba38d2161780b9a6d5673568fd0b06b3992c221f8a7d3",
+      "output_image_sha256": "ba721dd1324d4773488ba38d2161780b9a6d5673568fd0b06b3992c221f8a7d3",
+      "unchanged": true,
+      "pixels": [
+        768,
+        768
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 6,
+      "column": "Pre-event RGB",
+      "row": "enlargement",
+      "source_image_sha256": "f103b288d0ac25dbb7d81f8a774731479cb04290d38de8d396fd0d9803684a55",
+      "output_image_sha256": "f103b288d0ac25dbb7d81f8a774731479cb04290d38de8d396fd0d9803684a55",
+      "unchanged": true,
+      "pixels": [
+        192,
+        192
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 9,
+      "column": "Ground truth",
+      "row": "overview",
+      "source_image_sha256": "92b392832a7c26273aa8b2a95c324eb1e1e46f28e346f3eeaf13345eb3ec160b",
+      "output_image_sha256": "92b392832a7c26273aa8b2a95c324eb1e1e46f28e346f3eeaf13345eb3ec160b",
+      "unchanged": true,
+      "pixels": [
+        768,
+        768
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 12,
+      "column": "Ground truth",
+      "row": "enlargement",
+      "source_image_sha256": "08bfc27647ee1aa9efaa3667685890531334319568045ec9310f535f128b90c1",
+      "output_image_sha256": "08bfc27647ee1aa9efaa3667685890531334319568045ec9310f535f128b90c1",
+      "unchanged": true,
+      "pixels": [
+        192,
+        192
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 15,
+      "column": "DamageFormer",
+      "row": "overview",
+      "source_image_sha256": "bc1e5653acabb092d4b25d036e600d56155d7f09f4dd93a5c33a73df5484ff54",
+      "output_image_sha256": "bc1e5653acabb092d4b25d036e600d56155d7f09f4dd93a5c33a73df5484ff54",
+      "unchanged": true,
+      "pixels": [
+        768,
+        768
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 18,
+      "column": "DamageFormer",
+      "row": "enlargement",
+      "source_image_sha256": "8dcbdeb0ff0203d08b598450fcf864e5ea535fa22131b0d1deae3c6952910f5a",
+      "output_image_sha256": "8dcbdeb0ff0203d08b598450fcf864e5ea535fa22131b0d1deae3c6952910f5a",
+      "unchanged": true,
+      "pixels": [
+        192,
+        192
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 21,
+      "column": "MPF",
+      "row": "overview",
+      "source_image_sha256": "b534d1518027e336544b571177575acd2634f228ea392975d0bdd556666d33db",
+      "output_image_sha256": "b534d1518027e336544b571177575acd2634f228ea392975d0bdd556666d33db",
+      "unchanged": true,
+      "pixels": [
+        768,
+        768
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig6_noto",
+      "source_slide": 8,
+      "source_shape_index": 24,
+      "column": "MPF",
+      "row": "enlargement",
+      "source_image_sha256": "b728f77b94e6fc070bca78dc74c12a3abc5989bf482118c55b7809bb8a9c935c",
+      "output_image_sha256": "b728f77b94e6fc070bca78dc74c12a3abc5989bf482118c55b7809bb8a9c935c",
+      "unchanged": true,
+      "pixels": [
+        192,
+        192
+      ],
+      "source_case": "noto-earthquake_00000038"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 3,
+      "column": "Pre-event RGB",
+      "row": "overview",
+      "source_image_sha256": "9525702379f24c2716403d62f9478fc83d3a2336345b383beb195ca0fe025d5f",
+      "output_image_sha256": "9525702379f24c2716403d62f9478fc83d3a2336345b383beb195ca0fe025d5f",
+      "unchanged": true,
+      "pixels": [
+        512,
+        512
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 6,
+      "column": "Pre-event RGB",
+      "row": "enlargement",
+      "source_image_sha256": "d6d96a0e6ae589f844278d2ee77fb5212d85c5d6fc3292c8da7402bc1824a2b2",
+      "output_image_sha256": "d6d96a0e6ae589f844278d2ee77fb5212d85c5d6fc3292c8da7402bc1824a2b2",
+      "unchanged": true,
+      "pixels": [
+        128,
+        128
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 9,
+      "column": "Ground truth",
+      "row": "overview",
+      "source_image_sha256": "b3788f052fe55ad0094666ae0359d6c1a9debd011f4c2671b7f32d8aa381dd2d",
+      "output_image_sha256": "b3788f052fe55ad0094666ae0359d6c1a9debd011f4c2671b7f32d8aa381dd2d",
+      "unchanged": true,
+      "pixels": [
+        512,
+        512
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 12,
+      "column": "Ground truth",
+      "row": "enlargement",
+      "source_image_sha256": "626c73a3f131d6b68d146ad59c3758ed826f20b40225dfdff94ebb915c837cda",
+      "output_image_sha256": "626c73a3f131d6b68d146ad59c3758ed826f20b40225dfdff94ebb915c837cda",
+      "unchanged": true,
+      "pixels": [
+        128,
+        128
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 15,
+      "column": "DamageFormer",
+      "row": "overview",
+      "source_image_sha256": "678a6b6149e258ed9bfd18a65273c6791f27da8ab1aadc4b2d65b65830b2eb83",
+      "output_image_sha256": "678a6b6149e258ed9bfd18a65273c6791f27da8ab1aadc4b2d65b65830b2eb83",
+      "unchanged": true,
+      "pixels": [
+        512,
+        512
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 18,
+      "column": "DamageFormer",
+      "row": "enlargement",
+      "source_image_sha256": "28c0f2693516da6562a1223442461e424cef27470b1b964bc834f5431f1fccf2",
+      "output_image_sha256": "28c0f2693516da6562a1223442461e424cef27470b1b964bc834f5431f1fccf2",
+      "unchanged": true,
+      "pixels": [
+        128,
+        128
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 21,
+      "column": "MPF",
+      "row": "overview",
+      "source_image_sha256": "6278d7caf11c1b221279aad098e1d8684c39da5e86a033fc0da85d0fcbeb2688",
+      "output_image_sha256": "6278d7caf11c1b221279aad098e1d8684c39da5e86a033fc0da85d0fcbeb2688",
+      "unchanged": true,
+      "pixels": [
+        512,
+        512
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig7_turkey",
+      "source_slide": 9,
+      "source_shape_index": 24,
+      "column": "MPF",
+      "row": "enlargement",
+      "source_image_sha256": "2870eea7dc1499760712741fe94ecbab83604a0c9a25cf2b0d76a6685b4234fe",
+      "output_image_sha256": "2870eea7dc1499760712741fe94ecbab83604a0c9a25cf2b0d76a6685b4234fe",
+      "unchanged": true,
+      "pixels": [
+        128,
+        128
+      ],
+      "source_case": "turkey-earthquake_00001065"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 3,
+      "column": "Pre-event RGB",
+      "row": "overview",
+      "source_image_sha256": "97df68bffbc80b297177460dd1eee25ca7d0a30a7ce4ec6ae21f9e014023ae18",
+      "output_image_sha256": "97df68bffbc80b297177460dd1eee25ca7d0a30a7ce4ec6ae21f9e014023ae18",
+      "unchanged": true,
+      "pixels": [
+        1024,
+        1024
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 6,
+      "column": "Pre-event RGB",
+      "row": "enlargement",
+      "source_image_sha256": "e617119239659b8093d4a81e7746c4b5b894f36801ae230150bef721aba3e1a0",
+      "output_image_sha256": "e617119239659b8093d4a81e7746c4b5b894f36801ae230150bef721aba3e1a0",
+      "unchanged": true,
+      "pixels": [
+        96,
+        96
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 9,
+      "column": "Post-event SAR",
+      "row": "overview",
+      "source_image_sha256": "17d79e7851ea496fda37b64a017f3a56d52e62cff89b5fd164eca630fbb125e0",
+      "output_image_sha256": "17d79e7851ea496fda37b64a017f3a56d52e62cff89b5fd164eca630fbb125e0",
+      "unchanged": true,
+      "pixels": [
+        1024,
+        1024
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 12,
+      "column": "Post-event SAR",
+      "row": "enlargement",
+      "source_image_sha256": "62e57af75368169aeab3a92de27c19071196f256fccbbbcb3a88f57b41be3824",
+      "output_image_sha256": "62e57af75368169aeab3a92de27c19071196f256fccbbbcb3a88f57b41be3824",
+      "unchanged": true,
+      "pixels": [
+        96,
+        96
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 15,
+      "column": "Ground truth",
+      "row": "overview",
+      "source_image_sha256": "41a74f6fd9fe198176098102559300980c7fe46d81ccf2265711d920b36ca22b",
+      "output_image_sha256": "41a74f6fd9fe198176098102559300980c7fe46d81ccf2265711d920b36ca22b",
+      "unchanged": true,
+      "pixels": [
+        1024,
+        1024
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 18,
+      "column": "Ground truth",
+      "row": "enlargement",
+      "source_image_sha256": "eb3886b9e6169ce9638f77edfcd51478aa42e31dc8196435b72c477ae1c3bd76",
+      "output_image_sha256": "eb3886b9e6169ce9638f77edfcd51478aa42e31dc8196435b72c477ae1c3bd76",
+      "unchanged": true,
+      "pixels": [
+        96,
+        96
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 21,
+      "column": "DamageFormer",
+      "row": "overview",
+      "source_image_sha256": "99ddcc9af663dce850f835c39f19d499851d6aa6cd6f49fb15f162476fc643b4",
+      "output_image_sha256": "99ddcc9af663dce850f835c39f19d499851d6aa6cd6f49fb15f162476fc643b4",
+      "unchanged": true,
+      "pixels": [
+        1024,
+        1024
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 24,
+      "column": "DamageFormer",
+      "row": "enlargement",
+      "source_image_sha256": "93a3b8ab6bc28d7adff6d542819be4ebfb0d28f37d8f19af9f62d1cae187cabe",
+      "output_image_sha256": "93a3b8ab6bc28d7adff6d542819be4ebfb0d28f37d8f19af9f62d1cae187cabe",
+      "unchanged": true,
+      "pixels": [
+        96,
+        96
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 27,
+      "column": "MPF",
+      "row": "overview",
+      "source_image_sha256": "3d34bcc767e7262aedc0c6bf540bece865c6db5f442a3f16fc02d69b27c5e964",
+      "output_image_sha256": "3d34bcc767e7262aedc0c6bf540bece865c6db5f442a3f16fc02d69b27c5e964",
+      "unchanged": true,
+      "pixels": [
+        1024,
+        1024
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    },
+    {
+      "figure": "Fig8_myanmar",
+      "source_slide": 10,
+      "source_shape_index": 30,
+      "column": "MPF",
+      "row": "enlargement",
+      "source_image_sha256": "892af38b4b41bca794993052001013640bf1c4c428c47a787122946ebf310359",
+      "output_image_sha256": "892af38b4b41bca794993052001013640bf1c4c428c47a787122946ebf310359",
+      "unchanged": true,
+      "pixels": [
+        96,
+        96
+      ],
+      "source_case": "myanmar-hurricane_00000099"
+    }
+  ],
+  "all_26_pictures_unchanged": true,
+  "rendering": "LibreOffice PDF; Poppler pdftoppm 144 DPI (MuPDF in this workspace intermittently omitted text glyphs; final PNGs use Poppler).",
+  "artifacts": [
+    {
+      "name": "Fig6_noto.pdf",
+      "bytes": 299159,
+      "sha256": "5e54ef7ae973041cb6c47d272daa202942d24a60f07cf0ad27c7256288af5740"
+    },
+    {
+      "name": "Fig6_noto.png",
+      "bytes": 790843,
+      "sha256": "80f5498b8eb52f71142a53e90676e9b78f6db1dababa8ca43f4cd9061f78f712"
+    },
+    {
+      "name": "Fig6_noto.pptx",
+      "bytes": 1105098,
+      "sha256": "475c92ae49d55415e45ba1165ba6fdf7e61156176769f26a6bc1ce85a99ddf9d"
+    },
+    {
+      "name": "Fig7_turkey.pdf",
+      "bytes": 163610,
+      "sha256": "23ce858d2e8f8e1931407aae143f3af752a2cc8bf9a4c54791ed2ca8bbda7a20"
+    },
+    {
+      "name": "Fig7_turkey.png",
+      "bytes": 643128,
+      "sha256": "b3c39a6d37cebcba85874e4d8447682e2032d1a8146d4b439b2602cbd6e01f31"
+    },
+    {
+      "name": "Fig7_turkey.pptx",
+      "bytes": 575173,
+      "sha256": "a3eb1810fe88c96c88cfb90d4863a82ffc51c368e35978a7f528cfdbac0c67d0"
+    },
+    {
+      "name": "Fig8_myanmar.pdf",
+      "bytes": 375347,
+      "sha256": "0168dde6d07d6c342094a39daa358b2515cd9f6a8798123ab85dcd5bcb436583"
+    },
+    {
+      "name": "Fig8_myanmar.png",
+      "bytes": 646977,
+      "sha256": "f6f8f7a6b56b8f3ff887346e82fa8dcd659b34fcb1c1a943e218eee05320bd2b"
+    },
+    {
+      "name": "Fig8_myanmar.pptx",
+      "bytes": 2082741,
+      "sha256": "0675db8aa0e4cebe8465dd6a2b5a3c4be0bb64cff5f36c13b973e2ff70017460"
+    },
+    {
+      "name": "closeup_figures_editable.pdf",
+      "bytes": 801282,
+      "sha256": "5b37121e0ac4f97e3cd6327e4a700f6c69d1f80aa962a46f4938023a0cc3d547"
+    },
+    {
+      "name": "closeup_figures_editable.pptx",
+      "bytes": 3700948,
+      "sha256": "63a2d5c13f2e6a811a7cb790ba0828c8b44426237ab4e318a383818c15d4374d"
+    }
+  ]
+}

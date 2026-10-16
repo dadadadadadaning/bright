@@ -1,0 +1,164 @@
+{
+  "turkey-earthquake_00001065": {
+    "xywh": [
+      256,
+      0,
+      512,
+      512
+    ],
+    "event": "turkey-earthquake"
+  },
+  "turkey-earthquake_00001074": {
+    "xywh": [
+      256,
+      512,
+      512,
+      512
+    ],
+    "event": "turkey-earthquake"
+  },
+  "noto-earthquake_00000038": {
+    "xywh": [
+      0,
+      0,
+      768,
+      768
+    ],
+    "event": "noto-earthquake"
+  },
+  "noto-earthquake_00000049": {
+    "xywh": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "event": "noto-earthquake"
+  },
+  "ukraine-conflict_00000354": {
+    "xywh": [
+      512,
+      256,
+      512,
+      512
+    ],
+    "event": "ukraine-conflict"
+  },
+  "ukraine-conflict_00000315": {
+    "xywh": [
+      256,
+      256,
+      768,
+      768
+    ],
+    "event": "ukraine-conflict"
+  },
+  "congo-volcano_00000085": {
+    "xywh": [
+      512,
+      512,
+      512,
+      512
+    ],
+    "event": "congo-volcano"
+  },
+  "congo-volcano_00000092": {
+    "xywh": [
+      512,
+      0,
+      512,
+      512
+    ],
+    "event": "congo-volcano"
+  },
+  "la_palma-volcano_00000597": {
+    "xywh": [
+      0,
+      256,
+      768,
+      768
+    ],
+    "event": "la_palma-volcano"
+  },
+  "la_palma-volcano_00000353": {
+    "xywh": [
+      256,
+      256,
+      512,
+      512
+    ],
+    "event": "la_palma-volcano"
+  },
+  "hawaii-wildfire_00000014": {
+    "xywh": [
+      0,
+      512,
+      512,
+      512
+    ],
+    "event": "hawaii-wildfire"
+  },
+  "hawaii-wildfire_00000003": {
+    "xywh": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "event": "hawaii-wildfire"
+  },
+  "mexico-hurricane_00000005": {
+    "xywh": [
+      512,
+      0,
+      512,
+      512
+    ],
+    "event": "mexico-hurricane"
+  },
+  "myanmar-hurricane_00000107": {
+    "xywh": [
+      0,
+      0,
+      768,
+      768
+    ],
+    "event": "myanmar-hurricane"
+  },
+  "myanmar-hurricane_00000099": {
+    "xywh": [
+      0,
+      0,
+      1024,
+      1024
+    ],
+    "event": "myanmar-hurricane"
+  },
+  "libya-flood_00000021": {
+    "xywh": [
+      256,
+      256,
+      768,
+      768
+    ],
+    "event": "libya-flood"
+  },
+  "bata-explosion_00000062": {
+    "xywh": [
+      0,
+      512,
+      512,
+      512
+    ],
+    "event": "bata-explosion"
+  },
+  "bata-explosion_00000049": {
+    "xywh": [
+      512,
+      0,
+      512,
+      512
+    ],
+    "event": "bata-explosion"
+  }
+}

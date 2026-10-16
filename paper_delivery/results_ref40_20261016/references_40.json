@@ -1,0 +1,2040 @@
+{
+  "schema": "BRIGHT_ACADEMIC_REFERENCES_40_V1",
+  "audit_date": "2026-10-16",
+  "reference_count": 40,
+  "counting_policy": "同一论文预印本与正式版本只计一次；不含新闻稿、会议日程或仓库本身作为论文。",
+  "verification_note": "逐条核对的是书目与适用范围；L1不等于40篇全部阅读全文。出版社直接接口受限时，使用现有正式论文全文提取、作者托管PDF、作者代码citation和学术书目交叉证据。",
+  "source_distribution": {
+    "L2：作者书目与已发表学术参考文献交叉核对": 10,
+    "L1：已读可用的正式/作者全文或全文文本提取": 8,
+    "L3：作者/机构正式代码或作者主页书目核对": 22
+  },
+  "copyright_note": "不随包发布第三方论文全文、整页作者README或全文提取；仅登记来源路径、URL、SHA256和必要的短引文。",
+  "references": [
+    {
+      "number": 1,
+      "local_key": "bda01",
+      "title": "Creating xBD: A Dataset for Assessing Building Damage from Satellite Imagery",
+      "authors": [
+        "Ritwik Gupta",
+        "Bryce Goodman",
+        "Nirav Patel",
+        "Rachel Hosfelt",
+        "Sajal Sajeev",
+        "Eric Heim",
+        "Jigar Doshi",
+        "Keane Lucas",
+        "Howie Choset",
+        "Matthew Gaston"
+      ],
+      "year": 2019,
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [
+        "https://openaccess.thecvf.com/content_CVPRW_2019/html/cv4gc/Gupta_Creating_xBD_A_Dataset_for_Assessing_Building_Damage_from_Satellite_CVPRW_2019_paper.html"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "optical building damage benchmark",
+      "use_in_manuscript": "Introduction: optical pre-/post-event BDA and graded labels; not optical-SAR results",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "official_dataset_paper_link_and_published_bibliography_verified",
+      "verification_scope": "Conference page and author metadata cross-checked through the official dataset README and BRIGHT formal bibliography; CVF direct request blocked. Do not separately count arXiv:1911.09296 as another dataset work. Unconfirmed workshop pagination and DOI omitted.",
+      "sources": [
+        {
+          "source_type": "author_official_repository_bibliography",
+          "url": "https://raw.githubusercontent.com/DIUx-xView/xView2_baseline/master/README.md",
+          "http": 200,
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/bda_sources/xBD.txt",
+          "sha256": "17c101c341bcbaae9c346656ec4d0bc9167d5d839e6956912b7d588192e18a3f",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "read": true,
+          "location": "PDF page 33 / References",
+          "quote": "Gupta, R., Goodman, B., Patel, N., Hosfelt, R., Sajeev, S., Heim, E., Doshi, J., Lucas, K., Choset, H., and Gaston, M.: Creating xBD ... 2019.",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Conference page and author metadata cross-checked through the official dataset README and BRIGHT formal bibliography; CVF direct request blocked. Do not separately count arXiv:1911.09296 as another dataset work. Unconfirmed workshop pagination and DOI omitted.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi",
+        "arxiv"
+      ],
+      "formatted_reference": "Ritwik Gupta, Bryce Goodman, Nirav Patel, Rachel Hosfelt, Sajal Sajeev, Eric Heim, Jigar Doshi, Keane Lucas, Howie Choset, Matthew Gaston. Creating xBD: A Dataset for Assessing Building Damage from Satellite Imagery. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops, 2019."
+    },
+    {
+      "number": 2,
+      "local_key": "bda02",
+      "title": "BRIGHT: a globally distributed multimodal building damage assessment dataset with very-high-resolution for all-weather disaster response",
+      "authors": [
+        "Hongruixuan Chen",
+        "Jian Song",
+        "Olivier Dietrich",
+        "Clifford Broni-Bediako",
+        "Weihao Xuan",
+        "Junjue Wang",
+        "Xinlei Shao",
+        "Yimin Wei",
+        "Junshi Xia",
+        "Cuiling Lan",
+        "Konrad Schindler",
+        "Naoto Yokoya"
+      ],
+      "year": 2025,
+      "venue": "Earth System Science Data",
+      "volume": "17",
+      "issue": "11",
+      "pages_or_article": "6217–6253",
+      "doi": "10.5194/essd-17-6217-2025",
+      "arxiv": null,
+      "paper_urls": [
+        "https://essd.copernicus.org/articles/17/6217/2025/"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "optical-SAR building damage benchmark",
+      "use_in_manuscript": "Task/splits/classes/metrics/external reported comparison; distinguish standard ML split from unseen-event protocol",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "publisher_full_text_extraction_and_author_bibtex_verified",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "read": true,
+          "location": "PDF page 1; Table 5 PDF page 13",
+          "quote": "Earth Syst. Sci. Data, 17, 6217–6253, 2025; https://doi.org/10.5194/essd-17-6217-2025",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "author_official_repository_bibliography",
+          "url": "https://raw.githubusercontent.com/ChenHongruixuan/BRIGHT/master/README.md",
+          "http": 200,
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/bda_sources/BRIGHT.txt",
+          "sha256": "3d500d07b0e29379acf49e61686cb7b334c1e11eb9ed029b388f826c6ebcb4da",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "arxiv"
+      ],
+      "formatted_reference": "Hongruixuan Chen, Jian Song, Olivier Dietrich, Clifford Broni-Bediako, Weihao Xuan, Junjue Wang, Xinlei Shao, Yimin Wei, Junshi Xia, Cuiling Lan, Konrad Schindler, Naoto Yokoya. BRIGHT: a globally distributed multimodal building damage assessment dataset with very-high-resolution for all-weather disaster response. Earth System Science Data, 2025, 17(11): 6217–6253. DOI: 10.5194/essd-17-6217-2025."
+    },
+    {
+      "number": 3,
+      "local_key": "bda03",
+      "title": "Building damage assessment for rapid disaster response with a deep object-based semantic change detection framework: from natural disasters to man-made disasters",
+      "authors": [
+        "Zhuo Zheng",
+        "Yanfei Zhong",
+        "Junjue Wang",
+        "Ailong Ma",
+        "Liangpei Zhang"
+      ],
+      "year": 2021,
+      "venue": "Remote Sensing of Environment",
+      "volume": "265",
+      "issue": null,
+      "pages_or_article": "112636",
+      "doi": "10.1016/j.rse.2021.112636",
+      "arxiv": null,
+      "paper_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0034425721003564"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "object-based BDA / ChangeOS",
+      "use_in_manuscript": "Related work: object semantics and localization/classification decoupling; no unsupported model-performance claims",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "author_official_bibtex_and_published_reference_verified",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "author_official_repository_bibliography",
+          "url": "https://raw.githubusercontent.com/Z-Zheng/ChangeOS/master/README.md",
+          "http": 200,
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/bda_sources/ChangeOS.txt",
+          "sha256": "48e1b84f03df0611e27b9876bf3d7fc4ed1f8468ac59d9f5b1a4b201a87a7676",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/H04-Towards_transferable_building_damage_assessment_via_unsupervised_single-temporal_change_adaptation.txt",
+          "read": true,
+          "location": "References",
+          "quote": "Zheng et al., 2021 / ChangeOS baseline",
+          "sha256": "44839b4fc910d2be450becbd03be00c215940b691da568968c9c21384a017444",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "issue",
+        "arxiv"
+      ],
+      "formatted_reference": "Zhuo Zheng, Yanfei Zhong, Junjue Wang, Ailong Ma, Liangpei Zhang. Building damage assessment for rapid disaster response with a deep object-based semantic change detection framework: from natural disasters to man-made disasters. Remote Sensing of Environment, 2021, 265: 112636. DOI: 10.1016/j.rse.2021.112636."
+    },
+    {
+      "number": 4,
+      "local_key": "bda04",
+      "title": "Dual-Tasks Siamese Transformer Framework for Building Damage Assessment",
+      "authors": [
+        "Hongruixuan Chen",
+        "Edoardo Nemni",
+        "Sofia Vallecorsa",
+        "X. Li",
+        "C. Wu",
+        "L. Bromley"
+      ],
+      "year": 2022,
+      "venue": "IGARSS 2022 – 2022 IEEE International Geoscience and Remote Sensing Symposium",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "1600–1603",
+      "doi": "10.1109/IGARSS46834.2022.9883139",
+      "arxiv": "2201.10953",
+      "paper_urls": [
+        "https://ieeexplore.ieee.org/document/9883139",
+        "https://arxiv.org/abs/2201.10953"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "Transformer BDA / DamageFormer",
+      "use_in_manuscript": "Baseline lineage: joint localization and damage classification; optical-SAR adaptation must be distinguished from original modality",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "formal_paper_bibliography_cross_reference_verified",
+      "verification_scope": "BRIGHT正式书目核对了六位作者顺序；后三位仅有姓名初字母证据，按X. Li、C. Wu、L. Bromley保留，不推测全名。未取得该文全文。",
+      "sources": [
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "read": true,
+          "location": "PDF page 32 / References",
+          "quote": "Chen, H., Nemni, E., Vallecorsa, S., Li, X., Wu, C., and Bromley, L.: Dual-Tasks Siamese Transformer Framework for Building Damage Assessment ... 1600–1603 ... 10.1109/IGARSS46834.2022.9883139",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "BRIGHT正式书目核对了六位作者顺序；后三位仅有姓名初字母证据，按X. Li、C. Wu、L. Bromley保留，不推测全名。未取得该文全文。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue"
+      ],
+      "formatted_reference": "Hongruixuan Chen, Edoardo Nemni, Sofia Vallecorsa, X. Li, C. Wu, L. Bromley. Dual-Tasks Siamese Transformer Framework for Building Damage Assessment. IGARSS 2022 – 2022 IEEE International Geoscience and Remote Sensing Symposium, 2022: 1600–1603. DOI: 10.1109/IGARSS46834.2022.9883139."
+    },
+    {
+      "number": 5,
+      "local_key": "bda05",
+      "title": "ChangeMamba: Remote Sensing Change Detection With Spatiotemporal State Space Model",
+      "authors": [
+        "Hongruixuan Chen",
+        "Jian Song",
+        "Chengxi Han",
+        "Junshi Xia",
+        "Naoto Yokoya"
+      ],
+      "year": 2024,
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "volume": "62",
+      "issue": null,
+      "pages_or_article": "1–20",
+      "doi": "10.1109/TGRS.2024.3417253",
+      "arxiv": "2404.03425",
+      "paper_urls": [
+        "https://ieeexplore.ieee.org/document/10565926",
+        "https://arxiv.org/abs/2404.03425"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "state-space change / BDA benchmark",
+      "use_in_manuscript": "Related work and external baseline; MambaBDA setting not automatically same model as custom MPF",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "author_official_bibtex_and_published_bibliography_verified",
+      "verification_scope": "Article number 4409720 appears in prior draft but not used here because current official BibTeX gives pages 1–20.",
+      "sources": [
+        {
+          "source_type": "author_official_repository_bibliography",
+          "url": "https://raw.githubusercontent.com/ChenHongruixuan/ChangeMamba/master/README.md",
+          "http": 200,
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/bda_sources/ChangeMamba.txt",
+          "sha256": "8b469dad97f99154f9c26c086f87c9b42ab69517a26bfda91f7ef41fa5810b27",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "read": true,
+          "location": "PDF page 32 / References",
+          "quote": "Chen, H., Song, J., Han, C., Xia, J., and Yokoya, N.: ChangeMamba ... IEEE T. Geosci. Remote, 62, 1–20, 2024.",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Article number 4409720 appears in prior draft but not used here because current official BibTeX gives pages 1–20.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "issue"
+      ],
+      "formatted_reference": "Hongruixuan Chen, Jian Song, Chengxi Han, Junshi Xia, Naoto Yokoya. ChangeMamba: Remote Sensing Change Detection With Spatiotemporal State Space Model. IEEE Transactions on Geoscience and Remote Sensing, 2024, 62: 1–20. DOI: 10.1109/TGRS.2024.3417253."
+    },
+    {
+      "number": 6,
+      "local_key": "bda06",
+      "title": "Towards transferable building damage assessment via unsupervised single-temporal change adaptation",
+      "authors": [
+        "Zhuo Zheng",
+        "Yanfei Zhong",
+        "Liangpei Zhang",
+        "Marshall Burke",
+        "David B. Lobell",
+        "Stefano Ermon"
+      ],
+      "year": 2024,
+      "venue": "Remote Sensing of Environment",
+      "volume": "315",
+      "issue": null,
+      "pages_or_article": "114416",
+      "doi": "10.1016/j.rse.2024.114416",
+      "arxiv": null,
+      "paper_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0034425724004425"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "cross-event/domain BDA transfer",
+      "use_in_manuscript": "Motivate event-level evaluation and avoid treating support-event exclusion as full unseen-event generalization",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "publisher_full_text_extraction_and_author_publications_verified",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/H04-Towards_transferable_building_damage_assessment_via_unsupervised_single-temporal_change_adaptation.txt",
+          "read": true,
+          "location": "PDF page 1",
+          "quote": "Remote Sensing of Environment 315 (2024) 114416; https://doi.org/10.1016/j.rse.2024.114416",
+          "sha256": "44839b4fc910d2be450becbd03be00c215940b691da568968c9c21384a017444",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "author_official_publications_record",
+          "url": "https://raw.githubusercontent.com/Z-Zheng/Z-Zheng.github.io/master/index.html",
+          "http": 200,
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/bda_sources/Zheng_home.txt",
+          "sha256": "2388a7b3ebc3dcfaacd616f02f7161b2c2d057c7e4a3057d3800fd4f4b0a320f",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "issue",
+        "arxiv"
+      ],
+      "formatted_reference": "Zhuo Zheng, Yanfei Zhong, Liangpei Zhang, Marshall Burke, David B. Lobell, Stefano Ermon. Towards transferable building damage assessment via unsupervised single-temporal change adaptation. Remote Sensing of Environment, 2024, 315: 114416. DOI: 10.1016/j.rse.2024.114416."
+    },
+    {
+      "number": 7,
+      "local_key": "bda09",
+      "title": "Assessing the transferability of post-disaster building damage assessment using synthetic aperture radar and machine learning",
+      "authors": [
+        "James Currie",
+        "Karin Reinke"
+      ],
+      "year": 2026,
+      "venue": "International Journal of Disaster Risk Reduction",
+      "volume": "136",
+      "issue": null,
+      "pages_or_article": "106048",
+      "doi": "10.1016/j.ijdrr.2026.106048",
+      "arxiv": null,
+      "paper_urls": [
+        "https://doi.org/10.1016/j.ijdrr.2026.106048"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "SAR cross-disaster transfer",
+      "use_in_manuscript": "Discussion and event analysis: gains on familiar splits do not guarantee operational transfer to unseen disasters",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "publisher_full_text_extraction_verified",
+      "verification_scope": "Study uses medium-resolution SAR and ML, so it supports transferability motivation, not direct SOTA comparison with VHR BRIGHT.",
+      "sources": [
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/H01-Assessing_the_Transferability_of_Post-Disaster_Building_Damage_Assessment_using_Synthetic_Aperture_Radar_and_Machine_Learning.txt",
+          "read": true,
+          "location": "PDF page 1",
+          "quote": "International Journal of Disaster Risk Reduction 136 (2026) 106048; https://doi.org/10.1016/j.ijdrr.2026.106048",
+          "sha256": "32275e6c4d1c46170d9aee171083dfa7b8e0f53ea6f88aecb3613698e6cb93c7",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Study uses medium-resolution SAR and ML, so it supports transferability motivation, not direct SOTA comparison with VHR BRIGHT.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "issue",
+        "arxiv"
+      ],
+      "formatted_reference": "James Currie, Karin Reinke. Assessing the transferability of post-disaster building damage assessment using synthetic aperture radar and machine learning. International Journal of Disaster Risk Reduction, 2026, 136: 106048. DOI: 10.1016/j.ijdrr.2026.106048."
+    },
+    {
+      "number": 8,
+      "local_key": "core07",
+      "title": "Fully Convolutional Networks for Semantic Segmentation",
+      "authors": [
+        "Jonathan Long",
+        "Evan Shelhamer",
+        "Trevor Darrell"
+      ],
+      "year": 2015,
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "3431–3440",
+      "doi": null,
+      "arxiv": "1411.4038",
+      "paper_urls": [
+        "https://arxiv.org/abs/1411.4038"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "dense segmentation",
+      "use_in_manuscript": "Pixel prediction and upsampling background",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "author_official_repository",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/fcn.md",
+          "sha256": "637b67d131782ee262e09a5817f19c8f7fc1c1ad2602c364fe8236c217e2568a",
+          "url": "https://raw.githubusercontent.com/shelhamer/fcn.berkeleyvision.org/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "provided_publisher_pdf_bibliography",
+          "local_path": "/workspace/bright-followup/paper-wanet-redesign-20261016/wanet_extracted.txt",
+          "sha256": "d8f1266f69dfcfe037868a3fad70de6a17c896cd114c289517b77ef16b498b49",
+          "location": "Reference [19]",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "doi"
+      ],
+      "formatted_reference": "Jonathan Long, Evan Shelhamer, Trevor Darrell. Fully Convolutional Networks for Semantic Segmentation. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015: 3431–3440."
+    },
+    {
+      "number": 9,
+      "local_key": "core01",
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "authors": [
+        "Olaf Ronneberger",
+        "Philipp Fischer",
+        "Thomas Brox"
+      ],
+      "year": 2015,
+      "venue": "Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "234–241",
+      "doi": "10.1007/978-3-319-24574-4_28",
+      "arxiv": "1505.04597",
+      "paper_urls": [
+        "https://doi.org/10.1007/978-3-319-24574-4_28",
+        "https://arxiv.org/abs/1505.04597"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "encoder-decoder segmentation",
+      "use_in_manuscript": "UNet baseline and dense prediction background",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "Title/authors/published pages and DOI cross-checked in BRIGHT formal bibliography; no claim of original U-Net full text read.",
+      "sources": [
+        {
+          "source_type": "published_bibliography_cross_check",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "location": "References: Ronneberger et al.",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "independent_implementation_link_and_authors",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/unet.md",
+          "sha256": "85cc1e31a451c9802ba727cf655ce1a46ca8d020ae1302545439c894cebd1a89",
+          "url": "https://raw.githubusercontent.com/milesial/Pytorch-UNet/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Title/authors/published pages and DOI cross-checked in BRIGHT formal bibliography; no claim of original U-Net full text read.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue"
+      ],
+      "formatted_reference": "Olaf Ronneberger, Philipp Fischer, Thomas Brox. U-Net: Convolutional Networks for Biomedical Image Segmentation. Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015, 2015: 234–241. DOI: 10.1007/978-3-319-24574-4_28."
+    },
+    {
+      "number": 10,
+      "local_key": "core02",
+      "title": "Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation",
+      "authors": [
+        "Liang-Chieh Chen",
+        "Yukun Zhu",
+        "George Papandreou",
+        "Florian Schroff",
+        "Hartwig Adam"
+      ],
+      "year": 2018,
+      "venue": "European Conference on Computer Vision (ECCV)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1802.02611",
+      "paper_urls": [
+        "https://arxiv.org/abs/1802.02611"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "DeepLabv3+ segmentation",
+      "use_in_manuscript": "External comparison method",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "Author implementation BibTeX confirms title/authors/venue/year. BRIGHT and WANet bibliographies give conflicting page ranges; unconfirmed pagination and DOI omitted.",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/deeplab.md",
+          "sha256": "9953ba0c17f64b57613d9f5e4e5a0a2d67f37554519c5be1261dd7aab366c576",
+          "url": "https://raw.githubusercontent.com/tensorflow/models/master/research/deeplab/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "published_bibliography_cross_check",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "location": "References: Chen et al. 2018",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Author implementation BibTeX confirms title/authors/venue/year. BRIGHT and WANet bibliographies give conflicting page ranges; unconfirmed pagination and DOI omitted.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff, Hartwig Adam. Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation. European Conference on Computer Vision (ECCV), 2018."
+    },
+    {
+      "number": 11,
+      "local_key": "core08",
+      "title": "Deep Residual Learning for Image Recognition",
+      "authors": [
+        "Kaiming He",
+        "Xiangyu Zhang",
+        "Shaoqing Ren",
+        "Jian Sun"
+      ],
+      "year": 2016,
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "770–778",
+      "doi": "10.1109/CVPR.2016.90",
+      "arxiv": "1512.03385",
+      "paper_urls": [
+        "https://doi.org/10.1109/CVPR.2016.90",
+        "https://arxiv.org/abs/1512.03385"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "residual representation",
+      "use_in_manuscript": "Residual feature adaptation background",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "Official repo preserves2015 preprint citation; published2016 venue/pages/DOI cross-checked in formal BRIGHT bibliography; counted as one paper.",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/resnet.md",
+          "sha256": "57c86bfb74e810a844ed79137930e4c45b9d60ef60db38f9ddb3a1f80ec1efc8",
+          "url": "https://raw.githubusercontent.com/KaimingHe/deep-residual-networks/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "published_bibliography_cross_check",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "location": "References: He et al. 2016",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Official repo preserves2015 preprint citation; published2016 venue/pages/DOI cross-checked in formal BRIGHT bibliography; counted as one paper.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue"
+      ],
+      "formatted_reference": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. Deep Residual Learning for Image Recognition. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016: 770–778. DOI: 10.1109/CVPR.2016.90."
+    },
+    {
+      "number": 12,
+      "local_key": "core03",
+      "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+      "authors": [
+        "Ze Liu",
+        "Yutong Lin",
+        "Yue Cao",
+        "Han Hu",
+        "Yixuan Wei",
+        "Zheng Zhang",
+        "Stephen Lin",
+        "Baining Guo"
+      ],
+      "year": 2021,
+      "venue": "IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2103.14030",
+      "paper_urls": [
+        "https://arxiv.org/abs/2103.14030"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "hierarchical visual backbone",
+      "use_in_manuscript": "MPF optical and SAR encoders",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "Author BibTeX fields verified; no unverified DOI/page range added.",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/swin.md",
+          "sha256": "50b1a1d1fbebf87a833a8b0a5ece7cbdc7da59cc9045f33545c0ec0e355f93b2",
+          "url": "https://raw.githubusercontent.com/microsoft/Swin-Transformer/main/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Author BibTeX fields verified; no unverified DOI/page range added.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, Baining Guo. Swin Transformer: Hierarchical Vision Transformer using Shifted Windows. IEEE/CVF International Conference on Computer Vision (ICCV), 2021."
+    },
+    {
+      "number": 13,
+      "local_key": "core04",
+      "title": "SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers",
+      "authors": [
+        "Enze Xie",
+        "Wenhai Wang",
+        "Zhiding Yu",
+        "Anima Anandkumar",
+        "Jose M. Alvarez",
+        "Ping Luo"
+      ],
+      "year": 2021,
+      "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2105.15203",
+      "paper_urls": [
+        "https://arxiv.org/abs/2105.15203"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "transformer dense prediction",
+      "use_in_manuscript": "Related segmentation decoders; not claimed implemented as own backbone",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/segformer.md",
+          "sha256": "cb3845da24a1c919edef5806ccfae251fa0a16ebd773bb036d2a3d287f9ae3a7",
+          "url": "https://raw.githubusercontent.com/NVlabs/SegFormer/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Enze Xie, Wenhai Wang, Zhiding Yu, Anima Anandkumar, Jose M. Alvarez, Ping Luo. SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers. Advances in Neural Information Processing Systems (NeurIPS), 2021."
+    },
+    {
+      "number": 14,
+      "local_key": "bda10",
+      "title": "Change Detection in Multisource VHR Images via Deep Siamese Convolutional Multiple-Layers Recurrent Neural Network",
+      "authors": [
+        "Hongruixuan Chen",
+        "Chen Wu",
+        "Bo Du",
+        "Liangpei Zhang",
+        "Le Wang"
+      ],
+      "year": 2020,
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "volume": "58",
+      "issue": "4",
+      "pages_or_article": "2848–2864",
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [
+        "https://ieeexplore.ieee.org/document/8937755"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "multisource SiamCRNN change detector",
+      "use_in_manuscript": "Cite actual baseline architecture; BRIGHT benchmark applies its own task adaptation",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "author_official_bibtex_and_published_bibliography_verified",
+      "verification_scope": "IEEE publisher document8937755 is explicitly linked by the author official README. DOI omitted because not present in the used author BibTeX; use publisher paper URL rather than citing the repository as the paper.",
+      "sources": [
+        {
+          "source_type": "author_official_repository_bibliography",
+          "url": "https://raw.githubusercontent.com/ChenHongruixuan/SiamCRNN/master/README.md",
+          "http": 200,
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/bda_sources/SiamCRNN.txt",
+          "sha256": "480197f9327bdc50fa47d26f10d049d34a0ac23f59b65bb04f7847912569fee9",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "read": true,
+          "location": "PDF page 32 / References",
+          "quote": "Chen, H., Wu, C., Du, B., Zhang, L., and Wang, L.: Change Detection in Multisource VHR Images via Deep Siamese Convolutional Multiple-Layers Recurrent Neural Network, IEEE T. Geosci. Remote, 58, 2848–2864, 2020.",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "IEEE publisher document8937755 is explicitly linked by the author official README. DOI omitted because not present in the used author BibTeX; use publisher paper URL rather than citing the repository as the paper.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "doi",
+        "arxiv"
+      ],
+      "formatted_reference": "Hongruixuan Chen, Chen Wu, Bo Du, Liangpei Zhang, Le Wang. Change Detection in Multisource VHR Images via Deep Siamese Convolutional Multiple-Layers Recurrent Neural Network. IEEE Transactions on Geoscience and Remote Sensing, 2020, 58(4): 2848–2864."
+    },
+    {
+      "number": 15,
+      "local_key": "bda07",
+      "title": "MS4D-Net: Multitask-Based Semi-Supervised Semantic Segmentation Framework with Perturbed Dual Mean Teachers for Building Damage Assessment from High-Resolution Remote Sensing Imagery",
+      "authors": [
+        "Yongjun He",
+        "Jinfei Wang",
+        "Chunhua Liao",
+        "Xin Zhou",
+        "Bo Shan"
+      ],
+      "year": 2023,
+      "venue": "Remote Sensing",
+      "volume": "15",
+      "issue": "2",
+      "pages_or_article": "478",
+      "doi": "10.3390/rs15020478",
+      "arxiv": null,
+      "paper_urls": [
+        "https://www.mdpi.com/2072-4292/15/2/478"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "semi-supervised BDA / consistency",
+      "use_in_manuscript": "Related work: building-level semantic inconsistency and low-label constraints; not direct RGB-SAR score comparison",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "publisher_full_text_extraction_verified",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/G03-MS4D-Net-2023.txt",
+          "read": true,
+          "location": "PDF page 1",
+          "quote": "Citation: He, Y.; Wang, J.; Liao, C.; Zhou, X.; Shan, B. ... Remote Sens. 2023, 15, 478. https://doi.org/10.3390/rs15020478",
+          "sha256": "6d011e1ed26ed6cf3d3dc94c5d2c8b81498e0e8cf3d2c48b044c0237c32a87e4",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "arxiv"
+      ],
+      "formatted_reference": "Yongjun He, Jinfei Wang, Chunhua Liao, Xin Zhou, Bo Shan. MS4D-Net: Multitask-Based Semi-Supervised Semantic Segmentation Framework with Perturbed Dual Mean Teachers for Building Damage Assessment from High-Resolution Remote Sensing Imagery. Remote Sensing, 2023, 15(2): 478. DOI: 10.3390/rs15020478."
+    },
+    {
+      "number": 16,
+      "local_key": "bda08",
+      "title": "Methodology for Object-Level Change Detection in Post-Earthquake Building Damage Assessment Based on Remote Sensing Images: OCD-BDA",
+      "authors": [
+        "Zhengtao Xie",
+        "Zifan Zhou",
+        "Xinhao He",
+        "Yuguang Fu",
+        "Jiancheng Gu",
+        "Jiandong Zhang"
+      ],
+      "year": 2024,
+      "venue": "Remote Sensing",
+      "volume": "16",
+      "issue": "22",
+      "pages_or_article": "4263",
+      "doi": "10.3390/rs16224263",
+      "arxiv": null,
+      "paper_urls": [
+        "https://www.mdpi.com/2072-4292/16/22/4263"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "object-level post-earthquake damage",
+      "use_in_manuscript": "Related work: object and pixel alignment/semantic consistency; distinguish RGB-RGB earthquake study from multimodal target task",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "publisher_full_text_extraction_verified",
+      "verification_scope": "PDF document-properties author order differs from printed article order; this entry follows printed title page and recommended citation.",
+      "sources": [
+        {
+          "source_type": "existing_publisher_pdf_text_extraction",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/G01-OCD-BDA-2024.txt",
+          "read": true,
+          "location": "PDF page 1 citation and authors",
+          "quote": "Citation: Xie, Z.; Zhou, Z.; He, X.; Fu, Y.; Gu, J.; Zhang, J. ... Remote Sens. 2024, 16, 4263. https://doi.org/10.3390/rs16224263",
+          "sha256": "71dd6c5295c5dc3b40aeba2359fec5bc1fc48ab8006e8229b4e5a685352e3007",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "PDF document-properties author order differs from printed article order; this entry follows printed title page and recommended citation.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "arxiv"
+      ],
+      "formatted_reference": "Zhengtao Xie, Zifan Zhou, Xinhao He, Yuguang Fu, Jiancheng Gu, Jiandong Zhang. Methodology for Object-Level Change Detection in Post-Earthquake Building Damage Assessment Based on Remote Sensing Images: OCD-BDA. Remote Sensing, 2024, 16(22): 4263. DOI: 10.3390/rs16224263."
+    },
+    {
+      "number": 17,
+      "local_key": "reg01",
+      "title": "SLIC Superpixels Compared to State-of-the-Art Superpixel Methods",
+      "authors": [
+        "R. Achanta",
+        "A. Shaji",
+        "K. Smith",
+        "A. Lucchi",
+        "P. Fua",
+        "S. Süsstrunk"
+      ],
+      "year": 2012,
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "volume": "34",
+      "issue": "11",
+      "pages_or_article": "2274–2282",
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [],
+      "code_or_author_repository_url": "https://github.com/achanta/SLIC",
+      "topic": null,
+      "use_in_manuscript": "非学习超像素代表；说明低层相似性与规则性先验，作为可微Q的历史背景。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方仓库BibTeX实际含题名、六位作者、TPAMI、2012、34(11)、2274–2282。未访问出版社全文；DOI未核不填。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/achanta/SLIC/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/slic.md",
+          "sha256": "dd03261ec0a7984c329ef429475be329a419496b8d55082f5bf637f01a795322",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方仓库BibTeX实际含题名、六位作者、TPAMI、2012、34(11)、2274–2282。未访问出版社全文；DOI未核不填。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "doi",
+        "arxiv",
+        "paper_direct_url"
+      ],
+      "formatted_reference": "R. Achanta, A. Shaji, K. Smith, A. Lucchi, P. Fua, S. Süsstrunk. SLIC Superpixels Compared to State-of-the-Art Superpixel Methods. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2012, 34(11): 2274–2282."
+    },
+    {
+      "number": 18,
+      "local_key": "reg02",
+      "title": "Superpixel Sampling Networks",
+      "authors": [
+        "Varun Jampani",
+        "Deqing Sun",
+        "Ming-Yu Liu",
+        "Ming-Hsuan Yang",
+        "Jan Kautz"
+      ],
+      "year": 2018,
+      "venue": "European Conference on Computer Vision",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [
+        "https://raw.githubusercontent.com/varunjampani/varunjampani.github.io/master/papers/jampani18_SSN.pdf"
+      ],
+      "code_or_author_repository_url": "https://github.com/NVlabs/ssn_superpixels",
+      "topic": null,
+      "use_in_manuscript": "可微超像素关联、迭代聚类、软汇聚/回填的直接背景；不能据此声称本文Q完全原创。",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "官方代码及作者网页、作者托管全文均实际访问。官方代码BibTeX有Samping拼写误差；已依作者网页和PDF改正Sampling。页码、DOI未核不填。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/NVlabs/ssn_superpixels/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/ssn.md",
+          "sha256": "8cf0caf211298f73a4276d8e39c526ea83b7838fa28026f23007c4ce3c74f516",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/varunjampani/varunjampani.github.io/master/_pages/ssn.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/ssn_page.md",
+          "http_status": "HTTP 200",
+          "sha256": "193618655bccfce1a28869755160bac0ffb7968dce969faf185ff14bd88b236a",
+          "source_file_present_at_audit": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/varunjampani/varunjampani.github.io/master/papers/jampani18_SSN.pdf",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/ssn_paper.pdf",
+          "http_status": "HTTP 200",
+          "sha256": "b3e4edf9c5ad85d346598d5d82ec2c5285d5888dda583ece5e38464ed36a7070",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "官方代码及作者网页、作者托管全文均实际访问。官方代码BibTeX有Samping拼写误差；已依作者网页和PDF改正Sampling。页码、DOI未核不填。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi",
+        "arxiv"
+      ],
+      "formatted_reference": "Varun Jampani, Deqing Sun, Ming-Yu Liu, Ming-Hsuan Yang, Jan Kautz. Superpixel Sampling Networks. European Conference on Computer Vision, 2018."
+    },
+    {
+      "number": 19,
+      "local_key": "reg03",
+      "title": "Superpixel Segmentation with Fully Convolutional Networks",
+      "authors": [
+        "Fengting Yang",
+        "Qian Sun",
+        "Hailin Jin",
+        "Zihan Zhou"
+      ],
+      "year": 2020,
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2003.12929",
+      "paper_urls": [
+        "https://arxiv.org/abs/2003.12929"
+      ],
+      "code_or_author_repository_url": "https://github.com/fuy34/superpixel_fcn",
+      "topic": null,
+      "use_in_manuscript": "规则候选关联、超像素下采样/上采样；用于解释Q、区域概率汇总及像素回填。",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者README标题误用单数Network；作者官网publication列表及作者托管PDF明确为Networks，已据全文更正。README及官网确认CVPR2020，arXiv链接来自作者README。页码和DOI未核不填。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/fuy34/superpixel_fcn/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/fcn.md",
+          "sha256": "8e580b430134275e07bdddd46b4b90481be6c49831e4961d1e0cb5d003fcea50",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fuy34/fuy34.github.io/master/_pages/publications.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/fuy_publications.txt",
+          "http_status": "HTTP 200",
+          "sha256": "90e664124d8f77e2cdd34eec39d5115c35ff2944b97121b06f935d4edd9e8355",
+          "source_file_present_at_audit": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fuy34/fuy34.github.io/master/files/08460.pdf",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/fcn_paper.pdf",
+          "http_status": "HTTP 200",
+          "sha256": "5793b9fccf510bfd40e375965be180b21f5994899d98c8e3d80d7b36452ba9c7",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者README标题误用单数Network；作者官网publication列表及作者托管PDF明确为Networks，已据全文更正。README及官网确认CVPR2020，arXiv链接来自作者README。页码和DOI未核不填。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Fengting Yang, Qian Sun, Hailin Jin, Zihan Zhou. Superpixel Segmentation with Fully Convolutional Networks. IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2020."
+    },
+    {
+      "number": 20,
+      "local_key": "reg04",
+      "title": "Superpixel Anything: A General Object-Based Framework for Accurate Yet Regular Superpixel Segmentation",
+      "authors": [
+        "Julien Walther",
+        "Rémi Giraud",
+        "Michaël Clément"
+      ],
+      "year": 2025,
+      "venue": "British Machine Vision Conference",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2509.12791",
+      "paper_urls": [
+        "https://arxiv.org/abs/2509.12791"
+      ],
+      "code_or_author_repository_url": "https://github.com/waldo-j/spam",
+      "topic": null,
+      "use_in_manuscript": "对象掩码先验引导超像素的相关工作；用于限定建筑概率Q先验的创新边界。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方README实际给出三位作者、BMVC2025完整会议名和arXiv链接。独立BMVC正式页面/全文访问403，因此仅标作者正式citation确认，不声称已核出版社记录或全文。若投稿要求独立出版社核验，可暂以arXiv:2509.12791列为预印本或替换。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/waldo-j/spam/main/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/spam.md",
+          "sha256": "b539186cb49b9bc4edc967927e220bae75be70eac8c61fddeceeb96106ce7a00",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方README实际给出三位作者、BMVC2025完整会议名和arXiv链接。独立BMVC正式页面/全文访问403，因此仅标作者正式citation确认，不声称已核出版社记录或全文。若投稿要求独立出版社核验，可暂以arXiv:2509.12791列为预印本或替换。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Julien Walther, Rémi Giraud, Michaël Clément. Superpixel Anything: A General Object-Based Framework for Accurate Yet Regular Superpixel Segmentation. British Machine Vision Conference, 2025."
+    },
+    {
+      "number": 21,
+      "local_key": "reg05",
+      "title": "Object-Contextual Representations for Semantic Segmentation",
+      "authors": [
+        "Yuhui Yuan",
+        "Xilin Chen",
+        "Jingdong Wang"
+      ],
+      "year": 2020,
+      "venue": "European Conference on Computer Vision",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1909.11065",
+      "paper_urls": [
+        "https://arxiv.org/abs/1909.11065"
+      ],
+      "code_or_author_repository_url": "https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR",
+      "topic": null,
+      "use_in_manuscript": "像素与类别/对象级上下文聚合；对照当前图内上下文与Train历史支持的信息来源，不能混为外部Memory。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方HRNet-OCR分支README实际给出三作者、ECCV2020接受记录、citation、PDF链接；未访问全文。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/HRNet/HRNet-Semantic-Segmentation/HRNet-OCR/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/ocr.md",
+          "sha256": "c57015d42ba3cbf040d680c5212e41ff8e17dc57bb9eab11676444e5b10f33e1",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方HRNet-OCR分支README实际给出三作者、ECCV2020接受记录、citation、PDF链接；未访问全文。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Yuhui Yuan, Xilin Chen, Jingdong Wang. Object-Contextual Representations for Semantic Segmentation. European Conference on Computer Vision, 2020."
+    },
+    {
+      "number": 22,
+      "local_key": "reg06",
+      "title": "Pyramid Scene Parsing Network",
+      "authors": [
+        "Hengshuang Zhao",
+        "Jianping Shi",
+        "Xiaojuan Qi",
+        "Xiaogang Wang",
+        "Jiaya Jia"
+      ],
+      "year": 2017,
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1612.01105",
+      "paper_urls": [
+        "https://arxiv.org/abs/1612.01105"
+      ],
+      "code_or_author_repository_url": "https://github.com/hszhao/PSPNet",
+      "topic": null,
+      "use_in_manuscript": "多尺度区域上下文汇聚；说明扩大上下文本身可涨分，故Memory需匹配当前图像上下文对照。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方README的citation给出题名、五位作者和CVPR2017，并直接给出arXiv链接；未访问全文。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/hszhao/PSPNet/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/psp.md",
+          "sha256": "39ee8e0b247c998bef81b2cbe11e1d39a57aea9448300a5e146b4d16c1d819e5",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方README的citation给出题名、五位作者和CVPR2017，并直接给出arXiv链接；未访问全文。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Hengshuang Zhao, Jianping Shi, Xiaojuan Qi, Xiaogang Wang, Jiaya Jia. Pyramid Scene Parsing Network. IEEE Conference on Computer Vision and Pattern Recognition, 2017."
+    },
+    {
+      "number": 23,
+      "local_key": "reg07",
+      "title": "Dual Attention Network for Scene Segmentation",
+      "authors": [
+        "Jun Fu",
+        "Jing Liu",
+        "Haijie Tian",
+        "Yong Li",
+        "Yongjun Bao",
+        "Zhiwei Fang",
+        "Hanqing Lu"
+      ],
+      "year": 2019,
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "3146–3154",
+      "doi": null,
+      "arxiv": "1809.02983",
+      "paper_urls": [
+        "https://arxiv.org/abs/1809.02983"
+      ],
+      "code_or_author_repository_url": "https://github.com/junfu1115/DANet",
+      "topic": null,
+      "use_in_manuscript": "位置/通道自注意力；用于解释内部特征重加权与检索外部标签证据有不同作用。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方README的CVPR2019 citation逐项给出题名、七位作者、页码3146–3154，顶部提供arXiv链接。另有TNNLS扩展，本清单只计CVPR这一工作，不重复计数。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/junfu1115/DANet/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/danet.md",
+          "sha256": "9a76c3cde2fd917615ce1cf295f0477b96cd15ae859a6dfd6379183b895748c4",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方README的CVPR2019 citation逐项给出题名、七位作者、页码3146–3154，顶部提供arXiv链接。另有TNNLS扩展，本清单只计CVPR这一工作，不重复计数。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "doi"
+      ],
+      "formatted_reference": "Jun Fu, Jing Liu, Haijie Tian, Yong Li, Yongjun Bao, Zhiwei Fang, Hanqing Lu. Dual Attention Network for Scene Segmentation. IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2019: 3146–3154."
+    },
+    {
+      "number": 24,
+      "local_key": "reg08",
+      "title": "Non-local Neural Networks",
+      "authors": [
+        "Xiaolong Wang",
+        "Ross Girshick",
+        "Abhinav Gupta",
+        "Kaiming He"
+      ],
+      "year": 2018,
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1711.07971",
+      "paper_urls": [
+        "https://arxiv.org/abs/1711.07971"
+      ],
+      "code_or_author_repository_url": "https://github.com/facebookresearch/video-nonlocal-net",
+      "topic": null,
+      "use_in_manuscript": "相似性加权上下文聚合基础；Reader跨注意力应区别于图内non-local。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者团队官方Facebook Research仓库README给出CVPR2018、四作者与arXiv链接；代码明确是论文video分类实验重实现，未访问PDF。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/facebookresearch/video-nonlocal-net/main/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/nonlocal.md",
+          "sha256": "9792093d96cb27bd644985f6640a9db3cb17790e9dc0eba54880984e468f9715",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者团队官方Facebook Research仓库README给出CVPR2018、四作者与arXiv链接；代码明确是论文video分类实验重实现，未访问PDF。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Xiaolong Wang, Ross Girshick, Abhinav Gupta, Kaiming He. Non-local Neural Networks. IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2018."
+    },
+    {
+      "number": 25,
+      "local_key": "reg09",
+      "title": "Squeeze-and-Excitation Networks",
+      "authors": [
+        "Jie Hu",
+        "Li Shen",
+        "Gang Sun"
+      ],
+      "year": 2018,
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [
+        "http://openaccess.thecvf.com/content_cvpr_2018/papers/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.pdf"
+      ],
+      "code_or_author_repository_url": "https://github.com/hujie-frank/SENet",
+      "topic": null,
+      "use_in_manuscript": "全局统计引导通道重标定；用于结构条件Adapter与一般注意力之间的联系和差别，本文不等同SE。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方README给出三作者、CVPR2018 citation和CVF正式PDF链接；未成功访问PDF，不补记忆中的页码或DOI。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/hujie-frank/SENet/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/senet.md",
+          "sha256": "7e7c9d938dafca2245d8eccbbddd4fb567188405b658bf645a095848281c567c",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方README给出三作者、CVPR2018 citation和CVF正式PDF链接；未成功访问PDF，不补记忆中的页码或DOI。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi",
+        "arxiv"
+      ],
+      "formatted_reference": "Jie Hu, Li Shen, Gang Sun. Squeeze-and-Excitation Networks. IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2018."
+    },
+    {
+      "number": 26,
+      "local_key": "reg10",
+      "title": "Is Second-order Information Helpful for Large-scale Visual Recognition?",
+      "authors": [
+        "Peihua Li",
+        "Jiangtao Xie",
+        "Qilong Wang",
+        "Wangmeng Zuo"
+      ],
+      "year": 2017,
+      "venue": "IEEE International Conference on Computer Vision",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [],
+      "code_or_author_repository_url": "https://github.com/jiangtaoxie/MPN-COV",
+      "topic": null,
+      "use_in_manuscript": "二阶统计池化背景；均值/标准差可描述区域内变化，但不是直接证明损毁等级特征。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_or_official_implementation_citation",
+      "verification_scope": "作者官方README给出四作者、ICCV2017和完整题名，解释second-order pooling。仅作二阶统计动机，不能声称本文实现了协方差矩阵幂归一化。",
+      "sources": [
+        {
+          "source_type": "author_or_official_implementation_citation",
+          "url": "https://raw.githubusercontent.com/jiangtaoxie/MPN-COV/master/README.md",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/refs_regions_evidence/mpncov_original.txt",
+          "sha256": "70b251ba1091ec383219e5e684bb906fa68f19cec62d80e8585001299e01246e",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "作者官方README给出四作者、ICCV2017和完整题名，解释second-order pooling。仅作二阶统计动机，不能声称本文实现了协方差矩阵幂归一化。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi",
+        "arxiv",
+        "paper_direct_url"
+      ],
+      "formatted_reference": "Peihua Li, Jiangtao Xie, Qilong Wang, Wangmeng Zuo. Is Second-order Information Helpful for Large-scale Visual Recognition?. IEEE International Conference on Computer Vision, 2017."
+    },
+    {
+      "number": 27,
+      "local_key": "core10",
+      "title": "WANet: A Wavelet-Attention Network for Accurate Ditch Extraction in Remote Sensing Imagery",
+      "authors": [
+        "Yanfeng Zhang",
+        "Zhiwu Gao",
+        "Ying Dai",
+        "Yu Wu",
+        "Lei Zhang",
+        "Xingxing Han",
+        "Zhenxuan Liu"
+      ],
+      "year": 2026,
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+      "volume": "19",
+      "issue": null,
+      "pages_or_article": "17042–17054",
+      "doi": "10.1109/JSTARS.2026.3693082",
+      "arxiv": null,
+      "paper_urls": [
+        "https://doi.org/10.1109/JSTARS.2026.3693082"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "remote sensing fine-structure segmentation",
+      "use_in_manuscript": "Related fine-structure/attention work; presentation reference only, not copied method or scores",
+      "verification_level": "L1：已读可用的正式/作者全文或全文文本提取",
+      "verification_status": "provided_publisher_full_text_read",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "provided_publisher_full_text",
+          "local_path": "/workspace/bright-followup/paper-wanet-redesign-20261016/wanet_extracted.txt",
+          "sha256": "d8f1266f69dfcfe037868a3fad70de6a17c896cd114c289517b77ef16b498b49",
+          "location": "Full PDF pages1–13; header/bibliography",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "issue",
+        "arxiv"
+      ],
+      "formatted_reference": "Yanfeng Zhang, Zhiwu Gao, Ying Dai, Yu Wu, Lei Zhang, Xingxing Han, Zhenxuan Liu. WANet: A Wavelet-Attention Network for Accurate Ditch Extraction in Remote Sensing Imagery. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2026, 19: 17042–17054. DOI: 10.1109/JSTARS.2026.3693082."
+    },
+    {
+      "number": 28,
+      "local_key": "ret05",
+      "title": "FiLM: Visual Reasoning with a General Conditioning Layer",
+      "authors": [
+        "Ethan Perez",
+        "Florian Strub",
+        "Harm de Vries",
+        "Vincent Dumoulin",
+        "Aaron Courville"
+      ],
+      "year": 2018,
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/ethanjperez/film/master/README.md",
+      "topic": "conditional feature modulation",
+      "use_in_manuscript": "结构条件Adapter的相关工作：条件化仿射调制已有先例；本工作的B、b(Q)、H(Q)与区域统计组合须单独消融。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/ethanjperez/film/master/README.md",
+          "http_status": 200,
+          "bytes": 5976,
+          "sha256": "8d00f85d0fa03364bdf3fb8ef1dc72c87cccc03930785b4a05db6fee1cfdedb6",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/film.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi",
+        "arxiv",
+        "paper_direct_url"
+      ],
+      "formatted_reference": "Ethan Perez, Florian Strub, Harm de Vries, Vincent Dumoulin, Aaron Courville. FiLM: Visual Reasoning with a General Conditioning Layer. Proceedings of the AAAI Conference on Artificial Intelligence (AAAI), 2018."
+    },
+    {
+      "number": 29,
+      "local_key": "ret03",
+      "title": "Exploring Cross-Image Pixel Contrast for Semantic Segmentation",
+      "authors": [
+        "Wenguan Wang",
+        "Tianfei Zhou",
+        "Fisher Yu",
+        "Jifeng Dai",
+        "Ender Konukoglu",
+        "Luc Van Gool"
+      ],
+      "year": 2021,
+      "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "7303–7313",
+      "doi": null,
+      "arxiv": "2101.11939",
+      "paper_urls": [
+        "https://arxiv.org/abs/2101.11939"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/tfzhou/ContrastiveSeg/main/README.md",
+      "topic": "cross-image pixel metric learning",
+      "use_in_manuscript": "用于说明跨图像同语义像素关系可训练表示；区分训练期对比记忆与测试期外部案例读取。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/tfzhou/ContrastiveSeg/main/README.md",
+          "http_status": 200,
+          "bytes": 6379,
+          "sha256": "84a1e5ed25f1750deb0d427c174ad91b752e13ef29c87bd4f4d3bb9100e9c6ee",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/contrastiveseg.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "doi"
+      ],
+      "formatted_reference": "Wenguan Wang, Tianfei Zhou, Fisher Yu, Jifeng Dai, Ender Konukoglu, Luc Van Gool. Exploring Cross-Image Pixel Contrast for Semantic Segmentation. Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2021: 7303–7313."
+    },
+    {
+      "number": 30,
+      "local_key": "ret04",
+      "title": "Rethinking Semantic Segmentation: A Prototype View",
+      "authors": [
+        "Tianfei Zhou",
+        "Wenguan Wang",
+        "Ender Konukoglu",
+        "Luc Van Gool"
+      ],
+      "year": 2022,
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2203.15102",
+      "paper_urls": [
+        "https://arxiv.org/abs/2203.15102"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/tfzhou/ProtoSeg/main/README.md",
+      "topic": "nonparametric prototypes / segmentation",
+      "use_in_manuscript": "说明训练像素形成非参数多原型是已有设计；建议原型支持对照，区分实例级支持库与类原型。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/tfzhou/ProtoSeg/main/README.md",
+          "http_status": 200,
+          "bytes": 4303,
+          "sha256": "1333bc8d4bd6463346b6d4bfcf0bafec4a4ce6f8e6697d766086579b322a2113",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/protoseg.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Tianfei Zhou, Wenguan Wang, Ender Konukoglu, Luc Van Gool. Rethinking Semantic Segmentation: A Prototype View. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022."
+    },
+    {
+      "number": 31,
+      "local_key": "ret07",
+      "title": "Prototypical Networks for Few-shot Learning",
+      "authors": [
+        "Jake Snell",
+        "Kevin Swersky",
+        "Richard Zemel"
+      ],
+      "year": 2017,
+      "venue": "Advances in Neural Information Processing Systems (NIPS)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": null,
+      "paper_urls": [
+        "http://papers.nips.cc/paper/6996-prototypical-networks-for-few-shot-learning.pdf"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/jakesnell/prototypical-networks/master/README.md",
+      "topic": "prototype-based supervised supports",
+      "use_in_manuscript": "说明以标注支持形成类原型并按距离分类的基础方法；作为全案例检索的更简单对照。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/jakesnell/prototypical-networks/master/README.md",
+          "http_status": 200,
+          "bytes": 1615,
+          "sha256": "6350e5bbbcb5b209f0b913d0434588b483ecbcd95b3c8c2862b854cbd8628d9e",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/protonet.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi",
+        "arxiv"
+      ],
+      "formatted_reference": "Jake Snell, Kevin Swersky, Richard Zemel. Prototypical Networks for Few-shot Learning. Advances in Neural Information Processing Systems (NIPS), 2017."
+    },
+    {
+      "number": 32,
+      "local_key": "ret06",
+      "title": "Few-Shot Learning via Embedding Adaptation with Set-to-Set Functions",
+      "authors": [
+        "Han-Jia Ye",
+        "Hexiang Hu",
+        "De-Chuan Zhan",
+        "Fei Sha"
+      ],
+      "year": 2020,
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "8808–8817",
+      "doi": null,
+      "arxiv": "1812.03664",
+      "paper_urls": [
+        "https://arxiv.org/abs/1812.03664"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/Sha-Lab/FEAT/master/README.md",
+      "topic": "support-set adaptation / Transformer",
+      "use_in_manuscript": "说明通过支持集上下文调整表示已有先例；需要固定Reader仅更换支持ID以区分排序和读取。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/Sha-Lab/FEAT/master/README.md",
+          "http_status": 200,
+          "bytes": 15328,
+          "sha256": "1b62fa8dd43faeb8f08f02697d17bebb1c42ee779044bd961315ebf5c18c061d",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/feat.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "doi"
+      ],
+      "formatted_reference": "Han-Jia Ye, Hexiang Hu, De-Chuan Zhan, Fei Sha. Few-Shot Learning via Embedding Adaptation with Set-to-Set Functions. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020: 8808–8817."
+    },
+    {
+      "number": 33,
+      "local_key": "ret01",
+      "title": "Tip-Adapter: Training-free Adaption of CLIP for Few-shot Classification",
+      "authors": [
+        "Renrui Zhang",
+        "Wei Zhang",
+        "Rongyao Fang",
+        "Peng Gao",
+        "Kunchang Li",
+        "Jifeng Dai",
+        "Yu Qiao",
+        "Hongsheng Li"
+      ],
+      "year": 2022,
+      "venue": "European Conference on Computer Vision (ECCV)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2207.09519",
+      "paper_urls": [
+        "https://arxiv.org/abs/2207.09519"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/gaopengcuhk/Tip-Adapter/main/README.md",
+      "topic": "feature-label cache / retrieval augmentation",
+      "use_in_manuscript": "用于说明训练特征—标签缓存、检索与原始分类器融合已有先例；加入简单标签核加权基线，不能移植其成绩。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/gaopengcuhk/Tip-Adapter/main/README.md",
+          "http_status": 200,
+          "bytes": 3839,
+          "sha256": "084dafd2675f17e02740b8da2dd8c2532a7dc4fbec1580176ab67307f308b503",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/tip.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/ZrrSkywalker/zrrskywalker.github.io/main/index.html",
+          "http_status": 200,
+          "bytes": 27320,
+          "sha256": "f2416874fce7e98fd08b4f617cfcbb54bf00815819af1fb0795fda10a137ca18",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/tip_author.html",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "官方README末尾仍引用2021旧题目与旧作者顺序；本条最终2022题目/作者顺序另与第一作者主页实际核对，二者不作为两篇重复计数。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Renrui Zhang, Wei Zhang, Rongyao Fang, Peng Gao, Kunchang Li, Jifeng Dai, Yu Qiao, Hongsheng Li. Tip-Adapter: Training-free Adaption of CLIP for Few-shot Classification. European Conference on Computer Vision (ECCV), 2022."
+    },
+    {
+      "number": 34,
+      "local_key": "ret09",
+      "title": "Cross-Batch Memory for Embedding Learning",
+      "authors": [
+        "Xun Wang",
+        "Haozhi Zhang",
+        "Weilin Huang",
+        "Matthew R. Scott"
+      ],
+      "year": 2020,
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1912.06798",
+      "paper_urls": [
+        "https://arxiv.org/abs/1912.06798"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/msight-tech/research-xbm/master/README.md",
+      "topic": "training memory / metric learning",
+      "use_in_manuscript": "区分训练用跨批次特征队列和推理时Train支持库；说明扩大度量学习参考集合的先例。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/msight-tech/research-xbm/master/README.md",
+          "http_status": 200,
+          "bytes": 1798,
+          "sha256": "f867f61a58100c4b4f7846bd2cf7f61f7b10996d5991c82fcc23f4e07617cb6c",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/xbm.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Xun Wang, Haozhi Zhang, Weilin Huang, Matthew R. Scott. Cross-Batch Memory for Embedding Learning. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020."
+    },
+    {
+      "number": 35,
+      "local_key": "ret10",
+      "title": "Momentum Contrast for Unsupervised Visual Representation Learning",
+      "authors": [
+        "Kaiming He",
+        "Haoqi Fan",
+        "Yuxin Wu",
+        "Saining Xie",
+        "Ross Girshick"
+      ],
+      "year": 2020,
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "9729–9738",
+      "doi": null,
+      "arxiv": "1911.05722",
+      "paper_urls": [
+        "https://arxiv.org/abs/1911.05722"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/facebookresearch/moco/132aea9da9bb995a411c915c0420be3db62052f3/README.md",
+      "topic": "momentum encoder / training dictionary",
+      "use_in_manuscript": "用于解释队列式表示学习与推理支持库的差别，并说明冻结编码器与key一致性的重要性；不把MoCo训练字典误当作带损毁标注的部署Memory。",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "author_repository_and_academic_bibliography_cross_checked",
+      "verification_scope": "已实际读取作者机构历史README的标题、五位作者与2019预印本记录；CVPR2020和页码9729–9738另与现有SARMAE学术论文参考文献[24]交叉核对。未直接取得MoCo出版社全文。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/facebookresearch/moco/132aea9da9bb995a411c915c0420be3db62052f3/README.md",
+          "http_status": 200,
+          "bytes": 5596,
+          "sha256": "80b8be385e481d4b691bc7986be343058c049956d719fc9b6a9d1b44914d2048",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/moco.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "academic_paper_bibliography_cross_check",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/C01-SARMAE-2026.txt",
+          "sha256": "5cedd82f09a0c745e19d86e6bcab3c0e6efab1409f1caa2fcaae8981100b131f",
+          "location": "PDF page 9; References [24]; extracted lines 822–824",
+          "quote": "[24] Kaiming He, Haoqi Fan, Yuxin Wu, Saining Xie, and Ross Girshick. Momentum contrast for unsupervised visual representation learning. In CVPR, pages 9729–9738, 2020.",
+          "read": true,
+          "scope": "仅核对MoCo出版元数据；来源为SARMAE论文的参考文献，非本轮直接取得MoCo正式全文。",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "官方main在2026年删除源码，实际读取删除前父提交132aea9da9bb995a411c915c0420be3db62052f3。原始2019预印本与CVPR2020视为同一工作，仅计一次；卷号、DOI未核留空。",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "doi"
+      ],
+      "formatted_reference": "Kaiming He, Haoqi Fan, Yuxin Wu, Saining Xie, Ross Girshick. Momentum Contrast for Unsupervised Visual Representation Learning. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020: 9729–9738."
+    },
+    {
+      "number": 36,
+      "local_key": "ret08",
+      "title": "Dense Contrastive Learning for Self-Supervised Visual Pre-Training",
+      "authors": [
+        "Xinlong Wang",
+        "Rufeng Zhang",
+        "Chunhua Shen",
+        "Tao Kong",
+        "Lei Li"
+      ],
+      "year": 2021,
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2011.09157",
+      "paper_urls": [
+        "https://arxiv.org/abs/2011.09157"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/WXinlong/DenseCL/main/README.md",
+      "topic": "dense correspondence / representation learning",
+      "use_in_manuscript": "用于区分密集对应的自监督训练与本研究的跨事件等级监督；不是本任务的损毁识别实验依据。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/WXinlong/DenseCL/main/README.md",
+          "http_status": 200,
+          "bytes": 5520,
+          "sha256": "9e6f0c7e00e684979319eb9e5228928397f1c854b31d1b4215b4569c74cf5d3c",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/densecl.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Xinlong Wang, Rufeng Zhang, Chunhua Shen, Tao Kong, Lei Li. Dense Contrastive Learning for Self-Supervised Visual Pre-Training. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021."
+    },
+    {
+      "number": 37,
+      "local_key": "ret02",
+      "title": "Supervised Contrastive Learning",
+      "authors": [
+        "Prannay Khosla",
+        "Piotr Teterwak",
+        "Chen Wang",
+        "Aaron Sarna",
+        "Yonglong Tian",
+        "Phillip Isola",
+        "Aaron Maschinot",
+        "Ce Liu",
+        "Dilip Krishnan"
+      ],
+      "year": 2020,
+      "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "2004.11362",
+      "paper_urls": [
+        "https://arxiv.org/abs/2004.11362"
+      ],
+      "code_or_author_repository_url": "https://raw.githubusercontent.com/HobbitLong/SupContrast/master/README.md",
+      "topic": "class-supervised metric learning",
+      "use_in_manuscript": "用于监督投影的同类/异类目标背景；跨事件正负对是本文待验证的任务约束，并非该论文已验证本任务。",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "author_repository_bibliography_and_method_description",
+      "verification_scope": "已实际读取作者/机构官方仓库README的标题、作者与刊会信息；未取得出版社全文，未声称逐页复核。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/HobbitLong/SupContrast/master/README.md",
+          "http_status": 200,
+          "bytes": 5000,
+          "sha256": "5d32621ccdc9a61b93c1cc102fed794b4f71ab44fe8a3f6abf3e67e8dfec44f1",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/supcon.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google-research/google-research/master/supcon/README.md",
+          "http_status": 200,
+          "bytes": 4154,
+          "sha256": "d2ea89eee9843a5ae9205962214402af8f49573932f11669181937c76d4397a7",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/evidence_retrieval/supcon_google.md",
+          "accessed_date": "2026-10-16",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Prannay Khosla, Piotr Teterwak, Chen Wang, Aaron Sarna, Yonglong Tian, Phillip Isola, Aaron Maschinot, Ce Liu, Dilip Krishnan. Supervised Contrastive Learning. Advances in Neural Information Processing Systems (NeurIPS), 2020."
+    },
+    {
+      "number": 38,
+      "local_key": "core09",
+      "title": "Attention Is All You Need",
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar",
+        "Jakob Uszkoreit",
+        "Llion Jones",
+        "Aidan N. Gomez",
+        "Łukasz Kaiser",
+        "Illia Polosukhin"
+      ],
+      "year": 2017,
+      "venue": "arXiv preprint arXiv:1706.03762",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1706.03762",
+      "paper_urls": [
+        "https://arxiv.org/abs/1706.03762"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "attention reader",
+      "use_in_manuscript": "Cross-attention support reading",
+      "verification_level": "L3：作者/机构正式代码或作者主页书目核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "Original official Tensor2Tensor links the paper, independent implementation lists all authors. Conference volume/pages not independently read; cite verified arXiv version, do not count it again as a NeurIPS entry.",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/attention.md",
+          "sha256": "f5c84772c4f81e941cea69c0f493cbad6eb86024d16573f550ad457bf87898ec",
+          "url": "https://raw.githubusercontent.com/tensorflow/tensor2tensor/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "independent_reference_authors_cross_check",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/attention_bib.txt",
+          "sha256": "50d28c4b35126c86cdbe9dc82a15c06c5199164f0056a1db1fdf3610e647006c",
+          "url": "https://raw.githubusercontent.com/jadore801120/attention-is-all-you-need-pytorch/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "Original official Tensor2Tensor links the paper, independent implementation lists all authors. Conference volume/pages not independently read; cite verified arXiv version, do not count it again as a NeurIPS entry.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin. Attention Is All You Need. arXiv preprint arXiv:1706.03762, 2017. https://arxiv.org/abs/1706.03762."
+    },
+    {
+      "number": 39,
+      "local_key": "core05",
+      "title": "The Lovász-Softmax Loss: A Tractable Surrogate for the Optimization of the Intersection-Over-Union Measure in Neural Networks",
+      "authors": [
+        "Maxim Berman",
+        "Amal Rannen Triki",
+        "Matthew B. Blaschko"
+      ],
+      "year": 2018,
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "4413–4421",
+      "doi": "10.1109/CVPR.2018.00464",
+      "arxiv": "1705.08790",
+      "paper_urls": [
+        "https://doi.org/10.1109/CVPR.2018.00464",
+        "https://arxiv.org/abs/1705.08790"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "IoU optimization",
+      "use_in_manuscript": "Training loss definition",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/lovasz.md",
+          "sha256": "7d764ba6f44484b048e61c88316465f6dc9d4a54000bd1287e7d8f3172db4a88",
+          "url": "https://raw.githubusercontent.com/bermanmaxim/LovaszSoftmax/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        },
+        {
+          "source_type": "published_bibliography_cross_check",
+          "local_path": "/workspace/bright/research-paper-projects/post-disaster-building-damage/sources/extracted/A01-BRIGHT-2025.txt",
+          "sha256": "8950ac809dfe7b62994fa3a0ae2aeaeddb2ebac5dac5e2e1b40ec74c800f804c",
+          "location": "References: Berman et al. 2018",
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue"
+      ],
+      "formatted_reference": "Maxim Berman, Amal Rannen Triki, Matthew B. Blaschko. The Lovász-Softmax Loss: A Tractable Surrogate for the Optimization of the Intersection-Over-Union Measure in Neural Networks. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2018: 4413–4421. DOI: 10.1109/CVPR.2018.00464."
+    },
+    {
+      "number": 40,
+      "local_key": "core06",
+      "title": "Decoupled Weight Decay Regularization",
+      "authors": [
+        "Ilya Loshchilov",
+        "Frank Hutter"
+      ],
+      "year": 2019,
+      "venue": "International Conference on Learning Representations (ICLR)",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": null,
+      "doi": null,
+      "arxiv": "1711.05101",
+      "paper_urls": [
+        "https://arxiv.org/abs/1711.05101"
+      ],
+      "code_or_author_repository_url": null,
+      "topic": "AdamW optimizer",
+      "use_in_manuscript": "Optimizer protocol and matched-budget control",
+      "verification_level": "L2：作者书目与已发表学术参考文献交叉核对",
+      "verification_status": "metadata_cross_checked_not_all_full_text",
+      "verification_scope": "ICLR2019 and correct arXiv1711.05101 are explicit in author README. WANet bibliography prints a different malformed arXiv number; that is not copied.",
+      "sources": [
+        {
+          "source_type": "author_or_institution_repository_bibliography",
+          "local_path": "/workspace/bright-followup/paper-results-ref40-20261016/core_sources/adamw.md",
+          "sha256": "34c337760cafd67e4599cea77e1bf70f36d6e58520b3cf1a090d4c25edac1286",
+          "url": "https://raw.githubusercontent.com/loshchil/AdamW-and-SGDW/master/README.md",
+          "http": 200,
+          "source_file_present_at_audit": true
+        }
+      ],
+      "notes": "ICLR2019 and correct arXiv1711.05101 are explicit in author README. WANet bibliography prints a different malformed arXiv number; that is not copied.",
+      "accessed_date": "2026-10-16",
+      "unfilled_or_not_separately_verified_fields": [
+        "volume",
+        "issue",
+        "pages_or_article",
+        "doi"
+      ],
+      "formatted_reference": "Ilya Loshchilov, Frank Hutter. Decoupled Weight Decay Regularization. International Conference on Learning Representations (ICLR), 2019."
+    }
+  ]
+}

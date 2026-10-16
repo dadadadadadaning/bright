@@ -1,0 +1,2432 @@
+[
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "RGB",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 1,
+    "sha256": "9525702379f24c2716403d62f9478fc83d3a2336345b383beb195ca0fe025d5f",
+    "path": "original_crops/turkey-earthquake_00001065_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "SAR",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 2,
+    "sha256": "8b6416094390b4321e66190fa39a4cf8efe6f91ae2e332e0b31531a16bdfa3ef",
+    "path": "original_crops/turkey-earthquake_00001065_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "GT",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 3,
+    "sha256": "b3788f052fe55ad0094666ae0359d6c1a9debd011f4c2671b7f32d8aa381dd2d",
+    "path": "original_crops/turkey-earthquake_00001065_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "U-Net",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 4,
+    "sha256": "67104cb14c48e03d7f22d9f66adfda9e7ec9af61decfeacad610b1d19f091a19",
+    "path": "original_crops/turkey-earthquake_00001065_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "DeepLabv3+",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 5,
+    "sha256": "9a5d7df93e2209d65ef034da4e17c0506a870ba89153ec51cbabec2deac9ef5d",
+    "path": "original_crops/turkey-earthquake_00001065_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "SiamAttnUNet",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 6,
+    "sha256": "1e682ac4f909e2cd41714a15845fda1a03704ea5f80a12bc32b95605dbff1319",
+    "path": "original_crops/turkey-earthquake_00001065_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "SiamCRNN",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 7,
+    "sha256": "ea5c9c6089525bed07be26922f066b94673ccffa6ce3ee857b3323ccf1b173ad",
+    "path": "original_crops/turkey-earthquake_00001065_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "DamageFormer",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 8,
+    "sha256": "678a6b6149e258ed9bfd18a65273c6791f27da8ab1aadc4b2d65b65830b2eb83",
+    "path": "original_crops/turkey-earthquake_00001065_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001065",
+    "column": "MPF",
+    "original_slide": 5,
+    "original_row": 1,
+    "original_column": 9,
+    "sha256": "6278d7caf11c1b221279aad098e1d8684c39da5e86a033fc0da85d0fcbeb2688",
+    "path": "original_crops/turkey-earthquake_00001065_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "RGB",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 1,
+    "sha256": "715eede3e99e248b540694725e659923e534721b51304d23e7d74e9bfde2f5ad",
+    "path": "original_crops/turkey-earthquake_00001074_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "SAR",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 2,
+    "sha256": "77b24b340c822c9f5c1cafd67468420c601aa348bff9cc9c78ebc2f01dda53c6",
+    "path": "original_crops/turkey-earthquake_00001074_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "GT",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 3,
+    "sha256": "6aeba5b0fc51a237ce84a06c6637fe09e892139e027bd8ee250d1f25345ac5e9",
+    "path": "original_crops/turkey-earthquake_00001074_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "U-Net",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 4,
+    "sha256": "f03da3f4cb0217b30d2e4a9c1b3eff2be96caeee54eea38ef6dfe79c7e7cf059",
+    "path": "original_crops/turkey-earthquake_00001074_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "DeepLabv3+",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 5,
+    "sha256": "f3f59df1417b02bdc1fff5fa38982382ce6edba50da31d3c64ea5eb42f685747",
+    "path": "original_crops/turkey-earthquake_00001074_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "SiamAttnUNet",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 6,
+    "sha256": "3f743ef0f5199162b4bdb84c13616be3b833151ae742b1fb79ae69f6180e824b",
+    "path": "original_crops/turkey-earthquake_00001074_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "SiamCRNN",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 7,
+    "sha256": "e631d8993bfde3e7b239f21cd043a416ebeadeb8c209e7a6fbee6b116335ea51",
+    "path": "original_crops/turkey-earthquake_00001074_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "DamageFormer",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 8,
+    "sha256": "9677b21bd0e1d6911f499c019bf031d4ce1b12a86f3095df858ef3b3a5d0eef8",
+    "path": "original_crops/turkey-earthquake_00001074_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "turkey-earthquake_00001074",
+    "column": "MPF",
+    "original_slide": 5,
+    "original_row": 2,
+    "original_column": 9,
+    "sha256": "dfe84d999458456170b25a2eb1fb004480eda6db3fc8bf470ef8a0af6a06750d",
+    "path": "original_crops/turkey-earthquake_00001074_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "RGB",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 1,
+    "sha256": "ba721dd1324d4773488ba38d2161780b9a6d5673568fd0b06b3992c221f8a7d3",
+    "path": "original_crops/noto-earthquake_00000038_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "SAR",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 2,
+    "sha256": "da3af74857ddf0da47292b580a0d4b2c47415ad515542bc1796aa7328b655b15",
+    "path": "original_crops/noto-earthquake_00000038_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "GT",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 3,
+    "sha256": "92b392832a7c26273aa8b2a95c324eb1e1e46f28e346f3eeaf13345eb3ec160b",
+    "path": "original_crops/noto-earthquake_00000038_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "U-Net",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 4,
+    "sha256": "e0f1770c424704fef42f8bb0925b2de04a6c8634875d8fffebcbfc7406a5afef",
+    "path": "original_crops/noto-earthquake_00000038_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "DeepLabv3+",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 5,
+    "sha256": "f7e543dce6bbeda374e7b80766710122cc806de07c9dab8facc2cbf506354d11",
+    "path": "original_crops/noto-earthquake_00000038_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "SiamAttnUNet",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 6,
+    "sha256": "236b82550a8589f03b9245e8613e9b11633ed52cecf78bbf746d41ae75993cf9",
+    "path": "original_crops/noto-earthquake_00000038_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "SiamCRNN",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 7,
+    "sha256": "a147c1bfcf43777701681ac0e0d4173129ee70abc31a6efd6aaa4832668c2293",
+    "path": "original_crops/noto-earthquake_00000038_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "DamageFormer",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 8,
+    "sha256": "bc1e5653acabb092d4b25d036e600d56155d7f09f4dd93a5c33a73df5484ff54",
+    "path": "original_crops/noto-earthquake_00000038_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000038",
+    "column": "MPF",
+    "original_slide": 5,
+    "original_row": 3,
+    "original_column": 9,
+    "sha256": "b534d1518027e336544b571177575acd2634f228ea392975d0bdd556666d33db",
+    "path": "original_crops/noto-earthquake_00000038_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "RGB",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 1,
+    "sha256": "2d4eda6c157798088a6595100ba7fdcad536d8290931ecd00f393fd89398f2c1",
+    "path": "original_crops/noto-earthquake_00000049_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "SAR",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 2,
+    "sha256": "f634e7c1a12e9f022e0c6fdd71587acdb1f770b567c7e58dfbbaa23ebd3e3981",
+    "path": "original_crops/noto-earthquake_00000049_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "GT",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 3,
+    "sha256": "76b7b99af0f43dc8919164bf08b1ed466611840a12a2367d5f12f51e7df259fc",
+    "path": "original_crops/noto-earthquake_00000049_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "U-Net",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 4,
+    "sha256": "5ce00d3fe6f6224d4cfa93e5a7dfb712eefa6027666138e86b398ba6e9efd235",
+    "path": "original_crops/noto-earthquake_00000049_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "DeepLabv3+",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 5,
+    "sha256": "7419c1512b9b6e785aa77c5bd1c41ab958584cb0cab3703d894602d2609a7870",
+    "path": "original_crops/noto-earthquake_00000049_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "SiamAttnUNet",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 6,
+    "sha256": "f2953fe25186b36b5996f88e6a08f8375b304965cdf83536f6e29312f335c29f",
+    "path": "original_crops/noto-earthquake_00000049_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "SiamCRNN",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 7,
+    "sha256": "1b3d0dc02be4a8e8f2ce53432989f1347455e12be716b608d94e5be666e33a07",
+    "path": "original_crops/noto-earthquake_00000049_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "DamageFormer",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 8,
+    "sha256": "10643229f994989218dd0b5024da4329789ac3eb131e01c585fc92275a37e96e",
+    "path": "original_crops/noto-earthquake_00000049_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "noto-earthquake_00000049",
+    "column": "MPF",
+    "original_slide": 5,
+    "original_row": 4,
+    "original_column": 9,
+    "sha256": "74d4ff564b2c81c1ea681025ffbedd2a40127ba675a45fb340b71d42a4f21283",
+    "path": "original_crops/noto-earthquake_00000049_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "RGB",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 1,
+    "sha256": "3bd8534d9ba85c8e628e2af4e443c711af63b98331a105401dabc7671051fabc",
+    "path": "original_crops/ukraine-conflict_00000354_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "SAR",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 2,
+    "sha256": "d6b8dc5120e1c03177fe329383b70fb01d73306ab663533058f75252adb2e7a8",
+    "path": "original_crops/ukraine-conflict_00000354_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "GT",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 3,
+    "sha256": "63df73c38f8533a65faf9e7d4763e64cedaf8af3dcbe93825c1ffc8e30d52404",
+    "path": "original_crops/ukraine-conflict_00000354_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "U-Net",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 4,
+    "sha256": "41591483b05a5980c928440327f0281840a711671a94b73a80e40f4f61779bf9",
+    "path": "original_crops/ukraine-conflict_00000354_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "DeepLabv3+",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 5,
+    "sha256": "dbb14055bf981a70a24345d9503978f8aa0aa423c1cd59722581acff82633388",
+    "path": "original_crops/ukraine-conflict_00000354_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "SiamAttnUNet",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 6,
+    "sha256": "013ed9f594b7c46d085a5e48f8f66beecf152e18f694bc25ce1e0b89aeb2d16c",
+    "path": "original_crops/ukraine-conflict_00000354_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "SiamCRNN",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 7,
+    "sha256": "fbb77449cc859fad4639d67314f1fee08c2b229ed0a39ab84794879d2477b1aa",
+    "path": "original_crops/ukraine-conflict_00000354_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "DamageFormer",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 8,
+    "sha256": "d0d1a3d5a20d9c85eb105ef10c1dc2342ae1234f806843ae6dbfbfb9e9f05687",
+    "path": "original_crops/ukraine-conflict_00000354_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000354",
+    "column": "MPF",
+    "original_slide": 5,
+    "original_row": 5,
+    "original_column": 9,
+    "sha256": "8b7d6dd6c166deb2b58cb3d24c9642febd78595ecddd3ec86bf2ebbdc901f99c",
+    "path": "original_crops/ukraine-conflict_00000354_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "RGB",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 1,
+    "sha256": "804076b067a73f7a3fb753c6bf583bdaabf9d07429ab5d70c58de0200a8baff7",
+    "path": "original_crops/ukraine-conflict_00000315_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "SAR",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 2,
+    "sha256": "d9609d1b4de28027e635c63d385dd47b59dbc10feabcca67c4c7de96a2e3625f",
+    "path": "original_crops/ukraine-conflict_00000315_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "GT",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 3,
+    "sha256": "eb992dbc150161601ac83cd90e26a71a7c3f61a4d21a713dba01436416d84e0a",
+    "path": "original_crops/ukraine-conflict_00000315_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "U-Net",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 4,
+    "sha256": "5bcb5ae20aa2e256e4ba01264e68798527a9641790c6e0e8880f3bc94698ed32",
+    "path": "original_crops/ukraine-conflict_00000315_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "DeepLabv3+",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 5,
+    "sha256": "f40ea6ca9a66c8427d361d392334a3927fdb8d63eaee09209b92c17ea0c38d13",
+    "path": "original_crops/ukraine-conflict_00000315_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "SiamAttnUNet",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 6,
+    "sha256": "636758825b47b0d8b7f1d3115cb26809e1eca22cbe50f4c4442ccec79f82a23b",
+    "path": "original_crops/ukraine-conflict_00000315_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "SiamCRNN",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 7,
+    "sha256": "4f71780cfff1d5406e82fbd06bc96c0e129e3142f960d87b7edf965f7b4a3638",
+    "path": "original_crops/ukraine-conflict_00000315_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "DamageFormer",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 8,
+    "sha256": "69cd08ef4b815037a9288cbd9b96836b8c588de1f45db21033f5fa9fadf0ee8e",
+    "path": "original_crops/ukraine-conflict_00000315_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "ukraine-conflict_00000315",
+    "column": "MPF",
+    "original_slide": 5,
+    "original_row": 6,
+    "original_column": 9,
+    "sha256": "09e49d60636314abf8172483ec3b40fe6b79fa30e95c7beb9c125ede6ae87b4a",
+    "path": "original_crops/ukraine-conflict_00000315_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "RGB",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 1,
+    "sha256": "2e1efe5b90c06f2e7d480b16ab66f3216b18bc6c6fe50b2d638e50e2995ad143",
+    "path": "original_crops/congo-volcano_00000085_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "SAR",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 2,
+    "sha256": "b57add645dadeedd112f4e7507eb946f574b9df08d8bd9b550bda4acbe0be9a9",
+    "path": "original_crops/congo-volcano_00000085_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "GT",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 3,
+    "sha256": "e3b36e28edcf668cadbf237687a351b0ad198d8e901582cc31e00d269256b8f5",
+    "path": "original_crops/congo-volcano_00000085_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "U-Net",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 4,
+    "sha256": "136119ebf226560dc52c3761ae289f15d68fc63a433611f6217bad586bcdd28b",
+    "path": "original_crops/congo-volcano_00000085_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "DeepLabv3+",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 5,
+    "sha256": "e5d4dc5563c1a1e743b971280cb6dac595cea5213f680d0d78ced25ba8f523c2",
+    "path": "original_crops/congo-volcano_00000085_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "SiamAttnUNet",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 6,
+    "sha256": "81bcc6f96dc5a2a15552d6ee1d9817b95e41e27e7e9e063155d2179451feca70",
+    "path": "original_crops/congo-volcano_00000085_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "SiamCRNN",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 7,
+    "sha256": "a9ea823ef51c8e7918be57338a65e7fd8165d8172094bc023fbb3d72a0066519",
+    "path": "original_crops/congo-volcano_00000085_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "DamageFormer",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 8,
+    "sha256": "c9c14860e2df1d132f37666c3e34cba3a08d9021c2e4f29def25235a92203122",
+    "path": "original_crops/congo-volcano_00000085_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000085",
+    "column": "MPF",
+    "original_slide": 6,
+    "original_row": 1,
+    "original_column": 9,
+    "sha256": "6004464be0effee942bbf3eb036accbe8cf9b81fc1c466c215d4629d8a6123c5",
+    "path": "original_crops/congo-volcano_00000085_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "RGB",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 1,
+    "sha256": "7a64097c17422ff01606c3bbff9443d89c0b1284c659161c5b6d384b5a9bae2c",
+    "path": "original_crops/congo-volcano_00000092_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "SAR",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 2,
+    "sha256": "e296cfb7bc9aff3f04df624584c4804ac8610aad5996efd99353149382865dcf",
+    "path": "original_crops/congo-volcano_00000092_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "GT",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 3,
+    "sha256": "32abc7ba9712359fc95fee459b936b05cec25c574acb707bf6a967db77e63b1d",
+    "path": "original_crops/congo-volcano_00000092_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "U-Net",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 4,
+    "sha256": "31279ab1a15a995e7e069506fcabbb7f4c4d3ce4c689f9f9d1d9fe94496fa337",
+    "path": "original_crops/congo-volcano_00000092_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "DeepLabv3+",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 5,
+    "sha256": "7b780e3930150714e12ca491125b016de988c821b4a9aca19ae5a85f336dcfcf",
+    "path": "original_crops/congo-volcano_00000092_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "SiamAttnUNet",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 6,
+    "sha256": "d27e0f9af5506ecece427869bef65ee58dc9c8746c4e94eae612279ab596fde7",
+    "path": "original_crops/congo-volcano_00000092_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "SiamCRNN",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 7,
+    "sha256": "9e2f724e78dae208fa71c5101447e8ee51f10f7c8518ad8bc92d10e01993315d",
+    "path": "original_crops/congo-volcano_00000092_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "DamageFormer",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 8,
+    "sha256": "0495cecc64b2ed92227e830ee35ce4ab21e77669eac08e3398b6d2b1548e5a7e",
+    "path": "original_crops/congo-volcano_00000092_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "congo-volcano_00000092",
+    "column": "MPF",
+    "original_slide": 6,
+    "original_row": 2,
+    "original_column": 9,
+    "sha256": "f4dc2d6dbc132faeb177646ad3e870caea3532147aeaa3c9a34c8d8c45787c8d",
+    "path": "original_crops/congo-volcano_00000092_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "RGB",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 1,
+    "sha256": "bf2c0a6f4bcccfb8e490ec78e18749910d3ee07f291e4aea640493259848c1f3",
+    "path": "original_crops/la_palma-volcano_00000597_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "SAR",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 2,
+    "sha256": "588210bed9841207990651cfc4709a5ab1d06be48f7245679d9f4b44eed6f3fc",
+    "path": "original_crops/la_palma-volcano_00000597_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "GT",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 3,
+    "sha256": "7d07ba2ea9c279b0f42534f232d6467e441ec8842f0085cdba0270098747a7ad",
+    "path": "original_crops/la_palma-volcano_00000597_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "U-Net",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 4,
+    "sha256": "014adb889610794df69249c1d15d802e98bcd16e7adeb8e23180a0a8969d8677",
+    "path": "original_crops/la_palma-volcano_00000597_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "DeepLabv3+",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 5,
+    "sha256": "9924ecc2430fd1abb5d2f6b35a11210e1f0731aa3a038d870352a0b72200f206",
+    "path": "original_crops/la_palma-volcano_00000597_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "SiamAttnUNet",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 6,
+    "sha256": "bd132e2837a9e0d345200646df7832ac8aaabd63f24cb415e6a7c6fc884522c5",
+    "path": "original_crops/la_palma-volcano_00000597_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "SiamCRNN",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 7,
+    "sha256": "63b5aab952bd3b0ba30d2b195a7a8bed243bf09c5571f69dfee43e12be9eec37",
+    "path": "original_crops/la_palma-volcano_00000597_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "DamageFormer",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 8,
+    "sha256": "1aea7c9562eb19d321675ec46ee140200bb036339c2a88eda74b35c4caeffaf6",
+    "path": "original_crops/la_palma-volcano_00000597_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000597",
+    "column": "MPF",
+    "original_slide": 6,
+    "original_row": 3,
+    "original_column": 9,
+    "sha256": "1210f1b55f6eb09e1e4f687c638bbc39cb40700dee6cd0c52da886b690833386",
+    "path": "original_crops/la_palma-volcano_00000597_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "RGB",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 1,
+    "sha256": "d57e7044461407b92964cde99c6178352bc67d56886edab045f0ae97caf4f620",
+    "path": "original_crops/la_palma-volcano_00000353_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "SAR",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 2,
+    "sha256": "a4232d7fef92da9e98a514d4e395d0dff7fee106cb760f301e706592f341d9a5",
+    "path": "original_crops/la_palma-volcano_00000353_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "GT",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 3,
+    "sha256": "3648a36f6771c1839f71ac91e60a9214d8ce6c3bfadbacd1c25cc48264505cbe",
+    "path": "original_crops/la_palma-volcano_00000353_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "U-Net",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 4,
+    "sha256": "44d14e95ac53870a0f39de4f0cba2282eddc87b1fd88b47ea8ffb7d9830f1f3c",
+    "path": "original_crops/la_palma-volcano_00000353_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "DeepLabv3+",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 5,
+    "sha256": "e466ddfc2720000b0004944dc78e245ff481885a44a51a9b5981deac9327cc5c",
+    "path": "original_crops/la_palma-volcano_00000353_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "SiamAttnUNet",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 6,
+    "sha256": "9b59c9711dc3fe09d576322e98d88b4769220e88df0dc23b4648af13f478ae39",
+    "path": "original_crops/la_palma-volcano_00000353_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "SiamCRNN",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 7,
+    "sha256": "2acf33bc25959a01091bc213ced6410dff184d9aac87deab9c24a2e681f4dfce",
+    "path": "original_crops/la_palma-volcano_00000353_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "DamageFormer",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 8,
+    "sha256": "00d7591f0ca54e7237f0edaac7f287df1df4078bef37e9797eb86e5d96cf6589",
+    "path": "original_crops/la_palma-volcano_00000353_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "la_palma-volcano_00000353",
+    "column": "MPF",
+    "original_slide": 6,
+    "original_row": 4,
+    "original_column": 9,
+    "sha256": "eb23902e4105eede15d26a45f7856631f8e273cad901ba718cf2e4dd1cc75076",
+    "path": "original_crops/la_palma-volcano_00000353_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "RGB",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 1,
+    "sha256": "dbfcb6f8dca4f930f1c4e874d162f6564b0c4a3149c406ec8f290d7906d9e77b",
+    "path": "original_crops/hawaii-wildfire_00000014_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "SAR",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 2,
+    "sha256": "95774d002316a2eb08181e2a904cf30a25101b387b35389e325eec54a354dfa6",
+    "path": "original_crops/hawaii-wildfire_00000014_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "GT",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 3,
+    "sha256": "77942aa099e2812b0eb11ef4af505b692b7ce2d148f1edf3724634f8ba0f19c0",
+    "path": "original_crops/hawaii-wildfire_00000014_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "U-Net",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 4,
+    "sha256": "de311e3f3d013bad69335d67b840e4bd2e4f922ae90423d8ac98cfa28058520a",
+    "path": "original_crops/hawaii-wildfire_00000014_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "DeepLabv3+",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 5,
+    "sha256": "42b7d9797ce3283f1c3088036c399edd0a7ec86ed26300a74cee4ff6ead0e0e5",
+    "path": "original_crops/hawaii-wildfire_00000014_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "SiamAttnUNet",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 6,
+    "sha256": "633cfa0ac7aba44274e631ce6d2c2c3bad503f7640a5fef87e8cbb07564a7db1",
+    "path": "original_crops/hawaii-wildfire_00000014_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "SiamCRNN",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 7,
+    "sha256": "f6bdb333eca4f6d7cb126c52e25b6fa1b2c4aa8223be7db0833d3e29b842fbf8",
+    "path": "original_crops/hawaii-wildfire_00000014_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "DamageFormer",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 8,
+    "sha256": "2d5ec443d645a1bf23313ba74cdb0d08be1ba6c6a4ab877acb30090082418c07",
+    "path": "original_crops/hawaii-wildfire_00000014_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000014",
+    "column": "MPF",
+    "original_slide": 6,
+    "original_row": 5,
+    "original_column": 9,
+    "sha256": "c8f72b101831d0f09e479c2acbd44e41e933d761e309475fb05a827c9df7304c",
+    "path": "original_crops/hawaii-wildfire_00000014_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "RGB",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 1,
+    "sha256": "fcbedd4c42aea4f27e9373d410ca7c8b8fe44f57ee761fc8e1a2c5417fa8e023",
+    "path": "original_crops/hawaii-wildfire_00000003_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "SAR",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 2,
+    "sha256": "c3fc31ee1d49a0cee703c9d0749817aa2499a3663a5cbfdd25c5ac06abcc5319",
+    "path": "original_crops/hawaii-wildfire_00000003_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "GT",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 3,
+    "sha256": "44a9c15d0dd1a80ec29733bd9afab56ff76ba6ff0b9c810a364086cd32d81c4e",
+    "path": "original_crops/hawaii-wildfire_00000003_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "U-Net",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 4,
+    "sha256": "9f33615dcc9b79ae61643201d003d6dd16958e21d5ee8092a27cd52c149bed24",
+    "path": "original_crops/hawaii-wildfire_00000003_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "DeepLabv3+",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 5,
+    "sha256": "70cabef052c5f50216c1b10f64ebf67e191841270b4d0bc809d5a1510246fb07",
+    "path": "original_crops/hawaii-wildfire_00000003_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "SiamAttnUNet",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 6,
+    "sha256": "197434fc8ded5b54cfaa7913daf08a0d2ec9972d63fae1e15e07be1bc5dd04a3",
+    "path": "original_crops/hawaii-wildfire_00000003_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "SiamCRNN",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 7,
+    "sha256": "9138adfdb789903e98cc298100931d2f9231106470a7ffd9eb64cc4ffccad72c",
+    "path": "original_crops/hawaii-wildfire_00000003_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "DamageFormer",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 8,
+    "sha256": "48e1909c789d9717167aaff07a3069112872eb60722ea619a33ac1027f527bbf",
+    "path": "original_crops/hawaii-wildfire_00000003_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "hawaii-wildfire_00000003",
+    "column": "MPF",
+    "original_slide": 6,
+    "original_row": 6,
+    "original_column": 9,
+    "sha256": "01201fdcb42bd9bc3f9950257516a02727768d19c69c265373e09de85e5ae8b7",
+    "path": "original_crops/hawaii-wildfire_00000003_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "RGB",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 1,
+    "sha256": "3b8dfa3addeaf0bf7e9723eefea12b6c8cdbb10964c73d2fddc93bee9b318fa9",
+    "path": "original_crops/mexico-hurricane_00000005_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "SAR",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 2,
+    "sha256": "403bcf4f99b9cff0e371151dc916bd5cb580e61310686013d73bb27e0ba30b73",
+    "path": "original_crops/mexico-hurricane_00000005_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "GT",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 3,
+    "sha256": "38b30980fce806d78e4fcb83def6ee103f1d1712b09992121f0a0a548b991e59",
+    "path": "original_crops/mexico-hurricane_00000005_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "U-Net",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 4,
+    "sha256": "1f2d5e650b604eb4a9474f6f2de801ea3ea84e58c3bad301fe37039053bb6597",
+    "path": "original_crops/mexico-hurricane_00000005_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "DeepLabv3+",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 5,
+    "sha256": "ab57f7e516413dc4a9d85c9a7af1428b29a49e8bffe6d181c8cfbd8e916528cf",
+    "path": "original_crops/mexico-hurricane_00000005_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "SiamAttnUNet",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 6,
+    "sha256": "4935b377007de67f5844528d877836b2c7e41d8f88071a608e3aa0d3f8967600",
+    "path": "original_crops/mexico-hurricane_00000005_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "SiamCRNN",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 7,
+    "sha256": "9af5e0d042d90f7449af638565d790ddc1dbbaecea680cf3caaa487d39b56135",
+    "path": "original_crops/mexico-hurricane_00000005_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "DamageFormer",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 8,
+    "sha256": "34cc303042e1b2c191bbe510daa0af3d48b9b867d7be8c09536d1246d1cbf7db",
+    "path": "original_crops/mexico-hurricane_00000005_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "mexico-hurricane_00000005",
+    "column": "MPF",
+    "original_slide": 7,
+    "original_row": 1,
+    "original_column": 9,
+    "sha256": "3b7a807be3193426fd1bdcc7e2f313179c34615b9148c81316c19e8def3b0421",
+    "path": "original_crops/mexico-hurricane_00000005_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "RGB",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 1,
+    "sha256": "c72ac9b262217623531780202807b3dc36141d6025df86aee75fdcb7e59376a7",
+    "path": "original_crops/myanmar-hurricane_00000107_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "SAR",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 2,
+    "sha256": "a46225824d6e19a4fe6802e493c670601a60009b79be736176b389ab5a5669dd",
+    "path": "original_crops/myanmar-hurricane_00000107_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "GT",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 3,
+    "sha256": "00eec254140b744c4aee9651733d74e30e80ba77adaa0ef8c15c1e7f7a6b3c2c",
+    "path": "original_crops/myanmar-hurricane_00000107_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "U-Net",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 4,
+    "sha256": "e79fa496a843a1c6faad805e57bfac820ac7656e56d145e6fd8f4a644ec7b2d6",
+    "path": "original_crops/myanmar-hurricane_00000107_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "DeepLabv3+",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 5,
+    "sha256": "b2a0843fa4712e3d4f8235cd6afb45d692f34ed3300a7248a6a18688ed3e65c3",
+    "path": "original_crops/myanmar-hurricane_00000107_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "SiamAttnUNet",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 6,
+    "sha256": "2c9091f027873e7a44d31ca6201ba47da2f3175ad42baf237c9026f6e57782cb",
+    "path": "original_crops/myanmar-hurricane_00000107_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "SiamCRNN",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 7,
+    "sha256": "72e5b887471ecf3a62b0250082ae426754e669614416ad8292c0fbd698bf3923",
+    "path": "original_crops/myanmar-hurricane_00000107_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "DamageFormer",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 8,
+    "sha256": "7867bbc5d39aada9b04b8619ac151ad4e2f82bcba38111067510200a67687d8d",
+    "path": "original_crops/myanmar-hurricane_00000107_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000107",
+    "column": "MPF",
+    "original_slide": 7,
+    "original_row": 2,
+    "original_column": 9,
+    "sha256": "37720012c9b9d6cd724ad0b4339251a8cd2986e7095de81fe7778b0e5e5ff37f",
+    "path": "original_crops/myanmar-hurricane_00000107_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "RGB",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 1,
+    "sha256": "97df68bffbc80b297177460dd1eee25ca7d0a30a7ce4ec6ae21f9e014023ae18",
+    "path": "original_crops/myanmar-hurricane_00000099_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "SAR",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 2,
+    "sha256": "17d79e7851ea496fda37b64a017f3a56d52e62cff89b5fd164eca630fbb125e0",
+    "path": "original_crops/myanmar-hurricane_00000099_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "GT",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 3,
+    "sha256": "41a74f6fd9fe198176098102559300980c7fe46d81ccf2265711d920b36ca22b",
+    "path": "original_crops/myanmar-hurricane_00000099_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "U-Net",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 4,
+    "sha256": "b9cbf97c09108899e3753a2311a71f2aa69c0f0e06343e54b9e7af3626ed2c1b",
+    "path": "original_crops/myanmar-hurricane_00000099_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "DeepLabv3+",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 5,
+    "sha256": "03ce27eb2edc424cbb7ed5a2147cf2bd4cc3c77088a6d17c02268a8a8c5b114c",
+    "path": "original_crops/myanmar-hurricane_00000099_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "SiamAttnUNet",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 6,
+    "sha256": "404f124117862f1caec15e33468c1a18b0431cf0ded2a73ff68d0099ae81d20c",
+    "path": "original_crops/myanmar-hurricane_00000099_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "SiamCRNN",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 7,
+    "sha256": "f18c2118bf5d0eb74f2a5deb50388ffc0c5eb10fb1fd7295e86c2a67369e1a5c",
+    "path": "original_crops/myanmar-hurricane_00000099_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "DamageFormer",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 8,
+    "sha256": "99ddcc9af663dce850f835c39f19d499851d6aa6cd6f49fb15f162476fc643b4",
+    "path": "original_crops/myanmar-hurricane_00000099_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "myanmar-hurricane_00000099",
+    "column": "MPF",
+    "original_slide": 7,
+    "original_row": 3,
+    "original_column": 9,
+    "sha256": "3d34bcc767e7262aedc0c6bf540bece865c6db5f442a3f16fc02d69b27c5e964",
+    "path": "original_crops/myanmar-hurricane_00000099_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "RGB",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 1,
+    "sha256": "0368a986fb995731993ecdd360c21bb544f4319782c535870461b8d76be482ce",
+    "path": "original_crops/libya-flood_00000021_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "SAR",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 2,
+    "sha256": "6276c7c834c1910943c4a35026050af2a764927c9daeb0175655964f74173f69",
+    "path": "original_crops/libya-flood_00000021_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "GT",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 3,
+    "sha256": "6341f64c1a703a33c0b2830d4cafbf9b787888709459928e3d6c5271964f0ee1",
+    "path": "original_crops/libya-flood_00000021_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "U-Net",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 4,
+    "sha256": "5de2252bf2880540d941a14b51afa2f9208356e1848a80a54872f53b45ad7746",
+    "path": "original_crops/libya-flood_00000021_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "DeepLabv3+",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 5,
+    "sha256": "98ecdb90972e4fcb5b44b6c89c0c28dbbfe086fb0d01ead9851c6a3970b4d6d4",
+    "path": "original_crops/libya-flood_00000021_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "SiamAttnUNet",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 6,
+    "sha256": "8f0b02ba55fe6e5a8384602daedd463a6eeb0a168b069ce96d9465186271c02e",
+    "path": "original_crops/libya-flood_00000021_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "SiamCRNN",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 7,
+    "sha256": "bd43bf6a875d08c12877a2948a5c6534f148a23e862fcc2e2b3d49c9806bfc0f",
+    "path": "original_crops/libya-flood_00000021_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "DamageFormer",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 8,
+    "sha256": "e5dbb20f44fbbe9732fef0cc00a99a88845338b822de0278e0f1f68a5c259450",
+    "path": "original_crops/libya-flood_00000021_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "libya-flood_00000021",
+    "column": "MPF",
+    "original_slide": 7,
+    "original_row": 4,
+    "original_column": 9,
+    "sha256": "457fcd6396c2ac769ca3b0e46d491ea67cfbee48a975edb5ddcb74a7e977b63a",
+    "path": "original_crops/libya-flood_00000021_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "RGB",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 1,
+    "sha256": "7c30bb2ab615696cc8c1adbfe33a43e32fa3c136c3a1a9740828626475b33323",
+    "path": "original_crops/bata-explosion_00000062_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "SAR",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 2,
+    "sha256": "0b815b3d349bb5fa71bfa16f2b0246c574763d77877ae3f388da24c13513fcfe",
+    "path": "original_crops/bata-explosion_00000062_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "GT",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 3,
+    "sha256": "d841998c271e0a748355f4a3c8305f42b8828881a08203d17eab239895de32e1",
+    "path": "original_crops/bata-explosion_00000062_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "U-Net",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 4,
+    "sha256": "e42776909c59ebef9f7b275eb9c7572e1e274ccba79ecb50c6ce69f97165f221",
+    "path": "original_crops/bata-explosion_00000062_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "DeepLabv3+",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 5,
+    "sha256": "4ba8fc3d17cca5e86acd93fc28716bcabcb6273c406c422f6fd003f4bcee7db1",
+    "path": "original_crops/bata-explosion_00000062_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "SiamAttnUNet",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 6,
+    "sha256": "4c28d9742e305c3fb6091b01b3b6f32a0bba34bfb07eb678e80c553c34683a93",
+    "path": "original_crops/bata-explosion_00000062_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "SiamCRNN",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 7,
+    "sha256": "e3b9369f47f49e6d8384a432717404014ca269240cb1f9a082c3665d5c5b0864",
+    "path": "original_crops/bata-explosion_00000062_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "DamageFormer",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 8,
+    "sha256": "05145bb0e716db954424b476732202a7a541bffa7f7facd11be8203195f235f0",
+    "path": "original_crops/bata-explosion_00000062_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000062",
+    "column": "MPF",
+    "original_slide": 7,
+    "original_row": 5,
+    "original_column": 9,
+    "sha256": "bedfbcc01a32885580d80eaa70db7879c4531670ffed387c20cb595a4ec60180",
+    "path": "original_crops/bata-explosion_00000062_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "RGB",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 1,
+    "sha256": "20fcc5be5913bd3c40442a4238177eb990d1bb658b950e0ddfbe9c5d54feb46a",
+    "path": "original_crops/bata-explosion_00000049_0_RGB.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "SAR",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 2,
+    "sha256": "dbda039f4ce0451d41c74aeed33c91c7ac5d034846a6e93e13ba816b10e09ae6",
+    "path": "original_crops/bata-explosion_00000049_1_SAR.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "GT",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 3,
+    "sha256": "ddb6bd5cbf76313647d7897f6864adf7393a9beedce1816e5ed6d72a1ab78f6c",
+    "path": "original_crops/bata-explosion_00000049_2_GT.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "U-Net",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 4,
+    "sha256": "052b6d0ce2489bcaafd7a8dbaa80347f0281f2b9d087bf439707be48550a4ff9",
+    "path": "original_crops/bata-explosion_00000049_3_U-Net.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "DeepLabv3+",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 5,
+    "sha256": "ca3ef2041b7d2e6246035a9d29f3f88979782f8885bdcaf6a496dcfb9f9f87c3",
+    "path": "original_crops/bata-explosion_00000049_4_DeepLabv3+.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "SiamAttnUNet",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 6,
+    "sha256": "781258f8b2a317f82d165589356b4e9328c5ad9187c5b9015f69e277aac5bc9b",
+    "path": "original_crops/bata-explosion_00000049_5_SiamAttnUNet.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "SiamCRNN",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 7,
+    "sha256": "2f1f23ce9c930a2ea3c294df5c049751b73d8527871ce0d4074cf5b9c6b41a89",
+    "path": "original_crops/bata-explosion_00000049_6_SiamCRNN.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "DamageFormer",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 8,
+    "sha256": "51538ee0bceea13eae801a297ea184cab6854ad94712ada9e7f6e158e84d6a20",
+    "path": "original_crops/bata-explosion_00000049_7_DamageFormer.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sample_id": "bata-explosion_00000049",
+    "column": "MPF",
+    "original_slide": 7,
+    "original_row": 6,
+    "original_column": 9,
+    "sha256": "c04e4475a0c7349cbf7f8f551e56fc3547f5aef6bb78f373e7bb3e930d649c85",
+    "path": "original_crops/bata-explosion_00000049_8_MPF.png",
+    "source_crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+]
