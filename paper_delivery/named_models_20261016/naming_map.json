@@ -1,0 +1,38 @@
+[
+  [
+    "A1",
+    "像素基线（原始权重）",
+    "Pixel baseline (original weights)",
+    "直接评价MPF既有像素分类器，不进行本轮头训练"
+  ],
+  [
+    "J0",
+    "像素基线（分类头适配）",
+    "Pixel baseline (head adaptation)",
+    "冻结同一前端，只训练像素分类头"
+  ],
+  [
+    "Jcur",
+    "像素—区域联合基线",
+    "Pixel–region baseline",
+    "当前图区域直接回投，无支持Reader"
+  ],
+  [
+    "J1",
+    "可学习槽位对照",
+    "Learnable-slot control",
+    "Reader读取可学习参考向量，不读取真实Train记录"
+  ],
+  [
+    "J2",
+    "余弦检索增强模型",
+    "Cosine retrieval-augmented model",
+    "同一Train库，按原始余弦选择真实支持"
+  ],
+  [
+    "J3",
+    "跨事件监督检索增强模型",
+    "Cross-event supervised retrieval model",
+    "同一Train库，跨事件监督投影选择支持ID"
+  ]
+]
