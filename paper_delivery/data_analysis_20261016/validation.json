@@ -1,0 +1,26 @@
+{
+  "source_sha256": "33aefd9e356c34cf9fa1d03bc61695ece8dcfc211f1063330cb57b211b445653",
+  "source_file_unchanged": true,
+  "confirmed_MPF_Test_mIoU4": 68.54,
+  "MPF_source": "user explicitly confirmed old roi = best_val_miou.pth complete Test",
+  "recomputed_inference": false,
+  "new_unmeasured_scores_fabricated": false,
+  "missing_cells": "待测 / 待核",
+  "original_math_unchanged": 89,
+  "drawing_XML_identical": 10,
+  "all_media_bytes_identical": 10,
+  "references_preserved": 40,
+  "table_count": 8,
+  "pdf_pages": {
+    "paper_data_filled_and_analyzed.pdf": 20,
+    "detailed_results_analysis.pdf": 7
+  },
+  "all_40_references_unchanged_and_cited": true,
+  "numeric_table_cells_verified": true,
+  "independent_review_passed": true,
+  "review_corrections_resolved": [
+    "media count corrected to ten actual images",
+    "pending-result phrasing clarified"
+  ],
+  "original_picture_references_verified_unchanged": true
+}
