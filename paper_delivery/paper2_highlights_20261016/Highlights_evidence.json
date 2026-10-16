@@ -1,0 +1,35 @@
+{
+  "title": "Highlights",
+  "style": "Exactly four English highlights, each at most 85 characters including spaces.",
+  "highlights": [
+    {
+      "english": "Building probabilities guide local soft region assignments.",
+      "chinese": "预测建筑概率引导局部软区域归属。",
+      "evidence": "Method §III.B; describes the implemented assignment mechanism without claiming an isolated gain.",
+      "characters_including_spaces": 59
+    },
+    {
+      "english": "Partition-state signals condition residual adaptation of fused features.",
+      "chinese": "分区状态信号调节融合特征的残差适配。",
+      "evidence": "Method §III.C; conditions comprise building probabilities, assignment compatibility changes, and assignment entropy.",
+      "characters_including_spaces": 72
+    },
+    {
+      "english": "Cross-event class supervision learns regional support retrieval rankings.",
+      "chinese": "跨事件类别监督学习区域支持案例的检索排序。",
+      "evidence": "Method §III.D; the projection changes support IDs, while original support content is read.",
+      "characters_including_spaces": 73
+    },
+    {
+      "english": "Four-class test mIoU reaches 69.64% on the BRIGHT benchmark.",
+      "chinese": "完整模型在BRIGHT的Test四类mIoU达到69.64%。",
+      "evidence": "用户确认以主表最新69.64/76.25统一，既有Test评估汇总；本次文字修订未重新推理。",
+      "characters_including_spaces": 60
+    }
+  ],
+  "editorial_notes": [
+    "原模板为大气校正内容，本次全部替换为当前建筑损毁框架。",
+    "四条英文Highlights各不超过85字符；机制描述不表示独立消融已通过。",
+    "69.64/76.25按用户明确确认统一；原有图像和公式保持。"
+  ]
+}

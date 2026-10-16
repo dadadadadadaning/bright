@@ -1,0 +1,450 @@
+{
+  "schema": "paper2_verified_charts_v1",
+  "source_docx": "/workspace/attachments/15490848-5f32-40a1-adfd-65fc7054e14c/论文2.docx",
+  "source_docx_sha256": "83b6e384e2e094b7423b8dc5358caa269403747826a61dde019032c26620a57f",
+  "source_tables": [
+    0,
+    1
+  ],
+  "source_status": "source-reported numbers; not independently re-evaluated predictions",
+  "main_table": [
+    {
+      "method": "UNet",
+      "localization_f1_percent": 87.97,
+      "classification_f1_percent": 72.24,
+      "oa_percent": 95.47,
+      "fourclass_miou_percent": 64.94,
+      "background_iou_percent": 96.19,
+      "intact_iou_percent": 71.27,
+      "damaged_iou_percent": 39.13,
+      "destroyed_iou_percent": 53.17
+    },
+    {
+      "method": "DeepLabV3+",
+      "localization_f1_percent": 87.0,
+      "classification_f1_percent": 70.33,
+      "oa_percent": 95.43,
+      "fourclass_miou_percent": 64.8,
+      "background_iou_percent": 95.98,
+      "intact_iou_percent": 70.98,
+      "damaged_iou_percent": 37.53,
+      "destroyed_iou_percent": 54.69
+    },
+    {
+      "method": "SiamAttnUNet",
+      "localization_f1_percent": 88.16,
+      "classification_f1_percent": 70.13,
+      "oa_percent": 95.45,
+      "fourclass_miou_percent": 64.26,
+      "background_iou_percent": 96.14,
+      "intact_iou_percent": 71.9,
+      "damaged_iou_percent": 35.06,
+      "destroyed_iou_percent": 53.92
+    },
+    {
+      "method": "SiamCRNN",
+      "localization_f1_percent": 89.45,
+      "classification_f1_percent": 72.02,
+      "oa_percent": 95.76,
+      "fourclass_miou_percent": 65.73,
+      "background_iou_percent": 96.48,
+      "intact_iou_percent": 73.44,
+      "damaged_iou_percent": 38.91,
+      "destroyed_iou_percent": 54.18
+    },
+    {
+      "method": "ChangeOS",
+      "localization_f1_percent": 89.6,
+      "classification_f1_percent": 71.88,
+      "oa_percent": 95.84,
+      "fourclass_miou_percent": 65.98,
+      "background_iou_percent": 96.54,
+      "intact_iou_percent": 73.85,
+      "damaged_iou_percent": 38.99,
+      "destroyed_iou_percent": 54.53
+    },
+    {
+      "method": "DamageFormer",
+      "localization_f1_percent": 90.29,
+      "classification_f1_percent": 72.51,
+      "oa_percent": 96.13,
+      "fourclass_miou_percent": 67.09,
+      "background_iou_percent": 96.87,
+      "intact_iou_percent": 75.04,
+      "damaged_iou_percent": 39.86,
+      "destroyed_iou_percent": 56.59
+    },
+    {
+      "method": "ChangeMamba",
+      "localization_f1_percent": 90.9,
+      "classification_f1_percent": 72.7,
+      "oa_percent": 96.22,
+      "fourclass_miou_percent": 67.63,
+      "background_iou_percent": 96.96,
+      "intact_iou_percent": 75.59,
+      "damaged_iou_percent": 40.05,
+      "destroyed_iou_percent": 57.91
+    },
+    {
+      "method": "MPF",
+      "localization_f1_percent": 90.7,
+      "classification_f1_percent": 73.29,
+      "oa_percent": 96.31,
+      "fourclass_miou_percent": 68.54,
+      "background_iou_percent": 96.99,
+      "intact_iou_percent": 76.24,
+      "damaged_iou_percent": 42.21,
+      "destroyed_iou_percent": 58.72
+    },
+    {
+      "method": "Ours",
+      "localization_f1_percent": 90.91,
+      "classification_f1_percent": 74.4,
+      "oa_percent": 96.12,
+      "fourclass_miou_percent": 69.64,
+      "background_iou_percent": 96.89,
+      "intact_iou_percent": 76.25,
+      "damaged_iou_percent": 43.84,
+      "destroyed_iou_percent": 61.59
+    }
+  ],
+  "event_table": [
+    {
+      "event": "Beirut-EP-2020",
+      "UNet": 52.23,
+      "DeepLabV3+": 48.53,
+      "SiamAttnUNet": 51.85,
+      "SiamCRNN": 52.04,
+      "DamageFormer": 60.55,
+      "ChangeMamba": 49.38,
+      "Ours": 58.83,
+      "ours_minus_damageformer_pp": -1.72,
+      "ours_minus_changemamba_pp": 9.45
+    },
+    {
+      "event": "Bata-EP-2021",
+      "UNet": 39.24,
+      "DeepLabV3+": 40.26,
+      "SiamAttnUNet": 38.69,
+      "SiamCRNN": 41.44,
+      "DamageFormer": 40.37,
+      "ChangeMamba": 40.47,
+      "Ours": 42.54,
+      "ours_minus_damageformer_pp": 2.17,
+      "ours_minus_changemamba_pp": 2.07
+    },
+    {
+      "event": "Goma-VE-2021",
+      "UNet": 61.52,
+      "DeepLabV3+": 59.26,
+      "SiamAttnUNet": 62.95,
+      "SiamCRNN": 62.5,
+      "DamageFormer": 61.55,
+      "ChangeMamba": 62.89,
+      "Ours": 62.74,
+      "ours_minus_damageformer_pp": 1.19,
+      "ours_minus_changemamba_pp": -0.15
+    },
+    {
+      "event": "Les Cayes-EQ-2021",
+      "UNet": 40.39,
+      "DeepLabV3+": 38.52,
+      "SiamAttnUNet": 40.84,
+      "SiamCRNN": 40.99,
+      "DamageFormer": 41.75,
+      "ChangeMamba": 42.36,
+      "Ours": 42.46,
+      "ours_minus_damageformer_pp": 0.71,
+      "ours_minus_changemamba_pp": 0.1
+    },
+    {
+      "event": "La Palma-VE-2021",
+      "UNet": 62.72,
+      "DeepLabV3+": 64.31,
+      "SiamAttnUNet": 65.56,
+      "SiamCRNN": 64.24,
+      "DamageFormer": 64.27,
+      "ChangeMamba": 65.13,
+      "Ours": 65.1,
+      "ours_minus_damageformer_pp": 0.83,
+      "ours_minus_changemamba_pp": -0.03
+    },
+    {
+      "event": "Marshall-WF-2021",
+      "UNet": 53.96,
+      "DeepLabV3+": 44.67,
+      "SiamAttnUNet": 51.48,
+      "SiamCRNN": 56.57,
+      "DamageFormer": 57.5,
+      "ChangeMamba": 57.23,
+      "Ours": 57.01,
+      "ours_minus_damageformer_pp": -0.49,
+      "ours_minus_changemamba_pp": -0.22
+    },
+    {
+      "event": "Ukraine-AC-2022",
+      "UNet": 43.92,
+      "DeepLabV3+": 43.84,
+      "SiamAttnUNet": 40.71,
+      "SiamCRNN": 45.52,
+      "DamageFormer": 47.45,
+      "ChangeMamba": 47.43,
+      "Ours": 49.05,
+      "ours_minus_damageformer_pp": 1.6,
+      "ours_minus_changemamba_pp": 1.62
+    },
+    {
+      "event": "Turkey-EQ-2023",
+      "UNet": 49.34,
+      "DeepLabV3+": 49.53,
+      "SiamAttnUNet": 48.57,
+      "SiamCRNN": 50.69,
+      "DamageFormer": 51.36,
+      "ChangeMamba": 52.7,
+      "Ours": 52.3,
+      "ours_minus_damageformer_pp": 0.94,
+      "ours_minus_changemamba_pp": -0.4
+    },
+    {
+      "event": "Kyaukpyu-CC-2023",
+      "UNet": 38.11,
+      "DeepLabV3+": 38.56,
+      "SiamAttnUNet": 40.49,
+      "SiamCRNN": 42.35,
+      "DamageFormer": 48.42,
+      "ChangeMamba": 41.05,
+      "Ours": 47.67,
+      "ours_minus_damageformer_pp": -0.75,
+      "ours_minus_changemamba_pp": 6.62
+    },
+    {
+      "event": "Hawaii-WF-2023",
+      "UNet": 53.02,
+      "DeepLabV3+": 57.81,
+      "SiamAttnUNet": 57.92,
+      "SiamCRNN": 55.34,
+      "DamageFormer": 60.82,
+      "ChangeMamba": 60.7,
+      "Ours": 61.52,
+      "ours_minus_damageformer_pp": 0.7,
+      "ours_minus_changemamba_pp": 0.82
+    },
+    {
+      "event": "Morocco-EQ-2023",
+      "UNet": 42.62,
+      "DeepLabV3+": 42.05,
+      "SiamAttnUNet": 42.58,
+      "SiamCRNN": 43.17,
+      "DamageFormer": 44.0,
+      "ChangeMamba": 44.06,
+      "Ours": 44.4,
+      "ours_minus_damageformer_pp": 0.4,
+      "ours_minus_changemamba_pp": 0.34
+    },
+    {
+      "event": "Derna-FL-2023",
+      "UNet": 59.47,
+      "DeepLabV3+": 56.08,
+      "SiamAttnUNet": 66.82,
+      "SiamCRNN": 59.48,
+      "DamageFormer": 62.24,
+      "ChangeMamba": 63.3,
+      "Ours": 64.3,
+      "ours_minus_damageformer_pp": 2.06,
+      "ours_minus_changemamba_pp": 1.0
+    },
+    {
+      "event": "Acapulco-HC-2023",
+      "UNet": 49.21,
+      "DeepLabV3+": 46.66,
+      "SiamAttnUNet": 42.15,
+      "SiamCRNN": 49.98,
+      "DamageFormer": 50.82,
+      "ChangeMamba": 47.01,
+      "Ours": 57.53,
+      "ours_minus_damageformer_pp": 6.71,
+      "ours_minus_changemamba_pp": 10.52
+    },
+    {
+      "event": "Noto-EQ-2024",
+      "UNet": 36.49,
+      "DeepLabV3+": 37.33,
+      "SiamAttnUNet": 36.56,
+      "SiamCRNN": 38.35,
+      "DamageFormer": 40.57,
+      "ChangeMamba": 45.78,
+      "Ours": 51.1,
+      "ours_minus_damageformer_pp": 10.53,
+      "ours_minus_changemamba_pp": 5.32
+    }
+  ],
+  "printed_event_average": {
+    "UNet": 48.73,
+    "DeepLabV3+": 47.67,
+    "SiamAttnUNet": 49.08,
+    "SiamCRNN": 50.19,
+    "DamageFormer": 52.26,
+    "ChangeMamba": 51.39,
+    "Ours": 54.04
+  },
+  "computed_equal_event_average": {
+    "UNet": 48.73142857142857,
+    "DeepLabV3+": 47.672142857142866,
+    "SiamAttnUNet": 49.08357142857143,
+    "SiamCRNN": 50.190000000000005,
+    "DamageFormer": 52.26214285714286,
+    "ChangeMamba": 51.39214285714286,
+    "Ours": 54.03928571428571
+  },
+  "derived_class_deltas": [
+    {
+      "reference": "DamageFormer",
+      "class": "Background",
+      "ours_minus_reference_pp": 0.02
+    },
+    {
+      "reference": "DamageFormer",
+      "class": "Intact",
+      "ours_minus_reference_pp": 1.21
+    },
+    {
+      "reference": "DamageFormer",
+      "class": "Damaged",
+      "ours_minus_reference_pp": 3.98
+    },
+    {
+      "reference": "DamageFormer",
+      "class": "Destroyed",
+      "ours_minus_reference_pp": 5.0
+    },
+    {
+      "reference": "MPF",
+      "class": "Background",
+      "ours_minus_reference_pp": -0.1
+    },
+    {
+      "reference": "MPF",
+      "class": "Intact",
+      "ours_minus_reference_pp": 0.01
+    },
+    {
+      "reference": "MPF",
+      "class": "Damaged",
+      "ours_minus_reference_pp": 1.63
+    },
+    {
+      "reference": "MPF",
+      "class": "Destroyed",
+      "ours_minus_reference_pp": 2.87
+    }
+  ],
+  "derived_event_mean_deltas_pp": {
+    "DamageFormer": 1.7771428571428574,
+    "ChangeMamba": 2.6471428571428572
+  },
+  "positive_event_count_out_of_14": {
+    "DamageFormer": 11,
+    "ChangeMamba": 10
+  },
+  "event_metric_scope": "Manuscript table 2 reports event scores without explicitly establishing foreground versus four-class averaging; chart retains generic event mIoU label.",
+  "historical_curve": {
+    "source": "/workspace/outputs/bright_paper_data_analysis_20261016/detailed_results_analysis.md",
+    "rows": [
+      {
+        "step": 0,
+        "grid_probq": 61.9027,
+        "A": 61.9027,
+        "B": 61.9027,
+        "C": 61.9027,
+        "D": 61.9027
+      },
+      {
+        "step": 500,
+        "grid_probq": 61.9027,
+        "A": 62.0826,
+        "B": 62.1235,
+        "C": 62.0933,
+        "D": 62.1292
+      },
+      {
+        "step": 1000,
+        "grid_probq": 61.9027,
+        "A": 61.6133,
+        "B": 61.6356,
+        "C": 61.586,
+        "D": 61.6526
+      },
+      {
+        "step": 1500,
+        "grid_probq": 61.9027,
+        "A": 61.8627,
+        "B": 61.896,
+        "C": 61.8494,
+        "D": 61.9854
+      },
+      {
+        "step": 2000,
+        "grid_probq": 61.9027,
+        "A": 61.7443,
+        "B": 61.7799,
+        "C": 61.6941,
+        "D": 61.8443
+      },
+      {
+        "step": 2500,
+        "grid_probq": 61.9027,
+        "A": 61.6178,
+        "B": 61.6696,
+        "C": 61.7073,
+        "D": 61.7384
+      },
+      {
+        "step": 3000,
+        "grid_probq": 61.9027,
+        "A": 61.5838,
+        "B": 61.601,
+        "C": 61.6996,
+        "D": 61.7312
+      },
+      {
+        "step": 3500,
+        "grid_probq": 61.9027,
+        "A": 61.4065,
+        "B": 61.4504,
+        "C": 61.5753,
+        "D": 61.6074
+      },
+      {
+        "step": 4000,
+        "grid_probq": 61.9027,
+        "A": 61.4652,
+        "B": 61.5137,
+        "C": 61.6253,
+        "D": 61.6492
+      },
+      {
+        "step": 4500,
+        "grid_probq": 61.9027,
+        "A": 61.3949,
+        "B": 61.4595,
+        "C": 61.6039,
+        "D": 61.627
+      },
+      {
+        "step": 5000,
+        "grid_probq": 61.9027,
+        "A": 61.4095,
+        "B": 61.4755,
+        "C": 61.6194,
+        "D": 61.6356
+      }
+    ],
+    "version_boundary": "Top64 cosine parent retrieval and two-slot Reader; not present Top8 supervised projection; supplementary diagnostic only"
+  },
+  "verification": {
+    "event_means_match_printed_to_2dp": true,
+    "no_estimated_scores": true,
+    "no_confidence_intervals_inferred": true,
+    "no_existing_figure_modified": true
+  }
+}

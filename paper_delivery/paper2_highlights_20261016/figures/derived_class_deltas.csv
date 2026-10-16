@@ -1,0 +1,9 @@
+﻿reference,class,ours_minus_reference_pp
+DamageFormer,Background,0.02
+DamageFormer,Intact,1.21
+DamageFormer,Damaged,3.98
+DamageFormer,Destroyed,5.0
+MPF,Background,-0.1
+MPF,Intact,0.01
+MPF,Damaged,1.63
+MPF,Destroyed,2.87

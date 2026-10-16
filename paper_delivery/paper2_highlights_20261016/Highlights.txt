@@ -1,0 +1,4 @@
+- Building probabilities guide local soft region assignments.
+- Partition-state signals condition residual adaptation of fused features.
+- Cross-event class supervision learns regional support retrieval rankings.
+- Four-class test mIoU reaches 69.64% on the BRIGHT benchmark.

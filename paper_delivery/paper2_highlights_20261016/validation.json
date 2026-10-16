@@ -1,0 +1,33 @@
+{
+  "source_sha256": "83b6e384e2e094b7423b8dc5358caa269403747826a61dde019032c26620a57f",
+  "highlights_template_sha256": "34ddc4d33cb85339455dbfed4de0b3c1b52eafaa105306bd7b07d67405be205c",
+  "original_image_files_preserved": 11,
+  "original_drawing_XML_preserved": 11,
+  "new_data_charts": 2,
+  "original_math_preserved": 89,
+  "references_preserved": 40,
+  "current_Ours": [
+    69.64,
+    76.25
+  ],
+  "main_progressive_values_unified_by_author": true,
+  "missing_mechanism_scores_invented": false,
+  "event_averages_verified": true,
+  "ChangeOS_event_values_from_published_table6": true,
+  "independent_inference_performed": false,
+  "verified_current_score_69_64": true,
+  "obsolete_69_62_absent_from_main_prose": true,
+  "final_pdf_pages": 21,
+  "four_highlights_characters": [
+    59,
+    72,
+    73,
+    60
+  ],
+  "all_8_word_tables_match_manifest": true,
+  "event_averages_verified_from_14_rows": true,
+  "rendered_main_table_and_new_figures_visually_checked": true,
+  "reference_count": 40,
+  "guide_pdf_pages": 3,
+  "no_cloud_setup_changes_required": true
+}

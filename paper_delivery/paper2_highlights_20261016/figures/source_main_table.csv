@@ -1,0 +1,10 @@
+﻿method,localization_f1_percent,classification_f1_percent,oa_percent,fourclass_miou_percent,background_iou_percent,intact_iou_percent,damaged_iou_percent,destroyed_iou_percent
+UNet,87.97,72.24,95.47,64.94,96.19,71.27,39.13,53.17
+DeepLabV3+,87.0,70.33,95.43,64.8,95.98,70.98,37.53,54.69
+SiamAttnUNet,88.16,70.13,95.45,64.26,96.14,71.9,35.06,53.92
+SiamCRNN,89.45,72.02,95.76,65.73,96.48,73.44,38.91,54.18
+ChangeOS,89.6,71.88,95.84,65.98,96.54,73.85,38.99,54.53
+DamageFormer,90.29,72.51,96.13,67.09,96.87,75.04,39.86,56.59
+ChangeMamba,90.9,72.7,96.22,67.63,96.96,75.59,40.05,57.91
+MPF,90.7,73.29,96.31,68.54,96.99,76.24,42.21,58.72
+Ours,90.91,74.4,96.12,69.64,96.89,76.25,43.84,61.59
