@@ -1,0 +1,18 @@
+{
+  "packaged_full450_background_run": true,
+  "packaged_report_entry": true,
+  "zip_contains_exact_script": true,
+  "diagnostic_complete": true,
+  "input_bytes_unchanged": true,
+  "output_files": [
+    "summary.json",
+    "report.txt",
+    "events.csv",
+    "groups.csv",
+    "result.json",
+    "images.jsonl"
+  ],
+  "synthetic_output_bytes": 962438,
+  "real_server_archives_tested": false,
+  "script_sha256": "093ca5b1a778685a1a72aa9106fccc3771d84c0983f1970a376e008cb9733319"
+}
