@@ -1,6 +1,7 @@
 """Offline contracts; full BRIGHT/CUDA is gated by the remote smoke stage."""
 import unittest
 from collections import defaultdict
+import json
 from pathlib import Path
 import sys
 from tempfile import TemporaryDirectory
@@ -12,6 +13,53 @@ from new_members import priority,select,selected_rows,_parent_from_rows
 from runtime_adapter import NewBaseRuntime,NewRuntime,NewFrozenSlotRuntime
 
 class FreshBackendContracts(unittest.TestCase):
+    def test_study_inputs_match_smoke_and_formal_artifacts(self):
+        import study_backend
+        with TemporaryDirectory() as directory:
+            root=Path(directory)
+            (root/'repo'/'bda_benchmark').mkdir(parents=True)
+            bank=root/'bank'; values=root/'values'
+            bank.mkdir(); values.mkdir()
+            protocol=root/'source.json'
+            protocol.write_text(json.dumps({'format':study_backend.SOURCE_FORMAT,
+                'release_sha256':'tested-release','input_paths':{},'input_fingerprints':{}}))
+            args=SimpleNamespace(mode='smoke',topk=64,key_name='t128',chunk_size=32,
+                lr=1e-4,weight_decay=.005,protocol=str(protocol),repo=str(root/'repo'),
+                bank_root=str(bank),values=str(values))
+            with patch.object(study_backend,'EXPECTED',{}), patch.object(study_backend,'verify_release',return_value='tested-release'):
+                for smoke,mode in ((True,'smoke'),(False,'train')):
+                    for folder,format_name in ((bank,study_backend.BANK_FORMAT),
+                                               (values,'SRAC_SOFT_MEMORY_VALUES_V1')):
+                        (folder/'summary.json').write_text(json.dumps({'complete':True,
+                            'format':format_name,'smoke':smoke}))
+                    args.mode=mode
+                    self.assertTrue(study_backend.check_inputs(args))
+                    args.mode='train' if smoke else 'smoke'
+                    with self.assertRaisesRegex(ValueError,'smoke status differ'):
+                        study_backend.check_inputs(args)
+
+    def test_study_dependency_preflight_uses_requested_mode(self):
+        import io_utils,study_backend
+        config=dict(repo='/placeholder/repo',protocol='/placeholder/source.json',
+            membership_root='/placeholder/members',bank_root='/placeholder/members',
+            values='/placeholder/values',device='cuda:0',workers=4,seed=3407,
+            key_name='t128',topk=64,chunk_size=32,lr=1e-4,weight_decay=.005,
+            steps=5000,eval_every=500)
+        bridge=SimpleNamespace(load_legacy=lambda _:object())
+        common=SimpleNamespace(source_hash=lambda:study_backend.ORIGINAL_SOURCE_SHA)
+        checked=[]
+        for mode in ('smoke','train'):
+            args=SimpleNamespace(mode=mode,config='/placeholder/config.json',helpers='/placeholder/helpers')
+            with (patch.object(io_utils,'named',return_value=bridge),
+                  patch.object(study_backend,'read',return_value=config),
+                  patch.object(study_backend,'check_inputs',side_effect=checked.append),
+                  patch.object(study_backend,'old_modules',return_value=(None,None,None,None,None,common)),
+                  patch.object(study_backend,'digest',return_value='config-hash')):
+                _,static=study_backend.dependencies(args)
+            self.assertEqual(static['config']['mode'],mode)
+            self.assertIs(static['config']['allow_smoke_values'],mode=='smoke')
+        self.assertEqual([item.mode for item in checked],['smoke','train'])
+
     def test_values_smoke_constructs_namespace(self):
         import fresh_chain
         values=ModuleType('build_values')

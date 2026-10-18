@@ -15,6 +15,8 @@ def _paths():
                 audit=HERE/'deps/audit',chain=HERE/'deps/chain')
 
 def check_inputs(args):
+    if args.mode not in ('smoke','train'):
+        raise ValueError('Study mode must be smoke or train')
     if args.topk!=64 or args.key_name!='t128' or args.chunk_size<1 or args.lr!=1e-4 or args.weight_decay!=.005:
         raise ValueError('Only Top64 T128 and fixed optimizer configuration supported')
     source=read(args.protocol)
@@ -30,8 +32,9 @@ def check_inputs(args):
         if not p.is_dir() or not (p/'summary.json').is_file():raise FileNotFoundError(p)
         summary=read(p/'summary.json')
         if summary.get('complete') is not True:raise ValueError('Bank/values incomplete: '+str(p))
-        if p==Path(args.bank_root) and summary.get('format')!=format:raise ValueError('Wrong member format')
-        if args.mode=='train' and summary.get('smoke') is not False:raise ValueError('Formal run needs formal bank')
+        if summary.get('format')!=format:raise ValueError('Wrong bank/value format: '+str(p))
+        if summary.get('smoke') is not (args.mode=='smoke'):
+            raise ValueError('Study mode and bank/value smoke status differ: '+str(p))
     return True
 
 def dependencies(args):
@@ -45,8 +48,9 @@ def dependencies(args):
     if set(config)!=required:raise ValueError('Explicit training configuration fields differ')
     if (config['steps']!=5000 or config['eval_every']!=500 or config['device']!='cuda:0'
             or config['seed']<0 or config['workers']<0):raise ValueError('Study protocol invalid')
-    config=dict(config,command='train',mode='train',smoke=False,baseline_policy='independent',
-                baseline_root=None,baseline_evidence=None,allow_smoke_values=False)
+    smoke=args.mode=='smoke'
+    config=dict(config,command=args.mode,mode=args.mode,smoke=smoke,baseline_policy='independent',
+                baseline_root=None,baseline_evidence=None,allow_smoke_values=smoke)
     check_inputs(SimpleNamespace(**config))
     _,_,_,_,_,common=old_modules()
     if common.source_hash()!=ORIGINAL_SOURCE_SHA:raise ValueError('Original runtime code changed')

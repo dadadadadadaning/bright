@@ -40,6 +40,11 @@ def _training_config(root,smoke=False):
 def _run_stage(root,stage):
     from new_source import create
     from new_members import build
+    if stage=='cpu_contracts':
+        for command in ([sys.executable,'-m','unittest','-q','test_backend'],
+                        [sys.executable,'-m','unittest','discover','-s','deps/study','-p','test_*.py','-q']):
+            subprocess.run(command,cwd=HERE,check=True)
+        return
     if stage=='source':return create(_source_args(root),root/'source.json')
     if stage in ('members_smoke','members'):
         return build(root/'source.json',root/stage,REPO,workers=4,seed=3407,smoke=stage.endswith('_smoke'))
@@ -85,7 +90,7 @@ def _run_stage(root,stage):
         return audit.run(args)
     raise ValueError('Unknown stage: '+stage)
 
-STAGES=('source','members_smoke','values_smoke','study_smoke','members','values','train','audit_500','audit_1500')
+STAGES=('cpu_contracts','source','members_smoke','values_smoke','study_smoke','members','values','train','audit_500','audit_1500')
 
 def pipeline(root):
     root=Path(root).resolve();root.mkdir(parents=True,exist_ok=False)
