@@ -1,0 +1,483 @@
+# 面向光学—SAR建筑损毁评估的建筑概率双槽区域建模与历史案例联合推理
+
+作者、单位及基金信息：待补充。
+
+**修订稿说明（投稿前删除）：** 本稿依据2026年10月18日核查的 `joint_anchor_fresh_chain_v2` 及其依赖代码重写。它对应固定Q、建筑概率双槽、父区域Top64检索、像素—区域—历史案例残差联合分类。概率锚定KL是已实现但尚待完整验证的候选训练策略。本稿不将旧版69.64%的四类Test mIoU归给新方法，所有新版本尚未完成的成绩均以“待测”表示。第IV节包含可直接填数的实验表和分析段落；其中拟补实验不能在最终论文中写成已经执行。原图不在本稿重画，图位和图注按新方法给出，逐图改动详见配套说明。
+
+## 摘要
+
+灾前光学影像与灾后合成孔径雷达影像为建筑损毁评估提供结构与散射状态的互补观测，但建筑与背景在区域摘要中的混合，以及历史外观近邻与损毁语义之间的不一致，限制了上下文信息的有效利用。针对上述问题，本文研究一种建筑概率双槽区域建模与历史案例联合推理框架。在预训练光学—SAR前端与软区域归属固定的条件下，利用预测建筑概率及其互补权重，将每个父区域组织为偏建筑和偏背景两个槽，并以对应权重构建区域特征与训练案例软标签。随后，在排除同图和同事件案例的前提下，根据父区域表示选择历史支持，由槽级读取器联合编码案例内容、角色、质量比例和类别分布。最后，将区域与案例上下文按原路由回投，与像素特征共同预测相对于Q概率共享基线的分类修正。为研究继续训练时的预测退化，进一步设置冻结基线输出一致性的匹配对照。实验围绕双槽内容差异、历史支持增量、逐类误改和跨事件表现展开，在统一训练预算下分别评价组件作用与整体性能。【最终填入：完整标准测试集的前景/四类mIoU、同源对照差值、多种子结果及事件统计。】本研究旨在明确结构先验和历史监督如何参与像素损毁判别，以及额外上下文在何种条件下改善或损害预测。
+
+**关键词：** 建筑损毁评估；光学—SAR；软区域归属；建筑概率双槽；历史案例读取；像素区域联合分类
+
+## I. 引言
+
+快速确定建筑损毁的位置与程度，是灾情研判、救援部署和恢复评估的重要环节。xBD等数据集推动了灾前、灾后光学影像中的建筑定位与等级识别研究[1]。然而，灾后光学成像受云雾、光照和观测窗口限制；灾前光学与灾后SAR的组合可利用已有结构信息与灾后散射观测开展评估。BRIGHT为这种异质输入提供了多事件数据和标准实验协议[2]。与同模态变化检测相比，光学—SAR系统还需要处理模态差异、几何对应误差和损毁标签分布不均，不能把观测差异直接等同于损毁变化。
+
+建筑损毁模型已从逐像素分类扩展到对象分析、定位与等级的多任务学习，以及更大范围的特征关系建模。ChangeOS利用对象语义组织损毁判断，双任务孪生Transformer和ChangeMamba分别探索定位—损毁协作与时空状态空间表示[3, 4, 5]。这些设计提升了表征能力，但更强的前端不自动解决区域证据的使用问题：一个软区域可能同时覆盖屋顶、道路和邻近建筑；一个外观相似的历史区域，也可能具有不同的损毁等级。
+
+本文关注两个具体问题。第一，在不重新学习区域边界的条件下，能否使混合区域保留不同来源的内容，而不是只形成一份均值摘要？第二，历史标注案例能否提供图内上下文没有的信息，并由分类器结合当前像素判断其相关性？这两个问题分别涉及证据的组织和证据的读取。增加槽位、注意力或案例数量本身均可能改变模型容量，因此不能用完整模型相对基础网络的单个差值替代机制验证。
+
+软超像素、区域上下文和支持特征缓存已经提供了相关基础。SSN和全卷积超像素方法研究局部可微关联，Super Token Sampling进一步将软聚合与回投用于视觉表示[6, 7, 8]；OCR和MCIBI分别利用对象上下文和数据集级记忆增强像素表征[9, 10]；Tip-Adapter说明带标签的支持缓存可以与原分类分数联合使用[11]。因此，本文不把软池化、交叉注意力、Memory或残差融合本身作为首创，而将研究集中在光学—SAR损毁场景中，建筑概率如何组织双槽证据，以及历史软标签如何在保持像素信息的条件下参与判别。
+
+所研究框架固定已有光学—SAR前端和区域归属Q，用Q与预测建筑概率的互补乘积构造两个槽。训练支持库使用同样的路由生成槽特征和软标签，使所读取的标签分布描述与特征一致的空间范围。检索先根据冻结父区域表示选择案例身份，再由可训练读取器在其子槽内分配注意力。区域、槽与Memory上下文被回投到像素网格，并通过残差头修正Q概率共享的基础预测。另设置标准KL输出约束，用于检验“减少相对基线的过度修正”是否有助于保持损毁判别能力；其效果通过匹配实验确定。
+
+本文的三项设计贡献概括如下。
+
+1. **建筑概率条件的双槽证据组织。** 在固定软区域内，以连续互补权重分别汇总偏建筑与偏背景内容，并保持父区域上下文以及特征、软标签和回投权重的一致性。该设计研究区域混合问题，不将槽位等同于建筑实例或真实类别。
+2. **父区域选择与槽级读取分离的历史案例联合推理。** 在合法Train案例中选择父区域，再以槽内容、父上下文、槽角色、质量比例与训练软标签构成支持，通过可训练读取器与当前查询共同推理。图像和事件身份用于支持排除及审计，而非替代损毁特征。
+3. **保留像素与概率基线的联合修正及机制验证。** 以像素、父区域、双槽和案例上下文学习分类残差，将整体性能、槽内容、支持质量与配对纠错/误改联系起来，并通过相同初始化与数据流检验概率锚定训练的作用。标准残差与KL是实现工具，本项贡献的强度取决于机制对照与可重复的实验结果。
+
+上述表述是方法与验证设计，不预设三项均产生正向成绩。若最终锚定训练无效，应如实报告，不把它作为已成立的性能贡献。
+
+## II. 相关工作
+
+### A. 建筑损毁评估与异质遥感观测
+
+xBD和BRIGHT分别推动了光学双时相与光学—SAR损毁评估[1, 2]。ChangeOS将建筑对象与损毁状态联系起来，双任务孪生Transformer将建筑定位和等级判别纳入同一框架，ChangeMamba研究多尺度时空状态建模[3, 4, 5]。BIT、ChangeStar和SCanNet分别从Transformer、单时相监督和时空语义关系出发研究变化检测，但其任务与四类损毁分级的监督目标不同[12, 13, 14]。FlowMamba进一步探索光学流启发的状态空间损毁表示，说明跨时相关系仍是重要研究方向[15]。领域泛化研究及WILDS基准提示，熟悉分布的优势不自动等价于新事件泛化；本文将这一一般性认识用于设计事件分析，而不把它当作本方法的实验证据[16, 17]。
+
+在光学—SAR融合中，特征差异既包含损毁变化，也包含传感器成像差异。SEN12MS为多模态遥感表征提供配对观测与数据融合基础[18]。UANet与UABCD分别研究建筑提取和变化检测中的不确定性，冠军建筑引导伪标签方案将二者组织为两阶段流程[19, 20, 21]。DFC2025亚军的公开实现还包含完好区域特征一致性及目标域微调[22]。这些公开方案使用的定位模型、伪标签、集成和测试时增强应逐项记录。这些机制值得借鉴，但应与仅使用Train监督、冻结后评估的协议分开。本文沿用项目中的DamageFormer衍生前端，将其定位先验和融合特征作为公共基础，而不把骨干替换、测试图像适配或竞赛后处理的收益归给双槽与Memory。
+
+### B. 软区域、结构先验与上下文表征
+
+SLIC在外观和空间坐标上组织超像素；SSN和全卷积超像素方法将局部关联学习纳入神经网络[23, 6, 7]。Super Token Sampling进一步使用局部软关联进行区域聚合和像素回投[8]。因此，软区域既可减少计算，也可提供内容组织方式，但其视觉边界质量与损毁分类收益需要分别验证。
+
+PSPNet、Non-local、OCR与ISNet分别从金字塔上下文、全局关系、对象区域及图像/语义层上下文角度增强分割表征[24, 25, 9, 26]。Slot Attention可学习对象中心的潜在表示[27]，但本文的双槽并非通过竞争聚类学习的对象槽，而是由已有建筑概率定义的两个条件摘要。FarSeg从前景感知关系出发处理遥感对象和背景的差异[28]。本文当前阶段不重新训练前端适配器，而检验固定Q之后的证据组织，避免将前景先验本身再次作为独立首创。
+
+双槽的意义在于允许混合区域保留两种侧重，而不保证二者总是不同。若建筑概率在某区域内近似常量，分别归一化后的两槽均值可能相同；纯屋顶区域出现这种现象并不构成故障。因而本文将混合区域、边缘、低建筑概率位置与区域内部区分统计，而不是通过强制正交制造差异。
+
+### C. 历史支持、原型与记忆增强
+
+Prototypical Networks和FEAT研究如何将支持样本转化为可用类别表示，Tip-Adapter以训练特征和标签构建缓存，并与基础模型预测联合使用[29, 30, 11]。分割领域中，MCIBI及其后续工作利用数据集级类别记忆增强像素上下文[10, 31]。PANet、PFENet和HSNet进一步研究原型对齐、先验引导和查询—支持相关性在少样本分割中的作用[32, 33, 34]。本文保留具体父区域及其两个槽，而不是只存储每类的单一平均原型；这使支持来源、类别混合与重复案例能够被显式检查。
+
+Cross-Batch Memory将历史批次特征用于度量学习，SupCon通过类别关系构造监督对比目标[35, 36]。这些机制与推理时读取带软标签的历史案例相关，但不等价。当前实现没有监督检索投影，Reader梯度不会更新父区域TopK的排序；如果未来引入可学习排序，必须作为新的实验因素，而不能把当前读取器称为已学习的跨事件检索器。
+
+本文将案例选择与案例读取分开。父区域选择控制支持身份和预算，槽级注意力决定如何读取已选支持。借鉴注意力机制的通用形式[37]，支持软标签仅进入值表示，图像和事件信息用于合法性过滤。这种分离允许分别验证检索质量、标签信息及读取器的贡献。
+
+### D. 损失目标、输出约束与评价
+
+Lovász-Softmax以可微代理目标优化分割重叠，交叉熵与Focal Loss分别从概率拟合和样本权重角度处理分类困难[38, 39]。这些目标的改善不保证数据集级前景mIoU同时提高，特别是在类别缺失、图像均值与像素累计采用不同权重时。本文保留损失分量和各类混淆统计，不根据总loss单独判断模型是否过拟合。
+
+知识蒸馏、Learning without Forgetting、L2-SP和DELTA分别从输出或参数/特征层约束新任务适配[40, 41, 42, 43]。本文候选KL沿用标准输出蒸馏形式，其作用是限制偏离冻结概率基线，而非识别哪些教师预测正确。Mean Teacher采用权重平均教师进行一致性学习，而本文教师固定为基础概率，两者的教师更新和数据协议不同[44]。温度校准及分布偏移下的不确定性研究也说明概率置信度与最终类别正确性并非同一量[45, 46]。如果锚定同时限制了对教师错误的纠正，即使KL变小，也不能认定方法有效。
+
+骨干、优化器和随机运行条件同样影响比较。Swin和SegFormer等网络提供不同的视觉表示结构，AdamW改变了权重衰减的实施方式[47, 48, 49]。梯度冲突方法如PCGrad为多目标取舍提供诊断视角[50]，但本文未默认接入梯度投影。正式实验设计采用配对运行与预先固定的终点，并拟报告多次训练的变异；随机划分、初始化与超参数选择带来的不确定性不能被一个最佳单次结果替代。
+
+## III. 方法
+
+### A. 任务与冻结前端
+
+给定配准后的灾前光学影像 $I^{\mathrm{opt}}$ 与灾后SAR影像 $I^{\mathrm{sar}}$，预测每个有效像素的类别 $y_i\in\{0,1,2,3\}$，依次表示背景、完好、受损、毁坏。忽略标签不参与监督和评价。记基础前端输出的融合特征为 $F_i\in\mathbb R^{256}$，预测建筑概率为 $B_i\in[0,1]$，原始四类概率为 $p_i$。这里的 $p_i$ 在与Q对应的低分辨率网格上由native logits先做softmax得到，不以先恢复全分辨率后的概率代替。父区域表示由原始特征均值 $\bar F_r$ 与结构区域特征 $T_r\in\mathbb R^{128}$ 构成。
+
+当前联合阶段冻结前端、Q生成器及原始父表示生成过程。Q沿用已有局部九候选软区域模型；其源模型包含结构描述亲和、空间约束及建筑相容信息，父区域编码也已包含条件适配和统计汇总。这些是本轮共享基础，不应再按当前新增贡献重复归因。Q表示像素与局部区域中心的软关联，并不输出建筑实例身份，也不保证区域连通或严格位于建筑内部。
+
+当前 $F$ 已经过前端的软建筑调制，背景响应受到衰减但并非全部置零。因此，后述偏背景槽只组织现有融合特征，不能被解释为恢复了未经抑制的原始SAR周边证据。新增独立SAR周边分支属于另一项结构实验，本稿未将其纳入已实现主模型。
+
+**图1置于此处。** 图1　总体框架：固定光学—SAR前端提供像素特征、建筑概率与Q；Q产生概率共享基线，Q与建筑概率产生双槽；父区域选择Train历史案例，槽级Reader读取其特征和软标签；像素、父区域、槽及案例上下文共同输出分类修正。冻结模块和可训练模块采用不同边框；KL仅以训练虚线标示。
+
+### B. Q概率共享与建筑概率双槽
+
+记 $Q_{ir}\ge0$ 且 $\sum_r Q_{ir}=1$。未出现在位置 $i$ 的局部候选集合中的区域，其权重为零。Q概率共享先汇总四类概率，再沿同一Q回投：
+
+$$
+\bar p_r=\frac{\sum_i Q_{ir}p_i}{\sum_i Q_{ir}},\qquad
+p_i^0=\sum_r Q_{ir}\bar p_r. \qquad\text{(1)}
+$$
+
+实际实现还包含分辨率恢复与概率归一化；零质量区域使用无效掩膜。该操作共享的是基础类别概率，区别于先平均logits后softmax，也区别于对最终联合输出再做一次平滑。
+
+在每个父区域内定义两个槽的路由：
+
+$$
+w_{ir0}=Q_{ir}(1-B_i),\qquad w_{ir1}=Q_{ir}B_i. \qquad\text{(2)}
+$$
+
+槽0和槽1分别称为偏背景槽与偏建筑槽，名称表示汇总角色。二者满足 $w_{ir0}+w_{ir1}=Q_{ir}$，因此没有通过复制完整区域而人为增加像素总质量。实际计算在特征网格上使用插值后的预测 $B$；查询真值不参与路由生成。
+
+对正质量槽，定义槽质量、均值和质量比例：
+
+$$
+m_{rs}=\sum_i w_{irs},\quad
+f_{rs}=\frac{\sum_i w_{irs}F_i}{m_{rs}},\quad
+\rho_{rs}=\frac{m_{rs}}{m_{r0}+m_{r1}}. \qquad\text{(3)}
+$$
+
+零质量槽置零并被有效性掩膜排除；不通过任意小质量下限改变正质量槽的均值。对Train支持，设 $a_{ic}$ 为有效one-hot标签在特征网格上的面积质量，则软标签为
+
+$$
+y_{rs,c}^{\mathrm{sup}}=
+\frac{\sum_i w_{irs}a_{ic}}{\sum_i w_{irs}\sum_{k=0}^{3}a_{ik}}. \qquad\text{(4)}
+$$
+
+忽略标签不贡献分子和分母。当标签质量为零时，软标签置零，支持槽由有效性掩膜排除；支持有效需要同时具有正特征质量和正标签质量。该规则使特征与标签描述相同的槽内容；不能将父区域标签简单复制给两个槽。偏背景槽中可以含有被定位模型低估的建筑，包括受损或毁坏像素，因此不强制其类别为背景。
+
+槽编码结合子槽内容、共享父上下文、角色和质量比例：
+
+$$
+e_{rs}=\operatorname{GELU}\!\left(\operatorname{LN}
+[\phi_f(f_{rs})+\phi_t(T_r)+E_s+W_\rho\rho_{rs}]\right). \qquad\text{(5)}
+$$
+
+其中输出维度为128。两个槽共享父 $T_r$，并没有分别重新计算两个结构T128。空间双槽容量对照使用特征网格上4×4单元交替的固定棋盘分流替代 $B$，其余形状与编码器保持一致。该对照用于区分建筑语义分流与增加槽位容量。
+
+**图2置于此处。** 图2　双槽构建：Q与B形成互补路由；每个槽显示质量、F256摘要及同权Train软标签；父T128进入两个槽编码器。标明空槽掩膜，删除“每槽对应一栋建筑”或“背景槽标签必为背景”的暗示。
+
+### C. Train案例构建与父区域检索
+
+历史支持仅来自Train。每个记录保存父区域身份、父特征及检索key、两个槽的特征与四类软标签、有效质量，以及用于过滤和追溯的图像与事件标识。当前重建流程按事件与父区域主导软标签类别分层，使用稳定哈希进行有界选择，父案例容量上限3411、每图每主导类别至多2个；实际支持数以输出manifest为准，容量上限不等于最终有效案例数。
+
+对查询父区域 $r$，在合法支持集合 $\mathcal M_r$ 中按固定父区域相似度选取最多 $K=64$ 个案例：
+
+$$
+\mathcal N_K(r)=\operatorname{TopK}_{j\in\mathcal M_r}\,s(k_r,k_j). \qquad\text{(6)}
+$$
+
+当前默认key为冻结T128，F256作为另一个检索表示用于独立对照；具体归一化与平局排序需随运行选择器版本归档。本文不把内部Reader注意力写成外部检索排序学习。过滤移除同图与同事件案例；这种排除减少了直接来源近邻，但不等价于训练阶段没有见过验证事件。未见事件泛化需要另外的事件隔离协议。
+
+每个父案例展开为两个支持槽，共形成至多 $2K=128$ 个支持token。案例预算仍为64个父案例，不能把128个槽当作128个独立历史对象。无效或不足的支持使用掩膜，缺失上下文为零，不使用可学习的补位案例。
+
+### D. 槽级Reader与像素联合修正
+
+两种查询槽都可以读取所选父案例的两种支持槽，不设置“建筑槽只能读取建筑槽”的限制。对查询槽 $e_{rs}$ 与支持槽 $e_{jt}$，一个注意力头可写为
+
+$$
+\alpha_{rs,jt}=\operatorname{softmax}_{j\in\mathcal N_K(r),\ t\in\{0,1\},\ \mathrm{valid}}
+\frac{(W_q e_{rs})^\top(W_k e_{jt})}{\sqrt d},\qquad
+c_{rs}=\sum_{j,t}\alpha_{rs,jt}
+W_v(e_{jt}+W_y y_{jt}^{\mathrm{sup}}). \qquad\text{(7)}
+$$
+
+式（7）表示一个注意力头的中间结果。实现使用四头注意力与掩膜归一化，再将各头拼接并通过输出投影得到最终 $c_{rs}$。Train软标签进入支持值表示，不直接替代查询预测；图像/事件标识用于检索合法性检查，没有作为事件嵌入加入当前Reader。支持标签也不由验证或测试真值构造。
+
+父区域、槽及案例上下文分别回投：
+
+$$
+G_i^{\mathrm{parent}}=\sum_r Q_{ir}\phi_p([\bar F_r,T_r]),\quad
+G_i^{\mathrm{slot}}=\sum_{r,s}w_{irs}e_{rs},\quad
+G_i^{\mathrm{mem}}=\sum_{r,s}w_{irs}c_{rs}. \qquad\text{(8)}
+$$
+
+当前实现将两槽贡献加权汇加成一个槽上下文图，案例贡献同样汇加为一个Memory上下文图。角色信息已进入槽编码，但最终分类器并不接收两张完全独立的槽图。独立通道回投是一项可测试扩展，不能画入当前已实现结构。
+
+联合头以像素投影、三个上下文图及基础概率为输入，产生四类修正 $\Delta_i$：
+
+$$
+\Delta=\operatorname{Up}\,h([\phi_x(F),G^{\mathrm{parent}},G^{\mathrm{slot}},G^{\mathrm{mem}},\operatorname{Down}(p^0)]),
+\qquad p_i^\theta=\operatorname{softmax}\!\left(\log\widetilde p_i^0+\Delta_i\right). \qquad\text{(9)}
+$$
+
+$\widetilde p^0$表示数值稳定处理后的基础概率。像素投影为64维，各上下文为128维，与四类概率拼接后共有452个输入通道。末层卷积零初始化，使初始输出复现经数值稳定处理的基础判断。该初始化有助于明确训练起点，但不保证继续训练后性能不下降；模型仍可能将基线正确的像素改错。
+
+**图3置于此处。** 图3　父区域选择与槽级读取：冻结父key→同图/同事件过滤→Top64父ID→最多128支持槽；支持软标签进入value。两查询槽读取同一父集合的全部合法槽，按各自路由回投后汇加。图中区分检索相似度、Reader注意力与最终分类修正。
+
+### E. 联合训练与概率锚定候选
+
+原目标保留四类监督：
+
+$$
+L_{\mathrm{orig}}=L_{\mathrm{NLL}}+L_{\mathrm{Lovasz,present}}. \qquad\text{(10)}
+$$
+
+其中NLL使用全部有效像素，Lovász按实际实现的present类规则计算。可训练部分包括像素与父区域投影、槽编码、Reader和残差分类头；基础前端、Q、父原始表示生成器、支持内容与外部检索选择均固定。
+
+为检验输出偏离与预测退化的关系，候选分支增加
+
+$$
+L_{\mathrm{anchor}}=L_{\mathrm{orig}}+
+\lambda\frac1{N_{\mathrm{img}}}\sum_x\frac1{|\Omega_x|}
+\sum_{i\in\Omega_x}\operatorname{KL}
+\left(\operatorname{stopgrad}(p_i^0)\Vert p_i^\theta\right). \qquad\text{(11)}
+$$
+
+当前探索设置为 $\lambda=0.1$、温度1；$\Omega_x$只排除ignore像素，包含背景及教师预测错误的位置。全ignore图像以分母1处理、贡献0，仍按实际批内图像数平均。它没有使用真值筛选“教师正确像素”，也没有接受/拒绝Memory的门控。在概率数值截断未激活且采用共同归约方式时，NLL与KL部分的学生梯度等价于以 $(\operatorname{onehot}(y)+\lambda p^0)/(1+\lambda)$ 为软目标的加权交叉熵；这是标准输出正则化的应用，不是新的蒸馏理论。
+
+当前连续实验先对D结构共同训练500步，再复制模型、优化器及随机状态，分为原目标和锚定目标两支继续到1500步。两支从分支点起使用相同的0.2倍原学习率，并保留原5000步调度长度，避免将目标差异与调度终点变化混合。建库遍历Train2918并不等于这项1500步试验已经将全部Train图像作为训练查询访问。正式比较以实际更新和查询记录为准。
+
+当前入口使用AdamW，原调度最大学习率为 $10^{-4}$，warmup为500步，weight decay为0.005，梯度范数裁剪阈值为1，查询batch为1，探索种子3407。正式重复实验保持这些共同设置，仅改变预先指定的种子。固定Train诊断子集取公共前500步访问图像中的前450张，适合比较检查点变化，不自动代表整个Train2918。
+
+## IV. 实验设置与结果组织
+
+### A. 数据、协议与指标
+
+**图4置于此处。** BRIGHT事件/数据概览，注明标准划分和事件分布。它不表示当前实验已做到未见事件泛化。
+
+以BRIGHT标准机器学习划分为主：Train2918、Val450，Test878仅用于方案冻结后的最终评估。训练图像用于前端既有训练、支持库构建和联合头学习；Val用于设计选择与机制诊断。若已经对Test进行探索性检查，应在实验记录中声明，不能将其伪装成从未接触的最终保留集。另设事件隔离实验时，需重新划分训练事件、重建支持库和核对前端训练来源。
+
+四类混淆矩阵在整个划分上累计，计算各类IoU、前景mIoU和四类mIoU：
+
+$$
+\operatorname{IoU}_c=\frac{TP_c}{TP_c+FP_c+FN_c},\quad
+\operatorname{mIoU}_{fg}=\frac{\operatorname{IoU}_1+\operatorname{IoU}_2+\operatorname{IoU}_3}{3},\quad
+\operatorname{mIoU}_4=\frac14\sum_{c=0}^3\operatorname{IoU}_c. \qquad\text{(12)}
+$$
+
+当前实现的前景均值固定平均三类，分母为零的类别在该均值中贡献0，类别明细标记为空；事件级统计应说明是否沿用该规则。事件宏平均先按各事件混淆矩阵计算同口径指标，再对事件等权平均，不能与全局像素累计指标混写。另报告受损类精确率/召回率、二类建筑IoU及Intact→Damaged、Intact→Destroyed混淆。
+
+**表1　实验协议与复现信息。**
+
+| 项目 | 记录内容 |
+|---|---|
+| 主划分 | Train2918 / Val450 / Test878；名单及SHA256归档 |
+| 冻结来源 | A1权重、Q末步权重、父表示配置与哈希；Q为baseline来源 |
+| 历史库 | Train专属；成员选择规则、实际父案例数及图像/事件数 |
+| Reader | 默认T128父Top64；最多128槽；四头；有效性掩膜 |
+| 当前训练候选 | D共享500步→原目标/锚定目标各到1500步；原5000步调度 |
+| 正式结构消融 | 统一前端、库成员、损失、数据流、预算；至少3个配对种子 |
+| 推理 | 相同分辨率、精度、插值与TTA设置；额外伪标签/集成单列 |
+| 主指标 | mIoU_fg、mIoU_4、四类IoU；事件口径与缺类规则同时报告 |
+| 效率 | 实际可训练参数、父库/槽库大小、建库时间、单图时间和峰值显存 |
+
+当前新库与旧库成员身份不同，数值运行配置也需要单独记录。因此旧库训练的中间结果仅作为研究动机，不能直接作为新库消融对照。
+
+### B. 总体比较
+
+总体性能比较与组件归因分开。表2(a)比较同数据协议的完整系统；表2(b)使用同一冻结前端识别区域和历史支持的增量。外部方法应优先在相同划分重跑；引用公开成绩时标明来源、是否使用额外数据、目标域适配、集成和指标口径。论文中的DamageFormer名称应绑定实际代码版本，不把文献原始网络与项目衍生A1混为同一模型。
+
+**表2(a)　标准Test上的完整系统比较，所有新版本数值待真实评估。**
+
+| 方法 | 输入/额外数据 | 背景IoU | 完好IoU | 受损IoU | 毁坏IoU | mIoU_fg | mIoU_4 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| DamageFormer适配实现 | 光学+SAR；Train | 待测 | 待测 | 待测 | 待测 | 待测 | 待测 |
+| ChangeOS适配实现 | 同协议 | 待测 | 待测 | 待测 | 待测 | 待测 | 待测 |
+| ChangeMamba适配实现 | 同协议 | 待测 | 待测 | 待测 | 待测 | 待测 | 待测 |
+| 本文冻结前端像素输出 | 同协议 | 待测 | 待测 | 待测 | 待测 | 待测 | 待测 |
+| 本文D联合模型 | 同协议；固定Train案例库 | 待测 | 待测 | 待测 | 待测 | 待测 | 待测 |
+| D+锚定（若Val支持保留） | 与D相同 | 待测 | 待测 | 待测 | 待测 | 待测 | 待测 |
+
+**表2(b)　同源基础与容量对照。**
+
+| 配置 | 可训练读出 | 区域信息 | 参考信息 | mIoU_fg均值±标准差 | 活跃参数 |
+|---|---|---|---|---:|---:|
+| 冻结像素输出 | 无 | 无新增读出 | 无 | 待测 | 0 |
+| grid_probq | 无 | Q概率共享 | 无 | 待测 | 0 |
+| 像素残差头 | 有 | 无区域槽 | 无 | 待测 | 待测 |
+| 匹配单槽联合头 | 有 | 父区域/单槽 | 图内 | 待测 | 待测 |
+| 匹配单槽+Memory | 有 | 父区域/单槽 | Train | 待测 | 待测 |
+| soft双槽+Memory | 有 | 父区域/双槽 | Train | 待测 | 待测 |
+
+结果段填数格式：在统一【划分与推理设置】下，D相对于同源grid_probq的前景mIoU变化为【Δ】个百分点，受损和毁坏IoU分别变化【ΔD】与【ΔX】。结合像素残差头与单槽对照，分析收益是否超出增加可训练参数或普通区域上下文带来的变化。若D仍低于冻结基线，应写为“组件具有相对增量，但完整系统尚未改善”，不能只报告较弱对照。
+
+### C. 双槽与Memory的二因素消融
+
+**表3　同容量双槽下的路由与支持来源对照。**
+
+| 组别 | 路由 | 支持来源 | 预定终点mIoU_fg | 受损IoU | 事件宏平均 |
+|---|---|---|---:|---:|---:|
+| A | 固定空间双槽 | 图内空间近邻 | 待测 | 待测 | 待测 |
+| B | 建筑概率soft双槽 | 图内空间近邻 | 待测 | 待测 | 待测 |
+| C | 固定空间双槽 | 合法Train父案例 | 待测 | 待测 | 待测 |
+| D | 建筑概率soft双槽 | 合法Train父案例 | 待测 | 待测 | 待测 |
+
+图内参考使用当前前向预测分布，历史支持使用Train软标签；两者的区别同时包含来源与监督质量。A/B具有相同图内父邻居，C/D具有相同历史父ID。B−A与D−C衡量两种支持条件下的建筑路由增量，C−A与D−B衡量历史支持方案的总体增量。交互项为
+
+$$\Delta_{\mathrm{int}}=(D-C)-(B-A). \qquad\text{(13)}$$
+
+只有交互项和其不确定性支持正向作用时，才讨论超出简单叠加的协同；D排名第一本身不证明协同。由于四组均含双槽，表3不能替代表2(b)的单槽容量对照。训练种子配对比较，不能将450张图像当作450次独立训练重复。
+
+### D. 历史案例是否提供额外信息
+
+**表4　检索与软标签的信息来源消融。**
+
+| 配置 | 父案例选择 | 支持值标签 | 是否匹配重训 | 目的 |
+|---|---|---|---|---|
+| 图内参考 | 空间邻居 | 模型预测 | 是 | 当前图像上下文起点 |
+| 历史预测参考 | 固定父检索 | 支持图像模型预测 | 是 | 历史内容与标签质量分离 |
+| 历史监督参考 | 固定父检索 | Train槽软标签 | 是 | 完整Memory |
+| 历史无标签 | 同一检索父ID | 固定零值，保持维度 | 是 | 标签是否提供增量 |
+| 合法随机支持 | 同样64父预算及来源约束 | Train槽软标签 | 是 | 相似性选择是否优于普通支持 |
+| 固定头邻居/标签扰动 | 替换ID或打乱标签 | 扰动 | 否，仅诊断 | 已训练模型依赖哪些信息 |
+
+所有正式对照保持Reader容量、槽内容和父案例预算一致。随机案例由可记录的随机种子生成，不能利用验证真值选择；推理时扰动产生的分布偏移只能说明依赖，不能直接代替重新训练后的机制效应。
+
+对真实受损查询（真值仅用于离线诊断），统计候选支持的受损软标签质量、支持主导类别分布、来自独立图像和事件的数量，以及重复父案例比例。单独分析外观接近但标签为完好的困难负例，区分“候选不足”和“Reader未利用已有正确候选”。若库内存在有用案例但Top64未找到，才有依据测试重排序；若候选足够而输出仍混淆，应优先检查读取和联合分类。
+
+### E. 双槽内容与融合方式诊断
+
+两槽是否提供互补证据需要以真实数据检验。对同一父区域，计算原始槽F特征的余弦相似度、槽软标签的Jensen–Shannon差异、两槽质量比例及有效样本量
+
+$$\operatorname{ESS}_{rs}=\frac{(\sum_i w_{irs})^2}{\sum_i w_{irs}^2}. \qquad\text{(14)}$$
+
+ESS描述权重集中程度，不等于独立样本数。分别在建筑—背景混合区域、固定GT边缘带、低预测B的真实建筑位置和区域内部统计；阈值与分层规则在分析前固定。标签仅用于诊断划分，不能输入查询前向。报告原始槽、编码槽与回投后的变化，避免把编码器形成的距离当作原始信息互补性。
+
+**表5　双槽内容诊断及必要时的结构扩展。**
+
+| 分层/对照 | 槽余弦相似度 | 标签JS | 小槽质量/ESS | mIoU_fg或误差变化 |
+|---|---:|---:|---:|---:|
+| 建筑—背景混合区域 | 待测 | 待测 | 待测 | 待测 |
+| 建筑边缘 | 待测 | 待测 | 待测 | 待测 |
+| 低B真实建筑位置 | 待测 | 待测 | 待测 | 待测 |
+| 区域内部/纯区域 | 待测 | 待测 | 待测 | 待测 |
+| 当前回投汇加 | — | — | — | 待测 |
+| 独立槽通道回投（拟补） | — | — | — | 待测 |
+
+独立回投对照需保持总通道和活跃参数尽量匹配，并同时报告实际参数差异。只有当混合区域已含互补内容、而当前融合可能限制利用时，才优先测试这一改动。若问题出在低B位置的前端特征衰减，应另设调制前/后特征对照，同时更新查询与支持内容，不能只换查询特征。
+
+### F. 训练稳定性与误改
+
+**表6　概率锚定的匹配继续训练。**
+
+| 分支 | 起点与终点 | 后续学习率 | 目标 | 原目标loss | mIoU_fg | 受损P/R | 正确完好→受损 |
+|---|---|---|---|---:|---:|---:|---:|
+| 共同D500 | 500 | 公共前缀 | 原目标 | 待测 | 待测 | 待测 | 待测 |
+| Control | 500→1500 | 0.2×原调度 | 原目标 | 待测 | 待测 | 待测 | 待测 |
+| Anchor | 同起点→1500 | 相同 | 原目标+0.1 KL | 待测 | 待测 | 待测 | 待测 |
+
+两分支同时以共同原目标、KL、各类IoU和混淆统计评价，不比较量纲不同的总loss大小来证明收益。固定Train子集和完整Val使用同一推理设置；Train改善而Val退化支持泛化差距扩大，Train与Val代理loss均下降而mIoU下降则提示概率拟合、类别取舍与指标聚合之间的不一致。二者可同时存在，不能仅凭一条曲线确定唯一根因。
+
+以同像素位置定义纠错数与误改数：基础预测错误而联合预测正确为纠错，基础预测正确而联合预测错误为误改。对每个真实类别分别统计，并关注Intact→Damaged/Destroyed与Damaged→背景/Intact/Destroyed的转移。混淆矩阵净变化不能还原这些配对转移，须保存同一位置的联合计数。
+
+若Anchor仅把输出压回基线而未超过基线，它可以解释为抑制变化，但尚不足以证明历史信息被更好利用。候选有效后需在B上使用相同目标，重新计算D−B；否则不能声称锚定后的收益来自Memory。
+
+### G. 事件表现、案例和效率
+
+**表7　逐事件与计算开销。**
+
+| 统计项 | grid_probq | B | D | D+Anchor（候选） |
+|---|---:|---:|---:|---:|
+| 事件等权mIoU_fg | 待测 | 待测 | 待测 | 待测 |
+| 最差事件/事件改善数量 | 待测 | 待测 | 待测 | 待测 |
+| 完好、受损、毁坏逐事件IoU | 附表 | 附表 | 附表 | 附表 |
+| 单图推理时间/峰值显存 | 待测 | 待测 | 待测 | 待测 |
+| 可训练参数/案例库大小 | 待测 | 待测 | 待测 | 待测 |
+| 一次性建库时间 | 无 | 无历史库 | 待测 | 复用同库 |
+
+固定检查点可采用按事件聚类的配对重采样，重新累计混淆矩阵后计算指标；该区间反映评价事件采样的不确定性，不包含训练随机性，也不替代多训练种子。多种子差异另行报告；若前端共同冻结，其结果不能代表重训整个前端的变异。效率测试须固定硬件与推理设置，并将一次性建库和在线查询分开。
+
+案例展示至少包含：混合区域双槽差异；受损查询及其真实Top64中的代表支持与完好困难负例；基线错误被救回；基线正确被误改；低B建筑漏检；完整失败事件。支持展示标明事件、图像、父区域ID和槽软标签。对注意力图只描述相关响应，不能将大权重直接解释为因果贡献。
+
+**图5置于此处。** 相同裁窗的光学、SAR、GT、grid_probq、B、D与候选Anchor预测；固定checkpoint与推理规则，包含成功与失败。
+
+**图6置于此处。** 混合区域的B、Q、双槽权重及同域标签组成，说明分流内容与质量。
+
+**图7置于此处。** 受损查询、历史支持、困难完好负例及读取响应；同一父预算下比较检索与随机支持。
+
+**图8置于此处。** 同像素基线→联合模型的纠错与误改，区分建筑定位和等级混淆。
+
+**图9置于此处。** 配对种子的各类IoU及差值，标明主终点和区间；不复用旧69.64%的派生柱状图。
+
+**图10置于此处。** 逐事件性能差值与训练轨迹，注明统计口径；若版面有限，训练轨迹单独放补充材料。
+
+## V. 讨论
+
+### A. 可以主张的创新边界
+
+本文方法位于任务驱动的区域证据组织与案例推理层。固定Q上构建建筑概率互补槽，并以同一空间权重生成支持内容和软标签，是需要验证的核心设计。父级选择与槽级读取、像素路径与概率基线联合，构成可审计的历史监督利用方式。软加权池化、注意力、残差和KL均有成熟先例；其在本任务中的具体组织是否有价值，应由同容量、同源、同预算对照决定，而不是依靠模块重命名。
+
+当前方法也没有解决所有区域问题。双槽不区分相邻两栋建筑，也不自动区分完好与受损；父级key可能遗漏只在子槽中明显的等级差异；前端低B抑制可能限制背景槽的可用SAR证据；回投汇加也可能压缩不同槽的作用。上述因素应按槽内容、候选覆盖和配对误差的证据逐项检验，而不同时增加全部模块。
+
+### B. 对定位知识、跨模态一致性与伪标签的取舍
+
+冠军方案的建筑先验和亚军方案的完好区域特征一致性提供了两条不同方向。前者主要改善“哪里可能有建筑”，后者试图减少未损毁区域的模态差异。本文已使用建筑概率组织和调制信息，继续加入外部定位模型需要证明它改善了当前漏检，同时不增加背景误报；它未必能解决Intact→Damaged等级混淆。
+
+完好区域跨模态一致性若作用于全部冻结特征，不能更新前端，也不会自动训练到Reader。可行扩展是在可训练的模态投影或受控解冻层上添加一致性，并保持独立消融，检查配准残差和过强对齐是否损伤有用模态差异。对象投票应作为后处理单列，既可能减少碎片，也可能传播整栋误判。目标域伪标签涉及额外图像访问，应单设适配协议，不能混入Train-only主表。
+
+### C. 证据限制与研究顺序
+
+历史结果显示，组件相对贡献与最终系统收益可以方向不同：soft或Memory可能优于各自对照，但完整联合模型仍低于冻结基础预测。因此，研究顺序应先完成同源的原目标/锚定对照与双槽内容诊断，再根据证据选择融合方式、内容来源或候选排序中的一项改动。重复种子和同设置单槽对照是确认方法价值的必要证据。
+
+本稿不设定必然达到的分数目标。应在实验前确定主要终点、最小实际意义阈值和统计报告方式，并依据测得结果保留或放弃候选。若双槽增量小于运行波动，论文应缩小相应主张；若历史标签只在少数事件有效，应报告适用范围与失败案例。新库和新数值配置的结果属于新的实验版本，不能冒充丢失权重的历史轨迹。
+
+## VI. 结论
+
+本文围绕光学—SAR建筑损毁中的区域混合与历史证据使用，构建了固定Q上的建筑概率双槽、父区域选择与槽级读取，以及保留像素和概率基线的残差联合分类框架。方法以对应权重生成槽特征与Train软标签，使案例读取具有明确的内容范围；实验设计通过图内、历史、标签与容量对照，分别检验不同信息来源的作用，其结论须由匹配结果确认。进一步设置概率锚定训练，研究新增上下文如何在纠正基础错误的同时避免无益误改。【正式填入：完整实验所支持的增量、重复性、适用事件与主要局限。】后续研究将依据内容和检索诊断，有针对性地改进槽融合或支持选择，而不将尚未完成的候选设计写成已验证的结论。
+
+## 参考文献
+
+[1] Ritwik Gupta, et al. Creating xBD: A Dataset for Assessing Building Damage from Satellite Imagery. CVPR Workshops 2019, 2019. [论文链接](https://openaccess.thecvf.com/content_CVPRW_2019/papers/cv4gc/Gupta_Creating_xBD_A_Dataset_for_Assessing_Building_Damage_from_Satellite_CVPRW_2019_paper.pdf).
+
+[2] Hongruixuan Chen, Jian Song, Olivier Dietrich, et al. BRIGHT: a globally distributed multimodal building damage assessment dataset with very-high-resolution for all-weather disaster response. Earth System Science Data 17(11):6217–6253, 2025. DOI: [10.5194/essd-17-6217-2025](https://doi.org/10.5194/essd-17-6217-2025).
+
+[3] Zhuo Zheng, Yanfei Zhong, Junjue Wang, et al. Building damage assessment for rapid disaster response with a deep object-based semantic change detection framework: From natural disasters to man-made disasters. Remote Sensing of Environment 265:112636, 2021. [论文链接](https://www.sciencedirect.com/science/article/pii/S0034425721003564).
+
+[4] Hongruixuan Chen, Edoardo Nemni, Sofia Vallecorsa, et al. Dual-Tasks Siamese Transformer Framework for Building Damage Assessment. IGARSS 2022:1600–1603, 2022. [公开代码/资料](https://github.com/ChenHongruixuan/BRIGHT/blob/master/bda_benchmark/model/DamageFormer.py).
+
+[5] Hongruixuan Chen, Jian Song, Chengxi Han, et al. ChangeMamba: Remote Sensing Change Detection with Spatiotemporal State Space Model. IEEE Transactions on Geoscience and Remote Sensing 62:1–20, 2024. DOI: [10.1109/TGRS.2024.3417253](https://doi.org/10.1109/TGRS.2024.3417253).
+
+[6] Varun Jampani, Deqing Sun, Ming-Yu Liu, et al. Superpixel Sampling Networks. ECCV, 2018. [论文链接](https://varunjampani.github.io/ssn/).
+
+[7] Fengting Yang, Qian Sun, Hailin Jin, et al. Superpixel Segmentation with Fully Convolutional Networks. CVPR, 2020. [论文链接](https://arxiv.org/abs/2003.12929).
+
+[8] Huaibo Huang, Xiaoqiang Zhou, Jie Cao, et al. Vision Transformer with Super Token Sampling. CVPR, 2023. [论文链接](https://arxiv.org/abs/2211.11167).
+
+[9] Yuhui Yuan, Xilin Chen, Jingdong Wang. Object-Contextual Representations for Semantic Segmentation. ECCV, 2020. [论文链接](https://arxiv.org/abs/1909.11065).
+
+[10] Zhenchao Jin, Tao Gong, Dongdong Yu, et al. Mining Contextual Information Beyond Image for Semantic Segmentation. ICCV, pp. 7231–7241, 2021. [论文链接](https://arxiv.org/abs/2108.11819).
+
+[11] Renrui Zhang, Wei Zhang, Rongyao Fang, et al. Tip-Adapter: Training-free Adaption of CLIP for Few-shot Classification. ECCV, 2022. [论文链接](https://arxiv.org/abs/2207.09519).
+
+[12] Hao Chen, Zipeng Qi, Zhenwei Shi. Remote Sensing Image Change Detection with Transformers. IEEE Transactions on Geoscience and Remote Sensing (online publication), 2021. DOI: [10.1109/TGRS.2021.3095166](https://doi.org/10.1109/TGRS.2021.3095166).
+
+[13] Zhuo Zheng, Ailong Ma, Liangpei Zhang, et al. Change is Everywhere: Single-Temporal Supervised Object Change Detection in Remote Sensing Imagery. ICCV 2021, 2021. [论文链接](https://arxiv.org/abs/2108.07002).
+
+[14] Lei Ding, Jing Zhang, Haitao Guo, et al. Joint Spatio-Temporal Modeling for Semantic Change Detection in Remote Sensing Images. IEEE Transactions on Geoscience and Remote Sensing 62:1–14, 2024. DOI: [10.1109/TGRS.2024.3362795](https://doi.org/10.1109/TGRS.2024.3362795).
+
+[15] Xin Guo, Xudong Kang, Zihao Wang, et al. FlowMamba: Building Damage Assessment via Optics Flow-based State Space Model. IEEE Transactions on Circuits and Systems for Video Technology (early access), 2025. DOI: [10.1109/TCSVT.2025.3643612](https://doi.org/10.1109/TCSVT.2025.3643612).
+
+[16] Ishaan Gulrajani, David Lopez-Paz. In Search of Lost Domain Generalization. ICLR, 2021. [论文链接](https://arxiv.org/abs/2007.01434).
+
+[17] Pang Wei Koh, Shiori Sagawa, Henrik Marklund, et al. WILDS: A Benchmark of in-the-Wild Distribution Shifts. ICML, PMLR 139:5637–5664, 2021. [论文链接](https://proceedings.mlr.press/v139/koh21a.html).
+
+[18] Michael Schmitt, Lloyd Haydn Hughes, Chunping Qiu, et al. SEN12MS – A Curated Dataset of Georeferenced Multi-Spectral Sentinel-1/2 Imagery for Deep Learning and Data Fusion. ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences IV-2/W7:153–160, 2019. DOI: [10.5194/isprs-annals-IV-2-W7-153-2019](https://doi.org/10.5194/isprs-annals-IV-2-W7-153-2019).
+
+[19] Jiepan Li, Wei He, Weinan Cao, et al. UANet: An Uncertainty-Aware Network for Building Extraction From Remote Sensing Images. IEEE Transactions on Geoscience and Remote Sensing 62:1–13, 2024. DOI: [10.1109/TGRS.2024.3361211](https://doi.org/10.1109/TGRS.2024.3361211).
+
+[20] Jiepan Li, Wei He, Zhuohong Li, et al. Overcoming the uncertainty challenges in detecting building changes from remote sensing images. ISPRS Journal of Photogrammetry and Remote Sensing 220:1–17, 2025. [公开代码/资料](https://github.com/Henryjiepanli/Building-Guided-Pseudo-Label-Learning-for-Cross-Modal-Building-Damage-Mapping/blob/main/README.md).
+
+[21] Jiepan Li, He Huang, Yu Sheng, et al. Building-Guided Pseudo-Label Learning for Cross-Modal Building Damage Mapping. IGARSS 2025:228–232, 2025. DOI: [10.1109/IGARSS55030.2025.11243835](https://doi.org/10.1109/IGARSS55030.2025.11243835).
+
+[22] zxqyiyang. DF2025: public implementation associated with the DFC2025 Track II second-ranked solution [软件资料]. GitHub software repository, 2025. [公开代码/资料](https://github.com/zxqyiyang/DF2025).
+
+[23] Radhakrishna Achanta, Appu Shaji, Kevin Smith, et al. SLIC Superpixels Compared to State-of-the-Art Superpixel Methods. IEEE Transactions on Pattern Analysis and Machine Intelligence, 34(11):2274–2282, 2012. [公开代码/资料](https://github.com/achanta/SLIC).
+
+[24] Hengshuang Zhao, Jianping Shi, Xiaojuan Qi, et al. Pyramid Scene Parsing Network. CVPR, 2017. [论文链接](https://arxiv.org/abs/1612.01105).
+
+[25] Xiaolong Wang, Ross Girshick, Abhinav Gupta, et al. Non-local Neural Networks. CVPR, 2018. [论文链接](https://arxiv.org/abs/1711.07971).
+
+[26] Zhenchao Jin, Bin Liu, Qi Chu, et al. ISNet: Integrate Image-Level and Semantic-Level Context for Semantic Segmentation. ICCV, pp. 7189–7198, 2021. [论文链接](https://arxiv.org/abs/2108.12382).
+
+[27] Francesco Locatello, Dirk Weissenborn, Thomas Unterthiner, et al. Object-Centric Learning with Slot Attention. NeurIPS, 2020. [论文链接](https://arxiv.org/abs/2006.15055).
+
+[28] Zhuo Zheng, Yanfei Zhong, Junjue Wang, et al. Foreground-Aware Relation Network for Geospatial Object Segmentation in High Spatial Resolution Remote Sensing Imagery. CVPR 2020, 2020. [论文链接](https://openaccess.thecvf.com/content_CVPR_2020/html/Zheng_Foreground-Aware_Relation_Network_for_Geospatial_Object_Segmentation_in_High_Spatial_CVPR_2020_paper.html).
+
+[29] Jake Snell, Kevin Swersky, Richard Zemel. Prototypical Networks for Few-shot Learning. NeurIPS, 2017. [论文链接](https://papers.nips.cc/paper/6996-prototypical-networks-for-few-shot-learning).
+
+[30] Han-Jia Ye, Hexiang Hu, De-Chuan Zhan, et al. Few-Shot Learning via Embedding Adaptation with Set-to-Set Functions. CVPR, pp. 8808–8817, 2020. [论文链接](https://arxiv.org/abs/1812.03664).
+
+[31] Zhenchao Jin, Dongdong Yu, Zehuan Yuan, et al. MCIBI++: Soft Mining Contextual Information Beyond Image for Semantic Segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence (early-access citation), 2022. [论文链接](https://arxiv.org/abs/2209.04471).
+
+[32] Kaixin Wang, Jun Hao Liew, Yingtian Zou, et al. PANet: Few-Shot Image Semantic Segmentation With Prototype Alignment. ICCV, 2019. [论文链接](https://arxiv.org/abs/1908.06391).
+
+[33] Zhuotao Tian, Hengshuang Zhao, Michelle Shu, et al. Prior Guided Feature Enrichment Network for Few-Shot Segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence (early-access citation), 2020. [论文链接](https://arxiv.org/abs/2008.01449).
+
+[34] Juhong Min, Dahyun Kang, Minsu Cho. Hypercorrelation Squeeze for Few-Shot Segmentation. ICCV, 2021. [论文链接](https://arxiv.org/abs/2104.01538).
+
+[35] Xun Wang, Haozhi Zhang, Weilin Huang, et al. Cross-Batch Memory for Embedding Learning. CVPR, 2020. [论文链接](https://arxiv.org/abs/1912.06798).
+
+[36] Prannay Khosla, Piotr Teterwak, Chen Wang, et al. Supervised Contrastive Learning. NeurIPS, 2020. [论文链接](https://arxiv.org/abs/2004.11362).
+
+[37] Ashish Vaswani, Noam Shazeer, Niki Parmar, et al. Attention Is All You Need. Advances in Neural Information Processing Systems 30, 2017. [论文链接](https://papers.nips.cc/paper/7181-attention-is-all-you-need).
+
+[38] Maxim Berman, Amal Rannen Triki, Matthew B. Blaschko. The Lovász-Softmax Loss: A Tractable Surrogate for the Optimization of the Intersection-Over-Union Measure in Neural Networks. CVPR:4413–4421, 2018. [论文链接](https://arxiv.org/abs/1705.08790).
+
+[39] Tsung-Yi Lin, Priya Goyal, Ross Girshick, et al. Focal Loss for Dense Object Detection. ICCV, 2017. [论文链接](https://arxiv.org/abs/1708.02002).
+
+[40] Geoffrey Hinton, Oriol Vinyals, Jeff Dean. Distilling the Knowledge in a Neural Network. arXiv:1503.02531, 2015. [论文链接](https://arxiv.org/abs/1503.02531).
+
+[41] Zhizhong Li, Derek Hoiem. Learning Without Forgetting. ECCV, 2016. [论文链接](https://arxiv.org/abs/1606.09282).
+
+[42] Xuhong Li, Yves Grandvalet, Franck Davoine. Explicit Inductive Bias for Transfer Learning with Convolutional Networks. ICML, PMLR 80:2825–2834, 2018. [论文链接](https://proceedings.mlr.press/v80/li18a.html).
+
+[43] Xingjian Li, Haoyi Xiong, Hanchao Wang, et al. DELTA: DEep Learning Transfer using Feature Map with Attention for Convolutional Networks. ICLR, 2019. [论文链接](https://openreview.net/forum?id=rkgbwsAcYm).
+
+[44] Antti Tarvainen, Harri Valpola. Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. NeurIPS, 2017. [论文链接](https://arxiv.org/abs/1703.01780).
+
+[45] Chuan Guo, Geoff Pleiss, Yu Sun, et al. On Calibration of Modern Neural Networks. ICML, PMLR 70:1321–1330, 2017. [论文链接](https://proceedings.mlr.press/v70/guo17a.html).
+
+[46] Yaniv Ovadia, Emily Fertig, Jie Ren, et al. Can You Trust Your Model's Uncertainty? Evaluating Predictive Uncertainty Under Dataset Shift. NeurIPS, 2019. [论文链接](https://arxiv.org/abs/1906.02530).
+
+[47] Ze Liu, Yutong Lin, Yue Cao, et al. Swin Transformer: Hierarchical Vision Transformer using Shifted Windows. ICCV, 2021. [论文链接](https://arxiv.org/abs/2103.14030).
+
+[48] Enze Xie, Wenhai Wang, Zhiding Yu, et al. SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers. NeurIPS, 2021. [论文链接](https://arxiv.org/abs/2105.15203).
+
+[49] Ilya Loshchilov, Frank Hutter. Decoupled Weight Decay Regularization. ICLR, 2019. [论文链接](https://arxiv.org/abs/1711.05101).
+
+[50] Tianhe Yu, Saurabh Kumar, Abhishek Gupta, et al. Gradient Surgery for Multi-Task Learning. NeurIPS, 2020. [论文链接](https://arxiv.org/abs/2001.06782).
