@@ -57,7 +57,6 @@ def _run_stage(root,stage):
     if stage in ('study_smoke','train'):
         from io_utils import named
         from study_backend import dependencies,import_runtime,runtime_config,check_inputs
-        from types import SimpleNamespace
         study_root=HERE/'deps/study'
         if str(study_root) not in sys.path:sys.path.insert(0,str(study_root))
         study=named(study_root/'run.py','study_run')
