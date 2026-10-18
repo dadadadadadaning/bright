@@ -1,0 +1,14 @@
+{
+  "anchor": {
+    "directory": "joint_anchor_study_v1",
+    "url": "https://raw.githubusercontent.com/dadadadadadaning/bright/1b528e4c847cab5e96e3b078682d39e12f7183b6/bright_joint_anchor_study_v1.zip",
+    "archive_sha256": "6ce20b87a6e70f436b26d9f9e38200975db780fe27669f784c1e7a8d4e650d9e",
+    "manifest_sha256": "e149b690b4274ee0ecc7947831be7545eb8a7199786a137fff56547fb84a8dd2"
+  },
+  "audit": {
+    "directory": "slot_memory_audit_v1_fix1",
+    "url": "https://raw.githubusercontent.com/dadadadadadaning/bright/918737dfe1e22048ea2bd160d9092869865b4d52/bright_slot_memory_audit_v1_fix1.zip",
+    "archive_sha256": "27c971a3f0c3accbb8db9215ec4692e7f4cc6e9e791a2201fbfa4730829849df",
+    "manifest_sha256": "7d310fa3c0c75f50f25ee032af7d17e00e32690af6e9b522f03eb0136544c977"
+  }
+}
