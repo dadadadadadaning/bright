@@ -1,0 +1,17 @@
+{
+  "repo": "/root/shared-nvme/BRIGHT-master",
+  "protocol": "/root/shared-nvme/BRIGHT-checkpoints/SRAC_SOFT_MEMORY_Q_REBASED_V1/run_20261014_202057_full_fEYBZv7D.source.json",
+  "membership_root": "/root/shared-nvme/BRIGHT-checkpoints/SRAC_MEMORY_REBUILD_V3/run_20261013_100220_049144_3778665/keys",
+  "bank_root": "/root/shared-nvme/BRIGHT-checkpoints/SRAC_SOFT_MEMORY_Q_REBASED_V1/run_20261014_202057_full_fEYBZv7D/parent",
+  "values": "/root/shared-nvme/BRIGHT-checkpoints/SRAC_SOFT_MEMORY_Q_REBASED_V1/run_20261014_202057_full_fEYBZv7D/values",
+  "device": "cuda:0",
+  "workers": 4,
+  "seed": 3407,
+  "key_name": "t128",
+  "topk": 64,
+  "chunk_size": 32,
+  "lr": 0.0001,
+  "weight_decay": 0.005,
+  "steps": 5000,
+  "eval_every": 500
+}
