@@ -60,6 +60,34 @@ class FreshBackendContracts(unittest.TestCase):
             self.assertIs(static['config']['allow_smoke_values'],mode=='smoke')
         self.assertEqual([item.mode for item in checked],['smoke','train'])
 
+    def test_study_imports_pinned_original_run_despite_name_collision(self):
+        import io_utils,study_backend
+        wrong=ModuleType('run')
+        wrong.__file__=str(HERE/'deps/study/run.py')
+        bridge=SimpleNamespace(verify_dependencies=lambda _:True,
+            _package_files=lambda *args,**kwargs:None)
+        common=SimpleNamespace(source_hash=lambda:study_backend.ORIGINAL_SOURCE_SHA)
+        sentinel_train=object()
+        def load(path,label):
+            return bridge if label=='anchor_legacy' else io_utils.named(path,label)
+        with (patch.dict(sys.modules,{'run':wrong}),
+              patch.object(study_backend,'old_modules',return_value=(None,None,None,None,sentinel_train,common)),
+              patch.object(study_backend,'named',side_effect=load)):
+            _,returned_common,train,original_run,runtime=study_backend.import_runtime({},object())
+        self.assertIs(returned_common,common)
+        self.assertIs(train,sentinel_train)
+        self.assertEqual(Path(original_run.__file__).resolve(),(HERE/'deps/original/run.py').resolve())
+        self.assertIs(runtime,NewRuntime)
+
+    def test_real_pinned_study_imports_before_cuda(self):
+        from io_utils import named
+        import study_backend
+        bridge=named(HERE/'deps/study/legacy.py','anchor_legacy')
+        legacy=bridge.load_legacy(HERE/'deps/helpers')
+        _,_,_,original_run,runtime=study_backend.import_runtime({},legacy)
+        self.assertEqual(Path(original_run.__file__).resolve(),(HERE/'deps/original/run.py').resolve())
+        self.assertIs(runtime,NewRuntime)
+
     def test_values_smoke_constructs_namespace(self):
         import fresh_chain
         values=ModuleType('build_values')

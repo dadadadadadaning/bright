@@ -61,12 +61,13 @@ def dependencies(args):
     return legacy,static
 
 def import_runtime(static,legacy):
-    import importlib
     _,_,_,_,train,common=old_modules()
     bridge=named(_paths()['study']/'legacy.py','anchor_legacy')
     bridge.verify_dependencies(legacy)
     bridge._package_files(_paths()['tool'],expected_source=ORIGINAL_SOURCE_SHA)
-    original_run=importlib.import_module('run')
+    # The study package also has a run.py. Load the pinned original by path so
+    # sys.path order cannot silently select the wrong entry point.
+    original_run=named(_paths()['tool']/'run.py','original_run')
     if original_run.verify_release()['code_sha256']!=ORIGINAL_SOURCE_SHA:raise ValueError('Original code differs')
     import torch
     return torch,common,train,original_run,NewRuntime

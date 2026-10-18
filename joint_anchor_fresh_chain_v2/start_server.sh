@@ -6,6 +6,10 @@ BRIGHT_NEW=/root/shared-nvme/BRIGHT-master/New
 BRIGHT_TOOL="$(cd "$(dirname "$0")" && pwd)"
 "$BRIGHT_PY" "$BRIGHT_TOOL/fresh_chain.py" plan
 mkdir -p "$BRIGHT_ROOT"
+if ! flock -n "$BRIGHT_ROOT/active.lock" -c true; then
+  printf '已有另一轮联合实验占用独占锁；请先查看该轮进度，不再启动重复任务。\n' >&2
+  exit 2
+fi
 BRIGHT_TAG="$(date -u +%Y%m%d_%H%M%S)_$$"
 BRIGHT_RUN="$BRIGHT_ROOT/run_$BRIGHT_TAG"
 BRIGHT_LOG="$BRIGHT_RUN.log"
