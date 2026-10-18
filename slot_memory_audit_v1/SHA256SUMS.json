@@ -1,0 +1,18 @@
+{
+  "README.md": "3c22190ce10aedb84880382b3a4e65a0db73071a20a9bdbd934101f18bfab79e",
+  "audit.py": "0d35cbd89d55642834d92024c8dad7710867d0867298b21d7e49eb4df0df6975",
+  "neighbor_stats.py": "83dd5589fbe2d19a65be805a5697c44409603d7475dc3a39fdd4ed59366cef91",
+  "pixel_stats.py": "b93f86c11ec9c5908de7dbb03267b62af3a5d17c5ec3b52cb804771b05e57887",
+  "reader_stats.py": "8542e9fecadf2c8f69358f2b5677405b3ca63a2f48cd5b7d4496c5ff2588ca39",
+  "reporting.py": "ce7ddc1943408dc05f8ba4b77f9d4a36a83741b23ae59e592c680d9d8b2fa675",
+  "slot_stats.py": "51b767a33eb75c0d3b82df534ff8a0bfbdcc1ea8107cff453a6be35193225fb6",
+  "source_io.py": "01c2ca2180b92fa434100a514cf7844e7e5e822018bd12ea4fad258fba6f7397",
+  "start_server.sh": "482d10e550ceb562ca53d0797bf4092c3a1b2a03986705e26ba3cbafd5293965",
+  "test_audit_integration.py": "ce93397ee764ed7636b4f564a829a4257ef2b648ad69016e73a3f51c31f802d4",
+  "test_audit_stats.py": "26b23d45c7b91748fc2f16c5a238b4013de2d9531749197dee609d5b2bfb7434",
+  "test_neighbor_stats.py": "6adfaded7c486a43540943a5551ad97521b987da53bbc139d1bdaf473664befe",
+  "test_reader_pixel.py": "89c5e25e0d4a54ad4c6769264992ab7e9b0e35238424c0c96cabca6fdf8353a4",
+  "test_reporting.py": "5e31dc3afe08a1dfb1dc4200947bc5a69722fce3b8906e7b05ee809947b7573a",
+  "test_slot_stats.py": "ca24ddb16d004189a9e6d7f5f6fe012350eeaf75e385493dc66048d9001d2a2f",
+  "test_source_io.py": "6b7525740bf94366a1d1c82c15a36e394a8658d9be1e22fd893b38c4a9276277"
+}
