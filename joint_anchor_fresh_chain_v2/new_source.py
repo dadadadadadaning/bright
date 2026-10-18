@@ -69,11 +69,11 @@ def load(protocol,output):
     import torch
     fs,*_=old_modules(); protocol=Path(protocol).resolve(); record=read(protocol)
     if record['release_sha256']!=verify_release():raise ValueError('Source release differs')
-    payload,deps,names,paths=validate(record)
     policy=record['numeric_policy']
     torch.set_num_threads(policy['num_threads'])
     if torch.get_num_interop_threads()!=policy['num_interop_threads']:
         torch.set_num_interop_threads(policy['num_interop_threads'])
+    payload,deps,names,paths=validate(record)
     # configure before any CUDA tensors; use same new policy in every process.
     deps.numeric.configure_runtime('legacy',matmul_tf32=policy['matmul_tf32'],cudnn_tf32=policy['cudnn_tf32'],deterministic=policy['deterministic'])
     device=torch.device(record['device'])
