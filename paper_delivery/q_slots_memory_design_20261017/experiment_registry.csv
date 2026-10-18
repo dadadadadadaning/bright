@@ -1,0 +1,17 @@
+﻿run_key,configuration,region,slots,support,labels,tables,stage,seed,checkpoint,result_json,frontend_sha256,q_sha256,bank_sha256,status
+pixel_frozen,冻结像素前端参考,无区域汇总,无,无,无支持输入,1;2;5;6,冻结推理参考,,,,,,,待运行/待核对
+pixel_adapt,同预算像素分类头,无区域汇总,无,无,无支持输入,2;5;6,训练参考,,,,,,,待运行/待核对
+grid_single_local,规则网格＋单槽＋图内参考,规则网格,单槽,图内参考,同次预测软标签,2,区域与槽核心,,,,,,,待运行/待核对
+grid_spatial_local,规则网格＋固定空间双槽＋图内参考,规则网格,固定空间双槽,图内参考,同次预测软标签,2,区域与槽核心,,,,,,,待运行/待核对
+grid_soft_local,规则网格＋建筑soft双槽＋图内参考,规则网格,建筑soft双槽,图内参考,同次预测软标签,2,区域与槽核心,,,,,,,待运行/待核对
+q_single_local,学习Q＋单槽＋图内参考,学习Q,单槽,图内参考,同次预测软标签,2;3;5;6,区域与槽核心,,,,,,,待运行/待核对
+q_spatial_local,学习Q＋固定空间双槽＋图内参考,学习Q,固定空间双槽,图内参考,同次预测软标签,2;3,区域与槽核心,,,,,,,待运行/待核对
+q_soft_local,学习Q＋建筑soft双槽＋图内参考,学习Q,建筑soft双槽,图内参考,同次预测软标签,2;3;4;5;6,区域与槽核心,,,,,,,待运行/待核对
+q_single_capacity_local,学习Q＋容量匹配单槽＋图内参考,学习Q,容量匹配单槽,图内参考,同次预测软标签,2,容量控制,,,,,,,待运行/待核对
+q_single_train,学习Q＋单槽＋Train历史支持,学习Q,单槽,检索Train支持,Train真值软标签,3;5;6,历史支持核心,,,,,,,待运行/待核对
+q_spatial_train,学习Q＋固定空间双槽＋Train历史支持,学习Q,固定空间双槽,检索Train支持,Train真值软标签,3,历史支持核心,,,,,,,待运行/待核对
+q_soft_train,学习Q＋建筑soft双槽＋Train历史支持,学习Q,建筑soft双槽,检索Train支持,Train真值软标签,1;3;4;5;6,历史支持核心,,,,,,,待运行/待核对
+q_soft_parametric,学习Q＋soft双槽＋同容量参数化支持,学习Q,建筑soft双槽,可学习向量,明确实现,4,案例机制控制,,,,,,,待运行/待核对
+q_soft_random_train,学习Q＋soft双槽＋随机合法Train支持,学习Q,建筑soft双槽,随机Train,Train真值软标签,4,案例机制控制,,,,,,,待运行/待核对
+q_soft_no_label_train,学习Q＋soft双槽＋固定案例去标签,学习Q,建筑soft双槽,检索Train,移除标签通道,4,案例机制控制,,,,,,,待运行/待核对
+q_soft_pred_label_train,学习Q＋soft双槽＋固定案例用预测标签,学习Q,建筑soft双槽,检索Train,同源模型预测标签,4,案例机制控制,,,,,,,待运行/待核对

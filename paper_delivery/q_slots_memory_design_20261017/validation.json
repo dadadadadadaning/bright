@@ -1,0 +1,37 @@
+{
+  "table_groups": 6,
+  "method_schematics": 2,
+  "empirical_figure_layouts": 4,
+  "editable_pptx_slides": 6,
+  "handbook_pdf_pages": 15,
+  "figure_pdf_pages": 6,
+  "source_performance_numbers_inserted": false,
+  "unmeasured_performance_numbers_invented": false,
+  "fake_prediction_images_generated": false,
+  "fake_probability_maps_generated": false,
+  "fake_curves_or_errorbars_generated": false,
+  "original_paper_images_modified": false,
+  "same_run_table_reuse_implemented": true,
+  "training_configurations": 15,
+  "frozen_reference_configurations": 1,
+  "key_three_seed_training_runs_if_all_other_configs_one_seed": 25,
+  "scientific_review_items_resolved": [
+    "event comparison and across-seed aggregation defined",
+    "configuration count distinguished from training run count",
+    "support-feature independent attribution narrowed",
+    "pixel-only mixing metric not applicable",
+    "table2-to-table3 and table4 formula reuse added",
+    "registry mapping recomputed from tables"
+  ],
+  "word_tables_match_manifest": true,
+  "all_performance_inputs_blank": true,
+  "xlsx_formula_checks": {
+    "blank_formulas_remain_blank": true,
+    "source_reuse_formulas_calculated": true,
+    "mean_and_sample_SD_calculated": true,
+    "formula_errors": 0,
+    "probe_only_in_temporary_directory": true,
+    "probe_results_not_delivered_as_experiments": true
+  },
+  "cloud_environment_setup_changes_required": false
+}

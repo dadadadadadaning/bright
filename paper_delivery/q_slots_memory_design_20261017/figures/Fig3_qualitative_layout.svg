@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="576pt" viewBox="0 0 864 576" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T15:35:24.686737</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 576 
+L 864 576 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.2 84.24 
+L 838.8 84.24 
+L 838.8 86.04 
+L 25.2 86.04 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #285e89; stroke: #285e89; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 32.4 140.4 
+L 156.24 140.4 
+L 156.24 232.56 
+L 32.4 232.56 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 167.76 140.4 
+L 291.6 140.4 
+L 291.6 232.56 
+L 167.76 232.56 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 303.12 140.4 
+L 426.96 140.4 
+L 426.96 232.56 
+L 303.12 232.56 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 438.48 140.4 
+L 562.32 140.4 
+L 562.32 232.56 
+L 438.48 232.56 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 573.84 140.4 
+L 697.68 140.4 
+L 697.68 232.56 
+L 573.84 232.56 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 709.2 140.4 
+L 833.04 140.4 
+L 833.04 232.56 
+L 709.2 232.56 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 32.4 254.16 
+L 156.24 254.16 
+L 156.24 346.32 
+L 32.4 346.32 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 167.76 254.16 
+L 291.6 254.16 
+L 291.6 346.32 
+L 167.76 346.32 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 303.12 254.16 
+L 426.96 254.16 
+L 426.96 346.32 
+L 303.12 346.32 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 438.48 254.16 
+L 562.32 254.16 
+L 562.32 346.32 
+L 438.48 346.32 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 573.84 254.16 
+L 697.68 254.16 
+L 697.68 346.32 
+L 573.84 346.32 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 709.2 254.16 
+L 833.04 254.16 
+L 833.04 346.32 
+L 709.2 346.32 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 32.4 367.92 
+L 156.24 367.92 
+L 156.24 460.08 
+L 32.4 460.08 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 167.76 367.92 
+L 291.6 367.92 
+L 291.6 460.08 
+L 167.76 460.08 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 303.12 367.92 
+L 426.96 367.92 
+L 426.96 460.08 
+L 303.12 460.08 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 438.48 367.92 
+L 562.32 367.92 
+L 562.32 460.08 
+L 438.48 460.08 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 573.84 367.92 
+L 697.68 367.92 
+L 697.68 460.08 
+L 573.84 460.08 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 709.2 367.92 
+L 833.04 367.92 
+L 833.04 460.08 
+L 709.2 460.08 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 144 500.4 
+L 161.28 500.4 
+L 161.28 516.24 
+L 144 516.24 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #ffffff; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 288 500.4 
+L 305.28 500.4 
+L 305.28 516.24 
+L 288 516.24 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #4eae86; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 432 500.4 
+L 449.28 500.4 
+L 449.28 516.24 
+L 432 516.24 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #deb783; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 576 500.4 
+L 593.28 500.4 
+L 593.28 516.24 
+L 576 516.24 
+z
+" clip-path="url(#p180f1d50de)" style="fill: #b74349; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 24px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="25.2" y="36.155625" transform="rotate(-0 25.2 36.155625)">图3  总体定性比较：同一窗口、统一类别配色</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="25.2" y="69.28125" transform="rotate(-0 25.2 69.28125)">结果版面模板｜所有预测占位框须替换为真实图像，不含合成实验结果</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="94.32" y="115.972266" transform="rotate(-0 94.32 115.972266)">灾前RGB</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="229.68" y="115.972266" transform="rotate(-0 229.68 115.972266)">灾后SAR</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="365.04" y="115.972266" transform="rotate(-0 365.04 115.972266)">参考GT</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="500.4" y="115.972266" transform="rotate(-0 500.4 115.972266)">像素前端</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="635.76" y="115.972266" transform="rotate(-0 635.76 115.972266)">强对比模型</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="771.12" y="115.972266" transform="rotate(-0 771.12 115.972266)">完整方案</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(52.433438 181.582219)">待填：灾前RGB</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(58.32 198.180281)">同一空间窗口</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(188.646563 181.582219)">待填：灾后SAR</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(193.68 198.180281)">同一空间窗口</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(327.31125 181.582219)">待填：参考GT</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(329.04 198.180281)">同一空间窗口</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(458.4 181.582219)">待填：像素前端</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(464.4 198.180281)">同一空间窗口</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(587.76 181.582219)">待填：强对比模型</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(599.76 198.180281)">同一空间窗口</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(729.12 181.582219)">待填：完整方案</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(735.12 198.180281)">同一空间窗口</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="32.4" y="245.037812" transform="rotate(-0 32.4 245.037812)">密集建筑／等级混合：记录图像ID、事件和裁窗坐标</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(52.433438 295.342219)">待填：灾前RGB</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(58.32 311.940281)">同一空间窗口</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(188.646563 295.342219)">待填：灾后SAR</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(193.68 311.940281)">同一空间窗口</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(327.31125 295.342219)">待填：参考GT</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(329.04 311.940281)">同一空间窗口</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(458.4 295.342219)">待填：像素前端</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(464.4 311.940281)">同一空间窗口</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(587.76 295.342219)">待填：强对比模型</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(599.76 311.940281)">同一空间窗口</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(729.12 295.342219)">待填：完整方案</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(735.12 311.940281)">同一空间窗口</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="32.4" y="358.797813" transform="rotate(-0 32.4 358.797813)">稀疏小建筑／背景：记录图像ID、事件和裁窗坐标</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(52.433438 409.102219)">待填：灾前RGB</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(58.32 425.700281)">同一空间窗口</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(188.646563 409.102219)">待填：灾后SAR</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(193.68 425.700281)">同一空间窗口</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(327.31125 409.102219)">待填：参考GT</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(329.04 425.700281)">同一空间窗口</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(458.4 409.102219)">待填：像素前端</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(464.4 425.700281)">同一空间窗口</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(587.76 409.102219)">待填：强对比模型</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(599.76 425.700281)">同一空间窗口</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(729.12 409.102219)">待填：完整方案</text>
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(735.12 425.700281)">同一空间窗口</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="32.4" y="472.557813" transform="rotate(-0 32.4 472.557813)">困难或失败场景：记录图像ID、事件和裁窗坐标</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="165.6" y="511.72125" transform="rotate(-0 165.6 511.72125)">背景</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="309.6" y="511.72125" transform="rotate(-0 309.6 511.72125)">完好</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="453.6" y="511.72125" transform="rotate(-0 453.6 511.72125)">受损</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="597.6" y="511.72125" transform="rotate(-0 597.6 511.72125)">毁坏</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="28.8" y="551.037813" transform="rotate(-0 28.8 551.037813)">输出均使用离散类别图；RGB与SAR保持原始显示方式。展示成功与失败，禁止按颜色面积判断优劣。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p180f1d50de">
+   <rect x="0" y="0" width="864" height="576"/>
+  </clipPath>
+ </defs>
+</svg>

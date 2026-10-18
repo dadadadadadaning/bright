@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="576pt" viewBox="0 0 864 576" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T15:35:25.694297</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 576 
+L 864 576 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.2 84.24 
+L 838.8 84.24 
+L 838.8 86.04 
+L 25.2 86.04 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #285e89; stroke: #285e89; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 39.6 126 
+L 190.8 126 
+L 190.8 230.4 
+L 39.6 230.4 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 223.2 126 
+L 406.8 126 
+L 406.8 230.4 
+L 223.2 230.4 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 432 126 
+L 615.6 126 
+L 615.6 230.4 
+L 432 230.4 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 640.8 126 
+L 824.4 126 
+L 824.4 230.4 
+L 640.8 230.4 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 39.6 332.64 
+L 223.2 332.64 
+L 223.2 455.04 
+L 39.6 455.04 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 244.8 332.64 
+L 428.4 332.64 
+L 428.4 455.04 
+L 244.8 455.04 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 450 332.64 
+L 633.6 332.64 
+L 633.6 455.04 
+L 450 455.04 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 655.2 332.64 
+L 838.8 332.64 
+L 838.8 455.04 
+L 655.2 455.04 
+z
+" clip-path="url(#pa789d4b1f8)" style="fill: #eef3f7; stroke-dasharray: 3.885,1.68; stroke-dashoffset: 0; stroke: #acbcc9; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 24px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="25.2" y="36.8025" transform="rotate(-0 25.2 36.8025)">图5  Memory提供了哪些案例，如何改变预测</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="25.2" y="69.28125" transform="rotate(-0 25.2 69.28125)">案例证据模板｜上排展示实际选中支持，下排展示同一查询的输出变化</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(69.7 172.89407)">待填：查询区域</text>
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(50.323906 190.875305)">图像／事件／父区域ID</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(264.436094 172.89407)">待填：实际支持 1</text>
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(260.1725 190.875305)">Train裁窗／槽示例</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(272.782344 254.710367)">来源事件：[待填]</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(256.282344 269.925258)">相似度／软标签：[待填]</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(473.236094 172.89407)">待填：实际支持 2</text>
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(468.9725 190.875305)">Train裁窗／槽示例</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(481.582344 254.710367)">来源事件：[待填]</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(465.082344 269.925258)">相似度／软标签：[待填]</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(682.036094 172.89407)">待填：实际支持 3</text>
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(677.7725 190.875305)">Train裁窗／槽示例</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(690.382344 254.710367)">来源事件：[待填]</text>
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; fill: #647487" transform="translate(673.882344 269.925258)">相似度／软标签：[待填]</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="435.6" y="109.190781" transform="rotate(-0 435.6 109.190781)">(a) 查询与检索支持：展示少量代表性案例，同时保留成功与错误检索</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="131.4" y="315.480781" transform="rotate(-0 131.4 315.480781)">参考GT</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="131.4" y="397.524688" transform="rotate(-0 131.4 397.524688)">待填：真实同窗结果</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="336.6" y="315.480781" transform="rotate(-0 336.6 315.480781)">图内参考输出</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="336.6" y="397.524688" transform="rotate(-0 336.6 397.524688)">待填：真实同窗结果</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="541.8" y="315.480781" transform="rotate(-0 541.8 315.480781)">随机支持输出</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="541.8" y="397.524688" transform="rotate(-0 541.8 397.524688)">待填：真实同窗结果</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="747" y="315.480781" transform="rotate(-0 747 315.480781)">检索支持输出</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="747" y="397.524688" transform="rotate(-0 747 397.524688)">待填：真实同窗结果</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #203348" transform="translate(263 481.05407)">同时标注救回与误改：支持看起来相似，不等于等级正确。</text>
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; fill: #203348" transform="translate(241.458594 499.035305)">若比较固定Reader干预，明确使用同一权重；重训结果另行标注。</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="28.8" y="551.037813" transform="rotate(-0 28.8 551.037813)">检索先选父案例，再读槽内容。查询GT仅作展示；候选必须来自允许的Train成员并满足排除规则。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa789d4b1f8">
+   <rect x="0" y="0" width="864" height="576"/>
+  </clipPath>
+ </defs>
+</svg>

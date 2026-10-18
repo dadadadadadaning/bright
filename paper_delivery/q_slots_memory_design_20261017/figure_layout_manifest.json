@@ -1,0 +1,26 @@
+{
+  "figures": 6,
+  "method_schematics": [
+    1,
+    2
+  ],
+  "empirical_placeholders": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "empirical_images_generated": false,
+  "hypothetical_performance_curves_generated": false,
+  "formats": [
+    "pptx",
+    "png",
+    "pdf",
+    "svg"
+  ],
+  "original_manuscript_images_modified": false,
+  "slide_size_inches": [
+    12,
+    8
+  ]
+}

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="576pt" viewBox="0 0 864 576" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T15:35:26.154388</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 576 
+L 864 576 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.2 84.24 
+L 838.8 84.24 
+L 838.8 86.04 
+L 25.2 86.04 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #285e89; stroke: #285e89; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 74.000034 255.6 
+Q 239.400896 255.6 403.23651 255.6 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 398.03651 253 
+L 403.23651 255.6 
+L 398.03651 258.2 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 72 253.599719 
+Q 72 200.518343 72 149.002215 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 69.4 154.202215 
+L 72 149.002215 
+L 74.6 154.202215 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 484.400034 255.6 
+Q 649.800896 255.6 813.63651 255.6 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 808.43651 253 
+L 813.63651 255.6 
+L 808.43651 258.2 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 482.4 253.599719 
+Q 482.4 200.518343 482.4 149.002215 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 479.8 154.202215 
+L 482.4 149.002215 
+L 485 154.202215 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 74.000034 468 
+Q 239.400896 468 403.23651 468 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 398.03651 465.4 
+L 403.23651 468 
+L 398.03651 470.6 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 72 465.999719 
+Q 72 412.918343 72 361.402215 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 69.4 366.602215 
+L 72 361.402215 
+L 74.6 366.602215 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 484.400034 468 
+Q 649.800896 468 813.63651 468 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 808.43651 465.4 
+L 813.63651 468 
+L 808.43651 470.6 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 482.4 465.999719 
+Q 482.4 412.918343 482.4 361.402215 
+" clip-path="url(#pb046f3f4e3)" style="fill: none; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 479.8 366.602215 
+L 482.4 361.402215 
+L 485 366.602215 
+z
+" clip-path="url(#pb046f3f4e3)" style="fill: #647487; stroke: #647487; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 24px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #203348" x="25.2" y="36.155625" transform="rotate(-0 25.2 36.155625)">图6  完整Val轨迹、类别取舍与事件差异</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="25.2" y="69.28125" transform="rotate(-0 25.2 69.28125)">结果图模板｜坐标轴保留，未画任何假设曲线、误差条或预设性能差值</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="226.8" y="121.3125" transform="rotate(-0 226.8 121.3125)">(a) 完整Val学习轨迹</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="241.2" y="194.484687" transform="rotate(-0 241.2 194.484687)">待导入真实汇总数据</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="243" y="282.117813" transform="rotate(-0 243 282.117813)">训练更新步数</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="32.4" y="152.877813" transform="rotate(-0 32.4 152.877813)">前景mIoU（%）</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="637.2" y="121.29625" transform="rotate(-0 637.2 121.29625)">(b) 受损类别精确率／召回率</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="651.6" y="194.484687" transform="rotate(-0 651.6 194.484687)">待导入真实汇总数据</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="653.4" y="282.117813" transform="rotate(-0 653.4 282.117813)">训练更新步数</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="442.8" y="152.932813" transform="rotate(-0 442.8 152.932813)">Precision / Recall（%）</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="226.8" y="333.66375" transform="rotate(-0 226.8 333.66375)">(c) 同种子配对结果</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="241.2" y="406.884687" transform="rotate(-0 241.2 406.884687)">待导入真实汇总数据</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="243" y="494.517812" transform="rotate(-0 243 494.517812)">预定种子</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="32.4" y="365.277813" transform="rotate(-0 32.4 365.277813)">相对基底的差值（百分点）</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="637.2" y="333.6725" transform="rotate(-0 637.2 333.6725)">(d) 逐事件差异</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 13px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #647487" x="651.6" y="406.884687" transform="rotate(-0 651.6 406.884687)">待导入真实汇总数据</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: middle; fill: #203348" x="653.4" y="494.517812" transform="rotate(-0 653.4 494.517812)">同协议事件</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="442.8" y="365.277813" transform="rotate(-0 442.8 365.277813)">相对基底的差值（百分点）</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK JP'; text-anchor: start; fill: #647487" x="28.8" y="551.037813" transform="rotate(-0 28.8 551.037813)">每个曲线点使用完整Val；阴影有重复测量才绘制。固定基底为虚线，完整方案与对照线型明确。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb046f3f4e3">
+   <rect x="0" y="0" width="864" height="576"/>
+  </clipPath>
+ </defs>
+</svg>
