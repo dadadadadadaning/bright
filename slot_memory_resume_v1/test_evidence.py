@@ -22,7 +22,25 @@ def write_json(path, value):
     Path(path).write_text(json.dumps(value, allow_nan=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _image_objectives():
+    return {
+        "original_loss": .3, "nll": .2, "lovasz": .1,
+        "class_nll_contribution": [.05] * 4,
+        "class_lovasz_contribution": [.025] * 4,
+        "class_valid_counts": [1] * 4, "class_present_image_counts": [1] * 4,
+        "valid_count": 4,
+    }
+
+
+def _repeated_mean(value, count):
+    total = 0.0
+    for _ in range(count):
+        total += value
+    return total / count
+
+
 def _metric(count):
+    objectives = _image_objectives()
     return {
         "class_names": list(evidence.CLASSES),
         "confusion": [[count if row == column else 0 for column in range(4)] for row in range(4)],
@@ -30,9 +48,10 @@ def _metric(count):
         "class_present_image_counts": [count] * 4,
         "iou": [1.] * 4, "precision": [1.] * 4, "recall": [1.] * 4,
         "foreground_miou": 1., "valid_miou": 1.,
-        "mean_image_original_loss": .3, "mean_image_nll": .2, "mean_image_lovasz": .1,
-        "mean_image_class_nll_contribution": [.05] * 4,
-        "mean_image_class_lovasz_contribution": [.025] * 4,
+        **{"mean_image_" + term: _repeated_mean(objectives[term], count)
+           for term in evidence.SCALAR_TERMS},
+        **{"mean_image_" + term: [_repeated_mean(value, count) for value in objectives[term]]
+           for term in evidence.VECTOR_TERMS},
     }
 
 
@@ -103,19 +122,32 @@ def make_report(step, split, names, arms=ARMS, primary=False):
 
 
 def write_report(folder, report, names):
-    """Write a synthetic result, checksum and compact identity journal."""
+    """Write synthetic results with the real per-image objective journal schema."""
     folder = Path(folder)
     folder.mkdir(parents=True, exist_ok=False)
     journal = folder / "images.jsonl"
     with journal.open("w", encoding="utf-8") as stream:
         for index, name in enumerate(names):
-            row = dict(index=index, image=name, event=fixture_event(index, len(names)), valid_pixels=4)
+            row = dict(
+                index=index, image=name, event=fixture_event(index, len(names)), valid_pixels=4,
+                confusion={path: [[int(r == c) for c in range(4)] for r in range(4)]
+                           for path in report["metrics"]},
+                objectives={path: _image_objectives() for path in report["metrics"]},
+                paired_counts={key: pair["counts"]
+                               for key, pair in _paired(1, evidence._pairs(report["arms"])).items()})
             stream.write(json.dumps(row) + "\n")
     report["journal_sha256"] = sha256(journal)
     path = folder / "result.json"
     write_json(path, report)
     path.with_name("result.json.sha256").write_text(sha256(path) + "  result.json\n")
     return path, report
+
+
+def rehash_report(path, report):
+    """Re-sign deliberately edited test evidence; checks must exceed checksums."""
+    report["journal_sha256"] = sha256(path.with_name("images.jsonl"))
+    write_json(path, report)
+    path.with_name("result.json.sha256").write_text(sha256(path) + "  result.json\n")
 
 
 class EvidenceContracts(unittest.TestCase):
@@ -162,6 +194,116 @@ class EvidenceContracts(unittest.TestCase):
         original = copy.deepcopy(report)
         self.assertIsNone(self.validate(report))
         self.assertEqual(report, original)
+
+    def test_nll_cross_reduction_gap_is_diagnostic_and_values_are_unchanged(self):
+        report = make_report(1000, "val", self.val_names)
+        # A legal FP32 CUDA32-lane NLL reduction differs from masked Tensor.sum.
+        scalar, class_sum = .10539745539426804, .10536051541566849
+        for metrics in [report["metrics"], *report["per_event"].values()]:
+            for metric in metrics.values():
+                metric["mean_image_nll"] = scalar
+                metric["mean_image_class_nll_contribution"] = [class_sum / 4] * 4
+                metric["mean_image_original_loss"] = scalar + metric["mean_image_lovasz"]
+        original = copy.deepcopy(report)
+        self.validate(report)
+        diagnostic = evidence.nll_reduction_diagnostics(report)
+        self.assertEqual(report, original)
+        self.assertEqual(len(diagnostic["records"]), len(report["metrics"]) * 3)
+        self.assertGreater(diagnostic["max_absolute_relative_gap"], 3e-4)
+        self.assertEqual(diagnostic["max_absolute_gap"], abs(class_sum - scalar))
+        self.assertEqual({row["scope"] for row in diagnostic["records"]}, {"global", "event"})
+        self.assertTrue(all(row["signed_gap"] == class_sum - scalar for row in diagnostic["records"]))
+        report["metrics"]["d"]["mean_image_class_lovasz_contribution"][0] += .01
+        with self.assertRaisesRegex(ValueError, "class lovasz sum.*actual=.*expected="):
+            self.validate(report)
+
+    def test_saved_validation_replays_every_objective_without_mutation(self):
+        report = make_report(1000, "val", self.val_names)
+        path, report = write_report(self.root / "val_1000", report, self.val_names)
+        original = copy.deepcopy(report)
+        files = {p: p.read_bytes() for p in path.parent.iterdir()}
+        self.validate(report)
+        self.assertEqual(evidence.validate_saved_report(
+            path, report, self.val_names, sha256, self.root), path)
+        self.assertEqual(report, original)
+        self.assertEqual({p: p.read_bytes() for p in path.parent.iterdir()}, files)
+
+    def test_rehashed_global_objective_mutations_cannot_bypass_journal_replay(self):
+        report = make_report(1000, "val", self.val_names)
+        path, report = write_report(self.root / "val_1000", report, self.val_names)
+        original = copy.deepcopy(report)
+        for field in ("mean_image_nll", "mean_image_class_nll_contribution",
+                      "mean_image_class_lovasz_contribution", "class_present_image_counts"):
+            changed = copy.deepcopy(original)
+            # Alter every scope consistently enough that cross-event identities
+            # cannot detect the NLL mutation; persisted per-image data still can.
+            for metrics in [changed["metrics"], *changed["per_event"].values()]:
+                if field == "mean_image_nll":
+                    metrics["d"][field] += .01
+                    metrics["d"]["mean_image_original_loss"] += .01
+                elif field == "class_present_image_counts":
+                    metrics["d"][field][0] -= 1
+                else:
+                    metrics["d"][field][0] += .01
+                    metrics["d"][field][1] -= .01
+            rehash_report(path, changed)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "objective replay"):
+                evidence.validate_saved_report(path, changed, self.val_names, sha256, self.root)
+
+    def test_rehashed_per_event_objective_mutation_is_detected(self):
+        report = make_report(1000, "val", self.val_names)
+        path, report = write_report(self.root / "val_1000", report, self.val_names)
+        for event, delta in (("event0", .01), ("event1", -.01)):
+            report["per_event"][event]["d"]["mean_image_class_nll_contribution"][0] += delta
+        rehash_report(path, report)
+        self.validate(report)
+        with self.assertRaisesRegex(ValueError, "event/event0/d/mean_image_class_nll"):
+            evidence.validate_saved_report(path, report, self.val_names, sha256, self.root)
+
+    def test_rehashed_missing_or_corrupt_raw_objectives_are_rejected(self):
+        report = make_report(1000, "fixed_train", self.fixed_names)
+        path, report = write_report(self.root / "fixed_1000", report, self.fixed_names)
+        journal = path.with_name("images.jsonl")
+        original_rows = [json.loads(line) for line in journal.read_text().splitlines()]
+        edits = (
+            lambda row: row.pop("objectives"),
+            lambda row: row["objectives"].pop("d"),
+            lambda row: row["objectives"]["d"].pop("nll"),
+            lambda row: row["objectives"]["d"]["class_valid_counts"].__setitem__(0, 0),
+            lambda row: row["objectives"]["d"]["class_present_image_counts"].__setitem__(0, 0),
+            lambda row: row["objectives"]["d"]["class_nll_contribution"].__setitem__(0, float("nan")),
+            lambda row: row["objectives"]["d"]["class_nll_contribution"].__setitem__(0, -.01),
+            lambda row: row["objectives"]["d"]["class_nll_contribution"].__setitem__(0, .06),
+        )
+        for index, edit in enumerate(edits):
+            rows = copy.deepcopy(original_rows)
+            edit(rows[0])
+            journal.write_text("".join(json.dumps(row) + "\n" for row in rows))
+            rehash_report(path, report)
+            with self.subTest(edit=index), self.assertRaises(ValueError):
+                evidence.validate_saved_report(path, report, self.fixed_names, sha256, self.root)
+
+    def test_raw_all_ignore_and_absent_class_objectives_preserve_zero_contract(self):
+        values = _image_objectives()
+        values.update({term: 0. for term in evidence.SCALAR_TERMS})
+        values.update({term: [0.] * 4 for term in evidence.VECTOR_TERMS})
+        values.update({term: [0] * 4 for term in evidence.VECTOR_COUNTS})
+        values["valid_count"] = 0
+        row = {"valid_pixels": 0, "objectives": {"d": values},
+               "confusion": {"d": [[0] * 4 for _ in range(4)]}}
+        self.assertEqual(evidence._checked_objectives(row, ["d"]), {"d": values})
+        empty_metric = {"mean_image_nll": 0., "mean_image_class_nll_contribution": [0.] * 4}
+        diagnostic = evidence.nll_reduction_diagnostics(
+            {"metrics": {"d": empty_metric}, "per_event": {}})
+        self.assertEqual(diagnostic["records"][0]["relative_gap"], 0.)
+        self.assertEqual(diagnostic["max_absolute_relative_gap"], 0.)
+        values["nll"] = values["original_loss"] = .1
+        with self.assertRaisesRegex(ValueError, "All-ignore"):
+            evidence._checked_objectives(row, ["d"])
+        values["nll"] = values["original_loss"] = 0.
+        values["class_nll_contribution"][0] = .1
+        with self.assertRaisesRegex(ValueError, "Absent-class"):
+            evidence._checked_objectives(row, ["d"])
 
     def test_smoke_incomplete_promoted_or_false_integrity_flags_are_rejected(self):
         changes = [

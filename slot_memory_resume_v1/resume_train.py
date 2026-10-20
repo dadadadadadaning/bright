@@ -127,7 +127,10 @@ def run_training(context, output):
             verify_files(context["evidence_files"])
             import torch
             import checkpoint as checkpoint_io
-            from evidence import validate_report, promote_reports
+            from evidence import (
+                validate_report, validate_saved_report,
+                nll_reduction_diagnostics, promote_reports,
+            )
             from observer import UpdateObserver
             from restore_state import restore_training_state, validate_restored_rng
             from trajectory import reconstruct_order
@@ -239,8 +242,11 @@ def run_training(context, output):
                         factory=factory, primary_endpoint=primary, smoke=False)
                     validate_report(report, step=step, split=split, names=names,
                                     arms=arms, primary=primary)
+                    validate_saved_report(
+                        folder / "result.json", report, names, sha256, output)
                     report.update(continuation_lineage=context["lineage"],
-                                  continuation_boundary_step=start)
+                                  continuation_boundary_step=start,
+                                  nll_reduction_diagnostics=nll_reduction_diagnostics(report))
                     # Record continuation provenance in this new report only.
                     write_json(folder / "result.json", report)
                     (folder / "result.json.sha256").write_text(
@@ -251,6 +257,11 @@ def run_training(context, output):
                         metrics=report["metrics"], complete=False)
                     write_json(output / "summary.json", status)
                     evaluation.print_table(report)
+                    print("RESUME NLL REDUCTION " + json.dumps(dict(
+                        step=step, split=split,
+                        max_absolute_gap=report["nll_reduction_diagnostics"]["max_absolute_gap"],
+                        max_absolute_relative_gap=report["nll_reduction_diagnostics"][
+                            "max_absolute_relative_gap"])), flush=True)
                     require_scope(runtime, inherited)
 
                 # Re-evaluate the restored boundary; old pending reports stay untouched.
@@ -462,11 +473,51 @@ def show_status(args):
     return 1 if result.get("phase") == "failed" else 0
 
 
+def check_evaluation(args):
+    """Recheck existing pending reports without CUDA or changing any files."""
+    from evidence import validate_report, validate_saved_report, nll_reduction_diagnostics
+
+    root = (Path(args.root) if args.root else
+            Path((Path(args.output_base) / "latest.txt").read_text().strip())).resolve()
+    manifest = read_object(root / "manifest.json")
+    if manifest.get("format") != FORMAT:
+        raise ValueError("Require a formal continuation output directory")
+    checked = 0
+    for event in manifest["expected_evaluations"]:
+        step, split = event["step"], event["split"]
+        if split not in ("val", "fixed_train"):
+            raise ValueError("Unknown recorded evaluation split")
+        path = root / ("%s_step_%06d" % (split, step)) / "result.json"
+        if not path.exists():
+            continue
+        report = read_object(path)
+        names = manifest["val_names" if split == "val" else "fixed_train_names"]
+        if event["image_count"] != len(names):
+            raise ValueError("Recorded evaluation count differs from its split")
+        validate_report(report, step=step, split=split, names=names,
+                        arms=manifest["arms"], primary=event["primary"])
+        validate_saved_report(path, report, names, sha256, root)
+        diagnostics = nll_reduction_diagnostics(report)
+        print("SAVED EVALUATION CHECK " + json.dumps(dict(
+            result=str(path), image_count=len(names), objective_journal_verified=True,
+            max_absolute_gap=diagnostics["max_absolute_gap"],
+            max_absolute_relative_gap=diagnostics["max_absolute_relative_gap"],
+            largest_gaps=sorted(diagnostics["records"], key=lambda r: r["absolute_gap"],
+                                reverse=True)[:3])), flush=True)
+        checked += 1
+    if not checked:
+        raise ValueError("No saved evaluation report found")
+    print("READ-ONLY CHECK PASSED: %s report(s); no training or report promotion" % checked,
+          flush=True)
+    return 0
+
+
 def main():
     sys.dont_write_bytecode = True
     os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", nargs="?", default="start", choices=("start", "status", "worker"))
+    parser.add_argument("command", nargs="?", default="start",
+                        choices=("start", "status", "check-evaluation", "worker"))
     parser.add_argument("--original-run", default=DEFAULT_RUN)
     parser.add_argument("--seed", type=int, default=3407)
     parser.add_argument("--addon-dir")
@@ -479,6 +530,8 @@ def main():
     try:
         if args.command == "status":
             return show_status(args)
+        if args.command == "check-evaluation":
+            return check_evaluation(args)
         return worker(args) if args.command == "worker" else launch(args)
     except BaseException as exc:
         message = type(exc).__name__ + ": " + str(exc)

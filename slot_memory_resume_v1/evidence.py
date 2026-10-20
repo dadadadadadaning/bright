@@ -21,6 +21,9 @@ VALID_ARMS = set("efbdacrln")
 CONTRASTS = (("b", "e"), ("d", "f"), ("f", "e"), ("d", "b"),
              ("c", "a"), ("b", "a"), ("d", "c"), ("d", "r"),
              ("d", "l"), ("d", "n"))
+SCALAR_TERMS = ("original_loss", "nll", "lovasz")
+VECTOR_TERMS = ("class_nll_contribution", "class_lovasz_contribution")
+VECTOR_COUNTS = ("class_valid_counts", "class_present_image_counts")
 
 
 def names_hash(names):
@@ -53,7 +56,7 @@ def _number(value, label, minimum=None, maximum=None):
 def _near(actual, expected, label):
     _number(actual, label)
     if not math.isclose(actual, expected, rel_tol=2e-6, abs_tol=2e-7):
-        raise ValueError("Inconsistent " + label)
+        raise ValueError(f"Inconsistent {label}: actual={actual!r}, expected={expected!r}")
 
 
 def _sha(value, label):
@@ -139,8 +142,47 @@ def _metrics(metrics, paths, count, valid_pixels=None):
                 raise ValueError("Loss contribution dimensions differ")
             for value in contributions:
                 _number(value, "class " + term, minimum=0)
-            _near(sum(contributions), metric["mean_image_" + term], "class " + term + " sum")
+            if term == "lovasz":
+                _near(sum(contributions), metric["mean_image_" + term], "class " + term + " sum")
+            # The original scalar NLL uses F.nll_loss; class contributions use
+            # separate masked Tensor.sum reductions. In FP32 their addition
+            # orders differ, especially for full-image CUDA inputs. They are
+            # independently replayed from the journal, not forced to agree.
     return sum(common_target)
+
+
+def nll_reduction_diagnostics(report):
+    """Describe cross-reduction residuals without changing authoritative losses."""
+    records = []
+    scopes = [("global", None, report["metrics"])]
+    scopes.extend(("event", event, metrics) for event, metrics in report["per_event"].items())
+    for scope, event, metrics in scopes:
+        for path, metric in metrics.items():
+            scalar = _number(metric["mean_image_nll"], "diagnostic scalar NLL", minimum=0)
+            contributions = metric["mean_image_class_nll_contribution"]
+            if not isinstance(contributions, list) or len(contributions) != 4:
+                raise ValueError("Diagnostic NLL contribution dimensions differ")
+            class_sum = sum(_number(value, "diagnostic class NLL", minimum=0)
+                            for value in contributions)
+            gap = class_sum - scalar
+            scale = max(abs(scalar), abs(class_sum))
+            records.append(dict(scope=scope, event=event, path=path,
+                                scalar_nll=scalar, class_nll_sum=class_sum,
+                                signed_gap=gap, absolute_gap=abs(gap),
+                                relative_gap=gap / scale if scale else 0.0))
+    return {
+        "definition": (
+            "Original F.nll_loss scalar NLL remains authoritative. Class NLL "
+            "contributions use separate masked FP32 sum reductions; their sum "
+            "can differ through rounding. signed_gap=class_sum-scalar; "
+            "relative_gap=signed_gap/max(abs(scalar),abs(class_sum)), or zero "
+            "when both are zero. These are read-only diagnostics: no clamping "
+            "and no change to any loss value or training objective."
+        ),
+        "records": records,
+        "max_absolute_gap": max((row["absolute_gap"] for row in records), default=0.0),
+        "max_absolute_relative_gap": max((abs(row["relative_gap"]) for row in records), default=0.0),
+    }
 
 
 def _transitions(reports, pairs, metrics):
@@ -324,6 +366,88 @@ def _safe_file(path, output_root):
     return path
 
 
+def _empty_objective_totals(paths):
+    return {path: {
+        **{term: 0.0 for term in SCALAR_TERMS},
+        **{term: [0.0] * 4 for term in VECTOR_TERMS},
+        **{term: [0] * 4 for term in VECTOR_COUNTS},
+        "valid_count": 0,
+    } for path in paths}
+
+
+def _checked_objectives(row, paths):
+    """Validate the inherited raw per-image objective schema and GT counts."""
+    objectives, confusion = row.get("objectives"), row.get("confusion")
+    if not isinstance(objectives, dict) or set(objectives) != set(paths):
+        raise ValueError("Evaluation journal objective arm identities differ")
+    if not isinstance(confusion, dict) or set(confusion) != set(paths):
+        raise ValueError("Evaluation journal confusion arm identities differ")
+    common_target = None
+    for path in paths:
+        values = objectives[path]
+        if not isinstance(values, dict):
+            raise ValueError("Expected journal objective object")
+        _table(confusion[path], (4, 4), "journal confusion")
+        target = [sum(part) for part in confusion[path]]
+        if common_target is not None and target != common_target:
+            raise ValueError("Journal arms have different GT class totals")
+        common_target = target
+        valid = _integer(values.get("valid_count"), "journal objective valid count")
+        if valid != row["valid_pixels"] or sum(target) != valid:
+            raise ValueError("Journal objective valid-pixel count differs")
+        for term in VECTOR_COUNTS:
+            _table(values.get(term), (4,), "journal objective " + term)
+        if (values["class_valid_counts"] != target or
+                values["class_present_image_counts"] != [int(n > 0) for n in target]):
+            raise ValueError("Journal objective class counts differ")
+        for term in SCALAR_TERMS:
+            _number(values.get(term), "journal objective " + term, minimum=0)
+        _near(values["original_loss"], values["nll"] + values["lovasz"],
+              "journal original loss")
+        for term in VECTOR_TERMS:
+            vector = values.get(term)
+            if not isinstance(vector, list) or len(vector) != 4:
+                raise ValueError("Journal objective vector dimensions differ")
+            for count, value in zip(target, vector):
+                _number(value, "journal objective " + term, minimum=0)
+                if count == 0 and value != 0:
+                    raise ValueError("Absent-class journal objective must be zero")
+        _near(sum(values["class_lovasz_contribution"]), values["lovasz"],
+              "journal class lovasz sum")
+        if valid == 0 and any(values[term] != 0 for term in SCALAR_TERMS):
+            raise ValueError("All-ignore journal objectives must be zero")
+    return objectives
+
+
+def _add_objectives(totals, objectives):
+    # Match the evaluator's image order and IEEE float64/Python-float additions.
+    # Do not use fsum, regroup images, round, or replace the original scalar NLL.
+    for path, values in objectives.items():
+        for term in SCALAR_TERMS + ("valid_count",):
+            totals[path][term] += values[term]
+        for term in VECTOR_TERMS + VECTOR_COUNTS:
+            for index, value in enumerate(values[term]):
+                totals[path][term][index] += value
+
+
+def _verify_objective_totals(totals, metrics, count, scope):
+    for path, values in totals.items():
+        expected = {
+            **{"mean_image_" + term: values[term] / count for term in SCALAR_TERMS},
+            **{"mean_image_" + term: [value / count for value in values[term]]
+               for term in VECTOR_TERMS},
+            **{term: values[term] for term in VECTOR_COUNTS},
+        }
+        for key, reconstructed in expected.items():
+            actual = metrics[path].get(key)
+            if actual != reconstructed:
+                raise ValueError(
+                    f"Journal objective replay differs ({scope}/{path}/{key}): "
+                    f"actual={actual!r}, expected={reconstructed!r}")
+        if values["valid_count"] != sum(metrics[path]["class_valid_counts"]):
+            raise ValueError("Journal objective valid-count replay differs: " + scope + "/" + path)
+
+
 def _verify_files(path, report, names, sha256, output_root):
     path = _safe_file(path, output_root)
     if path.name != "result.json":
@@ -336,11 +460,16 @@ def _verify_files(path, report, names, sha256, output_root):
         raise ValueError("Pending evaluation report checksum differs")
     if sha256(journal) != report["journal_sha256"]:
         raise ValueError("Pending evaluation journal checksum differs")
+    names = list(names)
+    paths = [BASELINE] + list(report["arms"])
+    totals = _empty_objective_totals(paths)
+    event_totals = {}
     seen, pixels, events = [], 0, {}
     with journal.open(encoding="utf-8") as stream:
         for index, line in enumerate(stream):
             row = json.loads(line)
-            if not line.endswith("\n") or row.get("index") != index:
+            if (not isinstance(row, dict) or not line.endswith("\n")
+                    or type(row.get("index")) is not int or row["index"] != index):
                 raise ValueError("Evaluation journal is incomplete or reordered")
             if index >= len(names) or row.get("image") != names[index]:
                 raise ValueError("Evaluation journal image identity/order differs")
@@ -350,10 +479,21 @@ def _verify_files(path, report, names, sha256, output_root):
             seen.append(row["image"])
             pixels += _integer(row.get("valid_pixels"), "journal valid pixels")
             events[event] = events.get(event, 0) + 1
+            objectives = _checked_objectives(row, paths)
+            _add_objectives(totals, objectives)
+            _add_objectives(event_totals.setdefault(event, _empty_objective_totals(paths)), objectives)
     if (seen != names or pixels != report["valid_pixel_count"]
             or events != report["per_event_image_count"]):
         raise ValueError("Evaluation journal identities/counts differ from the report")
+    _verify_objective_totals(totals, report["metrics"], len(names), "global")
+    for event, values in event_totals.items():
+        _verify_objective_totals(values, report["per_event"][event], events[event], "event/" + event)
     return path
+
+
+def validate_saved_report(path, report, names, sha256, output_root):
+    """Read-only file/journal check, after the caller's ``validate_report``."""
+    return _verify_files(path, report, names, sha256, output_root)
 
 
 def promote_reports(results, *, arms, val_names, fixed_names, endpoint,
@@ -401,7 +541,7 @@ def promote_reports(results, *, arms, val_names, fixed_names, endpoint,
             raise ValueError("Unexpected, historical or repeated evaluation report")
         names, primary = specifications[key]
         validate_report(report, step=key[0], split=key[1], names=names, arms=arms, primary=primary)
-        path = _verify_files(path, report, names, sha256, output_root)
+        path = validate_saved_report(path, report, names, sha256, output_root)
         if path in paths:
             raise ValueError("Repeated evaluation output path")
         paths.add(path)
