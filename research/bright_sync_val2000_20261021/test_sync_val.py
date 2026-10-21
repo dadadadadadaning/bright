@@ -135,7 +135,6 @@ class FinalizationTests(unittest.TestCase):
         self.actual = copy.deepcopy(self.original)
         self.actual['execution_settings']['cuda_launch_blocking'] = '1'
         self.report = fixtures.make_report(2000, 'val', self.names)
-        self.report['protocol_info'] = self.actual
         self.path, self.report = fixtures.write_report(self.output / 'val_step_002000', self.report, self.names)
         self.source = self.base / 'failed_source'
         self.source.mkdir()
@@ -145,6 +144,7 @@ class FinalizationTests(unittest.TestCase):
         self.provenance = dict(source_root=str(self.source), checkpoint_step=2000,
             protocol_info=copy.deepcopy(self.actual), original_protocol_info=self.original,
             launch_blocking_override=program.validate_protocol(self.actual, self.original))
+        program.write_json(self.output / 'manifest.json', self.provenance)
 
     def finalize(self):
         return program.finalize_fresh_report(self.path, self.report, output=self.output,
@@ -158,6 +158,8 @@ class FinalizationTests(unittest.TestCase):
         self.assertFalse(finished['historical_execution_replayed'])
         self.assertEqual(finished['optimizer_updates'], 0)
         self.assertEqual(finished['cuda_launch_blocking'], '1')
+        self.assertNotIn('protocol_info', json.loads(before))
+        self.assertEqual(finished['protocol_info'], self.actual)
         self.assertEqual(self.path.with_name('result.pending.json').read_bytes(), before)
         self.assertEqual((self.source / 'summary.json').read_bytes(), self.source_bytes)
         evidence.validate_saved_report(self.path, finished, self.names, program.sha256, self.output)
@@ -198,6 +200,13 @@ class FinalizationTests(unittest.TestCase):
         journal.write_text(''.join(lines))
         fixtures.rehash_report(self.path, self.report)
         with self.assertRaises(ValueError):
+            self.finalize()
+
+    def test_manifest_protocol_mismatch_rejected(self):
+        manifest = copy.deepcopy(self.provenance)
+        manifest['protocol_info'] = self.original
+        program.write_json(self.output / 'manifest.json', manifest)
+        with self.assertRaisesRegex(ValueError, 'execution protocol differs'):
             self.finalize()
 
     def test_changed_objective_even_if_rehashed_rejected(self):

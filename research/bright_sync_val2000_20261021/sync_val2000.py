@@ -53,8 +53,15 @@ def finalize_fresh_report(path, report, *, output, names, evidence, checks, prov
     if provenance.get("checkpoint_step") != 2000 or len(names) != 450:
         raise ValueError("Require checkpoint2000 and all450 validation images")
     override = validate_protocol(provenance["protocol_info"], provenance["original_protocol_info"])
-    if (report.get("protocol_info") != provenance["protocol_info"]
+    manifest = read_json(output / "manifest.json")
+    if (manifest.get("protocol_info") != provenance["protocol_info"]
+            or manifest.get("original_protocol_info") != provenance["original_protocol_info"]
+            or manifest.get("launch_blocking_override") != override
             or provenance.get("launch_blocking_override") != override):
+        raise ValueError("Saved report execution protocol differs from declared override")
+    # The inherited evaluator omits protocol_info in result.json. Bind the new
+    # result to the already written runtime manifest, leaving pending bytes intact.
+    if "protocol_info" in report and report["protocol_info"] != provenance["protocol_info"]:
         raise ValueError("Saved report execution protocol differs from declared override")
     if read_json(path) != report:
         raise ValueError("In-memory report differs from fresh saved report")
@@ -69,6 +76,7 @@ def finalize_fresh_report(path, report, *, output, names, evidence, checks, prov
                     full_validation_evidence=True, phase="standalone_evaluation_complete",
                     primary_endpoint=False, evaluation_scope="saved_checkpoint_val450_synchronous",
                     historical_execution_replayed=False, cuda_launch_blocking="1",
+                    protocol_info=provenance["protocol_info"],
                     source_training_run_complete=False, optimizer_updates=0,
                     standalone_provenance=provenance, standalone_integrity_checks=checks,
                     pending_report_sha256=original_hash,
