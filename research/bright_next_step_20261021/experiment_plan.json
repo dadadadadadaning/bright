@@ -1,0 +1,44 @@
+{
+  "format": "BRIGHT_READER_PRIOR_PROPOSED_PLAN_V1",
+  "status": "proposed_not_launched",
+  "baseline_reference": "Extended V2 Control recipe; Fresh V3 completed code is an implementation candidate, identity match still required",
+  "first_comparison": {
+    "seed": 3407,
+    "common_prefix_steps": 500,
+    "branch_endpoint": 2500,
+    "schedule_horizon": 5000,
+    "maximum_lr": 0.0001,
+    "post500_lr_multiplier": 0.2,
+    "weight_decay": 0.005,
+    "grad_clip": 1.0,
+    "original_loss": "unchanged runtime.loss(probabilities, target): original NLL + Lovasz",
+    "extra_anchor_KL_weight": 0.0,
+    "candidate_parent_topk": 64,
+    "arms": {
+      "C0": {"prior_beta": 0.0, "prior_mode": "cosine"},
+      "C1": {"prior_beta": 2.0, "prior_mode": "cosine"}
+    },
+    "beta_note": "2.0 is one predeclared pilot value, not an empirically established optimum",
+    "validation_steps": [500, 1000, 1500, 2000, 2500],
+    "selection": "full Val450 maximum pooled-confusion four-class mIoU; ties choose earlier step; same rule per arm",
+    "also_report": "matched fixed endpoints and per-class changes; do not only show each arm's best checkpoint",
+    "test_during_design": false
+  },
+  "if_C1_promising": {
+    "mechanism_control": {"name": "C2", "prior_beta": 2.0, "prior_mode": "shuffled", "seed": 3407},
+    "additional_training_seeds": [2026, 2027],
+    "same_prefix_within_seed": true,
+    "different_prefix_across_seeds": true,
+    "test": "Fixed configurations, Val-selected checkpoints and critical ablations; disclose Test878 has already been used for exploration"
+  },
+  "required_before_formal_launch": [
+    "Index existing E/F/B/D/R/L results; decide which scientific comparisons remain incomplete",
+    "Compare frozen source, dataset membership, Q/bank/value and loss identities with the chosen Control",
+    "Verify beta0 original-versus-adapter full outputs, gradients and optimizer updates on actual runtime",
+    "Real-data smoke includes foreground, damaged, destroyed, empty-building and padded-candidate cases",
+    "Verify checkpoint reload and uninterrupted-versus-resumed next update including Adam, RNG and data cursor",
+    "Use new output directory; no partial-arm update is a completed global step",
+    "Full Val450 pipeline succeeds before long training; original reports remain immutable"
+  ],
+  "not_provided_by_this_package": "A full-data training/resume launcher. reader_prior.py is a tested integration component, not a certified server trainer."
+}

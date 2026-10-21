@@ -1,0 +1,30 @@
+{
+  "status": "synthetic_checks_passed",
+  "device": "cpu",
+  "torch": "2.1.2+cpu",
+  "checks": [
+    "beta0_exact_outputs_gradients_two_AdamW_updates",
+    "original_parameter_ABI",
+    "nonzero_prior_changes_Reader_with_activated_head",
+    "cosine_chunk_output_gradient_equivalence_and_no_RNG_consumption",
+    "shuffled_chunk_output_gradient_equivalence_and_no_RNG_consumption",
+    "all_invalid_support_zero_context_finite_backward",
+    "partially_invalid_NaN_support_is_masked",
+    "inputs_unmodified_and_context_cleared",
+    "shuffled_control_preserves_valid_score_multiset_and_padding",
+    "analytic_two_candidate_prior_direction_and_scale"
+  ],
+  "prior_config": {
+    "format": "BRIGHT_RAW_SLOT_COSINE_PRIOR_V1",
+    "beta": 2,
+    "mode": "shuffled",
+    "seed": 3407,
+    "feature": "frozen raw 256D slot_f/support_f, detached",
+    "normalization": "L2 cosine, eps=1e-12; no per-row z-score",
+    "base_reader_sha256": "e2ed6c959391f5f1e929a74c2f95ad15daf6775359161b5eb5639e25e6aeb020"
+  },
+  "model_file_sha256": "11f033a83dc3844f3ab1f9cf447b243f27278d984a3fbb726a0a7e12f86150f1",
+  "real_data_forward_tested": false,
+  "full_training_tested": false,
+  "note": "Synthetic checks do not resolve historical route/NLL failures or certify a training run."
+}
