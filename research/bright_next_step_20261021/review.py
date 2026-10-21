@@ -123,6 +123,34 @@ def split_identity(d, path):
     return "unknown", "missing"
 
 
+def metric_scopes(d):
+    """Known schemas only; never turn GT-filtered audit subsets into global scores."""
+    metrics = d.get("metrics")
+    if isinstance(metrics, dict):
+        scopes = [("all", metrics)]
+        if isinstance(d.get("per_event"), dict):
+            scopes += list(d["per_event"].items())
+        return "evaluation", "metrics", scopes
+    pixels = d.get("pixels")
+    overall = pixels.get("all_labeled") if isinstance(pixels, dict) else None
+    metrics = overall.get("metrics") if isinstance(overall, dict) else None
+    if isinstance(metrics, dict):
+        scopes = [("all", metrics)]
+        events = d.get("per_event", {})
+        if not isinstance(events, dict):
+            raise ValueError("audit per_event must be an object")
+        for event, record in events.items():
+            try:
+                event_metrics = record["pixels"]["all_labeled"]["metrics"]
+            except (KeyError, TypeError):
+                raise ValueError("audit event lacks all_labeled metrics: " + str(event))
+            if not isinstance(event_metrics, dict):
+                raise ValueError("audit event metrics must be an object: " + str(event))
+            scopes.append((event, event_metrics))
+        return "audit_replay", "pixels.all_labeled.metrics", scopes
+    raise ValueError("result.json has no supported metrics object")
+
+
 def scan_files(root, max_depth):
     skipped = {".git", "__pycache__", "logs", "checkpoints", "predictions", "pool_debug"}
     for directory, dirs, names in os.walk(root, followlinks=False):
@@ -185,14 +213,8 @@ def collect(roots, max_depth=7):
                     statuses.append(dict(path=str(p), sha256=sha,
                                          fields={k: d[k] for k in STATUS_KEYS if k in d}, metadata=meta))
                     continue
-                metrics = d.get("metrics")
-                if not isinstance(metrics, dict):
-                    errors.append(dict(path=str(p), error="result.json has no supported metrics object"))
-                    continue
+                report_kind, metrics_location, scopes = metric_scopes(d)
                 split, split_source = split_identity(d, p)
-                scopes = [("all", metrics)]
-                if isinstance(d.get("per_event"), dict):
-                    scopes += list(d["per_event"].items())
                 for scope, branches in scopes:
                     if not isinstance(branches, dict):
                         continue
@@ -215,7 +237,10 @@ def collect(roots, max_depth=7):
                                 issues.append("image_count differs from expected Val450/Test878; verify split protocol")
                             if scope == "all" and split == "val" and d.get("full_validation_evidence") is not True:
                                 issues.append("full_validation_evidence is not true; inspect enclosing summary")
+                            if report_kind == "audit_replay":
+                                issues.append("audit replay: diagnostic evidence, not an additional trained ablation")
                             rows.append(dict(path=str(p), result_sha256=sha, format=d.get("format"),
+                                report_kind=report_kind, metrics_location=metrics_location,
                                 split=split, split_source=split_source, scope=scope, branch=branch,
                                 step=d.get("step", d.get("checkpoint_step")), image_count=image_count,
                                 complete=d.get("complete"), smoke=d.get("smoke"),
@@ -237,7 +262,7 @@ def collect(roots, max_depth=7):
 
 
 def csv_text(rows):
-    columns = ["path", "split", "scope", "branch", "step", "seed", "image_count", "complete",
+    columns = ["path", "report_kind", "metrics_location", "split", "scope", "branch", "step", "seed", "image_count", "complete",
                "miou4_pct", "foreground_miou3_pct", *[c + "_iou_pct" for c in CLASSES],
                "pixel_oa_pct", "pixel_building_binary_f1_pct", "damaged_precision_pct", "damaged_recall_pct",
                "damaged_to_background_pct_of_gt_class", "damaged_to_intact_pct_of_gt_class",

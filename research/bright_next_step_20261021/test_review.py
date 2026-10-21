@@ -74,6 +74,39 @@ class EvidenceTests(unittest.TestCase):
             self.assertEqual(len(report["read_errors"]), 1)
             self.assertEqual(report["metrics"], [])
 
+    def test_nested_audit_is_read_without_promoting_or_mixing_subsets(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / "audit_1500"
+            folder.mkdir()
+            m = {"control": {"confusion": [[5 if i == j else 1 for j in range(4)] for i in range(4)]}}
+            d = {"complete": False, "checkpoint_step": 1500, "final_integrity_pending": True,
+                 "pixels": {"all_labeled": {"metrics": m}, "gt_damaged": {"metrics": {"not_global": {}}}},
+                 "per_event": {"event_x": {"pixels": {"all_labeled": {"metrics": m}}, "regions": {}}}}
+            p = folder / "result.json"
+            p.write_text(json.dumps(d))
+            raw = p.read_bytes()
+            result = collect([root])
+            self.assertEqual(result["read_errors"], [])
+            self.assertEqual({r["scope"] for r in result["metrics"]}, {"all", "event_x"})
+            for r in result["metrics"]:
+                self.assertEqual(r["report_kind"], "audit_replay")
+                self.assertEqual(r["metrics_location"], "pixels.all_labeled.metrics")
+                self.assertEqual(r["step"], 1500)
+                self.assertEqual(r["split"], "unknown")
+                self.assertFalse(r["complete"])
+                self.assertTrue(r["final_integrity_pending"])
+            self.assertEqual(raw, p.read_bytes())
+
+    def test_malformed_audit_does_not_silently_disappear(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            d = {"pixels": {"all_labeled": {"metrics": {}}}, "per_event": {"bad_event": {}}}
+            (root / "result.json").write_text(json.dumps(d))
+            result = collect([root])
+            self.assertEqual(len(result["read_errors"]), 1)
+            self.assertIn("bad_event", result["read_errors"][0]["error"])
+
 
 if __name__ == "__main__":
     unittest.main()
