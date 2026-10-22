@@ -1,0 +1,19 @@
+{
+  "HISTORY_AND_FIGURES.md": "867573bca87f6313c27c0a2a6633b92814b2fddc2ec561adccf49e0a032ed7c2",
+  "README.md": "4e536ea2a0158b09649ca465ad22eea0be2243cf5bf5925a5ab2167676e4efea",
+  "VALIDATION.md": "80ffc4c813fcc57128dbf2a08763fc232bbe64fa89741758258fd9e4a96b33a6",
+  "analyze_results.py": "0712bb7c85adb49ace38278a43483d5e8eeb74cc953e783831ab6db5ae09aabd",
+  "compare_runs.py": "a6981da821bfcf781f5a8fd68bab0d27fc38c60a94fa9a03b4fbbcd24b9e57b0",
+  "experiment.py": "4bbbbfd171b1b39b23e38b7ea7c3c07bcbabdf14a6dca133e92c2448340e71f9",
+  "figures/reported_test_gains.png": "b5be10a35536d2754ac84d128829a4923dbd98f457f95e15941866fc30aa850c",
+  "figures/reported_test_gains.svg": "664815b719176536aa64e44845d7bae5e7afb8472f931eea181966ed37f2682d",
+  "make_figures.py": "020dfaeecfe9d5c1055efedadf31ece64abbd9b090fa4a1453d272d023da2a1e",
+  "model_adapter.py": "9a81006d0191a3379145286d74a74f7d236d230534a980b0671ff3da4b1e8ba4",
+  "reported_results.csv": "e896886c5bdcc704f70560078cab3a1954438dfb48eb8eb3ddfeedd9a843b55a",
+  "supervision.py": "a90c36512fbe84d70510c7c594c9b7d401554a9943209314f58e36810d5be35e",
+  "test_analysis.py": "49cc92c08a2d3391d41d4ea09852c8275464c7e7f48339ed15ad962c054a142b",
+  "test_compare_runs.py": "2772dfa2091d5dae4e4a6f9a1268b0c1c670b458b5e97f9b162a81cda2fed50c",
+  "test_experiment.py": "daf384466d5cd3eb5b902aa875f0e74b31efb7339af1163870ac19cd61a422f2",
+  "test_model_adapter.py": "31a0e0edcf7029e4a9448c5274d01ef50599cab18b77deb1bd7adfacb79f38f5",
+  "test_supervision.py": "9af360be4753e5e7cec89ca7345460b2eb8130250881fea1ab8a12a6f9cbab01"
+}
