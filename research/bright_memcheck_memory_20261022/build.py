@@ -30,7 +30,7 @@ def build():
         ("FORMAT='BRIGHT_PARENT_IDS_MEMCHECK_CASE_V1'", "FORMAT='BRIGHT_MEMCHECK_MEMORY_CASE_V1'"),
         ('import memcheck_scoring as test_endpoint', 'import memory_scoring as test_endpoint'),
         ('observer = None', 'observer = None\n    memory = None'),
-        ("bindings = bridge.load_runtime(source)", "memory = MemoryTrace(torch, output)\n        memory.sample('cuda_ready')\n        bindings = bridge.load_runtime(source)"),
+        ("bindings = bridge.load_runtime(source)", "memory = MemoryTrace(torch, output)\n        bindings = bridge.load_runtime(source)"),
         ('with bindings.Runtime(args,runtime_output) as runtime:', "with bindings.Runtime(args,runtime_output) as runtime:\n            memory.sample('runtime_ready')"),
         ("status['restoration'] = restore_training_state(torch,heads,optimizers,saved,state)", "status['restoration'] = restore_training_state(torch,heads,optimizers,saved,state)\n            memory.sample('heads_optimizers_restored')"),
         ('del saved', "del saved\n            memory.sample('checkpoint_payload_released')"),

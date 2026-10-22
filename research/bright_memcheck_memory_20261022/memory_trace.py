@@ -28,9 +28,17 @@ class MemoryTrace:
         # No synchronize(), tensor allocation, empty_cache() or GC intervention.
         # mem_get_info is a CUDA API and can affect observation timing.
         cuda = self.torch.cuda
+        # is_initialized() only reads PyTorch's state. Calling mem_get_info()
+        # before the original runtime configures determinism initializes CUDA
+        # too early and causes the runtime to reject the process.
+        if not cuda.is_initialized():
+            self.write(dict(stage=label, position=dict(position or {}),
+                            cuda_initialized=False,
+                            sampling_skipped='waiting_for_original_runtime_initialization'))
+            return
         stats = cuda.memory_stats()
         free, total = cuda.mem_get_info()
-        self.write(dict(stage=label, position=dict(position or {}),
+        self.write(dict(stage=label, position=dict(position or {}), cuda_initialized=True,
             allocated_bytes=cuda.memory_allocated(), reserved_bytes=cuda.memory_reserved(),
             peak_allocated_bytes=cuda.max_memory_allocated(),
             peak_reserved_bytes=cuda.max_memory_reserved(), device_free_bytes=free,

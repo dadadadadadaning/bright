@@ -1,5 +1,6 @@
 """CPU contracts for measurements, original six-arm outputs and bounded execution."""
 import contextlib
+import ast
 import copy
 import io
 import json
@@ -30,9 +31,10 @@ import test_resume_integration as training_fixture
 
 
 class FakeCuda:
-    def __init__(self): self.calls = 0
+    def __init__(self): self.calls = 0; self.initialized = True
+    def is_initialized(self): return self.initialized
     def memory_stats(self): self.calls += 1; return {'num_ooms': 0}
-    def mem_get_info(self): self.calls += 1; return 2000, 4000
+    def mem_get_info(self): self.calls += 1; self.initialized = True; return 2000, 4000
     def memory_allocated(self): self.calls += 1; return 1000
     def memory_reserved(self): self.calls += 1; return 1500
     def max_memory_allocated(self): self.calls += 1; return 1200
@@ -56,6 +58,49 @@ class Measurements(unittest.TestCase):
         self.assertEqual(self.cuda.calls, n)
         self.assertEqual(self.trace.rows, 2)
         self.assertFalse(json.loads((self.root/'memory_latest.json').read_text())['cuda_queried_after_failure'])
+
+    def test_early_sampling_preserves_original_determinism_configuration(self):
+        # Execute the actual source function whose guard rejected the server
+        # run; emulate CUDA's lazy initialization without requiring a GPU.
+        path = Path(os.environ.get('BRIGHT_NUMERIC_TEST_FILE',
+            '/workspace/bright/bda_benchmark/experiments/damageformer_srac_hardquery_memory_v1/numeric.py'))
+        tree = ast.parse(path.read_text())
+        nodes = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name=='configure_runtime']
+        self.assertEqual(len(nodes),1)
+        self.cuda.initialized = False
+        events = []
+        def settings():
+            self.cuda.initialized = True
+            events.append('runtime_initialized')
+            return {'configured': True}
+        numeric_torch = SimpleNamespace(cuda=self.cuda,
+            use_deterministic_algorithms=lambda *a, **kw: events.append('policy_configured'),
+            backends=SimpleNamespace(cudnn=SimpleNamespace(deterministic=True, benchmark=True)))
+        scope = dict(torch=numeric_torch, os=os, runtime_settings=settings,
+                     configure_determinism=lambda: self.fail('Unexpected strict override'))
+        exec(compile(ast.Module(body=nodes,type_ignores=[]),str(path),'exec'),scope)
+        # This would initialize CUDA in the faulty release and reject the next call.
+        self.trace.sample('accidental_early_sample')
+        self.assertEqual(self.cuda.calls,0)
+        self.assertFalse(self.cuda.initialized)
+        with mock.patch.dict(os.environ,{},clear=False):
+            self.assertEqual(scope['configure_runtime'](deterministic=False),{'configured':True})
+        self.trace.sample('runtime_ready')
+        self.assertEqual(events,['policy_configured','runtime_initialized'])
+        self.assertGreater(self.cuda.calls,0)
+        rows = [json.loads(s) for s in (self.root/'memory.jsonl').read_text().splitlines()]
+        self.assertNotIn('allocated_bytes',rows[0])
+        self.assertEqual(rows[1]['allocated_bytes'],1000)
+
+    def test_actual_uninitialized_torch_is_not_initialized_by_telemetry(self):
+        # On this CPU test environment any attempted CUDA initialization fails.
+        self.assertFalse(torch.cuda.is_initialized())
+        with tempfile.TemporaryDirectory() as d:
+            trace = MemoryTrace(torch,Path(d))
+            try: trace.sample('before_runtime')
+            finally: trace.close()
+            self.assertFalse(torch.cuda.is_initialized())
+            self.assertFalse(json.loads((Path(d)/'memory_latest.json').read_text())['cuda_initialized'])
 
     def fixture(self):
         runtime, example = real.make_fixture()

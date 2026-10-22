@@ -51,7 +51,6 @@ def run_assessment(context, output, assessment):
             torch.set_num_interop_threads(int(policy['num_interop_threads']))
         if not torch.cuda.is_available(): raise ValueError('Original CUDA server required')
         memory = MemoryTrace(torch, output)
-        memory.sample('cuda_ready')
         bindings = bridge.load_runtime(source)
         state = bindings.legacy.state
         sys.modules['runtime_bridge']=bridge

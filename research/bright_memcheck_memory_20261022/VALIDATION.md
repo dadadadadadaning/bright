@@ -1,10 +1,15 @@
 # Validation — 2026-10-22
 
-Artifact: `bright_memcheck_memory_v1.pyz`, 209227 bytes.
+Artifact: `bright_memcheck_memory_v1.pyz`, 209386 bytes (CUDA initialization-order fix).
 
-SHA256: `9521778fab6d64d73b72a35eef3820a7199100a27e090643c367f61677147a93`.
+SHA256: `9c46b2f2137184a73391dd9213d224de5966606b28a149adb3a995eb093f8554`.
 
-Final local run: **12 tests passed in 1.305s**, Python3.10.22 / PyTorch2.1.2+cpu.
+Final local run: **14 tests passed in 1.267s**, Python3.10.22 / PyTorch2.1.2+cpu.
+
+The first release's CPU tests did not cover CUDA lazy initialization. Server run `memory1500_jlccsmkv` exposed a diagnostic startup bug: early `mem_get_info()` initialized CUDA before the original deterministic policy could be applied. This revision removes the early sample and guards every sample with the non-initializing `is_initialized()` query. It does not weaken or remove the original deterministic policy guard.
+
+- A regression test executes the actual project's `configure_runtime` function with emulated CUDA lazy initialization, verifying that an early observation leaves the original policy configuration possible, followed by sampling after runtime initialization.
+- A separate test passes the real uninitialized CPU-build PyTorch module to the sampler and verifies that it does not attempt CUDA initialization.
 
 - Original historical six-arm CPU model outputs, parameters and RNG are unchanged with telemetry installed; module hooks are removed on exit, and before-forward records identify the correct arm.
 - Injected frontend OOM preserves the original exception and performs no further allocator/CUDA queries.
