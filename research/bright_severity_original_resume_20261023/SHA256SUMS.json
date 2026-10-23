@@ -1,0 +1,15 @@
+{
+  "README.md": "7ee268f084f15f2ae13d504d86544e87d52b7c6e9f964d99f1ebf097b8b24b1c",
+  "VALIDATION.md": "fb4ed103803346cbbd9581d96eb1b4da36aabd245a2d68b3da6156ce81f1b633",
+  "__main__.py": "078ba4e2c87ca1f2bb03e9c3e8293b38ff900cc24df53a286a92cae9d4070a78",
+  "bright_severity_original_resume_v1.pyz": "23533f98bbf099f5f686013a17aafa3dee290871889f6b46b804de8355b16f50",
+  "bright_severity_original_resume_v1.pyz.sha256": "c41362c3b14c76eb63cbe99da95e6c793c91d95f0e889738a1c5c271b7f3a523",
+  "build.py": "74a84c12620c6ea5863097d5701449140e92680639c90dd2c7916dabfc1d80f1",
+  "evidence.py": "7b8210d08e1ce0464c5f3159cd31a0cf9454dd692513aedf9aba13505a7907b9",
+  "launch.py": "061ce1e2250c1799f4c2a81a89c4c6460831e3978d42b4d9e8bff7f066f44ba1",
+  "preflight.py": "fd67ad1c77652b89d24600e209eafc5147ce86c1f458529b029d4f7a1abae1ff",
+  "test_launch.py": "a9d689390209fb56ab454b46d1ec54e233a4a31c61f439183126cafe6308e5e2",
+  "test_preflight.py": "84cc210d88811ce84e81740b7ad91e87b98a2c5639649a526e13e0acbc862b02",
+  "test_train_resume.py": "5b25f6a80ad4f12b1d2f1e3faebff53aa95e0d912a71dc01590a9752ee1a7e04",
+  "train_resume.py": "a8e402d82e922d2ad9c85e6d74b5ae8e6f816355601bdd9721280d1500d06710"
+}
